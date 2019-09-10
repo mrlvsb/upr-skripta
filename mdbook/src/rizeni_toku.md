@@ -25,8 +25,8 @@ podmínka.
 int i = 0;
 
 while ( i < 5 ) {
-		printf( "%d\n", i );
-		i += 1;
+	printf( "%d\n", i );
+	i += 1;
 }
 
 // 0
@@ -53,8 +53,8 @@ int seznam[] = { 1, 2, 5, 10, 100 };
 int sum = 0;
 
 for ( int i = 0; i < len; i++ ) {
-		int prvek = seznam[ i ];
-		sum += prvek;
+	int prvek = seznam[ i ];
+	sum += prvek;
 }
 printf( "sum: %d\n", sum );  //118
 ```

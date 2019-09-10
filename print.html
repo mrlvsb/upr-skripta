@@ -1,0 +1,829 @@
+<!DOCTYPE HTML>
+<html lang="cs" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Úvod do programování</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li><a href="uvod_vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li><a href="uvod_syntaxe.html"><strong aria-hidden="true">1.2.</strong> Syntaxe</a></li></ol></li><li><a href="promenne_a_typy.html"><strong aria-hidden="true">2.</strong> Proměnné a typy</a></li><li><ol class="section"><li><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.1.</strong> Jednoduché datové typy</a></li><li><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.2.</strong> Pole</a></li><li><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.3.</strong> Porovnání, testy, pravdivost</a></li></ol></li><li><a href="rizeni_toku.html"><strong aria-hidden="true">3.</strong> Řízení toku</a></li><li><a href="funkce.html"><strong aria-hidden="true">4.</strong> Funkce</a></li><li><a href="struktury.html"><strong aria-hidden="true">5.</strong> Struktury</a></li><li><ol class="section"><li><a href="struktury_funkce.html"><strong aria-hidden="true">5.1.</strong> Funkce pro práci se strukturami</a></li><li><a href="struktury_soubor.html"><strong aria-hidden="true">5.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Úvod do programování</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/geordi/upr-skripta" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#Úvod" id="Úvod">Úvod</a></h1>
+<p>Tento text vznikl pro potřeby výuky předmětu Úvod do programování.
+Studentům by měl sloužit pro získání nutného minima znalostí ke
+zvládnutí programování v jazyce kurzu – tedy jazyka C [@chist]. V žádném
+případě však není text plnohodnotnou náhradou za poslechy přednášek a
+návštěvy cvičení. Studentům je tudíž velmi doporučeno, aby přednášky a
+cvičení navštěvovali. Tento text si též neklade za cíl vytvořit
+kompletního průvodce jazykem C. Pro takovýto účel lze doporučit některý
+knižní titul, např.: [@herout].</p>
+<h2><a class="header" href="#Úvod-do-kompilovaných-jazyků" id="Úvod-do-kompilovaných-jazyků">Úvod do kompilovaných jazyků</a></h2>
+<p>Jednotlivé programy jsou tvořeny zdrojovými kódy, které jsou kombilovány
+do strojového kódu, který je následně spuštěn na hardware, pro který byl
+zkompilován<sup class="footnote-reference"><a href="#3">1</a></sup>. Jazyk C je multiplatformní, což znamená, že stený kód je
+možno zkompilovat na různých platformách a následně spouštět. To je
+poněkud rozdíl oproti tzv. interpretovaným jazykům, které jsou čteny a
+spouštěny za běhu speciálním programem, tzv. interpretem (odpadá zde
+tedy nutnost kompilace). Mezi takové jazyky patří např. Python,
+JavaScript (ECMAScript), do jisté mírý i Java nebo C#, a další.</p>
+<p>Jazyk C teží z toho, že byl navržen jako nádstavba nad assemblerem, což
+je jazyk symbolických instrukcí procesou. Výsledný program je tak velice
+rychlý. Proto se drtivá většina systémových aplikací píše v jazyce C.
+Dodejme ještě, že jazyk Fortran je také velice rychlý, a proto je mnoho
+matematických knihoven stále psáno pro tento jazyk. Chceme-li napsat
+stějně rychlou aplikaci jako ve Fortranu, musíme se naučit používat
+klíčové slovo <code>restrict</code><sup class="footnote-reference"><a href="#1">2</a></sup>, ale toto je již jen malá vsuvka, která je daleko za
+rozsahem tohoto textu. Neobávejme se tedy ničeho zlého. Nejde však jen o
+výpočetně náročné nebo systémové aplikace. Jazyk C je používán všude
+tam, kde je nutné mít plnou kontrolu nad prostředky počítače. Proto je C
+typický jazyk pro psaní jader operačních systémů<sup class="footnote-reference"><a href="#2">3</a></sup>. Nad takovéto
+zdrojové kódy je pak možno dopsat skriptovací vrstvu, která usnadňuje
+práci pro rychlejší vývoj aplikací. Skripty tak najdeme u her (Quake),
+grafických uživatelských rozhraní (XULRunner v produktech Mozilla),
+apod. Skriptovacími jazyky se budem zabývat v jednom z dalších předmětů.</p>
+<p><strong>Výhody:</strong></p>
+<ul>
+<li>Rychlost. Program běží přímo na HW bez dalších mezivrstev,</li>
+<li>nižší paměťová náročnost. Máme plnou kontrolu nad pamětí.</li>
+</ul>
+<p><strong>Nevýhody:</strong></p>
+<ul>
+<li>Je nutné provádět po každé změně kódu kompilaci,</li>
+<li>obtížnější údržba, vývoj a správa kódu.</li>
+</ul>
+<h2><a class="header" href="#programovací-jazyk-c" id="programovací-jazyk-c">Programovací jazyk C</a></h2>
+<p>Jazyk C je kompilovaný, procedurální, a strukturovaný programovací
+jazyk, který v roce 1972 navrhli Dennis Ritchie and Ken Thompson. Jazyk
+C je ISO standardem, jehož poslední revizí je C18 (ISO/IEC 9899:2018
+[@iso-c18]). Pro jazkyk C existuje několik kompilátorů. Namátkou vyberme
+např.: <a href="https://www.gnu.org/software/gcc/">GCC</a>, Clang, Intel C, Microsoft Visual C++.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">2</sup>
+<p>https://en.wikipedia.org/wiki/Restrict</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">3</sup>
+<p>http://kernel.org</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">1</sup>
+<p>The C++ Build Process Explained, http://github.com/green7ea/cpp-compilation</p>
+</div>
+<h2><a class="header" href="#vývojové-prostředí" id="vývojové-prostředí">Vývojové prostředí</a></h2>
+<p>Pro práci v jazyce C můžete použít jak textový editor a kompilaci a
+spuštění na příkazové řádce, tak samozřejmě několik vývojových
+prostředí. K takovým prostředím patří např. MS Visual Studio, QtCreator,
+JetBrains CLion, CodeBlocks, apod.</p>
+<p>Ukažme si tedy nejjednodušší program, který na konzoli vypíše text
+,,Hello, World!&quot;.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main( int argc, char **argv ) {
+    puts( &quot;Hello, World!&quot; );
+}
+</code></pre>
+<p>Na prvním řádku provádím načtení tzv. hlavičkového souboru, který nám
+zajišťuje vstup a výstup programu. Následně je definována funkce <code>main</code>, která
+je vstupním bodem každého programu. Bez definice této funkce nepůjde náš
+program slinkovat a následně spustit. Funkce <code>puts</code> slouží pro tisk řetězce
+znaků na výstup. Po volání této funkce vidíme výsledek v konzoli, kde se
+nám program spustil.</p>
+<p><strong>Cvičení:</strong> Vytvořte si jednoduchý program, který vypíše
+na výstup řetězec ,,Hello, World!&quot; a ověřte jeho funkcionalitu.</p>
+<h2><a class="header" href="#syntaxe" id="syntaxe">Syntaxe</a></h2>
+<p>Přece jen má jazyk C syntaxi, která obsahuje jisté množství různých
+,,kudrlinek” (anglicky je toto nazýváno pojmem ,,boilerplate”). Hlavní
+rysy syntaxe by se daly shrnout do následujících bodů:</p>
+<ul>
+<li>používají se složené závorky pro označení bloku,</li>
+<li>u podmínek příkazů <code>if</code>, <code>while</code>, <code>for</code> se používají kulaté závorky <code>(</code> <code>)</code> následované blokem kódu,</li>
+<li>příkaz <code>do</code> je následován blokem kódu a podmínka je pak vyjádřena za slovem <code>while</code> v kulatých závorkách <code>(</code> <code>)</code>,</li>
+<li>pro ukončení příkazu používáme středník <code>;</code>.</li>
+</ul>
+<p>Uveďme si nyní jednoduchý příklad, který shrnuje tyto vlastnosti:</p>
+<pre><code class="language-c">if ( a &gt; 0 ) {
+    puts( &quot;Positive&quot; );
+}
+else if ( a &lt; 0 ) {
+    puts( &quot;Negative&quot; );
+}
+else {
+    puts( &quot;Zero&quot; );
+}
+</code></pre>
+<p>Na příkladu můžeme vidět, že bloky jednotlivých větví příkazu <code>if</code> jsou
+uvozeny složenou závorkou a jejich tělo (blok) je vyjádřen pomocí
+složených závorek <code>{</code> <code>}</code> a odsazen o 4 (typicky)
+mezery doprava oproti korespondující větvi. Samozřejmě můžeme do bloku
+umístit více příkazů tak, že je postupně řadíme pod sebe. Jednotlivé
+příkazy jsou odděleny použitím znaku středníku.</p>
+<h1><a class="header" href="#proměnné-a-datové-typy" id="proměnné-a-datové-typy">Proměnné a datové typy</a></h1>
+<p>V staticky typovaných jazycích jako je C musíme deklarovat typy
+použitých proměnných (na rozdíl od jazyků jako Python či PHP). V jazyce
+Python není možné, aby proměnná neměla přiřazen nějaký typ.</p>
+<p>Proměnnou vytvoříme jednoduše tak, že nadefinujeme její typ a pak její
+jméno, případně můžeme na jednom řádku definovat více proměnných jednoho
+typu různých jmen oddělených čárkou.</p>
+<pre><code class="language-c">int counter;
+int sum, no_elements = 0;
+</code></pre>
+<p>Na výše uvedeném výpisu je použit výsek kódu, který deklaruje na prvním
+řádku celočíselnou proměnnou typu <code>int</code>, která reprezentuje integer, což je
+datový typ reprezentující celá čísla. Řádek demonstruje, že je možno
+definovat více proměnných jednoho datového typu na jednom řádku. Je
+definována proměnná <code>sum</code> a <code>no_elements</code>, do které je přiřazena
+počáteční hodnota <code>0</code>.
+Pokud hodnotu do proměnné takto nepřiřadíme na začatku při její deklaraci,
+musíme takovou proměnnou před prvním použitím nejříve nastavit na
+požadovanou hodnotu. Typicky se toto děje, pokud používáme proměnnou
+jako nějaké počítadlo.</p>
+<pre><code class="language-c">int counter;
+
+int sum, no_elements = 0;
+
+printf( &quot;sum: %d\n&quot;, sum );                  // zalezi na implementaci, ale dnes jiz vetsinou: sum: 0
+printf( &quot;no_elements: %d\n&quot;, no_elements );  // no_elements: 0
+</code></pre>
+<p>Na řádku a vidíme použití knihovní funkce <code>printf</code>, která nám bude sloužit pro
+tisk obsahu proměnných na konzoli. Můžete vidět, že funkce <code>printf</code> používá
+formátovací řetězec, kde celá čísla (integer) jsou zastoupena znakem <code>%d</code>.
+Obecně je formátovácí řetězec uvozen znakem <code>%</code> následovaný formátovacím
+znakem. Více o formátování výstupu se můžete dozvědet např. zde:
+[@stdio; @man-printf]</p>
+<pre><code class="language-c">int a = 5, b = 10;
+
+int c = a + b;
+
+printf( &quot;%d + %d = %d\n&quot;, a, b, c );  // 5 + 10 = 15
+</code></pre>
+<h2><a class="header" href="#jednoduché-datové-typy" id="jednoduché-datové-typy">Jednoduché datové typy</a></h2>
+<p>Nyní si ve stručnosti ukážeme základní datové typy.</p>
+<p><strong>Čísla</strong>: <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code></p>
+<ul>
+<li><code>23</code> <code>2345837934346901268</code> <code>0x17</code> <code>3.4</code></li>
+<li>operátory: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>&amp;&amp;</code> <code>||</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></li>
+</ul>
+<p><strong>Cvičení:</strong> Napište jednoduchý program pro práci s čísly.
+Vyzkoušejte si operátory.</p>
+<p><strong>Cvičení:</strong> Napište program pro jednoduché počítání.
+Provádějte operace s čísly jako na kalkulátoru. Pokuste se použít
+proměnné a závorky.</p>
+<h2><a class="header" href="#práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string" id="práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string">Práce s dynamicky alokovanou pamětí a řetězci znaků (string)</a></h2>
+<p>Typická literatura se zabývá prací s dynamicky alokovanou pamětí až v
+pozdějších kapitolách. Dovolme si lehký komentář, když vyslovíme
+tvrzení, že ,,pak jsou z toho všichni ztraceni”. Zkusme se tedy podívat
+na práci s dynamicky alokovanou pamětí hned na začátku, aby nás pak
+práce s ní zbytečně nepřekvapovala.</p>
+<p>Doposud jsme viděli vytváření celočíselných proměnných, které
+reprezentují jedno číslo. Co když ale potřebujeme, aby bylo těchto čísel
+více? Odpověď je snadná. Použijeme dynamicky alokované pole čísel. (Ano,
+i staticky alokované pole je možnost, ale nesmí být příliš veliké
+(dlouhé)). Na druhou stranu, dynamicky alokované pole by zase nemělo být
+příliš krátké.</p>
+<p>Při programování v jazyce C máme k dispozici dva druhy paměti. Jsou to:
+<strong>stack</strong> (česky <strong>zásobník</strong>) a <strong>heap</strong> (česky <strong>halda</strong>). Když jsme
+definovali celočíselné promenné v předchozí části, jejich obsah
+(hodnoty) se ukládal na stacku. Programům je však k dispizici jen
+omezený stack (např. 32 MB). Když chceme využívat v našich programech
+více paměti, musíme použít heap.</p>
+<p>Pro to, abychom si od operačního systému (OS) vyžádali nějakou paměť na
+heapu, používáme funkci <code>malloc</code>, která nám vrátí pointer (ukazatel) na začátek
+takovéto paměti. Zajisté znáte anglické tvrzení: ,,There’s nothing like
+a free lunch”. I za takto poskytnutou paměť se nějakým způsobem platí.
+Jazyk C nemá automatickou správu paměti, a proto ji musíme vlastnoručně
+OS vrátit, když ji již nepotřebujeme. K tomu nám slouží funkce <code>free</code>
+(jak příznačný název).</p>
+<p>Pojďme se podívat na příklady použití. Stringy (řetězce znaků) jsou
+typickým příkladem, kdy potřebujeme nějaké pole pro reprezentaci více
+hodnot (třeba nějakých vět, ale také často textových dat).</p>
+<pre><code class="language-c">char c = 'A';  // umoznuje reprezentaci pouze jednoho znaku
+char * str = NULL;
+str = (char *)malloc( 20 * sizeof( str[ 0 ] ) );
+
+sprintf( str, &quot;Hello, World!&quot; );
+
+printf( &quot;str: '%s'\n&quot;, str ); // str: 'Hello, World!'
+printf( &quot;str length: %d\n&quot;, strlen( str ) ); // 13
+
+free( str ); // pointer na str jiz nepotrebuji, vracim pamet
+
+str = NULL;  // jsem slusny a pointer nastavim na NULL,
+             // aby bylo jasne, ze nikam neukazuje
+</code></pre>
+<p>To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
+jazyku C řící tak, že deklarace proměnné bude pointerem, který bude
+ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
+proměnné napíšeme znak <code>*</code>. Funkce <code>malloc</code> nám vrací tzv. pointer na úsek paměti o
+velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí
+funkce pointer na tzv. <code>NULL</code>. Toto bychom měli řádně zkontrolovat, ale pro
+přehlednost příkladu to není uvedeno. Velikost paměti, kterou od OS
+požadujeme se uvádí v bytech (česky bajtech). Každý datový typ vyžaduje
+pro uložení informace nějaký počet bytů. Nejměnší datový typ <code>char</code> požaduje 4
+byty. Typ <code>int</code>, pro uložení celých čísel, vyžaduje typicky 4 byty. Reálná
+čísla uložená v typu <code>float</code> vyžadují 4 byty a reálná čísla uložená v typu <code>double</code>
+vyžadují 8 bytů. Každá platfroma, na které bude náš program přeložen
+však může datovým typům přiřadit jiný počet bytů. Abychom si nemuseli
+pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce C operátor <code>sizeof</code>,
+který nám vrátí, kolik bytů zadaný typ vyžaduje. Potom již jen toto
+číslo stačí přenásobit požadovanou délkou pole. V našem příkladu
+požadujeme délku řetězce 20 znaků. Jazyk C nebyl zcela jistě konstruován
+pro práci se stringy... Pro to, abychom naše pole znaků naplnili nějakým
+obsahem, musíme použít funkci <code>sprintf</code>. Ta bere jako první parametr ukazatel na
+paměť, kde má řetězec uložit, druhým parametrem je pak jaký řetězec se
+má vložit. Případný třetí parametr pak může obsahovat proměnné, jejichž
+obsah chceme vložit do formátovacího řetězce. Obsah proměnné <code>str</code> je pak
+tištěn ve funkci <code>printf</code>. Délku řetězce je možno zjistit funkcí <code>strlen</code>, která vrací
+délku řetězce jako celé číslo. Po ukončení práce s dynamicky alokovanou
+pamětí je třeba jí vrátit zpět OS. To se provede voláním funkce <code>free</code>, která
+bere jako argument pointer na dynamicky alokovanou paměť. V našem
+případě je to <code>str</code>. Bývá ještě dobrým zvykem, abychom takto uvolněný pointer
+nastavili na <code>NULL</code>. Takto nastavený pointer jasně říká, že neukazuje na
+žádnou paměť.</p>
+<h2><a class="header" href="#pole" id="pole">Pole</a></h2>
+<p>Jedním z důležitých prvků jazyka C je práce s poli. Již jsme si v
+předchozím odstavci ukázali, jak vytvořit dynamicky alokované pole pro
+reprezentaci řetězce. Samozřejmě můžeme vytvořit podobné pole pro
+reprezentaci intigerů, floatů, apod. Je také bez problému možné vytvořit
+pole na stacku, které nemusíme dealokovat. Jeho platnost je však pouze v
+rámci bloku, ve kterém je deklarováno, např. tedy funkce. Takové pole
+také nelze z funkce vrátit pomocí klíčového slova <code>return</code>. Pojďme si nyní
+ukázat, jak je možno s poli pracovat.</p>
+<pre><code class="language-c">char str[] = &quot;Ahoj&quot;;
+printf( &quot;%c %c %c %c\n&quot;, ret[ 0 ], ret[ 1 ], ret[ 2 ], ret[ 3 ] );
+// A h o j
+</code></pre>
+<p>Z uvedeného příkladu vyplývá, že k jednotlivým prvkům pole se přistupuje
+přes operátor hranaté závorky (<code>[]</code>).</p>
+<p>Pole můžeme též modifikovat. Nejjednodušeji lze modifikovat určitý prvek
+pole tak, že jej indexujeme a do takto indexovaného prvku přiřadíme
+požadovanou hodnotu. Stávající hodnota se v poli přepíše hodnotou novou.</p>
+<pre><code class="language-c">char str[] str = &quot;Ahoj&quot;;
+printf( &quot;%s\n&quot;, str );  // Ahoj
+str[ 1 ] = 'A'
+printf( &quot;%s\n&quot;, str );  // AAoj
+</code></pre>
+<h2><a class="header" href="#porovnání-testy-pravdivost" id="porovnání-testy-pravdivost">Porovnání, testy, pravdivost</a></h2>
+<p>Pro porovnání hodnot v jazyce C používáme operátory <code>==</code> a <code>!=</code>.</p>
+<pre><code class="language-c">int a = 5; int b = 5; int c = 10;
+
+a == b; // pravda
+
+a != b; // nepravda
+
+a == c; // nepravda
+
+a != c; // pravda
+</code></pre>
+<p>K porovnání pořadí nám slouží operátory <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> a <code>&gt;=</code>.</p>
+<h1><a class="header" href="#Řízení-toku" id="Řízení-toku">Řízení toku</a></h1>
+<p>Nejznámější příkaz pro řízení toku <code>if</code>, jsme si již uvedli v kapitole
+@ref(sec:syntax). Schématicky si jej proto pouze připomeneme:</p>
+<ul>
+<li><strong>if ( &lt;výraz&gt; ) { &lt;vnořený blok&gt; }</strong></li>
+<li>0+ else if ( &lt;výraz&gt; ) { &lt;vnořený blok&gt; }</li>
+<li>volitelně: else { &lt;vnořený blok&gt; }</li>
+</ul>
+<p>Pro vytvoření cyklů nám v jazyce C slouží dvě konstrukce: <code>while</code> a <code>for</code>.</p>
+<h2><a class="header" href="#cyklus-while" id="cyklus-while">Cyklus while</a></h2>
+<p>Cyklus <code>while</code> funguje tak, že na začátku máme dánu podmínku iterace. Je-li
+podmínka splněna, je vykonáno tělo cyklu, v opačném případě je cyklus
+přeskočen a pokračuje se dále v programu. V těle cyklu můžeme použít
+klíčová slova <code>break</code> a <code>continue</code>. Slovo <code>break</code> zapříčiní ukončení cyklu.
+Slovo <code>continue</code> zapříčiní
+přeskočení zbytku těla cyklu s návratem na počáteční podmínku a tím
+pádem vykonání dalšího cyklu za předpokladu, že je splněna tato vstupní
+podmínka.</p>
+<pre><code class="language-c">int i = 0;
+
+while ( i &lt; 5 ) {
+	printf( &quot;%d\n&quot;, i );
+	i += 1;
+}
+
+// 0
+// 1
+// 2
+// 3
+// 4
+</code></pre>
+<h2><a class="header" href="#cyklus-for" id="cyklus-for">Cyklus for</a></h2>
+<p>Cyklus <code>for</code> typicky používáme pro průchod nějakého pole ať už statického nebo
+dynamického. Funkguje tak, že si vytvoříme řídící proměnnou, která
+indexuje procházené pole od nuly (0) do jeho konce (n-1). Důležité je
+vědět, že řídící proměnná cyklu nenabývá hodnoty prvku pole, ale je
+pouze indexem do procházeneho pole. Hodnotu z pole si již musíme pomocí
+tohoto indexu zpřístupnit sami.</p>
+<p>Ukažme si jednoduchý příklad na součet prvků v poli intů.</p>
+<pre><code class="language-c">int len = 5;
+int seznam[] = { 1, 2, 5, 10, 100 };
+int sum = 0;
+
+for ( int i = 0; i &lt; len; i++ ) {
+	int prvek = seznam[ i ];
+	sum += prvek;
+}
+printf( &quot;sum: %d\n&quot;, sum );  //118
+</code></pre>
+<h1><a class="header" href="#funkce-a-procedury" id="funkce-a-procedury">Funkce a procedury</a></h1>
+<p>Asi bychom byli schopni naše programy psát tak, abychom nepotřebovali
+použít funkce. Toto by nám však vystačilo na velmi krátké programy,
+poněvadž bychom jinak museli všechen kód psát znovu a znovu. Základní
+vlastností funkcí je jejich znovupoužitelnost. Pokud tedy máme úlohu,
+kterou víme, že budeme požívat více než jednou, je vhodné ji umístit do
+funkce. Takovýto blok kódu by též měl fungovat pokud možno co nejvíce
+samostatně.</p>
+<h2><a class="header" href="#funkce" id="funkce">Funkce</a></h2>
+<p>V jazyce C je definice funkce do značné míry podobná definici funkce v
+jiných jazycích. Uvádíme návratový datový typ a uvádíme datové typy
+argumentů funkce. Toto je dáno statickou typovostí jazyka. Uveďme si
+jednoduchý příklad pro výpočet mocniny čísla.</p>
+<pre><code class="language-c">int sqr( int number ) {
+    return number * number;
+}
+int number = 3;
+printf( &quot;sqr( number ): %d\n&quot;, sqr( number ) ); // 9
+</code></pre>
+<p>Funkce je tedy deklarována tak, že jako první je uveden její návratový
+typ. V našem případě tedy <code>int</code> pro celá čísla. Pak je uvedeno jméno funkce. V
+tomto případě <code>sqr</code>. Pak je v kulatých závorkách uveden seznam parametrů
+(nebo též argumentů), které funkce přijímá, tedy <code>number</code>. Tělo naší funkce <code>sqr</code>
+obsahuje pouze jeden řádek, který vypočte druhou mocninu zadaného čísla
+a takto spočítanou hodnotu vrátí z funkce ven pomocí klíčového slova <code>return</code>.
+Volání funkce je pak provedeno jménem funkce s parametry uvedenými v
+kulatých závorkách tak, jak je to uvedeno v příkladu.</p>
+<p>Funkce nám také dovolují provádět generalizaci, což je zobecnění
+zadaného problému. Vezměme si výpočet mocniny čísla jako jednoduchý
+příklad. První ukázka funkce <code>sqr</code> umí vypočítat pouze druhou mocninu zadaného
+čísla <code>number</code>. My bychom však chtěli vytvořit obecnou funkci na výpočet
+jakékoli mocniny čísla. Taková funkce je v ukázce níže.</p>
+<pre><code class="language-c">int pow( int number, int exponent ) {
+    int result = number;
+    int i = 1;
+    while ( i &lt; exponent ) {
+        result *= number;
+        i++;
+    }
+    return result;
+}
+
+int a = 2, b = 3;
+printf( &quot;pow( %d, %d ): %d\n&quot;, pow( a, b ) );  // pow( 2, 3 ): 8
+b = 5;
+printf( &quot;pow( %d, %d ): %d\n&quot;, pow( a, b ) );  // pow( 2, 5 ): 32
+</code></pre>
+<p>Funkce <code>pow</code> má nyní 2 parametry s mocněncem <code>number</code> a mocnitelem <code>exponent</code>. Místo natvrdo
+nastavené hodnoty <code>2</code> pro výpočet druhé mocniny z předcházejícího příkladu
+(realizovaného násobením) je mocnitel zadán parametrem funkce. Máme tak
+zobecněný (generalizovaný) kód pro výpočet mocniny.</p>
+<h2><a class="header" href="#procedury-funkce-bez-návratového-typu" id="procedury-funkce-bez-návratového-typu">Procedury (funkce bez návratového typu)</a></h2>
+<p>V jazyce C máme jeden datový typ, který nemá přesné určení. Je to typ a
+může prakticky znamenat cokoli. Nejčastěji jej používáme jako pointer na
+nějakou struktury, kterou pak budeme dále přetypovávat. Velmi často je
+však používán jako návratový typ funkce. V takovém případě funkce
+nevrací žádnou hodnotu. Funkce pouze zpracuje vstupní data a tím její
+úloha končí. Takové funkci říkáme procedura.</p>
+<h2><a class="header" href="#parametry-funkcí" id="parametry-funkcí">Parametry funkcí</a></h2>
+<p>V prvním příkladu pro výpočet druhé mocniny jsme použili parametr tak,
+že byl volán tzv. hodnotou. To prakticky znamená, že hodnota uložená v
+proměnné <code>number</code> na řádku 5 se nakopíruje do parametru <code>number</code> funkce <code>sqr</code> na řádku 1. Snadno si
+lze představit, že pokud bychom chtěli ve funkci pracovat s větším
+objemem dat, vyžadovalo by to velké kopírování dat, což by náš program
+zpomalovalo. Další problém pak může nastat, když by kopírovaná data byla
+větší než velikost stacku, kterou máme přidělenu.</p>
+<p>Vyřešit můžeme tyto problémy jednoduše tak, že budeme argument funkce
+předávat odkazem. Odkaz bude v kontextu našeho jazyka jednoduše pointer.
+Ukažme si, jak upravit funkci pro výpočet druhé mocniny, aby akceptovala
+argument předávaný odkazem.</p>
+<p>TODO: Co tohle je za kravina... Predelat!!!</p>
+<pre><code class="language-c">int sqr( int *number ) {
+    return *number * *number;
+}
+int number = 3;
+printf( &quot;sqr( &amp;number ): %d\n&quot;, sqr( &amp;number ) );  // sqr( &amp;number ): 9
+</code></pre>
+<p>Jak již víme, pointer nám ukazuje na nějaké místo v paměti. Upravili
+jsme definici funkce <code>sqr</code> tak, že argument number je nyní pointrem. Každá
+proměnná je někde v paměti uložena a stejné je to i pro proměnnou <code>number</code>
+dekladovanou na řádku 5. Abychom mohli do argumentu funkce <code>number</code>, který někam
+ukazuje předat adresu paměti, musíme ji získat pomocí znaku <code>&amp;</code> (řádek 7).
+Tím pádem budeme ve funkci <code>sqr</code> pracovat s úplně stejnou pamětí jako při
+definici proměnné <code>number</code> na řádku 5.</p>
+<p>Ukažme si ještě, jak pracovat ve funkci s polem. Chtějme naprogramovat
+funkci <code>sum</code>, která spočítá součet čísel v poli o zadané délce.</p>
+<pre><code class="language-c">int sum( int *array, int len ) {
+    int result = 0;
+    for ( int i = 0; i &lt; len; i++ ) {
+        result += array[ i ];
+    }
+    return result;
+}
+int array_len = 5;
+int array_of_its[ array_len ] = { 1, 2, 3, 4, 5 };
+printf( &quot;sum( array_of_ints, array_len ): %d\n&quot;, sum( array_of_ints, array_len ) );  // 15
+</code></pre>
+<p>V jazyce C musíme funkcím, které pracují s polem předat samostatně délku
+pole, poněvadž z pointeru samotného ji zjístit nemůžeme. Pole samotné
+předáváme přes pointer <code>array</code> a jeho délku přes parametr <code>len</code>. Do funkce <code>sum</code> pole
+předáme pomocí jeho názvu, protože ten je již adresou prvního prvku
+pole. Ve funkci pak k prvkům pole přistupujeme tak, jak jsme zvyklí.</p>
+<p>Pokud předáváme do funkce argument odkazem, můžeme obsah takové proměnné
+změnit a tato změna se projeví i na datech, která jsme do funkce
+poslali. To nám otvírá mnoho možností, jak efektivně manipulovat s daty
+v procedurách. Mějme však na paměti, že pak můžeme snadno přijít k
+úhoně, nebudeme-li bedlivě sledovat, co a kde měníme.</p>
+<p><strong>Cvičení:</strong> Vytvořte proceduru, která nastaví všechny
+prvky předaného pole na zadanou hodnotu.</p>
+<p><strong>Cvičení:</strong> Vytvořte funkci, která zjistí počet sudých a
+lichých čísel předaného pole. Tyto 2 čísla se vrátí pomocí dvou
+proměnných, které budou pointery na inty.</p>
+<h1><a class="header" href="#struktury" id="struktury">Struktury</a></h1>
+<p>Již umíme pracovat s jednoduchými datovými typy, které nám mohou
+reprezentovat celá nebo reálná čísla, či řetězce znaků. Práce se
+strukturovanými datovými typy můžeme do jisté míry považovat za
+předstupeň k objektově orientovanému programování.</p>
+<h2><a class="header" href="#co-jsou-struktury" id="co-jsou-struktury">Co jsou struktury</a></h2>
+<p>Představme si, že bychom chtěli pomocí jednoduchých datových typů řešit
+komplexnější problém. Tento problém by ke svému popisu potřeboval více
+proměnných. Jako jednoduchý přiklad můžeme použít reprezentaci obrazu. V
+takovém případě potřebujeme reprezentovat alespoň hodnoty v jednotlivých
+pixelech a počet řádků (výšku) a počet sloupců (šířku) obrazu. Pro
+jednoduchost předpokládejme obrázek ve stupních šedi. Ukažme si, jak by
+taková reprezentace v jazyce C vypadala.</p>
+<pre><code class="language-c">unsigned char * img_data;
+int img_rows;
+int img_cols;
+</code></pre>
+<p>(<strong>TODO: Pripravit to na TGA header</strong>)</p>
+<p>Pointer <code>unsigned char</code> na s názvem <code>img_data</code> nám bez problému může reprezentovat 8 bitové obrazy
+ve stupních šedi, neboť do něj můžeme ukládat hodnoty 0 - 255 (2<sup>8</sup> = 256 různých hodnot).
+Představme si dále, že bychom chtěli takovýto obrázek o nějaké velikosti
+nastavit na černou barvu (hodnota <code>0</code>).</p>
+<pre><code class="language-c">void set_image_to_black( unsigned char * img_data,
+                         const int img_rows, const int img_cols )
+{
+    for ( int y = 0; y &lt; img_rows; y++ ) {
+        for ( int x = 0; x &lt; img_cols; x++ ) {
+            img_data[ x + y * img_cols ] = 0;
+        }
+    }
+}
+</code></pre>
+<p>Jak můžete vidět, do funkce <code>set_image_to_black</code> posíláme všechny parametry obrázku, abychom
+s ním mohli pracovat. Snadno si lze představit, že se složitějšími
+problémy by snadno mohl počet parametrů funkcí značně narůstat.</p>
+<p>Pro zefektivnění takové práce nám slouží strukturované datové typy,
+jednodušeji struktury (anglicky <em>structures</em>). V jazyce C je pro definici
+datových struktur vyhrazeno klíčové slovo <code>struct</code>. Pojďme se podívat, jak by
+definice takového obrázku mohla vypadat.</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+</code></pre>
+<p>Jak můžete vidět, definice začíná požitím klíčového slova <code>struct</code>, které je
+následovano jménem struktury. V následném bloku jsou pak definovani
+členové struktury, které nazýváme <code>atributy</code>, s jejich příslušnými
+datovými typy. Na první pohled již není nutné ke jménům členů struktury
+obrázku přidávat předponu <code>img_</code>, neboť jejich členství v této datové
+struktuře je jasně dáno.</p>
+<p>Struktura ovšem není datovým typem, proto ji nelze použít přímo jako
+definici typu (pokud ovšem nepoužijete C++ překladač). Proto se často
+používá definice aliasu na datovou strukturu. K definici takového aliasu
+se používá klíčové slovo <code>typedef</code>. Toto slovo má následující syntaxi:</p>
+<pre><code class="language-c">typedef struct tag_name struct_alias;
+</code></pre>
+<p>Za <code>tag_name</code> dosazujeme jméno naší struktury, za <code>struct_alias</code> nové jméno, pod kterým chceme
+naši strukturu používat jako datový typ. Příklad pro naši strukturu s
+obrázkem tedy bude vypadat následovně:</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * image;
+</code></pre>
+<p>Dále můžeme s pointrem <code>* image</code> pracovat tak, že mu naalokujeme dynamickou paměť
+tak, jak jsme si již ukázali.</p>
+<p><strong>Cvičení:</strong> Vytvořte si vlastní strukturu pro reprezentaci
+osoby (<code>Person</code>) s několika atributy.</p>
+<p>K jednotlivým atributům struktury přistupujeme pomocí tečkové (<code>.</code>) nebo
+šipkové (<code>-&gt;</code>) notace. Tečku používáme, když je struktura vytvořena na
+stacku. Šipku pak používáme pro přístup k atributům struktury, která je
+alokována na heapu.</p>
+<p>Ukažme si tedy příklad, kdy budeme chtít nastavit počet řádků nějakého
+obrázku:</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * heap_image;
+Image   stack_image;
+
+// alokace...
+
+// teckova notace
+stack_image.rows = 480;
+
+// sipkova notace
+heap_image-&gt;rows = 480;
+</code></pre>
+<p>Můžeme vidět, že rozdíl je nepatrný, je však nutné na něj dávat pozor,
+jinak náš program nepůjde přeložit.</p>
+<h2><a class="header" href="#funkce-pro-práci-se-strukturami" id="funkce-pro-práci-se-strukturami">Funkce pro práci se strukturami</a></h2>
+<p>Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
+pravidlům. Zavedeme si však pár pravidel pro nás samotné, abychom se v
+našem kódu lépe orientovali.</p>
+<p>Pokud budeme pracovat se strukturou ve funkcích, bývá dobrým zvykem, aby
+jméno takové funkce začínalo názvem struktury (malými pásmeny) a
+následně jsou podtržítky oddělena slova vyjadřující operaci, kterou se
+strukturou provádíme.</p>
+<p>Ukažme si, jak bychom alokovali strukturu, kterou používíme pod aliasem <code>Image</code>.</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * heap_image;
+
+// alokuje prazdny obrazek
+Image * image_new( const int rows, const int cols ) {
+    Image * image = NULL;
+    image = (Image *)malloc( sizeof( image[ 0 ] ) );
+    image-&gt;data = (unisgned char *)malloc( rows * cols * sizeof( image-&gt;data[ 0 ] ) );
+    image-&gt;rows = rows;
+    image-&gt;cols = cols;
+    return image;
+}
+
+heap_image = image_new( 640, 480 );
+</code></pre>
+<p>Na výpisu kódů uvedeném výše můžeme vidět, že funkce <code>image_new</code> vytváří dynamicky
+alokovanou datovou strukturu <code>Image</code>. Popišme si, co se přesně děje. Návratový
+typ funkce <code>image_new</code> je pointer na strukturu <code>Image</code> (je to tedy <code>Image *</code>).
+Na řádku 13 si vytvoříme nový
+pointer na <code>Image</code>, se kterým budeme pracovat (alokovat jej a jeho atributy) a
+také jej vrátíme na konci funkce. Pro tento pointer alokujeme paměť o
+velikosti struktury <code>Image</code> na řádku 15. Dále alokujeme prostor pro jasy jednotlivých
+pixelů obrázku na řádku 17. Atributy <code>rows</code> a <code>cols</code> struktury <code>Image</code> nastavujeme na řádcích 19 a 20.
+Nakonec vracíme takto vytvořenou strukturu na řádku 22. Volání takové
+funkce je ukázáno na řádku 25, kde vytváříme obrázek o velikosti
+$640 \times 480$ pixelů.</p>
+<p>Ukažme si ještě, jak bychom takto naalokovanou struktury zase uvolnili,
+tzn. vrátili bychom alokovanou paměť zpět OS.</p>
+<pre><code class="language-c">// dealokuje strukturu s obrazkem
+void image_free( Image * self ) {
+    free( image-&gt;data );  // uvolnujeme jasy pixelu
+    free( image );        // uvolnujeme strukturu
+}
+
+image_free( heap_image );
+</code></pre>
+<p>Jak můžeme vidět, funkce <code>image_free</code> akceptuje jeden argument, který je pointrem na
+strukturu <code>Image</code>. Ten je předán pod názvem <code>self</code>, ale můžeme si jej pojmenovat jak
+nám libo. V těle funkce se nácházeji dvě dealokační volání funkce <code>free</code>.
+První volání uvolňuje pamět pro jasy pixelů. Druhé volání pak uvolňuje
+paměť, kterou zabírá samotná datová struktura. Důležité je, v jakém
+pořadí jsou jednotlivé atributy a datová struktura samotná uvolňovány.
+Platí jednoduché pravidlo, že nejprve uvolňujeme data atributů a až pak
+můžeme uvolnit strukturu samotnou. V opačném případě bychom totiž při
+uvolnění struktury ztratili pointer na atributy a tím by paměť byla až
+do konce běhu programu ztracena.</p>
+<p><strong>Cvičení:</strong> Upravte funkci <code>image_new</code> tak, aby data, která
+reprezentují pixely byla nastavena na černou barvu (hodnota <code>0</code>).</p>
+<p><strong>Cvičení:</strong> Vytvořte funkci, která na zadanou souřadnici
+pixelu v obrázku reprezentovaného strukturou <code>Image</code> nastaví zadanou hodnotu.</p>
+<p><strong>Cvičení:</strong> Vytvořte funkci, která do obrázku
+reprezentovaného strukturou <code>Image</code> nakreslí zvoleným jasem obdélník o zadaných
+rozměrech.</p>
+<h2><a class="header" href="#zápis-struktur-do-souboru" id="zápis-struktur-do-souboru">Zápis struktur do souboru</a></h2>
+<p>Struktury jsou i dobrým komunikačním nástrojem.
+Můžeme je uložit v podobě souboru na disk a přečíst je pak jiným programem, který je může dále zpracovat.
+Modelovou situací může být program pro zpracování fotografií.</p>
+<p>V první řadě budeme simulovat fotoaparát, který uloží obrázek do souboru.
+Existuje mnoho způsobů, jak uložit obraz. Tyto způsoby jsou definovýny různými formáty
+(např. <code>JPG</code>, <code>PNG</code>, <code>BMP</code>, <code>TGA</code>, apod.).
+Asi nejjednodušeji uchopitelným formátem je <code>TGA</code>, jehož hlavička vypadá následovně <sup class="footnote-reference"><a href="#1">1</a></sup>:</p>
+<table>
+    <thead>
+        <tr>
+            <th>Č. položky</th>
+            <th>Délka</th>
+            <th>Jméno položky</th>
+            <th>Popis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>1 byte	</td><td>ID length</td>                 <td>Length of the image ID field</td>   </tr>
+        <tr><td>2</td><td>1 byte	</td><td>Color map type</td>            <td>Whether a color map is included</td></tr>
+        <tr><td>3</td><td>1 byte	</td><td>Image type</td>                <td>Compression and color types</td>    </tr>
+        <tr><td>4</td><td>5 bytes	</td><td>Color map specification</td>   <td>Describes the color map</td>        </tr>
+        <tr><td>5</td><td>10 bytes	</td><td>Image specification</td>       <td>Image dimensions and format</td>    </tr>
+    <tbody>
+</table>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>https://en.wikipedia.org/wiki/Truevision_TGA</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

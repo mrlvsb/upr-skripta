@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="cs" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Struktury - Úvod do programování</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li><a href="uvod_vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li><a href="uvod_syntaxe.html"><strong aria-hidden="true">1.2.</strong> Syntaxe</a></li></ol></li><li><a href="promenne_a_typy.html"><strong aria-hidden="true">2.</strong> Proměnné a typy</a></li><li><ol class="section"><li><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.1.</strong> Jednoduché datové typy</a></li><li><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.2.</strong> Pole</a></li><li><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.3.</strong> Porovnání, testy, pravdivost</a></li></ol></li><li><a href="rizeni_toku.html"><strong aria-hidden="true">3.</strong> Řízení toku</a></li><li><a href="funkce.html"><strong aria-hidden="true">4.</strong> Funkce</a></li><li><a href="struktury.html" class="active"><strong aria-hidden="true">5.</strong> Struktury</a></li><li><ol class="section"><li><a href="struktury_funkce.html"><strong aria-hidden="true">5.1.</strong> Funkce pro práci se strukturami</a></li><li><a href="struktury_soubor.html"><strong aria-hidden="true">5.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Úvod do programování</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/geordi/upr-skripta" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#struktury" id="struktury">Struktury</a></h1>
+<p>Již umíme pracovat s jednoduchými datovými typy, které nám mohou
+reprezentovat celá nebo reálná čísla, či řetězce znaků. Práce se
+strukturovanými datovými typy můžeme do jisté míry považovat za
+předstupeň k objektově orientovanému programování.</p>
+<h2><a class="header" href="#co-jsou-struktury" id="co-jsou-struktury">Co jsou struktury</a></h2>
+<p>Představme si, že bychom chtěli pomocí jednoduchých datových typů řešit
+komplexnější problém. Tento problém by ke svému popisu potřeboval více
+proměnných. Jako jednoduchý přiklad můžeme použít reprezentaci obrazu. V
+takovém případě potřebujeme reprezentovat alespoň hodnoty v jednotlivých
+pixelech a počet řádků (výšku) a počet sloupců (šířku) obrazu. Pro
+jednoduchost předpokládejme obrázek ve stupních šedi. Ukažme si, jak by
+taková reprezentace v jazyce C vypadala.</p>
+<pre><code class="language-c">unsigned char * img_data;
+int img_rows;
+int img_cols;
+</code></pre>
+<p>(<strong>TODO: Pripravit to na TGA header</strong>)</p>
+<p>Pointer <code>unsigned char</code> na s názvem <code>img_data</code> nám bez problému může reprezentovat 8 bitové obrazy
+ve stupních šedi, neboť do něj můžeme ukládat hodnoty 0 - 255 (2<sup>8</sup> = 256 různých hodnot).
+Představme si dále, že bychom chtěli takovýto obrázek o nějaké velikosti
+nastavit na černou barvu (hodnota <code>0</code>).</p>
+<pre><code class="language-c">void set_image_to_black( unsigned char * img_data,
+                         const int img_rows, const int img_cols )
+{
+    for ( int y = 0; y &lt; img_rows; y++ ) {
+        for ( int x = 0; x &lt; img_cols; x++ ) {
+            img_data[ x + y * img_cols ] = 0;
+        }
+    }
+}
+</code></pre>
+<p>Jak můžete vidět, do funkce <code>set_image_to_black</code> posíláme všechny parametry obrázku, abychom
+s ním mohli pracovat. Snadno si lze představit, že se složitějšími
+problémy by snadno mohl počet parametrů funkcí značně narůstat.</p>
+<p>Pro zefektivnění takové práce nám slouží strukturované datové typy,
+jednodušeji struktury (anglicky <em>structures</em>). V jazyce C je pro definici
+datových struktur vyhrazeno klíčové slovo <code>struct</code>. Pojďme se podívat, jak by
+definice takového obrázku mohla vypadat.</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+</code></pre>
+<p>Jak můžete vidět, definice začíná požitím klíčového slova <code>struct</code>, které je
+následovano jménem struktury. V následném bloku jsou pak definovani
+členové struktury, které nazýváme <code>atributy</code>, s jejich příslušnými
+datovými typy. Na první pohled již není nutné ke jménům členů struktury
+obrázku přidávat předponu <code>img_</code>, neboť jejich členství v této datové
+struktuře je jasně dáno.</p>
+<p>Struktura ovšem není datovým typem, proto ji nelze použít přímo jako
+definici typu (pokud ovšem nepoužijete C++ překladač). Proto se často
+používá definice aliasu na datovou strukturu. K definici takového aliasu
+se používá klíčové slovo <code>typedef</code>. Toto slovo má následující syntaxi:</p>
+<pre><code class="language-c">typedef struct tag_name struct_alias;
+</code></pre>
+<p>Za <code>tag_name</code> dosazujeme jméno naší struktury, za <code>struct_alias</code> nové jméno, pod kterým chceme
+naši strukturu používat jako datový typ. Příklad pro naši strukturu s
+obrázkem tedy bude vypadat následovně:</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * image;
+</code></pre>
+<p>Dále můžeme s pointrem <code>* image</code> pracovat tak, že mu naalokujeme dynamickou paměť
+tak, jak jsme si již ukázali.</p>
+<p><strong>Cvičení:</strong> Vytvořte si vlastní strukturu pro reprezentaci
+osoby (<code>Person</code>) s několika atributy.</p>
+<p>K jednotlivým atributům struktury přistupujeme pomocí tečkové (<code>.</code>) nebo
+šipkové (<code>-&gt;</code>) notace. Tečku používáme, když je struktura vytvořena na
+stacku. Šipku pak používáme pro přístup k atributům struktury, která je
+alokována na heapu.</p>
+<p>Ukažme si tedy příklad, kdy budeme chtít nastavit počet řádků nějakého
+obrázku:</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * heap_image;
+Image   stack_image;
+
+// alokace...
+
+// teckova notace
+stack_image.rows = 480;
+
+// sipkova notace
+heap_image-&gt;rows = 480;
+</code></pre>
+<p>Můžeme vidět, že rozdíl je nepatrný, je však nutné na něj dávat pozor,
+jinak náš program nepůjde přeložit.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="funkce.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="struktury_funkce.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="funkce.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="struktury_funkce.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

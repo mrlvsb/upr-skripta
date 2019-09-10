@@ -1,0 +1,12 @@
+[book]
+authors = ["Jan Gaura", "Jakub Beránek"]
+language = "cs"
+multilingual = false
+src = "src"
+title = "Úvod do programování"
+
+[build]
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/geordi/upr-skripta"

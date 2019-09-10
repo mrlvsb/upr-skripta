@@ -26,7 +26,7 @@ int i = 0;
 
 while ( i < 5 ) {
 		printf( "%d\n", i );
-		i += 1
+		i += 1;
 }
 
 // 0

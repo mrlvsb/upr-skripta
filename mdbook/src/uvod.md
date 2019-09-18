@@ -23,12 +23,7 @@ JavaScript (ECMAScript), do jisté mírý i Java nebo C#, a další.
 Jazyk C teží z toho, že byl navržen jako nádstavba nad assemblerem, což
 je jazyk symbolických instrukcí procesou. Výsledný program je tak velice
 rychlý. Proto se drtivá většina systémových aplikací píše v jazyce C.
-Dodejme ještě, že jazyk Fortran je také velice rychlý, a proto je mnoho
-matematických knihoven stále psáno pro tento jazyk. Chceme-li napsat
-stějně rychlou aplikaci jako ve Fortranu, musíme se naučit používat
-klíčové slovo `restrict`[^1], ale toto je již jen malá vsuvka, která je daleko za
-rozsahem tohoto textu. Neobávejme se tedy ničeho zlého. Nejde však jen o
-výpočetně náročné nebo systémové aplikace. Jazyk C je používán všude
+Jazyk C je používán všude
 tam, kde je nutné mít plnou kontrolu nad prostředky počítače. Proto je C
 typický jazyk pro psaní jader operačních systémů[^2]. Nad takovéto
 zdrojové kódy je pak možno dopsat skriptovací vrstvu, která usnadňuje

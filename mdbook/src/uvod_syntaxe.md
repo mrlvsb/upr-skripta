@@ -13,13 +13,13 @@ Uveďme si nyní jednoduchý příklad, který shrnuje tyto vlastnosti:
 
 ```c
 if ( a > 0 ) {
-    puts( "Positive" );
+    printf( "Positive" );
 }
 else if ( a < 0 ) {
-    puts( "Negative" );
+    printf( "Negative" );
 }
 else {
-    puts( "Zero" );
+    printf( "Zero" );
 }
 ```
 

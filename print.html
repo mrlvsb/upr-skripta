@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="cs" class="sidebar-visible no-js">
+<html lang="cs" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,13 +7,24 @@
         
         <meta name="robots" content="noindex" />
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
@@ -21,8 +32,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -34,11 +46,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -62,8 +74,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -80,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li><a href="uvod_vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li><a href="uvod_syntaxe.html"><strong aria-hidden="true">1.2.</strong> Syntaxe</a></li></ol></li><li><a href="promenne_a_typy.html"><strong aria-hidden="true">2.</strong> Proměnné a typy</a></li><li><ol class="section"><li><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.1.</strong> Jednoduché datové typy</a></li><li><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.2.</strong> Pole</a></li><li><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.3.</strong> Porovnání, testy, pravdivost</a></li></ol></li><li><a href="rizeni_toku.html"><strong aria-hidden="true">3.</strong> Řízení toku</a></li><li><a href="funkce.html"><strong aria-hidden="true">4.</strong> Funkce</a></li><li><a href="struktury.html"><strong aria-hidden="true">5.</strong> Struktury</a></li><li><ol class="section"><li><a href="struktury_funkce.html"><strong aria-hidden="true">5.1.</strong> Funkce pro práci se strukturami</a></li><li><a href="struktury_soubor.html"><strong aria-hidden="true">5.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="uvod_vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="uvod_syntaxe.html"><strong aria-hidden="true">1.2.</strong> Syntaxe</a></li></ol></li><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.</strong> Proměnné a typy</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.1.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.2.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.3.</strong> Porovnání, testy, pravdivost</a></li></ol></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">3.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">4.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">5.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">5.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">5.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -89,41 +104,40 @@
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Úvod do programování</h1>
+                    <h1 class="menu-title">Úvod do programování</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                            <a href="https://github.com/geordi/upr-skripta" title="Git repository" aria-label="Git repository">
-                                <i id="git-repository-button" class="fa fa-github"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/geordi/upr-skripta" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -172,14 +186,9 @@ JavaScript (ECMAScript), do jisté mírý i Java nebo C#, a další.</p>
 <p>Jazyk C teží z toho, že byl navržen jako nádstavba nad assemblerem, což
 je jazyk symbolických instrukcí procesou. Výsledný program je tak velice
 rychlý. Proto se drtivá většina systémových aplikací píše v jazyce C.
-Dodejme ještě, že jazyk Fortran je také velice rychlý, a proto je mnoho
-matematických knihoven stále psáno pro tento jazyk. Chceme-li napsat
-stějně rychlou aplikaci jako ve Fortranu, musíme se naučit používat
-klíčové slovo <code>restrict</code><sup class="footnote-reference"><a href="#1">2</a></sup>, ale toto je již jen malá vsuvka, která je daleko za
-rozsahem tohoto textu. Neobávejme se tedy ničeho zlého. Nejde však jen o
-výpočetně náročné nebo systémové aplikace. Jazyk C je používán všude
+Jazyk C je používán všude
 tam, kde je nutné mít plnou kontrolu nad prostředky počítače. Proto je C
-typický jazyk pro psaní jader operačních systémů<sup class="footnote-reference"><a href="#2">3</a></sup>. Nad takovéto
+typický jazyk pro psaní jader operačních systémů<sup class="footnote-reference"><a href="#2">2</a></sup>. Nad takovéto
 zdrojové kódy je pak možno dopsat skriptovací vrstvu, která usnadňuje
 práci pro rychlejší vývoj aplikací. Skripty tak najdeme u her (Quake),
 grafických uživatelských rozhraní (XULRunner v produktech Mozilla),
@@ -200,10 +209,10 @@ jazyk, který v roce 1972 navrhli Dennis Ritchie and Ken Thompson. Jazyk
 C je ISO standardem, jehož poslední revizí je C18 (ISO/IEC 9899:2018
 [@iso-c18]). Pro jazkyk C existuje několik kompilátorů. Namátkou vyberme
 např.: <a href="https://www.gnu.org/software/gcc/">GCC</a>, Clang, Intel C, Microsoft Visual C++.</p>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">2</sup>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">3</sup>
 <p>https://en.wikipedia.org/wiki/Restrict</p>
 </div>
-<div class="footnote-definition" id="2"><sup class="footnote-definition-label">3</sup>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>http://kernel.org</p>
 </div>
 <div class="footnote-definition" id="3"><sup class="footnote-definition-label">1</sup>
@@ -219,15 +228,14 @@ JetBrains CLion, CodeBlocks, apod.</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int main( int argc, char **argv ) {
-    puts( &quot;Hello, World!&quot; );
+    printf( &quot;Hello, World!&quot; );
 }
 </code></pre>
 <p>Na prvním řádku provádím načtení tzv. hlavičkového souboru, který nám
 zajišťuje vstup a výstup programu. Následně je definována funkce <code>main</code>, která
 je vstupním bodem každého programu. Bez definice této funkce nepůjde náš
-program slinkovat a následně spustit. Funkce <code>puts</code> slouží pro tisk řetězce
-znaků na výstup. Po volání této funkce vidíme výsledek v konzoli, kde se
-nám program spustil.</p>
+program slinkovat a následně spustit. Funkce <code>printf</code> slouží pro tisk řetězce
+znaků na výstup. Po volání této funkce vidíme výsledek v konzoli, ve které jsme program spustili.</p>
 <p><strong>Cvičení:</strong> Vytvořte si jednoduchý program, který vypíše
 na výstup řetězec ,,Hello, World!&quot; a ověřte jeho funkcionalitu.</p>
 <h2><a class="header" href="#syntaxe" id="syntaxe">Syntaxe</a></h2>
@@ -242,13 +250,13 @@ rysy syntaxe by se daly shrnout do následujících bodů:</p>
 </ul>
 <p>Uveďme si nyní jednoduchý příklad, který shrnuje tyto vlastnosti:</p>
 <pre><code class="language-c">if ( a &gt; 0 ) {
-    puts( &quot;Positive&quot; );
+    printf( &quot;Positive&quot; );
 }
 else if ( a &lt; 0 ) {
-    puts( &quot;Negative&quot; );
+    printf( &quot;Negative&quot; );
 }
 else {
-    puts( &quot;Zero&quot; );
+    printf( &quot;Zero&quot; );
 }
 </code></pre>
 <p>Na příkladu můžeme vidět, že bloky jednotlivých větví příkazu <code>if</code> jsou
@@ -259,8 +267,7 @@ umístit více příkazů tak, že je postupně řadíme pod sebe. Jednotlivé
 příkazy jsou odděleny použitím znaku středníku.</p>
 <h1><a class="header" href="#proměnné-a-datové-typy" id="proměnné-a-datové-typy">Proměnné a datové typy</a></h1>
 <p>V staticky typovaných jazycích jako je C musíme deklarovat typy
-použitých proměnných (na rozdíl od jazyků jako Python či PHP). V jazyce
-Python není možné, aby proměnná neměla přiřazen nějaký typ.</p>
+použitých proměnných (na rozdíl od jazyků jako Python či PHP).</p>
 <p>Proměnnou vytvoříme jednoduše tak, že nadefinujeme její typ a pak její
 jméno, případně můžeme na jednom řádku definovat více proměnných jednoho
 typu různých jmen oddělených čárkou.</p>
@@ -269,10 +276,11 @@ int sum, no_elements = 0;
 </code></pre>
 <p>Na výše uvedeném výpisu je použit výsek kódu, který deklaruje na prvním
 řádku celočíselnou proměnnou typu <code>int</code>, která reprezentuje integer, což je
-datový typ reprezentující celá čísla. Řádek demonstruje, že je možno
-definovat více proměnných jednoho datového typu na jednom řádku. Je
-definována proměnná <code>sum</code> a <code>no_elements</code>, do které je přiřazena
-počáteční hodnota <code>0</code>.
+datový typ reprezentující celá čísla.
+Druhý řádek demonstruje, že je možno
+deklarovat více proměnných jednoho datového typu na jednom řádku. Je
+deklarována proměnná <code>sum</code> a <code>no_elements</code>, do které je přiřazena
+počáteční hodnota <code>0</code> (pokud do proměnné rovnou přiřadíme hodnotu, je to definice proměnné).
 Pokud hodnotu do proměnné takto nepřiřadíme na začatku při její deklaraci,
 musíme takovou proměnnou před prvním použitím nejříve nastavit na
 požadovanou hodnotu. Typicky se toto děje, pokud používáme proměnnou
@@ -281,21 +289,27 @@ jako nějaké počítadlo.</p>
 
 int sum, no_elements = 0;
 
-printf( &quot;sum: %d\n&quot;, sum );                  // zalezi na implementaci, ale dnes jiz vetsinou: sum: 0
+printf( &quot;sum: %d\n&quot;, sum );                  // muze byt cokoli: sum: 432749
 printf( &quot;no_elements: %d\n&quot;, no_elements );  // no_elements: 0
 </code></pre>
-<p>Na řádku a vidíme použití knihovní funkce <code>printf</code>, která nám bude sloužit pro
+<p>Na řádku 5 a 6 vidíme použití knihovní funkce <code>printf</code>, která nám bude sloužit pro
 tisk obsahu proměnných na konzoli. Můžete vidět, že funkce <code>printf</code> používá
-formátovací řetězec, kde celá čísla (integer) jsou zastoupena znakem <code>%d</code>.
+formátovací řetězec, kde celá čísla (<code>int</code>eger) jsou zastoupena znakem <code>%d</code>.
 Obecně je formátovácí řetězec uvozen znakem <code>%</code> následovaný formátovacím
 znakem. Více o formátování výstupu se můžete dozvědet např. zde:
-[@stdio; @man-printf]</p>
+<sup class="footnote-reference"><a href="#1">1</a></sup>,<sup class="footnote-reference"><a href="#2">2</a></sup>.</p>
 <pre><code class="language-c">int a = 5, b = 10;
 
 int c = a + b;
 
 printf( &quot;%d + %d = %d\n&quot;, a, b, c );  // 5 + 10 = 15
 </code></pre>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Standardní vstup a výstup, <a href="http://www.sallyx.org/sally/c/c07.php">http://www.sallyx.org/sally/c/c07.php</a></p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Dokumentace funkce <code>printf</code>, <a href="http://www.cplusplus.com/reference/cstdio/printf/">http://www.cplusplus.com/reference/cstdio/printf/</a></p>
+</div>
 <h2><a class="header" href="#jednoduché-datové-typy" id="jednoduché-datové-typy">Jednoduché datové typy</a></h2>
 <p>Nyní si ve stručnosti ukážeme základní datové typy.</p>
 <p><strong>Čísla</strong>: <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code></p>
@@ -798,6 +812,14 @@ Asi nejjednodušeji uchopitelným formátem je <code>TGA</code>, jehož hlavičk
 
         
 
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
         

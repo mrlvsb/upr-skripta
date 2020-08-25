@@ -1,5 +1,5 @@
 [book]
-authors = ["Jan Gaura", "Jakub Beránek"]
+authors = ["Jan Gaura", "Jakub Beránek", "Daniel Trnka"]
 language = "cs"
 multilingual = false
 src = "src"
@@ -10,3 +10,5 @@ create-missing = false
 
 [output.html]
 git-repository-url = "https://github.com/geordi/upr-skripta"
+default-theme = "rust"
+preferred-dark-theme = "rust"

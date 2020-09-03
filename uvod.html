@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="cs" class="sidebar-visible no-js light">
+<html lang="cs" class="sidebar-visible no-js rust">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -48,7 +48,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -74,7 +74,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('rust')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -93,7 +93,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html" class="active"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="uvod_vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="uvod_syntaxe.html"><strong aria-hidden="true">1.2.</strong> Syntaxe</a></li></ol></li><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.</strong> Proměnné a typy</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.1.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.2.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.3.</strong> Porovnání, testy, pravdivost</a></li></ol></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">3.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">4.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">5.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">5.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">5.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html" class="active"><strong aria-hidden="true">1.</strong> Úvod</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -112,8 +112,8 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -164,58 +164,85 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#Úvod" id="Úvod">Úvod</a></h1>
-<p>Tento text vznikl pro potřeby výuky předmětu Úvod do programování.
-Studentům by měl sloužit pro získání nutného minima znalostí ke
-zvládnutí programování v jazyce kurzu – tedy jazyka C [@chist]. V žádném
-případě však není text plnohodnotnou náhradou za poslechy přednášek a
-návštěvy cvičení. Studentům je tudíž velmi doporučeno, aby přednášky a
-cvičení navštěvovali. Tento text si též neklade za cíl vytvořit
-kompletního průvodce jazykem C. Pro takovýto účel lze doporučit některý
-knižní titul, např.: [@herout].</p>
-<h2><a class="header" href="#Úvod-do-kompilovaných-jazyků" id="Úvod-do-kompilovaných-jazyků">Úvod do kompilovaných jazyků</a></h2>
-<p>Jednotlivé programy jsou tvořeny zdrojovými kódy, které jsou kombilovány
-do strojového kódu, který je následně spuštěn na hardware, pro který byl
-zkompilován<sup class="footnote-reference"><a href="#3">1</a></sup>. Jazyk C je multiplatformní, což znamená, že stený kód je
-možno zkompilovat na různých platformách a následně spouštět. To je
-poněkud rozdíl oproti tzv. interpretovaným jazykům, které jsou čteny a
-spouštěny za běhu speciálním programem, tzv. interpretem (odpadá zde
-tedy nutnost kompilace). Mezi takové jazyky patří např. Python,
-JavaScript (ECMAScript), do jisté mírý i Java nebo C#, a další.</p>
-<p>Jazyk C teží z toho, že byl navržen jako nádstavba nad assemblerem, což
-je jazyk symbolických instrukcí procesou. Výsledný program je tak velice
-rychlý. Proto se drtivá většina systémových aplikací píše v jazyce C.
-Jazyk C je používán všude
-tam, kde je nutné mít plnou kontrolu nad prostředky počítače. Proto je C
-typický jazyk pro psaní jader operačních systémů<sup class="footnote-reference"><a href="#2">2</a></sup>. Nad takovéto
-zdrojové kódy je pak možno dopsat skriptovací vrstvu, která usnadňuje
-práci pro rychlejší vývoj aplikací. Skripty tak najdeme u her (Quake),
-grafických uživatelských rozhraní (XULRunner v produktech Mozilla),
-apod. Skriptovacími jazyky se budem zabývat v jednom z dalších předmětů.</p>
-<p><strong>Výhody:</strong></p>
+<p>Tento text vznikl pro potřeby výuky předmětu <a href="https://github.com/geordi/upr-course">Úvod do programování</a> na FEI VŠB-TUO.
+Slouží k získání přehledu o základních konceptech programovacího jazyka C.
+Není však plnohodnotnou náhradou za poslechy přednášek a návštěvy cvičení a programovat vás (stejně
+jako žádný jiný text) nenaučí, toho lze dosáhnout pouze opakovaným zkoušením a řešením různých úloh.
+Studentům tedy silně doporučujeme, aby přednášky a cvičení navštěvovali a hlavně aby se věnovali programování
+doma, alespoň několik hodin týdne.</p>
+<p>V tomto textu naleznete krátký popis programování a jazyka C, úvod do nastavení prostředí k editaci zdrojového kódu
+a zejména popis základních konstrukcí jazyka C (proměnné, funkce, podmínky, cykly, struktury, pole, ukazatele atd.)
+spolu se sadou úloh k procvičení jednotlivých témat. Pomocí lupy vlevo nahoře můžete v textu rychle vyhledávat,
+pokud potřebujete najít informace o konkrétním tématu.</p>
+<p>Tento text však není kompletním průvodcem jazykem C. Pro takovýto účel lze doporučit některý
+knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</p>
+<h3><a class="header" href="#programování" id="programování">Programování</a></h3>
+<p>Počítačový program je sekvence příkazů (nazývaných <strong>instrukce</strong>), které může počítač vykonat k vyřešení nějakého problému.
+Abychom mohli počítači říct, co má vykonávat, potřebujeme mu příkazy zadat ve formě, které bude rozumět.
+Ač se to možná nezdá, tak počítače umí vykonávat pouze velmi jednoduché příkazy. V podstatě umí pouze
+provádět aritmetické a logické operace (sečti/odečti/vynásob/vyděl) s čísly a manipulovat
+(ukládat, kopírovat, přesouvat) tato čísla v paměti. Veškeré složitější úkoly, jako třeba vykreslení
+obrázku na obrazovku, zapsání textu do dokumentu nebo simulace světa v počítačové hře je výsledkem
+kombinací tisíců či milionů takovýchto jednoduchých instrukcí.</p>
+<p>Zde je ukázka jednoduchého programu, který zdvojnásobí číslo pomocí příkazů <code>MOV</code> a <code>ADD</code>: </p>
+<pre><code class="language-x86asm">MOV EAX, 8
+ADD EAX, EAX
+</code></pre>
+<p>Pokud bychom programy psali pomocí těchto jednoduchých příkazů, tak by bylo složité se v nich vyznat,
+obzvláště, pokud by obsahovaly stovky, tisíce, miliony nebo dokonce miliardy takovýchto příkazů.
+Ideálně bychom chtěli programy zapisovat v přirozeném jazyce (<code>Vykresli čtverec na obrazovku</code>,
+<code>Zapiš text do dokumentu</code>), nicméně tomu počítače nerozumí a je velmi náročné
+jej převést na správnou sekvenci příkazů pro počítač, protože jazyky, které používáme,
+jsou často nejednoznačné a nemají jednotnou strukturu.</p>
+<p>Jako kompromis tak vznikly <strong>programovací jazyky</strong>, které umožňují zápis programů ve formě, která je
+lidem srozumitelná, ale zároveň ji lze relativně jednoduše převést na příkazy, které je schopen počítač
+provést. Převodu programu zapsaného v programovacím jazyce na počítačové instrukce se říká <strong>překlad</strong>
+(nebo také <em>kompilace</em>) a programy, které tento překlad provádějí, se nazývají <strong>překladače</strong> (nebo také <em>kompilátory</em>).
+Později si ukážeme, jak takovýto překladač použít k překladu kódu.</p>
+<p>Zde je ukázka programu v jazyce C:</p>
+<pre><code class="language-c">while (is_key_pressed(SPACE)) {
+    move_up(character);
+}
+</code></pre>
+<p>I někdo, kdo se s jazykem C nikdy nesetkal, může z tohoto programu zhruba odvodit, co asi dělá,
+pokud ho přečte jako větu v angličtině. Tento program však může být převeden na stovky až tisíce
+počítačových instrukcí a z takového množství příkazů už by bylo složité odvodit, k čemu je program
+určen.</p>
+<h3><a class="header" href="#jazyk-c" id="jazyk-c">Jazyk C</a></h3>
+<p>Existuje nespočet programovacích jazyků, například Python, Java, C#, PHP či Javascript. Každý z nich
+má své výhody a nevýhody a záleží na konkrétním problému, který je třeba vyřešit, pro zvolení
+vhodného programovacího jazyka.</p>
+<p>V tomto kurzu se budeme zabývat pouze programovacím jazykem <strong>C</strong>. Tento jazyk vytvořili
+Dennis Ritchie a Ken Thompson v laboratořích firmy Bell v roce 1972, tedy již před
+téměř 50 lety, a za tu dobu nedočkal mnoha výrazných změn.</p>
+<p>I když pro něj v dnešní době asi nenaleznete mnoho pracovních nabídek a není primární
+volbou pro tvorbu webových či mobilních aplikací, vyplatí se mu rozumět a umět ho používat, a to
+hned z několika důvodů:</p>
 <ul>
-<li>Rychlost. Program běží přímo na HW bez dalších mezivrstev,</li>
-<li>nižší paměťová náročnost. Máme plnou kontrolu nad pamětí.</li>
+<li>Jazyk C lze použít na téměř všech existujících platformách a je tak
+velmi univerzálním jazykem. Téměř veškerý existující software obsahuje kusy kódu v jazyce C. Operační systémy (Linux,
+OS X, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimediální programy (Photoshop,
+Powerpoint, Word, BitTorrent), hry (World of Warcraft, Quake, Doom, Call of Duty, League of Legends,
+DOTA 2, Fortnite), vestavěná zařízení (mikročipy, pračky, řídící jednotky vesmírných letadel nebo aut).
+Všechny tyto věci jsou buď z části anebo zcela poháněné jazykem C.</li>
+<li>Je to jednoduchý jazyk, který neobsahuje velké množství funkcionalit, které lze naleznout ve většině
+modernějších jazyků. Díky tomu se dá naučit za jeden semestr.</li>
+<li>Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce C tak lze zároveň
+pochopit, jak funguje počítač a operační systém. Díky tomu lze také při správném zacházení psát velmi
+efektivní programy (to ale nicméně není obsahem tohoto kurzu). </li>
+<li>Syntaxe (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznilky po něm. Jakmile se
+ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších jazyků (C++, C#,
+Java, Kotlin, Javascript, PHP, Rust, ...). </li>
 </ul>
-<p><strong>Nevýhody:</strong></p>
-<ul>
-<li>Je nutné provádět po každé změně kódu kompilaci,</li>
-<li>obtížnější údržba, vývoj a správa kódu.</li>
-</ul>
-<h2><a class="header" href="#programovací-jazyk-c" id="programovací-jazyk-c">Programovací jazyk C</a></h2>
-<p>Jazyk C je kompilovaný, procedurální, a strukturovaný programovací
-jazyk, který v roce 1972 navrhli Dennis Ritchie and Ken Thompson. Jazyk
-C je ISO standardem, jehož poslední revizí je C18 (ISO/IEC 9899:2018
-[@iso-c18]). Pro jazkyk C existuje několik kompilátorů. Namátkou vyberme
-např.: <a href="https://www.gnu.org/software/gcc/">GCC</a>, Clang, Intel C, Microsoft Visual C++.</p>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">3</sup>
-<p>https://en.wikipedia.org/wiki/Restrict</p>
-</div>
-<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
-<p>http://kernel.org</p>
-</div>
-<div class="footnote-definition" id="3"><sup class="footnote-definition-label">1</sup>
-<p>The C++ Build Process Explained, http://github.com/green7ea/cpp-compilation</p>
-</div>
+<p>Jazyk C má samozřejmě také řadu nevýhod. Vzhledem k jeho stáří a omezené sadě funkcionalit je často
+značně pracnější a zdlouhavější pomocí něho dosáhnout stejného výsledku než u modernějších programovacích
+jazyků. Nevede také programátory za ručičku – při psaní programu v jazyce C je velmi jednoduché udělat
+chybu, která může způsobit v lepším případě pád programu, v horším případě může běžící program poškodit
+tak, že začne vydávat chybný výstup nebo se začně chovat nepředvídatelně.</p>
+<p>Tyto chyby se můžou projevit jen někdy, nebo jenom na určité kombinaci hardwaru či operačního systému,
+a programátor na ně není často nijak upozorněn a musí je najít ručně zkoumáním
+zdrojového kódu. Podobný typ chyb je také nejčastějším zdrojem bezpečnostních děr ve všech možných softwarech,
+které (jak už víme) téměř vždy obsahují alespoň část kódu napsaného v &quot;Céčku&quot;.</p>
 
                     </main>
 
@@ -223,10 +250,6 @@ např.: <a href="https://www.gnu.org/software/gcc/">GCC</a>, Clang, Intel C, Mic
                         <!-- Mobile navigation buttons -->
                         
 
-                        
-                            <a rel="next" href="uvod_vyvojove_prostredi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -237,10 +260,6 @@ např.: <a href="https://www.gnu.org/software/gcc/">GCC</a>, Clang, Intel C, Mic
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
 
-                
-                    <a rel="next" href="uvod_vyvojove_prostredi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 

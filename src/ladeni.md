@@ -48,7 +48,7 @@ zkoumat hodnoty proměnných a spouštět program řádek po řádku.
 Pro vás je nejjednodušší použít krokování integrované ve VSCode:
 - Klikněte na sloupeček vlevo od čísla řádku, na kterém chcete, aby se program zastavil.
 Objeví se tam červené kolečko (tzv. **breakpoint**).
-- Spusťte program s laděním (`Ctrl + F5`). Program by se na řádku s breakpointem měl zastavit.
+- Spusťte program s laděním (`F5`). Program by se na řádku s breakpointem měl zastavit.
 - Ve sloupci `Variables` v levé části VSCode můžete prozkoumat hodnoty proměnných.
 - Pomocí příkazu `Step Over` (`F10`) program vykoná následující řádek a poté se opět zastaví. Pokud
 nechcete přeskakovat volání funkcí, použijte `Step Into` (`F11`).

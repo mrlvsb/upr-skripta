@@ -7,7 +7,7 @@ Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Colle
 Překladač GCC, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
 příkazem:
 ```bash
-sudo apt-get install build-essential
+sudo apt install build-essential
 ```
 
 ## Překlad prvního programu
@@ -18,7 +18,7 @@ jak tento kód funguje):
 #include <stdio.h>
 
 int main(int argc, char **argv) {
-    printf("Hello world!");
+    printf("Hello world!\n");
 }
 ```
 

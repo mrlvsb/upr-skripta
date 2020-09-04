@@ -4,13 +4,10 @@ budeme používat jiný program, kterému se říká překladač.
 Překladačů jazyka C existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
 Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection). 
 
-Překlad budeme používat jednak ručně v terminálu, tak i integrovaně v editoru VSCode,
-k čemuž bude sloužit konfigurační nástroj [CMake](https://cmake.org/).
-
 Překladač GCC, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
 příkazem:
 ```bash
-sudo apt-get install cmake build-essential
+sudo apt-get install build-essential
 ```
 
 ## Překlad prvního programu
@@ -50,21 +47,6 @@ $ ./program
 Hello world!
 ```
 Program by měl na výstup vytisknout text `Hello world!`.
-
-### Překlad ve VSCode pomocí CMake
-Pokud chcete překládat program automatizovaně ve VSCode, musíte vytvořit CMake projekt, který popisuje,
-z jakých zdrojových souborů se váš program skládá. CMake projekt je definován souborem s názvem `CMakeLists.txt`,
-který musí být umístěn ve složce, kterou otevřete ve VSCode. Ukázkový `CMakeLists.txt` soubor může vypadat např. takto:
-```cmake
-cmake_minimum_required(VERSION 3.0)
-project(hello-world) # název projektu
-
-# vytvoř spustitelný soubor s názvem `main`,
-# který se přeloží ze zdrojového souboru s názvem `main.c`
-add_executable(main main.c)
-```
-
-> Text za `#` je komentář, který neovlivňuje chování CMake.
 
 ### Knihovny
 > Tuto sekci budete potřebovat až při práci s knihovnami, pokud jste na začátku, tak ji můžete přeskočit.
@@ -121,22 +103,4 @@ Pokud pro naši knihovnu ve výstupu není uvedena správná cesta, musíme při
 
 ```bash
 $ LD_LIBRARY_PATH=/usr/foo/lib ./program
-```
-
-#### Použití knihoven pomocí CMake
-Knihovny můžete nastavit i pomocí CMake:
-```cmake
-cmake_minimum_required(VERSION 3.0)
-project(hello-world
-
-add_executable(main main.c)
-
-# obdoba -I /usr/lib/mylibrary/include
-target_include_directories(main PRIVATE /usr/lib/mylibrary/include)
-
-# obdoba -l mylibrary
-target_link_libraries(main mylibrary)
-
-# obdoba -L /usr/lib/mylibrary/lib
-link_directories(/usr/lib/mylibrary/lib)
 ```

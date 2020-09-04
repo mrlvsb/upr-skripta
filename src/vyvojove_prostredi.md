@@ -14,7 +14,6 @@ tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V termin�
 
 ```bash
 $ code --install-extension ms-vscode.cpptools
-$ code --install-extension ms-vscode.cmake-tools
 ```
 
 > Návod pro práci s terminálem na Linuxu můžete najít např. [zde](https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l).
@@ -22,7 +21,6 @@ $ code --install-extension ms-vscode.cmake-tools
 ### Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
 1. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
 2. Vyhledejte rozšíření C/C++ a nainstalujte ho
-3. Vyhledejte rozšíření CMake Tools a nainstalujte ho
 
 ## Ukázka nastavení projektu
 Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)
@@ -31,6 +29,6 @@ Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-cou
 <img src="https://raw.githubusercontent.com/geordi/upr-course/master/assets/images/vsc_first_run.gif" width="90%"/>
 
 ### Užitečné zkratky 
-- Spustit program (s laděním) - Ctrl + F5
+- Spustit program - F5
 - Naformátovat kód - Ctrl + Shift + I
 - Zobrazit vyhledávač akcí - Ctrl + Shift + P

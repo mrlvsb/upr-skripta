@@ -23,6 +23,13 @@ byla vypsána jako první, zbytek výpisu může být "planý poplach".
 
 Pokud se vám nedaří chybu vygooglit, tak kontaktujte svého cvičícího.
 
+Při překladu můžete použít dodatečné přepínače, při jejichž použití vydá překladač více varování o možných
+problémových místech ve vašem kódu:
+
+```bash
+$ gcc -Wall -Wextra -pedantic main.c -o program
+``` 
+
 ### Chyby při běhu programu
 Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:
 

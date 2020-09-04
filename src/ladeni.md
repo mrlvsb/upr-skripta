@@ -17,7 +17,11 @@ Tato konkrétní chyba byla způsobena tím, že byla použitá proměnná bez p
 chybě nerozumíte, zkuste ji nejprve vygooglit, ideálně pouze část, která není konkrétně závislá na
 podobě vašeho projektu (nemá cenu googlit `main.c:2:2`, protože chyba může nastat kdekoliv).
 
-Pokud se vám nedaří chybu vygooglit, nerozumíte ji a nevíte si s ní tedy rady, kontaktujte svého cvičícího.
+Může se stát, že překladač vypíše více chybových hlášek zároveň, i když chyba
+v programu je pouze jedna. Zkuste scrollovat výstupem chyb nahoru, abyste zjistili, která chyba
+byla vypsána jako první, zbytek výpisu může být "planý poplach".
+
+Pokud se vám nedaří chybu vygooglit, tak kontaktujte svého cvičícího.
 
 ### Chyby při běhu programu
 Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:

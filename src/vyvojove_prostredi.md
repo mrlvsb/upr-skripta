@@ -1,0 +1,36 @@
+# Vývojové prostředí
+Abychom mohli přeložit a spustit nějaký program, musíme ho obvykle nejprve zapsat do
+jednoho nebo více souborů ve formě tzv. **zdrojového kódu** (*source code*). K usnadnění tohoto procesu
+existují textové editory a vývojová prostředí jako například `MS Visual Studio`, `QtCreator`, `JetBrains CLion`,
+`CodeBlocks`, `Visual Studio Code`, `vim`, `emacs` apod. Tyto programy usnadňují psaní kódu pomocí zvýrazňování
+syntaxe, automatizace překladu, spouštění a testování programů a také správy projektů.
+
+Na cvičeních UPR budeme používat editor `Visual Studio Code`, který je
+[zdarma dostupný](https://code.visualstudio.com/). Níže je krátký návod k použití tohoto programu.
+
+### Instalace potřebných rozšíření (pomocí terminálu)
+VSCode podporuje spoustu programovacích jazyků pomocí různých rozšíření, po první instalaci VSCode
+tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V terminálu spusťte tyto příkazy:
+
+```bash
+$ code --install-extension ms-vscode.cpptools
+$ code --install-extension ms-vscode.cmake-tools
+```
+
+> Návod pro práci s terminálem na Linuxu můžete najít např. [zde](https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l).
+
+### Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
+1. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
+2. Vyhledejte rozšíření C/C++ a nainstalujte ho
+3. Vyhledejte rozšíření CMake Tools a nainstalujte ho
+
+## Ukázka nastavení projektu
+Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)
+šablonu.
+
+<img src="https://raw.githubusercontent.com/geordi/upr-course/master/assets/images/vsc_first_run.gif" width="90%"/>
+
+### Užitečné zkratky 
+- Spustit program (s laděním) - Ctrl + F5
+- Naformátovat kód - Ctrl + Shift + I
+- Zobrazit vyhledávač akcí - Ctrl + Shift + P

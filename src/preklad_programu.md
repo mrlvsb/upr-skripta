@@ -4,7 +4,7 @@ budeme používat jiný program, kterému se říká překladač.
 Překladačů jazyka C existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
 Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection). 
 
-Překladač GCC, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
+Překladač `gcc`, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
 příkazem:
 ```bash
 sudo apt install build-essential
@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
 > Podobný jednoduchý program je obvykle tím prvním, co programátor v nějakém novém programovacím
 > jazyce vytvoří.
 
-Nyní otevřete terminál ve složce s tímto souborem, spusťte program GCC a předejte mu cestu
+Nyní otevřete terminál ve složce s tímto souborem, spusťte program `gcc` a předejte mu cestu
 k tomuto souboru:
 
 ```bash
@@ -65,13 +65,13 @@ spustitelného kódu.
 
 > Více o knihovnách se můžete dozvědět například [zde](https://www.itnetwork.cz/cecko/linux/cecko-a-linux-staticke-a-dynamicke-knihovny).
 
-#### Použití knihoven pomocí GCC
+#### Použití knihoven pomocí `gcc`
 Abyste ve vašem programu použili nějakou knihovnu, musíte ji k vašemu programu tzv. **přilinkovat**.
-O to se stará tzv. **linker**, který za vás umí spustit překladač GCC.
+O to se stará tzv. **linker**, který za vás umí spustit překladač `gcc`.
 
 Dejme tomu, že chcete použít knihovnu s názvem `foo`, která obsahuje hlavičkové soubory v adresáři
 `/usr/foo/include` and zkompilovaný knihovní soubor v adresáři `/usr/foo/lib/libfoo.so`. Překladači
-GCC musíte říct, kde jsou umístěny knihovní soubory pomocí přepínače `-L`, které konkrétní soubory chcete
+`gcc` musíte říct, kde jsou umístěny knihovní soubory pomocí přepínače `-L`, které konkrétní soubory chcete
 přilinkovat pomocí přepínače `-l` a kde jsou umístěny hlavičkové soubory pomocí přepínače `-I`:
 
 ```bash
@@ -79,8 +79,8 @@ $ gcc -o program main.c -L/usr/foo/lib/ -lfoo -I/usr/foo/include
 ```
 
 Používá se konvence, že pokud je název knihovního souboru `lib<nazev>.so`, tak název knihovny je `<nazev>`,
-pro GCC se tedy zadá pouze `-l<nazev>` a ne `-llib<nazev>.so`. Přepínače `-l` by měly být vpravo (za)
-názvy zdrojových souborů. Všechny tři tyto přepínače lze použít vícekrát v rámci jednoho spuštění GCC.
+pro `gcc` se tedy zadá pouze `-l<nazev>` a ne `-llib<nazev>.so`. Přepínače `-l` by měly být vpravo (za)
+názvy zdrojových souborů. Všechny tři tyto přepínače lze použít vícekrát v rámci jednoho spuštění `gcc`.
 
 Poté ve zdrojovém souboru vložíte hlavičkové soubory knihovny a můžete používat funkce, které nabízí.
 

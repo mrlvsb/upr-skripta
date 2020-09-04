@@ -14,6 +14,12 @@ pokud potřebujete najít informace o konkrétním tématu.
 Tento text však není kompletním průvodcem jazykem C. Pro takovýto účel lze doporučit některý
 knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf).
 
+Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů terminálu
+v tomto textu předpokládají použití tohoto operačního systému, konkrétně prostředí `Ubuntu`.
+
+> Tento text je psán česky, nicméně hlavním jazykem programování je angličtina. Přeložené pojmy,
+> které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce *kurzívou*.  
+
 ### Programování
 Počítačový program je sekvence příkazů (nazývaných **instrukce**), které může počítač vykonat k vyřešení nějakého problému.
 Abychom mohli počítači říct, co má vykonávat, potřebujeme mu příkazy zadat ve formě, které bude rozumět.
@@ -39,7 +45,7 @@ jsou často nejednoznačné a nemají jednotnou strukturu.
 Jako kompromis tak vznikly **programovací jazyky**, které umožňují zápis programů ve formě, která je
 lidem srozumitelná, ale zároveň ji lze relativně jednoduše převést na příkazy, které je schopen počítač
 provést. Převodu programu zapsaného v programovacím jazyce na počítačové instrukce se říká **překlad**
-(nebo také *kompilace*) a programy, které tento překlad provádějí, se nazývají **překladače** (nebo také *kompilátory*).
+(*compilation*) a programy, které tento překlad provádějí, se nazývají **překladače** (*compilers*).
 Později si ukážeme, jak takovýto překladač použít k překladu kódu.
 
 Zde je ukázka programu v jazyce C:
@@ -78,7 +84,7 @@ modernějších jazyků. Díky tomu se dá naučit za jeden semestr.
 - Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce C tak lze zároveň
 pochopit, jak funguje počítač a operační systém. Díky tomu lze také při správném zacházení psát velmi
 efektivní programy (to ale nicméně není obsahem tohoto kurzu). 
-- Syntaxe (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznilky po něm. Jakmile se
+- **Syntaxe** (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznilky po něm. Jakmile se
 ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších jazyků (C++, C#,
 Java, Kotlin, Javascript, PHP, Rust, ...). 
 

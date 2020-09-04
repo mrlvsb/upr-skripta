@@ -29,6 +29,6 @@ Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-cou
 <img src="https://raw.githubusercontent.com/geordi/upr-course/master/assets/images/vsc_first_run.gif" width="90%"/>
 
 ### Užitečné zkratky 
-- Spustit program - F5
-- Naformátovat kód - Ctrl + Shift + I
-- Zobrazit vyhledávač akcí - Ctrl + Shift + P
+- Spustit program - `F5`
+- Naformátovat kód - `Ctrl + Shift + I`
+- Zobrazit vyhledávač akcí - `Ctrl + Shift + P`

@@ -1,11 +1,11 @@
 /* Base16 Atelier Dune Light - Theme */
 /* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
-
 /* Atelier-Dune Comment */
+.ace_comment,
 .hljs-comment,
 .hljs-quote {
-  color: #AAA;
+  color: #AAA !important;
 }
 
 /* Atelier-Dune Red */
@@ -23,6 +23,9 @@
 }
 
 /* Atelier-Dune Orange */
+.ace_keyword,
+.ace_constant,
+.ace_function,
 .hljs-number,
 .hljs-meta,
 .hljs-built_in,
@@ -30,14 +33,15 @@
 .hljs-literal,
 .hljs-type,
 .hljs-params {
-  color: #b65611;
+  color: #b65611 !important;
 }
 
 /* Atelier-Dune Green */
+.ace_string,
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet {
-  color: #60ac39;
+  color: #60ac39 !important;
 }
 
 /* Atelier-Dune Blue */
@@ -47,9 +51,11 @@
 }
 
 /* Atelier-Dune Purple */
+.ace_type,
+.ace_control,
 .hljs-keyword,
 .hljs-selector-tag {
-  color: #b854d4;
+  color: #b854d4 !important;
 }
 
 .hljs {

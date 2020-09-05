@@ -12,6 +12,10 @@ create-missing = false
 git-repository-url = "https://github.com/geordi/upr-skripta"
 default-theme = "rust"
 preferred-dark-theme = "rust"
+additional-js = [
+  "theme/mode-c_cpp.min.js",
+]
+
 
 [output.html.playground]
 editable = true

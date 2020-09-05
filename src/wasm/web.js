@@ -38,6 +38,8 @@ window.addEventListener('load', () => {
       "bindKey": "Ctrl-Enter",
       "exec": run,
     });
+    editor.getSession().setMode("ace/mode/c_cpp");
+
 
     const initOrMoveTerm = () => {
       if(!term) {

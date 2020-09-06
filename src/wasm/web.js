@@ -48,6 +48,7 @@ window.addEventListener('load', () => {
 
       if(!localTerm) {
         termEl = document.createElement('div');
+        termEl.classList.add('term-container');
         container.appendChild(termEl);
         localTerm = new Terminal({
           convertEol: true,
@@ -64,6 +65,18 @@ window.addEventListener('load', () => {
     btn.classList.add('fa');
     btn.classList.add('fa-play');
     btn.onclick = () => run();
+    el.insertBefore(btn, el.firstChild);
+
+    btn = document.createElement('button')
+    btn.classList.add('fa');
+    btn.classList.add('fa-arrows-alt');
+    btn.onclick = () => {
+      container.classList.toggle('fullscreen-editor');
+      document.body.classList.toggle('fullscreen');
+      initOrMoveTerm();
+      localTerm.fit();
+      editor.resize();
+    };
     el.insertBefore(btn, el.firstChild);
   });
 });

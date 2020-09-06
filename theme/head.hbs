@@ -3,8 +3,42 @@
 <script src="wasm/fit.min.js"></script>
 <script src="wasm/shared.js"></script>
 <script src="wasm/web.js"></script>
+
+<!--<script src="https://kelvin.cs.vsb.cz/upr/build/bundle.js" async></script>-->
+
+
 <style>
 .xterm {
   margin-top: 10px;
+}
+
+.fullscreen-editor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+  margin: 0;
+  padding-top: 4px;
+}
+
+.fullscreen-editor .ace_editor {
+  height: 60% !important;
+}
+.fullscreen-editor .term-container {
+  height: 40% !important;
+}
+
+.fullscreen a[rel=next], .fullscreen #menu-bar {
+  display: none;
+}
+
+.fullscreen-editor {
+  background: var(--bg);
+}
+
+body.fullscreen {
+  overflow: hidden;
 }
 </style>

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="cs" class="sidebar-visible no-js light">
+<html lang="cs" class="sidebar-visible no-js rust">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -9,7 +9,17 @@
 
 
         <!-- Custom HTML head -->
-        
+        <link rel="stylesheet" href="wasm/xterm.min.css" />
+<script src="wasm/xterm.min.js"></script>
+<script src="wasm/fit.min.js"></script>
+<script src="wasm/shared.js"></script>
+<script src="wasm/web.js"></script>
+<style>
+.xterm {
+  margin-top: 10px;
+}
+</style>
+<script src="https://kelvin.cs.vsb.cz/upr/animations.js"></script>
 
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -48,7 +58,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -74,7 +84,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('rust')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -93,7 +103,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="uvod_vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="uvod_syntaxe.html"><strong aria-hidden="true">1.2.</strong> Syntaxe</a></li></ol></li><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.</strong> Proměnné a typy</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.1.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html" class="active"><strong aria-hidden="true">2.2.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.3.</strong> Porovnání, testy, pravdivost</a></li></ol></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">3.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">4.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">5.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">5.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">5.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html" class="active"><strong aria-hidden="true">1.1.</strong> Pole</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -112,8 +122,8 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -172,35 +182,52 @@ pole na stacku, které nemusíme dealokovat. Jeho platnost je však pouze v
 rámci bloku, ve kterém je deklarováno, např. tedy funkce. Takové pole
 také nelze z funkce vrátit pomocí klíčového slova <code>return</code>. Pojďme si nyní
 ukázat, jak je možno s poli pracovat.</p>
-<pre><code class="language-c">char str[] = &quot;Ahoj&quot;;
-printf( &quot;%c %c %c %c\n&quot;, ret[ 0 ], ret[ 1 ], ret[ 2 ], ret[ 3 ] );
-// A h o j
+<upr-container>
+  <upr-array array='["A", "h", "o", "j", "\\0"]' highlight='{"4": "muted"}'></upr-array>
+  <upr-arrow src-anchor="north" dst=".index-4" dst-anchor="south" ctrl-distance="-15">
+    ukončovací nula
+  </upr-arrow>
+</upr-container>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+  char str[] = &quot;Ahoj&quot;;
+  printf( &quot;%c %c %c %c\n&quot;, str[ 0 ], str[ 1 ], str[ 2 ], str[ 3 ] );
+  // A h o j
+}
 </code></pre>
 <p>Z uvedeného příkladu vyplývá, že k jednotlivým prvkům pole se přistupuje
 přes operátor hranaté závorky (<code>[]</code>).</p>
 <p>Pole můžeme též modifikovat. Nejjednodušeji lze modifikovat určitý prvek
 pole tak, že jej indexujeme a do takto indexovaného prvku přiřadíme
 požadovanou hodnotu. Stávající hodnota se v poli přepíše hodnotou novou.</p>
-<pre><code class="language-c">char str[] str = &quot;Ahoj&quot;;
-printf( &quot;%s\n&quot;, str );  // Ahoj
-str[ 1 ] = 'A'
-printf( &quot;%s\n&quot;, str );  // AAoj
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+  char str[] = &quot;Ahoj&quot;;
+  printf( &quot;%s\n&quot;, str );  // Ahoj
+  str[ 1 ] = 'A';
+  printf( &quot;%s\n&quot;, str );  // AAoj
+}
 </code></pre>
+<h2><a class="header" href="#příklady" id="příklady">Příklady</a></h2>
+<h3><a class="header" href="#suma-pole" id="suma-pole">Suma pole</a></h3>
+<p><upr-array-sum array="[1, 2, 3, 4, 5]"></upr-array-sum></p>
+<h3><a class="header" href="#minimální-hodnota-v-poli" id="minimální-hodnota-v-poli">Minimální hodnota v poli</a></h3>
+<p><upr-array-min array="[5, 6, 3, 4, 1]"></upr-array-min></p>
+<h3><a class="header" href="#převrácení-pole" id="převrácení-pole">Převrácení pole</a></h3>
+<p><upr-array-reverse array="[1, 2, 3, 4, 5]"></upr-array-reverse></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="promenne_a_typy_jednoduche.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="uvod.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="promenne_a_typy_porovnani.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -210,15 +237,11 @@ printf( &quot;%s\n&quot;, str );  // AAoj
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="promenne_a_typy_jednoduche.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="uvod.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="promenne_a_typy_porovnani.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
@@ -237,6 +260,12 @@ printf( &quot;%s\n&quot;, str );  // AAoj
         
 
         
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
 
         
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
@@ -249,6 +278,8 @@ printf( &quot;%s\n&quot;, str );  // AAoj
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="theme/mode-c_cpp.min.js"></script>
         
 
         

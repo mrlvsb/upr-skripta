@@ -18,6 +18,31 @@ let term;
 let api;
 
 window.addEventListener('load', () => {
+  function foldMain(session) {
+    function searchRow(needle, args) {
+      const Search = ace.require('ace/search').Search;
+      let s = new Search();
+      s.set({needle: needle, ...args});
+      let result = s.find(session);
+      return result ? result.start.row : -1;
+    }
+
+    let mainRow = searchRow("int main");
+    let folding = null;
+    if(mainRow >= 0) {
+      let beginFold = session.addFold("main", new ace.Range(0, 0, mainRow, Infinity));
+      let endBlock = searchRow("}", {backwards: true});
+      if(endBlock >= 0) {
+        let endFold = session.addFold("", new ace.Range(endBlock, 0, Infinity, Infinity));
+        session.on('changeFold', function(evt) {
+          if(evt.action == 'remove' && evt.data == beginFold) {
+            session.unfold(endFold);
+          }
+        });
+      }
+    }
+  }
+
   document.querySelectorAll('pre .buttons').forEach(el => {
     let container = el.closest('pre');
     let editorEl = container.querySelector('.ace_editor');
@@ -26,6 +51,10 @@ window.addEventListener('load', () => {
     }
     let editor = editorEl.env.editor;
     let localTerm;
+
+    if(container.querySelector('code').classList.contains("mainbody")) {
+      foldMain(editor.session);
+    }
 
     const run = debounceLazy(async () => {
       initOrMoveTerm();

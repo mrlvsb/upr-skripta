@@ -11,6 +11,8 @@ sudo apt install build-essential
 ```
 
 ## Překlad prvního programu
+Ještě než si ukážeme, jak vlastně programovací jazyk C funguje, tak zkusíme přeložit velmi jednoduchý
+C program do spustitelného souboru a spustit jej.
 Vytvořte soubor s názvem `main.c` a nakopírujte do něj následující C kód (později si vysvětlíme,
 jak tento kód funguje):
 
@@ -26,8 +28,8 @@ int main(int argc, char **argv) {
 > Podobný jednoduchý program je obvykle tím prvním, co programátor v nějakém novém programovacím
 > jazyce vytvoří.
 
-Nyní otevřete terminál ve složce s tímto souborem, spusťte program `gcc` a předejte mu cestu
-k tomuto souboru:
+Nyní otevřete terminál (`Ctrl + Alt + T` v Ubuntu) ve složce s tímto souborem, spusťte program
+`gcc` a předejte mu cestu k tomuto souboru:
 
 ```bash
 $ gcc main.c -o program

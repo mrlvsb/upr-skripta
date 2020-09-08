@@ -14,6 +14,19 @@
  * limitations under the License.
  */
 
+const wasmCache = {
+  async get(filename) {
+    const cache = await caches.open('wasm');
+    let cached = await cache.match(filename);
+    if(cached) {
+      return cached;
+    }
+    const response = await fetch(filename);
+    cache.put(filename, response.clone());
+    return response;
+  }
+};
+
 function sleep(ms) {
   return new Promise((resolve, _) => setTimeout(resolve, ms));
 }
@@ -483,9 +496,9 @@ class API {
     this.readBuffer = options.readBuffer;
     this.compileStreaming = options.compileStreaming;
     this.hostWrite = options.hostWrite;
-    this.clangFilename = options.clang || 'clang';
-    this.lldFilename = options.lld || 'lld';
-    this.sysrootFilename = options.sysroot || 'sysroot.tar';
+    this.clangFilename = options.clang || (options.wasmBasePath + 'clang.wasm');
+    this.lldFilename = options.lld || (options.wasmBasePath + 'lld.wasm');
+    this.sysrootFilename = options.sysroot || (options.wasmBasePath + 'sysroot.tar');
     this.showTiming = options.showTiming || false;
 
     this.clangCommonArgs = [
@@ -502,7 +515,7 @@ class API {
     this.memfs = new MemFS({
       compileStreaming : this.compileStreaming,
       hostWrite : this.hostWrite,
-      memfsFilename : options.memfs || 'memfs',
+      memfsFilename : options.memfs || (options.wasmBasePath + 'memfs.wasm'),
     });
     this.ready = this.memfs.ready.then(
         () => { return this.untar(this.memfs, this.sysrootFilename); });

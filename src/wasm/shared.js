@@ -496,8 +496,8 @@ class API {
     this.readBuffer = options.readBuffer;
     this.compileStreaming = options.compileStreaming;
     this.hostWrite = options.hostWrite;
-    this.clangFilename = options.clang || (options.wasmBasePath + 'clang');
-    this.lldFilename = options.lld || (options.wasmBasePath + 'lld');
+    this.clangFilename = options.clang || (options.wasmBasePath + 'clang.wasm');
+    this.lldFilename = options.lld || (options.wasmBasePath + 'lld.wasm');
     this.sysrootFilename = options.sysroot || (options.wasmBasePath + 'sysroot.tar');
     this.showTiming = options.showTiming || false;
 
@@ -515,7 +515,7 @@ class API {
     this.memfs = new MemFS({
       compileStreaming : this.compileStreaming,
       hostWrite : this.hostWrite,
-      memfsFilename : options.memfs || (options.wasmBasePath + 'memfs'),
+      memfsFilename : options.memfs || (options.wasmBasePath + 'memfs.wasm'),
     });
     this.ready = this.memfs.ready.then(
         () => { return this.untar(this.memfs, this.sysrootFilename); });

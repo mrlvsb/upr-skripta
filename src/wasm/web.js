@@ -87,6 +87,7 @@ window.addEventListener('load', () => {
         localTerm.fit();
         term = localTerm;
       }
+      term = localTerm;
     };
 
     let btn = document.createElement('button')

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Jednoduché datové typy - Úvod do programování</title>
+        <title>Překlad - Úvod do programování</title>
         
         
 
@@ -103,7 +103,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="preklad_programu.html"><strong aria-hidden="true">1.2.</strong> Překlad</a></li><li class="chapter-item expanded "><a href="ladeni.html"><strong aria-hidden="true">1.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> Jazyk C</li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.1.</strong> Proměnné a typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html" class="active"><strong aria-hidden="true">2.2.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.3.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.4.</strong> Porovnání, testy, pravdivost</a></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">2.5.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">2.6.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">2.7.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">2.7.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">2.7.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Principy počítačů</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> Alokace paměti</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> Procesy</li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="preklad_programu.html" class="active"><strong aria-hidden="true">1.2.</strong> Překlad</a></li><li class="chapter-item expanded "><a href="ladeni.html"><strong aria-hidden="true">1.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> Jazyk C</li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.1.</strong> Proměnné a typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.2.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.3.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.4.</strong> Porovnání, testy, pravdivost</a></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">2.5.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">2.6.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">2.7.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">2.7.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">2.7.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Principy počítačů</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> Alokace paměti</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> Procesy</li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -173,102 +173,104 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#jednoduché-datové-typy" id="jednoduché-datové-typy">Jednoduché datové typy</a></h2>
-<p>Nyní si ve stručnosti ukážeme základní datové typy.</p>
-<p><strong>Čísla</strong>: <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code></p>
-<ul>
-<li><code>23</code> <code>2345837934346901268</code> <code>0x17</code> <code>3.4</code></li>
-<li>operátory: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>&amp;&amp;</code> <code>||</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></li>
-</ul>
-<p><strong>Cvičení:</strong> Napište jednoduchý program pro práci s čísly.
-Vyzkoušejte si operátory.</p>
-<p><strong>Cvičení:</strong> Napište program pro jednoduché počítání.
-Provádějte operace s čísly jako na kalkulátoru. Pokuste se použít
-proměnné a závorky.</p>
-<h2><a class="header" href="#práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string" id="práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string">Práce s dynamicky alokovanou pamětí a řetězci znaků (string)</a></h2>
-<p>Typická literatura se zabývá prací s dynamicky alokovanou pamětí až v
-pozdějších kapitolách. Dovolme si lehký komentář, když vyslovíme
-tvrzení, že ,,pak jsou z toho všichni ztraceni”. Zkusme se tedy podívat
-na práci s dynamicky alokovanou pamětí hned na začátku, aby nás pak
-práce s ní zbytečně nepřekvapovala.</p>
-<p>Doposud jsme viděli vytváření celočíselných proměnných, které
-reprezentují jedno číslo. Co když ale potřebujeme, aby bylo těchto čísel
-více? Odpověď je snadná. Použijeme dynamicky alokované pole čísel. (Ano,
-i staticky alokované pole je možnost, ale nesmí být příliš veliké
-(dlouhé)). Na druhou stranu, dynamicky alokované pole by zase nemělo být
-příliš krátké.</p>
-<p>Při programování v jazyce C máme k dispozici dva druhy paměti. Jsou to:
-<strong>stack</strong> (česky <strong>zásobník</strong>) a <strong>heap</strong> (česky <strong>halda</strong>). Když jsme
-definovali celočíselné promenné v předchozí části, jejich obsah
-(hodnoty) se ukládal na stacku. Programům je však k dispizici jen
-omezený stack (např. 32 MB). Když chceme využívat v našich programech
-více paměti, musíme použít heap.</p>
-<p>Pro to, abychom si od operačního systému (OS) vyžádali nějakou paměť na
-heapu, používáme funkci <code>malloc</code>, která nám vrátí pointer (ukazatel) na začátek
-takovéto paměti. Zajisté znáte anglické tvrzení: ,,There’s nothing like
-a free lunch”. I za takto poskytnutou paměť se nějakým způsobem platí.
-Jazyk C nemá automatickou správu paměti, a proto ji musíme vlastnoručně
-OS vrátit, když ji již nepotřebujeme. K tomu nám slouží funkce <code>free</code>
-(jak příznačný název).</p>
-<p>Pojďme se podívat na příklady použití. Stringy (řetězce znaků) jsou
-typickým příkladem, kdy potřebujeme nějaké pole pro reprezentaci více
-hodnot (třeba nějakých vět, ale také často textových dat).</p>
-<pre><code class="language-c">char c = 'A';  // umoznuje reprezentaci pouze jednoho znaku
-char * str = NULL;
-str = (char *)malloc( 20 * sizeof( str[ 0 ] ) );
-
-sprintf( str, &quot;Hello, World!&quot; );
-
-printf( &quot;str: '%s'\n&quot;, str ); // str: 'Hello, World!'
-printf( &quot;str length: %d\n&quot;, strlen( str ) ); // 13
-
-free( str ); // pointer na str jiz nepotrebuji, vracim pamet
-
-str = NULL;  // jsem slusny a pointer nastavim na NULL,
-             // aby bylo jasne, ze nikam neukazuje
+                        <h1><a class="header" href="#překlad-programu" id="překlad-programu">Překlad programu</a></h1>
+<p>Pro překlad programu z jazyka C do <strong>spustitelného</strong> (<em>executable</em>) souboru
+budeme používat jiný program, kterému se říká překladač.
+Překladačů jazyka C existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
+Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong></a> (GNU Compiler Collection). </p>
+<p>Překladač <code>gcc</code>, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
+příkazem:</p>
+<pre><code class="language-bash">sudo apt install build-essential
 </code></pre>
-<p>To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
-jazyku C řící tak, že deklarace proměnné bude pointerem, který bude
-ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
-proměnné napíšeme znak <code>*</code>. Funkce <code>malloc</code> nám vrací tzv. pointer na úsek paměti o
-velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí
-funkce pointer na tzv. <code>NULL</code>. Toto bychom měli řádně zkontrolovat, ale pro
-přehlednost příkladu to není uvedeno. Velikost paměti, kterou od OS
-požadujeme se uvádí v bytech (česky bajtech). Každý datový typ vyžaduje
-pro uložení informace nějaký počet bytů. Nejměnší datový typ <code>char</code> požaduje 4
-byty. Typ <code>int</code>, pro uložení celých čísel, vyžaduje typicky 4 byty. Reálná
-čísla uložená v typu <code>float</code> vyžadují 4 byty a reálná čísla uložená v typu <code>double</code>
-vyžadují 8 bytů. Každá platfroma, na které bude náš program přeložen
-však může datovým typům přiřadit jiný počet bytů. Abychom si nemuseli
-pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce C operátor <code>sizeof</code>,
-který nám vrátí, kolik bytů zadaný typ vyžaduje. Potom již jen toto
-číslo stačí přenásobit požadovanou délkou pole. V našem příkladu
-požadujeme délku řetězce 20 znaků. Jazyk C nebyl zcela jistě konstruován
-pro práci se stringy... Pro to, abychom naše pole znaků naplnili nějakým
-obsahem, musíme použít funkci <code>sprintf</code>. Ta bere jako první parametr ukazatel na
-paměť, kde má řetězec uložit, druhým parametrem je pak jaký řetězec se
-má vložit. Případný třetí parametr pak může obsahovat proměnné, jejichž
-obsah chceme vložit do formátovacího řetězce. Obsah proměnné <code>str</code> je pak
-tištěn ve funkci <code>printf</code>. Délku řetězce je možno zjistit funkcí <code>strlen</code>, která vrací
-délku řetězce jako celé číslo. Po ukončení práce s dynamicky alokovanou
-pamětí je třeba jí vrátit zpět OS. To se provede voláním funkce <code>free</code>, která
-bere jako argument pointer na dynamicky alokovanou paměť. V našem
-případě je to <code>str</code>. Bývá ještě dobrým zvykem, abychom takto uvolněný pointer
-nastavili na <code>NULL</code>. Takto nastavený pointer jasně říká, že neukazuje na
-žádnou paměť.</p>
+<h2><a class="header" href="#překlad-prvního-programu" id="překlad-prvního-programu">Překlad prvního programu</a></h2>
+<p>Vytvořte soubor s názvem <code>main.c</code> a nakopírujte do něj následující C kód (později si vysvětlíme,
+jak tento kód funguje):</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(int argc, char **argv) {
+    printf(&quot;Hello world!\n&quot;);
+}
+</code></pre>
+<blockquote>
+<p>Tento program se nazývá <code>Hello world</code>, jelikož tento text vypíše na obrazovku.
+Podobný jednoduchý program je obvykle tím prvním, co programátor v nějakém novém programovacím
+jazyce vytvoří.</p>
+</blockquote>
+<p>Nyní otevřete terminál ve složce s tímto souborem, spusťte program <code>gcc</code> a předejte mu cestu
+k tomuto souboru:</p>
+<pre><code class="language-bash">$ gcc main.c -o program
+</code></pre>
+<p>Tímto příkazem řeknete &quot;Gécécéčku&quot;, aby přeložil zdrojový soubor <code>main.c</code> a uložil výsledný spustitelný
+soubor do souboru <code>program</code>. Pokud byste přepínač <code>-o &lt;nazev souboru&gt;</code> nepoužili, tak se vytvoří spustitelný
+soubor s názvem <code>a.out</code>. </p>
+<blockquote>
+<p>Na Windowsu spustitelné soubory mají obvykle příponu <code>.exe</code>, na Linuxu to však není běžnou praxí
+a spustitelné soubory typicky žádnou příponu nemají.</p>
+</blockquote>
+<p>Pokud chcete nyní program spustit, stačí v terminálu zadat (relativní) cestu k danému spustitelnému souboru.</p>
+<pre><code class="language-bash">$ ./program
+Hello world!
+</code></pre>
+<p>Program by měl na výstup vytisknout text <code>Hello world!</code>.</p>
+<h3><a class="header" href="#knihovny" id="knihovny">Knihovny</a></h3>
+<blockquote>
+<p>Tuto sekci budete potřebovat až při práci s knihovnami, pokud jste na začátku, tak ji můžete přeskočit.</p>
+</blockquote>
+<p><strong>Knihovny</strong> (<em>libraries</em>) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
+je lze sdílet mezi více projekty/programy, aby se stejný kód nemusel psát pokaždé znovu. Existuje obrovské
+množství C knihoven, které jsou volně dostupné na internetu, například pro <a href="https://www.libsdl.org/">vykreslování grafiky</a>,
+<a href="https://www.freetype.org/">sazbu fontů</a> nebo <a href="http://zlib.net/">kompresi dat</a>. </p>
+<p>Knihovny se obvykle nesdílí čistě jako archiv nebo adresář se zdrojovým kódem. Obvykle se setkáte s tím,
+že knihovna poskytuje dvě věci: </p>
+<ol>
+<li><strong>Hlavičkové soubory</strong> (<em>header files</em>) s příponou <code>.h</code>, které definují rozhraní, jak knihovnu používat.</li>
+<li>Soubory s příponami <code>.a</code> nebo <code>.so</code>, které obsahují již přeložené zdrojové soubory knihovny ve formě
+spustitelného kódu.</li>
+</ol>
+<blockquote>
+<p>Více o knihovnách se můžete dozvědět například <a href="https://www.itnetwork.cz/cecko/linux/cecko-a-linux-staticke-a-dynamicke-knihovny">zde</a>.</p>
+</blockquote>
+<h4><a class="header" href="#použití-knihoven-pomocí-gcc" id="použití-knihoven-pomocí-gcc">Použití knihoven pomocí <code>gcc</code></a></h4>
+<p>Abyste ve vašem programu použili nějakou knihovnu, musíte ji k vašemu programu tzv. <strong>přilinkovat</strong>.
+O to se stará tzv. <strong>linker</strong>, který za vás umí spustit překladač <code>gcc</code>.</p>
+<p>Dejme tomu, že chcete použít knihovnu s názvem <code>foo</code>, která obsahuje hlavičkové soubory v adresáři
+<code>/usr/foo/include</code> and zkompilovaný knihovní soubor v adresáři <code>/usr/foo/lib/libfoo.so</code>. Překladači
+<code>gcc</code> musíte říct, kde jsou umístěny knihovní soubory pomocí přepínače <code>-L</code>, které konkrétní soubory chcete
+přilinkovat pomocí přepínače <code>-l</code> a kde jsou umístěny hlavičkové soubory pomocí přepínače <code>-I</code>:</p>
+<pre><code class="language-bash">$ gcc -o program main.c -L/usr/foo/lib/ -lfoo -I/usr/foo/include
+</code></pre>
+<p>Používá se konvence, že pokud je název knihovního souboru <code>lib&lt;nazev&gt;.so</code>, tak název knihovny je <code>&lt;nazev&gt;</code>,
+pro <code>gcc</code> se tedy zadá pouze <code>-l&lt;nazev&gt;</code> a ne <code>-llib&lt;nazev&gt;.so</code>. Přepínače <code>-l</code> by měly být vpravo (za)
+názvy zdrojových souborů. Všechny tři tyto přepínače lze použít vícekrát v rámci jednoho spuštění <code>gcc</code>.</p>
+<p>Poté ve zdrojovém souboru vložíte hlavičkové soubory knihovny a můžete používat funkce, které nabízí.</p>
+<p>Pokud je knihovna statická (knihovní soubor má příponu <code>.a</code>), tak už není třeba dělat nic dále. Pokud
+je však knihovna dynamická (přípona <code>.so</code>), tak k načtení knihovny dojde až při samotném spuštění programu
+(ne při jeho překladu). Musíme tak programu při jeho spuštění říct, kde má knihovnu hledat (pokud ji neumí
+naleznout automaticky).</p>
+<p>Abychom zjistili, které dynamické knihovny náš program vyžaduje, můžeme použít program <code>ldd</code>:</p>
+<pre><code class="language-bash">$ ldd program
+linux-vdso.so.1 (0x00007ffce73ae000)
+libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f193e1af000)
+/lib64/ld-linux-x86-64.so.2 (0x00007f193e7a2000)
+foo =&gt; ...
+</code></pre>
+<p>Pokud pro naši knihovnu ve výstupu není uvedena správná cesta, musíme při spuštění programu nastavit
+<strong>proměnnou prostředí</strong> <code>LD_LIBRARY_PATH</code> a uložit do ní cestu k adresáři, ve které se naše knihovna nachází:</p>
+<pre><code class="language-bash">$ LD_LIBRARY_PATH=/usr/foo/lib ./program
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="promenne_a_typy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="vyvojove_prostredi.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="promenne_a_typy_pole.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="ladeni.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -280,13 +282,13 @@ nastavili na <code>NULL</code>. Takto nastavený pointer jasně říká, že neu
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="promenne_a_typy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="vyvojove_prostredi.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="promenne_a_typy_pole.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="ladeni.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

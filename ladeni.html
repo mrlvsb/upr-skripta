@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Jednoduché datové typy - Úvod do programování</title>
+        <title>Ladění - Úvod do programování</title>
         
         
 
@@ -103,7 +103,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="preklad_programu.html"><strong aria-hidden="true">1.2.</strong> Překlad</a></li><li class="chapter-item expanded "><a href="ladeni.html"><strong aria-hidden="true">1.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> Jazyk C</li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.1.</strong> Proměnné a typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html" class="active"><strong aria-hidden="true">2.2.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.3.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.4.</strong> Porovnání, testy, pravdivost</a></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">2.5.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">2.6.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">2.7.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">2.7.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">2.7.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Principy počítačů</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> Alokace paměti</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> Procesy</li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="preklad_programu.html"><strong aria-hidden="true">1.2.</strong> Překlad</a></li><li class="chapter-item expanded "><a href="ladeni.html" class="active"><strong aria-hidden="true">1.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> Jazyk C</li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.1.</strong> Proměnné a typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.2.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.3.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.4.</strong> Porovnání, testy, pravdivost</a></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">2.5.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">2.6.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">2.7.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">2.7.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">2.7.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Principy počítačů</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> Alokace paměti</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> Procesy</li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -173,102 +173,71 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#jednoduché-datové-typy" id="jednoduché-datové-typy">Jednoduché datové typy</a></h2>
-<p>Nyní si ve stručnosti ukážeme základní datové typy.</p>
-<p><strong>Čísla</strong>: <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code></p>
-<ul>
-<li><code>23</code> <code>2345837934346901268</code> <code>0x17</code> <code>3.4</code></li>
-<li>operátory: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>&amp;&amp;</code> <code>||</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></li>
-</ul>
-<p><strong>Cvičení:</strong> Napište jednoduchý program pro práci s čísly.
-Vyzkoušejte si operátory.</p>
-<p><strong>Cvičení:</strong> Napište program pro jednoduché počítání.
-Provádějte operace s čísly jako na kalkulátoru. Pokuste se použít
-proměnné a závorky.</p>
-<h2><a class="header" href="#práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string" id="práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string">Práce s dynamicky alokovanou pamětí a řetězci znaků (string)</a></h2>
-<p>Typická literatura se zabývá prací s dynamicky alokovanou pamětí až v
-pozdějších kapitolách. Dovolme si lehký komentář, když vyslovíme
-tvrzení, že ,,pak jsou z toho všichni ztraceni”. Zkusme se tedy podívat
-na práci s dynamicky alokovanou pamětí hned na začátku, aby nás pak
-práce s ní zbytečně nepřekvapovala.</p>
-<p>Doposud jsme viděli vytváření celočíselných proměnných, které
-reprezentují jedno číslo. Co když ale potřebujeme, aby bylo těchto čísel
-více? Odpověď je snadná. Použijeme dynamicky alokované pole čísel. (Ano,
-i staticky alokované pole je možnost, ale nesmí být příliš veliké
-(dlouhé)). Na druhou stranu, dynamicky alokované pole by zase nemělo být
-příliš krátké.</p>
-<p>Při programování v jazyce C máme k dispozici dva druhy paměti. Jsou to:
-<strong>stack</strong> (česky <strong>zásobník</strong>) a <strong>heap</strong> (česky <strong>halda</strong>). Když jsme
-definovali celočíselné promenné v předchozí části, jejich obsah
-(hodnoty) se ukládal na stacku. Programům je však k dispizici jen
-omezený stack (např. 32 MB). Když chceme využívat v našich programech
-více paměti, musíme použít heap.</p>
-<p>Pro to, abychom si od operačního systému (OS) vyžádali nějakou paměť na
-heapu, používáme funkci <code>malloc</code>, která nám vrátí pointer (ukazatel) na začátek
-takovéto paměti. Zajisté znáte anglické tvrzení: ,,There’s nothing like
-a free lunch”. I za takto poskytnutou paměť se nějakým způsobem platí.
-Jazyk C nemá automatickou správu paměti, a proto ji musíme vlastnoručně
-OS vrátit, když ji již nepotřebujeme. K tomu nám slouží funkce <code>free</code>
-(jak příznačný název).</p>
-<p>Pojďme se podívat na příklady použití. Stringy (řetězce znaků) jsou
-typickým příkladem, kdy potřebujeme nějaké pole pro reprezentaci více
-hodnot (třeba nějakých vět, ale také často textových dat).</p>
-<pre><code class="language-c">char c = 'A';  // umoznuje reprezentaci pouze jednoho znaku
-char * str = NULL;
-str = (char *)malloc( 20 * sizeof( str[ 0 ] ) );
-
-sprintf( str, &quot;Hello, World!&quot; );
-
-printf( &quot;str: '%s'\n&quot;, str ); // str: 'Hello, World!'
-printf( &quot;str length: %d\n&quot;, strlen( str ) ); // 13
-
-free( str ); // pointer na str jiz nepotrebuji, vracim pamet
-
-str = NULL;  // jsem slusny a pointer nastavim na NULL,
-             // aby bylo jasne, ze nikam neukazuje
+                        <h1><a class="header" href="#ladění-programů" id="ladění-programů">Ladění programů</a></h1>
+<p>Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Proces hledání chyby,
+která způsobuje pád nebo špatné chování programu se nazývá <strong>ladění</strong> (<em>debugging</em>).</p>
+<h3><a class="header" href="#chyby-při-překladu-programu" id="chyby-při-překladu-programu">Chyby při překladu programu</a></h3>
+<p>Pokud váš program nelze přeložit, protože překladač vrací nějakou chybu, tak máte v zápisu programu nějakou
+chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybu pořádně přečíst, obvykle se odkazuje
+na relativně přesné místo, kde chyba vznikla, a někdy dokonce i nabízí řešení, jak problém vyřešit.</p>
+<p>Při překladu můžete dostat například následující chybu:</p>
+<pre><code class="language-bash">main.c: In function ‘main’:
+main.c:2:2: error: ‘a’ undeclared (first use in this function)
+    2 |  a = 0;
 </code></pre>
-<p>To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
-jazyku C řící tak, že deklarace proměnné bude pointerem, který bude
-ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
-proměnné napíšeme znak <code>*</code>. Funkce <code>malloc</code> nám vrací tzv. pointer na úsek paměti o
-velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí
-funkce pointer na tzv. <code>NULL</code>. Toto bychom měli řádně zkontrolovat, ale pro
-přehlednost příkladu to není uvedeno. Velikost paměti, kterou od OS
-požadujeme se uvádí v bytech (česky bajtech). Každý datový typ vyžaduje
-pro uložení informace nějaký počet bytů. Nejměnší datový typ <code>char</code> požaduje 4
-byty. Typ <code>int</code>, pro uložení celých čísel, vyžaduje typicky 4 byty. Reálná
-čísla uložená v typu <code>float</code> vyžadují 4 byty a reálná čísla uložená v typu <code>double</code>
-vyžadují 8 bytů. Každá platfroma, na které bude náš program přeložen
-však může datovým typům přiřadit jiný počet bytů. Abychom si nemuseli
-pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce C operátor <code>sizeof</code>,
-který nám vrátí, kolik bytů zadaný typ vyžaduje. Potom již jen toto
-číslo stačí přenásobit požadovanou délkou pole. V našem příkladu
-požadujeme délku řetězce 20 znaků. Jazyk C nebyl zcela jistě konstruován
-pro práci se stringy... Pro to, abychom naše pole znaků naplnili nějakým
-obsahem, musíme použít funkci <code>sprintf</code>. Ta bere jako první parametr ukazatel na
-paměť, kde má řetězec uložit, druhým parametrem je pak jaký řetězec se
-má vložit. Případný třetí parametr pak může obsahovat proměnné, jejichž
-obsah chceme vložit do formátovacího řetězce. Obsah proměnné <code>str</code> je pak
-tištěn ve funkci <code>printf</code>. Délku řetězce je možno zjistit funkcí <code>strlen</code>, která vrací
-délku řetězce jako celé číslo. Po ukončení práce s dynamicky alokovanou
-pamětí je třeba jí vrátit zpět OS. To se provede voláním funkce <code>free</code>, která
-bere jako argument pointer na dynamicky alokovanou paměť. V našem
-případě je to <code>str</code>. Bývá ještě dobrým zvykem, abychom takto uvolněný pointer
-nastavili na <code>NULL</code>. Takto nastavený pointer jasně říká, že neukazuje na
-žádnou paměť.</p>
+<p>Tato konkrétní chyba byla způsobena tím, že byla použitá proměnná bez předchozí deklarace. Pokud
+chybě nerozumíte, zkuste ji nejprve vygooglit, ideálně pouze část, která není konkrétně závislá na
+podobě vašeho projektu (nemá cenu googlit <code>main.c:2:2</code>, protože chyba může nastat kdekoliv).</p>
+<p>Může se stát, že překladač vypíše více chybových hlášek zároveň, i když chyba
+v programu je pouze jedna. Zkuste scrollovat výstupem chyb nahoru, abyste zjistili, která chyba
+byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;.</p>
+<p>Pokud se vám nedaří chybu vygooglit, tak kontaktujte svého cvičícího.</p>
+<p>Při překladu můžete použít dodatečné přepínače, při jejichž použití vydá překladač více varování o možných
+problémových místech ve vašem kódu:</p>
+<pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
+</code></pre>
+<h3><a class="header" href="#chyby-při-běhu-programu" id="chyby-při-běhu-programu">Chyby při běhu programu</a></h3>
+<p>Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:</p>
+<h4><a class="header" href="#address-sanitizer" id="address-sanitizer">Address sanitizer</a></h4>
+<p>Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
+a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, k jakému problému došlo. </p>
+<pre><code class="language-bash">$ gcc -fsanitize=address main.c -o program
+</code></pre>
+<p>Jakmile takto přeložený program spustíte a dojde k nějaké chybě, tak bude její popis vypsán na výstup.</p>
+<p>Pokud se chyba opraví těsně po svém vzniku, je to mnohem jednodušší, než když se chyba projeví až
+později v úplně jiné části kódu. <strong>Doporučujeme tak vždy používat Address Sanitizer při vývoji programů v C</strong>.
+Ušetříte si tak spoustu času a námahy při ladění chyb.</p>
+<h4><a class="header" href="#logování" id="logování">Logování</a></h4>
+<p>Jedním z nejjednodušších způsobů, jak se dozvědět, co se v programu děje, je jednoduše tisknout
+hodnoty zajímavých proměnných na výstup programu. Pokud přidáte takovýto výstup na různá místa v kódu,
+můžete pak podle výstupu zpětně rekonstruovat, co se při běhu programu dělo.</p>
+<h4><a class="header" href="#krokování" id="krokování">Krokování</a></h4>
+<p>Pro interaktivnější zkoumání chování programů je možné je tzv. <strong>krokovat</strong>. K tomu je potřeba nástroj,
+který umí program pozastavit při jeho běhu a zobrazit uživateli, co se v něm děje. Takovéto nástroje se nazývají
+<strong>debuggery</strong>. Při krokování se program zastaví na určitém místě (řádku) v kódu, a programátor pak může
+zkoumat hodnoty proměnných a spouštět program řádek po řádku.</p>
+<p>Pro vás je nejjednodušší použít krokování integrované ve VSCode:</p>
+<ul>
+<li>Klikněte na sloupeček vlevo od čísla řádku, na kterém chcete, aby se program zastavil.
+Objeví se tam červené kolečko (tzv. <strong>breakpoint</strong>).</li>
+<li>Spusťte program s laděním (<code>F5</code>). Program by se na řádku s breakpointem měl zastavit.</li>
+<li>Ve sloupci <code>Variables</code> v levé části VSCode můžete prozkoumat hodnoty proměnných.</li>
+<li>Pomocí příkazu <code>Step Over</code> (<code>F10</code>) program vykoná následující řádek a poté se opět zastaví. Pokud
+nechcete přeskakovat volání funkcí, použijte <code>Step Into</code> (<code>F11</code>).</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="promenne_a_typy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="preklad_programu.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="promenne_a_typy_pole.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="promenne_a_typy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -280,13 +249,13 @@ nastavili na <code>NULL</code>. Takto nastavený pointer jasně říká, že neu
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="promenne_a_typy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="preklad_programu.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="promenne_a_typy_pole.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="promenne_a_typy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

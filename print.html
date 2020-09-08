@@ -105,7 +105,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">1.1.</strong> Pole</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vyvojove_prostredi.html"><strong aria-hidden="true">1.1.</strong> Vývojové prostředí</a></li><li class="chapter-item expanded "><a href="preklad_programu.html"><strong aria-hidden="true">1.2.</strong> Překlad</a></li><li class="chapter-item expanded "><a href="ladeni.html"><strong aria-hidden="true">1.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> Jazyk C</li><li><ol class="section"><li class="chapter-item expanded "><a href="promenne_a_typy.html"><strong aria-hidden="true">2.1.</strong> Proměnné a typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_jednoduche.html"><strong aria-hidden="true">2.2.</strong> Jednoduché datové typy</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_pole.html"><strong aria-hidden="true">2.3.</strong> Pole</a></li><li class="chapter-item expanded "><a href="promenne_a_typy_porovnani.html"><strong aria-hidden="true">2.4.</strong> Porovnání, testy, pravdivost</a></li><li class="chapter-item expanded "><a href="rizeni_toku.html"><strong aria-hidden="true">2.5.</strong> Řízení toku</a></li><li class="chapter-item expanded "><a href="funkce.html"><strong aria-hidden="true">2.6.</strong> Funkce</a></li><li class="chapter-item expanded "><a href="struktury.html"><strong aria-hidden="true">2.7.</strong> Struktury</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="struktury_funkce.html"><strong aria-hidden="true">2.7.1.</strong> Funkce pro práci se strukturami</a></li><li class="chapter-item expanded "><a href="struktury_soubor.html"><strong aria-hidden="true">2.7.2.</strong> Zápis struktur do souboru</a></li></ol></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Principy počítačů</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> Alokace paměti</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> Procesy</li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -188,6 +188,12 @@ spolu se sadou úloh k procvičení jednotlivých témat. Pomocí lupy vlevo nah
 pokud potřebujete najít informace o konkrétním tématu.</p>
 <p>Tento text však není kompletním průvodcem jazykem C. Pro takovýto účel lze doporučit některý
 knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</p>
+<p>Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů terminálu
+v tomto textu předpokládají použití tohoto operačního systému, konkrétně prostředí <code>Ubuntu</code>.</p>
+<blockquote>
+<p>Tento text je psán česky, nicméně hlavním jazykem programování je angličtina. Přeložené pojmy,
+které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce <em>kurzívou</em>.</p>
+</blockquote>
 <h3><a class="header" href="#programování" id="programování">Programování</a></h3>
 <p>Počítačový program je sekvence příkazů (nazývaných <strong>instrukce</strong>), které může počítač vykonat k vyřešení nějakého problému.
 Abychom mohli počítači říct, co má vykonávat, potřebujeme mu příkazy zadat ve formě, které bude rozumět.
@@ -209,7 +215,7 @@ jsou často nejednoznačné a nemají jednotnou strukturu.</p>
 <p>Jako kompromis tak vznikly <strong>programovací jazyky</strong>, které umožňují zápis programů ve formě, která je
 lidem srozumitelná, ale zároveň ji lze relativně jednoduše převést na příkazy, které je schopen počítač
 provést. Převodu programu zapsaného v programovacím jazyce na počítačové instrukce se říká <strong>překlad</strong>
-(nebo také <em>kompilace</em>) a programy, které tento překlad provádějí, se nazývají <strong>překladače</strong> (nebo také <em>kompilátory</em>).
+(<em>compilation</em>) a programy, které tento překlad provádějí, se nazývají <strong>překladače</strong> (<em>compilers</em>).
 Později si ukážeme, jak takovýto překladač použít k překladu kódu.</p>
 <p>Zde je ukázka programu v jazyce C:</p>
 <pre><code class="language-c">while (is_key_pressed(SPACE)) {
@@ -242,7 +248,7 @@ modernějších jazyků. Díky tomu se dá naučit za jeden semestr.</li>
 <li>Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce C tak lze zároveň
 pochopit, jak funguje počítač a operační systém. Díky tomu lze také při správném zacházení psát velmi
 efektivní programy (to ale nicméně není obsahem tohoto kurzu). </li>
-<li>Syntaxe (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznilky po něm. Jakmile se
+<li><strong>Syntaxe</strong> (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznilky po něm. Jakmile se
 ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších jazyků (C++, C#,
 Java, Kotlin, Javascript, PHP, Rust, ...). </li>
 </ul>
@@ -255,6 +261,302 @@ tak, že začne vydávat chybný výstup nebo se začně chovat nepředvídateln
 a programátor na ně není často nijak upozorněn a musí je najít ručně zkoumáním
 zdrojového kódu. Podobný typ chyb je také nejčastějším zdrojem bezpečnostních děr ve všech možných softwarech,
 které (jak už víme) téměř vždy obsahují alespoň část kódu napsaného v &quot;Céčku&quot;.</p>
+<h1><a class="header" href="#vývojové-prostředí" id="vývojové-prostředí">Vývojové prostředí</a></h1>
+<p>Abychom mohli přeložit a spustit nějaký program, musíme ho obvykle nejprve zapsat do
+jednoho nebo více souborů ve formě tzv. <strong>zdrojového kódu</strong> (<em>source code</em>). K usnadnění tohoto procesu
+existují textové editory a vývojová prostředí jako například <code>MS Visual Studio</code>, <code>QtCreator</code>, <code>JetBrains CLion</code>,
+<code>CodeBlocks</code>, <code>Visual Studio Code</code>, <code>vim</code>, <code>emacs</code> apod. Tyto programy usnadňují psaní kódu pomocí zvýrazňování
+syntaxe, automatizace překladu, spouštění a testování programů a také správy projektů.</p>
+<p>Na cvičeních UPR budeme používat editor <code>Visual Studio Code</code>, který je
+<a href="https://code.visualstudio.com/">zdarma dostupný</a>. Níže je krátký návod k použití tohoto programu.</p>
+<h3><a class="header" href="#instalace-potřebných-rozšíření-pomocí-terminálu" id="instalace-potřebných-rozšíření-pomocí-terminálu">Instalace potřebných rozšíření (pomocí terminálu)</a></h3>
+<p>VSCode podporuje spoustu programovacích jazyků pomocí různých rozšíření, po první instalaci VSCode
+tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V terminálu spusťte tyto příkazy:</p>
+<pre><code class="language-bash">$ code --install-extension ms-vscode.cpptools
+</code></pre>
+<blockquote>
+<p>Návod pro práci s terminálem na Linuxu můžete najít např. <a href="https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l">zde</a>.</p>
+</blockquote>
+<h3><a class="header" href="#instalace-potřebných-rozšíření-pomocí-uživatelského-rozhraní" id="instalace-potřebných-rozšíření-pomocí-uživatelského-rozhraní">Instalace potřebných rozšíření (pomocí uživatelského rozhraní)</a></h3>
+<ol>
+<li>Otevřete obrazovku rozšíření (<code>Ctrl+Shift+X</code> nebo spusťte akci <code>Install Extensions</code>)</li>
+<li>Vyhledejte rozšíření C/C++ a nainstalujte ho</li>
+</ol>
+<h2><a class="header" href="#ukázka-nastavení-projektu" id="ukázka-nastavení-projektu">Ukázka nastavení projektu</a></h2>
+<p>Jako vzorový projekt můžete použít <a href="https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project">tuto</a>
+šablonu.</p>
+<img src="https://raw.githubusercontent.com/geordi/upr-course/master/assets/images/vsc_first_run.gif" width="90%"/>
+<h3><a class="header" href="#užitečné-zkratky" id="užitečné-zkratky">Užitečné zkratky</a></h3>
+<ul>
+<li>Spustit program - <code>F5</code></li>
+<li>Naformátovat kód - <code>Ctrl + Shift + I</code></li>
+<li>Zobrazit vyhledávač akcí - <code>Ctrl + Shift + P</code></li>
+</ul>
+<h1><a class="header" href="#překlad-programu" id="překlad-programu">Překlad programu</a></h1>
+<p>Pro překlad programu z jazyka C do <strong>spustitelného</strong> (<em>executable</em>) souboru
+budeme používat jiný program, kterému se říká překladač.
+Překladačů jazyka C existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
+Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong></a> (GNU Compiler Collection). </p>
+<p>Překladač <code>gcc</code>, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
+příkazem:</p>
+<pre><code class="language-bash">sudo apt install build-essential
+</code></pre>
+<h2><a class="header" href="#překlad-prvního-programu" id="překlad-prvního-programu">Překlad prvního programu</a></h2>
+<p>Vytvořte soubor s názvem <code>main.c</code> a nakopírujte do něj následující C kód (později si vysvětlíme,
+jak tento kód funguje):</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(int argc, char **argv) {
+    printf(&quot;Hello world!\n&quot;);
+}
+</code></pre>
+<blockquote>
+<p>Tento program se nazývá <code>Hello world</code>, jelikož tento text vypíše na obrazovku.
+Podobný jednoduchý program je obvykle tím prvním, co programátor v nějakém novém programovacím
+jazyce vytvoří.</p>
+</blockquote>
+<p>Nyní otevřete terminál ve složce s tímto souborem, spusťte program <code>gcc</code> a předejte mu cestu
+k tomuto souboru:</p>
+<pre><code class="language-bash">$ gcc main.c -o program
+</code></pre>
+<p>Tímto příkazem řeknete &quot;Gécécéčku&quot;, aby přeložil zdrojový soubor <code>main.c</code> a uložil výsledný spustitelný
+soubor do souboru <code>program</code>. Pokud byste přepínač <code>-o &lt;nazev souboru&gt;</code> nepoužili, tak se vytvoří spustitelný
+soubor s názvem <code>a.out</code>. </p>
+<blockquote>
+<p>Na Windowsu spustitelné soubory mají obvykle příponu <code>.exe</code>, na Linuxu to však není běžnou praxí
+a spustitelné soubory typicky žádnou příponu nemají.</p>
+</blockquote>
+<p>Pokud chcete nyní program spustit, stačí v terminálu zadat (relativní) cestu k danému spustitelnému souboru.</p>
+<pre><code class="language-bash">$ ./program
+Hello world!
+</code></pre>
+<p>Program by měl na výstup vytisknout text <code>Hello world!</code>.</p>
+<h3><a class="header" href="#knihovny" id="knihovny">Knihovny</a></h3>
+<blockquote>
+<p>Tuto sekci budete potřebovat až při práci s knihovnami, pokud jste na začátku, tak ji můžete přeskočit.</p>
+</blockquote>
+<p><strong>Knihovny</strong> (<em>libraries</em>) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
+je lze sdílet mezi více projekty/programy, aby se stejný kód nemusel psát pokaždé znovu. Existuje obrovské
+množství C knihoven, které jsou volně dostupné na internetu, například pro <a href="https://www.libsdl.org/">vykreslování grafiky</a>,
+<a href="https://www.freetype.org/">sazbu fontů</a> nebo <a href="http://zlib.net/">kompresi dat</a>. </p>
+<p>Knihovny se obvykle nesdílí čistě jako archiv nebo adresář se zdrojovým kódem. Obvykle se setkáte s tím,
+že knihovna poskytuje dvě věci: </p>
+<ol>
+<li><strong>Hlavičkové soubory</strong> (<em>header files</em>) s příponou <code>.h</code>, které definují rozhraní, jak knihovnu používat.</li>
+<li>Soubory s příponami <code>.a</code> nebo <code>.so</code>, které obsahují již přeložené zdrojové soubory knihovny ve formě
+spustitelného kódu.</li>
+</ol>
+<blockquote>
+<p>Více o knihovnách se můžete dozvědět například <a href="https://www.itnetwork.cz/cecko/linux/cecko-a-linux-staticke-a-dynamicke-knihovny">zde</a>.</p>
+</blockquote>
+<h4><a class="header" href="#použití-knihoven-pomocí-gcc" id="použití-knihoven-pomocí-gcc">Použití knihoven pomocí <code>gcc</code></a></h4>
+<p>Abyste ve vašem programu použili nějakou knihovnu, musíte ji k vašemu programu tzv. <strong>přilinkovat</strong>.
+O to se stará tzv. <strong>linker</strong>, který za vás umí spustit překladač <code>gcc</code>.</p>
+<p>Dejme tomu, že chcete použít knihovnu s názvem <code>foo</code>, která obsahuje hlavičkové soubory v adresáři
+<code>/usr/foo/include</code> and zkompilovaný knihovní soubor v adresáři <code>/usr/foo/lib/libfoo.so</code>. Překladači
+<code>gcc</code> musíte říct, kde jsou umístěny knihovní soubory pomocí přepínače <code>-L</code>, které konkrétní soubory chcete
+přilinkovat pomocí přepínače <code>-l</code> a kde jsou umístěny hlavičkové soubory pomocí přepínače <code>-I</code>:</p>
+<pre><code class="language-bash">$ gcc -o program main.c -L/usr/foo/lib/ -lfoo -I/usr/foo/include
+</code></pre>
+<p>Používá se konvence, že pokud je název knihovního souboru <code>lib&lt;nazev&gt;.so</code>, tak název knihovny je <code>&lt;nazev&gt;</code>,
+pro <code>gcc</code> se tedy zadá pouze <code>-l&lt;nazev&gt;</code> a ne <code>-llib&lt;nazev&gt;.so</code>. Přepínače <code>-l</code> by měly být vpravo (za)
+názvy zdrojových souborů. Všechny tři tyto přepínače lze použít vícekrát v rámci jednoho spuštění <code>gcc</code>.</p>
+<p>Poté ve zdrojovém souboru vložíte hlavičkové soubory knihovny a můžete používat funkce, které nabízí.</p>
+<p>Pokud je knihovna statická (knihovní soubor má příponu <code>.a</code>), tak už není třeba dělat nic dále. Pokud
+je však knihovna dynamická (přípona <code>.so</code>), tak k načtení knihovny dojde až při samotném spuštění programu
+(ne při jeho překladu). Musíme tak programu při jeho spuštění říct, kde má knihovnu hledat (pokud ji neumí
+naleznout automaticky).</p>
+<p>Abychom zjistili, které dynamické knihovny náš program vyžaduje, můžeme použít program <code>ldd</code>:</p>
+<pre><code class="language-bash">$ ldd program
+linux-vdso.so.1 (0x00007ffce73ae000)
+libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f193e1af000)
+/lib64/ld-linux-x86-64.so.2 (0x00007f193e7a2000)
+foo =&gt; ...
+</code></pre>
+<p>Pokud pro naši knihovnu ve výstupu není uvedena správná cesta, musíme při spuštění programu nastavit
+<strong>proměnnou prostředí</strong> <code>LD_LIBRARY_PATH</code> a uložit do ní cestu k adresáři, ve které se naše knihovna nachází:</p>
+<pre><code class="language-bash">$ LD_LIBRARY_PATH=/usr/foo/lib ./program
+</code></pre>
+<h1><a class="header" href="#ladění-programů" id="ladění-programů">Ladění programů</a></h1>
+<p>Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Proces hledání chyby,
+která způsobuje pád nebo špatné chování programu se nazývá <strong>ladění</strong> (<em>debugging</em>).</p>
+<h3><a class="header" href="#chyby-při-překladu-programu" id="chyby-při-překladu-programu">Chyby při překladu programu</a></h3>
+<p>Pokud váš program nelze přeložit, protože překladač vrací nějakou chybu, tak máte v zápisu programu nějakou
+chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybu pořádně přečíst, obvykle se odkazuje
+na relativně přesné místo, kde chyba vznikla, a někdy dokonce i nabízí řešení, jak problém vyřešit.</p>
+<p>Při překladu můžete dostat například následující chybu:</p>
+<pre><code class="language-bash">main.c: In function ‘main’:
+main.c:2:2: error: ‘a’ undeclared (first use in this function)
+    2 |  a = 0;
+</code></pre>
+<p>Tato konkrétní chyba byla způsobena tím, že byla použitá proměnná bez předchozí deklarace. Pokud
+chybě nerozumíte, zkuste ji nejprve vygooglit, ideálně pouze část, která není konkrétně závislá na
+podobě vašeho projektu (nemá cenu googlit <code>main.c:2:2</code>, protože chyba může nastat kdekoliv).</p>
+<p>Může se stát, že překladač vypíše více chybových hlášek zároveň, i když chyba
+v programu je pouze jedna. Zkuste scrollovat výstupem chyb nahoru, abyste zjistili, která chyba
+byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;.</p>
+<p>Pokud se vám nedaří chybu vygooglit, tak kontaktujte svého cvičícího.</p>
+<p>Při překladu můžete použít dodatečné přepínače, při jejichž použití vydá překladač více varování o možných
+problémových místech ve vašem kódu:</p>
+<pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
+</code></pre>
+<h3><a class="header" href="#chyby-při-běhu-programu" id="chyby-při-běhu-programu">Chyby při běhu programu</a></h3>
+<p>Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:</p>
+<h4><a class="header" href="#address-sanitizer" id="address-sanitizer">Address sanitizer</a></h4>
+<p>Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
+a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, k jakému problému došlo. </p>
+<pre><code class="language-bash">$ gcc -fsanitize=address main.c -o program
+</code></pre>
+<p>Jakmile takto přeložený program spustíte a dojde k nějaké chybě, tak bude její popis vypsán na výstup.</p>
+<p>Pokud se chyba opraví těsně po svém vzniku, je to mnohem jednodušší, než když se chyba projeví až
+později v úplně jiné části kódu. <strong>Doporučujeme tak vždy používat Address Sanitizer při vývoji programů v C</strong>.
+Ušetříte si tak spoustu času a námahy při ladění chyb.</p>
+<h4><a class="header" href="#logování" id="logování">Logování</a></h4>
+<p>Jedním z nejjednodušších způsobů, jak se dozvědět, co se v programu děje, je jednoduše tisknout
+hodnoty zajímavých proměnných na výstup programu. Pokud přidáte takovýto výstup na různá místa v kódu,
+můžete pak podle výstupu zpětně rekonstruovat, co se při běhu programu dělo.</p>
+<h4><a class="header" href="#krokování" id="krokování">Krokování</a></h4>
+<p>Pro interaktivnější zkoumání chování programů je možné je tzv. <strong>krokovat</strong>. K tomu je potřeba nástroj,
+který umí program pozastavit při jeho běhu a zobrazit uživateli, co se v něm děje. Takovéto nástroje se nazývají
+<strong>debuggery</strong>. Při krokování se program zastaví na určitém místě (řádku) v kódu, a programátor pak může
+zkoumat hodnoty proměnných a spouštět program řádek po řádku.</p>
+<p>Pro vás je nejjednodušší použít krokování integrované ve VSCode:</p>
+<ul>
+<li>Klikněte na sloupeček vlevo od čísla řádku, na kterém chcete, aby se program zastavil.
+Objeví se tam červené kolečko (tzv. <strong>breakpoint</strong>).</li>
+<li>Spusťte program s laděním (<code>F5</code>). Program by se na řádku s breakpointem měl zastavit.</li>
+<li>Ve sloupci <code>Variables</code> v levé části VSCode můžete prozkoumat hodnoty proměnných.</li>
+<li>Pomocí příkazu <code>Step Over</code> (<code>F10</code>) program vykoná následující řádek a poté se opět zastaví. Pokud
+nechcete přeskakovat volání funkcí, použijte <code>Step Into</code> (<code>F11</code>).</li>
+</ul>
+<h1><a class="header" href="#proměnné-a-datové-typy" id="proměnné-a-datové-typy">Proměnné a datové typy</a></h1>
+<p>V staticky typovaných jazycích jako je C musíme deklarovat typy
+použitých proměnných (na rozdíl od jazyků jako Python či PHP).</p>
+<p>Proměnnou vytvoříme jednoduše tak, že nadefinujeme její typ a pak její
+jméno, případně můžeme na jednom řádku definovat více proměnných jednoho
+typu různých jmen oddělených čárkou.</p>
+<pre><code class="language-c">int counter;
+int sum, no_elements = 0;
+</code></pre>
+<p>Na výše uvedeném výpisu je použit výsek kódu, který deklaruje na prvním
+řádku celočíselnou proměnnou typu <code>int</code>, která reprezentuje integer, což je
+datový typ reprezentující celá čísla.
+Druhý řádek demonstruje, že je možno
+deklarovat více proměnných jednoho datového typu na jednom řádku. Je
+deklarována proměnná <code>sum</code> a <code>no_elements</code>, do které je přiřazena
+počáteční hodnota <code>0</code> (pokud do proměnné rovnou přiřadíme hodnotu, je to definice proměnné).
+Pokud hodnotu do proměnné takto nepřiřadíme na začatku při její deklaraci,
+musíme takovou proměnnou před prvním použitím nejříve nastavit na
+požadovanou hodnotu. Typicky se toto děje, pokud používáme proměnnou
+jako nějaké počítadlo.</p>
+<pre><code class="language-c">int counter;
+
+int sum, no_elements = 0;
+
+printf( &quot;sum: %d\n&quot;, sum );                  // muze byt cokoli: sum: 432749
+printf( &quot;no_elements: %d\n&quot;, no_elements );  // no_elements: 0
+</code></pre>
+<p>Na řádku 5 a 6 vidíme použití knihovní funkce <code>printf</code>, která nám bude sloužit pro
+tisk obsahu proměnných na konzoli. Můžete vidět, že funkce <code>printf</code> používá
+formátovací řetězec, kde celá čísla (<code>int</code>eger) jsou zastoupena znakem <code>%d</code>.
+Obecně je formátovácí řetězec uvozen znakem <code>%</code> následovaný formátovacím
+znakem. Více o formátování výstupu se můžete dozvědet např. zde:
+<sup class="footnote-reference"><a href="#1">1</a></sup>,<sup class="footnote-reference"><a href="#2">2</a></sup>.</p>
+<pre><code class="language-c">int a = 5, b = 10;
+
+int c = a + b;
+
+printf( &quot;%d + %d = %d\n&quot;, a, b, c );  // 5 + 10 = 15
+</code></pre>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Standardní vstup a výstup, <a href="http://www.sallyx.org/sally/c/c07.php">http://www.sallyx.org/sally/c/c07.php</a></p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Dokumentace funkce <code>printf</code>, <a href="http://www.cplusplus.com/reference/cstdio/printf/">http://www.cplusplus.com/reference/cstdio/printf/</a></p>
+</div>
+<h2><a class="header" href="#jednoduché-datové-typy" id="jednoduché-datové-typy">Jednoduché datové typy</a></h2>
+<p>Nyní si ve stručnosti ukážeme základní datové typy.</p>
+<p><strong>Čísla</strong>: <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code></p>
+<ul>
+<li><code>23</code> <code>2345837934346901268</code> <code>0x17</code> <code>3.4</code></li>
+<li>operátory: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>&amp;&amp;</code> <code>||</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code></li>
+</ul>
+<p><strong>Cvičení:</strong> Napište jednoduchý program pro práci s čísly.
+Vyzkoušejte si operátory.</p>
+<p><strong>Cvičení:</strong> Napište program pro jednoduché počítání.
+Provádějte operace s čísly jako na kalkulátoru. Pokuste se použít
+proměnné a závorky.</p>
+<h2><a class="header" href="#práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string" id="práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string">Práce s dynamicky alokovanou pamětí a řetězci znaků (string)</a></h2>
+<p>Typická literatura se zabývá prací s dynamicky alokovanou pamětí až v
+pozdějších kapitolách. Dovolme si lehký komentář, když vyslovíme
+tvrzení, že ,,pak jsou z toho všichni ztraceni”. Zkusme se tedy podívat
+na práci s dynamicky alokovanou pamětí hned na začátku, aby nás pak
+práce s ní zbytečně nepřekvapovala.</p>
+<p>Doposud jsme viděli vytváření celočíselných proměnných, které
+reprezentují jedno číslo. Co když ale potřebujeme, aby bylo těchto čísel
+více? Odpověď je snadná. Použijeme dynamicky alokované pole čísel. (Ano,
+i staticky alokované pole je možnost, ale nesmí být příliš veliké
+(dlouhé)). Na druhou stranu, dynamicky alokované pole by zase nemělo být
+příliš krátké.</p>
+<p>Při programování v jazyce C máme k dispozici dva druhy paměti. Jsou to:
+<strong>stack</strong> (česky <strong>zásobník</strong>) a <strong>heap</strong> (česky <strong>halda</strong>). Když jsme
+definovali celočíselné promenné v předchozí části, jejich obsah
+(hodnoty) se ukládal na stacku. Programům je však k dispizici jen
+omezený stack (např. 32 MB). Když chceme využívat v našich programech
+více paměti, musíme použít heap.</p>
+<p>Pro to, abychom si od operačního systému (OS) vyžádali nějakou paměť na
+heapu, používáme funkci <code>malloc</code>, která nám vrátí pointer (ukazatel) na začátek
+takovéto paměti. Zajisté znáte anglické tvrzení: ,,There’s nothing like
+a free lunch”. I za takto poskytnutou paměť se nějakým způsobem platí.
+Jazyk C nemá automatickou správu paměti, a proto ji musíme vlastnoručně
+OS vrátit, když ji již nepotřebujeme. K tomu nám slouží funkce <code>free</code>
+(jak příznačný název).</p>
+<p>Pojďme se podívat na příklady použití. Stringy (řetězce znaků) jsou
+typickým příkladem, kdy potřebujeme nějaké pole pro reprezentaci více
+hodnot (třeba nějakých vět, ale také často textových dat).</p>
+<pre><code class="language-c">char c = 'A';  // umoznuje reprezentaci pouze jednoho znaku
+char * str = NULL;
+str = (char *)malloc( 20 * sizeof( str[ 0 ] ) );
+
+sprintf( str, &quot;Hello, World!&quot; );
+
+printf( &quot;str: '%s'\n&quot;, str ); // str: 'Hello, World!'
+printf( &quot;str length: %d\n&quot;, strlen( str ) ); // 13
+
+free( str ); // pointer na str jiz nepotrebuji, vracim pamet
+
+str = NULL;  // jsem slusny a pointer nastavim na NULL,
+             // aby bylo jasne, ze nikam neukazuje
+</code></pre>
+<p>To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
+jazyku C řící tak, že deklarace proměnné bude pointerem, který bude
+ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
+proměnné napíšeme znak <code>*</code>. Funkce <code>malloc</code> nám vrací tzv. pointer na úsek paměti o
+velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí
+funkce pointer na tzv. <code>NULL</code>. Toto bychom měli řádně zkontrolovat, ale pro
+přehlednost příkladu to není uvedeno. Velikost paměti, kterou od OS
+požadujeme se uvádí v bytech (česky bajtech). Každý datový typ vyžaduje
+pro uložení informace nějaký počet bytů. Nejměnší datový typ <code>char</code> požaduje 4
+byty. Typ <code>int</code>, pro uložení celých čísel, vyžaduje typicky 4 byty. Reálná
+čísla uložená v typu <code>float</code> vyžadují 4 byty a reálná čísla uložená v typu <code>double</code>
+vyžadují 8 bytů. Každá platfroma, na které bude náš program přeložen
+však může datovým typům přiřadit jiný počet bytů. Abychom si nemuseli
+pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce C operátor <code>sizeof</code>,
+který nám vrátí, kolik bytů zadaný typ vyžaduje. Potom již jen toto
+číslo stačí přenásobit požadovanou délkou pole. V našem příkladu
+požadujeme délku řetězce 20 znaků. Jazyk C nebyl zcela jistě konstruován
+pro práci se stringy... Pro to, abychom naše pole znaků naplnili nějakým
+obsahem, musíme použít funkci <code>sprintf</code>. Ta bere jako první parametr ukazatel na
+paměť, kde má řetězec uložit, druhým parametrem je pak jaký řetězec se
+má vložit. Případný třetí parametr pak může obsahovat proměnné, jejichž
+obsah chceme vložit do formátovacího řetězce. Obsah proměnné <code>str</code> je pak
+tištěn ve funkci <code>printf</code>. Délku řetězce je možno zjistit funkcí <code>strlen</code>, která vrací
+délku řetězce jako celé číslo. Po ukončení práce s dynamicky alokovanou
+pamětí je třeba jí vrátit zpět OS. To se provede voláním funkce <code>free</code>, která
+bere jako argument pointer na dynamicky alokovanou paměť. V našem
+případě je to <code>str</code>. Bývá ještě dobrým zvykem, abychom takto uvolněný pointer
+nastavili na <code>NULL</code>. Takto nastavený pointer jasně říká, že neukazuje na
+žádnou paměť.</p>
 <h2><a class="header" href="#pole" id="pole">Pole</a></h2>
 <p>Jedním z důležitých prvků jazyka C je práce s poli. Již jsme si v
 předchozím odstavci ukázali, jak vytvořit dynamicky alokované pole pro
@@ -299,6 +601,378 @@ int main() {
 <p><upr-array-min array="[5, 6, 3, 4, 1]"></upr-array-min></p>
 <h3><a class="header" href="#převrácení-pole" id="převrácení-pole">Převrácení pole</a></h3>
 <p><upr-array-reverse array="[1, 2, 3, 4, 5]"></upr-array-reverse></p>
+<h2><a class="header" href="#porovnání-testy-pravdivost" id="porovnání-testy-pravdivost">Porovnání, testy, pravdivost</a></h2>
+<p>Pro porovnání hodnot v jazyce C používáme operátory <code>==</code> a <code>!=</code>.</p>
+<pre><code class="language-c">int a = 5; int b = 5; int c = 10;
+
+a == b; // pravda
+
+a != b; // nepravda
+
+a == c; // nepravda
+
+a != c; // pravda
+</code></pre>
+<p>K porovnání pořadí nám slouží operátory <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> a <code>&gt;=</code>.</p>
+<h1><a class="header" href="#Řízení-toku" id="Řízení-toku">Řízení toku</a></h1>
+<p>Nejznámější příkaz pro řízení toku <code>if</code>, jsme si již uvedli v kapitole
+@ref(sec:syntax). Schématicky si jej proto pouze připomeneme:</p>
+<ul>
+<li><strong>if ( &lt;výraz&gt; ) { &lt;vnořený blok&gt; }</strong></li>
+<li>0+ else if ( &lt;výraz&gt; ) { &lt;vnořený blok&gt; }</li>
+<li>volitelně: else { &lt;vnořený blok&gt; }</li>
+</ul>
+<p>Pro vytvoření cyklů nám v jazyce C slouží dvě konstrukce: <code>while</code> a <code>for</code>.</p>
+<h2><a class="header" href="#cyklus-while" id="cyklus-while">Cyklus while</a></h2>
+<p>Cyklus <code>while</code> funguje tak, že na začátku máme dánu podmínku iterace. Je-li
+podmínka splněna, je vykonáno tělo cyklu, v opačném případě je cyklus
+přeskočen a pokračuje se dále v programu. V těle cyklu můžeme použít
+klíčová slova <code>break</code> a <code>continue</code>. Slovo <code>break</code> zapříčiní ukončení cyklu.
+Slovo <code>continue</code> zapříčiní
+přeskočení zbytku těla cyklu s návratem na počáteční podmínku a tím
+pádem vykonání dalšího cyklu za předpokladu, že je splněna tato vstupní
+podmínka.</p>
+<pre><code class="language-c">int i = 0;
+
+while ( i &lt; 5 ) {
+	printf( &quot;%d\n&quot;, i );
+	i += 1;
+}
+
+// 0
+// 1
+// 2
+// 3
+// 4
+</code></pre>
+<h2><a class="header" href="#cyklus-for" id="cyklus-for">Cyklus for</a></h2>
+<p>Cyklus <code>for</code> typicky používáme pro průchod nějakého pole ať už statického nebo
+dynamického. Funkguje tak, že si vytvoříme řídící proměnnou, která
+indexuje procházené pole od nuly (0) do jeho konce (n-1). Důležité je
+vědět, že řídící proměnná cyklu nenabývá hodnoty prvku pole, ale je
+pouze indexem do procházeneho pole. Hodnotu z pole si již musíme pomocí
+tohoto indexu zpřístupnit sami.</p>
+<p>Ukažme si jednoduchý příklad na součet prvků v poli intů.</p>
+<pre><code class="language-c">int len = 5;
+int seznam[] = { 1, 2, 5, 10, 100 };
+int sum = 0;
+
+for ( int i = 0; i &lt; len; i++ ) {
+	int prvek = seznam[ i ];
+	sum += prvek;
+}
+printf( &quot;sum: %d\n&quot;, sum );  //118
+</code></pre>
+<h1><a class="header" href="#funkce-a-procedury" id="funkce-a-procedury">Funkce a procedury</a></h1>
+<p>Asi bychom byli schopni naše programy psát tak, abychom nepotřebovali
+použít funkce. Toto by nám však vystačilo na velmi krátké programy,
+poněvadž bychom jinak museli všechen kód psát znovu a znovu. Základní
+vlastností funkcí je jejich znovupoužitelnost. Pokud tedy máme úlohu,
+kterou víme, že budeme požívat více než jednou, je vhodné ji umístit do
+funkce. Takovýto blok kódu by též měl fungovat pokud možno co nejvíce
+samostatně.</p>
+<h2><a class="header" href="#funkce" id="funkce">Funkce</a></h2>
+<p>V jazyce C je definice funkce do značné míry podobná definici funkce v
+jiných jazycích. Uvádíme návratový datový typ a uvádíme datové typy
+argumentů funkce. Toto je dáno statickou typovostí jazyka. Uveďme si
+jednoduchý příklad pro výpočet mocniny čísla.</p>
+<pre><code class="language-c">int sqr( int number ) {
+    return number * number;
+}
+int number = 3;
+printf( &quot;sqr( number ): %d\n&quot;, sqr( number ) ); // 9
+</code></pre>
+<p>Funkce je tedy deklarována tak, že jako první je uveden její návratový
+typ. V našem případě tedy <code>int</code> pro celá čísla. Pak je uvedeno jméno funkce. V
+tomto případě <code>sqr</code>. Pak je v kulatých závorkách uveden seznam parametrů
+(nebo též argumentů), které funkce přijímá, tedy <code>number</code>. Tělo naší funkce <code>sqr</code>
+obsahuje pouze jeden řádek, který vypočte druhou mocninu zadaného čísla
+a takto spočítanou hodnotu vrátí z funkce ven pomocí klíčového slova <code>return</code>.
+Volání funkce je pak provedeno jménem funkce s parametry uvedenými v
+kulatých závorkách tak, jak je to uvedeno v příkladu.</p>
+<p>Funkce nám také dovolují provádět generalizaci, což je zobecnění
+zadaného problému. Vezměme si výpočet mocniny čísla jako jednoduchý
+příklad. První ukázka funkce <code>sqr</code> umí vypočítat pouze druhou mocninu zadaného
+čísla <code>number</code>. My bychom však chtěli vytvořit obecnou funkci na výpočet
+jakékoli mocniny čísla. Taková funkce je v ukázce níže.</p>
+<pre><code class="language-c">int pow( int number, int exponent ) {
+    int result = number;
+    int i = 1;
+    while ( i &lt; exponent ) {
+        result *= number;
+        i++;
+    }
+    return result;
+}
+
+int a = 2, b = 3;
+printf( &quot;pow( %d, %d ): %d\n&quot;, pow( a, b ) );  // pow( 2, 3 ): 8
+b = 5;
+printf( &quot;pow( %d, %d ): %d\n&quot;, pow( a, b ) );  // pow( 2, 5 ): 32
+</code></pre>
+<p>Funkce <code>pow</code> má nyní 2 parametry s mocněncem <code>number</code> a mocnitelem <code>exponent</code>. Místo natvrdo
+nastavené hodnoty <code>2</code> pro výpočet druhé mocniny z předcházejícího příkladu
+(realizovaného násobením) je mocnitel zadán parametrem funkce. Máme tak
+zobecněný (generalizovaný) kód pro výpočet mocniny.</p>
+<h2><a class="header" href="#procedury-funkce-bez-návratového-typu" id="procedury-funkce-bez-návratového-typu">Procedury (funkce bez návratového typu)</a></h2>
+<p>V jazyce C máme jeden datový typ, který nemá přesné určení. Je to typ a
+může prakticky znamenat cokoli. Nejčastěji jej používáme jako pointer na
+nějakou struktury, kterou pak budeme dále přetypovávat. Velmi často je
+však používán jako návratový typ funkce. V takovém případě funkce
+nevrací žádnou hodnotu. Funkce pouze zpracuje vstupní data a tím její
+úloha končí. Takové funkci říkáme procedura.</p>
+<h2><a class="header" href="#parametry-funkcí" id="parametry-funkcí">Parametry funkcí</a></h2>
+<p>V prvním příkladu pro výpočet druhé mocniny jsme použili parametr tak,
+že byl volán tzv. hodnotou. To prakticky znamená, že hodnota uložená v
+proměnné <code>number</code> na řádku 5 se nakopíruje do parametru <code>number</code> funkce <code>sqr</code> na řádku 1. Snadno si
+lze představit, že pokud bychom chtěli ve funkci pracovat s větším
+objemem dat, vyžadovalo by to velké kopírování dat, což by náš program
+zpomalovalo. Další problém pak může nastat, když by kopírovaná data byla
+větší než velikost stacku, kterou máme přidělenu.</p>
+<p>Vyřešit můžeme tyto problémy jednoduše tak, že budeme argument funkce
+předávat odkazem. Odkaz bude v kontextu našeho jazyka jednoduše pointer.
+Ukažme si, jak upravit funkci pro výpočet druhé mocniny, aby akceptovala
+argument předávaný odkazem.</p>
+<p>TODO: Co tohle je za kravina... Predelat!!!</p>
+<pre><code class="language-c">int sqr( int *number ) {
+    return *number * *number;
+}
+int number = 3;
+printf( &quot;sqr( &amp;number ): %d\n&quot;, sqr( &amp;number ) );  // sqr( &amp;number ): 9
+</code></pre>
+<p>Jak již víme, pointer nám ukazuje na nějaké místo v paměti. Upravili
+jsme definici funkce <code>sqr</code> tak, že argument number je nyní pointrem. Každá
+proměnná je někde v paměti uložena a stejné je to i pro proměnnou <code>number</code>
+dekladovanou na řádku 5. Abychom mohli do argumentu funkce <code>number</code>, který někam
+ukazuje předat adresu paměti, musíme ji získat pomocí znaku <code>&amp;</code> (řádek 7).
+Tím pádem budeme ve funkci <code>sqr</code> pracovat s úplně stejnou pamětí jako při
+definici proměnné <code>number</code> na řádku 5.</p>
+<p>Ukažme si ještě, jak pracovat ve funkci s polem. Chtějme naprogramovat
+funkci <code>sum</code>, která spočítá součet čísel v poli o zadané délce.</p>
+<pre><code class="language-c">int sum( int *array, int len ) {
+    int result = 0;
+    for ( int i = 0; i &lt; len; i++ ) {
+        result += array[ i ];
+    }
+    return result;
+}
+int array_len = 5;
+int array_of_its[ array_len ] = { 1, 2, 3, 4, 5 };
+printf( &quot;sum( array_of_ints, array_len ): %d\n&quot;, sum( array_of_ints, array_len ) );  // 15
+</code></pre>
+<p>V jazyce C musíme funkcím, které pracují s polem předat samostatně délku
+pole, poněvadž z pointeru samotného ji zjístit nemůžeme. Pole samotné
+předáváme přes pointer <code>array</code> a jeho délku přes parametr <code>len</code>. Do funkce <code>sum</code> pole
+předáme pomocí jeho názvu, protože ten je již adresou prvního prvku
+pole. Ve funkci pak k prvkům pole přistupujeme tak, jak jsme zvyklí.</p>
+<p>Pokud předáváme do funkce argument odkazem, můžeme obsah takové proměnné
+změnit a tato změna se projeví i na datech, která jsme do funkce
+poslali. To nám otvírá mnoho možností, jak efektivně manipulovat s daty
+v procedurách. Mějme však na paměti, že pak můžeme snadno přijít k
+úhoně, nebudeme-li bedlivě sledovat, co a kde měníme.</p>
+<p><strong>Cvičení:</strong> Vytvořte proceduru, která nastaví všechny
+prvky předaného pole na zadanou hodnotu.</p>
+<p><strong>Cvičení:</strong> Vytvořte funkci, která zjistí počet sudých a
+lichých čísel předaného pole. Tyto 2 čísla se vrátí pomocí dvou
+proměnných, které budou pointery na inty.</p>
+<h1><a class="header" href="#struktury" id="struktury">Struktury</a></h1>
+<p>Již umíme pracovat s jednoduchými datovými typy, které nám mohou
+reprezentovat celá nebo reálná čísla, či řetězce znaků. Práce se
+strukturovanými datovými typy můžeme do jisté míry považovat za
+předstupeň k objektově orientovanému programování.</p>
+<h2><a class="header" href="#co-jsou-struktury" id="co-jsou-struktury">Co jsou struktury</a></h2>
+<p>Představme si, že bychom chtěli pomocí jednoduchých datových typů řešit
+komplexnější problém. Tento problém by ke svému popisu potřeboval více
+proměnných. Jako jednoduchý přiklad můžeme použít reprezentaci obrazu. V
+takovém případě potřebujeme reprezentovat alespoň hodnoty v jednotlivých
+pixelech a počet řádků (výšku) a počet sloupců (šířku) obrazu. Pro
+jednoduchost předpokládejme obrázek ve stupních šedi. Ukažme si, jak by
+taková reprezentace v jazyce C vypadala.</p>
+<pre><code class="language-c">unsigned char * img_data;
+int img_rows;
+int img_cols;
+</code></pre>
+<p>(<strong>TODO: Pripravit to na TGA header</strong>)</p>
+<p>Pointer <code>unsigned char</code> na s názvem <code>img_data</code> nám bez problému může reprezentovat 8 bitové obrazy
+ve stupních šedi, neboť do něj můžeme ukládat hodnoty 0 - 255 (2<sup>8</sup> = 256 různých hodnot).
+Představme si dále, že bychom chtěli takovýto obrázek o nějaké velikosti
+nastavit na černou barvu (hodnota <code>0</code>).</p>
+<pre><code class="language-c">void set_image_to_black( unsigned char * img_data,
+                         const int img_rows, const int img_cols )
+{
+    for ( int y = 0; y &lt; img_rows; y++ ) {
+        for ( int x = 0; x &lt; img_cols; x++ ) {
+            img_data[ x + y * img_cols ] = 0;
+        }
+    }
+}
+</code></pre>
+<p>Jak můžete vidět, do funkce <code>set_image_to_black</code> posíláme všechny parametry obrázku, abychom
+s ním mohli pracovat. Snadno si lze představit, že se složitějšími
+problémy by snadno mohl počet parametrů funkcí značně narůstat.</p>
+<p>Pro zefektivnění takové práce nám slouží strukturované datové typy,
+jednodušeji struktury (anglicky <em>structures</em>). V jazyce C je pro definici
+datových struktur vyhrazeno klíčové slovo <code>struct</code>. Pojďme se podívat, jak by
+definice takového obrázku mohla vypadat.</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+</code></pre>
+<p>Jak můžete vidět, definice začíná požitím klíčového slova <code>struct</code>, které je
+následovano jménem struktury. V následném bloku jsou pak definovani
+členové struktury, které nazýváme <code>atributy</code>, s jejich příslušnými
+datovými typy. Na první pohled již není nutné ke jménům členů struktury
+obrázku přidávat předponu <code>img_</code>, neboť jejich členství v této datové
+struktuře je jasně dáno.</p>
+<p>Struktura ovšem není datovým typem, proto ji nelze použít přímo jako
+definici typu (pokud ovšem nepoužijete C++ překladač). Proto se často
+používá definice aliasu na datovou strukturu. K definici takového aliasu
+se používá klíčové slovo <code>typedef</code>. Toto slovo má následující syntaxi:</p>
+<pre><code class="language-c">typedef struct tag_name struct_alias;
+</code></pre>
+<p>Za <code>tag_name</code> dosazujeme jméno naší struktury, za <code>struct_alias</code> nové jméno, pod kterým chceme
+naši strukturu používat jako datový typ. Příklad pro naši strukturu s
+obrázkem tedy bude vypadat následovně:</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * image;
+</code></pre>
+<p>Dále můžeme s pointrem <code>* image</code> pracovat tak, že mu naalokujeme dynamickou paměť
+tak, jak jsme si již ukázali.</p>
+<p><strong>Cvičení:</strong> Vytvořte si vlastní strukturu pro reprezentaci
+osoby (<code>Person</code>) s několika atributy.</p>
+<p>K jednotlivým atributům struktury přistupujeme pomocí tečkové (<code>.</code>) nebo
+šipkové (<code>-&gt;</code>) notace. Tečku používáme, když je struktura vytvořena na
+stacku. Šipku pak používáme pro přístup k atributům struktury, která je
+alokována na heapu.</p>
+<p>Ukažme si tedy příklad, kdy budeme chtít nastavit počet řádků nějakého
+obrázku:</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * heap_image;
+Image   stack_image;
+
+// alokace...
+
+// teckova notace
+stack_image.rows = 480;
+
+// sipkova notace
+heap_image-&gt;rows = 480;
+</code></pre>
+<p>Můžeme vidět, že rozdíl je nepatrný, je však nutné na něj dávat pozor,
+jinak náš program nepůjde přeložit.</p>
+<h2><a class="header" href="#funkce-pro-práci-se-strukturami" id="funkce-pro-práci-se-strukturami">Funkce pro práci se strukturami</a></h2>
+<p>Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
+pravidlům. Zavedeme si však pár pravidel pro nás samotné, abychom se v
+našem kódu lépe orientovali.</p>
+<p>Pokud budeme pracovat se strukturou ve funkcích, bývá dobrým zvykem, aby
+jméno takové funkce začínalo názvem struktury (malými pásmeny) a
+následně jsou podtržítky oddělena slova vyjadřující operaci, kterou se
+strukturou provádíme.</p>
+<p>Ukažme si, jak bychom alokovali strukturu, kterou používíme pod aliasem <code>Image</code>.</p>
+<pre><code class="language-c">struct ImageStruct {
+    unsigned char * data;
+    int rows;
+    int cols;
+};
+
+typedef struct ImageStruct Image;
+
+Image * heap_image;
+
+// alokuje prazdny obrazek
+Image * image_new( const int rows, const int cols ) {
+    Image * image = NULL;
+    image = (Image *)malloc( sizeof( image[ 0 ] ) );
+    image-&gt;data = (unisgned char *)malloc( rows * cols * sizeof( image-&gt;data[ 0 ] ) );
+    image-&gt;rows = rows;
+    image-&gt;cols = cols;
+    return image;
+}
+
+heap_image = image_new( 640, 480 );
+</code></pre>
+<p>Na výpisu kódů uvedeném výše můžeme vidět, že funkce <code>image_new</code> vytváří dynamicky
+alokovanou datovou strukturu <code>Image</code>. Popišme si, co se přesně děje. Návratový
+typ funkce <code>image_new</code> je pointer na strukturu <code>Image</code> (je to tedy <code>Image *</code>).
+Na řádku 13 si vytvoříme nový
+pointer na <code>Image</code>, se kterým budeme pracovat (alokovat jej a jeho atributy) a
+také jej vrátíme na konci funkce. Pro tento pointer alokujeme paměť o
+velikosti struktury <code>Image</code> na řádku 15. Dále alokujeme prostor pro jasy jednotlivých
+pixelů obrázku na řádku 17. Atributy <code>rows</code> a <code>cols</code> struktury <code>Image</code> nastavujeme na řádcích 19 a 20.
+Nakonec vracíme takto vytvořenou strukturu na řádku 22. Volání takové
+funkce je ukázáno na řádku 25, kde vytváříme obrázek o velikosti
+$640 \times 480$ pixelů.</p>
+<p>Ukažme si ještě, jak bychom takto naalokovanou struktury zase uvolnili,
+tzn. vrátili bychom alokovanou paměť zpět OS.</p>
+<pre><code class="language-c">// dealokuje strukturu s obrazkem
+void image_free( Image * self ) {
+    free( image-&gt;data );  // uvolnujeme jasy pixelu
+    free( image );        // uvolnujeme strukturu
+}
+
+image_free( heap_image );
+</code></pre>
+<p>Jak můžeme vidět, funkce <code>image_free</code> akceptuje jeden argument, který je pointrem na
+strukturu <code>Image</code>. Ten je předán pod názvem <code>self</code>, ale můžeme si jej pojmenovat jak
+nám libo. V těle funkce se nácházeji dvě dealokační volání funkce <code>free</code>.
+První volání uvolňuje pamět pro jasy pixelů. Druhé volání pak uvolňuje
+paměť, kterou zabírá samotná datová struktura. Důležité je, v jakém
+pořadí jsou jednotlivé atributy a datová struktura samotná uvolňovány.
+Platí jednoduché pravidlo, že nejprve uvolňujeme data atributů a až pak
+můžeme uvolnit strukturu samotnou. V opačném případě bychom totiž při
+uvolnění struktury ztratili pointer na atributy a tím by paměť byla až
+do konce běhu programu ztracena.</p>
+<p><strong>Cvičení:</strong> Upravte funkci <code>image_new</code> tak, aby data, která
+reprezentují pixely byla nastavena na černou barvu (hodnota <code>0</code>).</p>
+<p><strong>Cvičení:</strong> Vytvořte funkci, která na zadanou souřadnici
+pixelu v obrázku reprezentovaného strukturou <code>Image</code> nastaví zadanou hodnotu.</p>
+<p><strong>Cvičení:</strong> Vytvořte funkci, která do obrázku
+reprezentovaného strukturou <code>Image</code> nakreslí zvoleným jasem obdélník o zadaných
+rozměrech.</p>
+<h2><a class="header" href="#zápis-struktur-do-souboru" id="zápis-struktur-do-souboru">Zápis struktur do souboru</a></h2>
+<p>Struktury jsou i dobrým komunikačním nástrojem.
+Můžeme je uložit v podobě souboru na disk a přečíst je pak jiným programem, který je může dále zpracovat.
+Modelovou situací může být program pro zpracování fotografií.</p>
+<p>V první řadě budeme simulovat fotoaparát, který uloží obrázek do souboru.
+Existuje mnoho způsobů, jak uložit obraz. Tyto způsoby jsou definovýny různými formáty
+(např. <code>JPG</code>, <code>PNG</code>, <code>BMP</code>, <code>TGA</code>, apod.).
+Asi nejjednodušeji uchopitelným formátem je <code>TGA</code>, jehož hlavička vypadá následovně <sup class="footnote-reference"><a href="#1">1</a></sup>:</p>
+<table>
+    <thead>
+        <tr>
+            <th>Č. položky</th>
+            <th>Délka</th>
+            <th>Jméno položky</th>
+            <th>Popis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>1 byte	</td><td>ID length</td>                 <td>Length of the image ID field</td>   </tr>
+        <tr><td>2</td><td>1 byte	</td><td>Color map type</td>            <td>Whether a color map is included</td></tr>
+        <tr><td>3</td><td>1 byte	</td><td>Image type</td>                <td>Compression and color types</td>    </tr>
+        <tr><td>4</td><td>5 bytes	</td><td>Color map specification</td>   <td>Describes the color map</td>        </tr>
+        <tr><td>5</td><td>10 bytes	</td><td>Image specification</td>       <td>Image dimensions and format</td>    </tr>
+    <tbody>
+</table>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>https://en.wikipedia.org/wiki/Truevision_TGA</p>
+</div>
 
                     </main>
 

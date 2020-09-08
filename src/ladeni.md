@@ -1,30 +1,34 @@
 # Ladění programů
-Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Proces hledání chyby,
-která způsobuje pád nebo špatné chování programu se nazývá **ladění** (*debugging*).
+Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Pokud váš program
+padá při běhu nebo se nechová tak, jak má, tak v něm nejspíše máte nějakou chybu (tzv. **bug**).
+Proces hledání chyby, která způsobuje pád nebo špatné chování programu se pak nazývá **ladění** (*debugging*).
 
 ### Chyby při překladu programu
-Pokud váš program nelze přeložit, protože překladač vrací nějakou chybu, tak máte v zápisu programu nějakou
-chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybu pořádně přečíst, obvykle se odkazuje
-na relativně přesné místo, kde chyba vznikla, a někdy dokonce i nabízí řešení, jak problém vyřešit.
+Pokud váš program nelze přeložit a překladač vypisuje nějakou chybovou hlášku, tak máte v zápisu programu
+nějakou chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybovou hlášku pořádně přečíst,
+obvykle se odkazuje na relativně přesné místo, kde máte kód špatně, a někdy dokonce i nabízí řešení,
+jak problém vyřešit.
 
-Při překladu můžete dostat například následující chybu:
+Při překladu můžete dostat například následující chybovou hlášku:
 ```bash
 main.c: In function ‘main’:
 main.c:2:2: error: ‘a’ undeclared (first use in this function)
     2 |  a = 0;
 ```
-Tato konkrétní chyba byla způsobena tím, že byla použitá proměnná bez předchozí deklarace. Pokud
+Tato konkrétní chyba byla způsobena tím, že byla použitá proměnná bez její předchozí deklarace. Pokud
 chybě nerozumíte, zkuste ji nejprve vygooglit, ideálně pouze část, která není konkrétně závislá na
-podobě vašeho projektu (nemá cenu googlit `main.c:2:2`, protože chyba může nastat kdekoliv).
+podobě vašeho projektu. Nemá cenu googlit `main.c:2:2`, protože tento text je závislý na tom, jak jste
+si pojmenovali své soubory, ostatní programátoři nejspíše mají jiné názvy souborů. V případě této chyby
+by tedy bylo lepší googlit text `error: undeclared (first use in this function)`.
 
 Může se stát, že překladač vypíše více chybových hlášek zároveň, i když chyba
-v programu je pouze jedna. Zkuste scrollovat výstupem chyb nahoru, abyste zjistili, která chyba
+v programu je pouze jedna. Zkuste scrollovat výstupem hlášek nahoru, abyste zjistili, která chyba
 byla vypsána jako první, zbytek výpisu může být "planý poplach".
 
 Pokud se vám nedaří chybu vygooglit, tak kontaktujte svého cvičícího.
 
-Při překladu můžete použít dodatečné přepínače, při jejichž použití vydá překladač více varování o možných
-problémových místech ve vašem kódu:
+Při překladu můžete použít dodatečné přepínače, při jejichž použití vydá překladač více varování o
+možných problémových místech ve vašem kódu:
 
 ```bash
 $ gcc -Wall -Wextra -pedantic main.c -o program

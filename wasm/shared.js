@@ -500,6 +500,7 @@ class API {
     this.lldFilename = options.lld || (options.wasmBasePath + 'lld.wasm');
     this.sysrootFilename = options.sysroot || (options.wasmBasePath + 'sysroot.tar');
     this.showTiming = options.showTiming || false;
+    this.prepareStage = 0;
 
     this.clangCommonArgs = [
       '-disable-free',
@@ -542,9 +543,9 @@ class API {
   }
 
   async getModule(name) {
+    this.advanceProgress();
     if (this.moduleCache[name]) return this.moduleCache[name];
-    const module = await this.hostLogAsync(`Fetching and compiling ${name}`,
-                                           this.compileStreaming(name));
+    const module = await this.compileStreaming(name);
     this.moduleCache[name] = module;
     return module;
   }
@@ -555,7 +556,11 @@ class API {
       const tar = new Tar(await this.readBuffer(filename));
       tar.untar(this.memfs);
     })();
-    await this.hostLogAsync(`Untarring ${filename}`, promise);
+    this.advanceProgress();
+  }
+
+  advanceProgress(promise) {
+    this.hostWrite(`\rPřipravování překladače ${this.prepareStage++}/3`);
   }
 
   async compile(options) {
@@ -593,7 +598,6 @@ class API {
     const instantiate = +new Date();
     const stillRunning = await app.run();
     const end = +new Date();
-    this.hostWrite('\n');
     if (this.showTiming) {
       const green = '\x1b[92m';
       const normal = '\x1b[0m';
@@ -612,8 +616,10 @@ class API {
     await this.link(obj, wasm);
 
     const buffer = this.memfs.getFileContents(wasm);
-    const testMod = await this.hostLogAsync(`Compiling ${wasm}`,
-                                            WebAssembly.compile(buffer));
+
+    this.hostWrite("\x1bc$ gcc main.c -o main\n")
+    const testMod = await WebAssembly.compile(buffer); 
+    this.hostWrite("$ ./main\n");
     return await this.run(testMod, wasm);
   }
 }

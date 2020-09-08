@@ -611,9 +611,9 @@ class API {
   }
 
   async compileLinkRun(contents) {
-    const input = `test.cc`;
-    const obj = `test.o`;
-    const wasm = `test.wasm`;
+    const input = `main.c`;
+    const obj = `main.o`;
+    const wasm = `main`;
     await this.compile({input, contents, obj});
     await this.link(obj, wasm);
 

@@ -559,8 +559,10 @@ class API {
     this.advanceProgress();
   }
 
-  advanceProgress(promise) {
-    this.hostWrite(`\rPřipravování překladače ${this.prepareStage++}/3`);
+  advanceProgress() {
+    if(this.prepareStage < 3) {
+      this.hostWrite(`\rPřipravování překladače ${this.prepareStage++}/3`);
+    }
   }
 
   async compile(options) {

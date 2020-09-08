@@ -63,3 +63,6 @@ Objeví se tam červené kolečko (tzv. **breakpoint**).
 - Ve sloupci `Variables` v levé části VSCode můžete prozkoumat hodnoty proměnných.
 - Pomocí příkazu `Step Over` (`F10`) program vykoná následující řádek a poté se opět zastaví. Pokud
 nechcete přeskakovat volání funkcí, použijte `Step Into` (`F11`).
+
+> VSCode používá pro ladění vašeho programu debugger `gdb`. Pokud ho chcete použít manuálně, návod
+> můžete najít například [zde](https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/).

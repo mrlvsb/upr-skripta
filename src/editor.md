@@ -1,15 +1,17 @@
 # Vývojové prostředí
 Abychom mohli přeložit a spustit nějaký program, musíme ho obvykle nejprve zapsat do
 jednoho nebo více souborů ve formě tzv. **zdrojového kódu** (*source code*). K usnadnění tohoto procesu
-existují textové editory a vývojová prostředí jako například `MS Visual Studio`, `QtCreator`, `JetBrains CLion`,
+existují **textové editory** a **vývojová prostředí** jako například `MS Visual Studio`, `QtCreator`, `JetBrains CLion`,
 `CodeBlocks`, `Visual Studio Code`, `vim`, `emacs` apod. Tyto programy usnadňují psaní kódu pomocí zvýrazňování
 syntaxe, automatizace překladu, spouštění a testování programů a také správy projektů.
 
 Na cvičeních UPR budeme používat editor `Visual Studio Code`, který je
-[zdarma dostupný](https://code.visualstudio.com/). Níže je krátký návod k použití tohoto programu.
+[dostupný zdarma](https://code.visualstudio.com/). Níže je stručný návod k jeho použití. Při
+programování se hodí detailně znát a efektivně využívat editor, který používáte, ale pro začátek
+nám budou stačit naprosté základy.
 
 ### Instalace potřebných rozšíření (pomocí terminálu)
-VSCode podporuje spoustu programovacích jazyků pomocí různých rozšíření, po první instalaci VSCode
+VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V terminálu spusťte tyto příkazy:
 
 ```bash

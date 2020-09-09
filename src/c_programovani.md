@@ -1,21 +1,25 @@
 # Programování v C
 V této kapitole naleznete popis základních konstrukcí jazyka C, které jsou základními
-stavebními kameny pro tvorbu programů. V průběhu semestru se o nich na cvičeních budete učit
-postupně, později se sem pak můžete vrátit, abyste si je připomněli.
+stavebními kameny pro tvorbu programů. Ke každému tématu je k dispozici také úloh. Pokud úlohy
+zvládnete vypracovat, tak budete mít jistotu, že jste dané téma pochopili a můžete se posunout dále.
+Pokud nezvládnete úlohy splnit, tak můžete mít s dalšími koncepty problém. Pokud nebudete stíhat,
+tak kontaktujte svého cvičícího.
 
-Ke každému tématu je k dispozici také sada úloh. Pokud úlohy zvládnete vypracovat, tak budete
-mít jistotu, že jste dané téma pochopili a můžete se posunout dále. Pokud nezvládnete úlohy splnit,
-tak můžete mít s dalšími koncepty problém. Pokud nebudete stíhat, tak kontaktujte svého cvičícího.
+Zde je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat na cvičení a přednáškách
+se může lišit, tento text je určen spíše jako "kuchařka", ve které se můžete k jednotlivým tématům
+vracet, abyste si je připomněli.
 
 Základní témata:
-- [Základy syntaxe]() - popis základního C programu a jeho syntaxe
-- [Výrazy a proměnné](promenne_a_typy.md) - jak něco vypočítat a zapamatovat si to v paměti
+- [Úvod]() - popis prázdného C programu
+- [Výrazy a proměnné]() - jak něco vypočítat a zapamatovat si to v paměti
 - [Datové typy]() - jak pracovat s různými typy dat
 - [Řízení toku]() - jak se rozhodovat a provádět akce opakovaně
 - [Funkce]() - jak opakovaně využít a parametrizovat opakující se kód
+- [Ukazatele]() - jak sdílet data v paměti a pracovat s adresami
+- [Řetězce]() - jak v programech reprezentovat text
 - [Pole]() - jak jednotně pracovat s velkým množstvím dat
 - [Struktury]() - jak seskupit data do logicky souvisejících celků
-- [Soubory](struktury_soubor.md) - jak číst a zapisovat soubory
+- [Soubory]() - jak číst a zapisovat soubory
 - [Modularizace]() - jak rozdělit program do více zdrojových souborů
 - [Knihovny]() - jak využít existující kód od jiných programátorů
 

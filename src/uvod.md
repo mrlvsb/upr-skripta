@@ -17,6 +17,9 @@ knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard
 Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů terminálu
 v tomto textu předpokládají použití tohoto operačního systému, konkrétně prostředí `Ubuntu`.
 
+V tomto textu najdete různé ukázky (obvykle C) kódu. Některé z nich můžete sami upravovat a dokonce
+i spustit rovnou v prohlížeči pomocí trojúhelníku v pravém horním rohu.
+
 > Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,
 > které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce *kurzívou*. Zdrojové kódy
 > silně doporučujeme psát v angličtině.

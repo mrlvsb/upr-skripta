@@ -55,6 +55,12 @@ window.addEventListener('load', () => {
     if(container.querySelector('code').classList.contains("mainbody")) {
       foldMain(editor.session);
     }
+    if(container.querySelector('code').classList.contains("readonly")) {
+      editor.setOptions({
+        readOnly: true,
+      });
+      editor.renderer.$cursorLayer.element.style.display = "none"
+    }
 
     const run = debounceLazy(async () => {
       initOrMoveTerm();

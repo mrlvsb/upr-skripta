@@ -1,3 +1,6 @@
+# Příkazy
+
+# Výrazy
 ## Porovnání, testy, pravdivost
 
 Pro porovnání hodnot v jazyce C používáme operátory `==` a `!=`.

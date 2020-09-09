@@ -22,7 +22,7 @@ modernějších jazyků. Díky tomu se dá naučit za jeden semestr.
 - Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce C tak lze zároveň
 pochopit, jak funguje počítač a operační systém. Díky tomu lze také při správném zacházení psát velmi
 efektivní programy (to ale nicméně není obsahem tohoto kurzu). 
-- **Syntaxe** (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznilky po něm. Jakmile se
+- **Syntaxe** (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznikly po něm. Jakmile se
 ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších jazyků (C++, C#,
 Java, Kotlin, Javascript, PHP, Rust, ...). 
 

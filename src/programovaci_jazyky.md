@@ -3,9 +3,10 @@ Z pohledu počítače je program sekvence příkazů (nazývaných **instrukce**
 k vyřešení nějakého problému. Abychom mohli počítači říct, co má vykonávat, potřebujeme mu příkazy
 zadat ve formě, které bude rozumět. Ač se to možná nezdá, tak počítače umí vykonávat pouze velmi
 jednoduché příkazy. V podstatě umí pouze provádět aritmetické a logické operace (sečti/odečti/vynásob/vyděl)
-s čísly a manipulovat (ukládat, kopírovat, přesouvat) tato čísla v paměti. Veškeré složitější úkoly,
-jako třeba vykreslení obrázku na obrazovku, zapsání textu do dokumentu nebo simulace světa v
-počítačové hře je výsledkem kombinací tisíců či milionů takovýchto jednoduchých instrukcí.
+s čísly a manipulovat (ukládat, kopírovat, přesouvat) s těmito čísly v paměti.
+Veškeré složitější úkoly, jako třeba vykreslení obrázku na obrazovku, zapsání textu do dokumentu
+nebo simulace světa v počítačové hře je výsledkem kombinací tisíců či milionů takovýchto jednoduchých
+instrukcí.
 
 Zde je ukázka jednoduchého programu, který zdvojnásobí číslo pomocí příkazů `MOV` a `ADD`: 
 ```x86asm

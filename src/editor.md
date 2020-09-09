@@ -19,6 +19,7 @@ $ code --install-extension ms-vscode.cpptools
 ```
 
 > Návod pro práci s terminálem na Linuxu můžete najít např. [zde](https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l).
+> Tahák pro příkazy terminálu najdete [zde](https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/linux.pdf).
 
 ### Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
 1. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)

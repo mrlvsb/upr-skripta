@@ -19,7 +19,7 @@ V programu výše je pouze [funkce](funkce.md) s názvem `main`. Funkce si popí
 budeme psát kód vždy do funkce `main` (před `return 0;`). Jednotlivé prvky programu si postupně vysvětlíme
 v následujících sekcích, prozatím si však všimněte, že **bílé znaky** (*whitespace*)[^1] jsou obvykle
 překladačem ignorovány. Například
-```c,editable
+```c
 int 
 
 
@@ -57,7 +57,7 @@ bude brát jako komentář.
     ```
 - Blokové komenáře - pokud do kódu napíšete `/*`, tak bude jako komentář označen všechen následující
 text, dokud nedojde k ukončení komentáře pomocí `*/`.
-    ```c,editable
+    ```c
     int main() {
         /* zde je komentář
   zde taky
@@ -75,7 +75,7 @@ až se k němu např. za měsíc vrátíte.
 Při programování (jak už v C, tak i v jiných jazycích) budete používat spousty symbolů, které běžně
 asi často nevyužíváte (například `[`, `]`, `{`, `}`, `<`, `>`, `=`, `%`, `#`, `&`, `*`, `;`, `\`,
 `"`, `'`). Obzvláště pokud pro programování budete používat českou klávesnici, je dobré si ze začátku
-najít nějaký tahák (např. [tento](https://github.com/pyvec/cheatsheets/blob/master/keyboard/keyboard-cs.pdf)),
+najít nějaký tahák (např. [tento](https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/keyboard-cs.pdf)),
 abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází. 
 
 [^1]: [Bílé znaky](https://cs.wikipedia.org/wiki/B%C3%ADl%C3%BD_znak) jsou (neviditelné) znaky,

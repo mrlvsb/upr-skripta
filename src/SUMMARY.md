@@ -31,5 +31,4 @@
     - [SDL](sdl.md)
 - [Různé]()
     - [Rozklad problému](rozklad_problemu.md)
-    - [Alokace paměti]()
     - [Procesy]()

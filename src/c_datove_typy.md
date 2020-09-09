@@ -1,15 +1,6 @@
-## Jednoduché datové typy
-
-Nyní si ve stručnosti ukážeme základní datové typy.
-
-**Čísla**: `int`, `long`, `float`, `double`
-- `23` `2345837934346901268` `0x17` `3.4`
-- operátory: `+` `-` `*` `/` `%` `&&` `||` `<<` `>>`
-
-**Cvičení:** Napište jednoduchý program pro práci s čísly.
-Vyzkoušejte si operátory.
-
-
-**Cvičení:** Napište program pro jednoduché počítání.
-Provádějte operace s čísly jako na kalkulátoru. Pokuste se použít
-proměnné a závorky.
+# Datové typy
+Jak už bylo uvedeno v sekci o [paměti](pamet.md), záleží pouze na nás, jak budeme v našich programech
+interpretovat hodnoty v paměti, ty jsou koneckonců vždy na konci reprezentovány pomocí *bytů*. Aby nám
+C tuto práci usnadnilo, tak obsahuje řadu tzv. **datových typů** (*data types*). Datový typ popisuje,
+jak interpretovat nějakou hodnotu v paměti, kolik bytů bude v paměti zabírat a jaké operace nad ní
+lze provádět.

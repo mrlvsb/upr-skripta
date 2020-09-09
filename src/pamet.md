@@ -4,6 +4,7 @@ načíst a pracovat s nimi. Je mnoho typů paměti, s kterými lze pracovat, nej
 s tzv. operační pamětí (**RAM**). RAM znamená Random-access Memory, tedy paměť s náhodným přístupem.
 To znamená, že počítač může do paměti šahat v libovolném pořadí a na libovolném místě, kde je to potřeba.
 
+### Reprezentace hodnot v paměti
 Počítačová paměť uchovává informace v buňkách, které obsahují jedno číslo, které může obsahovat
 256 různých hodnot. To vychází z toho, že informace je reprezentována **bity**, jednotkou informací,
 která může nabývat pouze dvě hodnoty - pravda (1, *true*) nebo nepravda (0, *false*). Každá buňka
@@ -24,3 +25,14 @@ anebo jako celé číslo se znaménkem (*signed integer*) **-1** v [dvojkovém d
 
 Čísla v paměti sama o sobě nemají žádný význam, záleží pouze na tom, jak je my, a obzvláště naše programy,
 interpretují a jaké operace nad nimi provádějí.
+
+### Adresování paměti
+Abychom se mohli odkazovat na hodnoty v paměti, tak musíme mít možnost rozlišit jednotlivé buňky od sebe.
+Toho dosáhneme pomocí **adresy**. Paměť je adresována tak, že každá paměťová buňka (každý *byte*)
+má číselnou adresu od 0 do velikosti paměti. Velmi zjednodušeně řečeno, pokud máte RAM paměť o velikosti
+8 GiB (8589934592 "bajtů"), tak můžete adresovat buňky od 0 do 8589934591.
+
+V praxi to pak vypadá tak, že můžete dát počítači například instrukci `Nastav byte na adrese 58 na
+hodnotu 5` nebo `Přečti 4 byty začínající na adrese 1028`. Při programování v C ovšem často budou adresy
+skryté na pozadí a bude se o ně starat překladač, my se budeme na konkrétní úsek paměti odkazovat
+jménem, které mu přiřadíme.

@@ -15,6 +15,7 @@ preferred-dark-theme = "rust"
 additional-js = [
   "theme/mode-c_cpp.min.js",
 ]
+additional-css = ["theme/css/tufte.css"]
 mathjax-support = true
 google-analytics = "UA-177556287-1"
 

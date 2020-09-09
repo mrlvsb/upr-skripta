@@ -1,53 +1,119 @@
-# Proměnné a datové typy
+# Proměnné
+Aby programy mohly řešit nějaký úkol, tak si téměř vždy musí umět něco zapamatovat. K tomu
+slouží tzv. **proměnné** (*variables*). Proměnné nám umožňují pracovat s pamětí intuitivním způsobem -
+část paměti si pojmenujeme nějakým jménem a dále se na ni tímto jménem odkazujeme. Proměnné můžou
+uchovávat libovolnou hodnotu a také ji v průběhu programu měnit. Příklady použití
+proměnných:
+- Ve webové aplikaci si číselná proměnná pamatuje počet návštěvníků. Při zobrazení stránky
+se hodnota proměnná zvýší o 1.
+- Ve hře si číselná proměnná pamatuje počet životů hráčovy postavy. Pokud dojde k zásahu postavy
+nepřítelem, tak se počet životů sníží o zranění (*damage*) nepřítelovy zbraně. Pokud hráč sebere lékárníčku,
+tak se počet jeho životů opět zvýší.
+- V terminálu si proměnná reprezentující znaky pamatuje text, který byl zadán na klávesnici.
 
-V staticky typovaných jazycích jako je C musíme deklarovat typy
-použitých proměnných (na rozdíl od jazyků jako Python či PHP).
+Proměnné jsou jedním z nejzákladnějších a nejčastějších stavebních kamenů většiny programů, během
+semestru se s nimi budeme setkávat neustále. Není tak náhodou, že jedním z nejzákladnějších příkazů
+v C je právě vytvoření proměnné. Tím řekneme počítači, aby vyčlenil (tzv. **naalokoval**) místo v paměti,
+které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména můžeme odkazovat.[^1]
 
-Proměnnou vytvoříme jednoduše tak, že nadefinujeme její typ a pak její
-jméno, případně můžeme na jednom řádku definovat více proměnných jednoho
-typu různých jmen oddělených čárkou.
+[^1]: O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
+[ukazatelích](c_ukazatele.md).
 
+### Deklarace a platnost
+Takto vypadá **deklarace** (vytvoření) jednoduché proměnné s názvem `age`:
 ```c
-int counter;
-int sum, no_elements = 0;
+int age;
+```
+Jakmile proměnnou nadeklarujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
+reprezentuje, pomocí jejího názvu (zde `age`).
+
+Proměnná je platná (lze ji používat) vždy od místa
+deklarace do konce **bloku**, ve kterém byla nadeklarována. Bloky jsou kusy kódu ohraničené složenými
+závorkami (`{` a `}`):
+```c
+int main() {
+    int a;
+
+    {
+        // zde je platné pouze `a`
+        int b;
+        // zde je platné `a` i `b`
+    } // zde končí platnost proměnné `b`
+
+    // zde je platné pouze `a`
+
+    return 0;
+} // zde končí platnost proměnné `a`
 ```
 
-Na výše uvedeném výpisu je použit výsek kódu, který deklaruje na prvním
-řádku celočíselnou proměnnou typu `int`, která reprezentuje integer, což je
-datový typ reprezentující celá čísla.
-Druhý řádek demonstruje, že je možno
-deklarovat více proměnných jednoho datového typu na jednom řádku. Je
-deklarována proměnná `sum` a `no_elements`, do které je přiřazena
-počáteční hodnota `0` (pokud do proměnné rovnou přiřadíme hodnotu, je to definice proměnné).
-Pokud hodnotu do proměnné takto nepřiřadíme na začatku při její deklaraci,
-musíme takovou proměnnou před prvním použitím nejříve nastavit na
-požadovanou hodnotu. Typicky se toto děje, pokud používáme proměnnou
-jako nějaké počítadlo.
+### Datový typ
+`int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](c_datove_typy.md).
+Prozatím si řekněme, že `int` je zkratka pro `integer`, tedy celé číslo. Tím říkáme programu, že má
+tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako číslo.
 
+### Inicializace
+Do proměnné můžeme při jejím vytvoření rovnou uložit nějaký *výraz*, který musí být stejného datového
+typu jako je typ proměnné:
 ```c
-int counter;
+int points_a = 10;
+int points_b = 10 + 15;
+```
+Obecná syntaxe pro deklaraci proměnné je
 
-int sum, no_elements = 0;
+`<datový typ> <název>;`
 
-printf( "sum: %d\n", sum );                  // muze byt cokoli: sum: 432749
-printf( "no_elements: %d\n", no_elements );  // no_elements: 0
+popřípadě
+
+`<datový typ> <název> = <výraz>;`
+
+pokud použijeme inicializaci.
+
+> Všimněte si, že na konci deklarace proměnné vždy musí následovat středník (**;**).
+> Opomenutí středníku na konci příkazu je velmi častá chyba, která často končí těžko srozumitelnými chybovými
+> hláškami při překladu. Dávejte si tak na středníky pozor, obzvláště ze začátku.
+
+### Čtení
+Pokud v programu použijeme název platné proměnné, tak dojde k načtneí její hodnoty.
+Pokud použijeme název proměnné v programu na místě, kde je očekáván výraz, tak se vyhodnotí jako
+současná hodnota proměnné:
+```c
+int main() {
+    int a = 5;
+    int b = a;  // hodnota `b` je 5
+    int c = b + a + 1;  // hodnota `c` je 11
+}
 ```
 
-Na řádku 5 a 6 vidíme použití knihovní funkce `printf`, která nám bude sloužit pro
-tisk obsahu proměnných na konzoli. Můžete vidět, že funkce `printf` používá
-formátovací řetězec, kde celá čísla (`int`eger) jsou zastoupena znakem `%d`.
-Obecně je formátovácí řetězec uvozen znakem `%` následovaný formátovacím
-znakem. Více o formátování výstupu se můžete dozvědet např. zde:
-[^1],[^2].
+Kdekoliv tak můžete použít výraz, můžete použít i proměnnou (pokud sedí datové typy). Pro výpis hodnot
+proměnných na výstup programu můžete `printf`. Hodnoty proměnných můžete zkoumat také krokováním
+pomocí [debuggeru](ladeni.md#krokování).
 
-```c
-int a = 5, b = 10;
-
-int c = a + b;
-
-printf( "%d + %d = %d\n", a, b, c );  // 5 + 10 = 15
+### Zápis
+Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
+naštěstí jde měnit. Můžeme k tomu použít další typ C příkazu, tzv. přiřazení (**assignment**):
+```c,editable,readonly
+int main() {
+    int a = 5;  // hodnota `a` je 5
+    a = 8;      // hodnota `a` je 8
+}
 ```
+Obecná syntaxe pro přiřazení do proměnné je
 
-[^1]: Standardní vstup a výstup, [http://www.sallyx.org/sally/c/c07.php](http://www.sallyx.org/sally/c/c07.php)
+`<název proměnné> = <výraz>;`
 
-[^2]: Dokumentace funkce `printf`, [http://www.cplusplus.com/reference/cstdio/printf/](http://www.cplusplus.com/reference/cstdio/printf/)
+Opět musí platit, že výraz musí být stejného typu, jako je proměnná, do které přiřazujeme. Na konci
+řádku také nesmí chybět středník.
+
+Jak přiřazení funguje? Počítač se podívá, na jaké adrese v paměti daná proměnná leží, a zapíše do
+paměti hodnotu výrazu, který do proměnné zapisujeme, čímž změní její hodnotu v paměti. Z toho vyplývá,
+že dává smysl zapisovat hodnoty pouze do něčeho, co má adresu v paměti (prozatím známe pouze proměnné,
+později si ukážeme další věci, do kterých lze zapisovat). Například příkaz `5 = 8;` nedává smysl. `5`
+je výraz, číselná hodnota, která nemá žádnou adresu v paměti, nemůžeme tak do ní nic zapsat. Stejně tak
+nedává moc smysl říct `Číslo 5 odteď bude mít hodnotu 8`.
+
+### Rekapitulace
+V této sekci jsme si ukázali, jak v programech používat proměnné, číst jejich hodnoty a zapisovat do
+nich.
+
+**Cvičení**: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
+a pak je vypíše na výstup programu (k výpisu využij `printf`, který jsme si ukázali výše).

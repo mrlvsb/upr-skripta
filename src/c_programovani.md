@@ -5,11 +5,14 @@ zvládnete vypracovat, tak budete mít jistotu, že jste dané téma pochopili a
 Pokud nezvládnete úlohy splnit, tak můžete mít s dalšími koncepty problém. Pokud nebudete stíhat,
 tak kontaktujte svého cvičícího.
 
-Zde je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat na cvičení a přednáškách
-se může lišit, tento text je určen spíše jako "kuchařka", ve které se můžete k jednotlivým tématům
-vracet, abyste si je připomněli.
+Před přečtením této kapitoly si přečtěte sekci o [paměti](pamet.md).
 
-Základní témata:
+Zde je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat probíraných na cvičení
+a přednáškách se může od tohoto seznamu lišit, tento text je určen spíše jako "kuchařka", ve které
+se můžete k jednotlivým tématům vracet, abyste si je připomněli. Text je nicméně psaný tak, aby se
+dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které zatím nebyly vysvětleny.
+
+Základní témata TODO:
 - [Úvod]() - popis prázdného C programu
 - [Výrazy a proměnné]() - jak něco vypočítat a zapamatovat si to v paměti
 - [Datové typy]() - jak pracovat s různými typy dat

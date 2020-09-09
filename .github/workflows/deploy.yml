@@ -13,16 +13,13 @@ jobs:
               uses: actions/checkout@v2
               with:
                 persist-credentials: false
-
-            - name: Set up Rust
-              uses: actions-rs/toolchain@v1
-              with:
-                profile: minimal
-                default: true
-
-            - name: Install mdBook
-              # install debug version to speed up CI
-              run: cargo install --debug --git https://github.com/kobzol/mdBook
+            - name: Download mdBook
+              run: |
+                  wget -q "https://github.com/kobzol/mdBook/releases/download/master/mdbook"
+                  chmod u+x mdbook
+                  mkdir ~/bin
+                  mv ./mdbook ~/bin/
+                  echo "::add-path::~/bin"
 
             - name: Build
               run: mdbook build

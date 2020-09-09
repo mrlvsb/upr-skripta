@@ -15,7 +15,7 @@ jobs:
                 persist-credentials: false
             - name: Download mdBook
               run: |
-                  wget -q "https://github.com/kobzol/mdBook/releases/download/master/mdbook"
+                  wget -q "https://github.com/kobzol/mdBook/releases/download/release/mdbook"
                   chmod u+x mdbook
                   mkdir ~/bin
                   mv ./mdbook ~/bin/

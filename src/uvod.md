@@ -11,15 +11,15 @@ k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka C 
 cykly, struktury, pole, ukazatele atd.) spolu se sadou úloh k procvičení jednotlivých témat. Pomocí
 lupy vlevo nahoře můžete v textu rychle vyhledávat, pokud potřebujete najít informace o konkrétním tématu.
 
-Tento text však neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý
+Několik poznámek k textu:
+- Tento text neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý
 knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf).
-
-Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů terminálu
-v tomto textu předpokládají použití tohoto operačního systému, konkrétně prostředí `Ubuntu`.
-
-V tomto textu najdete různé ukázky (obvykle C) kódu. Některé z nich můžete sami upravovat a dokonce
+- Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů v terminálu
+předpokládají použití tohoto operačního systému (konkrétně distribuce `Ubuntu`).
+- Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,
+které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce *kurzívou*. Zdrojové kódy
+silně doporučujeme psát v angličtině.
+- V tomto textu najdete různé ukázky (obvykle C) kódu. Některé z nich můžete sami upravovat a dokonce
 i spustit rovnou v prohlížeči pomocí trojúhelníku v pravém horním rohu.
-
-> Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,
-> které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce *kurzívou*. Zdrojové kódy
-> silně doporučujeme psát v angličtině.
+- Pokud v textu najdete gramatickou či faktickou chybu nebo budete mít jakoukoliv zpětnou vazbu
+k obsahu či formě textu, dejte nám prosím vědět na [tento e-mail](mailto:jakub.beranek@vsb.cz?subject=UPR%20skripta%20-%20chyba).

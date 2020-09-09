@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
     let folding = null;
     if(mainRow >= 0) {
       let beginFold = session.addFold("main", new ace.Range(0, 0, mainRow, Infinity));
-      let endBlock = searchRow("}", {backwards: true});
+      let endBlock = searchRow("return 0;\n}", {backwards: true});
       if(endBlock >= 0) {
         let endFold = session.addFold("", new ace.Range(endBlock, 0, Infinity, Infinity));
         session.on('changeFold', function(evt) {

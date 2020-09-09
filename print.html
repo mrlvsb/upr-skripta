@@ -180,7 +180,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1>Úvod</h1>
+                        <h1><a class="header" href="#Úvod" id="Úvod">Úvod</a></h1>
 <p>Tento text vznikl pro potřeby výuky předmětu <a href="https://github.com/geordi/upr-course">Úvod do programování</a> na FEI VŠB-TUO.
 Slouží k získání přehledu o základních konceptech programovacího jazyka C.
 Není však plnohodnotnou náhradou za poslechy přednášek a návštěvy cvičení a programovat vás (stejně
@@ -191,18 +191,21 @@ doma, alespoň několik hodin týdně.</p>
 k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka C (proměnné, funkce, podmínky,
 cykly, struktury, pole, ukazatele atd.) spolu se sadou úloh k procvičení jednotlivých témat. Pomocí
 lupy vlevo nahoře můžete v textu rychle vyhledávat, pokud potřebujete najít informace o konkrétním tématu.</p>
-<p>Tento text však neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý
-knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</p>
-<p>Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů terminálu
-v tomto textu předpokládají použití tohoto operačního systému, konkrétně prostředí <code>Ubuntu</code>.</p>
-<p>V tomto textu najdete různé ukázky (obvykle C) kódu. Některé z nich můžete sami upravovat a dokonce
-i spustit rovnou v prohlížeči pomocí trojúhelníku v pravém horním rohu.</p>
-<blockquote>
-<p>Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,
+<p>Několik poznámek k textu:</p>
+<ul>
+<li>Tento text neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý
+knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</li>
+<li>Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů v terminálu
+předpokládají použití tohoto operačního systému (konkrétně distribuce <code>Ubuntu</code>).</li>
+<li>Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,
 které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce <em>kurzívou</em>. Zdrojové kódy
-silně doporučujeme psát v angličtině.</p>
-</blockquote>
-<h1>Programování</h1>
+silně doporučujeme psát v angličtině.</li>
+<li>V tomto textu najdete různé ukázky (obvykle C) kódu. Některé z nich můžete sami upravovat a dokonce
+i spustit rovnou v prohlížeči pomocí trojúhelníku v pravém horním rohu.</li>
+<li>Pokud v textu najdete gramatickou či faktickou chybu nebo budete mít jakoukoliv zpětnou vazbu
+k obsahu či formě textu, dejte nám prosím vědět na <a href="mailto:jakub.beranek@vsb.cz?subject=UPR%20skripta%20-%20chyba">tento e-mail</a>.</li>
+</ul>
+<h1><a class="header" href="#programování" id="programování">Programování</a></h1>
 <p>Programování je proces tvorby programu, tj. sady příkazů pro počítač, který slouží k vyřešení
 nějakého konkrétního <strong>problému</strong>. Problémem se zde myslí nějaká úloha, kterou chceme vyřešit.
 Takovéto úlohy obsahují nějaký (počítačem zpracovatelný) vstup:</p>
@@ -229,7 +232,7 @@ jazyce se pak říká <strong>implementace</strong>.</p>
 <p><code>Načti obrázek z disku, změň jeho velikost a ulož ho do jiného souboru.</code></p>
 <p>Řešením podobných úloh si osvojíte základy programování a budete poté moct řešit zajímavější úlohy,
 jako je například tvorba počítačové hry nebo aplikace komunikující přes internet.</p>
-<h1>Programovací jazyky</h1>
+<h1><a class="header" href="#programovací-jazyky" id="programovací-jazyky">Programovací jazyky</a></h1>
 <p>Z pohledu počítače je program sekvence příkazů (nazývaných <strong>instrukce</strong>), které může počítač vykonat
 k vyřešení nějakého problému. Abychom mohli počítači říct, co má vykonávat, potřebujeme mu příkazy
 zadat ve formě, které bude rozumět. Ač se to možná nezdá, tak počítače umí vykonávat pouze velmi
@@ -262,7 +265,7 @@ Později si ukážeme, jak takovýto překladač použít k překladu kódu.</p>
 pokud ho přečte jako větu v angličtině. Tento program však může být převeden na stovky až tisíce
 počítačových instrukcí a z takového množství příkazů už by bylo složité odvodit, k čemu je program
 určen.</p>
-<h1>Jazyk C</h1>
+<h1><a class="header" href="#jazyk-c" id="jazyk-c">Jazyk C</a></h1>
 <p>Existuje nespočet programovacích jazyků, například Python, Java, C#, PHP či Javascript. Každý z nich
 má své výhody a nevýhody a záleží na konkrétním problému, který je třeba vyřešit, pro zvolení
 vhodného programovacího jazyka.</p>
@@ -306,7 +309,7 @@ si jejich zdrojový kód můžete prohlédnout a v případě potřeby i modifik
 <li><a href="https://github.com/php/php-src">PHP</a> (překladač/interpret jazyka PHP)</li>
 <li><a href="https://github.com/obsproject/obs-studio">OBS Studio</a> (streamovací software)</li>
 </ul>
-<h1>Paměť</h1>
+<h1><a class="header" href="#paměť" id="paměť">Paměť</a></h1>
 <p>Počítače si potřebují ukládat (mezi)výsledky výpočtů do paměti, aby je později mohly opět
 načíst a pracovat s nimi. Je mnoho typů paměti, s kterými lze pracovat, nejběžněji se setkáme
 s tzv. operační pamětí (<strong>RAM</strong>). RAM znamená Random-access Memory, tedy paměť s náhodným přístupem.
@@ -330,12 +333,12 @@ reprezentovat například:</p>
 anebo jako celé číslo se znaménkem (<em>signed integer</em>) <strong>-1</strong> v <a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkovém doplňku</a>.</p>
 <p>Čísla v paměti sama o sobě nemají žádný význam, záleží pouze na tom, jak je my, a obzvláště naše programy,
 interpretují a jaké operace nad nimi provádějí.</p>
-<h1>Nastavení prostředí</h1>
+<h1><a class="header" href="#nastavení-prostředí" id="nastavení-prostředí">Nastavení prostředí</a></h1>
 <p>Abyste mohli programovat v C, musíte si nainstalovat, nakonfigurovat a naučit se používat
 sadu programů. V této kapitole je stručný popis toho, jak si nastavit <a href="editor.html">textový editor</a>
 k psaní programů, <a href="preklad_programu.html">překladač</a> pro překlad z jazyka C do spustitelného souboru
 a také jak <a href="ladeni.html">řešit chyby</a> při psaní programů.</p>
-<h1>Vývojové prostředí</h1>
+<h1><a class="header" href="#vývojové-prostředí" id="vývojové-prostředí">Vývojové prostředí</a></h1>
 <p>Abychom mohli přeložit a spustit nějaký program, musíme ho obvykle nejprve zapsat do
 jednoho nebo více souborů ve formě tzv. <strong>zdrojového kódu</strong> (<em>source code</em>). K usnadnění tohoto procesu
 existují <strong>textové editory</strong> a <strong>vývojová prostředí</strong> jako například <code>MS Visual Studio</code>, <code>QtCreator</code>, <code>JetBrains CLion</code>,
@@ -345,7 +348,7 @@ syntaxe, automatizace překladu, spouštění a testování programů a také sp
 <a href="https://code.visualstudio.com/">dostupný zdarma</a>. Níže je stručný návod k jeho použití. Při
 programování se hodí detailně znát a efektivně využívat editor, který používáte, ale pro začátek
 nám budou stačit naprosté základy.</p>
-<h3>Instalace potřebných rozšíření (pomocí terminálu)</h3>
+<h3><a class="header" href="#instalace-potřebných-rozšíření-pomocí-terminálu" id="instalace-potřebných-rozšíření-pomocí-terminálu">Instalace potřebných rozšíření (pomocí terminálu)</a></h3>
 <p>VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V terminálu spusťte tyto příkazy:</p>
 <pre><code class="language-bash">$ code --install-extension ms-vscode.cpptools
@@ -354,22 +357,22 @@ tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V termin�
 <p>Návod pro práci s terminálem na Linuxu můžete najít např. <a href="https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l">zde</a>.
 Tahák pro příkazy terminálu najdete <a href="https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/linux.pdf">zde</a>.</p>
 </blockquote>
-<h3>Instalace potřebných rozšíření (pomocí uživatelského rozhraní)</h3>
+<h3><a class="header" href="#instalace-potřebných-rozšíření-pomocí-uživatelského-rozhraní" id="instalace-potřebných-rozšíření-pomocí-uživatelského-rozhraní">Instalace potřebných rozšíření (pomocí uživatelského rozhraní)</a></h3>
 <ol>
 <li>Otevřete obrazovku rozšíření (<code>Ctrl+Shift+X</code> nebo spusťte akci <code>Install Extensions</code>)</li>
 <li>Vyhledejte rozšíření C/C++ a nainstalujte ho</li>
 </ol>
-<h2>Ukázka nastavení projektu</h2>
+<h2><a class="header" href="#ukázka-nastavení-projektu" id="ukázka-nastavení-projektu">Ukázka nastavení projektu</a></h2>
 <p>Jako vzorový projekt můžete použít <a href="https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project">tuto</a>
 šablonu.</p>
 <img src="https://raw.githubusercontent.com/geordi/upr-course/master/assets/images/vsc_first_run.gif" width="90%"/>
-<h3>Užitečné zkratky</h3>
+<h3><a class="header" href="#užitečné-zkratky" id="užitečné-zkratky">Užitečné zkratky</a></h3>
 <ul>
 <li>Spustit program - <code>F5</code></li>
 <li>Naformátovat kód - <code>Ctrl + Shift + I</code></li>
 <li>Zobrazit vyhledávač akcí - <code>Ctrl + Shift + P</code></li>
 </ul>
-<h1>Překlad programu</h1>
+<h1><a class="header" href="#překlad-programu" id="překlad-programu">Překlad programu</a></h1>
 <p>Pro překlad programu z jazyka C do <strong>spustitelného</strong> (<em>executable</em>) souboru
 budeme používat jiný program, kterému se říká překladač.
 Překladačů jazyka C existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
@@ -378,7 +381,7 @@ Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong>
 příkazem:</p>
 <pre><code class="language-bash">sudo apt install build-essential
 </code></pre>
-<h2>Překlad prvního programu</h2>
+<h2><a class="header" href="#překlad-prvního-programu" id="překlad-prvního-programu">Překlad prvního programu</a></h2>
 <p>Ještě než si ukážeme, jak vlastně programovací jazyk C funguje, tak zkusíme přeložit velmi jednoduchý
 C program do spustitelného souboru a spustit jej.
 Vytvořte soubor s názvem <code>main.c</code> a nakopírujte do něj následující C kód (později si vysvětlíme,
@@ -410,11 +413,11 @@ a spustitelné soubory typicky žádnou příponu nemají.</p>
 Hello world!
 </code></pre>
 <p>Program by měl na výstup vytisknout text <code>Hello world!</code>.</p>
-<h1>Ladění programů</h1>
+<h1><a class="header" href="#ladění-programů" id="ladění-programů">Ladění programů</a></h1>
 <p>Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Pokud váš program
 padá při běhu nebo se nechová tak, jak má, tak v něm nejspíše máte nějakou chybu (tzv. <strong>bug</strong>).
 Proces hledání chyby, která způsobuje pád nebo špatné chování programu se pak nazývá <strong>ladění</strong> (<em>debugging</em>).</p>
-<h3>Chyby při překladu programu</h3>
+<h3><a class="header" href="#chyby-při-překladu-programu" id="chyby-při-překladu-programu">Chyby při překladu programu</a></h3>
 <p>Pokud váš program nelze přeložit a překladač vypisuje nějakou chybovou hlášku, tak máte v zápisu programu
 nějakou chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybovou hlášku pořádně přečíst,
 obvykle se odkazuje na relativně přesné místo, kde máte kód špatně, a někdy dokonce i nabízí řešení,
@@ -437,9 +440,9 @@ byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;
 možných problémových místech ve vašem kódu:</p>
 <pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
 </code></pre>
-<h3>Chyby při běhu programu</h3>
+<h3><a class="header" href="#chyby-při-běhu-programu" id="chyby-při-běhu-programu">Chyby při běhu programu</a></h3>
 <p>Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:</p>
-<h4>Address sanitizer</h4>
+<h4><a class="header" href="#address-sanitizer" id="address-sanitizer">Address sanitizer</a></h4>
 <p>Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
 a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, k jakému problému došlo. </p>
 <pre><code class="language-bash">$ gcc -fsanitize=address main.c -o program
@@ -448,11 +451,11 @@ a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, 
 <p>Pokud se chyba opraví těsně po svém vzniku, je to mnohem jednodušší, než když se chyba projeví až
 později v úplně jiné části kódu. <strong>Doporučujeme tak vždy používat Address Sanitizer při vývoji programů v C</strong>.
 Ušetříte si tak spoustu času a námahy při ladění chyb.</p>
-<h4>Logování</h4>
+<h4><a class="header" href="#logování" id="logování">Logování</a></h4>
 <p>Jedním z nejjednodušších způsobů, jak se dozvědět, co se v programu děje, je jednoduše tisknout
 hodnoty zajímavých proměnných na výstup programu. Pokud přidáte takovýto výstup na různá místa v kódu,
 můžete pak podle výstupu zpětně rekonstruovat, co se při běhu programu dělo.</p>
-<h4>Krokování</h4>
+<h4><a class="header" href="#krokování" id="krokování">Krokování</a></h4>
 <p>Pro interaktivnější zkoumání chování programů je možné je tzv. <strong>krokovat</strong>. K tomu je potřeba nástroj,
 který umí program pozastavit při jeho běhu a zobrazit uživateli, co se v něm děje. Takovéto nástroje se nazývají
 <strong>debuggery</strong>. Při krokování se program zastaví na určitém místě (řádku) v kódu, a programátor pak může
@@ -470,7 +473,7 @@ nechcete přeskakovat volání funkcí, použijte <code>Step Into</code> (<code>
 <p>VSCode používá pro ladění vašeho programu debugger <code>gdb</code>. Pokud ho chcete použít manuálně, návod
 můžete najít například <a href="https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/">zde</a>.</p>
 </blockquote>
-<h1>Programování v C</h1>
+<h1><a class="header" href="#programování-v-c" id="programování-v-c">Programování v C</a></h1>
 <p>V této kapitole naleznete popis základních konstrukcí jazyka C, které jsou základními
 stavebními kameny pro tvorbu programů. Ke každému tématu je k dispozici také úloh. Pokud úlohy
 zvládnete vypracovat, tak budete mít jistotu, že jste dané téma pochopili a můžete se posunout dále.
@@ -503,7 +506,7 @@ Javascript, Rust, C++ atd.). </p>
 <li><a href="">TGA</a> - jak pracovat s TGA, jednoduchým formátem pro obrázky</li>
 <li><a href="">SDL</a> - jak pracovat s knihovnou SDL tvorbu grafických aplikací a her</li>
 </ul>
-<h1>Základy syntaxe</h1>
+<h1><a class="header" href="#základy-syntaxe" id="základy-syntaxe">Základy syntaxe</a></h1>
 <p>C je (programovací) jazyk a jako každý jazyk má svá pravidla, které je nutno dodržovat.
 Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abychom byli schopni výsledný
 text pochopit. Věty <code>jsme, M y máma, táta a</code> nebo <code>.o dku  d! ty z, jsi</code> nedávají smysl,
@@ -540,7 +543,7 @@ automaticky ve <a href="editor.html">VSCode</a> pomocí zkratky <code>Ctrl + Shi
 <p>Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v <a href="c_retezce.html">řetězcích</a>
 jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. <code>in t</code> nebo
 <code>ma in</code> z programu výše by způsobily chybu při překladu).</p>
-<h3>Komentáře</h3>
+<h3><a class="header" href="#komentáře" id="komentáře">Komentáře</a></h3>
 <p>Abychom mohli v následujících sekcích popisovat kusy kódu, ukážeme si teď <strong>komentáře</strong>. Jedná se
 o text ve zdrojovém kódu, který je určen pro programátory, ne pro překladač, který je zcela ignoruje.
 Bez komentářů bychom nemohli do zdrojového kódu dodávat poznámky, protože překladač by jinak měl snahu
@@ -572,15 +575,15 @@ a tady taky */
 <code>Ctrl + /</code> pro zakomentování/odkomentování řádku kódu. Pokud vám přijde nějaký kus kódu komplikovaný,
 tak si k němu zkuste dopsat komentář, který vysvětlí, co má daný kód dělat. Porozumíte tak kódu snáž,
 až se k němu např. za měsíc vrátíte.</p>
-<h3>Speciální znaky</h3>
+<h3><a class="header" href="#speciální-znaky" id="speciální-znaky">Speciální znaky</a></h3>
 <p>Při programování (jak už v C, tak i v jiných jazycích) budete používat spousty symbolů, které běžně
 asi často nevyužíváte (například <code>[</code>, <code>]</code>, <code>{</code>, <code>}</code>, <code>&lt;</code>, <code>&gt;</code>, <code>=</code>, <code>%</code>, <code>#</code>, <code>&amp;</code>, <code>*</code>, <code>;</code>, <code>\</code>,
 <code>&quot;</code>, <code>'</code>). Obzvláště pokud pro programování budete používat českou klávesnici, je dobré si ze začátku
 najít nějaký tahák (např. <a href="https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/keyboard-cs.pdf">tento</a>),
 abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází. </p>
-<h1>Příkazy</h1>
-<h1>Výrazy</h1>
-<h2>Porovnání, testy, pravdivost</h2>
+<h1><a class="header" href="#příkazy" id="příkazy">Příkazy</a></h1>
+<h1><a class="header" href="#výrazy" id="výrazy">Výrazy</a></h1>
+<h2><a class="header" href="#porovnání-testy-pravdivost" id="porovnání-testy-pravdivost">Porovnání, testy, pravdivost</a></h2>
 <p>Pro porovnání hodnot v jazyce C používáme operátory <code>==</code> a <code>!=</code>.</p>
 <pre><code class="language-c">int a = 5; int b = 5; int c = 10;
 
@@ -593,7 +596,7 @@ a == c; // nepravda
 a != c; // pravda
 </code></pre>
 <p>K porovnání pořadí nám slouží operátory <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> a <code>&gt;=</code>.</p>
-<h1>Proměnné a datové typy</h1>
+<h1><a class="header" href="#proměnné-a-datové-typy" id="proměnné-a-datové-typy">Proměnné a datové typy</a></h1>
 <p>V staticky typovaných jazycích jako je C musíme deklarovat typy
 použitých proměnných (na rozdíl od jazyků jako Python či PHP).</p>
 <p>Proměnnou vytvoříme jednoduše tak, že nadefinujeme její typ a pak její
@@ -635,7 +638,7 @@ int c = a + b;
 
 printf( &quot;%d + %d = %d\n&quot;, a, b, c );  // 5 + 10 = 15
 </code></pre>
-<h2>Jednoduché datové typy</h2>
+<h2><a class="header" href="#jednoduché-datové-typy" id="jednoduché-datové-typy">Jednoduché datové typy</a></h2>
 <p>Nyní si ve stručnosti ukážeme základní datové typy.</p>
 <p><strong>Čísla</strong>: <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code></p>
 <ul>
@@ -647,9 +650,9 @@ Vyzkoušejte si operátory.</p>
 <p><strong>Cvičení:</strong> Napište program pro jednoduché počítání.
 Provádějte operace s čísly jako na kalkulátoru. Pokuste se použít
 proměnné a závorky.</p>
-<h1>Řízení toku</h1>
-<h1>Podmínky</h1>
-<h1>Řízení toku</h1>
+<h1><a class="header" href="#Řízení-toku" id="Řízení-toku">Řízení toku</a></h1>
+<h1><a class="header" href="#podmínky" id="podmínky">Podmínky</a></h1>
+<h1><a class="header" href="#Řízení-toku-1" id="Řízení-toku-1">Řízení toku</a></h1>
 <p>Nejznámější příkaz pro řízení toku <code>if</code>, jsme si již uvedli v kapitole
 @ref(sec:syntax). Schématicky si jej proto pouze připomeneme:</p>
 <ul>
@@ -658,7 +661,7 @@ proměnné a závorky.</p>
 <li>volitelně: else { &lt;vnořený blok&gt; }</li>
 </ul>
 <p>Pro vytvoření cyklů nám v jazyce C slouží dvě konstrukce: <code>while</code> a <code>for</code>.</p>
-<h2>Cyklus while</h2>
+<h2><a class="header" href="#cyklus-while" id="cyklus-while">Cyklus while</a></h2>
 <p>Cyklus <code>while</code> funguje tak, že na začátku máme dánu podmínku iterace. Je-li
 podmínka splněna, je vykonáno tělo cyklu, v opačném případě je cyklus
 přeskočen a pokračuje se dále v programu. V těle cyklu můžeme použít
@@ -680,7 +683,7 @@ while ( i &lt; 5 ) {
 // 3
 // 4
 </code></pre>
-<h2>Cyklus for</h2>
+<h2><a class="header" href="#cyklus-for" id="cyklus-for">Cyklus for</a></h2>
 <p>Cyklus <code>for</code> typicky používáme pro průchod nějakého pole ať už statického nebo
 dynamického. Funkguje tak, že si vytvoříme řídící proměnnou, která
 indexuje procházené pole od nuly (0) do jeho konce (n-1). Důležité je
@@ -698,7 +701,7 @@ for ( int i = 0; i &lt; len; i++ ) {
 }
 printf( &quot;sum: %d\n&quot;, sum );  //118
 </code></pre>
-<h1>Funkce a procedury</h1>
+<h1><a class="header" href="#funkce-a-procedury" id="funkce-a-procedury">Funkce a procedury</a></h1>
 <p>Asi bychom byli schopni naše programy psát tak, abychom nepotřebovali
 použít funkce. Toto by nám však vystačilo na velmi krátké programy,
 poněvadž bychom jinak museli všechen kód psát znovu a znovu. Základní
@@ -706,7 +709,7 @@ vlastností funkcí je jejich znovupoužitelnost. Pokud tedy máme úlohu,
 kterou víme, že budeme požívat více než jednou, je vhodné ji umístit do
 funkce. Takovýto blok kódu by též měl fungovat pokud možno co nejvíce
 samostatně.</p>
-<h2>Funkce</h2>
+<h2><a class="header" href="#funkce" id="funkce">Funkce</a></h2>
 <p>V jazyce C je definice funkce do značné míry podobná definici funkce v
 jiných jazycích. Uvádíme návratový datový typ a uvádíme datové typy
 argumentů funkce. Toto je dáno statickou typovostí jazyka. Uveďme si
@@ -749,14 +752,14 @@ printf( &quot;pow( %d, %d ): %d\n&quot;, pow( a, b ) );  // pow( 2, 5 ): 32
 nastavené hodnoty <code>2</code> pro výpočet druhé mocniny z předcházejícího příkladu
 (realizovaného násobením) je mocnitel zadán parametrem funkce. Máme tak
 zobecněný (generalizovaný) kód pro výpočet mocniny.</p>
-<h2>Procedury (funkce bez návratového typu)</h2>
+<h2><a class="header" href="#procedury-funkce-bez-návratového-typu" id="procedury-funkce-bez-návratového-typu">Procedury (funkce bez návratového typu)</a></h2>
 <p>V jazyce C máme jeden datový typ, který nemá přesné určení. Je to typ a
 může prakticky znamenat cokoli. Nejčastěji jej používáme jako pointer na
 nějakou struktury, kterou pak budeme dále přetypovávat. Velmi často je
 však používán jako návratový typ funkce. V takovém případě funkce
 nevrací žádnou hodnotu. Funkce pouze zpracuje vstupní data a tím její
 úloha končí. Takové funkci říkáme procedura.</p>
-<h2>Parametry funkcí</h2>
+<h2><a class="header" href="#parametry-funkcí" id="parametry-funkcí">Parametry funkcí</a></h2>
 <p>V prvním příkladu pro výpočet druhé mocniny jsme použili parametr tak,
 že byl volán tzv. hodnotou. To prakticky znamená, že hodnota uložená v
 proměnné <code>number</code> na řádku 5 se nakopíruje do parametru <code>number</code> funkce <code>sqr</code> na řádku 1. Snadno si
@@ -810,8 +813,8 @@ prvky předaného pole na zadanou hodnotu.</p>
 <p><strong>Cvičení:</strong> Vytvořte funkci, která zjistí počet sudých a
 lichých čísel předaného pole. Tyto 2 čísla se vrátí pomocí dvou
 proměnných, které budou pointery na inty.</p>
-<h1>Ukazatele</h1>
-<h2>Práce s dynamicky alokovanou pamětí a řetězci znaků (string)</h2>
+<h1><a class="header" href="#ukazatele" id="ukazatele">Ukazatele</a></h1>
+<h2><a class="header" href="#práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string" id="práce-s-dynamicky-alokovanou-pamětí-a-řetězci-znaků-string">Práce s dynamicky alokovanou pamětí a řetězci znaků (string)</a></h2>
 <p>Typická literatura se zabývá prací s dynamicky alokovanou pamětí až v
 pozdějších kapitolách. Dovolme si lehký komentář, když vyslovíme
 tvrzení, že ,,pak jsou z toho všichni ztraceni”. Zkusme se tedy podívat
@@ -882,7 +885,7 @@ bere jako argument pointer na dynamicky alokovanou paměť. V našem
 případě je to <code>str</code>. Bývá ještě dobrým zvykem, abychom takto uvolněný pointer
 nastavili na <code>NULL</code>. Takto nastavený pointer jasně říká, že neukazuje na
 žádnou paměť.</p>
-<h2>Pole</h2>
+<h2><a class="header" href="#pole" id="pole">Pole</a></h2>
 <p>Jedním z důležitých prvků jazyka C je práce s poli. Již jsme si v
 předchozím odstavci ukázali, jak vytvořit dynamicky alokované pole pro
 reprezentaci řetězce. Samozřejmě můžeme vytvořit podobné pole pro
@@ -919,19 +922,19 @@ int main() {
   printf( &quot;%s\n&quot;, str );  // AAoj
 }
 </code></pre>
-<h2>Příklady</h2>
-<h3>Suma pole</h3>
+<h2><a class="header" href="#příklady" id="příklady">Příklady</a></h2>
+<h3><a class="header" href="#suma-pole" id="suma-pole">Suma pole</a></h3>
 <p><upr-array-sum array="[1, 2, 3, 4, 5]"></upr-array-sum></p>
-<h3>Minimální hodnota v poli</h3>
+<h3><a class="header" href="#minimální-hodnota-v-poli" id="minimální-hodnota-v-poli">Minimální hodnota v poli</a></h3>
 <p><upr-array-min array="[5, 6, 3, 4, 1]"></upr-array-min></p>
-<h3>Převrácení pole</h3>
+<h3><a class="header" href="#převrácení-pole" id="převrácení-pole">Převrácení pole</a></h3>
 <p><upr-array-reverse array="[1, 2, 3, 4, 5]"></upr-array-reverse></p>
-<h1>Struktury</h1>
+<h1><a class="header" href="#struktury" id="struktury">Struktury</a></h1>
 <p>Již umíme pracovat s jednoduchými datovými typy, které nám mohou
 reprezentovat celá nebo reálná čísla, či řetězce znaků. Práce se
 strukturovanými datovými typy můžeme do jisté míry považovat za
 předstupeň k objektově orientovanému programování.</p>
-<h2>Co jsou struktury</h2>
+<h2><a class="header" href="#co-jsou-struktury" id="co-jsou-struktury">Co jsou struktury</a></h2>
 <p>Představme si, že bychom chtěli pomocí jednoduchých datových typů řešit
 komplexnější problém. Tento problém by ke svému popisu potřeboval více
 proměnných. Jako jednoduchý přiklad můžeme použít reprezentaci obrazu. V
@@ -1027,7 +1030,7 @@ heap_image-&gt;rows = 480;
 </code></pre>
 <p>Můžeme vidět, že rozdíl je nepatrný, je však nutné na něj dávat pozor,
 jinak náš program nepůjde přeložit.</p>
-<h2>Funkce pro práci se strukturami</h2>
+<h2><a class="header" href="#funkce-pro-práci-se-strukturami" id="funkce-pro-práci-se-strukturami">Funkce pro práci se strukturami</a></h2>
 <p>Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
 pravidlům. Zavedeme si však pár pravidel pro nás samotné, abychom se v
 našem kódu lépe orientovali.</p>
@@ -1096,9 +1099,9 @@ pixelu v obrázku reprezentovaného strukturou <code>Image</code> nastaví zadan
 <p><strong>Cvičení:</strong> Vytvořte funkci, která do obrázku
 reprezentovaného strukturou <code>Image</code> nakreslí zvoleným jasem obdélník o zadaných
 rozměrech.</p>
-<h1>Soubory</h1>
-<h1>Modularizace</h1>
-<h1>Knihovny</h1>
+<h1><a class="header" href="#soubory" id="soubory">Soubory</a></h1>
+<h1><a class="header" href="#modularizace" id="modularizace">Modularizace</a></h1>
+<h1><a class="header" href="#knihovny" id="knihovny">Knihovny</a></h1>
 <p><strong>Knihovny</strong> (<em>libraries</em>) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
 je lze sdílet mezi více projekty/programy, aby se stejný kód nemusel psát pokaždé znovu. Existuje obrovské
 množství C knihoven, které jsou volně dostupné na internetu, například pro <a href="https://www.libsdl.org/">vykreslování grafiky</a>,
@@ -1113,7 +1116,7 @@ spustitelného kódu.</li>
 <blockquote>
 <p>Více o knihovnách se můžete dozvědět například <a href="https://www.itnetwork.cz/cecko/linux/cecko-a-linux-staticke-a-dynamicke-knihovny">zde</a>.</p>
 </blockquote>
-<h4>Použití knihoven pomocí <code>gcc</code></h4>
+<h4><a class="header" href="#použití-knihoven-pomocí-gcc" id="použití-knihoven-pomocí-gcc">Použití knihoven pomocí <code>gcc</code></a></h4>
 <p>Abyste ve vašem programu použili nějakou knihovnu, musíte ji k vašemu programu tzv. <strong>přilinkovat</strong>.
 O to se stará tzv. <strong>linker</strong>, který za vás umí spustit překladač <code>gcc</code>.</p>
 <p>Dejme tomu, že chcete použít knihovnu s názvem <code>foo</code>, která obsahuje hlavičkové soubory v adresáři
@@ -1141,8 +1144,8 @@ foo =&gt; ...
 <strong>proměnnou prostředí</strong> <code>LD_LIBRARY_PATH</code> a uložit do ní cestu k adresáři, ve které se naše knihovna nachází:</p>
 <pre><code class="language-bash">$ LD_LIBRARY_PATH=/usr/foo/lib ./program
 </code></pre>
-<h1>Úlohy</h1>
-<h2>Zápis struktur do souboru</h2>
+<h1><a class="header" href="#Úlohy" id="Úlohy">Úlohy</a></h1>
+<h2><a class="header" href="#zápis-struktur-do-souboru" id="zápis-struktur-do-souboru">Zápis struktur do souboru</a></h2>
 <p>Struktury jsou i dobrým komunikačním nástrojem.
 Můžeme je uložit v podobě souboru na disk a přečíst je pak jiným programem, který je může dále zpracovat.
 Modelovou situací může být program pro zpracování fotografií.</p>
@@ -1168,8 +1171,8 @@ Asi nejjednodušeji uchopitelným formátem je <code>TGA</code>, jehož hlavičk
         <tr><td>5</td><td>10 bytes	</td><td>Image specification</td>       <td>Image dimensions and format</td>    </tr>
     <tbody>
 </table>
-<h1>SDL</h1>
-<h1>Rozklad problému</h1>
+<h1><a class="header" href="#sdl" id="sdl">SDL</a></h1>
+<h1><a class="header" href="#rozklad-problému" id="rozklad-problému">Rozklad problému</a></h1>
 <p>Často se setkáte s tím, že dostanete k naprogramování úlohu, se kterou si nevíte rady a netušíte ani
 jak začít. Například:</p>
 <p><code>Načti obrázek z disku, změň jeho velikost, ulož ho do jiného souboru a vykresli jej na obrazovku.</code></p>

@@ -178,11 +178,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1>Ladění programů</h1>
+                        <h1><a class="header" href="#ladění-programů" id="ladění-programů">Ladění programů</a></h1>
 <p>Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Pokud váš program
 padá při běhu nebo se nechová tak, jak má, tak v něm nejspíše máte nějakou chybu (tzv. <strong>bug</strong>).
 Proces hledání chyby, která způsobuje pád nebo špatné chování programu se pak nazývá <strong>ladění</strong> (<em>debugging</em>).</p>
-<h3>Chyby při překladu programu</h3>
+<h3><a class="header" href="#chyby-při-překladu-programu" id="chyby-při-překladu-programu">Chyby při překladu programu</a></h3>
 <p>Pokud váš program nelze přeložit a překladač vypisuje nějakou chybovou hlášku, tak máte v zápisu programu
 nějakou chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybovou hlášku pořádně přečíst,
 obvykle se odkazuje na relativně přesné místo, kde máte kód špatně, a někdy dokonce i nabízí řešení,
@@ -205,9 +205,9 @@ byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;
 možných problémových místech ve vašem kódu:</p>
 <pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
 </code></pre>
-<h3>Chyby při běhu programu</h3>
+<h3><a class="header" href="#chyby-při-běhu-programu" id="chyby-při-běhu-programu">Chyby při běhu programu</a></h3>
 <p>Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:</p>
-<h4>Address sanitizer</h4>
+<h4><a class="header" href="#address-sanitizer" id="address-sanitizer">Address sanitizer</a></h4>
 <p>Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
 a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, k jakému problému došlo. </p>
 <pre><code class="language-bash">$ gcc -fsanitize=address main.c -o program
@@ -216,11 +216,11 @@ a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, 
 <p>Pokud se chyba opraví těsně po svém vzniku, je to mnohem jednodušší, než když se chyba projeví až
 později v úplně jiné části kódu. <strong>Doporučujeme tak vždy používat Address Sanitizer při vývoji programů v C</strong>.
 Ušetříte si tak spoustu času a námahy při ladění chyb.</p>
-<h4>Logování</h4>
+<h4><a class="header" href="#logování" id="logování">Logování</a></h4>
 <p>Jedním z nejjednodušších způsobů, jak se dozvědět, co se v programu děje, je jednoduše tisknout
 hodnoty zajímavých proměnných na výstup programu. Pokud přidáte takovýto výstup na různá místa v kódu,
 můžete pak podle výstupu zpětně rekonstruovat, co se při běhu programu dělo.</p>
-<h4>Krokování</h4>
+<h4><a class="header" href="#krokování" id="krokování">Krokování</a></h4>
 <p>Pro interaktivnější zkoumání chování programů je možné je tzv. <strong>krokovat</strong>. K tomu je potřeba nástroj,
 který umí program pozastavit při jeho běhu a zobrazit uživateli, co se v něm děje. Takovéto nástroje se nazývají
 <strong>debuggery</strong>. Při krokování se program zastaví na určitém místě (řádku) v kódu, a programátor pak může

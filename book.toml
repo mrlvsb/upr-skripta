@@ -15,7 +15,8 @@ preferred-dark-theme = "rust"
 additional-js = [
   "theme/mode-c_cpp.min.js",
 ]
-
+mathjax-support = true
+google-analytics = "UA-177556287-1"
 
 [output.html.playground]
 editable = true

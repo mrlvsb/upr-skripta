@@ -223,17 +223,32 @@ class MemFS {
     this.hostMem_.check();
     assert(fd <= 2);
     let size = 0;
-    let str = '';
+    let origIovs = iovs;
+
     for (let i = 0; i < iovs_len; ++i) {
-      const buf = this.hostMem_.read32(iovs);
+      const addr = this.hostMem_.read32(iovs);
       iovs += 4;
       const len = this.hostMem_.read32(iovs);
       iovs += 4;
-      str += this.hostMem_.readStr(buf, len);
       size += len;
     }
+
+    const result = new Uint8Array(size);
+    let offset = 0;
+    iovs = origIovs;
+    for (let i = 0; i < iovs_len; ++i) {
+      const addr = this.hostMem_.read32(iovs);
+      iovs += 4;
+      const len = this.hostMem_.read32(iovs);
+      iovs += 4;
+
+      const content = this.hostMem_.u8.subarray(addr, addr + len);
+      result.set(content, offset);
+      offset += len;
+    }
+
+    this.hostWrite(result);
     this.hostMem_.write32(nwritten_out, size);
-    this.hostWrite(str);
     return ESUCCESS;
   }
 

@@ -140,7 +140,11 @@ class WorkerAPI {
   onmessage(event) {
     switch (event.data.id) {
       case 'write':
-        term.write(event.data.data);
+        if(event.data.data instanceof Uint8Array) {
+          term.writeUtf8(event.data.data);
+        } else {
+          term.writeUtf8(new TextEncoder().encode(event.data.data));
+        }
         break;
 
       case 'runAsync': {

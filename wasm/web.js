@@ -65,7 +65,7 @@ window.addEventListener('load', () => {
     const run = debounceLazy(async () => {
       initOrMoveTerm();
       localTerm.clear();
-      await api.compileLinkRun(editor.getValue());
+      await api.compileLinkRun(new TextEncoder().encode(editor.getValue()));
     }, 100);
 
     editor.commands.addCommand({

@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
 
     const run = debounceLazy(async () => {
       initOrMoveTerm();
-      localTerm.clear();
+      localTerm.write("\r\n\x1bc");
       await api.compileLinkRun(new TextEncoder().encode(editor.getValue()));
     }, 100);
 
@@ -77,10 +77,6 @@ window.addEventListener('load', () => {
 
 
     const initOrMoveTerm = () => {
-      if(!term) {
-        api = new WorkerAPI();
-      }
-
       if(!localTerm) {
         termEl = document.createElement('div');
         container.appendChild(termEl);
@@ -94,6 +90,10 @@ window.addEventListener('load', () => {
         term = localTerm;
       }
       term = localTerm;
+
+      if(!api) {
+        api = new WorkerAPI();
+      }
     };
 
     let btn = document.createElement('button')

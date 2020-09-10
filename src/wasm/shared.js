@@ -330,7 +330,6 @@ class App {
   }
 
   async run() {
-    await this.ready;
     try {
       this.exports._start();
     } catch (exn) {
@@ -533,8 +532,23 @@ class API {
       hostWrite : this.hostWrite,
       memfsFilename : options.memfs || (options.wasmBasePath + 'memfs.wasm'),
     });
-    this.ready = this.memfs.ready.then(
-        () => { return this.untar(this.memfs, this.sysrootFilename); });
+  }
+
+  async prepareEnvironment() {
+    const jobs = [
+      () => this.memfs.ready,
+      () => this.untar(this.memfs, this.sysrootFilename),
+      () => this.getModule(this.clangFilename),
+      () => this.getModule(this.lldFilename)
+    ];
+
+    this.ready = (async () => {
+      for(let i = 0; i < jobs.length; i++) {
+        this.hostWrite(`\rPřipravování překladače ${i}/${jobs.length}`);
+        await jobs[i]();
+      };
+      this.hostWrite(`\r${" ".repeat(40)}\r`);
+    })()
   }
 
   hostLog(message) {
@@ -558,7 +572,6 @@ class API {
   }
 
   async getModule(name) {
-    this.advanceProgress();
     if (this.moduleCache[name]) return this.moduleCache[name];
     const module = await this.compileStreaming(name);
     this.moduleCache[name] = module;
@@ -571,13 +584,6 @@ class API {
       const tar = new Tar(await this.readBuffer(filename));
       tar.untar(this.memfs);
     })();
-    this.advanceProgress();
-  }
-
-  advanceProgress() {
-    if(this.prepareStage < 3) {
-      this.hostWrite(`\rPřipravování překladače ${this.prepareStage++}/3`);
-    }
   }
 
   async compile(options) {
@@ -612,6 +618,7 @@ class API {
 //    this.hostLog(`${args.join(' ')}\n`);
     const start = +new Date();
     const app = new App(module, this.memfs, ...args);
+    await app.ready;
     const instantiate = +new Date();
     const stillRunning = await app.run();
     const end = +new Date();
@@ -629,12 +636,14 @@ class API {
     const input = `main.c`;
     const obj = `main.o`;
     const wasm = `main`;
+
+    await this.ready;
+
+    this.hostWrite("$ gcc main.c -o main\n")
     await this.compile({input, contents, obj});
     await this.link(obj, wasm);
 
     const buffer = this.memfs.getFileContents(wasm);
-
-    this.hostWrite("\x1bc$ gcc main.c -o main\n")
     const testMod = await WebAssembly.compile(buffer); 
     this.hostWrite("$ ./main\n");
     return await this.run(testMod, wasm);

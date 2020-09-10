@@ -47,6 +47,7 @@ const onAnyMessage = async event => {
     port = event.data.data;
     port.onmessage = onAnyMessage;
     api = new API(apiOptions);
+    await api.prepareEnvironment();
     break;
 
   case 'setShowTiming':

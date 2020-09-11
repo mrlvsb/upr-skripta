@@ -71,6 +71,19 @@ Ze začátku je asi jednodušší používat řádkové komentáře, ve VSCode m
 tak si k němu zkuste dopsat komentář, který vysvětlí, co má daný kód dělat. Porozumíte tak kódu snáž,
 až se k němu např. za měsíc vrátíte.
 
+### Klíčová slova
+**Klíčová slova** (*keywords*) jsou vestavěné názvy, kterým překladač přiřazuje speciální
+význam. V textovém editoru je typicky poznáte tak, že budou zabarvená jinou barvou. Například v
+tomto kódu jsou `int` a `return` klíčová slova:
+```c
+int main() {
+    return 0;
+}
+```
+
+Během semestru se postupně naučíte, k čemu se jednotlivá klíčová slova používají. Jejich kompletní
+seznam můžete najít například [zde](https://www.programiz.com/c-programming/list-all-keywords-c-language).
+
 ### Speciální znaky
 Při programování (jak už v C, tak i v jiných jazycích) budete používat spousty symbolů, které běžně
 asi často nevyužíváte (například `[`, `]`, `{`, `}`, `<`, `>`, `=`, `%`, `#`, `&`, `*`, `;`, `\`,

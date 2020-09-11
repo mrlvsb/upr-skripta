@@ -14,7 +14,7 @@ tak se počet jeho životů opět zvýší.
 Proměnné jsou jedním z nejzákladnějších a nejčastějších stavebních kamenů většiny programů, během
 semestru se s nimi budeme setkávat neustále. Není tak náhodou, že jedním z nejzákladnějších příkazů
 v C je právě vytvoření proměnné. Tím řekneme počítači, aby vyčlenil (tzv. **naalokoval**) místo v paměti,
-které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména můžeme odkazovat.[^1]
+které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména můžeme odkazovat[^1].
 
 [^1]: O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
 [ukazatelích](c_ukazatele.md).
@@ -49,7 +49,7 @@ int main() {
 ### Datový typ
 `int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](c_datove_typy.md).
 Prozatím si řekněme, že `int` je zkratka pro `integer`, tedy celé číslo. Tím říkáme programu, že má
-tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako číslo.
+tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako celé číslo se znaménkem.
 
 ### Inicializace
 Do proměnné můžeme při jejím vytvoření rovnou uložit nějaký *výraz*, který musí být stejného datového
@@ -73,7 +73,7 @@ pokud použijeme inicializaci.
 > hláškami při překladu. Dávejte si tak na středníky pozor, obzvláště ze začátku.
 
 ### Čtení
-Pokud v programu použijeme název platné proměnné, tak dojde k načtneí její hodnoty.
+Pokud v programu použijeme název platné proměnné, tak dojde k načtení její hodnoty.
 Pokud použijeme název proměnné v programu na místě, kde je očekáván výraz, tak se vyhodnotí jako
 současná hodnota proměnné:
 ```c
@@ -91,7 +91,7 @@ pomocí [debuggeru](ladeni.md#krokování).
 ### Zápis
 Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
 naštěstí jde měnit. Můžeme k tomu použít další typ C příkazu, tzv. přiřazení (**assignment**):
-```c,editable,readonly
+```c
 int main() {
     int a = 5;  // hodnota `a` je 5
     a = 8;      // hodnota `a` je 8
@@ -101,8 +101,13 @@ Obecná syntaxe pro přiřazení do proměnné je
 
 `<název proměnné> = <výraz>;`
 
-Opět musí platit, že výraz musí být stejného typu, jako je proměnná, do které přiřazujeme. Na konci
+Opět musí platit, že výraz musí být stejného typu[^2], jako je proměnná, do které přiřazujeme. Na konci
 řádku také nesmí chybět středník.
+
+[^2]: C umožňuje automatické (tzv. **implicitní**) konverze mezi některými datovými typy, takže typ výrazu
+nemusí být nutně vždy stejný. Tyto konverze se nicméně často chovají neintuitivně a překladač vás před nimi
+obvykle nijak nevaruje, i když vrátí výsledek, který nedává smysl. Snažte se tak ze začátku opravdu vždy
+používat odpovídající typy. Více se dozvíte v sekci o [datových typech](c_datove_typy.md). 
 
 Jak přiřazení funguje? Počítač se podívá, na jaké adrese v paměti daná proměnná leží, a zapíše do
 paměti hodnotu výrazu, který do proměnné zapisujeme, čímž změní její hodnotu v paměti. Z toho vyplývá,
@@ -111,9 +116,5 @@ později si ukážeme další věci, do kterých lze zapisovat). Například př
 je výraz, číselná hodnota, která nemá žádnou adresu v paměti, nemůžeme tak do ní nic zapsat. Stejně tak
 nedává moc smysl říct `Číslo 5 odteď bude mít hodnotu 8`.
 
-### Rekapitulace
-V této sekci jsme si ukázali, jak v programech používat proměnné, číst jejich hodnoty a zapisovat do
-nich.
-
 **Cvičení**: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
-a pak je vypíše na výstup programu (k výpisu využij `printf`, který jsme si ukázali výše).
+a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](c_prikazy_vyrazy.md#výpis-výrazů)).

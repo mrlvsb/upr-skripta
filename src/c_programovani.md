@@ -12,19 +12,20 @@ a přednáškách se může od tohoto seznamu lišit, tento text je určen spí�
 se můžete k jednotlivým tématům vracet, abyste si je připomněli. Text je nicméně psaný tak, aby se
 dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které zatím nebyly vysvětleny.
 
-Základní témata TODO:
-- [Úvod]() - popis prázdného C programu
-- [Výrazy a proměnné]() - jak něco vypočítat a zapamatovat si to v paměti
-- [Datové typy]() - jak pracovat s různými typy dat
-- [Řízení toku]() - jak se rozhodovat a provádět akce opakovaně
-- [Funkce]() - jak opakovaně využít a parametrizovat opakující se kód
-- [Ukazatele]() - jak sdílet data v paměti a pracovat s adresami
-- [Řetězce]() - jak v programech reprezentovat text
-- [Pole]() - jak jednotně pracovat s velkým množstvím dat
-- [Struktury]() - jak seskupit data do logicky souvisejících celků
-- [Soubory]() - jak číst a zapisovat soubory
-- [Modularizace]() - jak rozdělit program do více zdrojových souborů
-- [Knihovny]() - jak využít existující kód od jiných programátorů
+Základní témata:
+- [Úvod](c_syntaxe.md) - základní syntaxe a komentáře
+- [Příkazy a výrazy](c_prikazy_vyrazy.md) - jak provádět výpočty
+- [Proměnné](c_promenne.md) - jak něco uložit a načíst z paměti paměti
+- [Datové typy](c_datove_typy.md) - jak pracovat s daty v paměti
+- [Řízení toku](c_rizeni_toku.md) - jak se rozhodovat a provádět akce opakovaně
+- [Funkce](c_funkce.md) - jak opakovaně využít a parametrizovat opakující se kód
+- [Ukazatele](c_ukazatele.md) - jak sdílet data v paměti a pracovat s adresami
+- [Pole](c_pole.md) - jak jednotně pracovat s velkým množstvím dat
+- [Řetězce](c_retezce.md) - jak v programech reprezentovat text
+- [Struktury](c_struktury.md) - jak seskupit data do logicky souvisejících celků
+- [Soubory](c_soubory.md) - jak číst a zapisovat soubory
+- [Modularizace](c_modularizace.md) - jak rozdělit program do více zdrojových souborů
+- [Knihovny](c_knihovny.md) - jak využít existující kód od jiných programátorů
 
 Všechny tyto koncepty jsou velmi univerzální a v tzv. [imperativních](https://cs.wikipedia.org/wiki/Imperativn%C3%AD_programov%C3%A1n%C3%AD)
 programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jednou naučíte, tak je budete
@@ -32,5 +33,5 @@ moct využívat téměř v libovolném populárním programovacím jazyku (Java,
 Javascript, Rust, C++ atd.). 
 
 Navazující témata:
-- [TGA]() - jak pracovat s TGA, jednoduchým formátem pro obrázky
-- [SDL]() - jak pracovat s knihovnou SDL tvorbu grafických aplikací a her
+- [TGA](tga.md) - jednoduchý formát pro reprezentaci obrázků na disku
+- [SDL](sdl.md) - knihovna pro tvorbu grafických aplikací a her

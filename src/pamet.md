@@ -30,9 +30,13 @@ interpretují a jaké operace nad nimi provádějí.
 Abychom se mohli odkazovat na hodnoty v paměti, tak musíme mít možnost rozlišit jednotlivé buňky od sebe.
 Toho dosáhneme pomocí **adresy**. Paměť je adresována tak, že každá paměťová buňka (každý *byte*)
 má číselnou adresu od 0 do velikosti paměti. Velmi zjednodušeně řečeno, pokud máte RAM paměť o velikosti
-8 GiB (8589934592 "bajtů"), tak můžete adresovat buňky od 0 do 8589934591.
+8 GiB (8589934592 "bajtů"), tak můžete adresovat buňky od 0 do 8589934591[^1].
 
-V praxi to pak vypadá tak, že můžete dát počítači například instrukci `Nastav byte na adrese 58 na
-hodnotu 5` nebo `Přečti 4 byty začínající na adrese 1028`. Při programování v C ovšem často budou adresy
-skryté na pozadí a bude se o ně starat překladač, my se budeme na konkrétní úsek paměti odkazovat
-jménem, které mu přiřadíme.
+[^1]: Programy běžně nemají přístup k celé paměti počítače z bezpečnostních důvodů. Váš operační systém
+používá tzv. **virtuální paměť**, která každému běžícímu programu přiděluje určité rozsahy paměti, s kterými
+může pracovat. Více se dozvíte později. 
+
+Pokud byste programovali počítač přímo pomocí instrukcí, tak mu můžete dát například instrukci
+`Nastav byte na adrese 58 na hodnotu 5` nebo `Přečti 4 byty začínající na adrese 1028`.
+Při programování v C ovšem často budou adresy skryté na pozadí a bude se o ně starat překladač,
+my se budeme na konkrétní úsek paměti obvykle odkazovat jménem, které mu přiřadíme.

@@ -9,7 +9,8 @@ doma, alespoň několik hodin týdně.
 V tomto textu naleznete stručný úvod o programování, překladu a ladění programů, nastavení prostředí
 k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka C (proměnné, funkce, podmínky,
 cykly, struktury, pole, ukazatele atd.) spolu se sadou úloh k procvičení jednotlivých témat. Pomocí
-lupy vlevo nahoře můžete v textu rychle vyhledávat, pokud potřebujete najít informace o konkrétním tématu.
+ikony <i class="fa fa-search"></i> vlevo nahoře můžete v textu rychle vyhledávat, pokud potřebujete
+najít informace o konkrétním tématu.
 
 Několik poznámek k textu:
 - Tento text neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý
@@ -20,6 +21,7 @@ předpokládají použití tohoto operačního systému (konkrétně distribuce 
 které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce *kurzívou*. Zdrojové kódy
 silně doporučujeme psát v angličtině.
 - V tomto textu najdete různé ukázky (obvykle C) kódu. Některé z nich můžete sami upravovat a dokonce
-i spustit rovnou v prohlížeči pomocí trojúhelníku v pravém horním rohu.
+i spustit rovnou v prohlížeči pomocí ikony <i class="fa fa-play"></i> v pravém horním rohu kódu.
 - Pokud v textu najdete gramatickou či faktickou chybu nebo budete mít jakoukoliv zpětnou vazbu
-k obsahu či formě textu, dejte nám prosím vědět na [tento e-mail](mailto:jakub.beranek@vsb.cz?subject=UPR%20skripta%20-%20chyba).
+k obsahu či formě textu, dejte nám prosím vědět na [tento e-mail](mailto:jakub.beranek@vsb.cz?subject=UPR%20skripta%20-%20chyba)
+nebo vytvořte issue na [GitHubu](https://github.com/mrlvsb/upr-skripta/issues/new).

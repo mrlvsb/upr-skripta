@@ -8,8 +8,9 @@ main {
 .marginnote {
     position: absolute;
     word-break: break-word;
-    right: -300px;
+    right: -280px;
     width: 250px;
+    font-size: 0.8em;
 }
 
 .sidenote-number:after,
@@ -39,5 +40,6 @@ main {
         width: auto;
         background-color: var(--quote-bg);
         padding: 5px 15px;
+        font-size: 1em;
     }
 }

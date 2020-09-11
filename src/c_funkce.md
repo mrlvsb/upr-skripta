@@ -1,4 +1,7 @@
-Funkce a procedury
+# Funkce
+Tato sekce je ve výstavbě 🚧.
+
+<!--Funkce a procedury
 ==================
 
 Asi bychom byli schopni naše programy psát tak, abychom nepotřebovali
@@ -140,3 +143,4 @@ prvky předaného pole na zadanou hodnotu.
 **Cvičení:** Vytvořte funkci, která zjistí počet sudých a
 lichých čísel předaného pole. Tyto 2 čísla se vrátí pomocí dvou
 proměnných, které budou pointery na inty.
+-->

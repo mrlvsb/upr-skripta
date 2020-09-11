@@ -9,7 +9,7 @@ title = "Úvod do programování"
 create-missing = false
 
 [output.html]
-git-repository-url = "https://github.com/geordi/upr-skripta"
+git-repository-url = "https://github.com/mrlvsb/upr-skripta"
 default-theme = "rust"
 preferred-dark-theme = "rust"
 additional-js = [
@@ -21,3 +21,7 @@ google-analytics = "UA-177556287-1"
 
 [output.html.playground]
 editable = true
+
+[output.html.fold]
+enable = true
+level = 1

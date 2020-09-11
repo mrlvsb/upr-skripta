@@ -1,6 +1,7 @@
-## Pole
+# Pole
+Tato sekce je ve výstavbě 🚧.
 
-Jedním z důležitých prvků jazyka C je práce s poli. Již jsme si v
+<!--Jedním z důležitých prvků jazyka C je práce s poli. Již jsme si v
 předchozím odstavci ukázali, jak vytvořit dynamicky alokované pole pro
 reprezentaci řetězce. Samozřejmě můžeme vytvořit podobné pole pro
 reprezentaci intigerů, floatů, apod. Je také bez problému možné vytvořit
@@ -53,3 +54,4 @@ int main() {
 
 ### Převrácení pole
 <upr-array-reverse array="[1, 2, 3, 4, 5]"></upr-array-reverse>
+-->

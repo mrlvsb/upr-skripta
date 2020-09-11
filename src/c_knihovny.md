@@ -1,5 +1,7 @@
 # Knihovny
-**Knihovny** (*libraries*) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
+Tato sekce je ve výstavbě 🚧.
+
+<!--**Knihovny** (*libraries*) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
 je lze sdílet mezi více projekty/programy, aby se stejný kód nemusel psát pokaždé znovu. Existuje obrovské
 množství C knihoven, které jsou volně dostupné na internetu, například pro [vykreslování grafiky](https://www.libsdl.org/),
 [sazbu fontů](https://www.freetype.org/) nebo [kompresi dat](http://zlib.net/). 
@@ -52,3 +54,4 @@ Pokud pro naši knihovnu ve výstupu není uvedena správná cesta, musíme při
 ```bash
 $ LD_LIBRARY_PATH=/usr/foo/lib ./program
 ```
+-->

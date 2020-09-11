@@ -1,4 +1,7 @@
-## Práce s dynamicky alokovanou pamětí a řetězci znaků (string)
+# Řetězce
+Tato sekce je ve výstavbě 🚧.
+
+<!--## Práce s dynamicky alokovanou pamětí a řetězci znaků (string)
 
 Typická literatura se zabývá prací s dynamicky alokovanou pamětí až v
 pozdějších kapitolách. Dovolme si lehký komentář, když vyslovíme
@@ -77,3 +80,4 @@ bere jako argument pointer na dynamicky alokovanou paměť. V našem
 případě je to `str`. Bývá ještě dobrým zvykem, abychom takto uvolněný pointer
 nastavili na `NULL`. Takto nastavený pointer jasně říká, že neukazuje na
 žádnou paměť.
+-->

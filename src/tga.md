@@ -1,4 +1,7 @@
-## Zápis struktur do souboru
+# TGA
+Tato sekce je ve výstavbě 🚧.
+
+<!--## Zápis struktur do souboru
 
 Struktury jsou i dobrým komunikačním nástrojem.
 Můžeme je uložit v podobě souboru na disk a přečíst je pak jiným programem, který je může dále zpracovat.
@@ -28,3 +31,4 @@ Asi nejjednodušeji uchopitelným formátem je `TGA`, jehož hlavička vypadá n
 </table>
 
 [^1]: https://en.wikipedia.org/wiki/Truevision_TGA
+-->

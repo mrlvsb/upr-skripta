@@ -1,6 +1,7 @@
 # Struktury
+Tato sekce je ve výstavbě 🚧.
 
-Již umíme pracovat s jednoduchými datovými typy, které nám mohou
+<!--Již umíme pracovat s jednoduchými datovými typy, které nám mohou
 reprezentovat celá nebo reálná čísla, či řetězce znaků. Práce se
 strukturovanými datovými typy můžeme do jisté míry považovat za
 předstupeň k objektově orientovanému programování.
@@ -127,3 +128,4 @@ heap_image->rows = 480;
 
 Můžeme vidět, že rozdíl je nepatrný, je však nutné na něj dávat pozor,
 jinak náš program nepůjde přeložit.
+-->

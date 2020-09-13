@@ -1,5 +1,5 @@
 # Vykonávání programů
-Jak už víme, programy jsou [sekvence příkazů](programovaci_jazyky.md) pro počítač, který je provádí
+Jak už víme, programy jsou [sekvence příkazů](../uvod/programovaci_jazyky.md) pro počítač, který je provádí
 instrukci po instrukci (resp. řádek po řádku). Jakmile počítač vykoná jeden řádek vašeho programu, tak skočí
 na řádek níže, dokud nedojde na konec programu. Aby počítač věděl, kterou instrukci má provést
 jako první, tak mu musíme říct, kde má začít. K tomu přesně slouží funkce se speciálním názvem
@@ -11,7 +11,7 @@ int main() {
 }
 ```
 
-Výše zmíněný program se po [překladu](preklad_programu.md) a spuštění začne vykonávat na prvním řádku
+Výše zmíněný program se po [překladu](../prostredi/preklad_programu.md) a spuštění začne vykonávat na prvním řádku
 funkce `main`, a jakmile provede všechny řádky, tak program skončí. Tento program je
 v podstatě prázdný, takže se pouze zapne a vypne. Prozatím budeme veškerý kód psát dovnitř funkce
 `main`, mezi složené závorky (`{`, `}`) a před řádek `return 0;` (tedy na místo komentáře `ZDE`).
@@ -20,7 +20,7 @@ Později si vysvětlíme, jak tato funkce funguje, prozatím to berte tak, že v
 
 # Příkazy
 Programy v *C* se skládají z **příkazů** (*statements*). Příkaz říká počítači, co má provést, na
-mnohem vyšší úrovni než [instrukce](programovaci_jazyky.md) - jeden *C* příkaz může být přeložen
+mnohem vyšší úrovni než [instrukce](../uvod/programovaci_jazyky.md) - jeden C příkaz může být přeložen
 překladačem na desítky instrukcí pro procesor. Existuje mnoho různých typů příkazů, které naleznete
 v následujících sekcích.
 
@@ -103,7 +103,7 @@ výrazů.
 ### Datové typy
 Každý výraz má svůj datový typ, který udává, jak je hodnota výrazu v programu interpretována a také
 jaké operace má smysl nad výrazem dělat. Více o datových typech a operátorech se dozvíte v sekci
-[Datové typy](c_datove_typy.md).
+[Datové typy](datove_typy.md).
 
 ### Příkazy vs výrazy
 Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký

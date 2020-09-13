@@ -14,8 +14,15 @@ default-theme = "rust"
 preferred-dark-theme = "rust"
 additional-js = [
   "theme/mode-c_cpp.min.js",
+  "src/wasm/xterm.min.js",
+  "src/wasm/fit.min.js",
+  "src/wasm/shared.js",
+  "src/wasm/web.js"
 ]
-additional-css = ["theme/css/tufte.css"]
+additional-css = [
+  "theme/css/tufte.css",
+  "src/wasm/xterm.min.css"
+]
 mathjax-support = true
 google-analytics = "UA-177556287-1"
 

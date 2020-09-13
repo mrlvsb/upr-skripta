@@ -110,7 +110,7 @@ class WorkerAPI {
   constructor() {
     this.nextResponseId = 0;
     this.responseCBs = new Map();
-    this.worker = new Worker('wasm/worker.js');
+    this.worker = new Worker((path_to_root || '/') + 'wasm/worker.js');
     const channel = new MessageChannel();
     this.port = channel.port1;
     this.port.onmessage = this.onmessage.bind(this);

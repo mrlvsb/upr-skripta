@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html lang="cs" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pravdivostní typy - Úvod do programování</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <link rel="stylesheet" href="wasm/xterm.min.css" />
+<script src="wasm/xterm.min.js"></script>
+<script src="wasm/fit.min.js"></script>
+<script src="wasm/shared.js"></script>
+<script src="wasm/web.js"></script>
+<style>
+.xterm {
+  margin-top: 10px;
+}
+</style>
+<script src="https://kelvin.cs.vsb.cz/upr/animations.js"></script>
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="theme/css/tufte.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="programovani.html"><strong aria-hidden="true">1.1.</strong> Programování</a></li><li class="chapter-item "><a href="programovaci_jazyky.html"><strong aria-hidden="true">1.2.</strong> Programovací jazyky</a></li><li class="chapter-item "><a href="jazyk_c.html"><strong aria-hidden="true">1.3.</strong> Jazyk C</a></li><li class="chapter-item "><a href="pamet.html"><strong aria-hidden="true">1.4.</strong> Paměť</a></li></ol></li><li class="chapter-item expanded "><a href="nastaveni_prostredi.html"><strong aria-hidden="true">2.</strong> Nastavení prostředí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="editor.html"><strong aria-hidden="true">2.1.</strong> Editor</a></li><li class="chapter-item "><a href="preklad_programu.html"><strong aria-hidden="true">2.2.</strong> Překlad</a></li><li class="chapter-item "><a href="ladeni.html"><strong aria-hidden="true">2.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><a href="c_programovani.html"><strong aria-hidden="true">3.</strong> Programování v C</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_syntaxe.html"><strong aria-hidden="true">3.1.</strong> Syntaxe</a></li><li class="chapter-item expanded "><a href="c_prikazy_vyrazy.html"><strong aria-hidden="true">3.2.</strong> Příkazy a výrazy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_promenne.html"><strong aria-hidden="true">3.2.1.</strong> Proměnné</a></li><li class="chapter-item expanded "><a href="c_datove_typy.html"><strong aria-hidden="true">3.2.2.</strong> Datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_celociselne_typy.html"><strong aria-hidden="true">3.2.2.1.</strong> Celočíselné typy</a></li><li class="chapter-item "><a href="c_desetinne_typy.html"><strong aria-hidden="true">3.2.2.2.</strong> Desetinné číselné typy</a></li><li class="chapter-item expanded "><a href="c_pravdivostni_typy.html" class="active"><strong aria-hidden="true">3.2.2.3.</strong> Pravdivostní typy</a></li></ol></li></ol></li><li class="chapter-item "><a href="c_rizeni_toku.html"><strong aria-hidden="true">3.3.</strong> Řízení toku</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_podminky.html"><strong aria-hidden="true">3.3.1.</strong> Podmínky</a></li><li class="chapter-item "><a href="c_cykly.html"><strong aria-hidden="true">3.3.2.</strong> Cykly</a></li></ol></li><li class="chapter-item "><a href="c_funkce.html"><strong aria-hidden="true">3.4.</strong> Funkce</a></li><li class="chapter-item "><a href="c_ukazatele.html"><strong aria-hidden="true">3.5.</strong> Ukazatele</a></li><li class="chapter-item "><a href="c_pole.html"><strong aria-hidden="true">3.6.</strong> Pole</a></li><li class="chapter-item "><a href="c_retezce.html"><strong aria-hidden="true">3.7.</strong> Řetězce</a></li><li class="chapter-item "><a href="c_struktury.html"><strong aria-hidden="true">3.8.</strong> Struktury</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_struktury_funkce.html"><strong aria-hidden="true">3.8.1.</strong> Funkce se strukturami</a></li></ol></li><li class="chapter-item "><a href="c_soubory.html"><strong aria-hidden="true">3.9.</strong> Soubory</a></li><li class="chapter-item "><a href="c_modularizace.html"><strong aria-hidden="true">3.10.</strong> Modularizace</a></li><li class="chapter-item "><a href="c_knihovny.html"><strong aria-hidden="true">3.11.</strong> Knihovny</a></li></ol></li><li class="chapter-item expanded "><a href="ulohy.html"><strong aria-hidden="true">4.</strong> Aplikované úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="tga.html"><strong aria-hidden="true">4.1.</strong> TGA</a></li><li class="chapter-item "><a href="sdl.html"><strong aria-hidden="true">4.2.</strong> SDL</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">5.</strong> Různé<a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="rozklad_problemu.html"><strong aria-hidden="true">5.1.</strong> Rozklad problému</a></li><li class="chapter-item "><strong aria-hidden="true">5.2.</strong> Procesy</li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Úvod do programování</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/mrlvsb/upr-skripta" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#pravdivostní-typy" id="pravdivostní-typy">Pravdivostní typy</a></h1>
+<p>Posledním základním datovým typem, který si ukážeme, je pravdivostní typ
+<strong><a href="https://cs.wikipedia.org/wiki/Boolean">Booleovské logiky</a></strong>. Hodnoty tohoto datového typu mají
+pouze dvě možné varianty - <strong>pravda</strong> (<em>true</em>) nebo <strong>nepravda</strong> (<em>false</em>). Tento typ se hodí
+zejména pro různé logické operace, například porovnávání hodnot (<code>Je a menší než b?</code> - <code>ano</code>/<code>ne</code>).</p>
+<p>V C se Booleovský datový typ nazývá <code>_Bool</code>. Nicméně tento název je docela krkolomný, obvykle se proto
+používá místo něho typ <code>bool</code>. Abyste ho mohli použít, tak na začátek programu musíte vložit řádek
+<code>#include &lt;stdbool.h&gt;</code>. Později si vysvětlíme, co tento řádek dělá.</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+
+int main() {
+    bool venku_je_hezky = true;
+    bool upr_je_slozite = false;
+
+    printf(&quot;%d\n&quot;, venku_je_hezky);
+    printf(&quot;%d\n&quot;, upr_je_slozite);
+
+    return 0;
+}
+</code></pre>
+<p>Jak lze v ukázce výše vidět, <code>true</code> reprezentuje pravdivý Booleovský výraz a <code>false</code> nepravdivý
+Booleovský výraz a <code>bool</code> hodnoty lze vytisknout na výstup stejným způsobem jako celočíselné hodnoty.<sup class='margin-toggle sidenote-number'>1</sup>
+Hodnoty Booleovského typu obvykle zabírají v paměti jeden <em>byte</em>.</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Při výpisu dojde ke <a href="#konverze">konverzi</a> <code>bool</code>u na celé číslo.</p>
+</span>
+<h3><a class="header" href="#logické-operace" id="logické-operace">Logické operace</a></h3>
+<p>V (Booleovské) logice existují tři základní operátory:</p>
+<ul>
+<li><strong>logický součin</strong> (<em>AND</em>): <code>X a zároveň Y</code></li>
+<li><strong>logický součet</strong> (<em>OR</em>): <code>X nebo Y</code></li>
+<li><strong>logická negace</strong> (<em>NOT</em>): <code>neplatí X</code></li>
+</ul>
+<p>Tyto logické operace lze v C použít pomocí následujících operátorů:</p>
+<ul>
+<li><strong>AND</strong>: <code>&amp;&amp;</code></li>
+<li><strong>OR</strong>: <code>||</code></li>
+<li><strong>NOT</strong>: <code>~</code></li>
+</ul>
+<p>Tyto operátory můžete použít mezi dvěmi výrazy datového typu <code>bool</code>. Například:</p>
+<pre><code class="language-c">bool je_muz = true;
+bool je_zena = false;
+bool je_clovek = je_muz || je_zena; // true || false -&gt; true
+
+bool je_rodic = true;
+bool je_otec = je_rodic &amp;&amp; je_muz;  // true &amp;&amp; true -&gt; true
+bool je_matka = je_rodic &amp;&amp; ~je_otec; // true &amp;&amp; ~true -&gt; true &amp;&amp; false -&gt; false
+</code></pre>
+<p>Pro připomenutí, zde je pravdivostní tabulka těchto logických operátorů:</p>
+<table><thead><tr><th><code>X</code></th><th align="center"><code>Y</code></th><th align="center"><code>X &amp;&amp; Y</code></th><th align="center"><code>X || Y</code></th><th align="center"><code>~X</code></th></tr></thead><tbody>
+<tr><td><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td></tr>
+<tr><td><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>true</code></td></tr>
+<tr><td><code>true</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>false</code></td></tr>
+<tr><td><code>true</code></td><td align="center"><code>true</code></td><td align="center"><code>true</code></td><td align="center"><code>true</code></td><td align="center"><code>false</code></td></tr>
+</tbody></table>
+<h3><a class="header" href="#porovnávání-hodnot" id="porovnávání-hodnot">Porovnávání hodnot</a></h3>
+<p>Při programování často potřebujete porovnat hodnoty mezi sebou:</p>
+<ul>
+<li><code>Má Jarda více bodů než Kamil?</code></li>
+<li><code>Má uživatelovo heslo více než 5 znaků?</code></li>
+<li><code>Má Lenka na účtu alespoň 100 dolarů?</code></li>
+</ul>
+<p>K tomu slouží šest základních porovnávacích operátorů:</p>
+<ul>
+<li><strong>Rovná se</strong><sup class='margin-toggle sidenote-number'>2</sup>: <code>==</code></li>
+<li><strong>Nerovná se</strong>: <code>!=</code></li>
+<li><strong>Větší</strong>: <code>&gt;</code></li>
+<li><strong>Větší nebo rovno</strong>: <code>&gt;=</code></li>
+<li><strong>Menší</strong>: <code>&lt;</code></li>
+<li><strong>Menší nebo rovno</strong>: <code>&lt;=</code></li>
+</ul>
+<p>Porovnávat mezi sebou můžete libovolné hodnoty dvou stejných datových typů. Výsledkem porovnání
+je výraz datového typu <code>bool</code>:</p>
+<span class='sidenote'><p><sup class='number'>2</sup>Zde si dávejte velký pozor na rozdíl mezi <code>=</code> (přiřazení hodnoty) a <code>==</code> (porovnání dvou hodnot).
+Záměna těchto dvou operátorů je častou začátečnickou chybou a vede k obtížně nalezitelným chybám.</p>
+</span>
+<pre><code class="language-c">int jarda_body = 10;
+int kamil_body = 13;
+
+int remize = jarda_body == kamil_body; // false
+int vyhra_jardy = jarda_body &gt; kamil_body; // true
+
+int delka_hesla = 8;
+int heslo_moc_kratke = delka_hesla &lt;= 5; // false
+</code></pre>
+<p>Dávejte si ovšem pozor na to, že pouze operátory <code>==</code> a <code>!=</code> lze použít univerzálně na všechny datové typy.
+Například použít <code>&lt;</code> pro porovnání dvou Booleovských hodnot obvykle nedává valný smysl, operátory
+<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code> a <code>&gt;=</code> jsou obvykle využívány pouze pro porovnávání čísel.</p>
+<p>Porovnávání hodnot můžete zkombinovat s logickými operátory pro vyhodnocení komplexních pravdivostních
+výrazů:</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+
+int main() {
+    int delka_hesla = 8;
+    bool email_overen = false;
+    int rok_narozeni = 1994;
+
+    bool uzivatel_validni = delka_hesla &gt;= 9 &amp;&amp; (email_overen || rok_narozeni &gt; 1990); // false
+    bool uzivatel_validni2 = delka_hesla &gt;= 9 &amp;&amp; email_overen || rok_narozeni &gt; 1990; // true
+
+    printf(&quot;%d\n&quot;, uzivatel_validni);
+    printf(&quot;%d\n&quot;, uzivatel_validni2);
+
+    return 0;
+}
+</code></pre>
+<p>Zde je opět třeba dávat si pozor na <a href="https://en.cppreference.com/w/c/language/operator_precedence">prioritu operátorů</a>
+(například <code>&amp;&amp;</code> má větší prioritu než <code>||</code>) a v případě potřeby výrazy uzávorkovat. Pokud si zkusíte
+přeložit tento program, tak vás dokonce překladač bude varovat před tím, že jste výraz neuzávorkovali a
+může tak vracet jiný výsledek, než očekáváte.</p>
+<h3><a class="header" href="#zkrácené-vyhodnocování" id="zkrácené-vyhodnocování">Zkrácené vyhodnocování</a></h3>
+<p>Při vyhodnocování Booleovských výrazů s logickými operátory se v C používá tzv. <strong>zkrácené vyhodnocování</strong>
+(<em>short-circuit evaluation</em>). Například pokud se vyhodnocuje výraz <code>a || b</code>, tak může dojít k následující
+situaci:</p>
+<ul>
+<li>Počítač vše provádí v sekvenčních krocích, tj. nejprve vyhodnotí <code>a</code>.</li>
+<li>Pokud má výraz <code>a</code> hodnotu <code>true</code>, tak už je jasné, že celý výraz <code>a || b</code> bude mít hodnotu <code>true</code>.</li>
+<li>K vyhodnocení výrazu <code>b</code> tak už nedojde, protože je to zbytečné.</li>
+</ul>
+<p>Toto chování může urychlit provádění programu, protože přeskakuje provádění zbytečných příkazů,
+nicméně může také způsobit nečekané chyby. Pokud by například vyhodnocení výrazu <code>b</code> obsahovalo nějaké
+<strong>vedlejší efekty</strong> (<em>side effects</em>), které se projeví při jeho provedení (například vytvoření souboru
+na disku), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela přeskočí. Zatím jsme
+si neukázali žádné výrazy, které by měly vedlejší efekty, více si o tomto efektu tedy řekneme v sekci
+o <a href="c_funkce.html">funkcích</a>.</p>
+<h3><a class="header" href="#konverze" id="konverze">Konverze</a></h3>
+<p>Pokud se pokusíte o převod celého či desetinného čísla na <code>bool</code>, tak můžou nastat dvě varianty:</p>
+<ul>
+<li>Pokud je číslo nenulové, výsledkem bude <code>true</code>.</li>
+<li>Pokud je číslo nula, výsledkem bude <code>false</code>.</li>
+</ul>
+<p>V opačném směru (konverze <code>bool</code> u na číslo) dojde k následující konverzi:</p>
+<ul>
+<li><code>true</code> se převede na <code>1</code></li>
+<li><code>false</code> se převede na <code>0</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="c_desetinne_typy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="c_rizeni_toku.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="c_desetinne_typy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="c_rizeni_toku.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-177556287-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="theme/mode-c_cpp.min.js"></script>
+        
+
+        
+
+    </body>
+</html>

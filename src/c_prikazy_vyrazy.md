@@ -36,24 +36,48 @@ s dvěma výrazy, čímž vznikne složitější výraz: `5 + 5`, který se v pr
 
 ### Výpis výrazů
 Abyste si ze začátku mohli jednoduše zobrazit hodnoty výrazů, tak si ukážeme kód, pomocí kterého
-je můžete vypsat na výstup programu (do terminálu).
-Pokud chcete vypsat *číselnou* hodnotu na výstup programu, stačí doplnit číselný výraz na místo určené
-komentářem[^2]:
+můžete vypsat text na výstup programu (do terminálu). K výpisu můžete použít příkaz
+```c
+printf("<text>");
+```
+
+Text, který vložíte mezi uvozovky (`"`) se vypíše na výstup programu[^2]:
 ```c,editable
 #include <stdio.h>
 
 int main() {
-    printf("%d\n", /* číselný výraz zde se vypíše na výstup */ 1);
+    printf("Hello world!\n");
+    return 0;
+}
+```
+Abyste `printf` mohli použít, musíte na začátek programu vložit řádek `#include <stdio.h>`.
+Tento řádek i `printf` zatím berte jako "black box", později si vysvětlíme, jak přesně fungují.
+
+[^2]: Tento kód můžete modifikovat i spustit přímo v prohlížeči. Stačí kliknout na ikonu
+<i class="fa fa-play"></i> vpravo nahoře nebo stisknout `Ctrl+Enter`.
+
+V zadaném textu můžete používat určité speciální znaky. Například sekvence znaků `\n` způsobí, že
+na výstupu dojde k **odřádkování** (*newline*), po kterém se text začne vypisovat na dalším řádku:
+```c,editable
+#include <stdio.h>
+
+int main() {
+    printf("Prvni radek\nDruhy radek");
     return 0;
 }
 ```
 
-`printf` slouží k vytisknutí výrazu na výstup programu, v téhle podobě konkrétně očekává, že
-použijete číselný výraz, a po jeho vytištění posune výstup nový řádek. Aby program s `printf` šel
-přeložit, na začátku programu musí být řádek `#include <stdio.h>`. Tento řádek i `printf` zatím
-berte jako "black box", později si vysvětlíme, jak přesně fungují.
+Abyste mohli tisknout hodnoty výrazů, můžete použít **zástupné znaky** (*placeholders*). Pokud chcete
+vypsat *číselnou* hodnotu na výstup programu, stačí v textu použít zástupný znak `%d`, za uvozovky
+přidat čárku a doplnit výraz na místo určené komentářem:
+```c,editable
+#include <stdio.h>
 
-[^2]: Tento kód můžete modifikovat i spustit přímo v prohlížeči. Stačí kliknout na trojúhelník vpravo nahoře nebo stisknout `Ctrl+Enter`.
+int main() {
+    printf("Číslo: %d\n", /* číselný výraz zde se vypíše na výstup */ 1);
+    return 0;
+}
+```
 
 Když chcete vypsat například výsledek vyhodnocení výrazu `10 + 5`, tak stačí napsat:
 `printf("%d\n", 10 + 5);` a na výstup programu by se měl vypsat text `15`.

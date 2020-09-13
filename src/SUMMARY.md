@@ -22,6 +22,8 @@
     - [Řízení toku](c/rizeni_toku.md)
         - [Podmínky](c/podminky.md)
         - [Cykly](c/cykly.md)
+            - [Cyklus while](c/while.md)
+            - [Cyklus for](c/for.md)
     - [Funkce](c/funkce.md)
     - [Ukazatele](c/ukazatele.md)
     - [Pole](c/pole.md)

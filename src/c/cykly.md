@@ -1,62 +1,16 @@
 # Cykly
-Tato sekce je ve výstavbě 🚧.
+Moderní procesory počítačů mají běžně frekvence od 1 do 4 GHz, což znamená, že za vteřinu v nich
+proběhne několik miliard [taktů](https://cs.wikipedia.org/wiki/Hodinov%C3%BD_sign%C3%A1l), během kterých
+procesor může provést nějakou operaci. V každém taktu zároveň dnešní počítače zvládnou provést až
+[desítky](https://cs.wikipedia.org/wiki/Superskal%C3%A1rn%C3%AD_architektura) různých operací.
 
-<!--Nejznámější příkaz pro řízení toku `if`, jsme si již uvedli v kapitole
-\@ref(sec:syntax). Schématicky si jej proto pouze připomeneme:
+Jistě si dovedete představit, že s pouze sekvenčním zápisem kódu bychom tento potenciál nemohli
+naplno využít. I když jeden řádek *C* kódu může být přeložen až na desítky procesorových instrukcí,
+tak i kdybychom zvládli napsat program se stovkami milionů řádků (což je v podstatě nereálné), pořád
+bychom "zabavili" procesor na pouze jedinou vteřinu.
 
-- **if ( \<výraz\> ) { \<vnořený blok\> }**
-- 0+ else if ( \<výraz\> ) { \<vnořený blok\> }
-- volitelně: else { \<vnořený blok\> }
+Proto programovací jazyky nabízí tzv. **cykly** (*loops*), pomocí kterých můžeme říct procesoru, aby
+určitý blok kódu mnohokrát opakoval, díky čehož můžeme provést spousty instrukcí pomocí
+několika málo řádků kódu.
 
-
-Pro vytvoření cyklů nám v jazyce C slouží dvě konstrukce: `while` a `for`.
-
-## Cyklus while
-
-Cyklus `while` funguje tak, že na začátku máme dánu podmínku iterace. Je-li
-podmínka splněna, je vykonáno tělo cyklu, v opačném případě je cyklus
-přeskočen a pokračuje se dále v programu. V těle cyklu můžeme použít
-klíčová slova `break` a `continue`. Slovo `break` zapříčiní ukončení cyklu.
-Slovo `continue` zapříčiní
-přeskočení zbytku těla cyklu s návratem na počáteční podmínku a tím
-pádem vykonání dalšího cyklu za předpokladu, že je splněna tato vstupní
-podmínka.
-
-```c
-int i = 0;
-
-while ( i < 5 ) {
-	printf( "%d\n", i );
-	i += 1;
-}
-
-// 0
-// 1
-// 2
-// 3
-// 4
-```
-
-## Cyklus for
-
-Cyklus `for` typicky používáme pro průchod nějakého pole ať už statického nebo
-dynamického. Funkguje tak, že si vytvoříme řídící proměnnou, která
-indexuje procházené pole od nuly (0) do jeho konce (n-1). Důležité je
-vědět, že řídící proměnná cyklu nenabývá hodnoty prvku pole, ale je
-pouze indexem do procházeneho pole. Hodnotu z pole si již musíme pomocí
-tohoto indexu zpřístupnit sami.
-
-Ukažme si jednoduchý příklad na součet prvků v poli intů.
-
-```c
-int len = 5;
-int seznam[] = { 1, 2, 5, 10, 100 };
-int sum = 0;
-
-for ( int i = 0; i < len; i++ ) {
-	int prvek = seznam[ i ];
-	sum += prvek;
-}
-printf( "sum: %d\n", sum );  //118
-```
--->
+Jazyk *C* nabízí dva základní typy cyklů: [while](while.md) a [for](for.md).

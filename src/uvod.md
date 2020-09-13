@@ -7,14 +7,14 @@ Studentům tedy silně doporučujeme, aby přednášky a cvičení navštěvoval
 doma, alespoň několik hodin týdně.
 
 V tomto textu naleznete stručný úvod o programování, překladu a ladění programů, nastavení prostředí
-k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka C (proměnné, funkce, podmínky,
+k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka *C* (proměnné, funkce, podmínky,
 cykly, struktury, pole, ukazatele atd.) spolu se sadou úloh k procvičení jednotlivých témat. Pomocí
 ikony <i class="fa fa-search"></i> vlevo nahoře můžete v textu rychle vyhledávat, pokud potřebujete
 najít informace o konkrétním tématu.
 
 Několik poznámek k textu:
 - Tento text neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý
-knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf).
+knižní titul, např. Učebnice jazyka *C* od Pavla Herouta nebo přímo standard jazyka [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf).
 - Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů v terminálu
 předpokládají použití tohoto operačního systému (konkrétně distribuce `Ubuntu`).
 - Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,

@@ -1,6 +1,7 @@
-## Funkce pro práci se strukturami
+# Struktury a funkce
+Tato sekce je ve výstavbě 🚧.
 
-Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
+<!--Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
 pravidlům. Zavedeme si však pár pravidel pro nás samotné, abychom se v
 našem kódu lépe orientovali.
 
@@ -80,3 +81,4 @@ pixelu v obrázku reprezentovaného strukturou `Image` nastaví zadanou hodnotu.
 **Cvičení:** Vytvořte funkci, která do obrázku
 reprezentovaného strukturou `Image` nakreslí zvoleným jasem obdélník o zadaných
 rozměrech.
+-->

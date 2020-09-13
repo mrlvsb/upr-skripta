@@ -25,7 +25,7 @@
     - [Pole](c_pole.md)
     - [Řetězce](c_retezce.md)
     - [Struktury](c_struktury.md)
-        - [Funkce se strukturami](c_struktury_funkce.md)
+        - [Struktury a funkce](c_struktury_funkce.md)
     - [Soubory](c_soubory.md)
     - [Modularizace](c_modularizace.md)
     - [Knihovny](c_knihovny.md)

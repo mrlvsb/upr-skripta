@@ -1,6 +1,7 @@
-# Řízení toku
+# Cykly
+Tato sekce je ve výstavbě 🚧.
 
-Nejznámější příkaz pro řízení toku `if`, jsme si již uvedli v kapitole
+<!--Nejznámější příkaz pro řízení toku `if`, jsme si již uvedli v kapitole
 \@ref(sec:syntax). Schématicky si jej proto pouze připomeneme:
 
 - **if ( \<výraz\> ) { \<vnořený blok\> }**
@@ -58,3 +59,4 @@ for ( int i = 0; i < len; i++ ) {
 }
 printf( "sum: %d\n", sum );  //118
 ```
+-->

@@ -3,9 +3,9 @@ C je (programovací) jazyk a jako každý jazyk má svá pravidla, které je nut
 Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abychom byli schopni výsledný
 text pochopit. Věty `jsme, M y máma, táta a` nebo `.o dku  d! ty z, jsi` nedávají smysl,
 protože obsahují interpunkční znaménka na špatných místech, větné členy jsou ve špatném pořadí
-a některá slova obsahují mezery na místech, kam nepatří. Stejně tak v jazyce C můžete velmi jednoduše
+a některá slova obsahují mezery na místech, kam nepatří. Stejně tak v jazyce *C* můžete velmi jednoduše
 napsat program, kterému [překladač](preklad_programu.md) nebude rozumět a překlad poté skončí se
-syntaktickou chybou (*syntax error*). Na syntax C si musíte postupně zvyknout, poté už podobné chyby
+syntaktickou chybou (*syntax error*). Na syntax *C* si musíte postupně zvyknout, poté už podobné chyby
 budete schopni snadno vyřešit.
 
 Zde je asi nejkratší možný program v jazyce C:
@@ -42,10 +42,10 @@ jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat meze
 Abychom mohli v následujících sekcích popisovat kusy kódu, ukážeme si teď **komentáře**. Jedná se
 o text ve zdrojovém kódu, který je určen pro programátory, ne pro překladač, který je zcela ignoruje.
 Bez komentářů bychom nemohli do zdrojového kódu dodávat poznámky, protože překladač by jinak měl snahu
-je interpretovat jako C kód. Komentáře v kódu obvykle poznáte snadno, protože je váš editor bude vykreslovat
+je interpretovat jako *C* kód. Komentáře v kódu obvykle poznáte snadno, protože je váš editor bude vykreslovat
 jinou barvou než zbytek kódu.
 
-V C existují dva typy komentářů:
+V *C* existují dva typy komentářů:
 - Řádkové komentáře - pokud do kódu napíšete `//`, tak vše za těmito lomítky až do konce řádku se 
 bude brát jako komentář.
     ```c
@@ -85,7 +85,7 @@ Během semestru se postupně naučíte, k čemu se jednotlivá klíčová slova 
 seznam můžete najít například [zde](https://www.programiz.com/c-programming/list-all-keywords-c-language).
 
 ### Speciální znaky
-Při programování (jak už v C, tak i v jiných jazycích) budete používat spousty symbolů, které běžně
+Při programování (jak už v *C*, tak i v jiných jazycích) budete používat spousty symbolů, které běžně
 asi často nevyužíváte (například `[`, `]`, `{`, `}`, `<`, `>`, `=`, `%`, `#`, `&`, `*`, `;`, `\`,
 `"`, `'`). Obzvláště pokud pro programování budete používat českou klávesnici, je dobré si ze začátku
 najít nějaký tahák (např. [tento](https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/keyboard-cs.pdf)),

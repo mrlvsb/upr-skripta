@@ -1,5 +1,5 @@
-# Programování v C
-V této kapitole naleznete popis základních konstrukcí jazyka C, které jsou základními
+# Programování v *C*
+V této kapitole naleznete popis základních konstrukcí jazyka *C*, které jsou základními
 stavebními kameny pro tvorbu programů. Ke každému tématu je k dispozici také úloh. Pokud úlohy
 zvládnete vypracovat, tak budete mít jistotu, že jste dané téma pochopili a můžete se posunout dále.
 Pokud nezvládnete úlohy splnit, tak můžete mít s dalšími koncepty problém. Pokud nebudete stíhat,

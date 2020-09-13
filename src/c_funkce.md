@@ -15,7 +15,7 @@ samostatně.
 Funkce
 ------
 
-V jazyce C je definice funkce do značné míry podobná definici funkce v
+V jazyce *C* je definice funkce do značné míry podobná definici funkce v
 jiných jazycích. Uvádíme návratový datový typ a uvádíme datové typy
 argumentů funkce. Toto je dáno statickou typovostí jazyka. Uveďme si
 jednoduchý příklad pro výpočet mocniny čísla.
@@ -68,7 +68,7 @@ zobecněný (generalizovaný) kód pro výpočet mocniny.
 Procedury (funkce bez návratového typu)
 ---------------------------------------
 
-V jazyce C máme jeden datový typ, který nemá přesné určení. Je to typ a
+V jazyce *C* máme jeden datový typ, který nemá přesné určení. Je to typ a
 může prakticky znamenat cokoli. Nejčastěji jej používáme jako pointer na
 nějakou struktury, kterou pak budeme dále přetypovávat. Velmi často je
 však používán jako návratový typ funkce. V takovém případě funkce
@@ -125,7 +125,7 @@ int array_of_its[ array_len ] = { 1, 2, 3, 4, 5 };
 printf( "sum( array_of_ints, array_len ): %d\n", sum( array_of_ints, array_len ) );  // 15
 ```
 
-V jazyce C musíme funkcím, které pracují s polem předat samostatně délku
+V jazyce *C* musíme funkcím, které pracují s polem předat samostatně délku
 pole, poněvadž z pointeru samotného ji zjístit nemůžeme. Pole samotné
 předáváme přes pointer `array` a jeho délku přes parametr `len`. Do funkce `sum` pole
 předáme pomocí jeho názvu, protože ten je již adresou prvního prvku

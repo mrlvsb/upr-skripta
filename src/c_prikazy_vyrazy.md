@@ -19,19 +19,19 @@ Později si vysvětlíme, jak tato funkce funguje, prozatím to berte tak, že v
 `main` být, aby počítač věděl, odkud začít vykonávání kódu. 
 
 # Příkazy
-Programy v C se skládají z **příkazů** (*statements*). Příkaz říká počítači, co má provést, na
-mnohem vyšší úrovni než [instrukce](programovaci_jazyky.md) - jeden C příkaz může být přeložen
+Programy v *C* se skládají z **příkazů** (*statements*). Příkaz říká počítači, co má provést, na
+mnohem vyšší úrovni než [instrukce](programovaci_jazyky.md) - jeden *C* příkaz může být přeložen
 překladačem na desítky instrukcí pro procesor. Existuje mnoho různých typů příkazů, které naleznete
 v následujících sekcích.
 
 # Výrazy
 Jak už vyplává z jeho názvu, nejpřirozenější a hlavní funkcí počítače je něco počítat. Jedním ze
-základních konstrukcí jazyka C (i jiných programovacích jazyků) tak je možnost počítat různé hodnoty.
+základních konstrukcí jazyka *C* (i jiných programovacích jazyků) tak je možnost počítat různé hodnoty.
 Něco, co se dá vypočítat (tak, aby výsledkem byla nějaká hodnota), se nazývá **výraz** (*expression*).
 Příkladem asi nejjednoduššího výrazu je číslo, např. `5`. Takovýto výraz již není nutné dále vyhodnocovat,
 jeho hodnota je prostě `5`.
 
-V C můžeme s výrazy provádět různé operace pomocí **operátorů**. Můžeme například použít operátor `+`
+V *C* můžeme s výrazy provádět různé operace pomocí **operátorů**. Můžeme například použít operátor `+`
 s dvěma výrazy, čímž vznikne složitější výraz: `5 + 5`, který se v programu vyhodnotí na hodnotu `10`.
 
 ### Výpis výrazů

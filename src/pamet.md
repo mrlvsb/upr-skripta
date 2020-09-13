@@ -38,5 +38,5 @@ může pracovat. Více se dozvíte později.
 
 Pokud byste programovali počítač přímo pomocí instrukcí, tak mu můžete dát například instrukci
 `Nastav byte na adrese 58 na hodnotu 5` nebo `Přečti 4 byty začínající na adrese 1028`.
-Při programování v C ovšem často budou adresy skryté na pozadí a bude se o ně starat překladač,
+Při programování v *C* ovšem často budou adresy skryté na pozadí a bude se o ně starat překladač,
 my se budeme na konkrétní úsek paměti obvykle odkazovat jménem, které mu přiřadíme.

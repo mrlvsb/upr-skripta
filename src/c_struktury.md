@@ -14,7 +14,7 @@ proměnných. Jako jednoduchý přiklad můžeme použít reprezentaci obrazu. V
 takovém případě potřebujeme reprezentovat alespoň hodnoty v jednotlivých
 pixelech a počet řádků (výšku) a počet sloupců (šířku) obrazu. Pro
 jednoduchost předpokládejme obrázek ve stupních šedi. Ukažme si, jak by
-taková reprezentace v jazyce C vypadala.
+taková reprezentace v jazyce *C* vypadala.
 
 ```c
 unsigned char * img_data;
@@ -46,7 +46,7 @@ s ním mohli pracovat. Snadno si lze představit, že se složitějšími
 problémy by snadno mohl počet parametrů funkcí značně narůstat.
 
 Pro zefektivnění takové práce nám slouží strukturované datové typy,
-jednodušeji struktury (anglicky *structures*). V jazyce C je pro definici
+jednodušeji struktury (anglicky *structures*). V jazyce *C* je pro definici
 datových struktur vyhrazeno klíčové slovo `struct`. Pojďme se podívat, jak by
 definice takového obrázku mohla vypadat.
 

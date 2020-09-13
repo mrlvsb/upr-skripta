@@ -16,7 +16,7 @@ i staticky alokované pole je možnost, ale nesmí být příliš veliké
 (dlouhé)). Na druhou stranu, dynamicky alokované pole by zase nemělo být
 příliš krátké.
 
-Při programování v jazyce C máme k dispozici dva druhy paměti. Jsou to:
+Při programování v jazyce *C* máme k dispozici dva druhy paměti. Jsou to:
 **stack** (česky **zásobník**) a **heap** (česky **halda**). Když jsme
 definovali celočíselné promenné v předchozí části, jejich obsah
 (hodnoty) se ukládal na stacku. Programům je však k dispizici jen
@@ -27,7 +27,7 @@ Pro to, abychom si od operačního systému (OS) vyžádali nějakou paměť na
 heapu, používáme funkci `malloc`, která nám vrátí pointer (ukazatel) na začátek
 takovéto paměti. Zajisté znáte anglické tvrzení: ,,There’s nothing like
 a free lunch”. I za takto poskytnutou paměť se nějakým způsobem platí.
-Jazyk C nemá automatickou správu paměti, a proto ji musíme vlastnoručně
+Jazyk *C* nemá automatickou správu paměti, a proto ji musíme vlastnoručně
 OS vrátit, když ji již nepotřebujeme. K tomu nám slouží funkce `free`
 (jak příznačný název).
 
@@ -52,7 +52,7 @@ str = NULL;  // jsem slusny a pointer nastavim na NULL,
 ```
 
 To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
-jazyku C řící tak, že deklarace proměnné bude pointerem, který bude
+jazyku *C* řící tak, že deklarace proměnné bude pointerem, který bude
 ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
 proměnné napíšeme znak `*`. Funkce `malloc` nám vrací tzv. pointer na úsek paměti o
 velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí
@@ -64,10 +64,10 @@ byty. Typ `int`, pro uložení celých čísel, vyžaduje typicky 4 byty. Reáln
 čísla uložená v typu `float` vyžadují 4 byty a reálná čísla uložená v typu `double`
 vyžadují 8 bytů. Každá platfroma, na které bude náš program přeložen
 však může datovým typům přiřadit jiný počet bytů. Abychom si nemuseli
-pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce C operátor `sizeof`,
+pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce *C* operátor `sizeof`,
 který nám vrátí, kolik bytů zadaný typ vyžaduje. Potom již jen toto
 číslo stačí přenásobit požadovanou délkou pole. V našem příkladu
-požadujeme délku řetězce 20 znaků. Jazyk C nebyl zcela jistě konstruován
+požadujeme délku řetězce 20 znaků. Jazyk *C* nebyl zcela jistě konstruován
 pro práci se stringy... Pro to, abychom naše pole znaků naplnili nějakým
 obsahem, musíme použít funkci `sprintf`. Ta bere jako první parametr ukazatel na
 paměť, kde má řetězec uložit, druhým parametrem je pak jaký řetězec se

@@ -1,7 +1,7 @@
 # Překlad programu
-Pro překlad programu z jazyka C do **spustitelného** (*executable*) souboru
+Pro překlad programu z jazyka *C* do **spustitelného** (*executable*) souboru
 budeme používat jiný program, kterému se říká překladač.
-Překladačů jazyka C existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
+Překladačů jazyka *C* existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
 Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection). 
 
 Překladač `gcc`, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
@@ -11,9 +11,9 @@ sudo apt install build-essential
 ```
 
 ## Překlad prvního programu
-Ještě než si ukážeme, jak vlastně programovací jazyk C funguje, tak zkusíme přeložit velmi jednoduchý
+Ještě než si ukážeme, jak vlastně programovací jazyk *C* funguje, tak zkusíme přeložit velmi jednoduchý
 C program do spustitelného souboru a spustit jej.
-Vytvořte soubor s názvem `main.c` a nakopírujte do něj následující C kód (později si vysvětlíme,
+Vytvořte soubor s názvem `main.c` a nakopírujte do něj následující *C* kód (později si vysvětlíme,
 jak tento kód funguje):
 
 ```c,editable

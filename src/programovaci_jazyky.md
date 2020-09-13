@@ -34,7 +34,7 @@ while (is_key_pressed(SPACE)) {
 }
 ```
 
-I někdo, kdo se s jazykem C nikdy nesetkal, může z tohoto programu zhruba odvodit, co asi dělá,
+I někdo, kdo se s jazykem *C* nikdy nesetkal, může z tohoto programu zhruba odvodit, co asi dělá,
 pokud ho přečte jako větu v angličtině. Tento program však může být převeden na stovky až tisíce
 počítačových instrukcí a z takového množství příkazů už by bylo složité odvodit, k čemu je program
 určen.

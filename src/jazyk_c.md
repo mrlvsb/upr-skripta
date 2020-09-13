@@ -11,7 +11,7 @@ I když pro něj v dnešní době asi nenaleznete mnoho pracovních nabídek a n
 volbou pro tvorbu webových či mobilních aplikací, vyplatí se mu rozumět a umět ho používat, a to
 hned z několika důvodů:
 
-- Jazyk C lze použít na téměř všech existujících platformách a je tak
+- Jazyk *C* lze použít na téměř všech existujících platformách a je tak
 velmi univerzálním jazykem. Téměř veškerý existující software obsahuje kusy kódu v jazyce C. Operační systémy (Linux,
 OS X, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimediální programy (Photoshop,
 Powerpoint, Word, BitTorrent), hry (World of Warcraft, Quake, Doom, Call of Duty, League of Legends,
@@ -19,16 +19,16 @@ DOTA 2, Fortnite), vestavěná zařízení (mikročipy, pračky, řídící jedn
 Všechny tyto věci jsou buď z části anebo zcela poháněné jazykem C.
 - Je to jednoduchý jazyk, který neobsahuje velké množství funkcionalit, které lze naleznout ve většině
 modernějších jazyků. Díky tomu se dá naučit za jeden semestr.
-- Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce C tak lze zároveň
+- Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce *C* tak lze zároveň
 pochopit, jak funguje počítač a operační systém. Díky tomu lze také při správném zacházení psát velmi
 efektivní programy (to ale nicméně není obsahem tohoto kurzu). 
-- **Syntaxe** (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznikly po něm. Jakmile se
+- **Syntaxe** (způsob zápisu) jazyka *C* ovlivnila velké množství jazyků, které vznikly po něm. Jakmile se
 ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších jazyků (C++, C#,
 Java, Kotlin, Javascript, PHP, Rust, ...). 
 
-Jazyk C má samozřejmě také řadu nevýhod. Vzhledem k jeho stáří a omezené sadě funkcionalit je často
+Jazyk *C* má samozřejmě také řadu nevýhod. Vzhledem k jeho stáří a omezené sadě funkcionalit je často
 značně pracnější a zdlouhavější pomocí něho dosáhnout stejného výsledku než u modernějších programovacích
-jazyků. Nevede také programátory za ručičku – při psaní programu v jazyce C je velmi jednoduché udělat
+jazyků. Nevede také programátory za ručičku – při psaní programu v jazyce *C* je velmi jednoduché udělat
 chybu, která může způsobit v lepším případě pád programu, v horším případě může běžící program poškodit
 tak, že začne vydávat chybný výstup nebo se začně chovat nepředvídatelně.
 

@@ -3,7 +3,7 @@ Tato sekce je ve výstavbě 🚧.
 
 <!--**Knihovny** (*libraries*) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
 je lze sdílet mezi více projekty/programy, aby se stejný kód nemusel psát pokaždé znovu. Existuje obrovské
-množství C knihoven, které jsou volně dostupné na internetu, například pro [vykreslování grafiky](https://www.libsdl.org/),
+množství *C* knihoven, které jsou volně dostupné na internetu, například pro [vykreslování grafiky](https://www.libsdl.org/),
 [sazbu fontů](https://www.freetype.org/) nebo [kompresi dat](http://zlib.net/). 
 
 Knihovny se obvykle nesdílí čistě jako archiv nebo adresář se zdrojovým kódem. Obvykle se setkáte s tím,

@@ -131,9 +131,9 @@ situaci:
 Toto chování může urychlit provádění programu, protože přeskakuje provádění zbytečných příkazů,
 nicméně může také způsobit nečekané chyby. Pokud by například vyhodnocení výrazu `b` obsahovalo nějaké
 **vedlejší efekty** (*side effects*), které se projeví při jeho provedení (například vytvoření souboru
-na disku), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela přeskočí. Zatím jsme
-si neukázali žádné výrazy, které by měly vedlejší efekty, více si o tomto efektu tedy řekneme v sekci
-o [funkcích](funkce.md).
+na disku), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela přeskočí. Pokud si pamatujete
+na [inkrementaci](promenne_slozeny_zapis.md#inkrementace-a-dekrementace), tak ta je jedním z případů výrazů, které mají
+vedlejší efekt (změnu hodnoty proměnné).
 
 ### Konverze
 Pokud se pokusíte o převod celého či desetinného čísla na `bool`, tak můžou nastat dvě varianty:

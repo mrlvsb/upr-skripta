@@ -105,7 +105,7 @@ podmínky není splněn. Za `else` pak může následovat:
 
 **Cvičení**: Upravte následující program, aby vypsal:
 - `Student uspel s vyznamenanim`, pokud je hodnota `points` větší než `90`.
-- `Student uspel`, pokud je hodnota `points` v intervalu `[51, 90]`.
+- `Student uspel`, pokud je hodnota `points` v (uzavřeném) intervalu `[51, 90]`.
 - `Student neuspel`, pokud je hodnota `points` menší než `51`.
 
 ```c,editable,mainbody

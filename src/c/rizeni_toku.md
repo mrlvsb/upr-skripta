@@ -1,7 +1,7 @@
 # Řízení toku
-Pokud by počítače program vždycky pouze vykonaly od začátku do konce a provedli pokaždé ty stejné
+Pokud by počítače program vždycky pouze vykonaly od začátku do konce a provedly pokaždé ty stejné
 operace, tak by nebyly moc užitečné. Sice by zvládly něco rychle vypočítat, ale už ne se rozhodovat,
-jakou operaci mají provést, což je velmi užitečná vlastnost. 
+jakou operaci mají provést, což je velmi užitečná vlastnost.
 
 Instrukce programu se běžně vykonávají ("tečou") jedna po druhé ("odshora dolů"). *C* obsahuje příkazy
 pro tzv. **řízení toku** (*control flow*), které můžou toto vykonávání instrukcí ovlivnit:

@@ -52,8 +52,8 @@ Prozatím si řekněme, že `int` je zkratka pro `integer`, tedy celé číslo. 
 tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako celé číslo se znaménkem.
 
 ### Inicializace
-Do proměnné můžeme při jejím vytvoření rovnou uložit nějaký *výraz*, který musí být stejného datového
-typu jako je typ proměnné:
+Do proměnné bychom měli při jejím vytvoření rovnou uložit nějaký *výraz*, který musí být stejného
+datového typu jako je typ proměnné:
 ```c
 int points_a = 10;
 int points_b = 10 + 15;
@@ -71,6 +71,15 @@ pokud použijeme inicializaci.
 > Všimněte si, že na konci deklarace proměnné vždy musí následovat středník (**;**).
 > Opomenutí středníku na konci příkazu je velmi častá chyba, která často končí těžko srozumitelnými chybovými
 > hláškami při překladu. Dávejte si tak na středníky pozor, obzvláště ze začátku.
+
+#### Vždy inicializujte proměnné!
+Je opravdu důležité do proměnné vždy při její deklaraci přiřadit nějakou úvodní hodnotu. Pokud to
+neuděláme, tak její hodnota bude **nedefinovaná** (*undefined*), což v praxi znamená, že může být
+jakákoliv a při každém spuštění programu se může lišit. Čtení hodnoty takovéto nedefinované proměnné
+způsobuje **nedefinované chování** (*undefined behaviour*) programu. Pokud k tomu dojde, tak si překladač
+s vaším programem může udělat, co se mu zachce, a váš program se poté může chovat nepředvídatelně.
+
+**Proto vždy dávejte proměnným iniciální hodnotu!**
 
 ### Čtení
 Pokud v programu použijeme název platné proměnné, tak dojde k načtení její hodnoty.

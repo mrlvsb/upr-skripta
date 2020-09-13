@@ -402,10 +402,11 @@ příkazem:</p>
 C program do spustitelného souboru a spustit jej.
 Vytvořte soubor s názvem <code>main.c</code> a nakopírujte do něj následující C kód (později si vysvětlíme,
 jak tento kód funguje):</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
 
-int main(int argc, char **argv) {
+int main() {
     printf(&quot;Hello world!\n&quot;);
+    return 0;
 }
 </code></pre>
 <blockquote>

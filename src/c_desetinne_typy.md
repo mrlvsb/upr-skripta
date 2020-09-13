@@ -20,14 +20,12 @@ Pokud chcete v programu vytvořit výraz datového typu `double`, stačí napsat
 desetinný oddělovač se používá tečka, ne čárka): `1O.5`, `-0.73`. Pokud chcete vytvořit výraz typu
 `float`, tak za toto číslo ještě přidejte znak `f`: `10.5f`, `-0.73f`.
 
-Pokud chcete vytisknout na výstup hodnotu datového typu `float` nebo `double`, můžete použít tento
-příkaz:
+Pokud chcete vytisknout na výstup hodnotu datového typu `float` nebo `double`, můžete použít
+[zástupný znak](c_prikazy_vyrazy.md#výpis-výrazů) `%f`:
 
 ```c
-printf("%f\n", 1.0);
+printf("Desetinné číslo: %f\n", 1.0);
 ```
-Tj. místo `%d`, které bylo použito pro celá čísla, použijte `%f`. Později si vysvětlíme, jak tento
-příkaz funguje.
 
 ### Přesnost desetinných čísel
 Je třeba si uvědomit, že desetinná čísla v počítači mají pouze konečnou přesnost a jsou reprezentována

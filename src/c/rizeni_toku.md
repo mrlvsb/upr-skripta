@@ -5,9 +5,9 @@ jakou operaci mají provést, což je velmi užitečná vlastnost.
 
 Instrukce programu se běžně vykonávají ("tečou") jedna po druhé ("odshora dolů"). *C* obsahuje příkazy
 pro tzv. **řízení toku** (*control flow*), které můžou toto vykonávání instrukcí ovlivnit:
-- [Podmínky](c_podminky.md) umožňují vykonat kus kódu, pouze pokud platí nějaký výraz. Díky tomu se
+- [Podmínky](podminky.md) umožňují vykonat kus kódu, pouze pokud platí nějaký výraz. Díky tomu se
 můžeme rozhodnout, zda nějakou operaci provést, nebo ne, v závislosti na vstupu programu.
-- [Cykly](c_cykly.md) umožňují vykonávat kus kódu opakovaně. Díky tomu můžeme provést nějakou operaci
+- [Cykly](cykly.md) umožňují vykonávat kus kódu opakovaně. Díky tomu můžeme provést nějakou operaci
 pro všechny prvky ze vstupu programu anebo ji provádět, dokud nedojde ke splnění nějakého výrazu.
 
 Ač se to možná nezdá, proměnné, podmínky a cykly bohatě stačí k tomu, abyste byli schopni

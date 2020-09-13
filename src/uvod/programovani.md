@@ -1,7 +1,7 @@
 # Programování
 Programování je proces tvorby programu, tj. sady příkazů pro počítač, který slouží k vyřešení
 nějakého konkrétního **problému**. Problémem se zde myslí nějaká úloha, kterou chceme vyřešit.
-Takovéto úlohy obsahují nějaký (počítačem zpracovatelný) vstup:
+Takovéto úlohy obsahují nějaký (počítačem zpracovatelný) vstup, například:
 
 - pohyb myši
 - stisk klávesy
@@ -22,7 +22,7 @@ jazyce se pak říká **implementace**.
 
 Zde je příklad úloh, které se během semestru naučíte vyřešit pomocí jazyka C:
 
-`Načti soubor z disku a sečti všechna čísla, která v něm jsou.`
+`Spočítej průměr seznamu čísel.`
 
 nebo
 

@@ -134,7 +134,7 @@ přehledné pro vás (a ostatní programátory, kteří váš zdrojový kód bud
 následující dva úseky kódu, které se liší pouze v použitých názvech proměnných:
 ```c
 int c = 1337;
-int x = c * y;
+int x = c - y;
 int d = x * z;
 
 // nebo

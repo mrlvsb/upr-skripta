@@ -4,7 +4,7 @@ Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abych
 text pochopit. Věty `jsme, M y máma, táta a` nebo `.o dku  d! ty z, jsi` nedávají smysl,
 protože obsahují interpunkční znaménka na špatných místech, větné členy jsou ve špatném pořadí
 a některá slova obsahují mezery na místech, kam nepatří. Stejně tak v jazyce *C* můžete velmi jednoduše
-napsat program, kterému [překladač](preklad_programu.md) nebude rozumět a překlad poté skončí se
+napsat program, kterému [překladač](../prostredi/preklad_programu.md) nebude rozumět a překlad poté skončí se
 syntaktickou chybou (*syntax error*). Na syntax *C* si musíte postupně zvyknout, poté už podobné chyby
 budete schopni snadno vyřešit.
 
@@ -32,9 +32,9 @@ main()                 {
 ```
 reprezentuje úplně stejný program. Nicméně asi sami uznáte, že pokud bychom s bílými znaky nakládali
 takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Proto doporučujeme formátování provádět
-automaticky ve [VSCode](editor.md) pomocí zkratky `Ctrl + Shift + I`, ať nad ním nemusíte přemýšlet.
+automaticky ve [VSCode](../prostredi/editor.md) pomocí zkratky `Ctrl + Shift + I`, ať nad ním nemusíte přemýšlet.
 
-Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v [řetězcích](c_retezce.md)
+Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v [řetězcích](retezce.md)
 jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. `in t` nebo
 `ma in` z programu výše by způsobily chybu při překladu).
 

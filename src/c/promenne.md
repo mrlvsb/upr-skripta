@@ -17,7 +17,7 @@ v *C* je právě vytvoření proměnné. Tím řekneme počítači, aby vyčleni
 které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména můžeme odkazovat[^1].
 
 [^1]: O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
-[ukazatelích](c_ukazatele.md).
+[ukazatelích](ukazatele.md).
 
 ### Deklarace a platnost
 Takto vypadá **deklarace** (vytvoření) jednoduché proměnné s názvem `age`:
@@ -47,7 +47,7 @@ int main() {
 ```
 
 ### Datový typ
-`int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](c_datove_typy.md).
+`int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](datove_typy.md).
 Prozatím si řekněme, že `int` je zkratka pro `integer`, tedy celé číslo. Tím říkáme programu, že má
 tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako celé číslo se znaménkem.
 
@@ -86,7 +86,7 @@ int main() {
 
 Kdekoliv tak můžete použít výraz, můžete použít i proměnnou (pokud sedí datové typy). Pro výpis hodnot
 proměnných na výstup programu můžete `printf`. Hodnoty proměnných můžete zkoumat také krokováním
-pomocí [debuggeru](ladeni.md#krokování).
+pomocí [debuggeru](../prostredi/ladeni.md#krokování).
 
 ### Zápis
 Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
@@ -107,7 +107,7 @@ Opět musí platit, že výraz musí být stejného typu[^2], jako je proměnná
 [^2]: *C* umožňuje automatické (tzv. **implicitní**) konverze mezi některými datovými typy, takže typ výrazu
 nemusí být nutně vždy stejný. Tyto konverze se nicméně často chovají neintuitivně a překladač vás před nimi
 obvykle nijak nevaruje, i když vrátí výsledek, který nedává smysl. Snažte se tak ze začátku opravdu vždy
-používat odpovídající typy. Více se dozvíte v sekci o [datových typech](c_datove_typy.md). 
+používat odpovídající typy. Více se dozvíte v sekci o [datových typech](datove_typy.md). 
 
 Jak přiřazení funguje? Počítač se podívá, na jaké adrese v paměti daná proměnná leží, a zapíše do
 paměti hodnotu výrazu, který do proměnné zapisujeme, čímž změní její hodnotu v paměti. Z toho vyplývá,
@@ -117,11 +117,11 @@ je výraz, číselná hodnota, která nemá žádnou adresu v paměti, nemůžem
 nedává moc smysl říct `Číslo 5 odteď bude mít hodnotu 8`.
 
 **Cvičení**: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
-a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](c_prikazy_vyrazy.md#výpis-výrazů)).
+a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](prikazy_vyrazy.md#výpis-výrazů)).
 
 ### Pojmenovávání proměnných
 V C existují určitá pravidla pro pojmenování proměnných:
-- Proměnné se nesmí jmenovat stejně jako [klíčová slova](c_syntaxe.md#klíčová-slova), jinak by
+- Proměnné se nesmí jmenovat stejně jako [klíčová slova](syntaxe.md#klíčová-slova), jinak by
 překladač neuměl rozlišit, co je název proměnné a co klíčové slovo (například u `int int;`).
 - Název proměnné může obsahovat pouze malá (`a-z`) a velká (`A-Z`) písmena anglické abecedy, číslice
 (`0-9`) a podtržítko (`_`).
@@ -154,6 +154,6 @@ je seznam nejpoužívanějších konvencí:
 - `Screaming snake case`: `MUJ_UCET`, `PRVNI_KLIK_UZIVATELE`
 
 Různé konstrukce C můžou využívat různé styly, například častá konvence je použití `snake_case`
-pro názvy proměnných a [funkcí](c_funkce.md) a `PascalCase` pro názvy [struktur](c_struktury.md).
+pro názvy proměnných a [funkcí](funkce.md) a `PascalCase` pro názvy [struktur](struktury.md).
 Který styl budete používat záleží na vaší osobní preferenci, nicméně důležité je zejména držet se
 jednotného stylu a nekombinovat různé styly (pro jednotlivé typy konstrukcí) v jednom programu.

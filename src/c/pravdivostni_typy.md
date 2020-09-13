@@ -133,7 +133,7 @@ nicméně může také způsobit nečekané chyby. Pokud by například vyhodnoc
 **vedlejší efekty** (*side effects*), které se projeví při jeho provedení (například vytvoření souboru
 na disku), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela přeskočí. Zatím jsme
 si neukázali žádné výrazy, které by měly vedlejší efekty, více si o tomto efektu tedy řekneme v sekci
-o [funkcích](c_funkce.md).
+o [funkcích](funkce.md).
 
 ### Konverze
 Pokud se pokusíte o převod celého či desetinného čísla na `bool`, tak můžou nastat dvě varianty:

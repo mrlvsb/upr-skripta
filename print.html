@@ -11,12 +11,7 @@
 
 
         <!-- Custom HTML head -->
-        <link rel="stylesheet" href="wasm/xterm.min.css" />
-<script src="wasm/xterm.min.js"></script>
-<script src="wasm/fit.min.js"></script>
-<script src="wasm/shared.js"></script>
-<script src="wasm/web.js"></script>
-<style>
+        <style>
 .xterm {
   margin-top: 10px;
 }
@@ -54,6 +49,8 @@
         <!-- Custom theme stylesheets -->
         
         <link rel="stylesheet" href="theme/css/tufte.css">
+        
+        <link rel="stylesheet" href="src/wasm/xterm.min.css">
         
 
         
@@ -110,7 +107,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="programovani.html"><strong aria-hidden="true">1.1.</strong> Programování</a></li><li class="chapter-item "><a href="programovaci_jazyky.html"><strong aria-hidden="true">1.2.</strong> Programovací jazyky</a></li><li class="chapter-item "><a href="jazyk_c.html"><strong aria-hidden="true">1.3.</strong> Jazyk C</a></li><li class="chapter-item "><a href="pamet.html"><strong aria-hidden="true">1.4.</strong> Paměť</a></li></ol></li><li class="chapter-item expanded "><a href="nastaveni_prostredi.html"><strong aria-hidden="true">2.</strong> Nastavení prostředí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="editor.html"><strong aria-hidden="true">2.1.</strong> Editor</a></li><li class="chapter-item "><a href="preklad_programu.html"><strong aria-hidden="true">2.2.</strong> Překlad</a></li><li class="chapter-item "><a href="ladeni.html"><strong aria-hidden="true">2.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><a href="c_programovani.html"><strong aria-hidden="true">3.</strong> Programování v C</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_syntaxe.html"><strong aria-hidden="true">3.1.</strong> Syntaxe</a></li><li class="chapter-item "><a href="c_prikazy_vyrazy.html"><strong aria-hidden="true">3.2.</strong> Příkazy a výrazy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_promenne.html"><strong aria-hidden="true">3.2.1.</strong> Proměnné</a></li><li class="chapter-item "><a href="c_datove_typy.html"><strong aria-hidden="true">3.2.2.</strong> Datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_celociselne_typy.html"><strong aria-hidden="true">3.2.2.1.</strong> Celočíselné typy</a></li><li class="chapter-item "><a href="c_desetinne_typy.html"><strong aria-hidden="true">3.2.2.2.</strong> Desetinné číselné typy</a></li><li class="chapter-item "><a href="c_pravdivostni_typy.html"><strong aria-hidden="true">3.2.2.3.</strong> Pravdivostní typy</a></li></ol></li></ol></li><li class="chapter-item "><a href="c_rizeni_toku.html"><strong aria-hidden="true">3.3.</strong> Řízení toku</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_podminky.html"><strong aria-hidden="true">3.3.1.</strong> Podmínky</a></li><li class="chapter-item "><a href="c_cykly.html"><strong aria-hidden="true">3.3.2.</strong> Cykly</a></li></ol></li><li class="chapter-item "><a href="c_funkce.html"><strong aria-hidden="true">3.4.</strong> Funkce</a></li><li class="chapter-item "><a href="c_ukazatele.html"><strong aria-hidden="true">3.5.</strong> Ukazatele</a></li><li class="chapter-item "><a href="c_pole.html"><strong aria-hidden="true">3.6.</strong> Pole</a></li><li class="chapter-item "><a href="c_retezce.html"><strong aria-hidden="true">3.7.</strong> Řetězce</a></li><li class="chapter-item "><a href="c_struktury.html"><strong aria-hidden="true">3.8.</strong> Struktury</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c_struktury_funkce.html"><strong aria-hidden="true">3.8.1.</strong> Funkce se strukturami</a></li></ol></li><li class="chapter-item "><a href="c_soubory.html"><strong aria-hidden="true">3.9.</strong> Soubory</a></li><li class="chapter-item "><a href="c_modularizace.html"><strong aria-hidden="true">3.10.</strong> Modularizace</a></li><li class="chapter-item "><a href="c_knihovny.html"><strong aria-hidden="true">3.11.</strong> Knihovny</a></li></ol></li><li class="chapter-item expanded "><a href="ulohy.html"><strong aria-hidden="true">4.</strong> Aplikované úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="tga.html"><strong aria-hidden="true">4.1.</strong> TGA</a></li><li class="chapter-item "><a href="sdl.html"><strong aria-hidden="true">4.2.</strong> SDL</a></li></ol></li><li class="chapter-item expanded "><a href="ruzne.html"><strong aria-hidden="true">5.</strong> Různé</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="rozklad_problemu.html"><strong aria-hidden="true">5.1.</strong> Rozklad problému</a></li><li class="chapter-item "><a href="nahodna_cisla.html"><strong aria-hidden="true">5.2.</strong> Generování náhodných čísel</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="uvod/uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="uvod/programovani.html"><strong aria-hidden="true">1.1.</strong> Programování</a></li><li class="chapter-item "><a href="uvod/programovaci_jazyky.html"><strong aria-hidden="true">1.2.</strong> Programovací jazyky</a></li><li class="chapter-item "><a href="uvod/jazyk_c.html"><strong aria-hidden="true">1.3.</strong> Jazyk C</a></li><li class="chapter-item "><a href="uvod/pamet.html"><strong aria-hidden="true">1.4.</strong> Paměť</a></li></ol></li><li class="chapter-item expanded "><a href="prostredi/nastaveni_prostredi.html"><strong aria-hidden="true">2.</strong> Nastavení prostředí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="prostredi/editor.html"><strong aria-hidden="true">2.1.</strong> Editor</a></li><li class="chapter-item "><a href="prostredi/preklad_programu.html"><strong aria-hidden="true">2.2.</strong> Překlad</a></li><li class="chapter-item "><a href="prostredi/ladeni.html"><strong aria-hidden="true">2.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><a href="c/programovani.html"><strong aria-hidden="true">3.</strong> Programování v C</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c/syntaxe.html"><strong aria-hidden="true">3.1.</strong> Syntaxe</a></li><li class="chapter-item "><a href="c/prikazy_vyrazy.html"><strong aria-hidden="true">3.2.</strong> Příkazy a výrazy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c/promenne.html"><strong aria-hidden="true">3.2.1.</strong> Proměnné</a></li><li class="chapter-item "><a href="c/datove_typy.html"><strong aria-hidden="true">3.2.2.</strong> Datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c/celociselne_typy.html"><strong aria-hidden="true">3.2.2.1.</strong> Celočíselné typy</a></li><li class="chapter-item "><a href="c/desetinne_typy.html"><strong aria-hidden="true">3.2.2.2.</strong> Desetinné číselné typy</a></li><li class="chapter-item "><a href="c/pravdivostni_typy.html"><strong aria-hidden="true">3.2.2.3.</strong> Pravdivostní typy</a></li></ol></li></ol></li><li class="chapter-item "><a href="c/rizeni_toku.html"><strong aria-hidden="true">3.3.</strong> Řízení toku</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c/podminky.html"><strong aria-hidden="true">3.3.1.</strong> Podmínky</a></li><li class="chapter-item "><a href="c/cykly.html"><strong aria-hidden="true">3.3.2.</strong> Cykly</a></li></ol></li><li class="chapter-item "><a href="c/funkce.html"><strong aria-hidden="true">3.4.</strong> Funkce</a></li><li class="chapter-item "><a href="c/ukazatele.html"><strong aria-hidden="true">3.5.</strong> Ukazatele</a></li><li class="chapter-item "><a href="c/pole.html"><strong aria-hidden="true">3.6.</strong> Pole</a></li><li class="chapter-item "><a href="c/retezce.html"><strong aria-hidden="true">3.7.</strong> Řetězce</a></li><li class="chapter-item "><a href="c/struktury.html"><strong aria-hidden="true">3.8.</strong> Struktury</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="c/struktury_funkce.html"><strong aria-hidden="true">3.8.1.</strong> Struktury a funkce</a></li></ol></li><li class="chapter-item "><a href="c/soubory.html"><strong aria-hidden="true">3.9.</strong> Soubory</a></li><li class="chapter-item "><a href="c/modularizace.html"><strong aria-hidden="true">3.10.</strong> Modularizace</a></li><li class="chapter-item "><a href="c/knihovny.html"><strong aria-hidden="true">3.11.</strong> Knihovny</a></li></ol></li><li class="chapter-item expanded "><a href="aplikovane_ulohy/ulohy.html"><strong aria-hidden="true">4.</strong> Aplikované úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="aplikovane_ulohy/tga.html"><strong aria-hidden="true">4.1.</strong> TGA</a></li><li class="chapter-item "><a href="aplikovane_ulohy/sdl.html"><strong aria-hidden="true">4.2.</strong> SDL</a></li></ol></li><li class="chapter-item expanded "><a href="ruzne/ruzne.html"><strong aria-hidden="true">5.</strong> Různé</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ruzne/rozklad_problemu.html"><strong aria-hidden="true">5.1.</strong> Rozklad problému</a></li><li class="chapter-item "><a href="ruzne/nahodna_cisla.html"><strong aria-hidden="true">5.2.</strong> Generování náhodných čísel</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -188,14 +185,14 @@ jako žádný jiný text) nenaučí, toho lze dosáhnout pouze opakovaným zkou�
 Studentům tedy silně doporučujeme, aby přednášky a cvičení navštěvovali a hlavně aby se věnovali programování
 doma, alespoň několik hodin týdně.</p>
 <p>V tomto textu naleznete stručný úvod o programování, překladu a ladění programů, nastavení prostředí
-k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka C (proměnné, funkce, podmínky,
+k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka <em>C</em> (proměnné, funkce, podmínky,
 cykly, struktury, pole, ukazatele atd.) spolu se sadou úloh k procvičení jednotlivých témat. Pomocí
 ikony <i class="fa fa-search"></i> vlevo nahoře můžete v textu rychle vyhledávat, pokud potřebujete
 najít informace o konkrétním tématu.</p>
 <p>Několik poznámek k textu:</p>
 <ul>
 <li>Tento text neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý
-knižní titul, např. Učebnice jazyka C od Pavla Herouta nebo přímo standard jazyka <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</li>
+knižní titul, např. Učebnice jazyka <em>C</em> od Pavla Herouta nebo přímo standard jazyka <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</li>
 <li>Jelikož je předmět UPR zaměřen na vývoj v operačním systému Linux, tak ukázky kódu a příkazů v terminálu
 předpokládají použití tohoto operačního systému (konkrétně distribuce <code>Ubuntu</code>).</li>
 <li>Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,
@@ -263,7 +260,7 @@ Později si ukážeme, jak takovýto překladač použít k překladu kódu.</p>
     move_up(character);
 }
 </code></pre>
-<p>I někdo, kdo se s jazykem C nikdy nesetkal, může z tohoto programu zhruba odvodit, co asi dělá,
+<p>I někdo, kdo se s jazykem <em>C</em> nikdy nesetkal, může z tohoto programu zhruba odvodit, co asi dělá,
 pokud ho přečte jako větu v angličtině. Tento program však může být převeden na stovky až tisíce
 počítačových instrukcí a z takového množství příkazů už by bylo složité odvodit, k čemu je program
 určen.</p>
@@ -278,7 +275,7 @@ téměř 50 lety, a za tu dobu nedočkal mnoha výrazných změn.</p>
 volbou pro tvorbu webových či mobilních aplikací, vyplatí se mu rozumět a umět ho používat, a to
 hned z několika důvodů:</p>
 <ul>
-<li>Jazyk C lze použít na téměř všech existujících platformách a je tak
+<li>Jazyk <em>C</em> lze použít na téměř všech existujících platformách a je tak
 velmi univerzálním jazykem. Téměř veškerý existující software obsahuje kusy kódu v jazyce C. Operační systémy (Linux,
 OS X, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimediální programy (Photoshop,
 Powerpoint, Word, BitTorrent), hry (World of Warcraft, Quake, Doom, Call of Duty, League of Legends,
@@ -286,16 +283,16 @@ DOTA 2, Fortnite), vestavěná zařízení (mikročipy, pračky, řídící jedn
 Všechny tyto věci jsou buď z části anebo zcela poháněné jazykem C.</li>
 <li>Je to jednoduchý jazyk, který neobsahuje velké množství funkcionalit, které lze naleznout ve většině
 modernějších jazyků. Díky tomu se dá naučit za jeden semestr.</li>
-<li>Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce C tak lze zároveň
+<li>Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce <em>C</em> tak lze zároveň
 pochopit, jak funguje počítač a operační systém. Díky tomu lze také při správném zacházení psát velmi
 efektivní programy (to ale nicméně není obsahem tohoto kurzu). </li>
-<li><strong>Syntaxe</strong> (způsob zápisu) jazyka C ovlivnila velké množství jazyků, které vznikly po něm. Jakmile se
+<li><strong>Syntaxe</strong> (způsob zápisu) jazyka <em>C</em> ovlivnila velké množství jazyků, které vznikly po něm. Jakmile se
 ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších jazyků (C++, C#,
 Java, Kotlin, Javascript, PHP, Rust, ...). </li>
 </ul>
-<p>Jazyk C má samozřejmě také řadu nevýhod. Vzhledem k jeho stáří a omezené sadě funkcionalit je často
+<p>Jazyk <em>C</em> má samozřejmě také řadu nevýhod. Vzhledem k jeho stáří a omezené sadě funkcionalit je často
 značně pracnější a zdlouhavější pomocí něho dosáhnout stejného výsledku než u modernějších programovacích
-jazyků. Nevede také programátory za ručičku – při psaní programu v jazyce C je velmi jednoduché udělat
+jazyků. Nevede také programátory za ručičku – při psaní programu v jazyce <em>C</em> je velmi jednoduché udělat
 chybu, která může způsobit v lepším případě pád programu, v horším případě může běžící program poškodit
 tak, že začne vydávat chybný výstup nebo se začně chovat nepředvídatelně.</p>
 <p>Tyto chyby se můžou projevit jen někdy, nebo jenom na určité kombinaci hardwaru či operačního systému,
@@ -347,13 +344,13 @@ může pracovat. Více se dozvíte později. </p>
 </span>
 <p>Pokud byste programovali počítač přímo pomocí instrukcí, tak mu můžete dát například instrukci
 <code>Nastav byte na adrese 58 na hodnotu 5</code> nebo <code>Přečti 4 byty začínající na adrese 1028</code>.
-Při programování v C ovšem často budou adresy skryté na pozadí a bude se o ně starat překladač,
+Při programování v <em>C</em> ovšem často budou adresy skryté na pozadí a bude se o ně starat překladač,
 my se budeme na konkrétní úsek paměti obvykle odkazovat jménem, které mu přiřadíme.</p>
 <h1><a class="header" href="#nastavení-prostředí" id="nastavení-prostředí">Nastavení prostředí</a></h1>
 <p>Abyste mohli programovat v C, musíte si nainstalovat, nakonfigurovat a naučit se používat
-sadu programů. V této kapitole je stručný popis toho, jak si nastavit <a href="editor.html">textový editor</a>
-k psaní programů, <a href="preklad_programu.html">překladač</a> pro překlad z jazyka C do spustitelného souboru
-a také jak <a href="ladeni.html">řešit chyby</a> při psaní programů.</p>
+sadu programů. V této kapitole je stručný popis toho, jak si nastavit <a href="prostredi/editor.html">textový editor</a>
+k psaní programů, <a href="prostredi/preklad_programu.html">překladač</a> pro překlad z jazyka <em>C</em> do spustitelného souboru
+a také jak <a href="prostredi/ladeni.html">řešit chyby</a> při psaní programů.</p>
 <h1><a class="header" href="#vývojové-prostředí" id="vývojové-prostředí">Vývojové prostředí</a></h1>
 <p>Abychom mohli přeložit a spustit nějaký program, musíme ho obvykle nejprve zapsat do
 jednoho nebo více souborů ve formě tzv. <strong>zdrojového kódu</strong> (<em>source code</em>). K usnadnění tohoto procesu
@@ -389,18 +386,18 @@ Tahák pro příkazy terminálu najdete <a href="https://github.com/geordi/upr-c
 <li>Zobrazit vyhledávač akcí - <code>Ctrl + Shift + P</code></li>
 </ul>
 <h1><a class="header" href="#překlad-programu" id="překlad-programu">Překlad programu</a></h1>
-<p>Pro překlad programu z jazyka C do <strong>spustitelného</strong> (<em>executable</em>) souboru
+<p>Pro překlad programu z jazyka <em>C</em> do <strong>spustitelného</strong> (<em>executable</em>) souboru
 budeme používat jiný program, kterému se říká překladač.
-Překladačů jazyka C existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
+Překladačů jazyka <em>C</em> existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
 Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong></a> (GNU Compiler Collection). </p>
 <p>Překladač <code>gcc</code>, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
 příkazem:</p>
 <pre><code class="language-bash">sudo apt install build-essential
 </code></pre>
 <h2><a class="header" href="#překlad-prvního-programu" id="překlad-prvního-programu">Překlad prvního programu</a></h2>
-<p>Ještě než si ukážeme, jak vlastně programovací jazyk C funguje, tak zkusíme přeložit velmi jednoduchý
+<p>Ještě než si ukážeme, jak vlastně programovací jazyk <em>C</em> funguje, tak zkusíme přeložit velmi jednoduchý
 C program do spustitelného souboru a spustit jej.
-Vytvořte soubor s názvem <code>main.c</code> a nakopírujte do něj následující C kód (později si vysvětlíme,
+Vytvořte soubor s názvem <code>main.c</code> a nakopírujte do něj následující <em>C</em> kód (později si vysvětlíme,
 jak tento kód funguje):</p>
 <pre><code class="language-c editable">#include &lt;stdio.h&gt;
 
@@ -490,32 +487,32 @@ nechcete přeskakovat volání funkcí, použijte <code>Step Into</code> (<code>
 <p>VSCode používá pro ladění vašeho programu debugger <code>gdb</code>. Pokud ho chcete použít manuálně, návod
 můžete najít například <a href="https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/">zde</a>.</p>
 </blockquote>
-<h1><a class="header" href="#programování-v-c" id="programování-v-c">Programování v C</a></h1>
-<p>V této kapitole naleznete popis základních konstrukcí jazyka C, které jsou základními
+<h1><a class="header" href="#programování-v-c" id="programování-v-c">Programování v <em>C</em></a></h1>
+<p>V této kapitole naleznete popis základních konstrukcí jazyka <em>C</em>, které jsou základními
 stavebními kameny pro tvorbu programů. Ke každému tématu je k dispozici také úloh. Pokud úlohy
 zvládnete vypracovat, tak budete mít jistotu, že jste dané téma pochopili a můžete se posunout dále.
 Pokud nezvládnete úlohy splnit, tak můžete mít s dalšími koncepty problém. Pokud nebudete stíhat,
 tak kontaktujte svého cvičícího.</p>
-<p>Před přečtením této kapitoly si přečtěte sekci o <a href="pamet.html">paměti</a>.</p>
+<p>Před přečtením této kapitoly si přečtěte sekci o <a href="c/../uvod/pamet.html">paměti</a>.</p>
 <p>Zde je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat probíraných na cvičení
 a přednáškách se může od tohoto seznamu lišit, tento text je určen spíše jako &quot;kuchařka&quot;, ve které
 se můžete k jednotlivým tématům vracet, abyste si je připomněli. Text je nicméně psaný tak, aby se
 dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které zatím nebyly vysvětleny.</p>
 <p>Základní témata:</p>
 <ul>
-<li><a href="c_syntaxe.html">Úvod</a> - základní syntaxe a komentáře</li>
-<li><a href="c_prikazy_vyrazy.html">Příkazy a výrazy</a> - jak provádět výpočty</li>
-<li><a href="c_promenne.html">Proměnné</a> - jak něco uložit a načíst z paměti paměti</li>
-<li><a href="c_datove_typy.html">Datové typy</a> - jak pracovat s daty v paměti</li>
-<li><a href="c_rizeni_toku.html">Řízení toku</a> - jak se rozhodovat a provádět akce opakovaně</li>
-<li><a href="c_funkce.html">Funkce</a> - jak opakovaně využít a parametrizovat opakující se kód</li>
-<li><a href="c_ukazatele.html">Ukazatele</a> - jak sdílet data v paměti a pracovat s adresami</li>
-<li><a href="c_pole.html">Pole</a> - jak jednotně pracovat s velkým množstvím dat</li>
-<li><a href="c_retezce.html">Řetězce</a> - jak v programech reprezentovat text</li>
-<li><a href="c_struktury.html">Struktury</a> - jak seskupit data do logicky souvisejících celků</li>
-<li><a href="c_soubory.html">Soubory</a> - jak číst a zapisovat soubory</li>
-<li><a href="c_modularizace.html">Modularizace</a> - jak rozdělit program do více zdrojových souborů</li>
-<li><a href="c_knihovny.html">Knihovny</a> - jak využít existující kód od jiných programátorů</li>
+<li><a href="c/syntaxe.html">Úvod</a> - základní syntaxe a komentáře</li>
+<li><a href="c/prikazy_vyrazy.html">Příkazy a výrazy</a> - jak provádět výpočty</li>
+<li><a href="c/promenne.html">Proměnné</a> - jak něco uložit a načíst z paměti paměti</li>
+<li><a href="c/datove_typy.html">Datové typy</a> - jak pracovat s daty v paměti</li>
+<li><a href="c/rizeni_toku.html">Řízení toku</a> - jak se rozhodovat a provádět akce opakovaně</li>
+<li><a href="c/funkce.html">Funkce</a> - jak opakovaně využít a parametrizovat opakující se kód</li>
+<li><a href="c/ukazatele.html">Ukazatele</a> - jak sdílet data v paměti a pracovat s adresami</li>
+<li><a href="c/pole.html">Pole</a> - jak jednotně pracovat s velkým množstvím dat</li>
+<li><a href="c/retezce.html">Řetězce</a> - jak v programech reprezentovat text</li>
+<li><a href="c/struktury.html">Struktury</a> - jak seskupit data do logicky souvisejících celků</li>
+<li><a href="c/soubory.html">Soubory</a> - jak číst a zapisovat soubory</li>
+<li><a href="c/modularizace.html">Modularizace</a> - jak rozdělit program do více zdrojových souborů</li>
+<li><a href="c/knihovny.html">Knihovny</a> - jak využít existující kód od jiných programátorů</li>
 </ul>
 <p>Všechny tyto koncepty jsou velmi univerzální a v tzv. <a href="https://cs.wikipedia.org/wiki/Imperativn%C3%AD_programov%C3%A1n%C3%AD">imperativních</a>
 programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jednou naučíte, tak je budete
@@ -523,24 +520,24 @@ moct využívat téměř v libovolném populárním programovacím jazyku (Java,
 Javascript, Rust, C++ atd.). </p>
 <p>Navazující témata:</p>
 <ul>
-<li><a href="tga.html">TGA</a> - jednoduchý formát pro reprezentaci obrázků na disku</li>
-<li><a href="sdl.html">SDL</a> - knihovna pro tvorbu grafických aplikací a her</li>
+<li><a href="c/../aplikovane_ulohy/tga.html">TGA</a> - jednoduchý formát pro reprezentaci obrázků na disku</li>
+<li><a href="c/../aplikovane_ulohy/sdl.html">SDL</a> - knihovna pro tvorbu grafických aplikací a her</li>
 </ul>
 <h1><a class="header" href="#základy-syntaxe" id="základy-syntaxe">Základy syntaxe</a></h1>
 <p>C je (programovací) jazyk a jako každý jazyk má svá pravidla, které je nutno dodržovat.
 Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abychom byli schopni výsledný
 text pochopit. Věty <code>jsme, M y máma, táta a</code> nebo <code>.o dku  d! ty z, jsi</code> nedávají smysl,
 protože obsahují interpunkční znaménka na špatných místech, větné členy jsou ve špatném pořadí
-a některá slova obsahují mezery na místech, kam nepatří. Stejně tak v jazyce C můžete velmi jednoduše
-napsat program, kterému <a href="preklad_programu.html">překladač</a> nebude rozumět a překlad poté skončí se
-syntaktickou chybou (<em>syntax error</em>). Na syntax C si musíte postupně zvyknout, poté už podobné chyby
+a některá slova obsahují mezery na místech, kam nepatří. Stejně tak v jazyce <em>C</em> můžete velmi jednoduše
+napsat program, kterému <a href="c/../prostredi/preklad_programu.html">překladač</a> nebude rozumět a překlad poté skončí se
+syntaktickou chybou (<em>syntax error</em>). Na syntax <em>C</em> si musíte postupně zvyknout, poté už podobné chyby
 budete schopni snadno vyřešit.</p>
 <p>Zde je asi nejkratší možný program v jazyce C:</p>
 <pre><code class="language-c">int main() {
     return 0;
 }
 </code></pre>
-<p>V programu výše je pouze <a href="funkce.html">funkce</a> s názvem <code>main</code>. Funkce si popíšeme později, prozatím
+<p>V programu výše je pouze <a href="c/funkce.html">funkce</a> s názvem <code>main</code>. Funkce si popíšeme později, prozatím
 budeme psát kód vždy do funkce <code>main</code> (před <code>return 0;</code>). Jednotlivé prvky programu si postupně vysvětlíme
 v následujících sekcích, prozatím si však všimněte, že <strong>bílé znaky</strong> (<em>whitespace</em>)<sup class='margin-toggle sidenote-number'>1</sup> jsou obvykle
 překladačem ignorovány. Například</p>
@@ -559,17 +556,17 @@ main()                 {
 </code></pre>
 <p>reprezentuje úplně stejný program. Nicméně asi sami uznáte, že pokud bychom s bílými znaky nakládali
 takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Proto doporučujeme formátování provádět
-automaticky ve <a href="editor.html">VSCode</a> pomocí zkratky <code>Ctrl + Shift + I</code>, ať nad ním nemusíte přemýšlet.</p>
-<p>Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v <a href="c_retezce.html">řetězcích</a>
+automaticky ve <a href="c/../prostredi/editor.html">VSCode</a> pomocí zkratky <code>Ctrl + Shift + I</code>, ať nad ním nemusíte přemýšlet.</p>
+<p>Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v <a href="c/retezce.html">řetězcích</a>
 jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. <code>in t</code> nebo
 <code>ma in</code> z programu výše by způsobily chybu při překladu).</p>
 <h3><a class="header" href="#komentáře" id="komentáře">Komentáře</a></h3>
 <p>Abychom mohli v následujících sekcích popisovat kusy kódu, ukážeme si teď <strong>komentáře</strong>. Jedná se
 o text ve zdrojovém kódu, který je určen pro programátory, ne pro překladač, který je zcela ignoruje.
 Bez komentářů bychom nemohli do zdrojového kódu dodávat poznámky, protože překladač by jinak měl snahu
-je interpretovat jako C kód. Komentáře v kódu obvykle poznáte snadno, protože je váš editor bude vykreslovat
+je interpretovat jako <em>C</em> kód. Komentáře v kódu obvykle poznáte snadno, protože je váš editor bude vykreslovat
 jinou barvou než zbytek kódu.</p>
-<p>V C existují dva typy komentářů:</p>
+<p>V <em>C</em> existují dva typy komentářů:</p>
 <ul>
 <li>Řádkové komentáře - pokud do kódu napíšete <code>//</code>, tak vše za těmito lomítky až do konce řádku se 
 bude brát jako komentář.
@@ -606,13 +603,13 @@ tomto kódu jsou <code>int</code> a <code>return</code> klíčová slova:</p>
 <p>Během semestru se postupně naučíte, k čemu se jednotlivá klíčová slova používají. Jejich kompletní
 seznam můžete najít například <a href="https://www.programiz.com/c-programming/list-all-keywords-c-language">zde</a>.</p>
 <h3><a class="header" href="#speciální-znaky" id="speciální-znaky">Speciální znaky</a></h3>
-<p>Při programování (jak už v C, tak i v jiných jazycích) budete používat spousty symbolů, které běžně
+<p>Při programování (jak už v <em>C</em>, tak i v jiných jazycích) budete používat spousty symbolů, které běžně
 asi často nevyužíváte (například <code>[</code>, <code>]</code>, <code>{</code>, <code>}</code>, <code>&lt;</code>, <code>&gt;</code>, <code>=</code>, <code>%</code>, <code>#</code>, <code>&amp;</code>, <code>*</code>, <code>;</code>, <code>\</code>,
 <code>&quot;</code>, <code>'</code>). Obzvláště pokud pro programování budete používat českou klávesnici, je dobré si ze začátku
 najít nějaký tahák (např. <a href="https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/keyboard-cs.pdf">tento</a>),
 abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází. </p>
 <h1><a class="header" href="#vykonávání-programů" id="vykonávání-programů">Vykonávání programů</a></h1>
-<p>Jak už víme, programy jsou <a href="programovaci_jazyky.html">sekvence příkazů</a> pro počítač, který je provádí
+<p>Jak už víme, programy jsou <a href="c/../uvod/programovaci_jazyky.html">sekvence příkazů</a> pro počítač, který je provádí
 instrukci po instrukci (resp. řádek po řádku). Jakmile počítač vykoná jeden řádek vašeho programu, tak skočí
 na řádek níže, dokud nedojde na konec programu. Aby počítač věděl, kterou instrukci má provést
 jako první, tak mu musíme říct, kde má začít. K tomu přesně slouží funkce se speciálním názvem
@@ -622,24 +619,24 @@ jako první, tak mu musíme říct, kde má začít. K tomu přesně slouží fu
     return 0;
 }
 </code></pre>
-<p>Výše zmíněný program se po <a href="preklad_programu.html">překladu</a> a spuštění začne vykonávat na prvním řádku
+<p>Výše zmíněný program se po <a href="c/../prostredi/preklad_programu.html">překladu</a> a spuštění začne vykonávat na prvním řádku
 funkce <code>main</code>, a jakmile provede všechny řádky, tak program skončí. Tento program je
 v podstatě prázdný, takže se pouze zapne a vypne. Prozatím budeme veškerý kód psát dovnitř funkce
 <code>main</code>, mezi složené závorky (<code>{</code>, <code>}</code>) a před řádek <code>return 0;</code> (tedy na místo komentáře <code>ZDE</code>).
 Později si vysvětlíme, jak tato funkce funguje, prozatím to berte tak, že v programu vždy musí funkce
 <code>main</code> být, aby počítač věděl, odkud začít vykonávání kódu. </p>
 <h1><a class="header" href="#příkazy" id="příkazy">Příkazy</a></h1>
-<p>Programy v C se skládají z <strong>příkazů</strong> (<em>statements</em>). Příkaz říká počítači, co má provést, na
-mnohem vyšší úrovni než <a href="programovaci_jazyky.html">instrukce</a> - jeden C příkaz může být přeložen
+<p>Programy v <em>C</em> se skládají z <strong>příkazů</strong> (<em>statements</em>). Příkaz říká počítači, co má provést, na
+mnohem vyšší úrovni než <a href="c/../uvod/programovaci_jazyky.html">instrukce</a> - jeden C příkaz může být přeložen
 překladačem na desítky instrukcí pro procesor. Existuje mnoho různých typů příkazů, které naleznete
 v následujících sekcích.</p>
 <h1><a class="header" href="#výrazy" id="výrazy">Výrazy</a></h1>
 <p>Jak už vyplává z jeho názvu, nejpřirozenější a hlavní funkcí počítače je něco počítat. Jedním ze
-základních konstrukcí jazyka C (i jiných programovacích jazyků) tak je možnost počítat různé hodnoty.
+základních konstrukcí jazyka <em>C</em> (i jiných programovacích jazyků) tak je možnost počítat různé hodnoty.
 Něco, co se dá vypočítat (tak, aby výsledkem byla nějaká hodnota), se nazývá <strong>výraz</strong> (<em>expression</em>).
 Příkladem asi nejjednoduššího výrazu je číslo, např. <code>5</code>. Takovýto výraz již není nutné dále vyhodnocovat,
 jeho hodnota je prostě <code>5</code>.</p>
-<p>V C můžeme s výrazy provádět různé operace pomocí <strong>operátorů</strong>. Můžeme například použít operátor <code>+</code>
+<p>V <em>C</em> můžeme s výrazy provádět různé operace pomocí <strong>operátorů</strong>. Můžeme například použít operátor <code>+</code>
 s dvěma výrazy, čímž vznikne složitější výraz: <code>5 + 5</code>, který se v programu vyhodnotí na hodnotu <code>10</code>.</p>
 <h3><a class="header" href="#výpis-výrazů" id="výpis-výrazů">Výpis výrazů</a></h3>
 <p>Abyste si ze začátku mohli jednoduše zobrazit hodnoty výrazů, tak si ukážeme kód, pomocí kterého
@@ -698,7 +695,7 @@ výrazů.</p>
 <h3><a class="header" href="#datové-typy" id="datové-typy">Datové typy</a></h3>
 <p>Každý výraz má svůj datový typ, který udává, jak je hodnota výrazu v programu interpretována a také
 jaké operace má smysl nad výrazem dělat. Více o datových typech a operátorech se dozvíte v sekci
-<a href="c_datove_typy.html">Datové typy</a>.</p>
+<a href="c/datove_typy.html">Datové typy</a>.</p>
 <h3><a class="header" href="#příkazy-vs-výrazy" id="příkazy-vs-výrazy">Příkazy vs výrazy</a></h3>
 <p>Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký
 je rozdíl mezi výrazem (něco, co se dá vypočítat) a příkazem, pomocí kterého počítači říkáme, aby
@@ -719,10 +716,10 @@ tak se počet jeho životů opět zvýší.</li>
 </ul>
 <p>Proměnné jsou jedním z nejzákladnějších a nejčastějších stavebních kamenů většiny programů, během
 semestru se s nimi budeme setkávat neustále. Není tak náhodou, že jedním z nejzákladnějších příkazů
-v C je právě vytvoření proměnné. Tím řekneme počítači, aby vyčlenil (tzv. <strong>naalokoval</strong>) místo v paměti,
+v <em>C</em> je právě vytvoření proměnné. Tím řekneme počítači, aby vyčlenil (tzv. <strong>naalokoval</strong>) místo v paměti,
 které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména můžeme odkazovat<sup class='margin-toggle sidenote-number'>1</sup>.</p>
 <span class='sidenote'><p><sup class='number'>1</sup>O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
-<a href="c_ukazatele.html">ukazatelích</a>.</p>
+<a href="c/ukazatele.html">ukazatelích</a>.</p>
 </span>
 <h3><a class="header" href="#deklarace-a-platnost" id="deklarace-a-platnost">Deklarace a platnost</a></h3>
 <p>Takto vypadá <strong>deklarace</strong> (vytvoření) jednoduché proměnné s názvem <code>age</code>:</p>
@@ -748,7 +745,7 @@ závorkami (<code>{</code> a <code>}</code>):</p>
 } // zde končí platnost proměnné `a`
 </code></pre>
 <h3><a class="header" href="#datový-typ" id="datový-typ">Datový typ</a></h3>
-<p><code>int</code> před názvem proměnné udává její datový typ, o kterém pojednává <a href="c_datove_typy.html">následující sekce</a>.
+<p><code>int</code> před názvem proměnné udává její datový typ, o kterém pojednává <a href="c/datove_typy.html">následující sekce</a>.
 Prozatím si řekněme, že <code>int</code> je zkratka pro <code>integer</code>, tedy celé číslo. Tím říkáme programu, že má
 tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako celé číslo se znaménkem.</p>
 <h3><a class="header" href="#inicializace" id="inicializace">Inicializace</a></h3>
@@ -779,10 +776,10 @@ současná hodnota proměnné:</p>
 </code></pre>
 <p>Kdekoliv tak můžete použít výraz, můžete použít i proměnnou (pokud sedí datové typy). Pro výpis hodnot
 proměnných na výstup programu můžete <code>printf</code>. Hodnoty proměnných můžete zkoumat také krokováním
-pomocí <a href="ladeni.html#krokov%C3%A1n%C3%AD">debuggeru</a>.</p>
+pomocí <a href="c/../prostredi/ladeni.html#krokov%C3%A1n%C3%AD">debuggeru</a>.</p>
 <h3><a class="header" href="#zápis" id="zápis">Zápis</a></h3>
 <p>Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
-naštěstí jde měnit. Můžeme k tomu použít další typ C příkazu, tzv. přiřazení (<strong>assignment</strong>):</p>
+naštěstí jde měnit. Můžeme k tomu použít další typ <em>C</em> příkazu, tzv. přiřazení (<strong>assignment</strong>):</p>
 <pre><code class="language-c">int main() {
     int a = 5;  // hodnota `a` je 5
     a = 8;      // hodnota `a` je 8
@@ -792,10 +789,10 @@ naštěstí jde měnit. Můžeme k tomu použít další typ C příkazu, tzv. p
 <p><code>&lt;název proměnné&gt; = &lt;výraz&gt;;</code></p>
 <p>Opět musí platit, že výraz musí být stejného typu<sup class='margin-toggle sidenote-number'>2</sup>, jako je proměnná, do které přiřazujeme. Na konci
 řádku také nesmí chybět středník.</p>
-<span class='sidenote'><p><sup class='number'>2</sup>C umožňuje automatické (tzv. <strong>implicitní</strong>) konverze mezi některými datovými typy, takže typ výrazu
+<span class='sidenote'><p><sup class='number'>2</sup><em>C</em> umožňuje automatické (tzv. <strong>implicitní</strong>) konverze mezi některými datovými typy, takže typ výrazu
 nemusí být nutně vždy stejný. Tyto konverze se nicméně často chovají neintuitivně a překladač vás před nimi
 obvykle nijak nevaruje, i když vrátí výsledek, který nedává smysl. Snažte se tak ze začátku opravdu vždy
-používat odpovídající typy. Více se dozvíte v sekci o <a href="c_datove_typy.html">datových typech</a>. </p>
+používat odpovídající typy. Více se dozvíte v sekci o <a href="c/datove_typy.html">datových typech</a>. </p>
 </span>
 <p>Jak přiřazení funguje? Počítač se podívá, na jaké adrese v paměti daná proměnná leží, a zapíše do
 paměti hodnotu výrazu, který do proměnné zapisujeme, čímž změní její hodnotu v paměti. Z toho vyplývá,
@@ -804,11 +801,11 @@ později si ukážeme další věci, do kterých lze zapisovat). Například př
 je výraz, číselná hodnota, která nemá žádnou adresu v paměti, nemůžeme tak do ní nic zapsat. Stejně tak
 nedává moc smysl říct <code>Číslo 5 odteď bude mít hodnotu 8</code>.</p>
 <p><strong>Cvičení</strong>: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
-a pak je vypíše na výstup programu (k výpisu využijte <code>printf</code>, který jsme si již ukázali <a href="c_prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">dříve</a>).</p>
+a pak je vypíše na výstup programu (k výpisu využijte <code>printf</code>, který jsme si již ukázali <a href="c/prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">dříve</a>).</p>
 <h3><a class="header" href="#pojmenovávání-proměnných" id="pojmenovávání-proměnných">Pojmenovávání proměnných</a></h3>
 <p>V C existují určitá pravidla pro pojmenování proměnných:</p>
 <ul>
-<li>Proměnné se nesmí jmenovat stejně jako <a href="c_syntaxe.html#kl%C3%AD%C4%8Dov%C3%A1-slova">klíčová slova</a>, jinak by
+<li>Proměnné se nesmí jmenovat stejně jako <a href="c/syntaxe.html#kl%C3%AD%C4%8Dov%C3%A1-slova">klíčová slova</a>, jinak by
 překladač neuměl rozlišit, co je název proměnné a co klíčové slovo (například u <code>int int;</code>).</li>
 <li>Název proměnné může obsahovat pouze malá (<code>a-z</code>) a velká (<code>A-Z</code>) písmena anglické abecedy, číslice
 (<code>0-9</code>) a podtržítko (<code>_</code>).</li>
@@ -840,18 +837,18 @@ je seznam nejpoužívanějších konvencí:</p>
 <li><code>Screaming snake case</code>: <code>MUJ_UCET</code>, <code>PRVNI_KLIK_UZIVATELE</code></li>
 </ul>
 <p>Různé konstrukce C můžou využívat různé styly, například častá konvence je použití <code>snake_case</code>
-pro názvy proměnných a <a href="c_funkce.html">funkcí</a> a <code>PascalCase</code> pro názvy <a href="c_struktury.html">struktur</a>.
+pro názvy proměnných a <a href="c/funkce.html">funkcí</a> a <code>PascalCase</code> pro názvy <a href="c/struktury.html">struktur</a>.
 Který styl budete používat záleží na vaší osobní preferenci, nicméně důležité je zejména držet se
 jednotného stylu a nekombinovat různé styly (pro jednotlivé typy konstrukcí) v jednom programu.</p>
 <h1><a class="header" href="#datové-typy-1" id="datové-typy-1">Datové typy</a></h1>
-<p><a href="pamet.html">Paměť</a> počítače pracuje s jednotlivými <em>byty</em>, nicméně pro lidi
+<p><a href="c/../uvod/pamet.html">Paměť</a> počítače pracuje s jednotlivými <em>byty</em>, nicméně pro lidi
 je žádoucí používat popis dat v paměti na mnohem vyšší úrovni abstrakce, aby se nám o datech
 jednoduššeji přemýšlelo. Pokud programujeme textový editor, chceme se bavit o znacích, odstavcích,
 fontech či barvách, pokud programujeme počítačovou hru, chceme se bavit o zbraních, brnění, kouzlech
 či pixelech.</p>
 <p>Přesně k tomu slouží <strong>datové typy</strong>, které popisují, jak budeme interpretovat konkrétní hodnoty
 daného typu v paměti, kolik bytů budou zabírat a jaké operace nad nimi budeme moct provádět. Jazyk C
-obsahuje několik vestavěných datových typů, <a href="c_struktury.html">později</a> si ukážeme, jak vytvořit
+obsahuje několik vestavěných datových typů, <a href="c/struktury.html">později</a> si ukážeme, jak vytvořit
 své vlastní.</p>
 <h1><a class="header" href="#celočíselné-datové-typy" id="celočíselné-datové-typy">Celočíselné datové typy</a></h1>
 <p>Asi nejpřirozenějším a nejpoužívanějším datovým typem ve většině programovacích jazyků jsou (celá)
@@ -897,7 +894,7 @@ použijete číselný výraz, například výraz <code>1</code> má datový typ 
 <blockquote>
 <p>Typ <code>char</code> je speciální v tom, že zároveň běžně reprezentuje textové znaky v
 <a href="https://www.asciitable.com/">ASCII</a> kódování. Více o reprezentaci textu v programech se dozvíte
-v sekci o <a href="c_retezce.html">řetězcích</a>.</p>
+v sekci o <a href="c/retezce.html">řetězcích</a>.</p>
 </blockquote>
 <h3><a class="header" href="#operace-s-číselnými-typy" id="operace-s-číselnými-typy">Operace s číselnými typy</a></h3>
 <p>C umožňuje provádět operace nad vestavěnými datovými typy pomocí tzv. <strong>operátorů</strong>. Při práci s
@@ -907,7 +904,7 @@ ale třeba dát pozor na několik zrádných věcí:</p>
 <ul>
 <li>Při dělení dvou celočíselných čísel pomocí operátoru <code>/</code> dochází k celočíselnému dělení, tj. například
 výsledek výrazu <code>5 / 2</code> je <code>2</code>, a ne <code>2.5</code>. Pokud chcete provádět dělení desetinných čísel, musíte
-použít <a href="c_celociselne_typy.html#Desetinn%C3%A9-%C4%8D%C3%ADseln%C3%A9-typy">odpovídající</a> datový typ. Zkuste si to:
+použít <a href="c/celociselne_typy.html#Desetinn%C3%A9-%C4%8D%C3%ADseln%C3%A9-typy">odpovídající</a> datový typ. Zkuste si to:
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 int main() {
     printf(&quot;%d\n&quot;, 5 / 2);
@@ -978,7 +975,7 @@ pomocí &quot;single precision&quot;).</p>
 desetinný oddělovač se používá tečka, ne čárka): <code>1O.5</code>, <code>-0.73</code>. Pokud chcete vytvořit výraz typu
 <code>float</code>, tak za toto číslo ještě přidejte znak <code>f</code>: <code>10.5f</code>, <code>-0.73f</code>.</p>
 <p>Pokud chcete vytisknout na výstup hodnotu datového typu <code>float</code> nebo <code>double</code>, můžete použít
-<a href="c_prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">zástupný znak</a> <code>%f</code>:</p>
+<a href="c/prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">zástupný znak</a> <code>%f</code>:</p>
 <pre><code class="language-c">printf(&quot;Desetinné číslo: %f\n&quot;, 1.0);
 </code></pre>
 <h3><a class="header" href="#přesnost-desetinných-čísel" id="přesnost-desetinných-čísel">Přesnost desetinných čísel</a></h3>
@@ -1032,7 +1029,7 @@ int main() {
 <p>Jak lze v ukázce výše vidět, <code>true</code> reprezentuje pravdivý Booleovský výraz a <code>false</code> nepravdivý
 Booleovský výraz a <code>bool</code> hodnoty lze vytisknout na výstup stejným způsobem jako celočíselné hodnoty.<sup class='margin-toggle sidenote-number'>1</sup>
 Hodnoty Booleovského typu obvykle zabírají v paměti jeden <em>byte</em>.</p>
-<span class='sidenote'><p><sup class='number'>1</sup>Při výpisu dojde ke <a href="c_pravdivostni_typy.html#konverze">konverzi</a> <code>bool</code>u na celé číslo.</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Při výpisu dojde ke <a href="c/pravdivostni_typy.html#konverze">konverzi</a> <code>bool</code>u na celé číslo.</p>
 </span>
 <h3><a class="header" href="#logické-operace" id="logické-operace">Logické operace</a></h3>
 <p>V (Booleovské) logice existují tři základní operátory:</p>
@@ -1133,7 +1130,7 @@ nicméně může také způsobit nečekané chyby. Pokud by například vyhodnoc
 <strong>vedlejší efekty</strong> (<em>side effects</em>), které se projeví při jeho provedení (například vytvoření souboru
 na disku), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela přeskočí. Zatím jsme
 si neukázali žádné výrazy, které by měly vedlejší efekty, více si o tomto efektu tedy řekneme v sekci
-o <a href="c_funkce.html">funkcích</a>.</p>
+o <a href="c/funkce.html">funkcích</a>.</p>
 <h3><a class="header" href="#konverze" id="konverze">Konverze</a></h3>
 <p>Pokud se pokusíte o převod celého či desetinného čísla na <code>bool</code>, tak můžou nastat dvě varianty:</p>
 <ul>
@@ -1146,30 +1143,193 @@ o <a href="c_funkce.html">funkcích</a>.</p>
 <li><code>false</code> se převede na <code>0</code></li>
 </ul>
 <h1><a class="header" href="#Řízení-toku" id="Řízení-toku">Řízení toku</a></h1>
-<p>Tato sekce je ve výstavbě 🚧.</p>
-<h1><a class="header" href="#podmínky" id="podmínky">Podmínky</a></h1>
-<h1><a class="header" href="#Řízení-toku-1" id="Řízení-toku-1">Řízení toku</a></h1>
-<p>Nejznámější příkaz pro řízení toku <code>if</code>, jsme si již uvedli v kapitole
-@ref(sec:syntax). Schématicky si jej proto pouze připomeneme:</p>
+<p>Pokud by počítače program vždycky pouze vykonaly od začátku do konce a provedly pokaždé ty stejné
+operace, tak by nebyly moc užitečné. Sice by zvládly něco rychle vypočítat, ale už ne se rozhodovat,
+jakou operaci mají provést, což je velmi užitečná vlastnost.</p>
+<p>Instrukce programu se běžně vykonávají (&quot;tečou&quot;) jedna po druhé (&quot;odshora dolů&quot;). <em>C</em> obsahuje příkazy
+pro tzv. <strong>řízení toku</strong> (<em>control flow</em>), které můžou toto vykonávání instrukcí ovlivnit:</p>
 <ul>
-<li><strong>if ( &lt;výraz&gt; ) { &lt;vnořený blok&gt; }</strong></li>
-<li>0+ else if ( &lt;výraz&gt; ) { &lt;vnořený blok&gt; }</li>
-<li>volitelně: else { &lt;vnořený blok&gt; }</li>
+<li><a href="c/c_podminky.html">Podmínky</a> umožňují vykonat kus kódu, pouze pokud platí nějaký výraz. Díky tomu se
+můžeme rozhodnout, zda nějakou operaci provést, nebo ne, v závislosti na vstupu programu.</li>
+<li><a href="c/c_cykly.html">Cykly</a> umožňují vykonávat kus kódu opakovaně. Díky tomu můžeme provést nějakou operaci
+pro všechny prvky ze vstupu programu anebo ji provádět, dokud nedojde ke splnění nějakého výrazu.</li>
 </ul>
-<p>Pro vytvoření cyklů nám v jazyce C slouží dvě konstrukce: <code>while</code> a <code>for</code>.</p>
-<h2><a class="header" href="#cyklus-while" id="cyklus-while">Cyklus while</a></h2>
-<p>Cyklus <code>while</code> funguje tak, že na začátku máme dánu podmínku iterace. Je-li
+<p>Ač se to možná nezdá, proměnné, podmínky a cykly bohatě stačí k tomu, abyste byli schopni
+napsat libovolný počítačový program. Pomocí těchto tří jednoduchých konstrukcí byste tak teoreticky
+mohli vytvořit třeba textový editor, hru nebo i celý operační systém. Nicméně, pokud bychom využívali
+pouze tyto konstrukce, tak by větší programy byly neefektivní a nedalo by se v nich zorientovat.
+Proto si v dalších sekcích ukážeme několik dalších konstrukcí, které vám můžou programování usnadnit.</p>
+<h1><a class="header" href="#podmínky" id="podmínky">Podmínky</a></h1>
+<p>V programech se často potřebujeme rozhodnout, co by se mělo provést, v závislosti na hodnotě nějakého
+výrazu:</p>
+<ul>
+<li>Pokud uživatel nakoupil zboží v posledním týdnu, odešli mu e-mail.</li>
+<li>Zadal uživatel správné heslo? Pokud ano, tak ho přesměruj na jeho profil. Pokud ne, tak zobraz chybovou hlášku.</li>
+<li>Jaké má uživatel konto? Pokud kladné, tak ho vykresli zelenou barvou, pokud záporné, tak červenou a
+pokud nulové, tak černou.</li>
+</ul>
+<p>V <em>C</em> můžeme provádět takováto rozhodnutí pomocí <strong>podmínek</strong> (<em>conditions</em>). Základním příkazem
+pro tzv. <strong>podmíněné vykonání</strong> kódu je podmínka <code>if</code>:</p>
+<pre><code class="language-c">if (&lt;výraz typu bool&gt;) {
+    // blok kódu
+}
+</code></pre>
+<p>Pokud se výraz předaný <code>if</code>u vyhodnotí jako <code>true</code> (pravda), tak se provede
+<a href="c/c_promenne.html#deklarace-a-platnost">blok</a> kódu uvnitř <code>if</code>u tak, jak jste zvyklí, a program dále
+bude pokračovat za příkazem <code>if</code>. Pokud se však výraz vyhodnotí jako <code>false</code> (nepravda), tak se blok kódu
+uvnitř <code>if</code>u vůbec neprovede. V následujícím programu zkuste změnit výraz uvnitř závorek za <code>if</code> tak,
+aby se blok v podmínce vykonal:</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int password_length = 5;
+
+    printf(&quot;Checking password...\n&quot;);
+    if (password_length &gt; 5) {
+        printf(&quot;Password is long enough\n&quot;);
+    }
+    printf(&quot;Password check completed\n&quot;);
+
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p>Anglické slovo <code>if</code> znamená v češtině <code>Jestliže</code>. Všimněte si tak, že kód výše můžete přečíst jako
+anglickou větu, která bude mít stejný význam jako uvedený <em>C</em> kód: <code>Jestliže je délka hesla větší než pět, tak (proveď kód v bloku)</code>.</p>
+</blockquote>
+<h3><a class="header" href="#provádění-alternativ" id="provádění-alternativ">Provádění alternativ</a></h3>
+<p>Často v programu chceme provést jednu ze dvou (nebo více) alternativ, opět v závislosti na hodnotě
+nějakého výrazu. To sice můžeme provést pomocí několika <code>if</code> příkazů za sebou:</p>
+<pre><code class="language-c">if (points &gt; 90) { grade = 1; }
+if (points &lt;= 90 &amp;&amp; points &gt; 80) { grade = 2; }
+if (points &lt;= 80 &amp;&amp; points &gt; 50) { grade = 3; }
+...
+</code></pre>
+<p>Nicméně to může být často dost zdlouhavé. <em>C</em> tak umožňuje přidat k příkazu <code>if</code> příkaz, který se provede
+v případě, že výraz v podmínce <code>if</code> není splněn. Takto lze řetězit více podmínek za sebou, kdy v každé
+následující podmínce víme, že žádná z předchozích nebyla splněna. Dosáhneme toho tak, že za blokem podmínky
+<code>if</code> použijeme klíčové slovo <code>else</code> (&quot;v opačném případě&quot;):</p>
+<pre><code class="language-c">if (&lt;výraz typu bool&gt;) {
+    // blok kódu
+} else ...
+</code></pre>
+<p>Pokud za blok podmínky <code>if</code> přidáte <code>else</code>, tak se program začne vykonávat za <code>else</code>, pokud výraz
+podmínky není splněn. Za <code>else</code> pak může následovat:</p>
+<ul>
+<li>
+<p>Blok kódu, který se rovnou provede:</p>
+<pre><code class="language-c">if (points &gt; 90) {
+    // blok A
+} else {
+    // blok B
+}
+// X
+</code></pre>
+<p>Pokud platí <code>points &gt; 90</code>, provede se blok A, pokud ne, tak se provede blok B. V obou případech
+bude dále program vykonávat kód od bodu <code>X</code>.</p>
+</li>
+<li>
+<p>Další <code>if</code> podmínka, která je opět vyhodnocena. Takovýchto podmínek může následovat libovolný počet:</p>
+<pre><code class="language-c">if (points &gt; 90) {
+    // blok A, více než 90 bodů
+} else if (points &gt; 80) {
+    // blok B, méně než 91 bodů, ale více než 80 bodů
+} else if (points &gt; 70) {
+    // blok C, méně než 81 bodů, ale více než 70 bodů
+}
+// X
+</code></pre>
+<p>Takovéto spojené podmínky se vyhodnocují postupně shora dolů. První podmínka <code>if</code>, jejíž výraz
+je vyhodnocen jako <code>true</code>, způsobí, že se provede blok této podmínky, a následně program pokračuje
+za celou spojenou podmínkou (bod <code>X</code>).</p>
+<p>Na konec spojené podmínky můžete opět vložit i <code>else</code> s blokem bez podmínky. Tento blok se
+provede pouze, pokud žádná z předchozích podmínek není splněna:</p>
+<pre><code class="language-c">if (points &gt; 90) {
+    // blok A, více než 90 bodů
+} else if (points &gt; 80) {
+    // blok B, méně než 90 bodů, ale více než 80 bodů
+} else {
+    // blok C, méně než 81 bodů
+}
+</code></pre>
+<p>Všimněte si, že tento kód opět můžeme přečíst jako intuitivní anglickou větu. Pokud je počet
+bodů vyšší, než 90, tak proveď A. V opačném případě, pokud je vyšší než 80, tak proveď B. Jinak
+proveď C.</p>
+</li>
+</ul>
+<p><strong>Cvičení</strong>: Upravte následující program, aby vypsal:</p>
+<ul>
+<li><code>Student uspel s vyznamenanim</code>, pokud je hodnota <code>points</code> větší než <code>90</code>.</li>
+<li><code>Student uspel</code>, pokud je hodnota <code>points</code> v (uzavřeném) intervalu <code>[51, 90]</code>.</li>
+<li><code>Student neuspel</code>, pokud je hodnota <code>points</code> menší než <code>51</code>.</li>
+</ul>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int points = 50;
+
+    printf(&quot;Student uspel\n&quot;);
+
+    return 0;
+}
+</code></pre>
+<h3><a class="header" href="#vnořování-podmínek" id="vnořování-podmínek">Vnořování podmínek</a></h3>
+<p>Někdy potřebujeme zkontrolovat složitou podmínku (nebo sadu podmínek). Jelikož podmínky jsou <em>příkazy</em>
+a bloky kódu můžou obsahovat libovolné příkazy, tak vám nic nebrání v tom podmínky <em>vnořovat</em>:</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int password_length = 4;
+    int username_length = 3;
+    if (password_length &gt; 5) {
+        if (username_length &gt; 3) {
+            printf(&quot;Uzivatel byl zaregistrovan\n&quot;);
+        } else {
+            printf(&quot;Uzivatelske jmeno neni dostatecne dlouhe\n&quot;);
+        }
+    } else {
+        printf(&quot;Heslo neni dostatecne dlouhe\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<p><strong>Cvičení</strong>: Upravte hodnotu promměných v programu výše tak, aby program vypsal <code>Uzivatel byl zaregistrovan</code>.
+Neměňte v programu nic jiného.</p>
+<h4><a class="header" href="#vynechání-složených-zárovek" id="vynechání-složených-zárovek">Vynechání složených zárovek</a></h4>
+<p>Za <code>if</code> nebo <code>else</code> můžete vynechat složené závorky (<code>{</code>, <code>}</code>). V takovém případě se bude podmínka
+vztahovat k (jednomu) příkazu následujícímu za <code>if/else</code>:</p>
+<pre><code class="language-c">if (points&gt; 80) printf(&quot;Student uspel\n&quot;);
+else printf(&quot;Student neuspel\n&quot;);
+</code></pre>
+<h1><a class="header" href="#cykly" id="cykly">Cykly</a></h1>
+<p>Tato sekce je ve výstavbě 🚧.</p>
+<!--Nejznámější příkaz pro řízení toku `if`, jsme si již uvedli v kapitole
+\@ref(sec:syntax). Schématicky si jej proto pouze připomeneme:
+
+- **if ( \<výraz\> ) { \<vnořený blok\> }**
+- 0+ else if ( \<výraz\> ) { \<vnořený blok\> }
+- volitelně: else { \<vnořený blok\> }
+
+
+Pro vytvoření cyklů nám v jazyce C slouží dvě konstrukce: `while` a `for`.
+
+## Cyklus while
+
+Cyklus `while` funguje tak, že na začátku máme dánu podmínku iterace. Je-li
 podmínka splněna, je vykonáno tělo cyklu, v opačném případě je cyklus
 přeskočen a pokračuje se dále v programu. V těle cyklu můžeme použít
-klíčová slova <code>break</code> a <code>continue</code>. Slovo <code>break</code> zapříčiní ukončení cyklu.
-Slovo <code>continue</code> zapříčiní
+klíčová slova `break` a `continue`. Slovo `break` zapříčiní ukončení cyklu.
+Slovo `continue` zapříčiní
 přeskočení zbytku těla cyklu s návratem na počáteční podmínku a tím
 pádem vykonání dalšího cyklu za předpokladu, že je splněna tato vstupní
-podmínka.</p>
-<pre><code class="language-c">int i = 0;
+podmínka.
 
-while ( i &lt; 5 ) {
-	printf( &quot;%d\n&quot;, i );
+```c
+int i = 0;
+
+while ( i < 5 ) {
+	printf( "%d\n", i );
 	i += 1;
 }
 
@@ -1178,25 +1338,31 @@ while ( i &lt; 5 ) {
 // 2
 // 3
 // 4
-</code></pre>
-<h2><a class="header" href="#cyklus-for" id="cyklus-for">Cyklus for</a></h2>
-<p>Cyklus <code>for</code> typicky používáme pro průchod nějakého pole ať už statického nebo
+```
+
+## Cyklus for
+
+Cyklus `for` typicky používáme pro průchod nějakého pole ať už statického nebo
 dynamického. Funkguje tak, že si vytvoříme řídící proměnnou, která
 indexuje procházené pole od nuly (0) do jeho konce (n-1). Důležité je
 vědět, že řídící proměnná cyklu nenabývá hodnoty prvku pole, ale je
 pouze indexem do procházeneho pole. Hodnotu z pole si již musíme pomocí
-tohoto indexu zpřístupnit sami.</p>
-<p>Ukažme si jednoduchý příklad na součet prvků v poli intů.</p>
-<pre><code class="language-c">int len = 5;
+tohoto indexu zpřístupnit sami.
+
+Ukažme si jednoduchý příklad na součet prvků v poli intů.
+
+```c
+int len = 5;
 int seznam[] = { 1, 2, 5, 10, 100 };
 int sum = 0;
 
-for ( int i = 0; i &lt; len; i++ ) {
+for ( int i = 0; i < len; i++ ) {
 	int prvek = seznam[ i ];
 	sum += prvek;
 }
-printf( &quot;sum: %d\n&quot;, sum );  //118
-</code></pre>
+printf( "sum: %d\n", sum );  //118
+```
+-->
 <h1><a class="header" href="#funkce" id="funkce">Funkce</a></h1>
 <p>Tato sekce je ve výstavbě 🚧.</p>
 <!--Funkce a procedury
@@ -1213,7 +1379,7 @@ samostatně.
 Funkce
 ------
 
-V jazyce C je definice funkce do značné míry podobná definici funkce v
+V jazyce *C* je definice funkce do značné míry podobná definici funkce v
 jiných jazycích. Uvádíme návratový datový typ a uvádíme datové typy
 argumentů funkce. Toto je dáno statickou typovostí jazyka. Uveďme si
 jednoduchý příklad pro výpočet mocniny čísla.
@@ -1266,7 +1432,7 @@ zobecněný (generalizovaný) kód pro výpočet mocniny.
 Procedury (funkce bez návratového typu)
 ---------------------------------------
 
-V jazyce C máme jeden datový typ, který nemá přesné určení. Je to typ a
+V jazyce *C* máme jeden datový typ, který nemá přesné určení. Je to typ a
 může prakticky znamenat cokoli. Nejčastěji jej používáme jako pointer na
 nějakou struktury, kterou pak budeme dále přetypovávat. Velmi často je
 však používán jako návratový typ funkce. V takovém případě funkce
@@ -1323,7 +1489,7 @@ int array_of_its[ array_len ] = { 1, 2, 3, 4, 5 };
 printf( "sum( array_of_ints, array_len ): %d\n", sum( array_of_ints, array_len ) );  // 15
 ```
 
-V jazyce C musíme funkcím, které pracují s polem předat samostatně délku
+V jazyce *C* musíme funkcím, které pracují s polem předat samostatně délku
 pole, poněvadž z pointeru samotného ji zjístit nemůžeme. Pole samotné
 předáváme přes pointer `array` a jeho délku přes parametr `len`. Do funkce `sum` pole
 předáme pomocí jeho názvu, protože ten je již adresou prvního prvku
@@ -1346,7 +1512,7 @@ proměnných, které budou pointery na inty.
 <p>Tato sekce je ve výstavbě 🚧.</p>
 <h1><a class="header" href="#pole" id="pole">Pole</a></h1>
 <p>Tato sekce je ve výstavbě 🚧.</p>
-<!--Jedním z důležitých prvků jazyka C je práce s poli. Již jsme si v
+<!--Jedním z důležitých prvků jazyka *C* je práce s poli. Již jsme si v
 předchozím odstavci ukázali, jak vytvořit dynamicky alokované pole pro
 reprezentaci řetězce. Samozřejmě můžeme vytvořit podobné pole pro
 reprezentaci intigerů, floatů, apod. Je také bez problému možné vytvořit
@@ -1417,7 +1583,7 @@ i staticky alokované pole je možnost, ale nesmí být příliš veliké
 (dlouhé)). Na druhou stranu, dynamicky alokované pole by zase nemělo být
 příliš krátké.
 
-Při programování v jazyce C máme k dispozici dva druhy paměti. Jsou to:
+Při programování v jazyce *C* máme k dispozici dva druhy paměti. Jsou to:
 **stack** (česky **zásobník**) a **heap** (česky **halda**). Když jsme
 definovali celočíselné promenné v předchozí části, jejich obsah
 (hodnoty) se ukládal na stacku. Programům je však k dispizici jen
@@ -1428,7 +1594,7 @@ Pro to, abychom si od operačního systému (OS) vyžádali nějakou paměť na
 heapu, používáme funkci `malloc`, která nám vrátí pointer (ukazatel) na začátek
 takovéto paměti. Zajisté znáte anglické tvrzení: ,,There’s nothing like
 a free lunch”. I za takto poskytnutou paměť se nějakým způsobem platí.
-Jazyk C nemá automatickou správu paměti, a proto ji musíme vlastnoručně
+Jazyk *C* nemá automatickou správu paměti, a proto ji musíme vlastnoručně
 OS vrátit, když ji již nepotřebujeme. K tomu nám slouží funkce `free`
 (jak příznačný název).
 
@@ -1453,7 +1619,7 @@ str = NULL;  // jsem slusny a pointer nastavim na NULL,
 ```
 
 To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
-jazyku C řící tak, že deklarace proměnné bude pointerem, který bude
+jazyku *C* řící tak, že deklarace proměnné bude pointerem, který bude
 ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
 proměnné napíšeme znak `*`. Funkce `malloc` nám vrací tzv. pointer na úsek paměti o
 velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí
@@ -1465,10 +1631,10 @@ byty. Typ `int`, pro uložení celých čísel, vyžaduje typicky 4 byty. Reáln
 čísla uložená v typu `float` vyžadují 4 byty a reálná čísla uložená v typu `double`
 vyžadují 8 bytů. Každá platfroma, na které bude náš program přeložen
 však může datovým typům přiřadit jiný počet bytů. Abychom si nemuseli
-pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce C operátor `sizeof`,
+pamatovat, kolik bytů jaký typ zabírá, existuje v jazyce *C* operátor `sizeof`,
 který nám vrátí, kolik bytů zadaný typ vyžaduje. Potom již jen toto
 číslo stačí přenásobit požadovanou délkou pole. V našem příkladu
-požadujeme délku řetězce 20 znaků. Jazyk C nebyl zcela jistě konstruován
+požadujeme délku řetězce 20 znaků. Jazyk *C* nebyl zcela jistě konstruován
 pro práci se stringy... Pro to, abychom naše pole znaků naplnili nějakým
 obsahem, musíme použít funkci `sprintf`. Ta bere jako první parametr ukazatel na
 paměť, kde má řetězec uložit, druhým parametrem je pak jaký řetězec se
@@ -1497,7 +1663,7 @@ proměnných. Jako jednoduchý přiklad můžeme použít reprezentaci obrazu. V
 takovém případě potřebujeme reprezentovat alespoň hodnoty v jednotlivých
 pixelech a počet řádků (výšku) a počet sloupců (šířku) obrazu. Pro
 jednoduchost předpokládejme obrázek ve stupních šedi. Ukažme si, jak by
-taková reprezentace v jazyce C vypadala.
+taková reprezentace v jazyce *C* vypadala.
 
 ```c
 unsigned char * img_data;
@@ -1529,7 +1695,7 @@ s ním mohli pracovat. Snadno si lze představit, že se složitějšími
 problémy by snadno mohl počet parametrů funkcí značně narůstat.
 
 Pro zefektivnění takové práce nám slouží strukturované datové typy,
-jednodušeji struktury (anglicky *structures*). V jazyce C je pro definici
+jednodušeji struktury (anglicky *structures*). V jazyce *C* je pro definici
 datových struktur vyhrazeno klíčové slovo `struct`. Pojďme se podívat, jak by
 definice takového obrázku mohla vypadat.
 
@@ -1612,16 +1778,21 @@ heap_image->rows = 480;
 Můžeme vidět, že rozdíl je nepatrný, je však nutné na něj dávat pozor,
 jinak náš program nepůjde přeložit.
 -->
-<h2><a class="header" href="#funkce-pro-práci-se-strukturami" id="funkce-pro-práci-se-strukturami">Funkce pro práci se strukturami</a></h2>
-<p>Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
+<h1><a class="header" href="#struktury-a-funkce" id="struktury-a-funkce">Struktury a funkce</a></h1>
+<p>Tato sekce je ve výstavbě 🚧.</p>
+<!--Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
 pravidlům. Zavedeme si však pár pravidel pro nás samotné, abychom se v
-našem kódu lépe orientovali.</p>
-<p>Pokud budeme pracovat se strukturou ve funkcích, bývá dobrým zvykem, aby
+našem kódu lépe orientovali.
+
+Pokud budeme pracovat se strukturou ve funkcích, bývá dobrým zvykem, aby
 jméno takové funkce začínalo názvem struktury (malými pásmeny) a
 následně jsou podtržítky oddělena slova vyjadřující operaci, kterou se
-strukturou provádíme.</p>
-<p>Ukažme si, jak bychom alokovali strukturu, kterou používíme pod aliasem <code>Image</code>.</p>
-<pre><code class="language-c">struct ImageStruct {
+strukturou provádíme.
+
+Ukažme si, jak bychom alokovali strukturu, kterou používíme pod aliasem `Image`.
+
+```c
+struct ImageStruct {
     unsigned char * data;
     int rows;
     int cols;
@@ -1635,52 +1806,61 @@ Image * heap_image;
 Image * image_new( const int rows, const int cols ) {
     Image * image = NULL;
     image = (Image *)malloc( sizeof( image[ 0 ] ) );
-    image-&gt;data = (unisgned char *)malloc( rows * cols * sizeof( image-&gt;data[ 0 ] ) );
-    image-&gt;rows = rows;
-    image-&gt;cols = cols;
+    image->data = (unisgned char *)malloc( rows * cols * sizeof( image->data[ 0 ] ) );
+    image->rows = rows;
+    image->cols = cols;
     return image;
 }
 
 heap_image = image_new( 640, 480 );
-</code></pre>
-<p>Na výpisu kódů uvedeném výše můžeme vidět, že funkce <code>image_new</code> vytváří dynamicky
-alokovanou datovou strukturu <code>Image</code>. Popišme si, co se přesně děje. Návratový
-typ funkce <code>image_new</code> je pointer na strukturu <code>Image</code> (je to tedy <code>Image *</code>).
+```
+
+Na výpisu kódů uvedeném výše můžeme vidět, že funkce `image_new` vytváří dynamicky
+alokovanou datovou strukturu `Image`. Popišme si, co se přesně děje. Návratový
+typ funkce `image_new` je pointer na strukturu `Image` (je to tedy `Image *`).
 Na řádku 13 si vytvoříme nový
-pointer na <code>Image</code>, se kterým budeme pracovat (alokovat jej a jeho atributy) a
+pointer na `Image`, se kterým budeme pracovat (alokovat jej a jeho atributy) a
 také jej vrátíme na konci funkce. Pro tento pointer alokujeme paměť o
-velikosti struktury <code>Image</code> na řádku 15. Dále alokujeme prostor pro jasy jednotlivých
-pixelů obrázku na řádku 17. Atributy <code>rows</code> a <code>cols</code> struktury <code>Image</code> nastavujeme na řádcích 19 a 20.
+velikosti struktury `Image` na řádku 15. Dále alokujeme prostor pro jasy jednotlivých
+pixelů obrázku na řádku 17. Atributy `rows` a `cols` struktury `Image` nastavujeme na řádcích 19 a 20.
 Nakonec vracíme takto vytvořenou strukturu na řádku 22. Volání takové
 funkce je ukázáno na řádku 25, kde vytváříme obrázek o velikosti
-$640 \times 480$ pixelů.</p>
-<p>Ukažme si ještě, jak bychom takto naalokovanou struktury zase uvolnili,
-tzn. vrátili bychom alokovanou paměť zpět OS.</p>
-<pre><code class="language-c">// dealokuje strukturu s obrazkem
+$640 \times 480$ pixelů.
+
+Ukažme si ještě, jak bychom takto naalokovanou struktury zase uvolnili,
+tzn. vrátili bychom alokovanou paměť zpět OS.
+
+```c
+// dealokuje strukturu s obrazkem
 void image_free( Image * self ) {
-    free( image-&gt;data );  // uvolnujeme jasy pixelu
+    free( image->data );  // uvolnujeme jasy pixelu
     free( image );        // uvolnujeme strukturu
 }
 
 image_free( heap_image );
-</code></pre>
-<p>Jak můžeme vidět, funkce <code>image_free</code> akceptuje jeden argument, který je pointrem na
-strukturu <code>Image</code>. Ten je předán pod názvem <code>self</code>, ale můžeme si jej pojmenovat jak
-nám libo. V těle funkce se nácházeji dvě dealokační volání funkce <code>free</code>.
+```
+
+Jak můžeme vidět, funkce `image_free` akceptuje jeden argument, který je pointrem na
+strukturu `Image`. Ten je předán pod názvem `self`, ale můžeme si jej pojmenovat jak
+nám libo. V těle funkce se nácházeji dvě dealokační volání funkce `free`.
 První volání uvolňuje pamět pro jasy pixelů. Druhé volání pak uvolňuje
 paměť, kterou zabírá samotná datová struktura. Důležité je, v jakém
 pořadí jsou jednotlivé atributy a datová struktura samotná uvolňovány.
 Platí jednoduché pravidlo, že nejprve uvolňujeme data atributů a až pak
 můžeme uvolnit strukturu samotnou. V opačném případě bychom totiž při
 uvolnění struktury ztratili pointer na atributy a tím by paměť byla až
-do konce běhu programu ztracena.</p>
-<p><strong>Cvičení:</strong> Upravte funkci <code>image_new</code> tak, aby data, která
-reprezentují pixely byla nastavena na černou barvu (hodnota <code>0</code>).</p>
-<p><strong>Cvičení:</strong> Vytvořte funkci, která na zadanou souřadnici
-pixelu v obrázku reprezentovaného strukturou <code>Image</code> nastaví zadanou hodnotu.</p>
-<p><strong>Cvičení:</strong> Vytvořte funkci, která do obrázku
-reprezentovaného strukturou <code>Image</code> nakreslí zvoleným jasem obdélník o zadaných
-rozměrech.</p>
+do konce běhu programu ztracena.
+
+**Cvičení:** Upravte funkci `image_new` tak, aby data, která
+reprezentují pixely byla nastavena na černou barvu (hodnota `0`).
+
+**Cvičení:** Vytvořte funkci, která na zadanou souřadnici
+pixelu v obrázku reprezentovaného strukturou `Image` nastaví zadanou hodnotu.
+
+**Cvičení:** Vytvořte funkci, která do obrázku
+reprezentovaného strukturou `Image` nakreslí zvoleným jasem obdélník o zadaných
+rozměrech.
+-->
 <h1><a class="header" href="#soubory" id="soubory">Soubory</a></h1>
 <p>Tato sekce je ve výstavbě 🚧.</p>
 <h1><a class="header" href="#modularizace" id="modularizace">Modularizace</a></h1>
@@ -1689,7 +1869,7 @@ rozměrech.</p>
 <p>Tato sekce je ve výstavbě 🚧.</p>
 <!--**Knihovny** (*libraries*) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
 je lze sdílet mezi více projekty/programy, aby se stejný kód nemusel psát pokaždé znovu. Existuje obrovské
-množství C knihoven, které jsou volně dostupné na internetu, například pro [vykreslování grafiky](https://www.libsdl.org/),
+množství *C* knihoven, které jsou volně dostupné na internetu, například pro [vykreslování grafiky](https://www.libsdl.org/),
 [sazbu fontů](https://www.freetype.org/) nebo [kompresi dat](http://zlib.net/). 
 
 Knihovny se obvykle nesdílí čistě jako archiv nebo adresář se zdrojovým kódem. Obvykle se setkáte s tím,
@@ -1742,6 +1922,7 @@ $ LD_LIBRARY_PATH=/usr/foo/lib ./program
 ```
 -->
 <h1><a class="header" href="#Úlohy" id="Úlohy">Úlohy</a></h1>
+<p>Tato sekce je ve výstavbě 🚧.</p>
 <h1><a class="header" href="#tga" id="tga">TGA</a></h1>
 <p>Tato sekce je ve výstavbě 🚧.</p>
 <!--## Zápis struktur do souboru
@@ -2009,6 +2190,14 @@ int main() {
         <!-- Custom JS scripts -->
         
         <script type="text/javascript" src="theme/mode-c_cpp.min.js"></script>
+        
+        <script type="text/javascript" src="src/wasm/xterm.min.js"></script>
+        
+        <script type="text/javascript" src="src/wasm/fit.min.js"></script>
+        
+        <script type="text/javascript" src="src/wasm/shared.js"></script>
+        
+        <script type="text/javascript" src="src/wasm/web.js"></script>
         
 
         

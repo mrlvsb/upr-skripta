@@ -32,6 +32,6 @@
 - [Aplikované úlohy](ulohy.md)
     - [TGA](tga.md)
     - [SDL](sdl.md)
-- [Různé]()
+- [Různé](ruzne.md)
     - [Rozklad problému](rozklad_problemu.md)
-    - [Procesy]()
+    - [Generování náhodných čísel](nahodna_cisla.md)

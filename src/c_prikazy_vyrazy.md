@@ -53,7 +53,7 @@ použijete číselný výraz, a po jeho vytištění posune výstup nový řáde
 přeložit, na začátku programu musí být řádek `#include <stdio.h>`. Tento řádek i `printf` zatím
 berte jako "black box", později si vysvětlíme, jak přesně fungují.
 
-[^2]: Tento kód můžete modifikovat i spustit přímo v prohlížeči. Stačí kliknout na trojúhelník vpravo nahoře.
+[^2]: Tento kód můžete modifikovat i spustit přímo v prohlížeči. Stačí kliknout na trojúhelník vpravo nahoře nebo stisknout `Ctrl+Enter`.
 
 Když chcete vypsat například výsledek vyhodnocení výrazu `10 + 5`, tak stačí napsat:
 `printf("%d\n", 10 + 5);` a na výstup programu by se měl vypsat text `15`.

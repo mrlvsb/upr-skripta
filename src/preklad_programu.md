@@ -16,11 +16,12 @@ C program do spustitelného souboru a spustit jej.
 Vytvořte soubor s názvem `main.c` a nakopírujte do něj následující C kód (později si vysvětlíme,
 jak tento kód funguje):
 
-```c
+```c,editable
 #include <stdio.h>
 
-int main(int argc, char **argv) {
+int main() {
     printf("Hello world!\n");
+    return 0;
 }
 ```
 

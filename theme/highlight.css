@@ -83,3 +83,7 @@
   color: #b31d28;
   background-color: #ffeef0;
 }
+
+.ace_storage.ace_type {
+  font-style: normal;
+}

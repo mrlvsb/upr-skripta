@@ -18,28 +18,76 @@ let term;
 let api;
 
 window.addEventListener('load', () => {
-  function foldMain(session) {
-    function searchRow(needle, args) {
-      const Search = ace.require('ace/search').Search;
-      let s = new Search();
-      s.set({needle: needle, ...args});
-      let result = s.find(session);
-      return result ? result.start.row : -1;
+  function getFullSourceCode(editor) {
+    if(!editor.mainFoldLines) {
+      return editor.getValue();
     }
 
-    let mainRow = searchRow("int main");
-    let folding = null;
-    if(mainRow >= 0) {
-      let beginFold = session.addFold("main", new ace.Range(0, 0, mainRow, Infinity));
-      let endBlock = searchRow("return 0;\n}", {backwards: true});
-      if(endBlock >= 0) {
-        let endFold = session.addFold("", new ace.Range(endBlock, 0, Infinity, Infinity));
-        session.on('changeFold', function(evt) {
-          if(evt.action == 'remove' && evt.data == beginFold) {
-            session.unfold(endFold);
-          }
-        });
+    let fold = editor.mainFoldLines;
+    let allLines = editor.originalCode.replace(/\s+$/, '').split('\n');
+    return [
+      ...allLines.slice(0, fold.startRow),
+      ...editor.getValue().split('\n').slice(1).map(line => " ".repeat(fold.indent) + line),
+      ...allLines.slice(fold.endRow)
+    ].join("\n");
+  }
+
+  function foldMain(editor) {
+    const session = editor.session;
+
+    function searchRow(regexp, reverse) {
+      const code = editor.getValue();
+      let m = regexp.exec(code);
+      if(!m) {
+        return -1;
       }
+
+      let searchOffset = m.index;
+      if(reverse === undefined || reverse === false) {
+        searchOffset += m[0].length;
+      }
+
+      let line = 0;
+      for(let offset = 0; offset < code.length; offset++) {
+        if(code[offset] == '\n') {
+          line++;
+        }
+
+        let coef = (reverse === undefined || reverse === 0) ? 1 : -1;
+        if(offset >= searchOffset) {
+          return line;
+        }
+      }
+      return -1;
+    }
+
+    let mainRow = searchRow(/int main\([^)]*\)\s*{\s*/);
+    let endRow = searchRow(/\s*return 0;\n}\s*$/s, true);
+    if(mainRow >= 0 && endRow >= 0) {
+      const allLines = editor.getValue().split('\n');
+      let lines = allLines.slice(mainRow, endRow);
+      let indent = 0;
+      for(let i = 0; i < lines[0].length; i++) {
+        if(lines[0][i] != ' ' && lines[0] != '\t') {
+          break;
+        }
+        indent++;
+      }
+
+      editor.mainFoldLines = {
+        startRow: mainRow,
+        endRow: endRow,
+        indent: indent,
+      };
+
+      editor.setValue("//\n" + lines.map(line => line.substr(indent)).join('\n'), 1);
+      let fakeFold = session.addFold("main", new ace.Range(0, 0, 0, Infinity));
+      session.on('changeFold', evt => {
+        if(evt.action == 'remove' && evt.data == fakeFold) {
+          editor.setValue(getFullSourceCode(editor), 1);
+          editor.mainFoldLines = undefined;
+        }
+      });
     }
   }
 
@@ -52,8 +100,11 @@ window.addEventListener('load', () => {
     let editor = editorEl.env.editor;
     let localTerm;
 
+    editor.getSession().setMode("ace/mode/c_cpp");
+    editor.setValue(editor.getValue().replace(/\s+$/, ''), 1);
+
     if(container.querySelector('code').classList.contains("mainbody")) {
-      foldMain(editor.session);
+      foldMain(editor);
     }
     if(container.querySelector('code').classList.contains("readonly")) {
       editor.setOptions({
@@ -65,7 +116,7 @@ window.addEventListener('load', () => {
     const run = debounceLazy(async () => {
       initOrMoveTerm();
       localTerm.write("\r\n\x1bc");
-      await api.compileLinkRun(new TextEncoder().encode(editor.getValue()));
+      await api.compileLinkRun(new TextEncoder().encode(getFullSourceCode(editor)));
     }, 100);
 
     editor.commands.addCommand({
@@ -73,7 +124,6 @@ window.addEventListener('load', () => {
       "bindKey": "Ctrl-Enter",
       "exec": run,
     });
-    editor.getSession().setMode("ace/mode/c_cpp");
 
 
     const initOrMoveTerm = () => {

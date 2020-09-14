@@ -50,3 +50,24 @@ $ ./program
 Hello world!
 ```
 Program by měl na výstup vytisknout text `Hello world!`.
+
+### Jak překlad probíhá?
+Překlad programů probíhá ve dvou hlavních fázích: **překlad** (*translation*) a **linkování** (*linking*).
+Dohromady se oboum těmto krokům také říká **kompilace** (*compilation*).
+
+Při překladu překladač vezme každý *C* zdrojový soubor, který mu předložíme, a samostatně jej přeloží
+do tzv. **objektového souboru** (*object file*). Takovýto soubor obsahuje již přeložené instrukce pro
+procesor, ale není sám o sobě spustitelný, tj. nejedná se o program, ale pouze o přeložený binární kód.
+
+Jakmile jsou všechny zdrojové soubory přeloženy do objektových souborů, tak přichází na řadu další
+program, tzv. **linker**, který tyto objektové soubory spojí dohromady,
+[propojí](https://cs.wikipedia.org/wiki/Linker#Funkce_linkeru) je dle potřeby, případně k nim připojí
+externí [knihovny](../c/knihovny.md) a na konci vytvoří finální spustitelný soubor, který lze poté
+spustit.
+
+Když použijete program `gcc` způsobem, jaký jsme si ukázali výše, tak se na pozadí spustí překladač
+a poté i linker a oba dva tyto kroky se tak provedou automaticky. Je ale možné provést je i separátně:
+```bash
+$ gcc -c main.c      # vytvoří objektový soubor main.o
+$ gcc main.o -o main # slinkování souboru main.o 
+```

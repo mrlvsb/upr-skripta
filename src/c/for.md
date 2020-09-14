@@ -6,8 +6,7 @@ V programech velmi často potřebujeme vykonat nějaký blok kódu přesně `n`-
 
 I když pomocí cyklu `while` můžeme vyjádřit provedení `n` iterací, je to relativně zdlouhavé,
 protože je k tomu potřeba alespoň tří řádků:
-- Inicializace cyklu: vytvoření tzv. **řídící proměnné** (*index variable*), která se bude
-kontrolovat v cyklu
+- Inicializace cyklu: vytvoření řídící proměnné, která se bude kontrolovat v cyklu
 - Kontrola výrazu: kontrola, jestli už proměnná nabrala požadované hodnoty
 - Operace na konci cyklu: změna hodnoty řídící proměnné
 ```c

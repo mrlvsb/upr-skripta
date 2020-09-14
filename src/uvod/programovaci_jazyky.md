@@ -15,7 +15,7 @@ ADD EAX, EAX
 ```
 
 Pokud bychom programy psali pomocí těchto jednoduchých příkazů, tak by bylo složité se v nich vyznat,
-obzvláště, pokud by obsahovaly stovky, tisíce, miliony nebo dokonce miliardy takovýchto příkazů.
+obzvláště, pokud by obsahovaly stovky, tisíce nebo dokonce miliony takovýchto příkazů.
 Ideálně bychom chtěli programy zapisovat v přirozeném jazyce (`Vykresli čtverec na obrazovku`,
 `Zapiš text do dokumentu`), nicméně tomu počítače nerozumí a je velmi náročné
 jej převést na správnou sekvenci příkazů pro počítač, protože jazyky, které používáme,

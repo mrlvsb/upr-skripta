@@ -43,6 +43,25 @@ restartujte tuto stránku :)
 
 [^2]: Pokud program spouštíte v terminálu a zacyklí se, můžete ho přerušit pomocí klávesové zkratky `Ctrl + C`.
 
+### Řídící proměnná
+Často chceme provést v těle cyklu jinou operaci v závislosti na tom, která iterace se zrovna vykonává.
+K tomu obvykle slouží tzv. **řídící proměnná** (*index variable*), která udává, v jaké iteraci cyklu
+se nacházíme, a podle ní se poté provede odpovídající operace. Například pokud bychom chtěli vypsat
+na výstup řadu čísel `0` až `4`, tak to můžeme provést s `while` cyklem následovně:
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    while (i < 5) {    
+        printf("%d\n", i);
+        i += 1;
+    }
+    return 0;
+}
+```
+Řídící proměnná je zde `i` - tento název se pro řídící proměnné pro jednoduchost často používá.
+
 ### Řízení toku cyklu
 V cyklech můžete využívat dva speciální příkazy, které fungují pouze v těle nějakého cyklu:
 - Příkaz `continue;` způsobí, že se přestane vykonávat tělo cyklu, a program se vrátí

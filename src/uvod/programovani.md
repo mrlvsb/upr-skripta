@@ -8,7 +8,7 @@ Takovéto úlohy obsahují nějaký (počítačem zpracovatelný) vstup, napří
 - zvuk z mikrofonu
 - textový soubor na disku
 
-a k nim určený výstup:
+a k nim určený výstup, například:
 
 - vykreslení obrazce či textu na monitoru
 - zapsání dat do souboru na disku

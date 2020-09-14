@@ -245,7 +245,7 @@ instrukcí.</p>
 ADD EAX, EAX
 </code></pre>
 <p>Pokud bychom programy psali pomocí těchto jednoduchých příkazů, tak by bylo složité se v nich vyznat,
-obzvláště, pokud by obsahovaly stovky, tisíce, miliony nebo dokonce miliardy takovýchto příkazů.
+obzvláště, pokud by obsahovaly stovky, tisíce nebo dokonce miliony takovýchto příkazů.
 Ideálně bychom chtěli programy zapisovat v přirozeném jazyce (<code>Vykresli čtverec na obrazovku</code>,
 <code>Zapiš text do dokumentu</code>), nicméně tomu počítače nerozumí a je velmi náročné
 jej převést na správnou sekvenci příkazů pro počítač, protože jazyky, které používáme,
@@ -1228,22 +1228,23 @@ vedlejší efekt (změnu hodnoty proměnné).</p>
 <li><code>false</code> se převede na <code>0</code></li>
 </ul>
 <h1><a class="header" href="#Řízení-toku" id="Řízení-toku">Řízení toku</a></h1>
-<p>Pokud by počítače program vždycky pouze vykonaly od začátku do konce a provedly pokaždé ty stejné
+<p>Pokud by počítače program vždy pouze vykonaly od začátku do konce a provedly pokaždé ty stejné
 operace, tak by nebyly moc užitečné. Sice by zvládly něco rychle vypočítat, ale už ne se rozhodovat,
-jakou operaci mají provést, což je velmi užitečná vlastnost.</p>
+jakou operaci mají provést, nebo nějakou operaci provádět opakovaně, což jsou velmi užitečné vlastnosti.</p>
 <p>Instrukce programu se běžně vykonávají (&quot;tečou&quot;) jedna po druhé (&quot;odshora dolů&quot;). <em>C</em> obsahuje příkazy
 pro tzv. <strong>řízení toku</strong> (<em>control flow</em>), které můžou toto vykonávání instrukcí ovlivnit:</p>
 <ul>
 <li><a href="c/podminky.html">Podmínky</a> umožňují vykonat kus kódu, pouze pokud platí nějaký výraz. Díky tomu se
 můžeme rozhodnout, zda nějakou operaci provést, nebo ne, v závislosti na vstupu programu.</li>
-<li><a href="c/cykly.html">Cykly</a> umožňují vykonávat kus kódu opakovaně. Díky tomu můžeme provést nějakou operaci
-pro všechny prvky ze vstupu programu anebo ji provádět, dokud nedojde ke splnění nějakého výrazu.</li>
+<li><a href="c/cykly.html">Cykly</a> umožňují vykonávat kus kódu opakovaně. Díky tomu můžeme například provést nějakou
+operaci pro všechny prvky ze vstupu programu anebo ji provádět, dokud nedojde ke splnění nějaké podmínky.</li>
 </ul>
 <p>Ač se to možná nezdá, proměnné, podmínky a cykly bohatě stačí k tomu, abyste byli schopni
 napsat libovolný počítačový program. Pomocí těchto tří jednoduchých konstrukcí byste tak teoreticky
 mohli vytvořit třeba textový editor, hru nebo i celý operační systém. Nicméně, pokud bychom využívali
-pouze tyto konstrukce, tak by větší programy byly neefektivní a nedalo by se v nich zorientovat.
-Proto si v dalších sekcích ukážeme několik dalších konstrukcí, které vám můžou programování usnadnit.</p>
+pouze tyto konstrukce, tak ve větších programech by bylo složité se zorientovat a byly by také dost
+neefektivní. Proto si v příštích sekcích ukážeme několik dalších konstrukcí, které vám můžou
+programování usnadnit.</p>
 <h1><a class="header" href="#podmínky" id="podmínky">Podmínky</a></h1>
 <p>V programech se často potřebujeme rozhodnout, co by se mělo provést, v závislosti na hodnotě nějakého
 výrazu:</p>
@@ -1388,18 +1389,45 @@ vztahovat k (jednomu) příkazu následujícímu za <code>if/else</code>:</p>
 else printf(&quot;Student neuspel\n&quot;);
 </code></pre>
 <h1><a class="header" href="#cykly" id="cykly">Cykly</a></h1>
-<p>Moderní procesory počítačů mají běžně frekvence od 1 do 4 GHz, což znamená, že za vteřinu v nich
-proběhne několik miliard <a href="https://cs.wikipedia.org/wiki/Hodinov%C3%BD_sign%C3%A1l">taktů</a>, během kterých
-procesor může provést nějakou operaci. V každém taktu zároveň dnešní počítače zvládnou provést až
-<a href="https://cs.wikipedia.org/wiki/Superskal%C3%A1rn%C3%AD_architektura">desítky</a> různých operací.</p>
-<p>Jistě si dovedete představit, že s pouze sekvenčním zápisem kódu bychom tento potenciál nemohli
+<p>V programech chceme často provádět nějakou operaci opakovaně, například:</p>
+<ul>
+<li>Pro každý záznam v databázi vypiš řádek do souboru.</li>
+<li>Pošli zprávu každému účastníkovi chatu.</li>
+<li>Načítej řádky ze souboru, dokud nedojdeš na konec souboru.</li>
+</ul>
+<p>Pokud bychom používali pouze sekvenční zápis příkazů, tak bychom museli neustále kopírovat
+(&quot;copy-pastovat&quot;) kód:</p>
+<pre><code class="language-c">printf(&quot;0\n&quot;);
+printf(&quot;1\n&quot;);
+printf(&quot;2\n&quot;);
+...
+</code></pre>
+<p>což by vedlo k nepřehledným programům<sup class='margin-toggle sidenote-number'>1</sup>. Pokud bychom navíc našli v programu chybu, museli bychom ji
+opravit na všech místech, kam jsme kód zkopírovali.</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Představte si, že chcete na výstup programu nebo do souboru vypsat třeba tisíc různých řádků textu.</p>
+</span>
+<p>Ani s kopírováním kódu bychom si však nevystačili, pokud bychom potřebovali provádět kód opakovaně
+v závislosti na vstupu programu. Představte si situaci, kdy nám uživatel na vstup programu zadá číslo,
+kolikrát má náš program vypsat nějaký řádek textu na výstup. Uživatel se při každém spuštění programu
+může rozhodnout pro jiné číslo, <code>0</code>, <code>1</code>, <code>42</code>, <code>1000</code>. Program však zůstává stále stejný - při jeho
+psaní se musíme rozhodnout, kolik příkazů pro výpis v něm použijeme, a už poté nemůžeme jednoduše
+tuto volbu změnit, když program běží. Takovýto program bychom tedy zatím (pouze pomocí proměnných a
+podmínek) neměli jak naprogramovat. </p>
+<p>Proto programovací jazyky nabízí tzv. <strong>cykly</strong> (<em>loops</em>), pomocí kterých můžeme jednoduše říct
+počítači, aby určitý blok kódu opakoval, kolikrát budeme chtít. Díky tomu může program i s pouze
+několika málo řádky kódu říct počítači, aby provedl spoustu instrukcí. Jazyk <em>C</em> nabízí dva základní
+typy cyklů, <a href="c/while.html">while</a> a <a href="c/for.html">for</a>.</p>
+<blockquote>
+<p>Další motivací pro využití cyklů je to, že moderní procesory počítačů mají běžně frekvence od
+1 do 4 GHz, takže za vteřinu zvládnou provést několik několik miliard
+<a href="https://cs.wikipedia.org/wiki/Hodinov%C3%BD_sign%C3%A1l">taktů</a> a během každého taktu navíc až
+<a href="https://cs.wikipedia.org/wiki/Superskal%C3%A1rn%C3%AD_architektura">desítky</a> různých operací.
+Jistě si dovedete představit, že s pouze sekvenčním zápisem kódu bychom tento potenciál nemohli
 naplno využít. I když jeden řádek <em>C</em> kódu může být přeložen až na desítky procesorových instrukcí,
-tak i kdybychom zvládli napsat program se stovkami milionů řádků (což je v podstatě nereálné), pořád
-bychom &quot;zabavili&quot; procesor na pouze jedinou vteřinu.</p>
-<p>Proto programovací jazyky nabízí tzv. <strong>cykly</strong> (<em>loops</em>), pomocí kterých můžeme říct procesoru, aby
-určitý blok kódu mnohokrát opakoval, díky čehož můžeme provést spousty instrukcí pomocí
-několika málo řádků kódu.</p>
-<p>Jazyk <em>C</em> nabízí dva základní typy cyklů: <a href="c/while.html">while</a> a <a href="c/for.html">for</a>.</p>
+tak i kdybychom zvládli napsat program se stovkami milionů řádek, pořád bychom takovýmto programem
+&quot;zabavili&quot; procesor na pouhou vteřinu. Běžící programy tak obvykle tráví většinu času prováděním
+nějakého cyklu.</p>
+</blockquote>
 <h1><a class="header" href="#cyklus-while" id="cyklus-while">Cyklus <code>while</code></a></h1>
 <p>Nejjednodušším cyklem v <em>C</em> je cyklus <code>while</code> (&quot;dokud&quot;):</p>
 <pre><code class="language-c">while (&lt;výraz typu bool&gt;) {
@@ -1440,6 +1468,23 @@ Této situaci se lidově říká &quot;zacyklení&quot;<sup class='margin-toggle
 restartujte tuto stránku :)</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Pokud program spouštíte v terminálu a zacyklí se, můžete ho přerušit pomocí klávesové zkratky <code>Ctrl + C</code>.</p>
 </span>
+<h3><a class="header" href="#Řídící-proměnná" id="Řídící-proměnná">Řídící proměnná</a></h3>
+<p>Často chceme provést v těle cyklu jinou operaci v závislosti na tom, která iterace se zrovna vykonává.
+K tomu obvykle slouží tzv. <strong>řídící proměnná</strong> (<em>index variable</em>), která udává, v jaké iteraci cyklu
+se nacházíme, a podle ní se poté provede odpovídající operace. Například pokud bychom chtěli vypsat
+na výstup řadu čísel <code>0</code> až <code>4</code>, tak to můžeme provést s <code>while</code> cyklem následovně:</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 0;
+    while (i &lt; 5) {    
+        printf(&quot;%d\n&quot;, i);
+        i += 1;
+    }
+    return 0;
+}
+</code></pre>
+<p>Řídící proměnná je zde <code>i</code> - tento název se pro řídící proměnné pro jednoduchost často používá.</p>
 <h3><a class="header" href="#Řízení-toku-cyklu" id="Řízení-toku-cyklu">Řízení toku cyklu</a></h3>
 <p>V cyklech můžete využívat dva speciální příkazy, které fungují pouze v těle nějakého cyklu:</p>
 <ul>
@@ -1554,8 +1599,7 @@ alespoň jednou (i kdyby byl výraz od začátku nepravdivý).</p>
 <p>I když pomocí cyklu <code>while</code> můžeme vyjádřit provedení <code>n</code> iterací, je to relativně zdlouhavé,
 protože je k tomu potřeba alespoň tří řádků:</p>
 <ul>
-<li>Inicializace cyklu: vytvoření tzv. <strong>řídící proměnné</strong> (<em>index variable</em>), která se bude
-kontrolovat v cyklu</li>
+<li>Inicializace cyklu: vytvoření řídící proměnné, která se bude kontrolovat v cyklu</li>
 <li>Kontrola výrazu: kontrola, jestli už proměnná nabrala požadované hodnoty</li>
 <li>Operace na konci cyklu: změna hodnoty řídící proměnné</li>
 </ul>

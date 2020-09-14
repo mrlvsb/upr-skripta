@@ -35,17 +35,35 @@ window.addEventListener('load', () => {
   function foldMain(editor) {
     const session = editor.session;
 
-    function searchRow(needle, args) {
-      const Search = ace.require('ace/search').Search;
-      let s = new Search();
-      s.set({needle: needle, ...args});
-      let result = s.find(session);
-      return result ? result.start.row : -1;
+    function searchRow(regexp, reverse) {
+      const code = editor.getValue();
+      let m = regexp.exec(code);
+      if(!m) {
+        return -1;
+      }
+
+      let searchOffset = m.index;
+      if(reverse === undefined || reverse === false) {
+        searchOffset += m[0].length;
+      }
+
+      let line = 0;
+      for(let offset = 0; offset < code.length; offset++) {
+        if(code[offset] == '\n') {
+          line++;
+        }
+
+        let coef = (reverse === undefined || reverse === 0) ? 1 : -1;
+        if(offset >= searchOffset) {
+          return line;
+        }
+      }
+      return -1;
     }
 
-    let mainRow = searchRow("int main") + 1;
-    let endRow = searchRow("\s*return 0;\n}", {backwards: true, regExp: true}) - 1;
-    if(mainRow >= 0) {
+    let mainRow = searchRow(/int main\([^)]*\)\s*{\s*/);
+    let endRow = searchRow(/\s*return 0;\n}\s*$/s, true);
+    if(mainRow >= 0 && endRow >= 0) {
       const allLines = editor.getValue().split('\n');
       let lines = allLines.slice(mainRow, endRow);
       let indent = 0;
@@ -62,7 +80,7 @@ window.addEventListener('load', () => {
         indent: indent,
       };
 
-      editor.setValue("  \n" + lines.map(line => line.substr(indent)).join('\n'), 1);
+      editor.setValue("//\n" + lines.map(line => line.substr(indent)).join('\n'), 1);
       let fakeFold = session.addFold("main", new ace.Range(0, 0, 0, Infinity));
       session.on('changeFold', evt => {
         if(evt.action == 'remove' && evt.data == fakeFold) {

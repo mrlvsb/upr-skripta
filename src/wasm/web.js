@@ -83,7 +83,7 @@ window.addEventListener('load', () => {
     let localTerm;
 
     editor.getSession().setMode("ace/mode/c_cpp");
-    editor.setValue(editor.getValue().substring(0, editor.getValue().length - 1), 1);
+    editor.setValue(editor.getValue().replace(/\s+$/, ''), 1);
 
     if(container.querySelector('code').classList.contains("mainbody")) {
       foldMain(editor);

@@ -143,4 +143,6 @@ prvky předaného pole na zadanou hodnotu.
 **Cvičení:** Vytvořte funkci, která zjistí počet sudých a
 lichých čísel předaného pole. Tyto 2 čísla se vrátí pomocí dvou
 proměnných, které budou pointery na inty.
+
+<upr-svgs src="../animations/stack/stack-" to="15"></upr-svgs>
 -->

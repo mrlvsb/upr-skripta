@@ -32,9 +32,9 @@ celočíselných typů[^2]:
 | `long` nebo<br />`signed long` | 8 | [-9 223 372 036 854 775 808;<br />9 223 372 036 854 775 807] | <i class="fa fa-check"></i> |
 | `unsigned long` | 8 | [0; 18 446 744 073 709 551 615] | <i class="fa fa-times"></i> |
 
-[^2]: Počet bytů (a znaménkovost u typu `char`) záleží na použitém
-operačním systému a překladači. Zde jsou uvedeny hodnoty, se kterými se můžete
-nejčastěji setkat na 64-bitovém Linuxovém systému s překladačem GCC při použití
+[^2]: Počet bytů (a znaménkovost u typu `char`) záleží na kombinaci použitého hardwaru,
+operačního systému a překladače. Zde jsou uvedeny hodnoty, se kterými se můžete
+nejčastěji setkat na 64-bitovém x86 Linuxovém systému s překladačem GCC při použití
 [dvojkového doplňku](https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk).
 
 Každý vestavěný datový typ (`char`, `short`, `int`) a modifikátor znaménkovosti (`signed`, `unsigned`)

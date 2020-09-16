@@ -703,12 +703,11 @@ na výstup po přeložení a spuštění následujícího programu?</p>
 
 int main() {
     printf(&quot;%d\n&quot;, 1);
-    printf(&quot;%d\n&quot;, 5 + 8);
-    printf(&quot;%d\n&quot;, 3 * 2);
+    printf(&quot;%d\n&quot;, /* tady vložit další výraz */);
     return 0;
 }
 </code></pre>
-<p><strong>Cvičení</strong>: Zkuste si na místo komentáře doplnit několik výrazů (např. <code>5</code>, <code>5 + 5</code>, <code>8 * 3</code>),
+<p><strong>Cvičení</strong>: Zkuste si na místo komentáře doplnit několik výrazů (např. <code>5 + 8</code>, <code>8 * 3</code>, <code>12 * (2 + 3)</code>),
 přeložit program, spustit ho a podívat se, co vypíše na výstup, abyste si vyzkoušeli vyhodnocování
 výrazů.</p>
 <h3><a class="header" href="#datové-typy" id="datové-typy">Datové typy</a></h3>
@@ -1383,7 +1382,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<p><strong>Cvičení</strong>: Upravte hodnotu promměných v programu výše tak, aby program vypsal <code>Uzivatel byl zaregistrovan</code>.
+<p><strong>Cvičení</strong>: Upravte hodnotu proměnných v programu výše tak, aby program vypsal <code>Uzivatel byl zaregistrovan</code>.
 Neměňte v programu nic jiného.</p>
 <h4><a class="header" href="#vynechání-složených-zárovek" id="vynechání-složených-zárovek">Vynechání složených zárovek</a></h4>
 <p>Za <code>if</code> nebo <code>else</code> můžete vynechat složené závorky (<code>{</code>, <code>}</code>). V takovém případě se bude podmínka

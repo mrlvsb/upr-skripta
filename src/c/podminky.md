@@ -143,7 +143,7 @@ int main() {
 }
 ```
 
-**Cvičení**: Upravte hodnotu promměných v programu výše tak, aby program vypsal `Uzivatel byl zaregistrovan`.
+**Cvičení**: Upravte hodnotu proměnných v programu výše tak, aby program vypsal `Uzivatel byl zaregistrovan`.
 Neměňte v programu nic jiného.
 
 #### Vynechání složených zárovek

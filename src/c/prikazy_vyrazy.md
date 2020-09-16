@@ -90,13 +90,12 @@ na výstup po přeložení a spuštění následujícího programu?
 
 int main() {
     printf("%d\n", 1);
-    printf("%d\n", 5 + 8);
-    printf("%d\n", 3 * 2);
+    printf("%d\n", /* tady vložit další výraz */);
     return 0;
 }
 ```
  
-**Cvičení**: Zkuste si na místo komentáře doplnit několik výrazů (např. `5`, `5 + 5`, `8 * 3`),
+**Cvičení**: Zkuste si na místo komentáře doplnit několik výrazů (např. `5 + 8`, `8 * 3`, `12 * (2 + 3)`),
 přeložit program, spustit ho a podívat se, co vypíše na výstup, abyste si vyzkoušeli vyhodnocování
 výrazů.
 

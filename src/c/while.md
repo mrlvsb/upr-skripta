@@ -20,7 +20,7 @@ Vyzkoušejte si to na následujícím příkladu:
 
 int main() {
     int count = 0;
-    while (count < 5) {    
+    while (count < 5) {
         printf("Telo cyklu se provedlo\n");
         count = count + 1;
     }

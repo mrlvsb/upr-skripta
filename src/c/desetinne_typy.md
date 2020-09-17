@@ -24,7 +24,7 @@ Pokud chcete vytisknout na výstup hodnotu datového typu `float` nebo `double`,
 [zástupný znak](prikazy_vyrazy.md#výpis-výrazů) `%f`:
 
 ```c
-printf("Desetinné číslo: %f\n", 1.0);
+printf("Desetinne cislo: %f\n", 1.0);
 ```
 
 ### Přesnost desetinných čísel

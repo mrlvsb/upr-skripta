@@ -74,7 +74,7 @@ přidat čárku a doplnit výraz na místo určené komentářem:
 #include <stdio.h>
 
 int main() {
-    printf("Číslo: %d\n", /* Hodnota tohoto výrazu se vypíše na výstup */ 1);
+    printf("Cislo: %d\n", /* Hodnota tohoto výrazu se vypíše na výstup */ 1);
     return 0;
 }
 ```

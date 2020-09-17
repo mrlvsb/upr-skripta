@@ -86,7 +86,7 @@ Kromě základních aritmetických operací C podporuje také [bitové operace](
 - XOR: operátor `^`
 
 ### Tabulka aritmetických operátorů
-Zde je pro přehlednost tabulka se základními aritmetickými operátory. Plný seznam naleznete [zde](https://en.cppreference.com/w/c/language/operator_precedence).
+Zde je pro přehlednost tabulka se základními aritmetickými operátory.
 Datový typ výsledku těchto operátorů záleží na datovém typu jejich parametrů.
 
 | Operátor | Popis | Příklad |

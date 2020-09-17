@@ -51,6 +51,19 @@ Hello world!
 ```
 Program by měl na výstup vytisknout text `Hello world!`.
 
+<details>
+<summary>Tipy pro práci s příkazovou řádkou</summary>
+
+- Obvykle budete chtít po změně v programu provést překlad a pak program spustit. Abyste to provedli
+v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí `&&`:
+    ```bash
+    $ gcc main.c -o main && ./main
+    ```
+    Pokud překlad proběhne úspěšně, tak operátor `&&` zajistí spuštění následujícího příkazu.
+- Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru můžete vyvolat nedávno
+spuštěné příkazy v terminálu.
+</details>
+
 ### Jak překlad probíhá?
 Překlad programů probíhá ve dvou hlavních fázích: **překlad** (*translation*) a **linkování** (*linking*).
 Dohromady se oboum těmto krokům také říká **kompilace** (*compilation*).

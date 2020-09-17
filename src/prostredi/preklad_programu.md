@@ -60,7 +60,7 @@ v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí `&
     $ gcc main.c -o main && ./main
     ```
     Pokud překlad proběhne úspěšně, tak operátor `&&` zajistí spuštění následujícího příkazu.
-- Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru můžete vyvolat nedávno
+- Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru (&#8593;) můžete vyvolat nedávno
 spuštěné příkazy v terminálu.
 </details>
 

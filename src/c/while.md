@@ -74,9 +74,9 @@ iteraci cyklu. Zkuste uhodnout, co vypíše následující kód:
         int count = 0;
         while (count < 10) {
             count = count + 1;
-    
-            if (count > 5) continue;
-    
+
+            if (count < 5) continue;
+
             printf("Hodnota count: %d\n", count); 
         }
     
@@ -127,6 +127,9 @@ int main() {
 }
 ```
 Nemusíte tak hned ze začátku vymýšlet výraz pro `while`, na čemž byste se mohli zaseknout. 
+
+Místo `while (true)` můžete použít také `while (1)`, protože `1` se při převodu na `bool` převede
+na `true`.
 </details>
 
 ### Vnořování cyklů

@@ -260,7 +260,23 @@ výrazy <strong>uzávorkovat</strong>, abyste jim dali větší přednost: <code
 <li>OR: operátor <code>|</code></li>
 <li>XOR: operátor <code>^</code></li>
 </ul>
-<p>O dalších typech operátorů se postupně dozvíte během semestru.</p>
+<h3><a class="header" href="#tabulka-aritmetických-operátorů" id="tabulka-aritmetických-operátorů">Tabulka aritmetických operátorů</a></h3>
+<p>Zde je pro přehlednost tabulka se základními aritmetickými operátory.
+Datový typ výsledku těchto operátorů záleží na datovém typu jejich parametrů.</p>
+<table><thead><tr><th align="center">Operátor</th><th align="center">Popis</th><th align="center">Příklad</th></tr></thead><tbody>
+<tr><td align="center"><code>+</code></td><td align="center">Sečtení</td><td align="center"><code>1 + 5</code></td></tr>
+<tr><td align="center"><code>-</code></td><td align="center">Odečtení</td><td align="center"><code>2.3 - 4.8</code></td></tr>
+<tr><td align="center"><code>*</code></td><td align="center">Násobení</td><td align="center"><code>3 * 8</code></td></tr>
+<tr><td align="center"><code>/</code></td><td align="center">Dělení</td><td align="center"><code>4 / 2</code></td></tr>
+<tr><td align="center"><code>%</code></td><td align="center">Zbytek po dělení (modulo)</td><td align="center"><code>5 % 2</code></td></tr>
+<tr><td align="center"><code>&amp;</code></td><td align="center">Bitový součin</td><td align="center"><code>12 &amp; 4</code></td></tr>
+<tr><td align="center"><code>|</code></td><td align="center">Bitový součet</td><td align="center"><code>12 | 4</code></td></tr>
+<tr><td align="center"><code>^</code></td><td align="center">Bitový XOR</td><td align="center"><code>14 ^ 18</code></td></tr>
+<tr><td align="center"><code>&lt;&lt;</code></td><td align="center">Bitový posun doprava</td><td align="center"><code>137 &lt;&lt; 2</code></td></tr>
+<tr><td align="center"><code>&gt;&gt;</code></td><td align="center">Bitový posun doleva</td><td align="center"><code>140 &gt;&gt; 3</code></td></tr>
+</tbody></table>
+<p>O dalších typech operátorů se postupně dozvíte během semestru.
+Plný seznam <em>C</em> operátorů naleznete <a href="https://en.cppreference.com/w/c/language/operator_precedence">zde</a>.</p>
 <h3><a class="header" href="#explicitní-konverze" id="explicitní-konverze">Explicitní konverze</a></h3>
 <p>Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží <strong>operátor převedení</strong>
 (<em>cast operator</em>), který má syntaxi <code>(&lt;datový typ&gt;) &lt;výraz&gt;</code> a převede výraz na daný datový typ.

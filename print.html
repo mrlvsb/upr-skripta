@@ -1033,7 +1033,23 @@ výrazy <strong>uzávorkovat</strong>, abyste jim dali větší přednost: <code
 <li>OR: operátor <code>|</code></li>
 <li>XOR: operátor <code>^</code></li>
 </ul>
-<p>O dalších typech operátorů se postupně dozvíte během semestru.</p>
+<h3><a class="header" href="#tabulka-aritmetických-operátorů" id="tabulka-aritmetických-operátorů">Tabulka aritmetických operátorů</a></h3>
+<p>Zde je pro přehlednost tabulka se základními aritmetickými operátory.
+Datový typ výsledku těchto operátorů záleží na datovém typu jejich parametrů.</p>
+<table><thead><tr><th align="center">Operátor</th><th align="center">Popis</th><th align="center">Příklad</th></tr></thead><tbody>
+<tr><td align="center"><code>+</code></td><td align="center">Sečtení</td><td align="center"><code>1 + 5</code></td></tr>
+<tr><td align="center"><code>-</code></td><td align="center">Odečtení</td><td align="center"><code>2.3 - 4.8</code></td></tr>
+<tr><td align="center"><code>*</code></td><td align="center">Násobení</td><td align="center"><code>3 * 8</code></td></tr>
+<tr><td align="center"><code>/</code></td><td align="center">Dělení</td><td align="center"><code>4 / 2</code></td></tr>
+<tr><td align="center"><code>%</code></td><td align="center">Zbytek po dělení (modulo)</td><td align="center"><code>5 % 2</code></td></tr>
+<tr><td align="center"><code>&amp;</code></td><td align="center">Bitový součin</td><td align="center"><code>12 &amp; 4</code></td></tr>
+<tr><td align="center"><code>|</code></td><td align="center">Bitový součet</td><td align="center"><code>12 | 4</code></td></tr>
+<tr><td align="center"><code>^</code></td><td align="center">Bitový XOR</td><td align="center"><code>14 ^ 18</code></td></tr>
+<tr><td align="center"><code>&lt;&lt;</code></td><td align="center">Bitový posun doprava</td><td align="center"><code>137 &lt;&lt; 2</code></td></tr>
+<tr><td align="center"><code>&gt;&gt;</code></td><td align="center">Bitový posun doleva</td><td align="center"><code>140 &gt;&gt; 3</code></td></tr>
+</tbody></table>
+<p>O dalších typech operátorů se postupně dozvíte během semestru.
+Plný seznam <em>C</em> operátorů naleznete <a href="https://en.cppreference.com/w/c/language/operator_precedence">zde</a>.</p>
 <h3><a class="header" href="#explicitní-konverze" id="explicitní-konverze">Explicitní konverze</a></h3>
 <p>Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží <strong>operátor převedení</strong>
 (<em>cast operator</em>), který má syntaxi <code>(&lt;datový typ&gt;) &lt;výraz&gt;</code> a převede výraz na daný datový typ.
@@ -1217,6 +1233,20 @@ int main() {
 (například <code>&amp;&amp;</code> má větší prioritu než <code>||</code>) a v případě potřeby výrazy uzávorkovat. Pokud si zkusíte
 přeložit tento program, tak vás dokonce překladač bude varovat před tím, že jste výraz neuzávorkovali a
 může tak vracet jiný výsledek, než očekáváte.</p>
+<h3><a class="header" href="#tabulka-logických-operátorů" id="tabulka-logických-operátorů">Tabulka logických operátorů</a></h3>
+<p>Zde je pro přehlednost tabulka s logickými operátory.
+Datový typ výsledku je u těchto operátorů vždy <code>bool</code>.</p>
+<table><thead><tr><th align="center">Operátor</th><th align="center">Popis</th><th align="center">Příklad</th></tr></thead><tbody>
+<tr><td align="center"><code>&amp;&amp;</code></td><td align="center">Logický součin (AND)</td><td align="center"><code>a == b &amp;&amp; c &gt;= d</code></td></tr>
+<tr><td align="center"><code>||</code></td><td align="center">Logický součet (OR)</td><td align="center"><code>a &lt; b || c == d</code></td></tr>
+<tr><td align="center"><code>!</code></td><td align="center">Logická negace (NOT)</td><td align="center"><code>!(a &gt; b &amp;&amp; c &lt; d)</code></td></tr>
+<tr><td align="center"><code>==</code></td><td align="center">Rovná se</td><td align="center"><code>a == 5</code></td></tr>
+<tr><td align="center"><code>!=</code></td><td align="center">Nerovná se</td><td align="center"><code>a != 5</code></td></tr>
+<tr><td align="center"><code>&gt;</code></td><td align="center">Větší než</td><td align="center"><code>a &gt; 5</code></td></tr>
+<tr><td align="center"><code>&gt;=</code></td><td align="center">Větší nebo rovno než</td><td align="center"><code>a &gt;= 5</code></td></tr>
+<tr><td align="center"><code>&lt;</code></td><td align="center">Menší než</td><td align="center"><code>a &lt; 5</code></td></tr>
+<tr><td align="center"><code>&lt;=</code></td><td align="center">Menší nebo rovno než</td><td align="center"><code>a &lt;= 5</code></td></tr>
+</tbody></table>
 <h3><a class="header" href="#zkrácené-vyhodnocování" id="zkrácené-vyhodnocování">Zkrácené vyhodnocování</a></h3>
 <p>Při vyhodnocování Booleovských výrazů s logickými operátory se v C používá tzv. <strong>zkrácené vyhodnocování</strong>
 (<em>short-circuit evaluation</em>). Například pokud se vyhodnocuje výraz <code>a || b</code>, tak může dojít k následující

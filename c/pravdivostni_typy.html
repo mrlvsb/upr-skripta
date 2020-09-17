@@ -289,6 +289,20 @@ int main() {
 (například <code>&amp;&amp;</code> má větší prioritu než <code>||</code>) a v případě potřeby výrazy uzávorkovat. Pokud si zkusíte
 přeložit tento program, tak vás dokonce překladač bude varovat před tím, že jste výraz neuzávorkovali a
 může tak vracet jiný výsledek, než očekáváte.</p>
+<h3><a class="header" href="#tabulka-logických-operátorů" id="tabulka-logických-operátorů">Tabulka logických operátorů</a></h3>
+<p>Zde je pro přehlednost tabulka s logickými operátory.
+Datový typ výsledku je u těchto operátorů vždy <code>bool</code>.</p>
+<table><thead><tr><th align="center">Operátor</th><th align="center">Popis</th><th align="center">Příklad</th></tr></thead><tbody>
+<tr><td align="center"><code>&amp;&amp;</code></td><td align="center">Logický součin (AND)</td><td align="center"><code>a == b &amp;&amp; c &gt;= d</code></td></tr>
+<tr><td align="center"><code>||</code></td><td align="center">Logický součet (OR)</td><td align="center"><code>a &lt; b || c == d</code></td></tr>
+<tr><td align="center"><code>!</code></td><td align="center">Logická negace (NOT)</td><td align="center"><code>!(a &gt; b &amp;&amp; c &lt; d)</code></td></tr>
+<tr><td align="center"><code>==</code></td><td align="center">Rovná se</td><td align="center"><code>a == 5</code></td></tr>
+<tr><td align="center"><code>!=</code></td><td align="center">Nerovná se</td><td align="center"><code>a != 5</code></td></tr>
+<tr><td align="center"><code>&gt;</code></td><td align="center">Větší než</td><td align="center"><code>a &gt; 5</code></td></tr>
+<tr><td align="center"><code>&gt;=</code></td><td align="center">Větší nebo rovno než</td><td align="center"><code>a &gt;= 5</code></td></tr>
+<tr><td align="center"><code>&lt;</code></td><td align="center">Menší než</td><td align="center"><code>a &lt; 5</code></td></tr>
+<tr><td align="center"><code>&lt;=</code></td><td align="center">Menší nebo rovno než</td><td align="center"><code>a &lt;= 5</code></td></tr>
+</tbody></table>
 <h3><a class="header" href="#zkrácené-vyhodnocování" id="zkrácené-vyhodnocování">Zkrácené vyhodnocování</a></h3>
 <p>Při vyhodnocování Booleovských výrazů s logickými operátory se v C používá tzv. <strong>zkrácené vyhodnocování</strong>
 (<em>short-circuit evaluation</em>). Například pokud se vyhodnocuje výraz <code>a || b</code>, tak může dojít k následující

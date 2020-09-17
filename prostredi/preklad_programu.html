@@ -220,6 +220,18 @@ a spustitelné soubory typicky žádnou příponu nemají.</p>
 Hello world!
 </code></pre>
 <p>Program by měl na výstup vytisknout text <code>Hello world!</code>.</p>
+<details>
+<summary>Tipy pro práci s příkazovou řádkou</summary>
+<ul>
+<li>Obvykle budete chtít po změně v programu provést překlad a pak program spustit. Abyste to provedli
+v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí <code>&amp;&amp;</code>:
+<pre><code class="language-bash">$ gcc main.c -o main &amp;&amp; ./main
+</code></pre>
+Pokud překlad proběhne úspěšně, tak operátor <code>&amp;&amp;</code> zajistí spuštění následujícího příkazu.</li>
+<li>Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru můžete vyvolat nedávno
+spuštěné příkazy v terminálu.</li>
+</ul>
+</details>
 <h3><a class="header" href="#jak-překlad-probíhá" id="jak-překlad-probíhá">Jak překlad probíhá?</a></h3>
 <p>Překlad programů probíhá ve dvou hlavních fázích: <strong>překlad</strong> (<em>translation</em>) a <strong>linkování</strong> (<em>linking</em>).
 Dohromady se oboum těmto krokům také říká <strong>kompilace</strong> (<em>compilation</em>).</p>

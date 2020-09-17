@@ -27,9 +27,8 @@ int age;
 Jakmile proměnnou nadeklarujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
 reprezentuje, pomocí jejího názvu (zde `age`).
 
-Proměnná je platná (lze ji používat) vždy od místa
-deklarace do konce **bloku**, ve kterém byla nadeklarována. Bloky jsou kusy kódu ohraničené složenými
-závorkami (`{` a `}`):
+Proměnná je platná (lze ji používat) vždy od místa deklarace do konce **bloku**, ve kterém byla
+nadeklarována. Bloky jsou kusy kódu ohraničené složenými závorkami (`{` a `}`):
 ```c
 int main() {
     int a;
@@ -45,6 +44,7 @@ int main() {
     return 0;
 } // zde končí platnost proměnné `a`
 ```
+Oblast, ve které je proměnná validní, se nazývá (variable) *scope*.
 
 ### Datový typ
 `int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](datove_typy.md).

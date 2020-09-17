@@ -205,9 +205,8 @@ které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména 
 </code></pre>
 <p>Jakmile proměnnou nadeklarujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
 reprezentuje, pomocí jejího názvu (zde <code>age</code>).</p>
-<p>Proměnná je platná (lze ji používat) vždy od místa
-deklarace do konce <strong>bloku</strong>, ve kterém byla nadeklarována. Bloky jsou kusy kódu ohraničené složenými
-závorkami (<code>{</code> a <code>}</code>):</p>
+<p>Proměnná je platná (lze ji používat) vždy od místa deklarace do konce <strong>bloku</strong>, ve kterém byla
+nadeklarována. Bloky jsou kusy kódu ohraničené složenými závorkami (<code>{</code> a <code>}</code>):</p>
 <pre><code class="language-c">int main() {
     int a;
 
@@ -222,6 +221,7 @@ závorkami (<code>{</code> a <code>}</code>):</p>
     return 0;
 } // zde končí platnost proměnné `a`
 </code></pre>
+<p>Oblast, ve které je proměnná validní, se nazývá (variable) <em>scope</em>.</p>
 <h3><a class="header" href="#datový-typ" id="datový-typ">Datový typ</a></h3>
 <p><code>int</code> před názvem proměnné udává její datový typ, o kterém pojednává <a href="datove_typy.html">následující sekce</a>.
 Prozatím si řekněme, že <code>int</code> je zkratka pro <code>integer</code>, tedy celé číslo. Tím říkáme programu, že má

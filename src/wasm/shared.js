@@ -422,7 +422,11 @@ class App {
   }
 
   clock_time_get(clock_id, precision, time_out) {
-    throw new NotImplemented('wasi_unstable', 'clock_time_get');
+    const result = BigInt(+new Date()) * 1000000n;
+    const lo = Number(BigInt.asIntN(32, result)) >>> 0;
+    const hi = Number(BigInt.asIntN(32, result >> 32n)) >>> 0;
+    this.mem.write64(time_out, lo, hi);
+    return 0;
   }
 
   poll_oneoff(in_ptr, out_ptr, nsubscriptions, nevents_out) {

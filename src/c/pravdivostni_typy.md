@@ -84,11 +84,11 @@ je výraz datového typu `bool`:
 int jarda_body = 10;
 int kamil_body = 13;
 
-int remize = jarda_body == kamil_body; // false
-int vyhra_jardy = jarda_body > kamil_body; // true
+bool remize = jarda_body == kamil_body; // false
+bool vyhra_jardy = jarda_body > kamil_body; // true
 
 int delka_hesla = 8;
-int heslo_moc_kratke = delka_hesla <= 5; // false
+bool heslo_moc_kratke = delka_hesla <= 5; // false
 ```
 
 Dávejte si ovšem pozor na to, že pouze operátory `==` a `!=` lze použít univerzálně na všechny datové typy.

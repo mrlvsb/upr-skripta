@@ -114,7 +114,7 @@ podmínku, která cyklus ukončí pomocí příkazu `break`:
 int main() {
     int count = 0;
     int count2 = 1;
-    while (true) {
+    while (1) {
         printf("Hodnota count: %d\n", count);
         count = count + 1;
         count2 += count;

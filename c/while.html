@@ -248,7 +248,7 @@ int main() {
     while (count &lt; 10) {
         count = count + 1;
 
-        if (count &gt; 5) continue;
+        if (count &lt; 5) continue;
 
         printf(&quot;Hodnota count: %d\n&quot;, count); 
     }
@@ -299,6 +299,8 @@ int main() {
 }
 </code></pre>
 <p>Nemusíte tak hned ze začátku vymýšlet výraz pro <code>while</code>, na čemž byste se mohli zaseknout. </p>
+<p>Místo <code>while (true)</code> můžete použít také <code>while (1)</code>, protože <code>1</code> se při převodu na <code>bool</code> převede
+na <code>true</code>.</p>
 </details>
 <h3><a class="header" href="#vnořování-cyklů" id="vnořování-cyklů">Vnořování cyklů</a></h3>
 <p>Stejně jako podmínky, i cykly jsou příkazy, a můžete je tak používat libovolně v blocích <em>C</em> kódu

@@ -321,6 +321,36 @@ vztahovat k (jednomu) příkazu následujícímu za <code>if/else</code>:</p>
 <pre><code class="language-c">if (points&gt; 80) printf(&quot;Student uspel\n&quot;);
 else printf(&quot;Student neuspel\n&quot;);
 </code></pre>
+<h3><a class="header" href="#ternární-operátor" id="ternární-operátor">Ternární operátor</a></h3>
+<p>Občas chcete použít jeden ze dvou výrazů v závislosti na hodnotě nějaké podmínky. Například pokud byste
+chtěli přiřadit minimum ze dvou hodnot do proměnné:</p>
+<pre><code class="language-c">int a = 1;
+int b = 5;
+
+int c = 0;
+if (a &lt; b) {
+    c = a;
+} else {
+    c = b;
+}
+</code></pre>
+<p>Toto lze provést zkráceně pomocí výrazu <strong>ternárního operátoru</strong> (<em>ternary operator</em>). Tento výraz
+má následující syntaxi:</p>
+<pre><code class="language-c">&lt;výraz X typu bool&gt; ? &lt;výraz A&gt; : &lt;výraz B&gt;
+</code></pre>
+<p>Pokud je výraz <code>X</code> pravdivý, tak se ternární operátor vyhodnotí jako hodnota výrazu <code>A</code>, v opačném
+případě se vyhodnotí jako hodnota výrazu <code>B</code>. Uhodnete, co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    int b = 5;
+    int c = (a &gt;= b) ? a - b : a + b;
+    printf(&quot;%d\n&quot;, c);
+
+    return 0;
+}
+</code></pre>
 
                     </main>
 

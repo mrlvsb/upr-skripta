@@ -186,11 +186,12 @@ To znamená, že počítač může do paměti šahat v libovolném pořadí a na
 <h3><a class="header" href="#reprezentace-hodnot-v-paměti" id="reprezentace-hodnot-v-paměti">Reprezentace hodnot v paměti</a></h3>
 <p>Počítačová paměť uchovává informace v buňkách, které obsahují jedno číslo, které může obsahovat
 256 různých hodnot. To vychází z toho, že informace je reprezentována <strong>bity</strong>, jednotkou informací,
-která může nabývat pouze dvě hodnoty - pravda (1, <em>true</em>) nebo nepravda (0, <em>false</em>). Každá buňka
-paměti obsahuje jeden <strong>byte</strong>, neboli 8 bitů. Pracuje se zde s dvojkovou (binární) soustavou, pokud
-tedy máme k dispozici <em>n</em> bitů, tak pomocí nich můžeme reprezentovat \( 2^n \) hodnot. Např. s dvěma
-bity můžeme reprezentovat 4 různé hodnoty (00, 01, 10, 11). Více o binární soustavě a bytech se dozvíte
-v předmětu <a href="https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=440-2104/01&amp;subjectBlockAssignmentId=375761&amp;studyFormId=2&amp;studyPlanId=22001&amp;locale=cs&amp;back=true">Základy číslicových systémů (ZDS)</a>.</p>
+která může nabývat pouze dvě hodnoty - pravda (<em>true</em>) nebo nepravda (<em>false</em>). Každá buňka
+paměti obsahuje jeden <strong>byte</strong>, neboli 8 bitů.</p>
+<p>Pracuje se zde s dvojkovou (binární) soustavou, pokud tedy máme k dispozici <em>n</em> bitů, tak pomocí nich
+můžeme reprezentovat \( 2^n \) hodnot. Např. s dvěma bity můžeme reprezentovat 4 různé hodnoty
+(00, 01, 10, 11). Více o binární soustavě a bytech se dozvíte v předmětu
+<a href="https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=440-2104/01&amp;subjectBlockAssignmentId=375761&amp;studyFormId=2&amp;studyPlanId=22001&amp;locale=cs&amp;back=true">Základy číslicových systémů (ZDS)</a>.</p>
 <p>I když paměť vždy obsahuje čísla v dvojkové soustavě, je důležité si uvědomit, že význam těmto číslům
 přiřazujeme my, tedy programátoři a uživatelé počítače. Pokud je v paměti číslo <strong>65</strong>, tak může
 reprezentovat například:</p>
@@ -199,15 +200,16 @@ reprezentovat například:</p>
 <li>písmeno <code>A</code> v nějakém dokumentu (interpretujeme jej jako znak v kódování <a href="https://www.asciitable.com/">ASCII</a>)</li>
 <li>tmavě šedý pixel (interpretujeme jej jako barvu)</li>
 </ul>
-<p>Dále například číslo <strong>255</strong> můžeme vnímat jako celé nezáporné číslo (<em>unsigned integer</em>) <strong>255</strong>,
-anebo jako celé číslo se znaménkem (<em>signed integer</em>) <strong>-1</strong> v <a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkovém doplňku</a>.</p>
+<p>Hodnotu <strong>255</strong> uloženou v <em>bytu</em> paměti můžeme například vnímat jako celé nezáporné číslo
+(<em>unsigned integer</em>) <strong>255</strong>, anebo jako celé číslo se znaménkem (<em>signed integer</em>) <strong>-1</strong> v
+<a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkovém doplňku</a>.</p>
 <p>Čísla v paměti sama o sobě nemají žádný význam, záleží pouze na tom, jak je my, a obzvláště naše programy,
 interpretují a jaké operace nad nimi provádějí.</p>
 <h3><a class="header" href="#adresování-paměti" id="adresování-paměti">Adresování paměti</a></h3>
 <p>Abychom se mohli odkazovat na hodnoty v paměti, tak musíme mít možnost rozlišit jednotlivé buňky od sebe.
 Toho dosáhneme pomocí <strong>adresy</strong>. Paměť je adresována tak, že každá paměťová buňka (každý <em>byte</em>)
-má číselnou adresu od 0 do velikosti paměti. Velmi zjednodušeně řečeno, pokud máte RAM paměť o velikosti
-8 GiB (8589934592 &quot;bajtů&quot;), tak můžete adresovat buňky od 0 do 8589934591<sup class='margin-toggle sidenote-number'>1</sup>.</p>
+má číselnou adresu od 0 do velikosti paměti (nevčetně). Velmi zjednodušeně řečeno, pokud máte RAM
+paměť o velikosti 8 GiB (8589934592 &quot;bajtů&quot;), tak můžete adresovat buňky od 0 do 8589934591<sup class='margin-toggle sidenote-number'>1</sup>.</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Programy běžně nemají přístup k celé paměti počítače z bezpečnostních důvodů. Váš operační systém
 používá tzv. <strong>virtuální paměť</strong>, která každému běžícímu programu přiděluje určité rozsahy paměti, s kterými
 může pracovat. Více se dozvíte později. </p>

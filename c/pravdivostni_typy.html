@@ -257,11 +257,11 @@ Záměna těchto dvou operátorů je častou začátečnickou chybou a vede k ob
 <pre><code class="language-c">int jarda_body = 10;
 int kamil_body = 13;
 
-int remize = jarda_body == kamil_body; // false
-int vyhra_jardy = jarda_body &gt; kamil_body; // true
+bool remize = jarda_body == kamil_body; // false
+bool vyhra_jardy = jarda_body &gt; kamil_body; // true
 
 int delka_hesla = 8;
-int heslo_moc_kratke = delka_hesla &lt;= 5; // false
+bool heslo_moc_kratke = delka_hesla &lt;= 5; // false
 </code></pre>
 <p>Dávejte si ovšem pozor na to, že pouze operátory <code>==</code> a <code>!=</code> lze použít univerzálně na všechny datové typy.
 Například použít <code>&lt;</code> pro porovnání dvou Booleovských hodnot obvykle nedává valný smysl, operátory

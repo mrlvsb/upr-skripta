@@ -120,6 +120,22 @@ Zde je opět třeba dávat si pozor na [prioritu operátorů](https://en.cpprefe
 přeložit tento program, tak vás dokonce překladač bude varovat před tím, že jste výraz neuzávorkovali a
 může tak vracet jiný výsledek, než očekáváte.
 
+### Tabulka logických operátorů
+Zde je pro přehlednost tabulka s logickými operátory.
+Datový typ výsledku je u těchto operátorů vždy `bool`.
+
+| Operátor | Popis | Příklad |
+|:---:|:---:|:---:|
+| `&&` | Logický součin (AND) | `a == b && c >= d` |
+| <code>&#124;&#124;</code> | Logický součet (OR) | <code>a < b &#124;&#124; c == d</code> |
+| `!` | Logická negace (NOT) | `!(a > b && c < d)` |
+| `==` | Rovná se | `a == 5` |
+| `!=` | Nerovná se | `a != 5` |
+| `>` | Větší než | `a > 5` |
+| `>=` | Větší nebo rovno než | `a >= 5` |
+| `<` | Menší než | `a < 5` |
+| `<=` | Menší nebo rovno než | `a <= 5` |
+
 ### Zkrácené vyhodnocování
 Při vyhodnocování Booleovských výrazů s logickými operátory se v C používá tzv. **zkrácené vyhodnocování**
 (*short-circuit evaluation*). Například pokud se vyhodnocuje výraz `a || b`, tak může dojít k následující

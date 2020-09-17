@@ -85,7 +85,25 @@ Kromě základních aritmetických operací C podporuje také [bitové operace](
 - OR: operátor `|`
 - XOR: operátor `^`
 
+### Tabulka aritmetických operátorů
+Zde je pro přehlednost tabulka se základními aritmetickými operátory. Plný seznam naleznete [zde](https://en.cppreference.com/w/c/language/operator_precedence).
+Datový typ výsledku těchto operátorů záleží na datovém typu jejich parametrů.
+
+| Operátor | Popis | Příklad |
+|:---:|:---:|:---:|
+| `+` | Sečtení | `1 + 5` |
+| `-` | Odečtení | `2.3 - 4.8` |
+| `*` | Násobení | `3 * 8` |
+| `/` | Dělení | `4 / 2` |
+| `%` | Zbytek po dělení (modulo) | `5 % 2` |
+| `&` | Bitový součin | `12 & 4` |
+| <code>&#124;</code> | Bitový součet | <code>12 &#124; 4</code> |
+| `^` | Bitový XOR | `14 ^ 18` |
+| `<<` | Bitový posun doprava | `137 << 2` |
+| `>>` | Bitový posun doleva | `140 >> 3` |
+
 O dalších typech operátorů se postupně dozvíte během semestru.
+Plný seznam *C* operátorů naleznete [zde](https://en.cppreference.com/w/c/language/operator_precedence).
 
 ### Explicitní konverze
 Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží **operátor převedení**

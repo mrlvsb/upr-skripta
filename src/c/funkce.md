@@ -1,5 +1,5 @@
 # Funkce
-Zatím jsme veškerý kód psali pouze na jedno místo v programu, do "mejnu". Jakmile programy začnou
+Zatím jsme veškerý kód psali pouze na jedno místo v programu, do "mainu". Jakmile programy začnou
 být větší a větší, tak začne také být neustále těžší a těžší se v nich zorientovat a udržet je celé
 v hlavě, abychom nad nimi mohli přemýšlet. Zároveň se nám v programu brzy začnou objevovat úseky kódu,
 které jsou téměř totožné, ale liší se v drobných detailech. Chtěli bychom tak mít možnost takovýto
@@ -167,8 +167,8 @@ int zvetsi(int cislo) {
 > }
 > ```
 
-Pokud má funkce návratový typ `void`, tak její provádění můžete ukončit pomocí příkazu `return;`
-(zde nepředáváte žádný výraz, protože funkce nic nevrací).
+Pokud má funkce návratový typ `void`, tak její provádění můžeme ukončit pomocí příkazu `return;`
+(zde nepředáváme žádný výraz, protože funkce nic nevrací).
 
 ### Syntaxe
 Syntaxe funkcí v *C* vypadá takto:

@@ -177,7 +177,7 @@ Syntaxe funkcí v *C* vypadá takto:
     // blok kódu
 } 
 ```
-Datovému typu, názvu funkce a jejím parametrům se dohromady říká **signature** (*signature*) funkce.
+Datovému typu, názvu funkce a jejím parametrům se dohromady říká **signatura** (*signature*) funkce.
 Tato informace je důležitá, abychom věděli, jak s danou funkcí pracovat (jak ji volat), k tomu není
 nutné znát obsah těla funkce.
 

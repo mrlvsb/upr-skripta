@@ -30,6 +30,21 @@ main {
     top: -0.5rem; 
 }
 
+.sidenote p {
+  margin: 0;
+}
+
+li {
+  position: relative;
+}
+li .sidenote {
+  top: 0;
+}
+.sidenote img {
+  vertical-align: top;
+  max-width: 95%;
+}
+
 @media (max-width: 1380px) {
     .sidenote,
     .marginnote {

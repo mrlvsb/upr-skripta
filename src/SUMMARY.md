@@ -39,3 +39,4 @@
 - [Různé](ruzne/ruzne.md)
     - [Rozklad problému](ruzne/rozklad_problemu.md)
     - [Generování náhodných čísel](ruzne/nahodna_cisla.md)
+    - [Funkce main](ruzne/funkce_main.md)

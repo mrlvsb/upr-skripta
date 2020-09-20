@@ -29,7 +29,7 @@ $ code --install-extension ms-vscode.cpptools
 Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)
 šablonu.
 
-<img src="https://raw.githubusercontent.com/geordi/upr-course/master/assets/images/vsc_first_run.gif" width="90%"/>
+![Nastavení VSCode](../static/video/vsc_first_run.gif)
 
 ### Užitečné zkratky 
 - Spustit program - `F5`

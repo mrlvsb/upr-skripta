@@ -40,3 +40,8 @@
     - [Rozklad problému](ruzne/rozklad_problemu.md)
     - [Generování náhodných čísel](ruzne/nahodna_cisla.md)
     - [Funkce main](ruzne/funkce_main.md)
+- [Úlohy](ulohy/ulohy.md)
+    - [Základy](ulohy/zaklady.md)
+    - [Ukazatele a pole](ulohy/ukazatele_a_pole.md)
+    - [Řetězce](ulohy/retezce.md)
+    - [Různé](ulohy/ruzne.md)

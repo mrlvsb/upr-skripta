@@ -210,6 +210,8 @@ i spustit rovnou v prohlížeči pomocí ikony <i class="fa fa-play"></i> v prav
 k obsahu či formě textu, dejte nám prosím vědět na <a href="mailto:jakub.beranek@vsb.cz?subject=UPR%20skripta%20-%20chyba">tento e-mail</a>
 nebo vytvořte issue na <a href="https://github.com/mrlvsb/upr-skripta/issues/new">GitHubu</a>.</li>
 </ul>
+<p>Autory textu jsou <a href="https://github.com/geordi">Jan Gaura</a>, <a href="https://github.com/trnila">Dan Trnka</a> a
+<a href="https://github.com/kobzol">Kuba Beránek</a>.</p>
 <h1><a class="header" href="#programování" id="programování">Programování</a></h1>
 <p>Programování je proces tvorby programu, tj. sady příkazů pro počítač, který slouží k vyřešení
 nějakého konkrétního <strong>problému</strong>. Problémem se zde myslí nějaká úloha, kterou chceme vyřešit.
@@ -1073,12 +1075,12 @@ operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cíl
 <pre><code class="language-c">signed char c = -50;
 (unsigned char) c // hodnota tohoto výrazu je 206 (256 - 50)
 </code></pre>
-</li>
+<span class='sidenote'><p><sup class='number'>4</sup>K tomu můžete použít například funkci <a href="http://www.cplusplus.com/reference/cstdlib/abs/">abs</a>.</p>
+</span></li>
 </ul>
 <p>Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
 na to, jak funguje <a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkový doplněk</a>.</p>
-<span class='sidenote'><p><sup class='number'>4</sup>K tomu můžete použít například funkci <a href="http://www.cplusplus.com/reference/cstdlib/abs/">abs</a>.</p>
-</span><h1><a class="header" href="#desetinné-číselné-typy" id="desetinné-číselné-typy">Desetinné číselné typy</a></h1>
+<h1><a class="header" href="#desetinné-číselné-typy" id="desetinné-číselné-typy">Desetinné číselné typy</a></h1>
 <p>Pokud budete chtít provádět výpočty s desetinnými čísly, tak můžete využít datové typy s tzv.
 <strong>plovoucí řádovou čárkou</strong> (<em>floating point numbers</em>). Hodnoty těchto datových typů umožňují udržovat
 čísla sestávající se z celé a z desetinné části. Díky
@@ -1190,7 +1192,9 @@ bool je_matka = je_rodic &amp;&amp; ~je_otec; // true &amp;&amp; ~true -&gt; tru
 </ul>
 <p>K tomu slouží šest základních porovnávacích operátorů:</p>
 <ul>
-<li><strong>Rovná se</strong><sup class='margin-toggle sidenote-number'>2</sup>: <code>==</code></li>
+<li><strong>Rovná se</strong><sup class='margin-toggle sidenote-number'>2</sup>: <code>==</code><span class='sidenote'><p><sup class='number'>2</sup>Zde si dávejte velký pozor na rozdíl mezi <code>=</code> (přiřazení hodnoty) a <code>==</code> (porovnání dvou hodnot).
+Záměna těchto dvou operátorů je častou začátečnickou chybou a vede k obtížně nalezitelným chybám.</p>
+</span></li>
 <li><strong>Nerovná se</strong>: <code>!=</code></li>
 <li><strong>Větší</strong>: <code>&gt;</code></li>
 <li><strong>Větší nebo rovno</strong>: <code>&gt;=</code></li>
@@ -1199,9 +1203,6 @@ bool je_matka = je_rodic &amp;&amp; ~je_otec; // true &amp;&amp; ~true -&gt; tru
 </ul>
 <p>Porovnávat mezi sebou můžete libovolné hodnoty dvou stejných datových typů. Výsledkem porovnání
 je výraz datového typu <code>bool</code>:</p>
-<span class='sidenote'><p><sup class='number'>2</sup>Zde si dávejte velký pozor na rozdíl mezi <code>=</code> (přiřazení hodnoty) a <code>==</code> (porovnání dvou hodnot).
-Záměna těchto dvou operátorů je častou začátečnickou chybou a vede k obtížně nalezitelným chybám.</p>
-</span>
 <pre><code class="language-c">int jarda_body = 10;
 int kamil_body = 13;
 
@@ -1518,13 +1519,12 @@ nějakého cyklu.</p>
 <ol>
 <li>Nejprve se vyhodnotí (Booleovský) výraz v závorce za <code>while</code>.</li>
 <li>Pokud výraz není pravdivý, tak se provede bod 3.
-Pokud je výraz pravdivý, tak se provede blok<sup class='margin-toggle sidenote-number'>1</sup> cyklu a dále se pokračuje bodem 1.</li>
+Pokud je výraz pravdivý, tak se provede blok<sup class='margin-toggle sidenote-number'>1</sup> cyklu a dále se pokračuje bodem 1.<span class='sidenote'><p><sup class='number'>1</sup>Blok cyklu se také často nazývá jako <strong>tělo</strong> (<em>body</em>) cyklu.</p>
+</span></li>
 <li>Program pokračuje za cyklem <code>while</code>.</li>
 </ol>
 <p>Jinak řečeno, dokud bude splněná podmínka za <code>while</code>, tak se bude opakovaně provádět tělo cyklu.
 Vyzkoušejte si to na následujícím příkladu:</p>
-<span class='sidenote'><p><sup class='number'>1</sup>Blok cyklu se také často nazývá jako <strong>tělo</strong> (<em>body</em>) cyklu.</p>
-</span>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {

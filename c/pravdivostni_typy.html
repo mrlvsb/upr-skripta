@@ -245,7 +245,9 @@ bool je_matka = je_rodic &amp;&amp; ~je_otec; // true &amp;&amp; ~true -&gt; tru
 </ul>
 <p>K tomu slouží šest základních porovnávacích operátorů:</p>
 <ul>
-<li><strong>Rovná se</strong><sup class='margin-toggle sidenote-number'>2</sup>: <code>==</code></li>
+<li><strong>Rovná se</strong><sup class='margin-toggle sidenote-number'>2</sup>: <code>==</code><span class='sidenote'><p><sup class='number'>2</sup>Zde si dávejte velký pozor na rozdíl mezi <code>=</code> (přiřazení hodnoty) a <code>==</code> (porovnání dvou hodnot).
+Záměna těchto dvou operátorů je častou začátečnickou chybou a vede k obtížně nalezitelným chybám.</p>
+</span></li>
 <li><strong>Nerovná se</strong>: <code>!=</code></li>
 <li><strong>Větší</strong>: <code>&gt;</code></li>
 <li><strong>Větší nebo rovno</strong>: <code>&gt;=</code></li>
@@ -254,9 +256,6 @@ bool je_matka = je_rodic &amp;&amp; ~je_otec; // true &amp;&amp; ~true -&gt; tru
 </ul>
 <p>Porovnávat mezi sebou můžete libovolné hodnoty dvou stejných datových typů. Výsledkem porovnání
 je výraz datového typu <code>bool</code>:</p>
-<span class='sidenote'><p><sup class='number'>2</sup>Zde si dávejte velký pozor na rozdíl mezi <code>=</code> (přiřazení hodnoty) a <code>==</code> (porovnání dvou hodnot).
-Záměna těchto dvou operátorů je častou začátečnickou chybou a vede k obtížně nalezitelným chybám.</p>
-</span>
 <pre><code class="language-c">int jarda_body = 10;
 int kamil_body = 13;
 

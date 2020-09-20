@@ -25,3 +25,6 @@ i spustit rovnou v prohlížeči pomocí ikony <i class="fa fa-play"></i> v prav
 - Pokud v textu najdete gramatickou či faktickou chybu nebo budete mít jakoukoliv zpětnou vazbu
 k obsahu či formě textu, dejte nám prosím vědět na [tento e-mail](mailto:jakub.beranek@vsb.cz?subject=UPR%20skripta%20-%20chyba)
 nebo vytvořte issue na [GitHubu](https://github.com/mrlvsb/upr-skripta/issues/new).
+
+Autory textu jsou [Jan Gaura](https://github.com/geordi), [Dan Trnka](https://github.com/trnila) a
+[Kuba Beránek](https://github.com/kobzol).

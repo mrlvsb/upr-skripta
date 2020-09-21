@@ -21,7 +21,7 @@ Základní témata:
 - [Funkce](funkce.md) - jak opakovaně využít a parametrizovat opakující se kód
 - [Ukazatele](ukazatele.md) - jak sdílet data v paměti a pracovat s adresami
 - [Pole](pole.md) - jak jednotně pracovat s velkým množstvím dat
-- [Řetězce](retezce.md) - jak v programech reprezentovat text
+- [Text](text.md) - jak v programech reprezentovat text
 - [Struktury](struktury.md) - jak seskupit data do logicky souvisejících celků
 - [Soubory](soubory.md) - jak číst a zapisovat soubory
 - [Modularizace](modularizace.md) - jak rozdělit program do více zdrojových souborů

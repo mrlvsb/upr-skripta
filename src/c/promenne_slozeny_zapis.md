@@ -23,6 +23,8 @@ count += 1;   // stejné jako count = count + 1;
 count *= 3;   // stejné jako count = count * 3; 
 ```
 
+Stejně jako [zápis](promenne.md#zápis) je složený zápis příkladem výrazu s vedlejším efektem.
+
 ### Inkrementace a dekrementace
 Speciálním případem složeného zápisu je tzv. **inkrementace** (zvýšení hodnoty proměnné o jedničku)
 a **dekrementace** (snížení hodnoty proměnné o jedničku). Tyto operace jsou tak časté, že *C* obsahuje
@@ -60,7 +62,9 @@ jako (nová, již zvýšená) hodnota dané proměnné. Zkuste uhodnout, co vyp�
 Dekrementace se chová totožně jako inkrementace, pouze s tím rozdílem, že snižuje hodnotu
 proměnné o `1` a místo `++` používá `--`.
 
-Tyto zkratky jsou sice užitečné, ale také můžou vyústit v překvapivé chování díky způsobu, kterým
-jsou vyhodnocovány. Ze začátku je radši využívejte pouze v situacích, kdy budou použity jako příkaz,
-který změní hodnotu proměnné. Jinak řečeno, raději se moc nespoléhejte na hodnotu, ve kterou se
-inkrementace/dekrementace vyhodnotí.
+Inkrementace a dekrementace jsou příklady výrazů s vedlejším efektem.
+
+> Tyto zkratky jsou sice užitečné, ale také můžou vyústit v překvapivé chování díky způsobu, kterým
+> jsou vyhodnocovány. Ze začátku je radši využívejte pouze v situacích, kdy budou použity jako příkaz,
+> který změní hodnotu proměnné (`i++;`). Jinak řečeno, raději se moc nespoléhejte na hodnotu, ve
+> kterou se inkrementace/dekrementace vyhodnotí.

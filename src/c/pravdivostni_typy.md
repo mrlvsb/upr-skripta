@@ -50,7 +50,6 @@ bool je_otec = je_rodic && je_muz;  // true && true -> true
 bool je_matka = je_rodic && ~je_otec; // true && ~true -> true && false -> false
 ```
 
-
 Pro připomenutí, zde je pravdivostní tabulka těchto logických operátorů:
 
 | `X` | `Y` | `X && Y` | <code>X &#124;&#124; Y</code> | `~X` |
@@ -59,7 +58,6 @@ Pro připomenutí, zde je pravdivostní tabulka těchto logických operátorů:
 | `false` | `true` | `false` | `true` | `true` |
 | `true` | `false` | `false` | `true` | `false` |
 | `true` | `true` | `true` | `true` | `false` |
-
 
 ### Porovnávání hodnot
 Při programování často potřebujete porovnat hodnoty mezi sebou:
@@ -146,10 +144,10 @@ situaci:
 
 Toto chování může urychlit provádění programu, protože přeskakuje provádění zbytečných příkazů,
 nicméně může také způsobit nečekané chyby. Pokud by například vyhodnocení výrazu `b` obsahovalo nějaké
-**vedlejší efekty** (*side effects*), které se projeví při jeho provedení (například vytvoření souboru
-na disku), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela přeskočí. Pokud si pamatujete
-na [inkrementaci](promenne_slozeny_zapis.md#inkrementace-a-dekrementace), tak ta je jedním z případů výrazů, které mají
-vedlejší efekt (změnu hodnoty proměnné).
+[vedlejší efekty](prikazy_vyrazy.md#vedlejší-efekty), které se projeví při jeho provedení (například
+změna hodnoty v paměti), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela
+přeskočí. Pokud si pamatujete na [inkrementaci](promenne_slozeny_zapis.md#inkrementace-a-dekrementace),
+tak ta je jedním z případů výrazů, které mají vedlejší efekt (změnu hodnoty proměnné).
 
 ### Konverze
 Pokud se pokusíte o převod celého či desetinného čísla na `bool`, tak můžou nastat dvě varianty:

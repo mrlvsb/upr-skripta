@@ -99,7 +99,7 @@ pomocí [debuggeru](../prostredi/ladeni.md#krokování).
 
 ### Zápis
 Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
-naštěstí jde měnit. Můžeme k tomu použít další typ *C* příkazu, tzv. přiřazení (**assignment**):
+naštěstí jde měnit. Můžeme k tomu použít další typ *C* výrazu přiřazení (**assignment**):
 ```c
 int main() {
     int a = 5;  // hodnota `a` je 5
@@ -108,10 +108,11 @@ int main() {
 ```
 Obecná syntaxe pro přiřazení do proměnné je
 
-`<název proměnné> = <výraz>;`
+`<název proměnné> = <výraz>`
 
 Opět musí platit, že výraz musí být stejného typu[^2], jako je proměnná, do které přiřazujeme. Na konci
-řádku také nesmí chybět středník.
+řádku také nesmí chybět středník. Přiřazení je příklad výrazu, který má vedlejší efekt, proto se
+obvykle používá jako samostatný příkaz (tj. dává se za něj středník).
 
 [^2]: *C* umožňuje automatické (tzv. **implicitní**) konverze mezi některými datovými typy, takže typ výrazu
 nemusí být nutně vždy stejný. Tyto konverze se nicméně často chovají neintuitivně a překladač vás před nimi

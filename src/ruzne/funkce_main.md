@@ -34,6 +34,9 @@ jeden argument. Prvním argumentem je dle konvence vždy cesta k spustitelnému 
 který je právě spouštěn, další argumenty se nastaví podle zadaného textu v terminálu (argumenty
 jsou oddělené mezerou).
 
-Například, pokud program spustíte takto: `./program hello world`, tak `argc` bude rovno třem, 
-`argv[0]` bude obsahovat řetězec `"./program"`, `argv[1]` bude obsahovat řetězec `"hello"` a 
-`argv[2]` bude obsahovat řetězec `"world"`.
+Například, pokud program spustíte takto: `./program hello world`, tak parametry funkce `main` budou
+mít následující hodnoty:
+- `argc` bude obsahovat celé číslo `3` 
+- `argv[0]` bude obsahovat řetězec `"./program"`
+- `argv[1]` bude obsahovat řetězec `"hello"`
+- `argv[2]` bude obsahovat řetězec `"world"`

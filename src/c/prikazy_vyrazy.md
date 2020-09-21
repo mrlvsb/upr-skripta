@@ -104,7 +104,17 @@ Každý výraz má svůj datový typ, který udává, jak je hodnota výrazu v p
 jaké operace má smysl nad výrazem dělat. Více o datových typech a operátorech se dozvíte v sekci
 [Datové typy](datove_typy.md).
 
-### Příkazy vs výrazy
+### Vedlejší efekty
+Pokud chcete pouze vypočítat výraz ("jen tak"), mimo nějaký příkaz, stačí za něj dát středník. Tím
+ze samostatného výrazu uděláte příkaz:
+```c
+1 + 1; // vypočte se `2`, výsledek se na nic nepoužije
+```
+Toto má smysl dělat pouze u výrazů, které mají nějaký **vedlejší efekt** (*side effect*), který
+způsobí, že při provádění výrazu se v programu něco změní. Jinak by výraz sám o sobě byl vypočten,
+ale nic dalšího by se nestalo. O výrazech, které umí produkovat vedlejší efekty, se dozvíte později.
+
+#### Příkazy vs výrazy
 Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký
 je rozdíl mezi výrazem (něco, co se dá vypočítat) a příkazem, pomocí kterého počítači říkáme, aby
 něco (s nějakým výrazem) udělal (například vypsal ho na výstup, zapsal do paměti atd.).

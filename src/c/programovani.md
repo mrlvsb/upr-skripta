@@ -33,5 +33,5 @@ moct využívat téměř v libovolném populárním programovacím jazyku (Java,
 Javascript, Rust, C++ atd.). 
 
 Navazující témata:
-- [TGA](../aplikovane_ulohy/tga.md) - jednoduchý formát pro reprezentaci obrázků na disku
-- [SDL](../aplikovane_ulohy/sdl.md) - knihovna pro tvorbu grafických aplikací a her
+- [TGA](aplikovane_ulohy/tga.md) - jednoduchý formát pro reprezentaci obrázků na disku
+- [SDL](aplikovane_ulohy/sdl.md) - knihovna pro tvorbu grafických aplikací a her

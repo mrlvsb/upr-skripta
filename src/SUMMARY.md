@@ -13,6 +13,7 @@
     - [Syntaxe](c/syntaxe.md)
     - [Příkazy a výrazy](c/prikazy_vyrazy.md)
     - [Proměnné](c/promenne.md)
+        - [Konstanty](c/konstanty.md)
         - [Složený zápis](c/promenne_slozeny_zapis.md)
         - [Pojmenovávání proměnných](c/promenne_pojmenovavani.md)
     - [Datové typy](c/datove_typy.md)

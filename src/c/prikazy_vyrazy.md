@@ -2,8 +2,8 @@
 Jak už víme, programy jsou [sekvence příkazů](../uvod/programovaci_jazyky.md) pro počítač, který je provádí
 instrukci po instrukci (resp. řádek po řádku). Jakmile počítač vykoná jeden řádek vašeho programu, tak skočí
 na řádek níže, dokud nedojde na konec programu. Aby počítač věděl, kterou instrukci má provést
-jako první, tak mu musíme říct, kde má začít. K tomu přesně slouží funkce se speciálním názvem
-`main`:
+jako první, tak mu musíme říct, kde má začít. K tomu přesně slouží [funkce](funkce.md) (pojmenovaný
+blok kódu) se speciálním názvem `main`:
 ```c
 int main() {
     // ZDE
@@ -15,8 +15,8 @@ Výše zmíněný program se po [překladu](../prostredi/preklad_programu.md) a 
 funkce `main`, a jakmile provede všechny řádky, tak program skončí. Tento program je
 v podstatě prázdný, takže se pouze zapne a vypne. Prozatím budeme veškerý kód psát dovnitř funkce
 `main`, mezi složené závorky (`{`, `}`) a před řádek `return 0;` (tedy na místo komentáře `ZDE`).
-Později si vysvětlíme, jak tato funkce funguje, prozatím to berte tak, že v programu vždy musí funkce
-`main` být, aby počítač věděl, odkud začít vykonávání kódu. 
+[Později](../ruzne/funkce_main.md) si vysvětlíme, jak tato funkce funguje, prozatím to berte tak,
+že v programu vždy musí funkce `main` být, aby počítač věděl, odkud začít vykonávání kódu. 
 
 # Příkazy
 Programy v *C* se skládají z **příkazů** (*statements*). Příkaz říká počítači, co má provést, na

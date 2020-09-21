@@ -201,4 +201,11 @@ funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyc
 - Sdílení kódu: pokud budete chtít použít kód, který napsal někdo jiný, tak toho dosáhnete právě
 používáním funkcí, které vám někdo [připraví](knihovny.md).
 
-<!-- <upr-svgs src="../animations/stack/stack-" to="15"></upr-svgs> -->
+### Umístění funkcí
+Funkce v *C* musíme psát vždy na nejvyšší úrovni souboru. V *C* tedy například není možné definovat
+funkci uvnitř jiné funkce:
+```c,editable,readonly
+int main() {
+    int test() { }
+}
+```

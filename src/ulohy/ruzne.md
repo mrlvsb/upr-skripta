@@ -13,9 +13,10 @@ Vykreslujte do terminálu obdélník spolu s pohybující se kuličkou. Jakmile 
 <details>
 <summary>Přibližný postup řešení</summary>
 Kuličku reprezentujte dvěmi proměnými (pozice X a Y). Opakovaně provádějte následující akce:
+
 - Posuňte kuličku ve směru jejího pohybu.
 - Pokud kulička narazí do stěny, změňte směr jejího pohybu.
-- Vyčistěte terminál, aby zmizelo herní pole z minulé iterace. Lze to provést více způsoby:?
+- Vyčistěte terminál, aby zmizelo herní pole z minulé iterace. Lze to provést více způsoby:
     - Vytiskněte velké množství prázdných řádků.
     - Vytiskněte text `"\e[1;1H\e[2J"`, který terminál bude interpretovat jako vyčistění obrazovky.
 - Vykreslete kuličku a obdélník.

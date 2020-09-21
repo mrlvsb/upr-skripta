@@ -129,3 +129,22 @@ operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cíl
 
 Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
 na to, jak funguje [dvojkový doplněk](https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk).
+
+### Hexadecimální a oktální zápis čísel
+V *C* můžete zapisovat číselné hodnoty také pomocí oktální (osmičkové) či hexadecimální (šestnáctkové)
+soustavy. Čísla začínající na `0` budou interpretována jako osmičková soustava, čísla začínající na
+`0x` budou interpretována jako šestnáctková soustava:
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+    int a = 13;     // hodnota 13
+    int b = 015;    // hodnota 13
+    int c = 0xD;    // hodnota 13
+    printf("%d\n", a);
+    printf("%d\n", b);
+    printf("%d\n", c);
+
+    return 0;
+}
+```

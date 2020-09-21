@@ -2857,14 +2857,19 @@ tip byl vyšší či nižší než číslo, které hádá.</p>
 <details>
 <summary>Přibližný postup řešení</summary>
 Kuličku reprezentujte dvěmi proměnými (pozice X a Y). Opakovaně provádějte následující akce:
-- Posuňte kuličku ve směru jejího pohybu.
-- Pokud kulička narazí do stěny, změňte směr jejího pohybu.
-- Vyčistěte terminál, aby zmizelo herní pole z minulé iterace. Lze to provést více způsoby:?
-    - Vytiskněte velké množství prázdných řádků.
-    - Vytiskněte text `"\e[1;1H\e[2J"`, který terminál bude interpretovat jako vyčistění obrazovky.
-- Vykreslete kuličku a obdélník.
-- Uspěte na chvíli program, abyste mohli pozorovat změněný stav hry. Můžete použít například funkci
-`usleep`: `usleep(100 * 1000)`.
+<ul>
+<li>Posuňte kuličku ve směru jejího pohybu.</li>
+<li>Pokud kulička narazí do stěny, změňte směr jejího pohybu.</li>
+<li>Vyčistěte terminál, aby zmizelo herní pole z minulé iterace. Lze to provést více způsoby:
+<ul>
+<li>Vytiskněte velké množství prázdných řádků.</li>
+<li>Vytiskněte text <code>&quot;\e[1;1H\e[2J&quot;</code>, který terminál bude interpretovat jako vyčistění obrazovky.</li>
+</ul>
+</li>
+<li>Vykreslete kuličku a obdélník.</li>
+<li>Uspěte na chvíli program, abyste mohli pozorovat změněný stav hry. Můžete použít například funkci
+<code>usleep</code>: <code>usleep(100 * 1000)</code>.</li>
+</ul>
 </details>
 <p>Výsledek by měl vypadat zhruba takto:</p>
 <p><img src="ulohy/../static/video/ball_terminal.gif" alt="Odrážející se kulička v terminálu" /></p>

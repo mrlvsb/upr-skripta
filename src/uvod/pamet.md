@@ -35,9 +35,10 @@ Toho dosáhneme pomocí **adresy**. Paměť je adresována tak, že každá pam�
 má číselnou adresu od 0 do velikosti paměti (nevčetně). Velmi zjednodušeně řečeno, pokud máte RAM
 paměť o velikosti 8 GiB (8589934592 "bajtů"), tak můžete adresovat buňky od 0 do 8589934591[^1].
 
-[^1]: Programy běžně nemají přístup k celé paměti počítače z bezpečnostních důvodů. Váš operační systém
-používá tzv. **virtuální paměť**, která každému běžícímu programu přiděluje určité rozsahy paměti, s kterými
-může pracovat. Více se dozvíte později. 
+[^1]: Programy běžně nemají přístup k celé paměti počítače (mimo jiné z bezpečnostních důvodů).
+Váš operační systém používá tzv. **virtuální paměť**, která každému běžícímu programu přiděluje
+určité rozsahy paměti, s kterými může pracovat. Více se dozvíte v předmětu
+[Operační systémy](http://poli.cs.vsb.cz/edu/osy/). 
 
 Pokud byste programovali počítač přímo pomocí instrukcí, tak mu můžete dát například instrukci
 `Nastav byte na adrese 58 na hodnotu 5` nebo `Přečti 4 byty začínající na adrese 1028`.

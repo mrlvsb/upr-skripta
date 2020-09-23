@@ -88,6 +88,27 @@ b = 10
 
 Ze tří čísel nalezneme maximum.
 
+```plantuml
+@startuml
+start
+
+if(a > b) then (ano)
+  if(a > c) then (ano)
+    :A je nejvetší;
+  else (ne)
+     :C je největší;
+  endif
+else (no)
+  if(b > c) then (ano)
+     :B je největší;
+  else (ne)
+     :C je největší;
+  endif
+endif
+stop
+@enduml
+```
+
 <details>
 <summary>Výstup</summary>
 

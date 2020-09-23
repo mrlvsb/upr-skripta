@@ -10,7 +10,14 @@ Na cvičeních UPR budeme používat editor `Visual Studio Code`, který je
 programování se hodí detailně znát a efektivně využívat editor, který používáte, ale pro začátek
 nám budou stačit naprosté základy.
 
-### Instalace potřebných rozšíření (pomocí terminálu)
+## Předpřipravený virtuální počítač
+V případě, že si nechceme instalovat Linux a následně konfigurovat vše potřebné, tak jsme pro Vás připravili obraz virtuálního stroje.
+Nejprve je nutné nainstalovat program [VirtualBox](https://www.virtualbox.org/wiki/Downloads) a poté stáhnout [předpřipravený obraz](http://mrl.cs.vsb.cz/data/upr/UPR.ova) virtuálního stroje.
+Na stažený soubor stačí poklikat a potvrdit import s výchozím nastavením.
+Virtuální počítač je pak možné spustit z programu Virtualbox a následující sekci, zabývající se instalací rozšíření, můžeme přeskočit.
+Uživatelské jméno a heslo je `student`.
+
+## Instalace potřebných rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V terminálu spusťte tyto příkazy:
 
@@ -21,7 +28,7 @@ $ code --install-extension ms-vscode.cpptools
 > Návod pro práci s terminálem na Linuxu můžete najít např. [zde](https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l).
 > Tahák pro příkazy terminálu najdete [zde](https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/linux.pdf).
 
-### Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
+## Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
 1. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
 2. Vyhledejte rozšíření C/C++ a nainstalujte ho
 
@@ -31,7 +38,7 @@ Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-cou
 
 ![Nastavení VSCode](../static/video/vsc_first_run.gif)
 
-### Užitečné zkratky 
+## Užitečné zkratky 
 - Spustit program - `F5`
 - Naformátovat kód - `Ctrl + Shift + I`
 - Zobrazit vyhledávač akcí - `Ctrl + Shift + P`

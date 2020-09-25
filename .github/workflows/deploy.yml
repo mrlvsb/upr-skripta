@@ -21,6 +21,9 @@ jobs:
                   mv ./mdbook ~/bin/
                   echo "::add-path::~/bin"
 
+            - name: Install mdbook-plantuml
+              run: cargo install mdbook-plantuml
+
             - name: Build
               run: mdbook build
 

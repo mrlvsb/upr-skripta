@@ -122,14 +122,6 @@ maximum je 40
 </details>
 
 
-
-
-## Výpočet kvadratické rovnice
-
-
-
-
-
 ## Výpis sudých čísel
 Vypište sudá čísla od 0 do 100 (včetně).
 

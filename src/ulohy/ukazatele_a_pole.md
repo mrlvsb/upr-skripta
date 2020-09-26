@@ -203,11 +203,11 @@ int* matrix_mul_vec(int* matrix, int rows, int cols, int *vec, int len);
 
 <upr-matrix-mul a="[[1, 2, 3], [4, 5, 6], [7, 8, 9]]" b="[[10], [20], [30]]"></upr-matrix-mul>
 
-### Násobení matice matici
+### Násobení matice maticí
 
 Vytvořte funkci pro násobení matice \\( A \\) o rozměrech \\( rows_1 \\times cols_1 \\) s druhou matici \\( B \\) o rozměrech \\( rows_2 \\times cols_2 \\).
 Funkce vrátí `NULL` v případě, že matice nepůjdou vynásobit např. v případě, že počet řádků první matice není shodný s počtem sloupců druhé matice.
-Výslednou matici o rozměrech \\( rows_1 \\times cols_1 \\) alokujte dynamicky 
+Výslednou matici o rozměrech \\( rows_1 \\times cols_1 \\) alokujte dynamicky.
 
 <upr-container>
   <upr-matrix-mul a="[[1, 2, 3], [4, 5, 6]]" b="[[10, 20], [30, 40], [50, 60]]"></upr-matrix-mul>

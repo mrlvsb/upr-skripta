@@ -1,7 +1,7 @@
 # Základy
 
 ## Obvod a obsah obdélníku
-Program vypočíta a vypíše obvod a obsah obdelníku ze dvou celočíselných velikosti stran \\( a \\), \\( b \\) podle známých vzorců.
+Program vypočítá a vypíše obvod a obsah obdélníku ze dvou celočíselných velikosti stran \\( a \\), \\( b \\) podle známých vzorců.
 
 <div style="display: flex; justify-content: center">
   <svg>
@@ -31,8 +31,8 @@ S = 20000
 ## Obsah vyšrafované plochy
 Ze zadané délky strany čtverce \\( a \\) a průměru kružnice \\( d \\) vypočítáme obsah vyšrafované plochy.
 Výpočet budeme provádět pomocí datového typu `float` s využitím konstanty `M_PI` z knihovny `<math.h>`.
-Druhou mocninu vypočítame násobením, ale také pomocí funkce `pow` .
-Při použití matematických funkcí je nutné program linkovat s knihovnou `math`[^10].
+Druhou mocninu vypočítáme násobením, ale také pomocí funkce `pow` .
+Při použití matematických funkcí je nutné program [linkovat](../c/knihovny.md) s knihovnou `math`[^10].
 Výsledek zapíšeme na výstup na 4 desetinná místa. 
 
 [^10]: <p> 

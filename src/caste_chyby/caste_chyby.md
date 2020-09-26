@@ -47,6 +47,23 @@ a && 4; // `true`
 if (a > 5 & a < 6) {}
 ```
 
+### Špatné volání funkce
+Abychom zavolali funkci (tj. řekli počítači, aby začal vykonávat kód, který v ní je), napíšeme
+název funkce, závorky a do nich případně seznam argumentů. Při volání funkce už nezadáváme její
+návratový typ, ten se udává pouze u definice funkce.
+
+```c
+int secti(int a, int b) {
+    return a + b;
+}
+int main() {
+    secti(1, 2);        // správně
+    int secti(1, 2);    // špatně
+
+    return 0;
+}
+```
+
 ### Záměna `'` s `"`
 - Apostrof (`'`) slouží k zapsání (jednoho) [znaku](../c/znaky.md). Neukládejte do něj více znaků či celý text.
 - Uvozovky (`"`) slouží k zapsání [řetězce](../c/text.md), tj. pole znaků ukončeného hodnotou `0`.

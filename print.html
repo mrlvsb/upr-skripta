@@ -3068,6 +3068,20 @@ a &amp;&amp; 4; // `true`
 // stejné jako a &gt; (5 &amp; a) &lt; 6
 if (a &gt; 5 &amp; a &lt; 6) {}
 </code></pre>
+<h3><a class="header" href="#Špatné-volání-funkce" id="Špatné-volání-funkce">Špatné volání funkce</a></h3>
+<p>Abychom zavolali funkci (tj. řekli počítači, aby začal vykonávat kód, který v ní je), napíšeme
+název funkce, závorky a do nich případně seznam argumentů. Při volání funkce už nezadáváme její
+návratový typ, ten se udává pouze u definice funkce.</p>
+<pre><code class="language-c">int secti(int a, int b) {
+    return a + b;
+}
+int main() {
+    secti(1, 2);        // správně
+    int secti(1, 2);    // špatně
+
+    return 0;
+}
+</code></pre>
 <h3><a class="header" href="#záměna--s" id="záměna--s">Záměna <code>'</code> s <code>&quot;</code></a></h3>
 <ul>
 <li>Apostrof (<code>'</code>) slouží k zapsání (jednoho) <a href="caste_chyby/../c/znaky.html">znaku</a>. Neukládejte do něj více znaků či celý text.</li>

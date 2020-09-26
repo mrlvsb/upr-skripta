@@ -199,7 +199,9 @@ Vytvořte funkci `matrix_mul_vector`, která vynásobí matici vektorem.
 int* matrix_mul_vec(int* matrix, int rows, int cols, int *vec, int len);
 ```
 
+<!--
 ![Násobení matice vektorem](../static/img/matrix_vector.svg)
+-->
 
 <upr-matrix-mul a="[[1, 2, 3], [4, 5, 6], [7, 8, 9]]" b="[[10], [20], [30]]"></upr-matrix-mul>
 

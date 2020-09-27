@@ -2,6 +2,9 @@
 Tato sekce je ve výstavbě 🚧.
 
 Automatic memory!!! pointer na lokální proměnnou
+- pointerová aritmetika
+- NULL
+- void*
 
 Prozatím jsme se zabývali jednoduchými datovými typy.
 Ty používáme pro ukládání hodnot do proměnných se specifikovaným datovým typem.
@@ -12,7 +15,7 @@ Každý běžící program má vyhrazen zásobník o přesně definované veliko
 [^1]: To je dáno buď nastavením prostředí operačního systému nebo hodnotou zadanou při kompilaci.
 
 Každá funkce má na tomto zásobníky také svuj **zásobníkový rámec** (*stack frame*).
-Do tohoto rámce se ukládají lokální proměnné definované ve funkcích a také hodnoty [parametrů funkcí](./funkce.md#parametrizace-funkcí).
+Do tohoto rámce se ukládají lokální proměnné definované ve funkcích a také hodnoty [parametrů funkcí](../funkce/funkce.md#parametrizace-funkcí).
 
 Podívejme se tedy, jak se takový parametr funkce chová při volání funkce.
 Chceme-li např. vytvořit funkci `swap`, která zamění hodnoty ve dvou proměnných, tak bychom ji aktuálně napsali zřejmě následovně:

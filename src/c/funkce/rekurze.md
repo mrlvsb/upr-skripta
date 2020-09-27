@@ -31,10 +31,10 @@ výpočet. Například při volání `factorial(4)`:
 8) `factorial(4)` vrátí `4 * 3 * 2 * 1`.
 
 Nejprve tak dojde k vypočtení `factorial(1)`, poté `factorial(2)`, atd. Výpočet je tak v jistém
-smyslu "otočen". Zkuste si výpočet faktoriálu [odkrokovat](../prostredi/ladeni.md#krokování), abyste
+smyslu "otočen". Zkuste si výpočet faktoriálu [odkrokovat](../../prostredi/ladeni.md#krokování), abyste
 si ujasnili, jak výpočet probíhá.
 
 ## Přetečení zásobníku
 Je důležité dávat si pozor na to, abychom vždy ve funkci měli podmínku, která rekurzi ukončí.
 Jinak by se funkce volala "donekonečna", dokud by nakonec nedošlo k
-[přetečení zásobníku](../caste_chyby/pametove_chyby.md#stack-overflow).
+[přetečení zásobníku](../../caste_chyby/pametove_chyby.md#stack-overflow).

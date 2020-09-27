@@ -21,7 +21,7 @@ desetinný oddělovač se používá tečka, ne čárka): `1O.5`, `-0.73`. Pokud
 `float`, tak za toto číslo ještě přidejte znak `f`: `10.5f`, `-0.73f`.
 
 Pokud chcete vytisknout na výstup hodnotu datového typu `float` nebo `double`, můžete použít
-[zástupný znak](prikazy_vyrazy.md#výpis-výrazů) `%f`:
+[zástupný znak](../prikazy_vyrazy.md#výpis-výrazů) `%f`:
 
 ```c
 printf("Desetinne cislo: %f\n", 1.0);

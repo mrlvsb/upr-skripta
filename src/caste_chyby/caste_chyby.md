@@ -3,9 +3,9 @@ V této sekci najdete často se vyskytující chyby, na které můžete narazit,
 vyřešit.
 
 ### Záměna `=` a `==`
-- Operátor `=` [přiřazuje](../c/promenne.md#zápis) hodnotu do svého levého operandu a vyhodnotí se s
+- Operátor `=` [přiřazuje](../c/promenne/promenne.md#zápis) hodnotu do svého levého operandu a vyhodnotí se s
 hodnotou pravého operandu.
-- Operátor `==` [porovnává](../c/pravdivostni_typy.md#porovnávání-hodnot) dvě hodnoty a vyhodnotí
+- Operátor `==` [porovnává](../c/datove_typy/pravdivostni_typy.md#porovnávání-hodnot) dvě hodnoty a vyhodnotí
 se jako pravdivostní hodnota `bool`.
 
 Je důležité tyto operátory nezaměňovat! Oba dva operátory jsou výrazy, takže se v něco vyhodnotí a
@@ -26,9 +26,9 @@ if (a = 5) {}
 ```
 
 ### Záměna `&` s `&&` nebo `|` s `||`
-- Operátor `&` provádí [bitový součin](../c/celociselne_typy.md#tabulka-aritmetických-operátorů),
+- Operátor `&` provádí [bitový součin](../c/datove_typy/celociselne_typy.md#tabulka-aritmetických-operátorů),
 očekává jako operandy celá čísla (např. `int`) a vrací celé číslo.
-- Operátor `&&` provádí [logický součin](../c/pravdivostni_typy.md#tabulka-logických-operátorů),
+- Operátor `&&` provádí [logický součin](../c/datove_typy/pravdivostni_typy.md#tabulka-logických-operátorů),
 očekává jako operandy pravdivostní hodnoty (`bool`) a vrací pravdivostní hodnotu.
 
 Je důležité tyto operátory nezaměňovat. Jelikož `bool` lze implicitně převést na celé číslo a naopak,
@@ -77,7 +77,7 @@ const char* str = "hello";  // správně
 ```
 
 ### Špatná práce s ukazatelem
-[Ukazatele](../c/ukazatele.md) jsou čísla, která interpretujeme jako
+[Ukazatele](../c/prace_s_pameti/ukazatele.md) jsou čísla, která interpretujeme jako
 [adresy v paměti](../uvod/pamet.md). Můžete s nimi sice provádět některé aritmetické operace
 (například sčítání či odčítání), nicméně v takovém případě provádíte výpočet s adresou, ne s
 hodnotou, která je na dané adrese uložena.

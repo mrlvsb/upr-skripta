@@ -1,5 +1,5 @@
 # Globální proměnné
-Proměnné, které jsme si ukázali, byly vytvářeny uvnitř [funkcí](funkce.md) (tj. ne na nejvyšší
+Proměnné, které jsme si ukázali, byly vytvářeny uvnitř [funkcí](../funkce/funkce.md) (tj. ne na nejvyšší
 úrovni souboru). Takovéto proměnné se nazývají **lokální proměnné**. Pokud chceme, aby k nějaké
 proměnné byl přístup odkudkoliv v programu, tak můžeme vytvořit proměnnou na úrovni souboru.
 Takovéto proměnné se nazývají **globální**.
@@ -32,7 +32,7 @@ aby šlo jasně vidět, že absence úvodní hodnoty není pouze nedopatřením 
 ### (Ne)používání globálních proměnných
 Globální proměnné jsou zde zmíněny pro úplnost, nicméně doporučujeme je používat spíše zřídka,
 obzvláště pokud půjde o globální proměnné, které půjde měnit (tj. pokud to nebudou
-[konstanty](konstanty.md)). Obecně řečeno, na čím více místech je proměnná dostupná, tím složitější
+[konstanty](../konstanty.md)). Obecně řečeno, na čím více místech je proměnná dostupná, tím složitější
 je přemýšlení nad tím, jak přesně s ní pracovat, proto je lepší používat proměnné lokální, pokud to
 jde. 
 

@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 ```
-První parametr je typu `int` a druhý parametr typu [ukazatel](../c/ukazatele.md) na
+První parametr je typu `int` a druhý parametr typu [ukazatel](../c/prace_s_pameti/ukazatele.md) na
 [řetězec](../c/retezce.md). Do těchto parametrů se uloží hodnoty zadané při spuštění programu v
 terminálu, tzv. **argumenty příkazového řádku** (*command line arguments*). Parametr `argc`
 (*argument count*) bude obsahovat počet předaných argumentů a parametr `argv` obsahuje ukazatel na

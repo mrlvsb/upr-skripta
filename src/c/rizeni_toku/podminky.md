@@ -16,7 +16,7 @@ if (<výraz typu bool>) {
 ```
 
 Pokud se výraz předaný `if`u vyhodnotí jako `true` (pravda), tak se provede
-[blok](promenne.md#deklarace-a-platnost) kódu uvnitř `if`u tak, jak jste zvyklí, a program dále
+[blok](../promenne/promenne.md#deklarace-a-platnost) kódu uvnitř `if`u tak, jak jste zvyklí, a program dále
 bude pokračovat za příkazem `if`. Pokud se však výraz vyhodnotí jako `false` (nepravda), tak se blok kódu
 uvnitř `if`u vůbec neprovede. V následujícím programu zkuste změnit výraz uvnitř závorek za `if` tak,
 aby se blok v podmínce vykonal:

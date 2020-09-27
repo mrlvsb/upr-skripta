@@ -2,7 +2,7 @@
 Jak už víme, programy jsou [sekvence příkazů](../uvod/programovaci_jazyky.md) pro počítač, který je provádí
 instrukci po instrukci (resp. řádek po řádku). Jakmile počítač vykoná jeden řádek vašeho programu, tak skočí
 na řádek níže, dokud nedojde na konec programu. Aby počítač věděl, kterou instrukci má provést
-jako první, tak mu musíme říct, kde má začít. K tomu přesně slouží [funkce](funkce.md) (pojmenovaný
+jako první, tak mu musíme říct, kde má začít. K tomu přesně slouží [funkce](funkce/funkce.md) (pojmenovaný
 blok kódu) se speciálním názvem `main`:
 ```c
 int main() {
@@ -102,7 +102,7 @@ výrazů.
 ### Datové typy
 Každý výraz má svůj datový typ, který udává, jak je hodnota výrazu v programu interpretována a také
 jaké operace má smysl nad výrazem dělat. Více o datových typech a operátorech se dozvíte v sekci
-[Datové typy](datove_typy.md).
+[Datové typy](datove_typy/datove_typy.md).
 
 ### Vedlejší efekty
 Pokud chcete pouze vypočítat výraz ("jen tak"), mimo nějaký příkaz, stačí za něj dát středník. Tím

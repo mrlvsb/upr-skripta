@@ -17,7 +17,7 @@ void vypis_text() {
 ```
 
 [^1]: Pravidla pro pojmenovávání funkcí jsou totožná s pravidly pro
-[pojmenovávání proměnných](promenne_pojmenovavani.md).
+[pojmenovávání proměnných](../promenne/pojmenovavani.md).
 
 Před názvem funkce je nutné uvést datový typ (zde je uveden typ `void`). [Níže](#návratová-hodnota-funkcí)
 bude vysvětleno, k čemu tento typ slouží.
@@ -38,7 +38,7 @@ int main() {
 }
 ```
 
-[^2]: Stejně jako u [cyklů](while.md) se bloku kódu funkce často říká **tělo funkce** (*function body*).
+[^2]: Stejně jako u [cyklů](../rizeni_toku/while.md) se bloku kódu funkce často říká **tělo funkce** (*function body*).
 
 Zavolání funkce je výraz, při jehož vyhodnocení dojde k provedení kódu funkce, která se volá.
 Když se v programu nahoře ve funkci `main` vykoná řádek `vypis_text();`, tak se začne vykonávat kód
@@ -156,7 +156,7 @@ int zvetsi(int cislo) {
 ```
 
 > Pokud má funkce jakýkoliv jiný návratový typ než `void`, tak v ní musí být vždy proveden příkaz
-> `return`! Pokud k tomu nedojde, tak program může začít vykazovat [nedefinované chování](promenne.md#vždy-inicializujte-proměnné)
+> `return`! Pokud k tomu nedojde, tak program může začít vykazovat [nedefinované chování](../promenne/promenne.md#vždy-inicializujte-proměnné)
 > a může se tak chovat nepředvídatelně. Například následující funkce je špatně, protože pokud hodnota
 > parametru `cislo` bude nezáporná, tak se ve funkci neprovede příkaz `return`:
 > ```c
@@ -199,7 +199,7 @@ funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyc
     set_player_health(player_id, health);
     ```
 - Sdílení kódu: pokud budete chtít použít kód, který napsal někdo jiný, tak toho dosáhnete právě
-používáním funkcí, které vám někdo [připraví](knihovny.md).
+používáním funkcí, které vám někdo [připraví](../knihovny.md).
 
 ## Umístění funkcí
 Funkce v *C* musíme psát vždy na nejvyšší úrovni souboru. V *C* tedy například není možné definovat
@@ -224,9 +224,9 @@ int f(int x) {
 }
 ```
 Aby ale funkce v *C* splňovala požadavky matematické funkce, musí být splněno několik vlastností:
-- Funkce nesmí mít žádné [vedlejší efekty](prikazy_vyrazy.md#vedlejší-efekty). To znamená, že by
+- Funkce nesmí mít žádné [vedlejší efekty](../prikazy_vyrazy.md#vedlejší-efekty). To znamená, že by
 měla pouze provést výpočet na základě vstupních parametrů a vrátit vypočtenou hodnotu. Neměla by
-číst nebo modifikovat [globální proměnné](globalni_promenne.md) nebo například interagovat se
+číst nebo modifikovat [globální proměnné](../promenne/globalni_promenne.md) nebo například interagovat se
 soubory na disku.
 - Funkce musí mít návratový typ jiný než `void`, aby vracela nějakou hodnotu. Z toho také vyplývá,
 že funkce s návratovým typem `void` musí mít nutně nějaké vedlejší efekty, jinak by totiž nemělo

@@ -48,7 +48,7 @@ použijete číselný výraz, například výraz `1` má datový typ `int`[^3].
 
 > Typ `char` je speciální v tom, že zároveň běžně reprezentuje textové znaky v
 > [ASCII](https://www.asciitable.com/) kódování. Více o reprezentaci textu v programech se dozvíte
-> v sekci o [řetězcích](retezce.md).
+> v sekci o [řetězcích](../retezce.md).
 
 ### Operace s číselnými typy
 C umožňuje provádět operace nad vestavěnými datovými typy pomocí tzv. **operátorů**. Při práci s

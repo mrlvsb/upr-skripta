@@ -6,7 +6,7 @@ adresovatelné paměti, která je použita právě jako zásobník.
 
 Při každém zavolání funkce vznikne na zásobníku tzv. **zásobníkový rámec** (*stack frame*).
 V tomto rámci je vyhrazena paměť pro lokální proměnné volané funkce a také pro její
-[parametry](./funkce.md#parametrizace-funkcí). Rámec vzniká při zavolání funkce, v jednu chvíli tak
+[parametry](../funkce/funkce.md#parametrizace-funkcí). Rámec vzniká při zavolání funkce, v jednu chvíli tak
 na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů) pro stejnou funkci.
 Rámce vznikají v paměti jeden za druhým, a jsou uvolněny v momentě, kdy se jejich funkce dokončí.[^1]
 
@@ -26,7 +26,7 @@ hodnota v paměti zůstane, dokud nebude přepsána příštím zavoláním funk
 V následující animaci můžete vidět sekvenci volání funkcí. Ve sloupci vpravo je zobrazen stav
 zásobníku při provádění tohoto programu. Modře jsou v něm znázorněny hodnoty parametrů a červeně
 hodnoty lokálních proměnných. Můžete si všimnout, že lokální proměnné mají
-[nedefinovanou hodnotu](promenne.md#vždy-inicializujte-proměnné), dokud do nich není nějaká hodnota
+[nedefinovanou hodnotu](../promenne/promenne.md#vždy-inicializujte-proměnné), dokud do nich není nějaká hodnota
 zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.
 
 <upr-svgs src="../../static/animations/stack/stack-" to="15" height="400"></upr-svgs>

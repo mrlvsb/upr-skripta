@@ -1,5 +1,5 @@
 # Paměťové chyby
-V *C* lze s pamětí programu pracovat [manuálně](../c/dynamicka_pamet.md), což velmi často vede
+V *C* lze s pamětí programu pracovat [manuálně](../c/prace_s_pameti/dynamicka_pamet.md), což velmi často vede
 k různým paměťovým chybám, které můžou způsobit špatné chování či pád programu. Jsou také
 nejčastějším zdrojem různých
 [zranitelností](https://owasp.org/www-community/attacks/Buffer_overflow_attack), které umožňují
@@ -11,7 +11,7 @@ nástroj [Address sanitizer](../prostredi/ladeni.md#address-sanitizer).
 ## Stack overflow
 Pokud bychom vytvořili v zásobníkovém rámci moc proměnných, proměnné, které jsou
 [moc velké](../c/pole.md), anebo bychom měli v jednu chvíli aktivních moc zásobníkových rámců
-(například při moc hluboké [rekurzi](../c/rekurze.md)), tak může dojít paměť určená pro zásobník.
+(například při moc hluboké [rekurzi](../c/funkce/rekurze.md)), tak může dojít paměť určená pro zásobník.
 Tato situce se nazývá **přetečení zásobníku** (*stack overflow*):
 ```c
 int funkce(int x) {
@@ -49,7 +49,7 @@ ukazatelů. Tato situace se nazývá
         return 0;
     }
     ```
-- Snažíme se přistoupit k paměti, která již byla [uvolněna](../c/dynamicka_pamet.md#uvolnění-paměti).
+- Snažíme se přistoupit k paměti, která již byla [uvolněna](../c/prace_s_pameti/dynamicka_pamet.md#uvolnění-paměti).
 Tato situace se nazývá
 [*use-after-free*](https://owasp.org/www-community/vulnerabilities/Using_freed_memory).
     ```c
@@ -77,7 +77,7 @@ Tato situace se nazývá
     ```
 
 ## Memory leak
-Pokud (opakovaně) alokujeme [dynamickou paměť](../c/dynamicka_pamet.md) a neuvolňujeme ji, tak
+Pokud (opakovaně) alokujeme [dynamickou paměť](../c/prace_s_pameti/dynamicka_pamet.md) a neuvolňujeme ji, tak
 dochází k tzv. [*memory leaku*](https://owasp.org/www-community/vulnerabilities/Memory_leak)
 (úniku paměti). Pokud paměť programu stále roste a není nijak uvolňována, tak postupem času počítači
 nutně dojde paměť a program tak bude násilně ukončen.

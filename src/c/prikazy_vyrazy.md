@@ -51,7 +51,8 @@ int main() {
 }
 ```
 Abyste `printf` mohli použít, musíte na začátek programu vložit řádek `#include <stdio.h>`.
-Tento řádek i `printf` zatím berte jako "black box", později si vysvětlíme, jak přesně fungují.
+Tento řádek i `printf` zatím berte jako "black box", [později](preprocesor/vkladani_souboru.md) si
+vysvětlíme, jak přesně fungují.
 
 [^2]: Tento kód můžete modifikovat i spustit přímo v prohlížeči. Stačí kliknout na ikonu
 <i class="fa fa-play"></i> vpravo nahoře nebo stisknout `Ctrl+Enter`.

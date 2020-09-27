@@ -15,11 +15,11 @@ dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které za
 Základní témata:
 - [Úvod](syntaxe.md) - základní syntaxe a komentáře
 - [Příkazy a výrazy](prikazy_vyrazy.md) - jak provádět výpočty
-- [Proměnné](promenne.md) - jak něco uložit a načíst z paměti paměti
-- [Datové typy](datove_typy.md) - jak pracovat s daty v paměti
-- [Řízení toku](rizeni_toku.md) - jak se rozhodovat a provádět akce opakovaně
-- [Funkce](funkce.md) - jak opakovaně využít a parametrizovat opakující se kód
-- [Ukazatele](ukazatele.md) - jak sdílet data v paměti a pracovat s adresami
+- [Proměnné](promenne/promenne.md) - jak něco uložit a načíst z paměti paměti
+- [Datové typy](datove_typy/datove_typy.md) - jak pracovat s daty v paměti
+- [Řízení toku](rizeni_toku/rizeni_toku.md) - jak se rozhodovat a provádět akce opakovaně
+- [Funkce](funkce/funkce.md) - jak opakovaně využít a parametrizovat opakující se kód
+- [Ukazatele](prace_s_pameti/ukazatele.md) - jak sdílet data v paměti a pracovat s adresami
 - [Pole](pole.md) - jak jednotně pracovat s velkým množstvím dat
 - [Text](text.md) - jak v programech reprezentovat text
 - [Struktury](struktury.md) - jak seskupit data do logicky souvisejících celků

@@ -1,6 +1,6 @@
 # Pojmenovávání proměnných
 V C existují určitá pravidla pro pojmenování proměnných:
-- Proměnné se nesmí jmenovat stejně jako [klíčová slova](syntaxe.md#klíčová-slova), jinak by
+- Proměnné se nesmí jmenovat stejně jako [klíčová slova](../syntaxe.md#klíčová-slova), jinak by
 překladač neuměl rozlišit, co je název proměnné a co klíčové slovo (například u `int int;`).
 - Název proměnné může obsahovat pouze malá (`a-z`) a velká (`A-Z`) písmena anglické abecedy, číslice
 (`0-9`) a podtržítko (`_`).
@@ -33,6 +33,6 @@ je seznam nejpoužívanějších konvencí:
 - `Screaming snake case`: `MUJ_UCET`, `PRVNI_KLIK_UZIVATELE`
 
 Různé konstrukce C můžou využívat různé styly, například častá konvence je použití `snake_case`
-pro názvy proměnných a [funkcí](funkce.md) a `PascalCase` pro názvy [struktur](struktury.md).
+pro názvy proměnných a [funkcí](../funkce/funkce.md) a `PascalCase` pro názvy [struktur](../struktury.md).
 Který styl budete používat záleží na vaší osobní preferenci, nicméně důležité je zejména držet se
 jednotného stylu a nekombinovat různé styly (pro jednotlivé typy konstrukcí) v jednom programu.

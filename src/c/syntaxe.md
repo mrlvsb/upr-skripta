@@ -15,7 +15,7 @@ int main() {
 }
 ```
 
-V programu výše je pouze [funkce](funkce.md) s názvem `main`. Funkce si popíšeme později, prozatím
+V programu výše je pouze [funkce](funkce/funkce.md) s názvem `main`. Funkce si popíšeme později, prozatím
 budeme psát kód vždy do funkce `main` (před `return 0;`). Jednotlivé prvky programu si postupně vysvětlíme
 v následujících sekcích, prozatím si však všimněte, že **bílé znaky** (*whitespace*)[^1] jsou obvykle
 překladačem ignorovány. Například

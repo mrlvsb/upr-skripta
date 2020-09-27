@@ -144,9 +144,9 @@ situaci:
 
 Toto chování může urychlit provádění programu, protože přeskakuje provádění zbytečných příkazů,
 nicméně může také způsobit nečekané chyby. Pokud by například vyhodnocení výrazu `b` obsahovalo nějaké
-[vedlejší efekty](prikazy_vyrazy.md#vedlejší-efekty), které se projeví při jeho provedení (například
+[vedlejší efekty](../prikazy_vyrazy.md#vedlejší-efekty), které se projeví při jeho provedení (například
 změna hodnoty v paměti), tak může být problematické, pokud se vyhodnocení tohoto výrazu zcela
-přeskočí. Pokud si pamatujete na [inkrementaci](promenne_slozeny_zapis.md#inkrementace-a-dekrementace),
+přeskočí. Pokud si pamatujete na [inkrementaci](../promenne/slozeny_zapis.md#inkrementace-a-dekrementace),
 tak ta je jedním z případů výrazů, které mají vedlejší efekt (změnu hodnoty proměnné).
 
 ### Konverze

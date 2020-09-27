@@ -17,7 +17,7 @@ v *C* je právě vytvoření proměnné. Tím řekneme počítači, aby vyčleni
 které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména můžeme odkazovat[^1].
 
 [^1]: O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
-[ukazatelích](ukazatele.md).
+[ukazatelích](../prace_s_pameti/ukazatele.md).
 
 ### Deklarace a platnost
 Takto vypadá **deklarace** (vytvoření) jednoduché proměnné s názvem `age`:
@@ -47,7 +47,7 @@ int main() {
 Oblast, ve které je proměnná validní, se nazývá (variable) *scope*.
 
 ### Datový typ
-`int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](datove_typy.md).
+`int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](../datove_typy/datove_typy.md).
 Prozatím si řekněme, že `int` je zkratka pro `integer`, tedy celé číslo. Tím říkáme programu, že má
 tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako celé číslo se znaménkem.
 
@@ -95,7 +95,7 @@ int main() {
 
 Kdekoliv tak můžete použít výraz, můžete použít i proměnnou (pokud sedí datové typy). Pro výpis hodnot
 proměnných na výstup programu můžete `printf`. Hodnoty proměnných můžete zkoumat také krokováním
-pomocí [debuggeru](../prostredi/ladeni.md#krokování).
+pomocí [debuggeru](../../prostredi/ladeni.md#krokování).
 
 ### Zápis
 Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
@@ -117,7 +117,7 @@ obvykle používá jako samostatný příkaz (tj. dává se za něj středník).
 [^2]: *C* umožňuje automatické (tzv. **implicitní**) konverze mezi některými datovými typy, takže typ výrazu
 nemusí být nutně vždy stejný. Tyto konverze se nicméně často chovají neintuitivně a překladač vás před nimi
 obvykle nijak nevaruje, i když vrátí výsledek, který nedává smysl. Snažte se tak ze začátku opravdu vždy
-používat odpovídající typy. Více se dozvíte v sekci o [datových typech](datove_typy.md). 
+používat odpovídající typy. Více se dozvíte v sekci o [datových typech](../datove_typy/datove_typy.md). 
 
 Jak přiřazení funguje? Počítač se podívá, na jaké adrese v paměti daná proměnná leží, a zapíše do
 paměti hodnotu výrazu, který do proměnné zapisujeme, čímž změní její hodnotu v paměti. Z toho vyplývá,
@@ -126,8 +126,8 @@ později si ukážeme další věci, do kterých lze zapisovat). Například př
 je výraz, číselná hodnota, která nemá žádnou adresu v paměti, nemůžeme tak do ní nic zapsat. Stejně tak
 nedává moc smysl říct `Číslo 5 odteď bude mít hodnotu 8`.
 
-Zatím známe pouze proměnné, později si však ukážeme [další možnosti](ukazatele.md), jak vytvořit
+Zatím známe pouze proměnné, později si však ukážeme [další možnosti](../prace_s_pameti/ukazatele.md), jak vytvořit
 "něco, co má adresu v paměti", a co tak půjde použít na levé straně operátoru zápisu `=`.
 
 **Cvičení**: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
-a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](prikazy_vyrazy.md#výpis-výrazů)).
+a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](../prikazy_vyrazy.md#výpis-výrazů)).

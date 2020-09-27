@@ -136,7 +136,7 @@ na `true`.
 Stejně jako podmínky, i cykly jsou příkazy, a můžete je tak používat libovolně v blocích *C* kódu
 a také je [vnořovat](podminky.md#vnořování-podmínek). Chování vnořených cyklů může být ze začátku
 trochu neintuitivní, proto je dobré si je procvičit. Zkuste si pomocí
-[debuggeru](../prostredi/ladeni.md#krokování) krokovat následující kód, abyste pochopili, jak se
+[debuggeru](../../prostredi/ladeni.md#krokování) krokovat následující kód, abyste pochopili, jak se
 provádí, a zkuste odhadnout, jakých hodnot budou postupně nabývat proměnné `i` a `j`. Poté odkomentujte
 výpisy `printf` a ověřte, jestli byl váš odhad správný:
 ```c,editable,mainbody

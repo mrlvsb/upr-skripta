@@ -48,7 +48,7 @@ funkce `vypis_text`. Jakmile se příkazy z této funkce vykonají, tak program 
 Pomocí volání funkcí můžeme mít kus kódu v programu zapsán pouze jednou ve funkci, a poté ho
 můžeme spouštět z různých částí programu, podle toho, kdy se nám to zrovna bude hodit.
 
-### Parametrizace funkcí
+## Parametrizace funkcí
 Funkcím lze dávat vstupy zvané **parametry** (*parameters*). Parametry jsou proměnné uvnitř funkce,
 jejichž hodnotu nastavujeme při zavolání dané funkce. Například následující funkce `vypis_cislo` má
 parametr `cislo` s datovým typem `int`.
@@ -107,7 +107,7 @@ na obrazovce na dané pozici pixel s odpovídající barvou.
 
 **Cvičení**: Zkuste naprogramovat funkci `vypis_ctverec`.
 
-### Návratová hodnota funkcí
+## Návratová hodnota funkcí
 Nejenom, že funkce můžou přijímat vstup, ale umí také vracet výstup. Datový typ uvedený před názvem
 funkce udává, jakého typu bude tzv. **návratová hodnota** (*return value*) dané funkce. V příkladech
 výše jsme viděli datový typ `void`. Tento datový typ je speciální, protože říká, že funkce nebude
@@ -170,7 +170,7 @@ int zvetsi(int cislo) {
 Pokud má funkce návratový typ `void`, tak její provádění můžeme ukončit pomocí příkazu `return;`
 (zde nepředáváme žádný výraz, protože funkce nic nevrací).
 
-### Syntaxe
+## Syntaxe
 Syntaxe funkcí v *C* vypadá takto:
 ```c
 <datový typ> <název funkce>(<dat. typ par. 1> <název par. 1>, <dat. typ par. 2> <název par. 2>, ...) {
@@ -181,7 +181,7 @@ Datovému typu, názvu funkce a jejím parametrům se dohromady říká **signat
 Tato informace je důležitá, abychom věděli, jak s danou funkcí pracovat (jak ji volat), k tomu není
 nutné znát obsah těla funkce.
 
-### Výhody funkcí
+## Výhody funkcí
 Zde je pro zopakování uveden přehled výhod používání funkcí:
 - Znovupoužitelnost kódu: pokud chcete stejný kód použít na více místech programu, nemusíte ho
 "copy-pastovat". Stačí ho vložit do funkce a tu poté zavolat.
@@ -201,7 +201,7 @@ funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyc
 - Sdílení kódu: pokud budete chtít použít kód, který napsal někdo jiný, tak toho dosáhnete právě
 používáním funkcí, které vám někdo [připraví](knihovny.md).
 
-### Umístění funkcí
+## Umístění funkcí
 Funkce v *C* musíme psát vždy na nejvyšší úrovni souboru. V *C* tedy například není možné definovat
 funkci uvnitř jiné funkce:
 ```c,editable,readonly
@@ -209,3 +209,37 @@ int main() {
     int test() { }
 }
 ```
+
+## Proč název "funkce"?
+Možná vás napadlo, že název funkce zní podobně jako [funkce](https://matematika.cz/co-je-to-funkce)
+v matematice. Není to náhoda, funkce v programech se tak opravdu dají částečně chápat – berou nějaký
+vstup (parametry) a vracejí výstup (návratovou hodnotu). Například následující matematickou funkci:
+
+\\( f(x) = 2 * x \\)
+
+můžeme v *C* naprogramovat takto:
+```c
+int f(int x) {
+    return 2 * x;
+}
+```
+Aby ale funkce v *C* splňovala požadavky matematické funkce, musí být splněno několik vlastností:
+- Funkce nesmí mít žádné [vedlejší efekty](prikazy_vyrazy.md#vedlejší-efekty). To znamená, že by
+měla pouze provést výpočet na základě vstupních parametrů a vrátit vypočtenou hodnotu. Neměla by
+číst nebo modifikovat [globální proměnné](globalni_promenne.md) nebo například interagovat se
+soubory na disku.
+- Funkce musí mít návratový typ jiný než `void`, aby vracela nějakou hodnotu. Z toho také vyplývá,
+že funkce s návratovým typem `void` musí mít nutně nějaké vedlejší efekty, jinak by totiž nemělo
+cenu ji volat (protože nic nevrací).
+- Pokud je funkce zavolána se stejnými hodnotami parametrů, musí vždy vrátit stejnou návratovou
+hodnotu. Této vlastnosti se říká *idempotence*. Jelikož jsou počítače deterministické, tato
+vlastnost by měla být triviálně splněna, pokud funkce neobsahuje žádné vedlejší efekty.
+
+Funkce splňující tyto vlastnosti se nazývají *čisté* (*pure*). S takovýmito funkcemi je jednodušší
+pracovat a přemýšlet nad tím, co dělají, protože si můžeme být jistí, že nemodifikují okolní stav
+programu a pouze spočítají výsledek v závislosti na svých parametrech. Pokud to tedy jde, snažte se
+funkce psát tímto stylem (samozřejmě ne vždy je to možné).
+
+V předmětu
+[Funkcionální programování](https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-2054/01)
+budete pracovat s funkcionálními programovacími jazyky, ve kterých je většina funkcí čistých.

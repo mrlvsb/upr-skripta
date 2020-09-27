@@ -76,8 +76,11 @@ pokud použijeme inicializaci.
 Je opravdu důležité do proměnné vždy při její deklaraci přiřadit nějakou úvodní hodnotu. Pokud to
 neuděláme, tak její hodnota bude **nedefinovaná** (*undefined*), což v praxi znamená, že může být
 jakákoliv a při každém spuštění programu se může lišit. Čtení hodnoty takovéto nedefinované proměnné
-způsobuje **nedefinované chování** (*undefined behaviour*) programu. Pokud k tomu dojde, tak si překladač
+způsobuje **nedefinované chování** (*undefined behaviour*)[^2] programu. Pokud k tomu dojde, tak si překladač
 s vaším programem může udělat, co se mu zachce, a váš program se poté může chovat nepředvídatelně.
+
+[^2]: Situace, které můžou způsobit nedefinované chování, budou dále v textu označené pomocí ikony
+💣.
 
 **Proto vždy dávejte proměnným iniciální hodnotu!**
 
@@ -110,11 +113,11 @@ Obecná syntaxe pro přiřazení do proměnné je
 
 `<název proměnné> = <výraz>`
 
-Opět musí platit, že výraz musí být stejného typu[^2], jako je proměnná, do které přiřazujeme. Na konci
+Opět musí platit, že výraz musí být stejného typu[^3], jako je proměnná, do které přiřazujeme. Na konci
 řádku také nesmí chybět středník. Přiřazení je příklad výrazu, který má vedlejší efekt, proto se
 obvykle používá jako samostatný příkaz (tj. dává se za něj středník).
 
-[^2]: *C* umožňuje automatické (tzv. **implicitní**) konverze mezi některými datovými typy, takže typ výrazu
+[^3]: *C* umožňuje automatické (tzv. **implicitní**) konverze mezi některými datovými typy, takže typ výrazu
 nemusí být nutně vždy stejný. Tyto konverze se nicméně často chovají neintuitivně a překladač vás před nimi
 obvykle nijak nevaruje, i když vrátí výsledek, který nedává smysl. Snažte se tak ze začátku opravdu vždy
 používat odpovídající typy. Více se dozvíte v sekci o [datových typech](../datove_typy/datove_typy.md). 

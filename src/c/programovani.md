@@ -25,7 +25,7 @@ Základní témata:
 - [Struktury](struktury.md) - jak seskupit data do logicky souvisejících celků
 - [Soubory](soubory.md) - jak číst a zapisovat soubory
 - [Modularizace](modularizace/modularizace.md) - jak rozdělit program do více zdrojových souborů
-- [Knihovny](knihovny.md) - jak využít existující kód od jiných programátorů
+- [Knihovny](modularizace/knihovny.md) - jak využít existující kód od jiných programátorů
 
 Všechny tyto koncepty jsou velmi univerzální a v tzv. [imperativních](https://cs.wikipedia.org/wiki/Imperativn%C3%AD_programov%C3%A1n%C3%AD)
 programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jednou naučíte, tak je budete

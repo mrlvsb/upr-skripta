@@ -59,13 +59,13 @@ ho napsat například takto:
     ```
     Pokud však takovéto makro použijeme s nějakým komplexním výrazem, nemusíme dosáhnout kýženého
     výsledku kvůli priority operátorů:
-    ```c,editable
+    ```c,editable,mainbody
     #include <stdio.h>
 
     #define MOCNINA(a) a * a
 
     int main() {
-        printf("%d\n", MOCNINA(1 + 1)); 
+        printf("%d\n", MOCNINA(1 + 1));
         return 0;
     }
     ```
@@ -82,7 +82,7 @@ ho napsat například takto:
 jednoduše takovýto argument rozkopírovat a tím pádem vedlejší efekt provést vícekrát. Například při
 použití makra `MOCNINA` výše by zde došlo k dvojnásobené inkrementaci proměnné `x`:
 
-    ```c,editable
+    ```c,editable,mainbody
     #include <stdio.h>
 
     #define MOCNINA(a) a * a

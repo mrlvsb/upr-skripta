@@ -28,6 +28,7 @@
             - [Cyklus for](c/rizeni_toku/for.md)
     - [Funkce](c/funkce/funkce.md)
         - [Rekurze](c/funkce/rekurze.md)
+        - [Funkce standardní knihovny](c/funkce/stdlib.md)
     - [Preprocesor](c/preprocesor/preprocesor.md)
         - [Vkládání souborů](c/preprocesor/vkladani_souboru.md)
         - [Makra](c/preprocesor/makra.md)

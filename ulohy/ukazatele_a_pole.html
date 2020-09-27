@@ -182,6 +182,7 @@ video {
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#ukazatele-a-pole" id="ukazatele-a-pole">Ukazatele a pole</a></h1>
+<h2><a class="header" href="#ukazatele" id="ukazatele">Ukazatele</a></h2>
 <h3><a class="header" href="#nastavení-maxima" id="nastavení-maxima">Nastavení maxima</a></h3>
 <p>Vytvořte funkci <code>set_max</code>, která přijme adresu celého čísla (<code>int</code>) pomocí ukazatele a dvě další
 čísla a nastaví paměť na dané adrese na větší ze dvou zadaných čísel.</p>
@@ -195,34 +196,51 @@ set_max(&amp;res, 5, 6);
 swap(&amp;a, &amp;b);
 // a == 6, b == 5
 </code></pre>
-<h3><a class="header" href="#načtení-dynamického-počtu-hodnot" id="načtení-dynamického-počtu-hodnot">Načtení dynamického počtu hodnot</a></h3>
-<p>Načtěte od uživatele číslo <code>n</code>. Poté naalokujte paměť o velikosti <code>n</code> <code>int</code>ů a 
-načtěte ze vstupu <code>n</code> čísel, které postupně uložte do vytvořeného pole. Vypište součet načteného
-pole.</p>
+<h3><a class="header" href="#výpočet-kořenů-kvadratické-rovnice" id="výpočet-kořenů-kvadratické-rovnice">Výpočet kořenů kvadratické rovnice</a></h3>
+<p>Vytvořte funkci <code>quadratic_roots</code>, která vrátí počet kořenů kvadratické rovnice \( ax^2 + bx + c = 0 \) pomocí <code>return</code> a vypočítané kořeny vrátí pomocí předaných ukazatelů v argumentech funkce.</p>
+<pre><code class="language-c">int quadratic_roots(float a, float b, float c, float *x1, float *x2);
+</code></pre>
+<p>Počet kořenů lze zjistit vypočítáním diskriminantu \( D = b^2 - 4ac \).
+Pokud vyjde diskriminant záporný, tak funkce vrátí nulu, protože žádné řešení v \( \mathbb{R} \) neexistuje.
+Pro nulový diskriminant funkce vrátí <code>1</code> a uloží dvojnásobný kořen na adresu ukazatelů <code>x1</code>, <code>x2</code>.
+Pro kladný diskriminant funkce vrátí <code>2</code> a vypočítá kořeny pomocí:
+$$ x_{1, 2} = \frac{-b \pm \sqrt{D}}{2a} $$</p>
+<p><upr-parabola></upr-parabola></p>
+<h2><a class="header" href="#pole" id="pole">Pole</a></h2>
 <h3><a class="header" href="#naplnění-pole" id="naplnění-pole">Naplnění pole</a></h3>
 <p>Vytvořte funkci <code>fill_array</code>, která naplní pole <code>array</code> čísly zvětšujícími se po <code>increment</code> a
 začínajícími od <code>start</code>. </p>
 <pre><code class="language-c">void fill_array(int* array, int len, int start, int increment);
 </code></pre>
-<p>Zavolání <code>fill_array(nums, 6, 10, 5)</code> naplní pole <code>nums</code> čísly: <code>10</code>, <code>15</code>, <code>20</code>, <code>25</code>, <code>30</code>, <code>35</code>.</p>
+<p><upr-array-fill></upr-array-fill></p>
 <h3><a class="header" href="#počítání-výskytů-čísla" id="počítání-výskytů-čísla">Počítání výskytů čísla</a></h3>
-<p>Vytvořte funkci <code>num_count</code>, která spočítá počet výskytů čísla <code>num</code> v poli <code>array</code>.</p>
+<p>Vytvořte funkci <code>num_count</code>, která spočítá a vrátí počet výskytů čísla <code>num</code> v poli <code>array</code>.</p>
 <pre><code class="language-c">int num_count(int* array, int len, int num);
 </code></pre>
+<p><upr-array-interval array="[10, 2, 4, 3, 4, 8, 9, 4]" from="4" to="4"></upr-array-interval></p>
 <h3><a class="header" href="#počítání-čísel-v-intervalu" id="počítání-čísel-v-intervalu">Počítání čísel v intervalu</a></h3>
 <p>Vytvořte funkci <code>in_interval</code>, která spočítá počet čísel z uzavřeného intervalu <code>[from, to]</code> v poli
 <code>array</code>.</p>
 <pre><code class="language-c">int in_interval(int* array, int len, int from, int to);
 </code></pre>
+<p><upr-array-interval array="[10, 2, 4, 3, 4, 8, 9, 4]" from="2" to="5"></upr-array-interval></p>
 <h3><a class="header" href="#průměrná-hodnota" id="průměrná-hodnota">Průměrná hodnota</a></h3>
 <p>Vytvořte funkci <code>average</code>, která spočítá průměr čísel v poli <code>array</code>.</p>
 <pre><code class="language-c">double average(int* array, int len);
 </code></pre>
-<p>Při dělení nezapomeňte přetypovat alespoň jeden operand na typ <code>double</code>, jinak by došlo k
+<p>Při dělení nezapomeňte přetypovat alespoň jeden operand na typ <code>double</code>, aby nedošlo k
 celočíselnému dělení.</p>
+<h3><a class="header" href="#minimální-hodnota-v-poli" id="minimální-hodnota-v-poli">Minimální hodnota v poli</a></h3>
+<p>Vytvořte funkci, která v poli <code>array</code> nalezne minimální hodnotu.</p>
+<pre><code class="language-c">int array_min(int *array, int len);
+</code></pre>
+<p><upr-array-min array="[3, 5, 2, 8, 7, 1, 3]"></upr-array-min></p>
+<p>Následně funkci upravte, aby funkce vrátila pomocí ukazatele první index s minimální hodnotou.</p>
+<pre><code class="language-c">int array_min(int *array, int len, int *min_index);
+</code></pre>
 <h3><a class="header" href="#minimální-a-maximální-hodnota" id="minimální-a-maximální-hodnota">Minimální a maximální hodnota</a></h3>
-<p>Vytvořte funkci <code>min_max</code>, která nalezne minimum a maximum z pole <code>array</code> a uloží je do ukazatelů
-<code>min</code> a <code>max</code>.</p>
+<p>Předchozí funkci upravte, aby hledala minimum a maximum zároveň.
+Nalezené extrémy vraťte pomocí ukazatelů <code>min</code> a <code>max</code>.</p>
 <pre><code class="language-c">void min_max(int* array, int len, int *min, int *max);
 </code></pre>
 <p>Ve funkci si nejprve nastavte index minimální a maximální hodnoty na nultý prvek.
@@ -236,20 +254,35 @@ maximálního prvku (stačí udělat jeden průchod polem).</p>
 <pre><code class="language-c">void array_reverse(int* array, int len);
 </code></pre>
 <p>Pole projděte pomoci cyklu do jeho půlky a vždy prohazujte prvky z obou konců.</p>
-<p><img src="../static/img/array_reverse.svg" alt="Obrácení pole" /></p>
+<p><upr-array-reverse array="[10, 20, 30, 40, 50, 60]"></upr-array-reverse></p>
 <p>Přehození dvou prvků nemůžete udělat najednou. Uložte si například prvek z levého konce do proměnné
 a následně do tohoto prvku zapište hodnotu z pravého konce. Poté hodnotu z proměnné uložte do pravého
-konce. Alternativně také můžete využít funkci <code>void swap(int* a, int* b)</code> z úloh s
-<a href="ukazatele.html">ukazateli</a>.</p>
+konce. Alternativně také můžete využít dříve naimplementovanou funkci <code>void swap(int* a, int* b)</code>.</p>
 <h3><a class="header" href="#skalární-součin" id="skalární-součin">Skalární součin</a></h3>
 <p>Vytvořte funkci <code>dot</code>, která spočítá
 <a href="https://cs.wikipedia.org/wiki/Skal%C3%A1rn%C3%AD_sou%C4%8Din">skalární součin</a>.</p>
 <pre><code class="language-c">int dot(int* a, int* b, int len);
 </code></pre>
+<h3><a class="header" href="#načtení-dynamického-počtu-hodnot" id="načtení-dynamického-počtu-hodnot">Načtení dynamického počtu hodnot</a></h3>
+<p>Načtěte od uživatele číslo <code>n</code>. Poté naalokujte paměť o velikosti <code>n</code> <code>int</code>ů a 
+načtěte ze vstupu <code>n</code> čísel, které postupně uložte do vytvořeného pole. Vypište součet načteného
+pole.</p>
+<h3><a class="header" href="#counting-sort" id="counting-sort">Counting sort</a></h3>
+<p>Vygenerujte pole 10 000 000 čísel z intervalu \( \langle 1000, 2000 \rangle \).
+Pomocí algoritmu counting sort seřaďte čísla v poli od nejmenšího po největší.</p>
+<ol>
+<li>vytvořte pole počítadel pro všechny možné hodnoty v poli</li>
+<li>vynulujte počitadla na 0</li>
+<li>sekvenčně projděte pole čísel a inkrementujte odpovídající počítadlo</li>
+<li>projděte pole počítadel a tiskněte hodnotu tolikrát, kolik je hodnota počítadla</li>
+</ol>
+<p><upr-counting-sort></upr-counting-sort></p>
 <h3><a class="header" href="#třízení" id="třízení">Třízení</a></h3>
 <p>Naimplementujte funkci, která setřídí pole. Můžete použít například algoritmus
 <a href="https://en.wikipedia.org/wiki/Bubble_sort">bubble sort</a>.</p>
-<h3><a class="header" href="#2d-pole" id="2d-pole">2D pole</a></h3>
+<h3><a class="header" href="#binární-vyhledávání" id="binární-vyhledávání">Binární vyhledávání</a></h3>
+<h3><a class="header" href="#pád-kuličky" id="pád-kuličky">Pád kuličky</a></h3>
+<h2><a class="header" href="#2d-pole" id="2d-pole">2D pole</a></h2>
 <p>Matici/2D pole/obrázek můžete reprezentovat pomocí 1D pole tak, že řádky budou v paměti ležet jeden
 za druhým. Index dvojrozměrného prvku v 1D poli můžeme spočítat jako <code>řádek * počet_sloupců + sloupec</code>.</p>
 <p><img src="../static/img/2d_array.svg" alt="2D pole" /></p>
@@ -276,6 +309,8 @@ X    X    X
 </code></pre>
 <p>Hvězdici můžete vykreslit do pole pomocí jediného cyklu.
 Zkuste vytvořit funkce na vykreslení dalších tvarů (čára, čtverec, kružnice, trojúhelník, ...).</p>
+<h3><a class="header" href="#7-segment-display" id="7-segment-display">7 segment display</a></h3>
+<h3><a class="header" href="#ascii-art" id="ascii-art">ASCII art</a></h3>
 <h3><a class="header" href="#násobení-matice-skalárem" id="násobení-matice-skalárem">Násobení matice skalárem</a></h3>
 <p>Vytvořte funkci <code>matrix_mul_scalar</code>, která vynásobí každý prvek matice číslem <code>k</code>. </p>
 <pre><code class="language-c">void matrix_mul_scalar(int* matrix, int rows, int cols, int k);
@@ -285,7 +320,22 @@ Zkuste vytvořit funkce na vykreslení dalších tvarů (čára, čtverec, kruž
 <p>Vytvořte funkci <code>matrix_mul_vector</code>, která vynásobí matici vektorem.</p>
 <pre><code class="language-c">int* matrix_mul_vec(int* matrix, int rows, int cols, int *vec, int len);
 </code></pre>
-<p><img src="../static/img/matrix_vector.svg" alt="Násobení matice vektorme" /></p>
+<!--
+![Násobení matice vektorem](../static/img/matrix_vector.svg)
+-->
+<p><upr-matrix-mul a="[[1, 2, 3], [4, 5, 6], [7, 8, 9]]" b="[[10], [20], [30]]"></upr-matrix-mul></p>
+<h3><a class="header" href="#násobení-matice-maticí" id="násobení-matice-maticí">Násobení matice maticí</a></h3>
+<p>Vytvořte funkci pro násobení matice \( A \) o rozměrech \( rows_1 \times cols_1 \) s druhou matici \( B \) o rozměrech \( rows_2 \times cols_2 \).
+Funkce vrátí <code>NULL</code> v případě, že matice nepůjdou vynásobit např. v případě, že počet řádků první matice není shodný s počtem sloupců druhé matice.
+Výslednou matici o rozměrech \( rows_1 \times cols_1 \) alokujte dynamicky.</p>
+<upr-container>
+  <upr-matrix-mul a="[[1, 2, 3], [4, 5, 6]]" b="[[10, 20], [30, 40], [50, 60]]"></upr-matrix-mul>
+  <!--
+  <upr-arrow dst="table" dst-anchor="south" src-anchor="north">a</upr-arrow>
+  <upr-arrow dst="table:nth-of-type(2)" dst-anchor="south" src-anchor="north">b</upr-arrow>
+  <upr-arrow dst="table:nth-of-type(3)" dst-anchor="south" src-anchor="north">result</upr-arrow>
+  -->
+</upr-container>
 
                     </main>
 

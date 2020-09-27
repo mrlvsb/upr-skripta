@@ -6,7 +6,8 @@ zejména pro různé logické operace, například porovnávání hodnot (`Je a 
 
 V C se Booleovský datový typ nazývá `_Bool`. Nicméně tento název je docela krkolomný, obvykle se proto
 používá místo něho typ `bool`. Abyste ho mohli použít, tak na začátek programu musíte vložit řádek
-`#include <stdbool.h>`. Později si vysvětlíme, co tento řádek dělá.
+`#include <stdbool.h>`. [Později](../preprocesor/vkladani_souboru.md) si vysvětlíme, co tento řádek
+dělá.
 ```c,editable,mainbody
 #include <stdbool.h>
 #include <stdio.h>

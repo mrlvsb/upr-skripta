@@ -130,6 +130,8 @@ operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cíl
 Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
 na to, jak funguje [dvojkový doplněk](https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk).
 
+Konverze se také často označuje jako **přetypování** (*type casting*).
+
 ### Hexadecimální a oktální zápis čísel
 V *C* můžete zapisovat číselné hodnoty také pomocí oktální (osmičkové) či hexadecimální (šestnáctkové)
 soustavy. Čísla začínající na `0` budou interpretována jako osmičková soustava, čísla začínající na

@@ -26,8 +26,8 @@ hodnota v paměti zůstane, dokud nebude přepsána příštím zavoláním funk
 V následující animaci můžete vidět sekvenci volání funkcí. Ve sloupci vpravo je zobrazen stav
 zásobníku při provádění tohoto programu. Modře jsou v něm znázorněny hodnoty parametrů a červeně
 hodnoty lokálních proměnných. Můžete si všimnout, že lokální proměnné mají
-[nedefinovanou hodnotu](../promenne/promenne.md#vždy-inicializujte-proměnné), dokud do nich není nějaká hodnota
-zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.
+[nedefinovanou hodnotu](../promenne/promenne.md#vždy-inicializujte-proměnné), dokud do nich není
+nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.
 
 <upr-svgs src="../../static/animations/stack/stack-" to="15" height="400"></upr-svgs>
 

@@ -157,7 +157,7 @@ int zvetsi(int cislo) {
 
 > Pokud má funkce jakýkoliv jiný návratový typ než `void`, tak v ní musí být vždy proveden příkaz
 > `return`! Pokud k tomu nedojde, tak program může začít vykazovat [nedefinované chování](../promenne/promenne.md#vždy-inicializujte-proměnné)
-> a může se tak chovat nepředvídatelně. Například následující funkce je špatně, protože pokud hodnota
+> 💣 a může se tak chovat nepředvídatelně. Například následující funkce je špatně, protože pokud hodnota
 > parametru `cislo` bude nezáporná, tak se ve funkci neprovede příkaz `return`:
 > ```c
 > int absolutni_hodnota(int cislo) {

@@ -107,7 +107,7 @@ nahradí během překladu programu, takže samy o sobě žádnou paměť nezabí
 - Makra s parametry umožňují definici hodnot či textu závislou na použitých parametrech, což
 globální proměnné neumožňují.
 - Konstantní globální proměnné nelze použít například pro určení velikosti statických
-[polí](../pole.md).
+[polí](../pole/pole.md).
 
 Nicméně, makra jsou občas problémová kvůli toho, že se nahrazují čistě jako text. Pokud je to tedy
 možné, zkuste raději použít pro definici konstant v kódu konstantní globální proměnné.

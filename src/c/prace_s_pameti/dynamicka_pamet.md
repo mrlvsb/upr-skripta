@@ -4,7 +4,7 @@ velké množství paměti a nemůžeme ani alokovat paměť s dynamickou velikos
 vstupu programu). Abychom tohoto dosáhli, tak musíme použít jiný mechanismus alokace paměti, ve
 kterém paměť alokujeme i uvolňujeme manuálně.
 
-Tento mechanismus se nazývá **dynamická paměť** (*dynamic memory allocation*). Pomocí několika
+Tento mechanismus se nazývá **dynamická alokace paměti** (*dynamic memory allocation*). Pomocí několika
 funkcí standardní knihovny *C* můžeme naalokovat paměť s libovolnou velikosti. Tato paměť je
 alokována v oblasti paměti zvané **halda** (*heap*). Narozdíl od zásobníku, prvky na haldě neleží
 striktně za sebou, a lze je tak uvolňovat v libovolném pořadí. Můžeme tak naalokovat paměť libovolné
@@ -22,7 +22,7 @@ void* malloc(size_t size);
 
 [^1]: Datový typ [`size_t`](https://en.cppreference.com/w/c/types/size_t) reprezentuje bezznaménkové
 celé číslo, do kterého by měla jít uložit velikost největší možné hodnoty libovolného typu. Často
-se používá pro indexaci [polí](../pole.md).
+se používá pro indexaci [polí](../pole/pole.md).
 
 Parametr `size` udává, kolik bytů paměti se má naalokovat. Tuto velikost můžeme "tipnout"
 manuálně, nicméně to není moc dobrý nápad, protože bychom si museli pamatovat velikosti datových
@@ -80,7 +80,7 @@ se mají naalokovat, a velikost každé hodnoty.
 ## Uvolnění paměti
 S velkou mocí přichází i velká [zodpovědnost](https://citaty.net/citaty/1957976-stan-lee-s-velkou-moci-prichazi-velka-odpovednost/),
 takže při použití dynamické paměti sice máme více možností než při použití zásobníku, ale zároveň
-MUSÍME tuto paměť korektně uvolňovat (což se u automatické paměti provádělo automaticky). Pokud
+**MUSÍME** tuto paměť korektně uvolňovat (což se u automatické paměti provádělo automaticky). Pokud
 bychom totiž paměť neustále pouze alokovali a neuvolňovali, tak by nám
 [brzy došla](../../caste_chyby/pametove_chyby.md#memory-leak).
 
@@ -117,7 +117,7 @@ které se můžou pokazit, pokud kombinaci manuální alokace a uvolňování pa
 Jak jste si mohli všimnout ze signatury funkce `malloc`, můžete jí dát libovolný počet bytů.
 Nemusíte se tak omezovat velikostí základních datových typů, můžete například naalokovat paměť pro
 5 `int`ů zároveň, které poté budou ležet za sebou v paměti a bude tak jednoduché k nim přistupovat
-v cyklu. Jak tento koncept funguje se dozvíte v sekci o [polích](../pole.md).
+v cyklu. Jak tento koncept funguje se dozvíte v sekci o [polích](../pole/pole.md).
 
 ## Realokace paměti
 Občas potřebujete naalokovanou paměť "rozšířit" (zvětšit její velikost). Například pokud vám

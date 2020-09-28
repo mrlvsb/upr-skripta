@@ -34,7 +34,7 @@ reprezentuje úplně stejný program. Nicméně asi sami uznáte, že pokud bych
 takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Proto doporučujeme formátování provádět
 automaticky ve [VSCode](../prostredi/editor.md) pomocí zkratky `Ctrl + Shift + I`, ať nad ním nemusíte přemýšlet.
 
-Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v [řetězcích](retezce.md)
+Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v [řetězcích](text/retezce.md)
 jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. `in t` nebo
 `ma in` z programu výše by způsobily chybu při překladu).
 

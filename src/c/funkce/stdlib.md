@@ -12,7 +12,7 @@ Tyto funkce se starají například o následující oblasti:
 - [Dynamická alokace](../prace_s_pameti/dynamicka_pamet.md) paměti
 - Čtení a zápis [souborů](../soubory.md) na disku
 - [Generování náhodných čísel](../../ruzne/nahodna_cisla.md)
-- [Práce s textem](../text.md)
+- [Práce s textem](../text/text.md)
 - [Práce s časem a datem](http://www.cplusplus.com/reference/ctime/)
 
 a mnoho dalších.

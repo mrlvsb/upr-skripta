@@ -7,5 +7,5 @@ fontech či barvách, pokud programujeme počítačovou hru, chceme se bavit o z
 
 Přesně k tomu slouží **datové typy**, které popisují, jak budeme interpretovat konkrétní hodnoty
 daného typu v paměti, kolik bytů budou zabírat a jaké operace nad nimi budeme moct provádět. Jazyk C
-obsahuje několik vestavěných datových typů, [později](../struktury.md) si ukážeme, jak vytvořit
+obsahuje několik vestavěných datových typů, [později](../struktury/struktury.md) si ukážeme, jak vytvořit
 své vlastní.

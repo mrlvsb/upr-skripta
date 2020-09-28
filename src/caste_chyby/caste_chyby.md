@@ -65,8 +65,8 @@ int main() {
 ```
 
 ### Záměna `'` s `"`
-- Apostrof (`'`) slouží k zapsání (jednoho) [znaku](../c/znaky.md). Neukládejte do něj více znaků či celý text.
-- Uvozovky (`"`) slouží k zapsání [řetězce](../c/text.md), tj. pole znaků ukončeného hodnotou `0`.
+- Apostrof (`'`) slouží k zapsání (jednoho) [znaku](../c/text/znaky.md). Neukládejte do něj více znaků či celý text.
+- Uvozovky (`"`) slouží k zapsání [řetězce](../c/text/text.md), tj. pole znaků ukončeného hodnotou `0`.
 
 ```c
 char a = 'asd'; // špatně, více znaků v ''
@@ -89,4 +89,4 @@ void pricti_hodnotu(int* ptr, int x) {
     ptr += x;   // špatně, přičteme `x` k adrese `ptr`
     *ptr += x;  // správně, přičteme `x` k hodnotě na adrese `ptr` 
 }
-``` 
+```

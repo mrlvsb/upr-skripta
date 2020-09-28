@@ -33,6 +33,6 @@ je seznam nejpoužívanějších konvencí:
 - `Screaming snake case`: `MUJ_UCET`, `PRVNI_KLIK_UZIVATELE`
 
 Různé konstrukce C můžou využívat různé styly, například častá konvence je použití `snake_case`
-pro názvy proměnných a [funkcí](../funkce/funkce.md) a `PascalCase` pro názvy [struktur](../struktury.md).
+pro názvy proměnných a [funkcí](../funkce/funkce.md) a `PascalCase` pro názvy [struktur](../struktury/struktury.md).
 Který styl budete používat záleží na vaší osobní preferenci, nicméně důležité je zejména držet se
 jednotného stylu a nekombinovat různé styly (pro jednotlivé typy konstrukcí) v jednom programu.

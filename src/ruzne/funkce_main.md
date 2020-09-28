@@ -26,10 +26,10 @@ int main(int argc, char** argv) {
 }
 ```
 První parametr je typu `int` a druhý parametr typu [ukazatel](../c/prace_s_pameti/ukazatele.md) na
-[řetězec](../c/retezce.md). Do těchto parametrů se uloží hodnoty zadané při spuštění programu v
+[řetězec](../c/text/retezce.md). Do těchto parametrů se uloží hodnoty zadané při spuštění programu v
 terminálu, tzv. **argumenty příkazového řádku** (*command line arguments*). Parametr `argc`
 (*argument count*) bude obsahovat počet předaných argumentů a parametr `argv` obsahuje ukazatel na
-první prvek [pole](../c/pole.md) *C* [řetězců](../c/retezce.md), kde každý řetězec bude obsahovat
+první prvek [pole](../c/pole/pole.md) *C* [řetězců](../c/text/retezce.md), kde každý řetězec bude obsahovat
 jeden argument. Prvním argumentem je dle konvence vždy cesta k spustitelnému souboru programu,
 který je právě spouštěn, další argumenty se nastaví podle zadaného textu v terminálu (argumenty
 jsou oddělené mezerou).

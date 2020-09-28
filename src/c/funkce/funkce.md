@@ -241,5 +241,5 @@ programu a pouze spočítají výsledek v závislosti na svých parametrech. Pok
 funkce psát tímto stylem (samozřejmě ne vždy je to možné).
 
 V předmětu
-[Funkcionální programování](https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-2054/01)
+[Funkcionální programování](http://behalek.cs.vsb.cz/wiki/index.php/Functional_programming/cs)
 budete pracovat s funkcionálními programovacími jazyky, ve kterých je většina funkcí čistých.

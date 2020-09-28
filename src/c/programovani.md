@@ -20,9 +20,9 @@ Základní témata:
 - [Řízení toku](rizeni_toku/rizeni_toku.md) - jak se rozhodovat a provádět akce opakovaně
 - [Funkce](funkce/funkce.md) - jak opakovaně využít a parametrizovat opakující se kód
 - [Ukazatele](prace_s_pameti/ukazatele.md) - jak sdílet data v paměti a pracovat s adresami
-- [Pole](pole.md) - jak jednotně pracovat s velkým množstvím dat
-- [Text](text.md) - jak v programech reprezentovat text
-- [Struktury](struktury.md) - jak seskupit data do logicky souvisejících celků
+- [Pole](pole/pole.md) - jak jednotně pracovat s velkým množstvím dat
+- [Text](text/text.md) - jak v programech reprezentovat text
+- [Struktury](struktury/struktury.md) - jak seskupit data do logicky souvisejících celků
 - [Soubory](soubory.md) - jak číst a zapisovat soubory
 - [Modularizace](modularizace/modularizace.md) - jak rozdělit program do více zdrojových souborů
 - [Knihovny](modularizace/knihovny.md) - jak využít existující kód od jiných programátorů

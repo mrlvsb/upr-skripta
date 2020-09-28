@@ -26,6 +26,8 @@ jobs:
 
             - name: Build
               run: mdbook build
+              env:
+                MDBOOK_OUTPUT__HTML__SITE_URL: /upr-skripta
 
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@3.5.9

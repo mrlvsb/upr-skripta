@@ -99,13 +99,18 @@ použití makra `MOCNINA` výše by zde došlo k dvojnásobené inkrementaci pro
 
 ## Makra vs globální proměnné
 [Globální proměnné](../promenne/globalni_promenne.md) jsou také pojmenované hodnoty definované na
-jednom místě, proč tedy potřebujeme makra? Je to zejména ze dvou důvodů:
+jednom místě, proč tedy potřebujeme makra? Je to z několika důvodů:
 - Globální proměnné zabírají místo v paměti programu a zároveň zvyšují velikost spustitelného
 souboru, protože v něm musí být uložena jejich iniciální hodnota
 (pokud to tedy [není `0`](../promenne/globalni_promenne.md#iniciální-hodnota)). Makra se pouze textově
 nahradí během překladu programu, takže samy o sobě žádnou paměť nezabírají.
 - Makra s parametry umožňují definici hodnot či textu závislou na použitých parametrech, což
 globální proměnné neumožňují.
+- Konstantní globální proměnné nelze použít například pro určení velikosti statických
+[polí](../pole.md).
+
+Nicméně, makra jsou občas problémová kvůli toho, že se nahrazují čistě jako text. Pokud je to tedy
+možné, zkuste raději použít pro definici konstant v kódu konstantní globální proměnné.
 
 ## Podmíněný překlad
 Makra mohou také být použity k tzv. **podmíněnému překladu** (*conditional compilation*). Pomocí

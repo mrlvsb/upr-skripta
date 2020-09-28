@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="cs" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Proměnné - Úvod do programování</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <style>
+.xterm {
+  margin-top: 10px;
+}
+.content {
+  overflow-y: visible !important;
+}
+video {
+    max-width: 100%;
+}
+</style>
+<script src="https://kelvin.cs.vsb.cz/upr/animations.js"></script>
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../theme/css/tufte.css">
+        
+        <link rel="stylesheet" href="../../src/wasm/xterm.min.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../uvod/uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../uvod/programovani.html"><strong aria-hidden="true">1.1.</strong> Programování</a></li><li class="chapter-item "><a href="../../uvod/programovaci_jazyky.html"><strong aria-hidden="true">1.2.</strong> Programovací jazyky</a></li><li class="chapter-item "><a href="../../uvod/jazyk_c.html"><strong aria-hidden="true">1.3.</strong> Jazyk C</a></li><li class="chapter-item "><a href="../../uvod/pamet.html"><strong aria-hidden="true">1.4.</strong> Paměť</a></li></ol></li><li class="chapter-item "><a href="../../prostredi/nastaveni_prostredi.html"><strong aria-hidden="true">2.</strong> Nastavení prostředí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../prostredi/editor.html"><strong aria-hidden="true">2.1.</strong> Editor</a></li><li class="chapter-item "><a href="../../prostredi/preklad_programu.html"><strong aria-hidden="true">2.2.</strong> Překlad</a></li><li class="chapter-item "><a href="../../prostredi/ladeni.html"><strong aria-hidden="true">2.3.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><a href="../../c/programovani.html"><strong aria-hidden="true">3.</strong> Programování v C</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/syntaxe.html"><strong aria-hidden="true">3.1.</strong> Syntaxe</a></li><li class="chapter-item "><a href="../../c/prikazy_vyrazy.html"><strong aria-hidden="true">3.2.</strong> Příkazy a výrazy</a></li><li class="chapter-item expanded "><a href="../../c/promenne/promenne.html" class="active"><strong aria-hidden="true">3.3.</strong> Proměnné</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/promenne/globalni_promenne.html"><strong aria-hidden="true">3.3.1.</strong> Globální proměnné</a></li><li class="chapter-item "><a href="../../c/promenne/konstanty.html"><strong aria-hidden="true">3.3.2.</strong> Konstanty</a></li><li class="chapter-item "><a href="../../c/promenne/slozeny_zapis.html"><strong aria-hidden="true">3.3.3.</strong> Složený zápis</a></li><li class="chapter-item "><a href="../../c/promenne/pojmenovavani.html"><strong aria-hidden="true">3.3.4.</strong> Pojmenovávání proměnných</a></li></ol></li><li class="chapter-item "><a href="../../c/datove_typy/datove_typy.html"><strong aria-hidden="true">3.4.</strong> Datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/datove_typy/celociselne_typy.html"><strong aria-hidden="true">3.4.1.</strong> Celočíselné typy</a></li><li class="chapter-item "><a href="../../c/datove_typy/desetinne_typy.html"><strong aria-hidden="true">3.4.2.</strong> Desetinné číselné typy</a></li><li class="chapter-item "><a href="../../c/datove_typy/pravdivostni_typy.html"><strong aria-hidden="true">3.4.3.</strong> Pravdivostní typy</a></li></ol></li><li class="chapter-item "><a href="../../c/rizeni_toku/rizeni_toku.html"><strong aria-hidden="true">3.5.</strong> Řízení toku</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/podminky.html"><strong aria-hidden="true">3.5.1.</strong> Podmínky</a></li><li class="chapter-item "><a href="../../c/rizeni_toku/cykly.html"><strong aria-hidden="true">3.5.2.</strong> Cykly</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/while.html"><strong aria-hidden="true">3.5.2.1.</strong> Cyklus while</a></li><li class="chapter-item "><a href="../../c/rizeni_toku/for.html"><strong aria-hidden="true">3.5.2.2.</strong> Cyklus for</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../c/funkce/funkce.html"><strong aria-hidden="true">3.6.</strong> Funkce</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/funkce/rekurze.html"><strong aria-hidden="true">3.6.1.</strong> Rekurze</a></li><li class="chapter-item "><a href="../../c/funkce/stdlib.html"><strong aria-hidden="true">3.6.2.</strong> Funkce standardní knihovny</a></li></ol></li><li class="chapter-item "><a href="../../c/preprocesor/preprocesor.html"><strong aria-hidden="true">3.7.</strong> Preprocesor</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/preprocesor/vkladani_souboru.html"><strong aria-hidden="true">3.7.1.</strong> Vkládání souborů</a></li><li class="chapter-item "><a href="../../c/preprocesor/makra.html"><strong aria-hidden="true">3.7.2.</strong> Makra</a></li></ol></li><li class="chapter-item "><a href="../../c/prace_s_pameti/prace_s_pameti.html"><strong aria-hidden="true">3.8.</strong> Práce s pamětí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/prace_s_pameti/automaticka_pamet.html"><strong aria-hidden="true">3.8.1.</strong> Automatická paměť</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/ukazatele.html"><strong aria-hidden="true">3.8.2.</strong> Ukazatele</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/dynamicka_pamet.html"><strong aria-hidden="true">3.8.3.</strong> Dynamická paměť</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/globalni_pamet.html"><strong aria-hidden="true">3.8.4.</strong> Globální paměť</a></li></ol></li><li class="chapter-item "><a href="../../c/pole/pole.html"><strong aria-hidden="true">3.9.</strong> Pole</a></li><li class="chapter-item "><a href="../../c/text/text.html"><strong aria-hidden="true">3.10.</strong> Text</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/text/znaky.html"><strong aria-hidden="true">3.10.1.</strong> Znaky</a></li><li class="chapter-item "><a href="../../c/text/retezce.html"><strong aria-hidden="true">3.10.2.</strong> Řetězce</a></li></ol></li><li class="chapter-item "><a href="../../c/struktury/struktury.html"><strong aria-hidden="true">3.11.</strong> Struktury</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/struktury/struktury_funkce.html"><strong aria-hidden="true">3.11.1.</strong> Struktury a funkce</a></li></ol></li><li class="chapter-item "><a href="../../c/soubory.html"><strong aria-hidden="true">3.12.</strong> Soubory</a></li><li class="chapter-item "><a href="../../c/modularizace/modularizace.html"><strong aria-hidden="true">3.13.</strong> Modularizace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/modularizace/knihovny.html"><strong aria-hidden="true">3.13.1.</strong> Knihovny</a></li></ol></li><li class="chapter-item "><a href="../../c/aplikovane_ulohy/ulohy.html"><strong aria-hidden="true">3.14.</strong> Aplikované úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/aplikovane_ulohy/tga.html"><strong aria-hidden="true">3.14.1.</strong> TGA</a></li><li class="chapter-item "><a href="../../c/aplikovane_ulohy/sdl.html"><strong aria-hidden="true">3.14.2.</strong> SDL</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../ruzne/ruzne.html"><strong aria-hidden="true">4.</strong> Různé</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ruzne/rozklad_problemu.html"><strong aria-hidden="true">4.1.</strong> Rozklad problému</a></li><li class="chapter-item "><a href="../../ruzne/nahodna_cisla.html"><strong aria-hidden="true">4.2.</strong> Generování náhodných čísel</a></li><li class="chapter-item "><a href="../../ruzne/funkce_main.html"><strong aria-hidden="true">4.3.</strong> Funkce main</a></li></ol></li><li class="chapter-item "><a href="../../ulohy/ulohy.html"><strong aria-hidden="true">5.</strong> Úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ulohy/zaklady.html"><strong aria-hidden="true">5.1.</strong> Základy</a></li><li class="chapter-item "><a href="../../ulohy/ukazatele_a_pole.html"><strong aria-hidden="true">5.2.</strong> Ukazatele a pole</a></li><li class="chapter-item "><a href="../../ulohy/retezce.html"><strong aria-hidden="true">5.3.</strong> Řetězce</a></li><li class="chapter-item "><a href="../../ulohy/ruzne.html"><strong aria-hidden="true">5.4.</strong> Různé</a></li></ol></li><li class="chapter-item "><a href="../../caste_chyby/caste_chyby.html"><strong aria-hidden="true">6.</strong> Časté chyby</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../caste_chyby/pametove_chyby.html"><strong aria-hidden="true">6.1.</strong> Paměťové chyby</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Úvod do programování</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/mrlvsb/upr-skripta" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#proměnné" id="proměnné">Proměnné</a></h1>
+<p>Aby programy mohly řešit nějaký úkol, tak si téměř vždy musí umět něco zapamatovat. K tomu
+slouží tzv. <strong>proměnné</strong> (<em>variables</em>). Proměnné nám umožňují pracovat s pamětí intuitivním způsobem -
+část paměti si pojmenujeme nějakým jménem a dále se na ni tímto jménem odkazujeme. Proměnné můžou
+uchovávat libovolnou hodnotu a také ji v průběhu programu měnit. Příklady použití
+proměnných:</p>
+<ul>
+<li>Ve webové aplikaci si číselná proměnná pamatuje počet návštěvníků. Při zobrazení stránky
+se hodnota proměnná zvýší o 1.</li>
+<li>Ve hře si číselná proměnná pamatuje počet životů hráčovy postavy. Pokud dojde k zásahu postavy
+nepřítelem, tak se počet životů sníží o zranění (<em>damage</em>) nepřítelovy zbraně. Pokud hráč sebere lékárníčku,
+tak se počet jeho životů opět zvýší.</li>
+<li>V terminálu si proměnná reprezentující znaky pamatuje text, který byl zadán na klávesnici.</li>
+</ul>
+<p>Proměnné jsou jedním z nejzákladnějších a nejčastějších stavebních kamenů většiny programů, během
+semestru se s nimi budeme setkávat neustále. Není tak náhodou, že jedním z nejzákladnějších příkazů
+v <em>C</em> je právě vytvoření proměnné. Tím řekneme počítači, aby vyčlenil (tzv. <strong>naalokoval</strong>) místo v paměti,
+které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména můžeme odkazovat<sup class='margin-toggle sidenote-number'>1</sup>.</p>
+<span class='sidenote'><p><sup class='number'>1</sup>O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
+<a href="../prace_s_pameti/ukazatele.html">ukazatelích</a>.</p>
+</span>
+<h3><a class="header" href="#deklarace-a-platnost" id="deklarace-a-platnost">Deklarace a platnost</a></h3>
+<p>Takto vypadá <strong>deklarace</strong> (vytvoření) jednoduché proměnné s názvem <code>age</code>:</p>
+<pre><code class="language-c">int age;
+</code></pre>
+<p>Jakmile proměnnou nadeklarujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
+reprezentuje, pomocí jejího názvu (zde <code>age</code>).</p>
+<p>Proměnná je platná (lze ji používat) vždy od místa deklarace do konce <strong>bloku</strong>, ve kterém byla
+nadeklarována. Bloky jsou kusy kódu ohraničené složenými závorkami (<code>{</code> a <code>}</code>):</p>
+<pre><code class="language-c">int main() {
+    int a;
+
+    {
+        // zde je platné pouze `a`
+        int b;
+        // zde je platné `a` i `b`
+    } // zde končí platnost proměnné `b`
+
+    // zde je platné pouze `a`
+
+    return 0;
+} // zde končí platnost proměnné `a`
+</code></pre>
+<p>Oblast, ve které je proměnná validní, se nazývá (variable) <em>scope</em>.</p>
+<h3><a class="header" href="#datový-typ" id="datový-typ">Datový typ</a></h3>
+<p><code>int</code> před názvem proměnné udává její datový typ, o kterém pojednává <a href="../datove_typy/datove_typy.html">následující sekce</a>.
+Prozatím si řekněme, že <code>int</code> je zkratka pro <code>integer</code>, tedy celé číslo. Tím říkáme programu, že má
+tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat jako celé číslo se znaménkem.</p>
+<h3><a class="header" href="#inicializace" id="inicializace">Inicializace</a></h3>
+<p>Do proměnné bychom měli při jejím vytvoření rovnou uložit nějaký <em>výraz</em>, který musí být stejného
+datového typu jako je typ proměnné:</p>
+<pre><code class="language-c">int points_a = 10;
+int points_b = 10 + 15;
+</code></pre>
+<p>Obecná syntaxe pro deklaraci proměnné je</p>
+<p><code>&lt;datový typ&gt; &lt;název&gt;;</code></p>
+<p>popřípadě</p>
+<p><code>&lt;datový typ&gt; &lt;název&gt; = &lt;výraz&gt;;</code></p>
+<p>pokud použijeme inicializaci.</p>
+<blockquote>
+<p>Všimněte si, že na konci deklarace proměnné vždy musí následovat středník (<strong>;</strong>).
+Opomenutí středníku na konci příkazu je velmi častá chyba, která často končí těžko srozumitelnými chybovými
+hláškami při překladu. Dávejte si tak na středníky pozor, obzvláště ze začátku.</p>
+</blockquote>
+<h4><a class="header" href="#vždy-inicializujte-proměnné" id="vždy-inicializujte-proměnné">Vždy inicializujte proměnné!</a></h4>
+<p>Je opravdu důležité do proměnné vždy při její deklaraci přiřadit nějakou úvodní hodnotu. Pokud to
+neuděláme, tak její hodnota bude <strong>nedefinovaná</strong> (<em>undefined</em>), což v praxi znamená, že může být
+jakákoliv a při každém spuštění programu se může lišit. Čtení hodnoty takovéto nedefinované proměnné
+způsobuje <strong>nedefinované chování</strong> (<em>undefined behaviour</em>)<sup class='margin-toggle sidenote-number'>2</sup> programu. Pokud k tomu dojde, tak si překladač
+s vaším programem může udělat, co se mu zachce, a váš program se poté může chovat nepředvídatelně.</p>
+<span class='sidenote'><p><sup class='number'>2</sup>Situace, které můžou způsobit nedefinované chování, budou dále v textu označené pomocí ikony
+💣.</p>
+</span>
+<p><strong>Proto vždy dávejte proměnným iniciální hodnotu!</strong></p>
+<h3><a class="header" href="#Čtení" id="Čtení">Čtení</a></h3>
+<p>Pokud v programu použijeme název platné proměnné, tak dojde k načtení její hodnoty.
+Pokud použijeme název proměnné v programu na místě, kde je očekáván výraz, tak se vyhodnotí jako
+současná hodnota proměnné:</p>
+<pre><code class="language-c">int main() {
+    int a = 5;
+    int b = a;  // hodnota `b` je 5
+    int c = b + a + 1;  // hodnota `c` je 11
+}
+</code></pre>
+<p>Kdekoliv tak můžete použít výraz, můžete použít i proměnnou (pokud sedí datové typy). Pro výpis hodnot
+proměnných na výstup programu můžete <code>printf</code>. Hodnoty proměnných můžete zkoumat také krokováním
+pomocí <a href="../../prostredi/ladeni.html#krokov%C3%A1n%C3%AD">debuggeru</a>.</p>
+<h3><a class="header" href="#zápis" id="zápis">Zápis</a></h3>
+<p>Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
+naštěstí jde měnit. Můžeme k tomu použít další typ <em>C</em> výrazu přiřazení (<strong>assignment</strong>):</p>
+<pre><code class="language-c">int main() {
+    int a = 5;  // hodnota `a` je 5
+    a = 8;      // hodnota `a` je 8
+}
+</code></pre>
+<p>Obecná syntaxe pro přiřazení do proměnné je</p>
+<p><code>&lt;název proměnné&gt; = &lt;výraz&gt;</code></p>
+<p>Opět musí platit, že výraz musí být stejného typu<sup class='margin-toggle sidenote-number'>3</sup>, jako je proměnná, do které přiřazujeme. Na konci
+řádku také nesmí chybět středník. Přiřazení je příklad výrazu, který má vedlejší efekt, proto se
+obvykle používá jako samostatný příkaz (tj. dává se za něj středník).</p>
+<span class='sidenote'><p><sup class='number'>3</sup><em>C</em> umožňuje automatické (tzv. <strong>implicitní</strong>) konverze mezi některými datovými typy, takže typ výrazu
+nemusí být nutně vždy stejný. Tyto konverze se nicméně často chovají neintuitivně a překladač vás před nimi
+obvykle nijak nevaruje, i když vrátí výsledek, který nedává smysl. Snažte se tak ze začátku opravdu vždy
+používat odpovídající typy. Více se dozvíte v sekci o <a href="../datove_typy/datove_typy.html">datových typech</a>. </p>
+</span>
+<p>Jak přiřazení funguje? Počítač se podívá, na jaké adrese v paměti daná proměnná leží, a zapíše do
+paměti hodnotu výrazu, který do proměnné zapisujeme, čímž změní její hodnotu v paměti. Z toho vyplývá,
+že dává smysl zapisovat hodnoty pouze do něčeho, co má adresu v paměti (prozatím známe pouze proměnné,
+později si ukážeme další věci, do kterých lze zapisovat). Například příkaz <code>5 = 8;</code> nedává smysl. <code>5</code>
+je výraz, číselná hodnota, která nemá žádnou adresu v paměti, nemůžeme tak do ní nic zapsat. Stejně tak
+nedává moc smysl říct <code>Číslo 5 odteď bude mít hodnotu 8</code>.</p>
+<p>Zatím známe pouze proměnné, později si však ukážeme <a href="../prace_s_pameti/ukazatele.html">další možnosti</a>, jak vytvořit
+&quot;něco, co má adresu v paměti&quot;, a co tak půjde použít na levé straně operátoru zápisu <code>=</code>.</p>
+<p><strong>Cvičení</strong>: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
+a pak je vypíše na výstup programu (k výpisu využijte <code>printf</code>, který jsme si již ukázali <a href="../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">dříve</a>).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../c/prikazy_vyrazy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../c/promenne/globalni_promenne.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../c/prikazy_vyrazy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../c/promenne/globalni_promenne.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-177556287-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../theme/mode-c_cpp.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/xterm.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/fit.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/shared.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/web.js"></script>
+        
+
+        
+
+    </body>
+</html>

@@ -48,7 +48,7 @@ použijete číselný výraz, například výraz `1` má datový typ `int`[^3].
 
 > Typ `char` je speciální v tom, že zároveň běžně reprezentuje textové znaky v
 > [ASCII](https://www.asciitable.com/) kódování. Více o reprezentaci textu v programech se dozvíte
-> v sekci o [řetězcích](../retezce.md).
+> v sekci o [řetězcích](../text/retezce.md).
 
 ### Operace s číselnými typy
 C umožňuje provádět operace nad vestavěnými datovými typy pomocí tzv. **operátorů**. Při práci s
@@ -106,7 +106,7 @@ O dalších typech operátorů se postupně dozvíte během semestru.
 Plný seznam *C* operátorů naleznete [zde](https://en.cppreference.com/w/c/language/operator_precedence).
 
 ### Explicitní konverze
-Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží **operátor převedení**
+Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží **operátor přetypování**
 (*cast operator*), který má syntaxi `(<datový typ>) <výraz>` a převede výraz na daný datový typ.
 Například `(short) 1` převede výraz `1` z typu `int` na `short`. Je dobré si uvědomit, k čemu může
 dojít při převodu mezi různými datovými typy:
@@ -129,8 +129,6 @@ operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cíl
 
 Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
 na to, jak funguje [dvojkový doplněk](https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk).
-
-Konverze se také často označuje jako **přetypování** (*type casting*).
 
 ### Hexadecimální a oktální zápis čísel
 V *C* můžete zapisovat číselné hodnoty také pomocí oktální (osmičkové) či hexadecimální (šestnáctkové)

@@ -65,5 +65,5 @@ zabírající velký počet bytů.
 [^4]: Obvykle jde o jednotky KiB/MiB.
 
 Abychom mohli alokovat větší množství paměti či jednoduššeji sdílet hodnoty proměnných mezi funkcemi,
-tak musíme mít možnost explicitně adresovat hodnoty v paměti a případně i alokovat a uvolňovat
-paměť manuálně. K tomu slouží [ukazatele](ukazatele.md).
+tak musíme mít možnost alokovat a uvolňovat paměť [manuálně](dynamicka_pamet.md). Nejprve ale
+potřebujeme způsob, jak pracovat přímo s adresami v paměti, k čemuž slouží [ukazatele](ukazatele.md).

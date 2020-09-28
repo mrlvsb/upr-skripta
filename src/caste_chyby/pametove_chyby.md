@@ -10,7 +10,7 @@ nástroj [Address sanitizer](../prostredi/ladeni.md#address-sanitizer).
 
 ## Stack overflow
 Pokud bychom vytvořili v zásobníkovém rámci moc proměnných, proměnné, které jsou
-[moc velké](../c/pole.md), anebo bychom měli v jednu chvíli aktivních moc zásobníkových rámců
+[moc velké](../c/pole/pole.md), anebo bychom měli v jednu chvíli aktivních moc zásobníkových rámců
 (například při moc hluboké [rekurzi](../c/funkce/rekurze.md)), tak může dojít paměť určená pro zásobník.
 Tato situce se nazývá **přetečení zásobníku** (*stack overflow*):
 ```c
@@ -63,6 +63,27 @@ Tato situace se nazývá
         return 0;
     }
     ```
+    Přístup k již uvolněné paměti může nastat i bez použití
+    [dynamické paměti](../c/prace_s_pameti/dynamicka_pamet.md). Například tento kód není správně:
+    ```c
+    #include <stdlib.h>
+
+    int* get_pointer(int x) {
+        int y = x + 1;
+        return &y;
+    }
+
+    int main() {
+        int* p = get_pointer(1);
+        *p = 1;
+        return 0;
+    }
+    ```
+    protože jakmile vykonávání funkce `get_pointer` skončí, tak se
+    [uvolní](../c/prace_s_pameti/automaticka_pamet.md) paměť jejich lokálních proměnných. Adresa
+    uložená v `p` tak obsahuje nevalidní paměť a je chybou k ní přistupovat (ať už číst, tak
+    zapisovat).
+
 - Snažíme se uvolnit pamět, která již byla uvolněna. Tato situace se nazývá
 [*double free*](https://owasp.org/www-community/vulnerabilities/Doubly_freeing_memory).
     ```c

@@ -16,7 +16,7 @@ jej museli neustále ručně kopírovat. Prozatím budeme vkládat do našeho k�
 obsahující různé funkce [standardní knihovny *C*](../funkce/stdlib.md). Později si pak ukážeme,
 jak vytvářet *C* programy sestávající se z [více zdrojových souborů](../modularizace/modularizace.md).
 
-Zkuste si například tento zdrojový soubor pojmenovat jako `main.c` a pomocí příkazu `gcc -E main.c`
+Zkuste si například tento zdrojový soubor pojmenovat jako `main.c` a pomocí příkazu `gcc -P -E main.c`
 v terminálu zjistit, jak vypadá poté, co na něj byl aplikován preprocesor:
 ```c
 #include <stdio.h>

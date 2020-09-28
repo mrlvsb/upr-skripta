@@ -32,7 +32,7 @@ aby šlo jasně vidět, že absence úvodní hodnoty není pouze nedopatřením 
 ### (Ne)používání globálních proměnných
 Globální proměnné jsou zde zmíněny pro úplnost, nicméně doporučujeme je používat spíše zřídka,
 obzvláště pokud půjde o globální proměnné, které půjde měnit (tj. pokud to nebudou
-[konstanty](../konstanty.md)). Obecně řečeno, na čím více místech je proměnná dostupná, tím složitější
+[konstanty](konstanty.md)). Obecně řečeno, na čím více místech je proměnná dostupná, tím složitější
 je přemýšlení nad tím, jak přesně s ní pracovat, proto je lepší používat proměnné lokální, pokud to
 jde. 
 

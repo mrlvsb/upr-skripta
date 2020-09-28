@@ -2,9 +2,9 @@
 V určitých případech můžeme chtít mít proměnné s konstantní hodnotou, které by se neměly v průběhu
 programu měnit. Takové proměnné se nazývají **konstanty** (*constants*).
 
-Abychom zamezili nechtěné změně hodnoty konstanty, můžeme datový typ proměnné označit modifikátorem
-`const`, který umístíme před[^1] název datového typu. Pokud bychom se snažili o změnu proměnné s
-takovýmto datovým typem, překladač nám to nedovolí.
+Abychom zamezili nechtěné změně hodnoty konstanty, můžeme datový typ proměnné označit
+[klíčovým slovem](../syntaxe.md#klíčová-slova) `const`, který umístíme před[^1] název datového typu.
+Pokud bychom se snažili o změnu proměnné s takovýmto datovým typem, překladač nám to nedovolí.
 
 ```c,editable,mainbody
 int main() {
@@ -56,5 +56,5 @@ s nepopsanými číselnými hodnotami:
     ```
     Druhá varianta kódu je jistě čitelnější.
 
-- V určitých případech, například u konstantních [řetězců](retezce.md), jsou data uložena v oblasti
+- V určitých případech, například u konstantních [řetězců](../text/retezce.md), jsou data uložena v oblasti
 paměti, kterou nelze měnit. Pomocí `const` si můžeme pohlídat, že se takováto paměť opravdu nezmění.

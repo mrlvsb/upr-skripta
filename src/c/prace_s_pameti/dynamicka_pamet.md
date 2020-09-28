@@ -117,18 +117,5 @@ které se můžou pokazit, pokud kombinaci manuální alokace a uvolňování pa
 Jak jste si mohli všimnout ze signatury funkce `malloc`, můžete jí dát libovolný počet bytů.
 Nemusíte se tak omezovat velikostí základních datových typů, můžete například naalokovat paměť pro
 5 `int`ů zároveň, které poté budou ležet za sebou v paměti a bude tak jednoduché k nim přistupovat
-v cyklu. Jak tento koncept funguje se dozvíte v sekci o [polích](../pole/pole.md).
-
-## Realokace paměti
-Občas potřebujete naalokovanou paměť "rozšířit" (zvětšit její velikost). Například pokud vám
-uživatel zadává na vstupu seznam čísel, na začátku můžete vytvořit paměť pro 10 čísel, ale při
-zadání 11. čísla musíte tuto paměť zvětšit, jinak byste neměli nové číslo kam zapsat. Tento proces
-se nazývá **realokace** (*reallocation*) a lze ho provést například následujícím způsobem:
-1) Naalokujeme novou dynamickou paměť o požadované velikosti
-2) Zkopírujeme obsah původní paměti do nové paměti 
-3) Uvolníme původní paměť
-4) Upravíme ukazatel(e) v programu, aby ukazoval(y) na nově naalokovanou paměť
-
-Pokud se vám toto nechce programovat ručně, tak můžete také použít funkci
-[`realloc`](https://devdocs.io/c/memory/realloc), která to udělá za vás. Tato funkce očekává původní
-adresu alokace z `malloc`/`calloc` a počet bytů nové alokace.
+v cyklu. Jak tento koncept funguje se dozvíte v sekci o
+[dynamických polích](../pole/dynamicke_pole.md).

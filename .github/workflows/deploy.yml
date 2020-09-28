@@ -21,6 +21,17 @@ jobs:
                   mv ./mdbook ~/bin/
                   echo "::add-path::~/bin"
 
+            - name: Cache mdbook-plantuml
+              uses: actions/cache@v2
+              with:
+                path: |
+                  ~/.cargo/bin/mdbook-plantuml
+                  ~/.cargo/.crates.toml
+                  ~/.cargo/.crates2.json
+                key: ${{ runner.os }}-cache-plantuml-${{ github.run_id }}
+                restore-keys: |
+                  ${{ runner.os }}-cache-plantuml-
+
             - name: Install mdbook-plantuml
               run: cargo install mdbook-plantuml
 

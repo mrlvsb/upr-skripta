@@ -83,7 +83,6 @@ Následně funkci upravte, aby funkce vrátila pomocí ukazatele první index s 
 int array_min(int *array, int len, int *min_index);
 ```
 
-
 ### Minimální a maximální hodnota
 Předchozí funkci upravte, aby hledala minimum a maximum zároveň.
 Nalezené extrémy vraťte pomocí ukazatelů `min` a `max`.
@@ -134,25 +133,13 @@ Pomocí algoritmu counting sort seřaďte čísla v poli od nejmenšího po nejv
 
 <upr-counting-sort></upr-counting-sort>
 
-
 ### Třízení
 Naimplementujte funkci, která setřídí pole. Můžete použít například algoritmus
 [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort).
 
-
-### Binární vyhledávání
-
-### Pád kuličky
-
-
-## 2D pole
-Matici/2D pole/obrázek můžete reprezentovat pomocí 1D pole tak, že řádky budou v paměti ležet jeden
-za druhým. Index dvojrozměrného prvku v 1D poli můžeme spočítat jako `řádek * počet_sloupců + sloupec`.
-
-![2D pole](../static/img/2d_array.svg)
-
 ### Vytisknutí matice
-Vytvořte funkci `print_matrix`, která vypíše obrázek reprezentovaný 2D polem.
+Vytvořte funkci `print_matrix`, která vypíše obrázek reprezentovaný
+[dvourozměrným](../c/pole/vicerozmerne_pole.md) (2D) polem.
 ```c
 void print_matrix(int* matrix, int rows, int cols);
 ```
@@ -179,11 +166,6 @@ X    X    X
 
 Hvězdici můžete vykreslit do pole pomocí jediného cyklu.
 Zkuste vytvořit funkce na vykreslení dalších tvarů (čára, čtverec, kružnice, trojúhelník, ...).
-
-### 7 segment display
-
-
-### ASCII art
 
 ### Násobení matice skalárem
 Vytvořte funkci `matrix_mul_scalar`, která vynásobí každý prvek matice číslem `k`. 

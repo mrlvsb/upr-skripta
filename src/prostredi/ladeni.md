@@ -41,7 +41,7 @@ Pokud váš program padá při běhu, můžete zkusit následující způsoby la
 Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
 a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, k jakému problému došlo. 
 ```bash
-$ gcc -fsanitize=address main.c -o program
+$ gcc -g -fsanitize=address main.c -o program
 ```
 Jakmile takto přeložený program spustíte a dojde k nějaké chybě, tak bude její popis vypsán na výstup.
 

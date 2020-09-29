@@ -53,6 +53,7 @@
     - [Aplikované úlohy](c/aplikovane_ulohy/ulohy.md)
         - [TGA](c/aplikovane_ulohy/tga.md)
         - [SDL](c/aplikovane_ulohy/sdl.md)
+    - [Co dál?](c/co_dal.md)
 - [Různé](ruzne/ruzne.md)
     - [Rozklad problému](ruzne/rozklad_problemu.md)
     - [Generování náhodných čísel](ruzne/nahodna_cisla.md)

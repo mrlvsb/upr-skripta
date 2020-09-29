@@ -10,13 +10,6 @@ Na cvičeních UPR budeme používat editor `Visual Studio Code`, který je
 programování se hodí detailně znát a efektivně využívat editor, který používáte, ale pro začátek
 nám budou stačit naprosté základy.
 
-## Předpřipravený virtuální počítač
-V případě, že si nechcete instalovat Linux a následně konfigurovat vše potřebné, tak jsme pro Vás připravili obraz virtuálního stroje.
-Nejprve je nutné nainstalovat program [VirtualBox](https://www.virtualbox.org/wiki/Downloads) a poté stáhnout [předpřipravený obraz](http://mrl.cs.vsb.cz/data/upr/UPR.ova) virtuálního stroje.
-Na stažený soubor stačí poklikat a potvrdit import s výchozím nastavením.
-Virtuální počítač je pak možné spustit z programu Virtualbox a následující sekci, zabývající se instalací rozšíření, můžeme přeskočit.
-Uživatelské jméno a heslo je `student`.
-
 ## Instalace potřebných rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V terminálu spusťte tyto příkazy:

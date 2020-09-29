@@ -37,3 +37,4 @@ programů. Na následujících odkazech se můžete dozvědět například:
     silně ovlivňuje výkon programů.
 - Jak si napsat vlastní [překladač](https://www3.nd.edu/~dthain/compilerbook/compilerbook.pdf),
 abyste pochopili, jak funguje.
+- Jak si napsat vlastní [databázi](https://cstack.github.io/db_tutorial/).

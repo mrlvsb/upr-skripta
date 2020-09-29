@@ -33,7 +33,7 @@ velikosti jedna (`int a[1]`), tak v paměti bude reprezentováno úplně stejně
 ## Počítání od nuly
 Pozice jednotlivých prvků v poli se označují jako jejich **indexy** (*array indices*). Tyto pozice
 se číslují od hodnoty `0` (tedy ne od jedničky, jak můžete být jinak zvyklí). První prvek pole je
-tedy ve skutečnosti na nulté pozici (indexu), druhý na první pozici, atd (viz obrázek nahoře).
+tedy ve skutečnosti na nulté pozici (indexu), druhý na první pozici, atd. (viz obrázek nahoře).
 **Počítání od nuly** (*zero-based indexing*) je ve světě programování běžné a budete si na něj
 muset zvyknout. Jeden z důvodů, proč se prvky počítají právě od nuly, se dozvíte
 [níže](#přístup-k-prvkům-pole).
@@ -48,7 +48,8 @@ Hodnota zadaná v hranatých závorkách by měla být konstantní (tj. buď př
 [konstantní proměnná](../promenne/konstanty.md)). Pokud budete potřebovat pole dynamické velikosti,
 tak byste měli použít [manuální alokaci paměti](dynamicke_pole.md).
 
-*C99* již sice povoluje dávat do hranatých závorek i "dynamické hodnoty":
+Jazyk *C* od verze [*C99*](https://en.wikipedia.org/wiki/C99) již sice povoluje dávat do hranatých
+závorek i "dynamické hodnoty":
 ```c
 int velikost = ...; // velikost se načte např. ze souboru
 int pole[velikost];
@@ -75,7 +76,7 @@ stovek bytů, použijte raději [dynamickou alokaci](dynamicke_pole.md) na hald�
 
 ## Inicializace pole
 Stejně jako u normálních lokálních proměnných
-[platí](../promenne/promenne.md#vždy-inicializujte-proměnné), že pokud poli nenainicializujete,
+[platí](../promenne/promenne.md#vždy-inicializujte-proměnné), že pokud pole nenainicializujete,
 tak bude obsahovat nedefinované hodnoty. V takovém případě z pole nesmíte jakkoliv číst, jinak by
 došlo k nedefinovanému chování 💣! K inicializaci hodnoty můžete použít složené závorky se seznamem
 hodnot (oddělených čárkou), které budou do pole uloženy. Pokud nezadáte dostatek hodnot pro vyplnění

@@ -74,6 +74,9 @@ Pokud byste chtěli, aby naalokovaná paměť byla rovnou při alokaci vynulová
 nastavené na hodnotu `0`), můžete místo funkce `malloc` použít funkci
 [`calloc`](https://devdocs.io/c/memory/calloc)[^3].
 
+Případně můžete použít užitečnou funkci [`memset`](https://devdocs.io/c/string/byte/memset), která
+vám vyplní blok paměti zadaným bytem.
+
 [^3]: Pozor však na to, že tato funkce má jiné parametry než `malloc`. Očekává počet hodnot, které
 se mají naalokovat, a velikost každé hodnoty.
 

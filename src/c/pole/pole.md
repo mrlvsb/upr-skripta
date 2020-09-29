@@ -12,7 +12,8 @@ Asi si dovedete představit, že například pro reprezentaci obrázku bychom si
 používali doposud, nevystačili. Pokud bychom po jedné vytvářeli proměnné `pixel1`, `pixel2`,
 `pixel3`, tak by jednak byl náš zdrojový kód obrovský a nedalo by se v něm vyznat, a také bychom
 nemohli mít velikost obrázku závislou na vstupu programu, protože počet proměnných by byl
-"zadrátovaný" ve zdrojovém kódu programu.
+"zadrátovaný" ve zdrojovém kódu programu. Chtěli bychom tak mít možnost napsat kód, který bude umět
+zpracovat 1, 2, 100 nebo 1000 hodnot bez toho, abychom tento kód museli jakkoliv měnit.
 
 Asi nejběžnějším a nejjednodušším způsobem, jak v paměti počítače uchovávat větší množství hodnot,
 je uložit všechny hodnoty jednu po druhé za sebou v paměti[^1]. Tento koncept uložení dat se nazývá

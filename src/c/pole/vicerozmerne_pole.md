@@ -7,13 +7,25 @@ příkladem jsou obrázky, které lze reprezentovat jako dvourozměrnou mřížk
 jedním číslem. Jak tedy můžeme do jednorozměrné paměti uložit vícerozměrnou hodnotu? Způsobů je více,
 nicméně asi nejjednodušší je prostě "vyskládat" jednotlivé rozměry (dimenze) v paměti za sebou,
 jeden rozměr za druhým. Pokud bychom například měli dvojrozměrnou mřížku[^1] s rozměry `5x5`,
-můžeme ji reprezentovat tak, že nejprve do paměti uložíme první řádek, poté druhý řádek, atd.: 
+můžeme ji reprezentovat tak, že nejprve do paměti uložíme první řádek, poté druhý řádek atd.: 
 
 ![2D pole](../../static/img/2d_array.svg)
 
 [^1]: Reprezentující například obrázek či [matici](https://matematika.cz/matice).
 
 Tento koncept se označuje jako **vícerozměrné pole** (*multidimensional array*).
+
+## Inicializace vícerozměrných polí
+Vícerozměrné pole můžete nainicializovat [stejně](staticke_pole.md#inicializace-pole) jako klasické
+pole. Pro zpřehlednění kódu však také můžete použít složené závorky pro oddělení jednotlivých
+dimenzí:
+```c
+int pole_2d[3][4] = {  
+   {0, 1, 2, 3},    // hodnoty pro první řádek
+   {4, 5, 6, 7},    // hodnoty pro druhý řádek
+   {8, 9, 10, 11}   // hodnoty pro třetí řádek
+};
+```
 
 ## Způsob vyskládání dimenzí
 Je na nás, v jakém pořadí jednotlivé dimenze do paměti uložíme. Pokud bychom se bavili o 2D poli,
@@ -60,7 +72,7 @@ toto pole přímo indexovat vícerozměrným indexem. Například první prvek p
 na pozici `pole[0][0]`, poslední na pozici `pole[2][2]`.
 
 Takováto pole jsou v paměti vyskládána postupně dle jednotlivých dimenzí zleva. Nejprve tedy v
-paměti leží prvek `pole[0][0]`, poté `pole[0][1]`, ..., `pole[1][1]`, `pole[1][2]`, atd. Pokud
+paměti leží prvek `pole[0][0]`, poté `pole[0][1]`, ..., `pole[1][1]`, `pole[1][2]` atd. Pokud
 bychom měli 2D pole a první index bychom pokládali za index řádku, tak toto vyskládání odpovídá
 *row major* pořadí.
 

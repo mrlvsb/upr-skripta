@@ -30,7 +30,7 @@ výpočet. Například při volání `factorial(4)`:
 7) `factorial(3)` vrátí `3 * 2 * 1`.
 8) `factorial(4)` vrátí `4 * 3 * 2 * 1`.
 
-Nejprve tak dojde k vypočtení `factorial(1)`, poté `factorial(2)`, atd. Výpočet je tak v jistém
+Nejprve tak dojde k vypočtení `factorial(1)`, poté `factorial(2)` atd. Výpočet je tak v jistém
 smyslu "otočen". Zkuste si výpočet faktoriálu [odkrokovat](../../prostredi/ladeni.md#krokování), abyste
 si ujasnili, jak výpočet probíhá.
 

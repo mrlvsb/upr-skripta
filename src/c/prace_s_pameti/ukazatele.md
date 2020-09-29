@@ -133,13 +133,37 @@ Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracova
 která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, kter v paměti leží na adrese
 uložené v ukazateli, musíte použít operátor dereference.
 
-### Další operace s ukazateli
-Kromě dereference lze s ukazateli provádět dvě další sady operací:
-- **Porovnávání** - má smysl porovnávat dva ukazatele, například zdali se rovnají (`==`) či jestli
-jeden obsahuje větší ("vyšší") adresu než druhý (`>`).
-- **Aritmetika** - často se potřebujeme v paměti "posouvat" o určitý kus dopředu či dozadu, relativně
-k nějaké adrese. Proto můžeme nad operátory provádět sčítání a odčítání. Více se dozvíte v sekci o
-[polích](../pole/pole.md).
+## Aritmetika s ukazateli
+Abychom se mohli v paměti "posouvat" o určitý kus dopředu či dozadu (relativně k nějaké adrese),
+můžeme k ukazatelům přičítat či odčítat čísla. Toto se označuje jako **aritmetika s ukazateli**
+(*pointer arithmetic*). Tato aritmetika má důležité pravidlo – pokud k ukazateli na konkrétní datový
+typ přičteme hodnotu `n`, tak se adresa v ukazateli zvýší o `n`-násobek velikosti datového typu,
+na který ukazatel ukazuje. Při aritmetice s ukazateli se tak neposouváme po jednotlivých bytech,
+ale po celých hodnotách daného datového typu[^3].
+
+[^3]: Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli `void*`, protože ty neukazují
+na žádný konkrétní datový typ.
+
+Například, pokud bychom měli ukazatel `int* p` s hodnotou `16` (tj. "ukazuje" na adresu `16`) a
+velikost `int`u by byla `4`, tak výraz `p + 1` bude ukazatel s hodnotou `20`, výraz `p + 2` bude
+ukazatel s adresou `24` atd.
+
+Je důležité [rozlišovat](../../caste_chyby/caste_chyby.md#Špatná-práce-s-ukazatelem), jestli při
+použití sčítání/odčítání pracujeme s hodnotou ukazatele anebo s hodnotou na adrese, která je v
+ukazateli uložena:
+```c
+int x = 1;
+int* p = &x;
+
+*p += 1;    // zvýšili jsme hodnotu na adrese v `p` (tj. proměnnou `x`) o `1`
+p += 1;     // zvýšili jsme adresu v `p` o `4` (tj. p nyní už neukazuje na `x`)
+```
+
+> K čemu je aritmetika s ukazateli užitečná se dozvíte v sekci o práci s
+> [více proměnnými zároveň](../pole/staticke_pole.md#přístup-k-prvkům-pole).
+
+Kromě dereference a aritmetiky lze s ukazateli provádět také porovnávání (klasicky pomocí operátorů
+`==` nebo `>`). Díky toho můžeme například zjistit, jestli se dvě adresy rovnají.
 
 ## Využití ukazatelů
 Jak se dozvíte v [následující sekci](dynamicka_pamet.md), ukazatele jsou nezbytné pro

@@ -12,21 +12,6 @@ S takovouto pamětí pak můžeme pracovat jako s polem `int`ů o velikosti `5`.
 pole nepotřebujeme, nesmíme jej samozřejmě zapomnět
 [uvolnit](../prace_s_pameti/dynamicka_pamet.md#uvolnění-paměti).
 
-## Předávání velikosti pole
-Narozdíl od [statických polí](staticke_pole.md) není velikost dynamických polí pevně určena při
-překladu programu. Pokud tedy ukazatel na první prvek dynamického pole předáváme do nějaké funkce,
-je obvykle potřeba zároveň s ním předat délku tohoto pole, aby funkce věděla, ke kolikati prvkům
-pole může přistupovat:
-```c
-int sum_array(int* array, int count) {
-    int sum = 0;
-    for (int i = 0; i < count; i++) {
-        sum += array[i];
-    }
-    return sum;
-}
-```
-
 ## Změna velikosti pole
 Občas potřebujeme velikost dynamického pole změnit (obvykle zvětšit). Například pokud vám
 uživatel zadává na vstupu seznam čísel, na začátku můžete vytvořit paměť pro 10 čísel, ale při

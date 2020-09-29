@@ -35,6 +35,6 @@ programů. Na následujících odkazech se můžete dozvědět například:
     které umí pracovat s více než jednou hodnotou najednou.
     - Pomocí pochopení [architektury procesoru](https://github.com/Kobzol/hardware-effects), která
     silně ovlivňuje výkon programů.
-- Jak si napsat vlastní [překladač](https://www3.nd.edu/~dthain/compilerbook/compilerbook.pdf),
-abyste pochopili, jak funguje.
+- Jak si napsat vlastní [překladač](https://www3.nd.edu/~dthain/compilerbook/compilerbook.pdf) či
+[programovací jazyk](http://www.buildyourownlisp.com/chapter1_introduction).
 - Jak si napsat vlastní [databázi](https://cstack.github.io/db_tutorial/).

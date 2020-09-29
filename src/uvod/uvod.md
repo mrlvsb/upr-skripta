@@ -20,7 +20,7 @@ předpokládají použití tohoto operačního systému (konkrétně distribuce 
 - Tento text je psán česky, nicméně primárním jazykem programování (celosvětově) je angličtina. Přeložené pojmy,
 které mají zavedené anglické názvy, budou v tomto textu uvedeny v závorce *kurzívou*. Zdrojové kódy
 silně doporučujeme psát v angličtině.
-- V tomto textu najdete různé ukázky (obvykle C) kódu. Některé z nich můžete sami upravovat a dokonce
+- V tomto textu najdete různé ukázky *C* kódu. Některé z nich můžete sami upravovat a dokonce
 i spustit rovnou v prohlížeči pomocí ikony <i class="fa fa-play"></i> v pravém horním rohu kódu.
 - Pokud v textu najdete gramatickou či faktickou chybu nebo budete mít jakoukoliv zpětnou vazbu
 k obsahu či formě textu, dejte nám prosím vědět na [tento e-mail](mailto:jakub.beranek@vsb.cz?subject=UPR%20skripta%20-%20chyba)

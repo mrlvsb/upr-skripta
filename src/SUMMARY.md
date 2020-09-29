@@ -6,6 +6,7 @@
     - [Jazyk C](uvod/jazyk_c.md)
     - [Paměť](uvod/pamet.md)
 - [Nastavení prostředí](prostredi/nastaveni_prostredi.md)
+    - [Linux](prostredi/linux.md)
     - [Editor](prostredi/editor.md)
     - [Překlad](prostredi/preklad_programu.md)
     - [Ladění](prostredi/ladeni.md)

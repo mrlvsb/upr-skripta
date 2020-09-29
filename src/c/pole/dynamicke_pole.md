@@ -9,7 +9,7 @@ dynamického pole pro `5` celých čísel potřebujeme naalokovat `5 * sizeof(in
 int* array = (int*) malloc(5 * sizeof(int));
 ```
 S takovouto pamětí pak můžeme pracovat jako s polem `int`ů o velikosti `5`. Jakmile již takovéto
-pole nepotřebujeme, nesmíme jej samozřejmě zapomnět
+pole nepotřebujeme, nesmíme jej samozřejmě zapomenout
 [uvolnit](../prace_s_pameti/dynamicka_pamet.md#uvolnění-paměti).
 
 ## Změna velikosti pole

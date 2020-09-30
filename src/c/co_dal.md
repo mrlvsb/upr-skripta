@@ -39,3 +39,4 @@ programů. Na následujících odkazech se můžete dozvědět například:
 [programovací jazyk](http://www.buildyourownlisp.com/chapter1_introduction).
 - Jak si napsat vlastní [databázi](https://cstack.github.io/db_tutorial/).
 - Jak funguje [počítačová grafika](http://mrl.cs.vsb.cz/people/fabian/pg1_course.html).
+- Jak si napsat vlastní [3D herní engine](https://learnopengl.com/) pomocí OpenGL.

@@ -38,3 +38,4 @@ programů. Na následujících odkazech se můžete dozvědět například:
 - Jak si napsat vlastní [překladač](https://www3.nd.edu/~dthain/compilerbook/compilerbook.pdf) či
 [programovací jazyk](http://www.buildyourownlisp.com/chapter1_introduction).
 - Jak si napsat vlastní [databázi](https://cstack.github.io/db_tutorial/).
+- Jak funguje [počítačová grafika](https://blender.vsb.cz/principles-of-cg/).

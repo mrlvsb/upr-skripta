@@ -130,7 +130,7 @@ int main() {
 ```
 
 Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat "pouze" s adresou,
-která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, kter v paměti leží na adrese
+která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která v paměti leží na adrese
 uložené v ukazateli, musíte použít operátor dereference.
 
 ## Aritmetika s ukazateli

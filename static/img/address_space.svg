@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="118.59133mm"
+   height="114.25919mm"
+   viewBox="0 0 118.59133 114.25919"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (1.0.1+r73)"
+   sodipodi:docname="address_space.svg">
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow2Send"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path1007" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path995" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Send"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path989" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="135.7124"
+     inkscape:cy="209.38338"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g857"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(2.9633327,-11.328361)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+       id="rect10"
+       width="70.875282"
+       height="113.20085"
+       x="44.223545"
+       y="11.857526" />
+    <g
+       id="g857">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect10-3"
+         width="70.867256"
+         height="19.463905"
+         x="44.231579"
+         y="11.857526" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.48041px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
+         x="54.760025"
+         y="22.978762"
+         id="text852"><tspan
+           sodipodi:role="line"
+           id="tspan850"
+           x="54.760025"
+           y="22.978762"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.48041px;font-family:Raleway;-inkscape-font-specification:Raleway;stroke-width:0.264583">Instrukce programu</tspan></text>
+    </g>
+    <g
+       id="g946"
+       transform="translate(0,1.7866481)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect10-3-6"
+         width="70.867256"
+         height="19.463905"
+         x="44.231579"
+         y="41.316528" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.48041px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
+         x="59.330185"
+         y="52.972103"
+         id="text852-2"><tspan
+           sodipodi:role="line"
+           id="tspan850-9"
+           x="59.330185"
+           y="52.972103"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.48041px;font-family:Raleway;-inkscape-font-specification:Raleway;stroke-width:0.264583">Zásobník (stack)</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
+       x="-3.4814746"
+       y="124.25912"
+       id="text908"><tspan
+         sodipodi:role="line"
+         id="tspan906"
+         x="-3.4814746"
+         y="124.25912"
+         style="font-size:5.64444px;stroke-width:0.264583">Nejnižší adresa (0)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
+       x="3.8166111"
+       y="15.594764"
+       id="text908-1"><tspan
+         sodipodi:role="line"
+         id="tspan906-2"
+         x="3.8166111"
+         y="15.594764"
+         style="font-size:5.64444px;stroke-width:0.264583">Nejvyšší adresa</tspan></text>
+    <g
+       id="g946-0"
+       transform="translate(0,33.032305)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect10-3-6-9"
+         width="70.867256"
+         height="19.463905"
+         x="44.231579"
+         y="41.316528" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.48041px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
+         x="63.597004"
+         y="52.972103"
+         id="text852-2-3"><tspan
+           sodipodi:role="line"
+           id="tspan850-9-6"
+           x="63.597004"
+           y="52.972103"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.48041px;font-family:Raleway;-inkscape-font-specification:Raleway;stroke-width:0.264583">Halda (heap)</tspan></text>
+    </g>
+    <g
+       id="g946-0-0"
+       transform="translate(0,64.277947)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect10-3-6-9-6"
+         width="70.867256"
+         height="19.463905"
+         x="44.231579"
+         y="41.316528" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.48041px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
+         x="62.919853"
+         y="52.972103"
+         id="text852-2-3-2"><tspan
+           sodipodi:role="line"
+           id="tspan850-9-6-6"
+           x="62.919853"
+           y="52.972103"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.48041px;font-family:Raleway;-inkscape-font-specification:Raleway;stroke-width:0.264583">Globální data</tspan></text>
+    </g>
+  </g>
+</svg>

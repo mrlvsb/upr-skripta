@@ -47,6 +47,34 @@ a && 4; // `true`
 if (a > 5 & a < 6) {}
 ```
 
+### Středník za `for`, `while` nebo `if`
+Středník za `for`, `while` nebo `if` by ve většině případů neměl být, protože se na jeho místě vytvoří prázdný blok kódu.
+
+V následující ukázce se provede 10× prázdné tělo cyklu `for` a následně se jednou vypíše řetězec `"Hello\n"`.
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+  for(int i = 0; i < 10; i++); {
+    printf("Hello\n");
+  }
+}
+```
+
+Středník za `if` vytvoří prázdný blok kódu, takže anonymní blok kódu s příkazem `printf` se vždy vypíše i když je podmínka nesplnitelná.
+
+
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+  if(0); {
+    printf("Hello\n");
+  }
+}
+```
+
+
 ### Špatné volání funkce
 Abychom zavolali funkci (tj. řekli počítači, aby začal vykonávat kód, který v ní je), napíšeme
 název funkce, závorky a do nich případně seznam argumentů. Při volání funkce už nezadáváme její

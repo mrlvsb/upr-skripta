@@ -4297,6 +4297,47 @@ a &amp;&amp; 4; // `true`
 // stejné jako a &gt; (5 &amp; a) &lt; 6
 if (a &gt; 5 &amp; a &lt; 6) {}
 </code></pre>
+<h3><a class="header" href="#středník-za-for-while-nebo-if" id="středník-za-for-while-nebo-if">Středník za <code>for</code>, <code>while</code> nebo <code>if</code></a></h3>
+<p>Příkazy <code>for</code>, <code>while</code> nebo <code>if</code> za svou uzavírací závorkou <code>)</code> očekávají jeden příkaz:</p>
+<pre><code class="language-c">if (a &gt; b) printf(&quot;%d&quot;, a);
+</code></pre>
+<p>nebo blok s příkazy:</p>
+<pre><code class="language-c">if (a &gt; b) {
+    printf(&quot;%d&quot;, a);
+    ...
+}
+</code></pre>
+<p>Pokud však za závorku dáte rovnou středník (<code>;</code>), tak překladač to pochopí jako prázdný příkaz, který nic nedělá.</p>
+<p>V následující ukázce se provede 10× prázdné tělo cyklu <code>for</code> a následně se jednou vypíše řetězec <code>&quot;Hello\n&quot;</code>.</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+  for(int i = 0; i &lt; 10; i++); {
+    printf(&quot;Hello\n&quot;);
+  }
+}
+</code></pre>
+<p>Zde opět středník za <code>if</code> reprezentuje prázdný příkaz, takže blok kódu s příkazem <code>printf</code> se provede vždy, i když je tato podmínka nesplnitelná.</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+  if(0); {
+    printf(&quot;Hello\n&quot;);
+  }
+}
+</code></pre>
+<p>Je to ekvivalentní, jako byste napsali</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+  if (0) { /* zde není co provést */ }
+
+  // tento blok se provede vždy
+  {
+      printf(&quot;Hello\n&quot;);
+  }
+}
+</code></pre>
 <h3><a class="header" href="#Špatné-volání-funkce" id="Špatné-volání-funkce">Špatné volání funkce</a></h3>
 <p>Abychom zavolali funkci (tj. řekli počítači, aby začal vykonávat kód, který v ní je), napíšeme
 název funkce, závorky a do nich případně seznam argumentů. Při volání funkce už nezadáváme její

@@ -48,7 +48,20 @@ if (a > 5 & a < 6) {}
 ```
 
 ### Středník za `for`, `while` nebo `if`
-Středník za `for`, `while` nebo `if` by ve většině případů neměl být, protože se na jeho místě vytvoří prázdný blok kódu.
+Příkazy `for`, `while` nebo `if` za svou uzavírací závorkou `)` očekávají jeden příkaz:
+```c
+if (a > b) printf("%d", a);
+```
+nebo blok s příkazy:
+```c
+if (a > b) {
+    printf("%d", a);
+    ...
+}
+```
+
+Pokud však za závorku dáte rovnou středník (`;`), tak překladač to pochopí jako prázdný příkaz, který nic nedělá.
+
 
 V následující ukázce se provede 10× prázdné tělo cyklu `for` a následně se jednou vypíše řetězec `"Hello\n"`.
 ```c,editable,mainbody
@@ -61,7 +74,7 @@ int main() {
 }
 ```
 
-Středník za `if` vytvoří prázdný blok kódu, takže anonymní blok kódu s příkazem `printf` se vždy vypíše i když je podmínka nesplnitelná.
+Zde opět středník za `if` reprezentuje prázdný příkaz, takže blok kódu s příkazem `printf` se provede vždy, i když je tato podmínka nesplnitelná.
 
 
 ```c,editable,mainbody
@@ -74,6 +87,20 @@ int main() {
 }
 ```
 
+Je to ekvivalentní, jako byste napsali
+
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+  if (0) { /* zde není co provést */ }
+
+  // tento blok se provede vždy
+  {
+      printf("Hello\n");
+  }
+}
+```
 
 ### Špatné volání funkce
 Abychom zavolali funkci (tj. řekli počítači, aby začal vykonávat kód, který v ní je), napíšeme

@@ -1,0 +1,45 @@
+<svg xmlns='http://www.w3.org/2000/svg'>
+	<!-- target 0 -->
+	<g>
+		<title>Target: 0
+Hits: 1
+Score: 9</title>
+		<circle cx='160.000000' cy='90.000000' r='60.000000' fill='#a297a3' stroke='black' />
+
+		<circle cx='160.000000' cy='90.000000' r='10' fill='white' stroke='black' />
+		<circle cx='160.000000' cy='90.000000' r='20' stroke='black' fill='transparent' />
+		<text x='160.000000' y='110.000000' fill='black' font-size='12' text-anchor='middle'>9</text>
+		<circle cx='160.000000' cy='90.000000' r='30' stroke='black' fill='transparent' />
+		<text x='160.000000' y='120.000000' fill='black' font-size='12' text-anchor='middle'>8</text>
+		<circle cx='160.000000' cy='90.000000' r='40' stroke='black' fill='transparent' />
+		<text x='160.000000' y='130.000000' fill='black' font-size='12' text-anchor='middle'>7</text>
+		<circle cx='160.000000' cy='90.000000' r='50' stroke='black' fill='transparent' />
+		<text x='160.000000' y='140.000000' fill='black' font-size='12' text-anchor='middle'>6</text>
+		<circle cx='160.000000' cy='90.000000' r='60' stroke='black' fill='transparent' />
+		<text x='160.000000' y='150.000000' fill='black' font-size='12' text-anchor='middle'>5</text>
+		<text x='160.000000' y='95.000000' fill='red' text-anchor='middle'>0</text>
+
+	</g>
+	<!-- target 1 -->
+	<g>
+		<title>Target: 1
+Hits: 2
+Score: 15</title>
+		<circle cx='90.000000' cy='70.000000' r='40.000000' fill='#be5355' stroke='black' />
+
+		<circle cx='90.000000' cy='70.000000' r='10' fill='white' stroke='black' />
+		<circle cx='90.000000' cy='70.000000' r='20' stroke='black' fill='transparent' />
+		<text x='90.000000' y='90.000000' fill='black' font-size='12' text-anchor='middle'>9</text>
+		<circle cx='90.000000' cy='70.000000' r='30' stroke='black' fill='transparent' />
+		<text x='90.000000' y='100.000000' fill='black' font-size='12' text-anchor='middle'>8</text>
+		<circle cx='90.000000' cy='70.000000' r='40' stroke='black' fill='transparent' />
+		<text x='90.000000' y='110.000000' fill='black' font-size='12' text-anchor='middle'>7</text>
+		<text x='90.000000' y='75.000000' fill='red' text-anchor='middle'>1</text>
+
+	</g>
+	<!-- missiles -->
+	<circle cx='125.000000' cy='70.000000' r='4' fill='black' />
+	<circle cx='80.000000' cy='90.000000' r='4' fill='black' />
+	<circle cx='150.000000' cy='100.000000' r='4' fill='black' />
+	<circle cx='55.000000' cy='140.000000' r='4' fill='black' />
+</svg>

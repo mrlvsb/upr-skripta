@@ -93,3 +93,29 @@ abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný zna
 
 [^1]: [Bílé znaky](https://cs.wikipedia.org/wiki/B%C3%ADl%C3%BD_znak) jsou (neviditelné) znaky,
 které reprezentují mezery v textu, tj. odřádkování, mezerník, tabulátor atd.
+
+### Formátování kódu
+Už víme, že překladač ignoruje bílé znaky a celkové formátování kódu. Nicméně programátorům obvykle
+velmi záleží na tom, jaké má kód odsazení, zarovnání, závorkování atd. Existuje mnoho
+[stylů](https://en.wikipedia.org/wiki/Indentation_style), pomocí kterých můžete kód formátovat.
+Například programátoři se dokážou běžně pohádat o tom, zda složené závorky na začátku bloku psát na
+stejném:
+```c
+if (...) {
+
+}
+while (...) {
+
+}
+```
+nebo novém řádku:
+```c
+if (...)
+{
+}
+while (...)
+{
+}
+```
+Jaký styl formátování použijete, je na vás, nicméně obecně platným pravidlem je, že byste se měli
+držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.

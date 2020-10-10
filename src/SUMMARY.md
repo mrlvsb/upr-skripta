@@ -24,6 +24,7 @@
         - [Pravdivostní typy](c/datove_typy/pravdivostni_typy.md)
     - [Řízení toku](c/rizeni_toku/rizeni_toku.md)
         - [Podmínky](c/rizeni_toku/podminky.md)
+            - [Příkaz switch](c/rizeni_toku/switch.md)
         - [Cykly](c/rizeni_toku/cykly.md)
             - [Cyklus while](c/rizeni_toku/while.md)
             - [Cyklus for](c/rizeni_toku/for.md)

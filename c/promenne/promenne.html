@@ -202,14 +202,14 @@ které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména 
 <span class='sidenote'><p><sup class='number'>1</sup>O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
 <a href="../prace_s_pameti/ukazatele.html">ukazatelích</a>.</p>
 </span>
-<h3><a class="header" href="#deklarace-a-platnost" id="deklarace-a-platnost">Deklarace a platnost</a></h3>
-<p>Takto vypadá <strong>deklarace</strong> (vytvoření) jednoduché proměnné s názvem <code>age</code>:</p>
+<h3><a class="header" href="#definice-a-platnost" id="definice-a-platnost">Definice a platnost</a></h3>
+<p>Takto vypadá <strong>definice</strong> (vytvoření) jednoduché proměnné s názvem <code>age</code>:</p>
 <pre><code class="language-c">int age;
 </code></pre>
-<p>Jakmile proměnnou nadeklarujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
+<p>Jakmile proměnnou nadefinujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
 reprezentuje, pomocí jejího názvu (zde <code>age</code>).</p>
-<p>Proměnná je platná (lze ji používat) vždy od místa deklarace do konce <strong>bloku</strong>, ve kterém byla
-nadeklarována. Bloky jsou kusy kódu ohraničené složenými závorkami (<code>{</code> a <code>}</code>):</p>
+<p>Proměnná je platná (lze ji používat) vždy od místa definice do konce <strong>bloku</strong>, ve kterém byla
+nadefinována. Bloky jsou kusy kódu ohraničené složenými závorkami (<code>{</code> a <code>}</code>):</p>
 <pre><code class="language-c">int main() {
     int a;
 
@@ -235,18 +235,18 @@ datového typu jako je typ proměnné:</p>
 <pre><code class="language-c">int points_a = 10;
 int points_b = 10 + 15;
 </code></pre>
-<p>Obecná syntaxe pro deklaraci proměnné je</p>
+<p>Obecná syntaxe pro definici proměnné je</p>
 <p><code>&lt;datový typ&gt; &lt;název&gt;;</code></p>
 <p>popřípadě</p>
 <p><code>&lt;datový typ&gt; &lt;název&gt; = &lt;výraz&gt;;</code></p>
 <p>pokud použijeme inicializaci.</p>
 <blockquote>
-<p>Všimněte si, že na konci deklarace proměnné vždy musí následovat středník (<strong>;</strong>).
+<p>Všimněte si, že na konci definice proměnné vždy musí následovat středník (<strong>;</strong>).
 Opomenutí středníku na konci příkazu je velmi častá chyba, která často končí těžko srozumitelnými chybovými
 hláškami při překladu. Dávejte si tak na středníky pozor, obzvláště ze začátku.</p>
 </blockquote>
 <h4><a class="header" href="#vždy-inicializujte-proměnné" id="vždy-inicializujte-proměnné">Vždy inicializujte proměnné!</a></h4>
-<p>Je opravdu důležité do proměnné vždy při její deklaraci přiřadit nějakou úvodní hodnotu. Pokud to
+<p>Je opravdu důležité do proměnné vždy při její definici přiřadit nějakou úvodní hodnotu. Pokud to
 neuděláme, tak její hodnota bude <strong>nedefinovaná</strong> (<em>undefined</em>), což v praxi znamená, že může být
 jakákoliv a při každém spuštění programu se může lišit. Čtení hodnoty takovéto nedefinované proměnné
 způsobuje <strong>nedefinované chování</strong> (<em>undefined behaviour</em>)<sup class='margin-toggle sidenote-number'>2</sup> programu. Pokud k tomu dojde, tak si překladač
@@ -296,6 +296,12 @@ nedává moc smysl říct <code>Číslo 5 odteď bude mít hodnotu 8</code>.</p>
 &quot;něco, co má adresu v paměti&quot;, a co tak půjde použít na levé straně operátoru zápisu <code>=</code>.</p>
 <p><strong>Cvičení</strong>: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
 a pak je vypíše na výstup programu (k výpisu využijte <code>printf</code>, který jsme si již ukázali <a href="../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">dříve</a>).</p>
+<h3><a class="header" href="#definice-více-proměnných-najednou" id="definice-více-proměnných-najednou">Definice více proměnných najednou</a></h3>
+<p>Pokud potřebujete vytvořit více proměnných stejného datového typu, můžete používat více názvů,
+oddělených čárkou, za datovým typem proměnné. Takto například lze vytvořit tři celočíselné proměnné
+s názvy <code>x</code>, <code>y</code> a <code>z</code>:</p>
+<pre><code class="language-c">int x = 1, y = 2, z = 3;
+</code></pre>
 
                     </main>
 

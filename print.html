@@ -807,14 +807,14 @@ které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména 
 <span class='sidenote'><p><sup class='number'>1</sup>O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
 <a href="c/promenne/../prace_s_pameti/ukazatele.html">ukazatelích</a>.</p>
 </span>
-<h3><a class="header" href="#deklarace-a-platnost" id="deklarace-a-platnost">Deklarace a platnost</a></h3>
-<p>Takto vypadá <strong>deklarace</strong> (vytvoření) jednoduché proměnné s názvem <code>age</code>:</p>
+<h3><a class="header" href="#definice-a-platnost" id="definice-a-platnost">Definice a platnost</a></h3>
+<p>Takto vypadá <strong>definice</strong> (vytvoření) jednoduché proměnné s názvem <code>age</code>:</p>
 <pre><code class="language-c">int age;
 </code></pre>
-<p>Jakmile proměnnou nadeklarujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
+<p>Jakmile proměnnou nadefinujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
 reprezentuje, pomocí jejího názvu (zde <code>age</code>).</p>
-<p>Proměnná je platná (lze ji používat) vždy od místa deklarace do konce <strong>bloku</strong>, ve kterém byla
-nadeklarována. Bloky jsou kusy kódu ohraničené složenými závorkami (<code>{</code> a <code>}</code>):</p>
+<p>Proměnná je platná (lze ji používat) vždy od místa definice do konce <strong>bloku</strong>, ve kterém byla
+nadefinována. Bloky jsou kusy kódu ohraničené složenými závorkami (<code>{</code> a <code>}</code>):</p>
 <pre><code class="language-c">int main() {
     int a;
 
@@ -840,18 +840,18 @@ datového typu jako je typ proměnné:</p>
 <pre><code class="language-c">int points_a = 10;
 int points_b = 10 + 15;
 </code></pre>
-<p>Obecná syntaxe pro deklaraci proměnné je</p>
+<p>Obecná syntaxe pro definici proměnné je</p>
 <p><code>&lt;datový typ&gt; &lt;název&gt;;</code></p>
 <p>popřípadě</p>
 <p><code>&lt;datový typ&gt; &lt;název&gt; = &lt;výraz&gt;;</code></p>
 <p>pokud použijeme inicializaci.</p>
 <blockquote>
-<p>Všimněte si, že na konci deklarace proměnné vždy musí následovat středník (<strong>;</strong>).
+<p>Všimněte si, že na konci definice proměnné vždy musí následovat středník (<strong>;</strong>).
 Opomenutí středníku na konci příkazu je velmi častá chyba, která často končí těžko srozumitelnými chybovými
 hláškami při překladu. Dávejte si tak na středníky pozor, obzvláště ze začátku.</p>
 </blockquote>
 <h4><a class="header" href="#vždy-inicializujte-proměnné" id="vždy-inicializujte-proměnné">Vždy inicializujte proměnné!</a></h4>
-<p>Je opravdu důležité do proměnné vždy při její deklaraci přiřadit nějakou úvodní hodnotu. Pokud to
+<p>Je opravdu důležité do proměnné vždy při její definici přiřadit nějakou úvodní hodnotu. Pokud to
 neuděláme, tak její hodnota bude <strong>nedefinovaná</strong> (<em>undefined</em>), což v praxi znamená, že může být
 jakákoliv a při každém spuštění programu se může lišit. Čtení hodnoty takovéto nedefinované proměnné
 způsobuje <strong>nedefinované chování</strong> (<em>undefined behaviour</em>)<sup class='margin-toggle sidenote-number'>2</sup> programu. Pokud k tomu dojde, tak si překladač
@@ -901,6 +901,12 @@ nedává moc smysl říct <code>Číslo 5 odteď bude mít hodnotu 8</code>.</p>
 &quot;něco, co má adresu v paměti&quot;, a co tak půjde použít na levé straně operátoru zápisu <code>=</code>.</p>
 <p><strong>Cvičení</strong>: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
 a pak je vypíše na výstup programu (k výpisu využijte <code>printf</code>, který jsme si již ukázali <a href="c/promenne/../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">dříve</a>).</p>
+<h3><a class="header" href="#definice-více-proměnných-najednou" id="definice-více-proměnných-najednou">Definice více proměnných najednou</a></h3>
+<p>Pokud potřebujete vytvořit více proměnných stejného datového typu, můžete používat více názvů,
+oddělených čárkou, za datovým typem proměnné. Takto například lze vytvořit tři celočíselné proměnné
+s názvy <code>x</code>, <code>y</code> a <code>z</code>:</p>
+<pre><code class="language-c">int x = 1, y = 2, z = 3;
+</code></pre>
 <h1><a class="header" href="#globální-proměnné" id="globální-proměnné">Globální proměnné</a></h1>
 <p>Proměnné, které jsme si ukázali, byly vytvářeny uvnitř <a href="c/promenne/../funkce/funkce.html">funkcí</a> (tj. ne na nejvyšší
 úrovni souboru). Takovéto proměnné se nazývají <strong>lokální proměnné</strong>. Pokud chceme, aby k nějaké
@@ -1488,7 +1494,7 @@ pro tzv. <strong>podmíněné vykonání</strong> kódu je podmínka <code>if</c
 }
 </code></pre>
 <p>Pokud se výraz předaný <code>if</code>u vyhodnotí jako <code>true</code> (pravda), tak se provede
-<a href="c/rizeni_toku/../promenne/promenne.html#deklarace-a-platnost">blok</a> kódu uvnitř <code>if</code>u tak, jak jste zvyklí, a program dále
+<a href="c/rizeni_toku/../promenne/promenne.html#definice-a-platnost">blok</a> kódu uvnitř <code>if</code>u tak, jak jste zvyklí, a program dále
 bude pokračovat za příkazem <code>if</code>. Pokud se však výraz vyhodnotí jako <code>false</code> (nepravda), tak se blok kódu
 uvnitř <code>if</code>u vůbec neprovede. V následujícím programu zkuste změnit výraz uvnitř závorek za <code>if</code> tak,
 aby se blok v podmínce vykonal:</p>
@@ -2527,7 +2533,11 @@ programu. Nazývá se <strong>ukazatel</strong> (<em>pointer</em>). Kromě toho,
 typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty je uložen v paměti na adrese obsažené
 v ukazateli. Poté říkáme, že ukazatel &quot;ukazuje na&quot; daný datový typ.</p>
 <p>Abychom vytvořili datový typ ukazatele, vezmeme datový typ, na který bude ukazovat, a přidáme za něj
-hvezdičku (<code>*</code>). Takto například vypadá proměnná datového typu &quot;ukazatel na <code>int</code>&quot;:</p>
+hvezdičku (<code>*</code>). Takto například vypadá proměnná datového typu &quot;ukazatel na <code>int</code>&quot;<sup class='margin-toggle sidenote-number'>2</sup>:</p>
+<span class='sidenote'><p><sup class='number'>2</sup>Je jedno, jestli hvězdičku napíšete k datovému typu (<code>int* p</code>) anebo k názvu proměnné
+(<code>int *p</code>), bílé znaky jsou zde ignorovány. Pozor však na vytváření více ukazatelů na
+<a href="c/prace_s_pameti/definice-v%C3%ADce-ukazatel%C5%AF-najednou">jednom řádku</a>.</p>
+</span>
 <pre><code class="language-c">int* ukazatel;
 </code></pre>
 <p>Je důležité si uvědomit, co tato proměnná reprezentuje. Datový typ <code>int*</code> zde říká, že v proměnné
@@ -2578,8 +2588,8 @@ použijete funkce, které vám hodnotu ukazatele vrátí jako svou návratovou h
 <li>
 <p><strong>Využití operátoru adresy</strong>: Pokud chcete ukazatel nastavit na adresu již existující hodnoty v
 paměti, můžete použít <strong>operátor adresy</strong> (<em>address-of operator</em>). Ten má syntaxi <code>&amp;&lt;proměnná&gt;</code>.
-Tento operátor se vyhodnotí jako adresa předané proměnné<sup class='margin-toggle sidenote-number'>2</sup>:</p>
-<span class='sidenote'><p><sup class='number'>2</sup>Všimněte si, že pro výpis ukazatelů ve funkci <code>printf</code> se používá <code>%p</code> místo <code>%d</code>.</p>
+Tento operátor se vyhodnotí jako adresa předané proměnné<sup class='margin-toggle sidenote-number'>3</sup>:</p>
+<span class='sidenote'><p><sup class='number'>3</sup>Všimněte si, že pro výpis ukazatelů ve funkci <code>printf</code> se používá <code>%p</code> místo <code>%d</code>.</p>
 </span>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
@@ -2647,8 +2657,8 @@ můžeme k ukazatelům přičítat či odčítat čísla. Toto se označuje jako
 (<em>pointer arithmetic</em>). Tato aritmetika má důležité pravidlo – pokud k ukazateli na konkrétní datový
 typ přičteme hodnotu <code>n</code>, tak se adresa v ukazateli zvýší o <code>n</code>-násobek velikosti datového typu,
 na který ukazatel ukazuje. Při aritmetice s ukazateli se tak neposouváme po jednotlivých bytech,
-ale po celých hodnotách daného datového typu<sup class='margin-toggle sidenote-number'>3</sup>.</p>
-<span class='sidenote'><p><sup class='number'>3</sup>Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli <code>void*</code>, protože ty neukazují
+ale po celých hodnotách daného datového typu<sup class='margin-toggle sidenote-number'>4</sup>.</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli <code>void*</code>, protože ty neukazují
 na žádný konkrétní datový typ.</p>
 </span>
 <p>Například, pokud bychom měli ukazatel <code>int* p</code> s hodnotou <code>16</code> (tj. &quot;ukazuje&quot; na adresu <code>16</code>) a
@@ -2726,6 +2736,16 @@ adrese v ukazateli lze měnit.</li>
 <li><code>const int const *</code> - konstantní ukazatel na konstantní celé číslo. Adresu v ukazateli nelze měnit,
 hodnotu čísla na adrese v ukazateli také nelze měnit.</li>
 </ul>
+<h2><a class="header" href="#definice-více-ukazatelů-najednou" id="definice-více-ukazatelů-najednou">Definice více ukazatelů najednou</a></h2>
+<p>Pokud byste chtěli vytvořit více ukazatelů
+<a href="c/prace_s_pameti/../promenne/promenne.html#definice-v%C3%ADce-prom%C4%9Bnn%C3%BDch-najednou">najednou</a>, musíte si dát pozor na to, že
+v tomto případě se hvězdička vztahuje pouze k jednomu následujícímu názvu proměnné. Tento kód tak
+vytvoří ukazatel s názvem <code>x</code>, a dvě celá čísla s názvy <code>y</code> a <code>z</code>:</p>
+<pre><code class="language-c">int* x, y, z;
+</code></pre>
+<p>Pokud byste chtěli vytvořit tři ukazatele, musíte dát hvězdičku před každý název proměnné:</p>
+<pre><code class="language-c">int* x, *y, *z;
+</code></pre>
 <h1><a class="header" href="#dynamická-paměť" id="dynamická-paměť">Dynamická paměť</a></h1>
 <p>Už víme, že pomocí <a href="c/prace_s_pameti/automaticka_pamet.html">automatické paměti</a> na zásobníku nemůžeme alokovat
 velké množství paměti a nemůžeme ani alokovat paměť s dynamickou velikostí (závislou na velikosti
@@ -3281,7 +3301,7 @@ str = NULL;  // jsem slusny a pointer nastavim na NULL,
 ```
 
 To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
-jazyku *C* řící tak, že deklarace proměnné bude pointerem, který bude
+jazyku *C* řící tak, že definice proměnné bude pointerem, který bude
 ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
 proměnné napíšeme znak `*`. Funkce `malloc` nám vrací tzv. pointer na úsek paměti o
 velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí

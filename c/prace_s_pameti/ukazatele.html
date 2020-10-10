@@ -195,7 +195,11 @@ programu. Nazývá se <strong>ukazatel</strong> (<em>pointer</em>). Kromě toho,
 typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty je uložen v paměti na adrese obsažené
 v ukazateli. Poté říkáme, že ukazatel &quot;ukazuje na&quot; daný datový typ.</p>
 <p>Abychom vytvořili datový typ ukazatele, vezmeme datový typ, na který bude ukazovat, a přidáme za něj
-hvezdičku (<code>*</code>). Takto například vypadá proměnná datového typu &quot;ukazatel na <code>int</code>&quot;:</p>
+hvezdičku (<code>*</code>). Takto například vypadá proměnná datového typu &quot;ukazatel na <code>int</code>&quot;<sup class='margin-toggle sidenote-number'>2</sup>:</p>
+<span class='sidenote'><p><sup class='number'>2</sup>Je jedno, jestli hvězdičku napíšete k datovému typu (<code>int* p</code>) anebo k názvu proměnné
+(<code>int *p</code>), bílé znaky jsou zde ignorovány. Pozor však na vytváření více ukazatelů na
+<a href="definice-v%C3%ADce-ukazatel%C5%AF-najednou">jednom řádku</a>.</p>
+</span>
 <pre><code class="language-c">int* ukazatel;
 </code></pre>
 <p>Je důležité si uvědomit, co tato proměnná reprezentuje. Datový typ <code>int*</code> zde říká, že v proměnné
@@ -246,8 +250,8 @@ použijete funkce, které vám hodnotu ukazatele vrátí jako svou návratovou h
 <li>
 <p><strong>Využití operátoru adresy</strong>: Pokud chcete ukazatel nastavit na adresu již existující hodnoty v
 paměti, můžete použít <strong>operátor adresy</strong> (<em>address-of operator</em>). Ten má syntaxi <code>&amp;&lt;proměnná&gt;</code>.
-Tento operátor se vyhodnotí jako adresa předané proměnné<sup class='margin-toggle sidenote-number'>2</sup>:</p>
-<span class='sidenote'><p><sup class='number'>2</sup>Všimněte si, že pro výpis ukazatelů ve funkci <code>printf</code> se používá <code>%p</code> místo <code>%d</code>.</p>
+Tento operátor se vyhodnotí jako adresa předané proměnné<sup class='margin-toggle sidenote-number'>3</sup>:</p>
+<span class='sidenote'><p><sup class='number'>3</sup>Všimněte si, že pro výpis ukazatelů ve funkci <code>printf</code> se používá <code>%p</code> místo <code>%d</code>.</p>
 </span>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
@@ -315,8 +319,8 @@ můžeme k ukazatelům přičítat či odčítat čísla. Toto se označuje jako
 (<em>pointer arithmetic</em>). Tato aritmetika má důležité pravidlo – pokud k ukazateli na konkrétní datový
 typ přičteme hodnotu <code>n</code>, tak se adresa v ukazateli zvýší o <code>n</code>-násobek velikosti datového typu,
 na který ukazatel ukazuje. Při aritmetice s ukazateli se tak neposouváme po jednotlivých bytech,
-ale po celých hodnotách daného datového typu<sup class='margin-toggle sidenote-number'>3</sup>.</p>
-<span class='sidenote'><p><sup class='number'>3</sup>Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli <code>void*</code>, protože ty neukazují
+ale po celých hodnotách daného datového typu<sup class='margin-toggle sidenote-number'>4</sup>.</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli <code>void*</code>, protože ty neukazují
 na žádný konkrétní datový typ.</p>
 </span>
 <p>Například, pokud bychom měli ukazatel <code>int* p</code> s hodnotou <code>16</code> (tj. &quot;ukazuje&quot; na adresu <code>16</code>) a
@@ -394,6 +398,16 @@ adrese v ukazateli lze měnit.</li>
 <li><code>const int const *</code> - konstantní ukazatel na konstantní celé číslo. Adresu v ukazateli nelze měnit,
 hodnotu čísla na adrese v ukazateli také nelze měnit.</li>
 </ul>
+<h2><a class="header" href="#definice-více-ukazatelů-najednou" id="definice-více-ukazatelů-najednou">Definice více ukazatelů najednou</a></h2>
+<p>Pokud byste chtěli vytvořit více ukazatelů
+<a href="../promenne/promenne.html#definice-v%C3%ADce-prom%C4%9Bnn%C3%BDch-najednou">najednou</a>, musíte si dát pozor na to, že
+v tomto případě se hvězdička vztahuje pouze k jednomu následujícímu názvu proměnné. Tento kód tak
+vytvoří ukazatel s názvem <code>x</code>, a dvě celá čísla s názvy <code>y</code> a <code>z</code>:</p>
+<pre><code class="language-c">int* x, y, z;
+</code></pre>
+<p>Pokud byste chtěli vytvořit tři ukazatele, musíte dát hvězdičku před každý název proměnné:</p>
+<pre><code class="language-c">int* x, *y, *z;
+</code></pre>
 
                     </main>
 

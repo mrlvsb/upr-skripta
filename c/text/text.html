@@ -234,7 +234,7 @@ str = NULL;  // jsem slusny a pointer nastavim na NULL,
 ```
 
 To, že budeme chtít pracovat s dynamicky alokovanou pamětí, musíme
-jazyku *C* řící tak, že deklarace proměnné bude pointerem, který bude
+jazyku *C* řící tak, že definice proměnné bude pointerem, který bude
 ukazovat na takovou paměť. To zajistíme jednoduše tak, že před název
 proměnné napíšeme znak `*`. Funkce `malloc` nám vrací tzv. pointer na úsek paměti o
 velikosti, kterou jsme chtěli. Pokud nám OS paměť nepřidělí, vrátí

@@ -104,13 +104,16 @@ Naimplementujte funkci, která setřídí pole. Můžete použít například al
 [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort).
 
 ## Střelba na terč
-Vykreslete terče a vystřelené střely. Po najetí myší ukáže skóre vybraného terče.
+Vytvořte program, který načte souřadnice terčů a střel, a vykreslí je do obrázku ve formátu
+vektorové grafiky [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). Po najetí myší
+na terč by se mělo ukázat skóre vybraného terče.
 
 <object data="terc/01_basic.svg"></object>
 
 Ze vstupu přečtěte počet terčů a následně si dynamicky alokujte 3 pole typu `float` pro `x` souřadnice terčů, `y` souřadnice terčů a poloměry terčů.
 
-Poté pro každý terč přečtete jeho `x` souřadnici, `y` souřadnici, poloměr a uložte do polí.
+Poté pro každý terč přečtěte jeho `x` souřadnici, `y` souřadnici, poloměr a uložte je do
+odpovídajících polí.
 Například následující vstup nám popisuje 2 terče.
 První terč má střed na souřadnici \\( [50, 70 ] \\) a poloměr \\( 40 \\) a druhý terč leží na středu \\( [160, 90 ] \\) s poloměrem \\( 60 \\).
 ```
@@ -126,7 +129,7 @@ $ ./main < terce.txt
 
 
 Terče si pomocí `printf` vykreslete do vektorového obrázku ve formátu svg, ve kterém lze pomocí tagů definovat útvary.
-Útvary v obrázku musí být ale obaleny v:
+Útvary v obrázku obalte tagem `svg`:
 ```xml
 <svg xmlns='http://www.w3.org/2000/svg'>
   <!-- kresleni kruhu -->
@@ -162,10 +165,12 @@ Vzdálenost vypočítáme jednoduše pomocí Pythagorovy věty, kde `x` odvěsna
    <text x=60 y=35 text-anchor="end">dist</text>
 </svg>
 
-Protože máme více terčů a více střel, tak musíme aplikovat výpočet vzdálenosti mezi každou střelou a každým terčem pomocí dvou vnořených `for` cyklů.
+Protože máme více terčů a více střel, tak musíme aplikovat výpočet vzdálenosti mezi každou střelou
+a každým terčem pomocí dvou vnořených `for` cyklů.
 Vnější cyklus bude procházet střely a vnitřní cyklus bude procházet terče.
-Ve vnitřním cyklu vypočítáme vzdálenost mezi střelou a terčem a pokud je menší než poloměr tak tento konkrétní terč byl zasažen střelou z vnějšího cyklu.
-V případě, že se více kruhu překrývá, tak střela zasáhla terč s menším poloměrem.
+Ve vnitřním cyklu vypočítáme vzdálenost mezi střelou a terčem a pokud je menší než poloměr,
+tak tento konkrétní terč byl zasažen střelou z vnějšího cyklu.
+V případě, že se více kruhů překrývá, tak střela zasáhla terč s menším poloměrem.
 Budeme tedy hledat zasáhnutý terč s nejmenším poloměrem.
 
 Skóre při zasažení středu s poloměrem 20 je 10 bodů a body postupně klesají.

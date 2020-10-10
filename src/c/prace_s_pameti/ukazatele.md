@@ -14,10 +14,14 @@ typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty je uložen v pam
 v ukazateli. Poté říkáme, že ukazatel "ukazuje na" daný datový typ.
 
 Abychom vytvořili datový typ ukazatele, vezmeme datový typ, na který bude ukazovat, a přidáme za něj
-hvezdičku (`*`). Takto například vypadá proměnná datového typu "ukazatel na `int`":
+hvezdičku (`*`). Takto například vypadá proměnná datového typu "ukazatel na `int`"[^2]:
 ```c
 int* ukazatel;
 ```
+
+[^2]: Je jedno, jestli hvězdičku napíšete k datovému typu (`int* p`) anebo k názvu proměnné
+(`int *p`), bílé znaky jsou zde ignorovány. Pozor však na vytváření více ukazatelů na
+[jednom řádku](definice-více-ukazatelů-najednou).
 
 Je důležité si uvědomit, co tato proměnná reprezentuje. Datový typ `int*` zde říká, že v proměnné
 `ukazatel` bude uloženo číslo, které budeme interpretovat jako adresu. V paměti na této adrese poté
@@ -63,7 +67,7 @@ ukazatele:
 použijete funkce, které vám hodnotu ukazatele vrátí jako svou návratovou hodnotu.
 - **Využití operátoru adresy**: Pokud chcete ukazatel nastavit na adresu již existující hodnoty v
 paměti, můžete použít **operátor adresy** (*address-of operator*). Ten má syntaxi `&<proměnná>`.
-Tento operátor se vyhodnotí jako adresa předané proměnné[^2]:
+Tento operátor se vyhodnotí jako adresa předané proměnné[^3]:
     ```c,editable,mainbody
     #include <stdio.h>
 
@@ -87,7 +91,7 @@ Tento operátor se vyhodnotí jako adresa předané proměnné[^2]:
     pomocí ukazatele přistoupit. V opačném případu by mohlo dojít k
     [paměťové chybě](../../caste_chyby/pametove_chyby.md#segmentation-fault) 💣.
 
-[^2]: Všimněte si, že pro výpis ukazatelů ve funkci `printf` se používá `%p` místo `%d`.
+[^3]: Všimněte si, že pro výpis ukazatelů ve funkci `printf` se používá `%p` místo `%d`.
 
 ## Přístup k paměti pomocí ukazatele
 Když už máme v ukazateli uloženou nějakou (validní) adresu v paměti, tak k této paměti můžeme
@@ -139,9 +143,9 @@ můžeme k ukazatelům přičítat či odčítat čísla. Toto se označuje jako
 (*pointer arithmetic*). Tato aritmetika má důležité pravidlo – pokud k ukazateli na konkrétní datový
 typ přičteme hodnotu `n`, tak se adresa v ukazateli zvýší o `n`-násobek velikosti datového typu,
 na který ukazatel ukazuje. Při aritmetice s ukazateli se tak neposouváme po jednotlivých bytech,
-ale po celých hodnotách daného datového typu[^3].
+ale po celých hodnotách daného datového typu[^4].
 
-[^3]: Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli `void*`, protože ty neukazují
+[^4]: Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli `void*`, protože ty neukazují
 na žádný konkrétní datový typ.
 
 Například, pokud bychom měli ukazatel `int* p` s hodnotou `16` (tj. "ukazuje" na adresu `16`) a
@@ -219,3 +223,16 @@ adrese v ukazateli nikoliv.
 adrese v ukazateli lze měnit.
 - `const int const *` - konstantní ukazatel na konstantní celé číslo. Adresu v ukazateli nelze měnit,
 hodnotu čísla na adrese v ukazateli také nelze měnit.
+
+## Definice více ukazatelů najednou
+Pokud byste chtěli vytvořit více ukazatelů
+[najednou](../promenne/promenne.md#definice-více-proměnných-najednou), musíte si dát pozor na to, že
+v tomto případě se hvězdička vztahuje pouze k jednomu následujícímu názvu proměnné. Tento kód tak
+vytvoří ukazatel s názvem `x`, a dvě celá čísla s názvy `y` a `z`:
+```c
+int* x, y, z;
+```
+Pokud byste chtěli vytvořit tři ukazatele, musíte dát hvězdičku před každý název proměnné:
+```c
+int* x, *y, *z;
+```

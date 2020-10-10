@@ -19,16 +19,16 @@ které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména 
 [^1]: O tom, jak přesně tato alokace paměti probíhá, se dozvíte později v sekci o
 [ukazatelích](../prace_s_pameti/ukazatele.md).
 
-### Deklarace a platnost
-Takto vypadá **deklarace** (vytvoření) jednoduché proměnné s názvem `age`:
+### Definice a platnost
+Takto vypadá **definice** (vytvoření) jednoduché proměnné s názvem `age`:
 ```c
 int age;
 ```
-Jakmile proměnnou nadeklarujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
+Jakmile proměnnou nadefinujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
 reprezentuje, pomocí jejího názvu (zde `age`).
 
-Proměnná je platná (lze ji používat) vždy od místa deklarace do konce **bloku**, ve kterém byla
-nadeklarována. Bloky jsou kusy kódu ohraničené složenými závorkami (`{` a `}`):
+Proměnná je platná (lze ji používat) vždy od místa definice do konce **bloku**, ve kterém byla
+nadefinována. Bloky jsou kusy kódu ohraničené složenými závorkami (`{` a `}`):
 ```c
 int main() {
     int a;
@@ -58,7 +58,7 @@ datového typu jako je typ proměnné:
 int points_a = 10;
 int points_b = 10 + 15;
 ```
-Obecná syntaxe pro deklaraci proměnné je
+Obecná syntaxe pro definici proměnné je
 
 `<datový typ> <název>;`
 
@@ -68,12 +68,12 @@ popřípadě
 
 pokud použijeme inicializaci.
 
-> Všimněte si, že na konci deklarace proměnné vždy musí následovat středník (**;**).
+> Všimněte si, že na konci definice proměnné vždy musí následovat středník (**;**).
 > Opomenutí středníku na konci příkazu je velmi častá chyba, která často končí těžko srozumitelnými chybovými
 > hláškami při překladu. Dávejte si tak na středníky pozor, obzvláště ze začátku.
 
 #### Vždy inicializujte proměnné!
-Je opravdu důležité do proměnné vždy při její deklaraci přiřadit nějakou úvodní hodnotu. Pokud to
+Je opravdu důležité do proměnné vždy při její definici přiřadit nějakou úvodní hodnotu. Pokud to
 neuděláme, tak její hodnota bude **nedefinovaná** (*undefined*), což v praxi znamená, že může být
 jakákoliv a při každém spuštění programu se může lišit. Čtení hodnoty takovéto nedefinované proměnné
 způsobuje **nedefinované chování** (*undefined behaviour*)[^2] programu. Pokud k tomu dojde, tak si překladač
@@ -134,3 +134,11 @@ Zatím známe pouze proměnné, později si však ukážeme [další možnosti](
 
 **Cvičení**: Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
 a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](../prikazy_vyrazy.md#výpis-výrazů)).
+
+### Definice více proměnných najednou
+Pokud potřebujete vytvořit více proměnných stejného datového typu, můžete používat více názvů,
+oddělených čárkou, za datovým typem proměnné. Takto například lze vytvořit tři celočíselné proměnné
+s názvy `x`, `y` a `z`:
+```c
+int x = 1, y = 2, z = 3;
+```

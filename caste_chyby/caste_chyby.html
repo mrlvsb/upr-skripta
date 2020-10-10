@@ -303,6 +303,27 @@ nejprve přistoupit k hodnotě na dané adrese (<code>*ptr</code>), a až k tét
     *ptr += x;  // správně, přičteme `x` k hodnotě na adrese `ptr` 
 }
 </code></pre>
+<h3><a class="header" href="#vytváření-spousty-proměnných-místo-použití-pole" id="vytváření-spousty-proměnných-místo-použití-pole">Vytváření spousty proměnných místo použití pole</a></h3>
+<p>Pokud potřebujete jednotně pracovat s větším počtem hodnot v paměti, použijte <a href="../c/pole/pole.html">pole</a>.
+Signálem, že jste měli použít pole, může být to, že máte ve funkci spoustu proměnných a pro rozlišení
+každé proměnné musíte přidat nový řádek kódu:</p>
+<pre><code class="language-c">for (a0 = 0, a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0; i &lt; pocet; i++)
+{
+    if (hodnota == 1)
+    {
+        a0++;
+    }
+    else if (hodnota == 2)
+    {
+        a1++;
+    }
+    else if (hodnota == 3)
+    {
+        a2++;
+    }
+    ...
+}
+</code></pre>
 
                     </main>
 

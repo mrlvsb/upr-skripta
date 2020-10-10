@@ -36,3 +36,19 @@ Různé konstrukce C můžou využívat různé styly, například častá konve
 pro názvy proměnných a [funkcí](../funkce/funkce.md) a `PascalCase` pro názvy [struktur](../struktury/struktury.md).
 Který styl budete používat záleží na vaší osobní preferenci, nicméně důležité je zejména držet se
 jednotného stylu a nekombinovat různé styly (pro jednotlivé typy konstrukcí) v jednom programu.
+
+### Čeština nebo angličtina?
+Pokud vám to přijde přehlednější, tak ze začátku můžete používat české názvy[^1] pro názvy proměnných
+a dalších prvků. Může tak pro vás být snadnější odlišit, kterou část kódu jste vytvořili vy (ta bude
+mít český název), a co je naopak vestavěná součást *C* (např. `int`). 
+
+[^1]: Bez diakritiky.
+
+Nicméně, jak už bylo uvedeno v [úvodu](../../uvod/uvod.md), primárním jazykem programování je
+angličtina. Pokud byste se někdy setkali s cizím kódem a museli ho pochopit či upravit, určitě oceníte,
+když bude v angličtině, než kdyby byl například ve finštině. Stejně tak pokud budete sdílet svůj
+kód online, můžete s ním oslovit mnohem širší skupinu programátorů, když bude v angličtině, než kdyby
+byl v češtině.
+
+Jakmile se tedy v programování trochu aklimatizujete, používejte ve všech svých programech raději
+anglické názvy.

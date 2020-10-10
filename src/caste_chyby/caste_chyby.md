@@ -145,3 +145,26 @@ void pricti_hodnotu(int* ptr, int x) {
     *ptr += x;  // správně, přičteme `x` k hodnotě na adrese `ptr` 
 }
 ```
+
+### Vytváření spousty proměnných místo použití pole
+Pokud potřebujete jednotně pracovat s větším počtem hodnot v paměti, použijte [pole](../c/pole/pole.md).
+Signálem, že jste měli použít pole, může být to, že máte ve funkci spoustu proměnných a pro rozlišení
+každé proměnné musíte přidat nový řádek kódu:
+```c
+for (a0 = 0, a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0; i < pocet; i++)
+{
+    if (hodnota == 1)
+    {
+        a0++;
+    }
+    else if (hodnota == 2)
+    {
+        a1++;
+    }
+    else if (hodnota == 3)
+    {
+        a2++;
+    }
+    ...
+}
+```

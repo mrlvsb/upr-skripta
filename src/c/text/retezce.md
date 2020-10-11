@@ -82,6 +82,7 @@ int main() {
     return 0;
 }
 ```
+V takovémto případě se hodnota z literálu překopíruje do proměnné pole znaků na zásobníku.
 
 > Pokud jsou vám řetězcové literály povědomé, je to kvůli toho, že jsme je již mnohokrát
 > využili při volání funkce `printf`.
@@ -101,15 +102,18 @@ pro spočtení délky řetězce by mohla vypadat takto[^3]:
 ```c
 int delka_retezce(const char* retezec) {
     int delka = 0;
+
+    // dokud není znak na adrese v ukazateli roven znaku NUL
     while (*retezec != '\0') {
         delka = delka + 1;
-        retezec = retezec + 1;
+        retezec = retezec + 1;  // posuň ukazatel o jeden znak dále
     }
     return delka;
 }
 ```
 Tato funkce postupně projde všechny znaky řetězce a počítá, kolik jich je, dokud nenarazí na
-znak `'\0`.
+znak `'\0`. Pro procházení řetězce je zde použita
+[aritmetika s ukazateli](../prace_s_pameti/ukazatele.md#aritmetika-s-ukazateli).
 
 [^3]: Všimněte si, že tato funkce bere ukazatel na konstantní pole znaků.
 Pokud ve funkci nepotřebujete měnit hodnoty pole, je obvykle dobrý nápad použít klíčové slovo
@@ -118,7 +122,7 @@ Do takovéto funkce pak klidně můžete poslat i pole, které ve skutečnosti m
 např. `char*` lze bez problému převést na `const char*`. V opačném směru konverze není korektní.
 
 Z toho vyplývá mimo jiné to, že znak `NUL` nemůže být použit "uprostřed" řetězce. Pokud by tomu tak
-bylo, tak funkce, které by s takovýmto řetězcem pracovaly, by při nalezení tohoto znaku přestali
+bylo, tak funkce, které by s takovýmto řetězcem pracovaly, by při nalezení tohoto znaku přestaly
 řetězec zpracovávat, a jakékoliv další znaky za `NUL` by byly ignorovány. Uhodnete tak, co vypíše
 následující program?
 ```c,editable,mainbody

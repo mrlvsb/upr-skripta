@@ -8,7 +8,7 @@ každém programu nemuseli programovat podporu pro každý vstupní/výstupní k
 se o toto stará operační systém. Ten nám umožňuje komunikovat s okolním světem pomocí tzv.
 **souborových deskriptorů** (*file descriptors*). Při vytvoření nového komunikačního kanálu
 (například při otevření souboru) našemu programu operační systém předá nový souborový deskriptor
-identifikovaný číslem. Když poté náš program chce vypsat nebo načíst data, tak musí předat operačnému
+identifikovaný číslem. Když poté náš program chce vypsat nebo načíst data, tak musí předat operačnímu
 systému číslo deskriptoru, se kterým chceme komunikovat. Můžeme například říct `Vypiš text "ahoj" do
 souborového deskriptoru s číslem 5`. Ať už je na tento deskriptor připojen soubor, terminál či něco
 jiného, operační systém se postará o to, aby k němu data z našeho programu korektně dorazila.
@@ -30,8 +30,19 @@ Opět to ale není jediná možnost, `stdout` může být například přesměro
     $ ./program > soubor.txt
     ```
     Pokud použijete například funkci `printf`, tak ta pošle svůj výstup právě do deskriptoru `stdout`.
+    
+    Pokud toto nastavení [nezměníte](https://devdocs.io/c/io/setvbuf), tak `stdout` implicitně používá 
+    tzv. **bufferování po řádcích** (*line buffering*). To znamená, že pokud zapíšete do `stdout`
+    pomocí některé z funkcí standardní knihovny *C* nějaký text, tak tento text se nejprve zapíše
+    do dočasného pole (*bufferu*) v paměti. Až jakmile na výstup zapíšete znak odřádkování `'\n'`[^1],
+    tak dojde k vyprázdnění (*flush*) bufferu, kdy je jeho obsah odeslán na výstup. Jinak řečeno,
+    dokud nevypíšete znak odřádkování, váš výstup se neobjeví např. v terminálu. Bufferování po
+    řádcích se provádí jako optimalizace, výstup (i vstup) programu totiž může být velmi pomalý.
 - **Standardní chybový výstup** (`stderr`): tento deskriptor má číslo `2` a používá se pro výpis
-chyb a logovacích záznamů.
+chyb a logovacích záznamů. Narozdíl od `stdout` nepoužívá `stderr` implicitně line buffering, takže
+cokoliv, co do něj zapíšete, se okamžite odešle na výstup deskriptoru.
+
+[^1]: Nebo jakmile v bufferu dojde paměť.
 
 Mimo těchto standardních deskriptorů můžete ve svých programech vytvářet i další deskriptory,
 například pomocí otevírání [souborů](../soubory.md). Více o tom, jak fungují souborové deskriptory

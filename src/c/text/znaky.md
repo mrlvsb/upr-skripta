@@ -31,7 +31,7 @@ Jelikož ASCII "kóduje" pouze 128 znaků, tak pro reprezentaci ASCII znaku by n
 Nicméně pracovat se sedmibitovými hodnotami by bylo poněkud nepraktické, proto se běžně ASCII znak
 ukládá do jednobytového (osmibitového) čísla. V *C* se pro reprezentaci jednoho ASCII znaku používá
 datový typ `char`[^3], s kterým jsme se
-[již setkali](http://localhost:3000/c/datove_typy/celociselne_typy.html).
+[již setkali](../datove_typy/celociselne_typy.md).
 
 [^3]: *C* neobsahuje specializovaný typ pro jednobytové celé číslo, `char` tak reprezentuje jak
 ASCII znak, tak i celé číslo s jedním bytem. Záleží pak na nás, jak budeme hodnotu v `char`u

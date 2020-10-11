@@ -83,5 +83,5 @@ a pomocí apostrofů ho lze zapsat jako `'\t'`. Pokud bychom do znaku chtěli za
 reprezentuje.
 
 Pokud byste chtěli převést ASCII znak číslice na její číselnou hodnotu, stačí od něho odečíst hodnotu
-`48`, neboli znak `'0'`. `'0' - '0'` je `0`, `'5' - `0'` je `5` atd. To je způsobeno tím, že číslice
+`48`, neboli znak `'0'`. `'0' - '0'` je `0`, `'5' - '0'` je `5` atd. To je způsobeno tím, že číslice
 v ASCII mají přiřazeny sekvenční číselné hodnoty.

@@ -89,6 +89,12 @@ int d[2] = { 2, 3 };    // pole s hodnotami 2, 3
 ```
 Hodnot samozřemě nesmíte zadat více, než je velikost pole.
 
+Pokud využijete inicializaci pole, můžete vynechat velikost pole v hranatých závorkách. Překladač
+v tomto případě dopočítá velikost za vás:
+```c
+int p[] = { 1, 2, 3 }; // p je pole s třemi čísly
+```
+
 ## Přístup k prvkům pole
 K přístupu k jednotlivým prvkům pole můžeme využít
 [ukazatelů](../prace_s_pameti/ukazatele.md). Proměnná pole se totiž chová jako ukazatel na první

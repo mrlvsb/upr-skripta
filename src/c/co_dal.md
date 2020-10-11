@@ -14,6 +14,8 @@ seskupit pojmenované konstanty.
 umožňují interpretovat strukturu jako více různých datových typů.
 - [**Bitová pole**](https://en.cppreference.com/w/c/language/bit_field) (*bit fields*), která
 umožňují rozdělit paměť struktury na úrovni jednotlivých bitů. 
+- [**Široké znaky**](http://www.cplusplus.com/reference/cwchar/) (*wide chars*) a s nimi související
+funkce standardní knihovny umožňují používat složitější kódování než ASCII.
 
 Pokud si chcete ověřit, jak jste na tom se znalostí jazyka *C*, projděte si tyto
 [slidy](https://www.slideshare.net/olvemaudal/deep-c). Pokud budete umět odpovídat jako blonďatý

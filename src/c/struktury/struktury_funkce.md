@@ -1,84 +1,77 @@
 # Struktury a funkce
-Tato sekce je ve výstavbě 🚧.
+Pomocí struktur si můžeme vytvořit nový datový typ, což pomáhá přehlednosti programů, protože se
+díky tomu můžeme v programech vyjadřovat pomocí pojmů z oblasti (tzv. domény), kterou se náš program
+zabývá (`Student`, `Příšera`, `Munice`, `Letadlo`, `Volant` atd.) a ne pouze pomocí pojmů, kterým
+rozumí počítač (číslo, znak, pravdivostní hodnota).
 
-<!--Práce se strukturami ve funkcích nepodléhá nějakým syntaktickým
-pravidlům. Zavedeme si však pár pravidel pro nás samotné, abychom se v
-našem kódu lépe orientovali.
+Abychom pracovali s ještě vyšší úrovní abstrakce, bylo by užitečné, pokud bychom mohli k
+vlastním datovým typům nadefinovat také vlastní operace, které by s nimi uměly pracovat. Některé
+programovací jazyky umožňují provádět tzv.
+[**přetěžování operátorů**](https://en.wikipedia.org/wiki/Operator_overloading) (*operator overloading*),
+pomocí kterého můžeme například umožnit používání operátorů jako je `+` s vlastními datovými typy.
+*C* toto sice neumožňuje, nicméně chování můžeme k námi vytvořeným strukturám přidat pomocí funkcí.
 
-Pokud budeme pracovat se strukturou ve funkcích, bývá dobrým zvykem, aby
-jméno takové funkce začínalo názvem struktury (malými pásmeny) a
-následně jsou podtržítky oddělena slova vyjadřující operaci, kterou se
-strukturou provádíme.
+Často tak k naší struktuře chceme vytvořit sadu funkcí, které s ní budou pracovat. V *C* pro tento
+koncept neexistuje žádná syntaktická podpora. Obvykle se tak prostě takovéto funkce pojmenují tak,
+aby začínaly názvem struktury, ke které jsou přidružené, a přebírají ukazatel na tuto strukturu jako
+svůj první parametr[^1]:
+```c,editable
+#include <stdbool.h>
+#include <stdio.h>
 
-Ukažme si, jak bychom alokovali strukturu, kterou používíme pod aliasem `Image`.
+typedef struct {
+    float x;
+    float y;
+} Pozice;
 
-```c
-struct ImageStruct {
-    unsigned char * data;
-    int rows;
-    int cols;
-};
+typedef struct {
+    const char* jmeno;
+    int skore;
+    Pozice pozice;
+} Hrac;
 
-typedef struct ImageStruct Image;
-
-Image * heap_image;
-
-// alokuje prazdny obrazek
-Image * image_new( const int rows, const int cols ) {
-    Image * image = NULL;
-    image = (Image *)malloc( sizeof( image[ 0 ] ) );
-    image->data = (unisgned char *)malloc( rows * cols * sizeof( image->data[ 0 ] ) );
-    image->rows = rows;
-    image->cols = cols;
-    return image;
+void hrac_posun(Hrac* hrac, int x, int y) {
+    hrac->pozice.x += x;
+    hrac->pozice.y += y;
+}
+void hrac_pridej_skore(Hrac* hrac, int skore) {
+    hrac->skore += skore;
+    if (hrac->skore > 100) {
+        hrac->skore = 100;
+    }
+}
+bool hrac_vyhral(Hrac* hrac) {
+    return hrac->skore == 100;
 }
 
-heap_image = image_new( 640, 480 );
-```
+int main() {
+    Hrac hrac = { "Jindrich", 40, { .x = 10, .y = 20 } };
+    hrac_posun(&hrac, 5, -8);
+    hrac_pridej_skore(&hrac, 70);
 
-Na výpisu kódů uvedeném výše můžeme vidět, že funkce `image_new` vytváří dynamicky
-alokovanou datovou strukturu `Image`. Popišme si, co se přesně děje. Návratový
-typ funkce `image_new` je pointer na strukturu `Image` (je to tedy `Image *`).
-Na řádku 13 si vytvoříme nový
-pointer na `Image`, se kterým budeme pracovat (alokovat jej a jeho atributy) a
-také jej vrátíme na konci funkce. Pro tento pointer alokujeme paměť o
-velikosti struktury `Image` na řádku 15. Dále alokujeme prostor pro jasy jednotlivých
-pixelů obrázku na řádku 17. Atributy `rows` a `cols` struktury `Image` nastavujeme na řádcích 19 a 20.
-Nakonec vracíme takto vytvořenou strukturu na řádku 22. Volání takové
-funkce je ukázáno na řádku 25, kde vytváříme obrázek o velikosti
-$640 \times 480$ pixelů.
+    printf("Hrac vyhral: %d\n", hrac_vyhral(&hrac));
 
-Ukažme si ještě, jak bychom takto naalokovanou struktury zase uvolnili,
-tzn. vrátili bychom alokovanou paměť zpět OS.
-
-```c
-// dealokuje strukturu s obrazkem
-void image_free( Image * self ) {
-    free( image->data );  // uvolnujeme jasy pixelu
-    free( image );        // uvolnujeme strukturu
+    return 0;
 }
-
-image_free( heap_image );
 ```
 
-Jak můžeme vidět, funkce `image_free` akceptuje jeden argument, který je pointrem na
-strukturu `Image`. Ten je předán pod názvem `self`, ale můžeme si jej pojmenovat jak
-nám libo. V těle funkce se nácházeji dvě dealokační volání funkce `free`.
-První volání uvolňuje pamět pro jasy pixelů. Druhé volání pak uvolňuje
-paměť, kterou zabírá samotná datová struktura. Důležité je, v jakém
-pořadí jsou jednotlivé atributy a datová struktura samotná uvolňovány.
-Platí jednoduché pravidlo, že nejprve uvolňujeme data atributů a až pak
-můžeme uvolnit strukturu samotnou. V opačném případě bychom totiž při
-uvolnění struktury ztratili pointer na atributy a tím by paměť byla až
-do konce běhu programu ztracena.
+[^1]: Ukazatel se používá, abychom nemuseli struktury při předávání do funkcí kopírovat (mohou být
+relativně velké) a abychom je mohli případně zevnitř funkcí modifikovat.
 
-**Cvičení:** Upravte funkci `image_new` tak, aby data, která
-reprezentují pixely byla nastavena na černou barvu (hodnota `0`).
+Pokud vytvoříme vhodné datové typy (struktury) a budeme s nimi pracovat pomocí funkcí, tak by se naše
+programy měly přibližovat k tomu, aby je šlo číst jako plynulý a přehledný text. 
 
-**Cvičení:** Vytvořte funkci, která na zadanou souřadnici
-pixelu v obrázku reprezentovaného strukturou `Image` nastaví zadanou hodnotu.
+> Vytváření vlastních datových typů, které mají přidružené chování, je základem tzv.
+> [Objektově orientovaného programování](https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-2055/01&subjectBlockAssignmentId=375759&studyFormId=2&studyPlanId=22001&locale=cs&back=true).
 
-**Cvičení:** Vytvořte funkci, která do obrázku
-reprezentovaného strukturou `Image` nakreslí zvoleným jasem obdélník o zadaných
-rozměrech.
--->
+## Struktury jako návratový typ funkce
+Jelikož struktury mohou obsahovat více datových typů, můžete pomocí nich také obejít fakt, že
+funkce mohou vracet pouze jednu hodnotu:
+```c
+typedef struct {
+    float x;
+    float y;
+} Pozice;
+
+Pozice vrat_pocatecni_pozici() { ... }
+```

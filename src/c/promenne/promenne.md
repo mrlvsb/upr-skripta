@@ -44,7 +44,7 @@ int main() {
     return 0;
 } // zde končí platnost proměnné `a`
 ```
-Oblast, ve které je proměnná validní, se nazývá (variable) *scope*.
+Oblast, ve které je proměnná validní, se nazývá *(variable) scope*.
 
 ### Datový typ
 `int` před názvem proměnné udává její datový typ, o kterém pojednává [následující sekce](../datove_typy/datove_typy.md).

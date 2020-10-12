@@ -20,7 +20,7 @@ Tato funkce má následující signaturu[^1]:
 void* malloc(size_t size);
 ```
 
-[^1]: Datový typ [`size_t`](https://en.cppreference.com/w/c/types/size_t) reprezentuje bezznaménkové
+[^1]: Datový typ [`size_t`](https://devdocs.io/c/types/size_t) reprezentuje bezznaménkové
 celé číslo, do kterého by měla jít uložit velikost největší možné hodnoty libovolného typu. Často
 se používá pro indexaci [polí](../pole/pole.md).
 

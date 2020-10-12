@@ -1,131 +1,220 @@
 # Struktury
-Tato sekce je ve výstavbě 🚧.
-
-<!--Již umíme pracovat s jednoduchými datovými typy, které nám mohou
-reprezentovat celá nebo reálná čísla, či řetězce znaků. Práce se
-strukturovanými datovými typy můžeme do jisté míry považovat za
-předstupeň k objektově orientovanému programování.
-
-## Co jsou struktury
-
-Představme si, že bychom chtěli pomocí jednoduchých datových typů řešit
-komplexnější problém. Tento problém by ke svému popisu potřeboval více
-proměnných. Jako jednoduchý přiklad můžeme použít reprezentaci obrazu. V
-takovém případě potřebujeme reprezentovat alespoň hodnoty v jednotlivých
-pixelech a počet řádků (výšku) a počet sloupců (šířku) obrazu. Pro
-jednoduchost předpokládejme obrázek ve stupních šedi. Ukažme si, jak by
-taková reprezentace v jazyce *C* vypadala.
-
+**Struktury** (*structures*) nám umožňují popsat nový datový typ, který se bude skládat z
+jednoho či více tzv. **členů** (*members*)[^1]. Každému členu musíme určit jeho jméno a datový typ.
+Novou strukturu můžeme popsat pomocí tzv. *deklarace struktury*:
 ```c
-unsigned char * img_data;
-int img_rows;
-int img_cols;
+struct <název struktury> {
+    <datový typ prvního členu> <název prvního členu>;
+    <datový typ druhého členu> <název druhého členu>;
+    <datový typ třetího členu> <název třetího členu>;
+    ...
+};
+```
+> Při definici struktury nezapomínejte na finální středník za složenými závorkami, je povinný.
+
+[^1]: Můžete se setkat také s názvy **atribut** (*attribute*), **vlastnost** (*property*) nebo
+*field*. V kontextu struktur *C* označují všechny tyto názvy jedno a to samé - člena struktury.
+
+Například, pokud bychom chtěli vytvořit datový typ reprezentující `příšeru`, která má své jméno
+a počet životů, můžeme deklarovat následující strukturu:
+```c
+struct Prisera {
+    const char* jmeno;
+    int pocet_zivotu;
+};
+```
+Tento kód sám o sobě **nic neprovádí**! Pouze pomocí něho říkáme překladači, že vytváříme nový datový
+typ s názvem `struct Prisera`. Poté nám překladač umožní dále v programu vytvořit například lokální
+proměnnou tohoto datového typu:
+```c
+// lokální proměnná s názvem `karel` a datovým typem `struct Prisera`
+struct Prisera karel;
 ```
 
-(**TODO: Pripravit to na TGA header**)
+> Struktury jsou plnohodnotnými datovými typy. Můžete tak vytvářet ukazatele na struktury, pole
+> struktur, můžete použít struktury jako [členy jiné struktury](#použití-struktur-ve-strukturách)
+> atd.
 
-Pointer `unsigned char` na s názvem `img_data` nám bez problému může reprezentovat 8 bitové obrazy
-ve stupních šedi, neboť do něj můžeme ukládat hodnoty 0 - 255 (2<sup>8</sup> = 256 různých hodnot).
-Představme si dále, že bychom chtěli takovýto obrázek o nějaké velikosti
-nastavit na černou barvu (hodnota `0`).
+## Reprezentace struktury v paměti
+Pokud vytvoříme proměnnou datového typu struktury, tak překladač naalokuje paměť pro všechny
+členy této struktury. V případě výše by proměnná `karel` obsahovala nejprve byty pro ukazatel
+`const char*` a poté byty pro `int`. Členové struktury budou v paměti uloženy ve stejném pořadí,
+v jakém byly popsány při deklaraci struktury. Neznamená to ovšem, že musí ležet hned za sebou!
+Překladač se může rozhodnout mezi členy struktury v paměti vložit mezery (tzv. *padding*) kvůli
+urychlení provádění programu[^2].
 
-```c
-void set_image_to_black( unsigned char * img_data,
-                         const int img_rows, const int img_cols )
-{
-    for ( int y = 0; y < img_rows; y++ ) {
-        for ( int x = 0; x < img_cols; x++ ) {
-            img_data[ x + y * img_cols ] = 0;
-        }
-    }
+[^2]: Pro některé typy procesorů může být rychlejší přistupovat k adresám v paměti, které jsou
+například násobkem `4` nebo `8`. Proto překladač mezery do struktur vkládá, aby jednotlivé členy
+zarovnal (*align*) v paměti. Více se můžete dozvědět například
+[zde](https://en.wikipedia.org/wiki/Data_structure_alignment).
+
+Z toho vyplývá, že velikost struktury není vždy zcela intuitivní. Například následující struktura
+s názvem `StiskKlavesy` obsahuje jeden znak (`char`) s velikostí 1 byte a jedno číslo (`int`) s
+velikostí 4 byty. Kvůli "neviditelným" mezerám vloženým překladačem ovšem velikost struktury nemusí
+být `5` bytů!
+```c,editable
+#include <stdio.h>
+
+struct StiskKlavesy {
+    char klavesa;
+    int delka;
+};
+
+int main() {
+    printf("Velikost znaku: %lu\n", sizeof(char));
+    printf("Velikost cisla: %lu\n", sizeof(int));
+    printf("Velikost struktury StiskKlavesy: %lu\n", sizeof(struct StiskKlavesy));
+
+    return 0;
 }
 ```
 
-Jak můžete vidět, do funkce `set_image_to_black` posíláme všechny parametry obrázku, abychom
-s ním mohli pracovat. Snadno si lze představit, že se složitějšími
-problémy by snadno mohl počet parametrů funkcí značně narůstat.
+Proto pro zjištění velikosti struktury (například při dynamické alokaci paměti) vždy používejte
+operátor [`sizeof`](../prace_s_pameti/dynamicka_pamet.md#velikost-alokované-paměti).
 
-Pro zefektivnění takové práce nám slouží strukturované datové typy,
-jednodušeji struktury (anglicky *structures*). V jazyce *C* je pro definici
-datových struktur vyhrazeno klíčové slovo `struct`. Pojďme se podívat, jak by
-definice takového obrázku mohla vypadat.
+### Umístění a platnost struktur
+Stejně jako u [proměnných](../promenne/promenne.md#definice-a-platnost) platí, že strukturu lze
+používat pouze v oblasti, ve které je platná (v jejím tzv. *scopu*). Narozdíl od
+[funkcí](../funkce/funkce.md#umístění-funkcí) lze struktury deklarovat i uvnitř funkcí, nicméně
+nejčastěji se struktury deklarují na nejvyšší úrovni souboru (tzv. *global scope*). 
 
+## Inicializace struktury
+Stejně jako u [základních datových typů](../promenne/promenne.md#vždy-inicializujte-proměnné) a
+[polí](../pole/staticke_pole.md#inicializace-pole) platí, že pokud lokální proměnné s datovým typem
+nějaké struktury nedáte počáteční hodnotu, tak bude její hodnota nedefinovaná 💣. Strukturu můžete
+nainicializovat pomocí složených závorek se seznamem hodnot pro jednotlivé členy struktury:
 ```c
-struct ImageStruct {
-    unsigned char * data;
-    int rows;
-    int cols;
-};
+struct Prisera karel = { "Karel", 100 };
+```
+Stejně jako u polí platí, že hodnoty, které nezadáte, se nainicializují na nulu:
+```c
+struct Prisera karel = {}; // `jmeno` i `pocet_zivotu` bude `0`
+struct Prisera karel = { "Karel" }; // `jmeno` bude "Karel", `pocet_zivotu` bude `0`
+```
+Abyste si nemuseli pamatovat pořadí členů struktury při její inicializaci, můžete jednotlivé členy
+nainicializovat explicitně pomocí tečky a názvu daného členu:
+```c
+struct Prisera karel = { .pocet_zivotu = 100, .jmeno = "Karel"};
 ```
 
-Jak můžete vidět, definice začíná požitím klíčového slova `struct`, které je
-následovano jménem struktury. V následném bloku jsou pak definovani
-členové struktury, které nazýváme `atributy`, s jejich příslušnými
-datovými typy. Na první pohled již není nutné ke jménům členů struktury
-obrázku přidávat předponu `img_`, neboť jejich členství v této datové
-struktuře je jasně dáno.
+## Přístup ke členům struktur
+Abychom mohli číst a zapisovat jednotlivé členy struktur, můžeme použít operátor
+**přístupu ke členu** (*member access operator*), který má syntaxi `<struktura>.<název členu>`:
+```c,editable
+#include <stdio.h>
 
-Struktura ovšem není datovým typem, proto ji nelze použít přímo jako
-definici typu (pokud ovšem nepoužijete C++ překladač). Proto se často
-používá definice aliasu na datovou strukturu. K definici takového aliasu
-se používá klíčové slovo `typedef`. Toto slovo má následující syntaxi:
-
-```c
-typedef struct tag_name struct_alias;
-```
-
-Za `tag_name` dosazujeme jméno naší struktury, za `struct_alias` nové jméno, pod kterým chceme
-naši strukturu používat jako datový typ. Příklad pro naši strukturu s
-obrázkem tedy bude vypadat následovně:
-
-```c
-struct ImageStruct {
-    unsigned char * data;
-    int rows;
-    int cols;
+struct Osoba {
+    int vek;
+    int pocet_pratel;
 };
 
-typedef struct ImageStruct Image;
+int main() {
+    struct Osoba martina = { 18, 10 };
+    martina.vek += 1;
+    martina.pocet_pratel += 20;
+    printf("Martina ma %d let a ma %d pratel\n", martina.vek, martina.pocet_pratel);
 
-Image * image;
+    return 0;
+}
 ```
 
-
-Dále můžeme s pointrem `* image` pracovat tak, že mu naalokujeme dynamickou paměť
-tak, jak jsme si již ukázali.
-
-**Cvičení:** Vytvořte si vlastní strukturu pro reprezentaci
-osoby (`Person`) s několika atributy.
-
-K jednotlivým atributům struktury přistupujeme pomocí tečkové (`.`) nebo
-šipkové (`->`) notace. Tečku používáme, když je struktura vytvořena na
-stacku. Šipku pak používáme pro přístup k atributům struktury, která je
-alokována na heapu.
-
-Ukažme si tedy příklad, kdy budeme chtít nastavit počet řádků nějakého
-obrázku:
-
+Pokud máme k dispozici pouze ukazatel na strukturu, tak je přístup k jejím členům trochu nepraktický
+kvůli [prioritě operátorů](https://en.cppreference.com/w/c/language/operator_precedence). Operátor
+dereference (`*`) má totiž menší prioritu než operátor přístupu ke členu (`.`). Abychom tak nejprve
+z ukazatele na strukturu načetli její hodnotu a až poté přistoupili k jejímu členu, museli bychom
+použít závorky:
 ```c
-struct ImageStruct {
-    unsigned char * data;
-    int rows;
-    int cols;
+void pridej_pratele(struct Osoba* osoba) {
+    (*osoba).pocet_pratel++;
+}
+```
+Jelikož ukazatele na struktury jsou využívány velmi často, *C* nabízí pro tuto situaci zkratku v
+podobě operátoru **přístupu k členu přes ukazatel** (*member access through pointer*), který má
+syntaxi `<ukazatel na strukturu>-><název členu>`:
+ ```c
+void pridej_pratele(struct Osoba* osoba) {
+    osoba->pocet_pratel++;
+}
+```
+Operátor `->` je čistě syntaktickou zkratkou, tj. `*(ukazatel).clen == ukazatel->clen`.
+
+## Vytváření nových jmen pro datové typy
+Možná vás napadlo, že psát při každém použití struktury klíčové slovo `struct` před jejím názvem je
+zdlouhavé. *C* umožňuje dávat datovým typům nové názvy, aby se nám s nimi lépe pracovalo. Lze toho
+dosáhnout pomocí syntaxe `typedef <datový typ> <jméno>;`:
+```c
+typedef int teplota;
+
+int main() {
+    teplota venkovni = 24;
+    return 0;
+}
+```
+Pomocí `typedef` dáme danému datovému typu nové jméno, pomocí kterého pak tento typ můžeme
+používat (původní název datového typu toto nijak neovlivní). Opět platí, že takto vytvořené jméno
+lze použít pouze v oblasti (*scopu*), kde byl `typedef` použit. Obvykle se používá na nejvyšší
+úrovni souboru. 
+
+U struktur si pomocí `typedef` můžeme zkrátit jejich název z `struct <nazev>` na `<nazev>`:
+```c
+struct Osoba {
+    int vek;
 };
 
-typedef struct ImageStruct Image;
+typedef struct Osoba Osoba;
 
-Image * heap_image;
-Image   stack_image;
-
-// alokace...
-
-// teckova notace
-stack_image.rows = 480;
-
-// sipkova notace
-heap_image->rows = 480;
+int main() {
+    Osoba jiri;
+    return 0;
+}
 ```
+Toto lze ještě více zkrátit, pokud deklaraci struktury použijeme přímo na místě datového typu v
+`typedef`:
+```c
+typedef struct Osoba {
+    int vek;
+} Osoba;
+```
+A konečně, abychom nemuseli jméno struktury opakovat dvakrát, můžeme vytvořit tzv. **anonymní
+strukturu** (*anonymous structure*) bez názvu, a jméno jí přiřadit až pomocí `typedef`.
+```c
+typedef struct {
+    int vek;
+} Osoba;
+```
+Právě takto se obvykle deklarují struktury v *C*.
 
-Můžeme vidět, že rozdíl je nepatrný, je však nutné na něj dávat pozor,
-jinak náš program nepůjde přeložit.
--->
+## Použití struktur ve strukturách
+Jelikož deklarace struktury vytvoří nový datový typ, nic vám nebrání v tom používat struktury jako
+členy jiných struktur:
+```c
+typedef struct {
+    float x;
+    float y;
+} Pozice;
+
+typedef struct {
+    const char* jmeno;
+    int cena;
+} Vec;
+
+typedef struct {
+    int pocet_zivotu;
+    Pozice pozice;
+    Vec korist[10];
+} Prisera;
+```
+Díky tomu můžeme vytvářet celé hierarchie datových typů, což může značně zpřehlednit náš program,
+protože poté náš kód poté může pracovat na vyšší úrovni abstrakce.
+
+Pokud bychom ovšem chtěli použít jako člena struktury tu stejnou strukturu (například struktura
+`Osoba` může mít člen `matka` opět s datovým typem `Osoba`), nemůžeme takovýto člen uložit ve
+struktuře přímo, můžeme tam uložit pouze jeho adresu:
+```c
+struct Osoba {
+    int vek;
+    struct Osoba* matka;
+};
+```
+Je to proto, že pokud by `Osoba` byla definována pomocí `Osoby`, tak by došlo k rekurzivní definici,
+kterou nelze vyřešit.

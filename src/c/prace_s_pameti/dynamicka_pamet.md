@@ -24,16 +24,17 @@ void* malloc(size_t size);
 celé číslo, do kterého by měla jít uložit velikost největší možné hodnoty libovolného typu. Často
 se používá pro indexaci [polí](../pole/pole.md).
 
+### Velikost alokované paměti
 Parametr `size` udává, kolik bytů paměti se má naalokovat. Tuto velikost můžeme "tipnout"
 manuálně, nicméně to není moc dobrý nápad, protože bychom si museli pamatovat velikosti datových
 typů (přičemž jejich velikost se může lišit v závislosti na použitém operačním systému či
-překladači!). Abychom tomu předešli, tak můžeme použít výraz `sizeof`, kterému můžeme předat datový
+překladači!). Abychom tomu předešli, tak můžeme použít operátor `sizeof`, kterému můžeme předat datový
 typ[^2] a tento výraz se poté vyhodnotí jako velikost daného datového typu:
 ```c,editable,mainbody
 #include <stdio.h>
 int main() {
-    printf("Velikost int je: %d\n", sizeof(int));
-    printf("Velikost int* je: %d\n", sizeof(int*));
+    printf("Velikost int je: %lu\n", sizeof(int));
+    printf("Velikost int* je: %lu\n", sizeof(int*));
     return 0;
 }
 ```

@@ -16,6 +16,8 @@ umožňují interpretovat strukturu jako více různých datových typů.
 umožňují rozdělit paměť struktury na úrovni jednotlivých bitů. 
 - [**Široké znaky**](http://www.cplusplus.com/reference/cwchar/) (*wide chars*) a s nimi související
 funkce standardní knihovny umožňují používat složitější kódování než ASCII.
+- [**Komplexní čísla**](https://en.cppreference.com/w/c/numeric/complex) (*complex numbers*) vám
+umožní pracovat s datovými typy reprezentujícími komplexní čísla.
 
 Pokud si chcete ověřit, jak jste na tom se znalostí jazyka *C*, projděte si tyto
 [slidy](https://www.slideshare.net/olvemaudal/deep-c). Pokud budete umět odpovídat jako blonďatý

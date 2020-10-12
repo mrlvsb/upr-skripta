@@ -29,7 +29,8 @@ Jak už vyplává z jeho názvu, nejpřirozenější a hlavní funkcí počíta�
 základních konstrukcí jazyka *C* (i jiných programovacích jazyků) tak je možnost počítat různé hodnoty.
 Něco, co se dá vypočítat (tak, aby výsledkem byla nějaká hodnota), se nazývá **výraz** (*expression*).
 Příkladem asi nejjednoduššího výrazu je číslo, např. `5`. Takovýto výraz již není nutné dále vyhodnocovat,
-jeho hodnota je prostě `5`.
+jeho hodnota je prostě `5`. Pokud v programu použijete přímo hodnotu nějakého čísla (popř. něčeho
+jiného, jak uvidíme později), tak se takový výraz označuje jako **literál** (*literal*).
 
 V *C* můžeme s výrazy provádět různé operace pomocí **operátorů**. Můžeme například použít operátor `+`
 s dvěma výrazy, čímž vznikne složitější výraz: `5 + 5`, který se v programu vyhodnotí na hodnotu `10`.
@@ -113,9 +114,10 @@ ze samostatného výrazu uděláte příkaz:
 ```
 Toto má smysl dělat pouze u výrazů, které mají nějaký **vedlejší efekt** (*side effect*), který
 způsobí, že při provádění výrazu se v programu něco změní. Jinak by výraz sám o sobě byl vypočten,
-ale nic dalšího by se nestalo. O výrazech, které umí produkovat vedlejší efekty, se dozvíte později.
+ale nic dalšího by se nestalo. O výrazech, které umí produkovat vedlejší efekty, se dozvíte v pozdějších
+sekcích.
 
-#### Příkazy vs výrazy
+### Příkazy vs výrazy
 Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký
 je rozdíl mezi výrazem (něco, co se dá vypočítat) a příkazem, pomocí kterého počítači říkáme, aby
 něco (s nějakým výrazem) udělal (například vypsal ho na výstup, zapsal do paměti atd.).

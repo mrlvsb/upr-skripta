@@ -4607,6 +4607,104 @@ Pomocí algoritmu counting sort seřaďte čísla v poli od nejmenšího po nejv
 <h2><a class="header" href="#třízení" id="třízení">Třízení</a></h2>
 <p>Naimplementujte funkci, která setřídí pole. Můžete použít například algoritmus
 <a href="https://en.wikipedia.org/wiki/Bubble_sort">bubble sort</a>.</p>
+<h2><a class="header" href="#střelba-na-terč" id="střelba-na-terč">Střelba na terč</a></h2>
+<p>Vytvořte program, který načte souřadnice terčů a střel, a vykreslí je do obrázku ve formátu
+vektorové grafiky <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>. Po najetí myší
+na terč by se mělo ukázat skóre vybraného terče.</p>
+<p><object data="terc/01_basic.svg"></object></p>
+<p>Ze vstupu přečtěte počet terčů a následně si dynamicky alokujte 3 pole typu <code>float</code> pro <code>x</code> souřadnice terčů, <code>y</code> souřadnice terčů a poloměry terčů.</p>
+<p>Poté pro každý terč přečtěte jeho <code>x</code> souřadnici, <code>y</code> souřadnici, poloměr a uložte je do
+odpovídajících polí.
+Například následující vstup nám popisuje 2 terče.
+První terč má střed na souřadnici \( [50, 70 ] \) a poloměr \( 40 \) a druhý terč leží na středu \( [160, 90 ] \) s poloměrem \( 60 \).</p>
+<pre><code>2
+50 70 40
+160 90 60
+</code></pre>
+<p>Tento vstup nezadávejte pořad dokola z klávesnice, ale přesměrujte si jej do programu ze souboru:</p>
+<pre><code>$ ./main &lt; terce.txt
+</code></pre>
+<p>Terče si pomocí <code>printf</code> vykreslete do vektorového obrázku ve formátu svg, ve kterém lze pomocí tagů definovat útvary.
+Útvary v obrázku obalte tagem <code>svg</code>:</p>
+<pre><code class="language-xml">&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;
+  &lt;!-- kresleni kruhu --&gt;
+&lt;/svg&gt;
+</code></pre>
+<p>Terč se středem \( [50, 70] \) a poloměrem \( 40 \) lze vykreslit pomocí: </p>
+<pre><code class="language-svg">&lt;circle cx='50' cy='70' r='40' stroke='black' fill='red' /&gt;
+</code></pre>
+<p>Vytvořený SVG obrázek si ze standardního výstupu přesměrujte do souboru a otevřete si jej například v prohlížeči firefox.</p>
+<pre><code class="language-shell">$ ./main &lt; terce.txt &gt; obrazek.svg
+$ firefox obrazek.svg
+</code></pre>
+<p>Následně si ze vstupu přečtěte počet střel a alokujte pro ně dvě pole - jedno bude reprezentovat <code>x</code> souřadnice a druhé <code>y</code> souřadnice jednotlivých střel.
+Souřadnice si následně přečtěte do těchto polí.
+Pole si projděte a vykreslete do obrázku jako kruhy např. s poloměrem \( 4 \).</p>
+<p>Střela zasáhla terč, pokud leží na kruhu.
+Jinými slovy - střela zasáhla terč, pokud je vzdálenost od středu terče menší než poloměr terče.
+Vzdálenost vypočítáme jednoduše pomocí Pythagorovy věty, kde <code>x</code> odvěsna je rozdíl mezi <code>x</code> souřadnici středu terče a <code>x</code> souřadnici střely. Odvěsna <code>y</code> lze vypočítat obdobně a poté můžeme vypočítat přeponu, která reprezentuje vzdálenost střely od středu terče.</p>
+<svg>
+   <circle cx="50" cy="50" r="50" fill="rgb(190, 83, 85)" />
+   <circle cx="75" cy="20" r="5" fill="black" />
+   <line x1=50 y1=50 x2=75 y2=20 stroke='black'/>
+   <line x1=50 y1=50 x2=75 y2=50 stroke='black'/>
+   <line x1=75 y1=20 x2=75 y2=50 stroke='black'/>
+   <text x=60 y=35 text-anchor="end">dist</text>
+</svg>
+<p>Protože máme více terčů a více střel, tak musíme aplikovat výpočet vzdálenosti mezi každou střelou
+a každým terčem pomocí dvou vnořených <code>for</code> cyklů.
+Vnější cyklus bude procházet střely a vnitřní cyklus bude procházet terče.
+Ve vnitřním cyklu vypočítáme vzdálenost mezi střelou a terčem a pokud je menší než poloměr,
+tak tento konkrétní terč byl zasažen střelou z vnějšího cyklu.
+V případě, že se více kruhů překrývá, tak střela zasáhla terč s menším poloměrem.
+Budeme tedy hledat zasáhnutý terč s nejmenším poloměrem.</p>
+<p>Skóre při zasažení středu s poloměrem 20 je 10 bodů a body postupně klesají.
+Zdrojový kód SVG ukázek si můžete zobrazit.</p>
+<details>
+<summary>Dva terče</summary>
+<p><object data="terc/01_basic.svg"></object></p>
+<pre><code>2
+50 70 40
+160 90 60
+
+4
+25 70
+80 90
+150 100
+55 140
+</code></pre>
+</details>
+<details>
+<summary>Překrývající se terče</summary>
+<p><object data="terc/02_overlayed.svg"></object></p>
+<pre><code>2
+160 90 60
+90 70 40
+
+4
+125 70 
+80 90
+150 100
+55 140
+</code></pre>
+</details>
+<details>
+<summary>Překrývající se terče se stejným středem</summary>
+<p><object data="terc/03_same_c.svg"></object></p>
+<pre><code>3
+50 70 40
+160 90 60
+160 90 40
+7
+25 70
+80 90
+55 140
+125 60
+140 130
+150 100
+215 100
+</code></pre>
+</details>
 <h1><a class="header" href="#dvourozměrné-pole" id="dvourozměrné-pole">Dvourozměrné pole</a></h1>
 <h2><a class="header" href="#vytisknutí-matice" id="vytisknutí-matice">Vytisknutí matice</a></h2>
 <p>Vytvořte funkci <code>print_matrix</code>, která vypíše obrázek reprezentovaný

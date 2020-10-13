@@ -1,7 +1,7 @@
 # Co dál?
 *C* je relativně malý jazyk, pokud jste si tedy přečetli předchozí část tohoto textu, tak znáte
-většinu důležitých prvků, která jsou v *C* dostupné. Nicméně neukázali jsme si úplně všechny – zde
-je seznam několika vybraných věcí, které byly buď moc pokročilé pro UPR anebo jsme je jednoduše
+většinu důležitých konstrukcí, která jsou v *C* dostupné. Nicméně neukázali jsme si úplně všechny –
+zde je seznam několika vybraných věcí, které byly buď moc pokročilé pro UPR anebo jsme je jednoduše
 nepotřebovali použít:
 - [**Variadiacké funkce**](https://en.cppreference.com/w/c/variadic), které umožňují přijímat
 libovolný počet parametrů (takto funguje například i nám známá funkce

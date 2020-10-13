@@ -7,10 +7,10 @@ Studentům tedy silně doporučujeme, aby přednášky a cvičení navštěvoval
 doma, alespoň několik hodin týdně.
 
 V tomto textu naleznete stručný úvod o programování, překladu a ladění programů, nastavení prostředí
-k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka *C* (proměnné, funkce, podmínky,
-cykly, struktury, pole, ukazatele atd.) spolu se sadou úloh k procvičení jednotlivých témat. Pomocí
-ikony <i class="fa fa-search"></i> vlevo nahoře můžete v textu rychle vyhledávat, pokud potřebujete
-najít informace o konkrétním tématu.
+k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka *C* (proměnné, podmínky,
+cykly, funkce, ukazatele, pole, řetězce, struktury atd.) spolu se sadou úloh k procvičení jednotlivých
+témat. Pomocí ikony <i class="fa fa-search"></i> vlevo nahoře můžete v textu rychle vyhledávat, pokud
+potřebujete najít informace o konkrétním tématu.
 
 Několik poznámek k textu:
 - Tento text neslouží jako kompletní průvodce jazyka C. Pro takovýto účel lze doporučit některý

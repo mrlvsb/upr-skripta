@@ -31,6 +31,9 @@ proměnnou tohoto datového typu:
 struct Prisera karel;
 ```
 
+Pro pojmenovávání struktur používejte v rámci předmětu UPR jmennou konvenci
+[`PascalCase`](../promenne/pojmenovavani.md#víceslovné-názvy).
+
 > Struktury jsou plnohodnotnými datovými typy. Můžete tak vytvářet ukazatele na struktury, pole
 > struktur, můžete použít struktury jako [členy jiné struktury](#použití-struktur-ve-strukturách)
 > atd.

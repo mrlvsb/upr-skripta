@@ -24,6 +24,9 @@ Při zadávání cesty můžete využít zkratky `.` a `..`, které jsou užite�
 - Zkratka `..` se odkazuje na rodičovský adresář, `../data/abc.txt` tedy říká:
 `Podívej se do rodičovské složky, tam nalezni adresář data a v něm soubor abc.txt`.
 
+Nepokoušejte se však zadávat cesty k neexistujícím složkám. `fopen` sice vytvoří nový soubor, pokud
+neexistuje, ale neexistující složku za vás nevytvoří.
+
 > Doposud jsme používali prvky *C*, které byly vesměs nezávislé na použitém operačním systému. Jakmile
 > ale naše programy začnou interagovat se **souborovým systémem** (*file system*), budeme muset začít
 > respektovat zákonitosti operačního systému, na kterém náš program poběží. Proto například u cesty

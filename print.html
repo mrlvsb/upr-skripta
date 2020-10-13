@@ -1250,6 +1250,7 @@ Datový typ výsledku těchto operátorů záleží na datovém typu jejich para
 <tr><td align="center"><code>%</code></td><td align="center">Zbytek po dělení (modulo)</td><td align="center"><code>5 % 2</code></td></tr>
 <tr><td align="center"><code>&amp;</code></td><td align="center">Bitový součin</td><td align="center"><code>12 &amp; 4</code></td></tr>
 <tr><td align="center"><code>|</code></td><td align="center">Bitový součet</td><td align="center"><code>12 | 4</code></td></tr>
+<tr><td align="center"><code>~</code></td><td align="center">Bitová negace</td><td align="center"><code>~8</code></td></tr>
 <tr><td align="center"><code>^</code></td><td align="center">Bitový XOR</td><td align="center"><code>14 ^ 18</code></td></tr>
 <tr><td align="center"><code>&lt;&lt;</code></td><td align="center">Bitový posun doprava</td><td align="center"><code>137 &lt;&lt; 2</code></td></tr>
 <tr><td align="center"><code>&gt;&gt;</code></td><td align="center">Bitový posun doleva</td><td align="center"><code>140 &gt;&gt; 3</code></td></tr>
@@ -1383,7 +1384,7 @@ Hodnoty Booleovského typu obvykle zabírají v paměti jeden <em>byte</em>.</p>
 <ul>
 <li><strong>AND</strong>: <code>&amp;&amp;</code></li>
 <li><strong>OR</strong>: <code>||</code></li>
-<li><strong>NOT</strong>: <code>~</code></li>
+<li><strong>NOT</strong>: <code>!</code></li>
 </ul>
 <p>Tyto operátory můžete použít mezi dvěmi výrazy datového typu <code>bool</code>. Například:</p>
 <pre><code class="language-c">bool je_muz = true;

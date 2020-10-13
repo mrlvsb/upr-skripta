@@ -194,7 +194,7 @@ Jelikož deklarace struktury vytvoří nový datový typ, nic vám nebrání v t
 typedef struct {
     float x;
     float y;
-} Pozice;
+} Poloha;
 
 typedef struct {
     const char* jmeno;
@@ -203,12 +203,12 @@ typedef struct {
 
 typedef struct {
     int pocet_zivotu;
-    Pozice pozice;
+    Poloha poloha;
     Vec korist[10];
 } Prisera;
 ```
 Díky tomu můžeme vytvářet celé hierarchie datových typů, což může značně zpřehlednit náš program,
-protože poté náš kód poté může pracovat na vyšší úrovni abstrakce.
+protože díky tomu náš kód může pracovat na vyšší úrovni abstrakce.
 
 Pokud bychom ovšem chtěli použít jako člena struktury tu stejnou strukturu (například struktura
 `Osoba` může mít člen `matka` opět s datovým typem `Osoba`), nemůžeme takovýto člen uložit ve

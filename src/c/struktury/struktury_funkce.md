@@ -22,17 +22,17 @@ svůj první parametr[^1]:
 typedef struct {
     float x;
     float y;
-} Pozice;
+} Poloha;
 
 typedef struct {
     const char* jmeno;
     int skore;
-    Pozice pozice;
+    Poloha poloha;
 } Hrac;
 
 void hrac_posun(Hrac* hrac, int x, int y) {
-    hrac->pozice.x += x;
-    hrac->pozice.y += y;
+    hrac->poloha.x += x;
+    hrac->poloha.y += y;
 }
 void hrac_pridej_skore(Hrac* hrac, int skore) {
     hrac->skore += skore;
@@ -71,7 +71,7 @@ funkce mohou vracet pouze jednu hodnotu:
 typedef struct {
     float x;
     float y;
-} Pozice;
+} Poloha;
 
-Pozice vrat_pocatecni_pozici() { ... }
+Poloha vrat_pocatecni_polohu() { ... }
 ```

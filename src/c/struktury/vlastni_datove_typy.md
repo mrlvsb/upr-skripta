@@ -13,8 +13,8 @@ příšery reprezentovat pomocí pole pro každou jeho vlastnost:
 const char* prisera_jmeno[100];
 int prisera_zivot[100];
 int prisera_zraneni[100];
-float prisera_pozice_x[100];
-float prisera_pozice_y[100];
+float prisera_poloha_x[100];
+float prisera_poloha_y[100];
 ...
 ```
 
@@ -32,8 +32,8 @@ tyto proměnné vlastně patří k jednomu logickému prvku (příšeře).
         const char* prisera_jmeno,
         int prisera_zivot,
         int prisera_zraneni,
-        float prisera_pozice_x,
-        float prisera_pozice_y,
+        float prisera_poloha_x,
+        float prisera_poloha_y,
         ...
     ) { }
     ```
@@ -51,7 +51,7 @@ Prisera prisery[100];
 ```
 
 Takto bychom zlepšili úroveň abstrakce našeho kódu – v tomto konkrétním případě bychom se mohli začít
-v kódu bavit o `příšere` místo o `jménu, počtu životů, zranění, ..., které spolu nějak souvisí`. 
+v kódu bavit o `příšere` místo o `jménu, počtu životů, zranění, ...`, které spolu nějak souvisí.
 
 Jinak řečeno, chtěli bychom si vytvořit náš vlastní datový typ. A právě to můžeme v *C* udělat pomocí
 [struktur](struktury.md).

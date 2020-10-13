@@ -1,7 +1,8 @@
 # Vstup a výstup
 Už víme, jak v paměti počítače pracovat s (ASCII) znaky a řetězci. Nyní si ukážeme, jak můžou naše
 programy komunikovat s okolním světem – se [soubory](../soubory.md) na disku, s terminálem, s
-ostatními programy běžícími na vašem počítači či s úplně jiným počítačem přes síť.
+ostatními programy běžícími na vašem počítači či s úplně jiným počítačem přes síť. Komunikace programů
+se obecně označuje jako **I/O** (*input/output*).
 
 Komunikace s terminálem, souborem, tiskárnou či přes síť má samozřejmě rozlišná pravidla. Abychom v
 každém programu nemuseli programovat podporu pro každý vstupní/výstupní kanál od nuly, z velké části

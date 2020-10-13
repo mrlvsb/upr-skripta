@@ -39,8 +39,8 @@ jednotného stylu a nekombinovat různé styly (pro jednotlivé typy konstrukcí
 
 ### Čeština nebo angličtina?
 Pokud vám to přijde přehlednější, tak ze začátku můžete používat české názvy[^1] pro názvy proměnných
-a dalších prvků. Může tak pro vás být snadnější odlišit, kterou část kódu jste vytvořili vy (ta bude
-mít český název), a co je naopak vestavěná součást *C* (např. `int`). 
+a dalších konstrukcí. Může tak pro vás být snadnější odlišit, kterou část kódu jste vytvořili vy (ta
+bude mít český název), a co je naopak vestavěná součást *C* (např. `int`). 
 
 [^1]: Bez diakritiky.
 

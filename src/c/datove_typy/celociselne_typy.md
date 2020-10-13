@@ -98,6 +98,7 @@ Datový typ výsledku těchto operátorů záleží na datovém typu jejich para
 | `%` | Zbytek po dělení (modulo) | `5 % 2` |
 | `&` | Bitový součin | `12 & 4` |
 | <code>&#124;</code> | Bitový součet | <code>12 &#124; 4</code> |
+| `~` | Bitová negace | `~8` |
 | `^` | Bitový XOR | `14 ^ 18` |
 | `<<` | Bitový posun doprava | `137 << 2` |
 | `>>` | Bitový posun doleva | `140 >> 3` |

@@ -38,7 +38,7 @@ Tyto logické operace lze v C použít pomocí následujících operátorů:
 
 - **AND**: `&&`
 - **OR**: `||`
-- **NOT**: `~`
+- **NOT**: `!`
 
 Tyto operátory můžete použít mezi dvěmi výrazy datového typu `bool`. Například:
 ```c

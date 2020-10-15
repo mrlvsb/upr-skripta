@@ -41,7 +41,7 @@ int main() {
     char buf[80];
     if (fgets(buf, sizeof(buf), stdin) == NULL) {
         printf("Nacteni dat nevyslo. Ukoncuji program\n");
-        return 0;
+        return 1;
     }
 
     return 0;

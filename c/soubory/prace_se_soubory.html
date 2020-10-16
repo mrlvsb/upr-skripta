@@ -1,0 +1,513 @@
+<!DOCTYPE HTML>
+<html lang="cs" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Práce se soubory - Úvod do programování</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <style>
+.xterm {
+  margin-top: 10px;
+}
+.content {
+  overflow-y: visible !important;
+}
+video {
+    max-width: 100%;
+}
+</style>
+<script src="https://kelvin.cs.vsb.cz/upr/animations.js"></script>
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../theme/css/tufte.css">
+        
+        <link rel="stylesheet" href="../../src/wasm/xterm.min.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../uvod/uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../uvod/programovani.html"><strong aria-hidden="true">1.1.</strong> Programování</a></li><li class="chapter-item "><a href="../../uvod/programovaci_jazyky.html"><strong aria-hidden="true">1.2.</strong> Programovací jazyky</a></li><li class="chapter-item "><a href="../../uvod/jazyk_c.html"><strong aria-hidden="true">1.3.</strong> Jazyk C</a></li><li class="chapter-item "><a href="../../uvod/pamet.html"><strong aria-hidden="true">1.4.</strong> Paměť</a></li></ol></li><li class="chapter-item "><a href="../../prostredi/nastaveni_prostredi.html"><strong aria-hidden="true">2.</strong> Nastavení prostředí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../prostredi/linux.html"><strong aria-hidden="true">2.1.</strong> Linux</a></li><li class="chapter-item "><a href="../../prostredi/editor.html"><strong aria-hidden="true">2.2.</strong> Editor</a></li><li class="chapter-item "><a href="../../prostredi/preklad_programu.html"><strong aria-hidden="true">2.3.</strong> Překlad</a></li><li class="chapter-item "><a href="../../prostredi/ladeni.html"><strong aria-hidden="true">2.4.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><a href="../../c/programovani.html"><strong aria-hidden="true">3.</strong> Programování v C</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/syntaxe.html"><strong aria-hidden="true">3.1.</strong> Syntaxe</a></li><li class="chapter-item "><a href="../../c/prikazy_vyrazy.html"><strong aria-hidden="true">3.2.</strong> Příkazy a výrazy</a></li><li class="chapter-item "><a href="../../c/promenne/promenne.html"><strong aria-hidden="true">3.3.</strong> Proměnné</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/promenne/globalni_promenne.html"><strong aria-hidden="true">3.3.1.</strong> Globální proměnné</a></li><li class="chapter-item "><a href="../../c/promenne/konstanty.html"><strong aria-hidden="true">3.3.2.</strong> Konstanty</a></li><li class="chapter-item "><a href="../../c/promenne/slozeny_zapis.html"><strong aria-hidden="true">3.3.3.</strong> Složený zápis</a></li><li class="chapter-item "><a href="../../c/promenne/pojmenovavani.html"><strong aria-hidden="true">3.3.4.</strong> Pojmenovávání proměnných</a></li></ol></li><li class="chapter-item "><a href="../../c/datove_typy/datove_typy.html"><strong aria-hidden="true">3.4.</strong> Datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/datove_typy/celociselne_typy.html"><strong aria-hidden="true">3.4.1.</strong> Celočíselné typy</a></li><li class="chapter-item "><a href="../../c/datove_typy/desetinne_typy.html"><strong aria-hidden="true">3.4.2.</strong> Desetinné číselné typy</a></li><li class="chapter-item "><a href="../../c/datove_typy/pravdivostni_typy.html"><strong aria-hidden="true">3.4.3.</strong> Pravdivostní typy</a></li></ol></li><li class="chapter-item "><a href="../../c/rizeni_toku/rizeni_toku.html"><strong aria-hidden="true">3.5.</strong> Řízení toku</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/podminky.html"><strong aria-hidden="true">3.5.1.</strong> Podmínky</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/switch.html"><strong aria-hidden="true">3.5.1.1.</strong> Příkaz switch</a></li></ol></li><li class="chapter-item "><a href="../../c/rizeni_toku/cykly.html"><strong aria-hidden="true">3.5.2.</strong> Cykly</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/while.html"><strong aria-hidden="true">3.5.2.1.</strong> Cyklus while</a></li><li class="chapter-item "><a href="../../c/rizeni_toku/for.html"><strong aria-hidden="true">3.5.2.2.</strong> Cyklus for</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../c/funkce/funkce.html"><strong aria-hidden="true">3.6.</strong> Funkce</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/funkce/rekurze.html"><strong aria-hidden="true">3.6.1.</strong> Rekurze</a></li><li class="chapter-item "><a href="../../c/funkce/stdlib.html"><strong aria-hidden="true">3.6.2.</strong> Funkce standardní knihovny</a></li></ol></li><li class="chapter-item "><a href="../../c/preprocesor/preprocesor.html"><strong aria-hidden="true">3.7.</strong> Preprocesor</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/preprocesor/vkladani_souboru.html"><strong aria-hidden="true">3.7.1.</strong> Vkládání souborů</a></li><li class="chapter-item "><a href="../../c/preprocesor/makra.html"><strong aria-hidden="true">3.7.2.</strong> Makra</a></li></ol></li><li class="chapter-item "><a href="../../c/prace_s_pameti/prace_s_pameti.html"><strong aria-hidden="true">3.8.</strong> Práce s pamětí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/prace_s_pameti/automaticka_pamet.html"><strong aria-hidden="true">3.8.1.</strong> Automatická paměť</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/ukazatele.html"><strong aria-hidden="true">3.8.2.</strong> Ukazatele</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/dynamicka_pamet.html"><strong aria-hidden="true">3.8.3.</strong> Dynamická paměť</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/globalni_pamet.html"><strong aria-hidden="true">3.8.4.</strong> Globální paměť</a></li></ol></li><li class="chapter-item "><a href="../../c/pole/pole.html"><strong aria-hidden="true">3.9.</strong> Pole</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/pole/staticke_pole.html"><strong aria-hidden="true">3.9.1.</strong> Statické pole</a></li><li class="chapter-item "><a href="../../c/pole/dynamicke_pole.html"><strong aria-hidden="true">3.9.2.</strong> Dynamické pole</a></li><li class="chapter-item "><a href="../../c/pole/vicerozmerne_pole.html"><strong aria-hidden="true">3.9.3.</strong> Vícerozměrné pole</a></li></ol></li><li class="chapter-item "><a href="../../c/text/text.html"><strong aria-hidden="true">3.10.</strong> Text</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/text/znaky.html"><strong aria-hidden="true">3.10.1.</strong> Znaky</a></li><li class="chapter-item "><a href="../../c/text/retezce.html"><strong aria-hidden="true">3.10.2.</strong> Řetězce</a></li><li class="chapter-item "><a href="../../c/text/vstupavystup.html"><strong aria-hidden="true">3.10.3.</strong> Vstup a výstup</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/text/vstup.html"><strong aria-hidden="true">3.10.3.1.</strong> Vstup</a></li><li class="chapter-item "><a href="../../c/text/vystup.html"><strong aria-hidden="true">3.10.3.2.</strong> Výstup</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../c/struktury/vlastni_datove_typy.html"><strong aria-hidden="true">3.11.</strong> Vlastní datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/struktury/struktury.html"><strong aria-hidden="true">3.11.1.</strong> Struktury</a></li><li class="chapter-item "><a href="../../c/struktury/struktury_funkce.html"><strong aria-hidden="true">3.11.2.</strong> Struktury a funkce</a></li></ol></li><li class="chapter-item expanded "><a href="../../c/soubory/soubory.html"><strong aria-hidden="true">3.12.</strong> Soubory</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/soubory/otevirani_souboru.html"><strong aria-hidden="true">3.12.1.</strong> Otevření souborů</a></li><li class="chapter-item expanded "><a href="../../c/soubory/prace_se_soubory.html" class="active"><strong aria-hidden="true">3.12.2.</strong> Práce se soubory</a></li></ol></li><li class="chapter-item "><a href="../../c/modularizace/modularizace.html"><strong aria-hidden="true">3.13.</strong> Modularizace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/modularizace/knihovny.html"><strong aria-hidden="true">3.13.1.</strong> Knihovny</a></li></ol></li><li class="chapter-item "><a href="../../c/aplikovane_ulohy/ulohy.html"><strong aria-hidden="true">3.14.</strong> Aplikované úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/aplikovane_ulohy/tga.html"><strong aria-hidden="true">3.14.1.</strong> TGA</a></li><li class="chapter-item "><a href="../../c/aplikovane_ulohy/sdl.html"><strong aria-hidden="true">3.14.2.</strong> SDL</a></li></ol></li><li class="chapter-item "><a href="../../c/co_dal.html"><strong aria-hidden="true">3.15.</strong> Co dál?</a></li></ol></li><li class="chapter-item "><a href="../../ruzne/ruzne.html"><strong aria-hidden="true">4.</strong> Různé</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ruzne/rozklad_problemu.html"><strong aria-hidden="true">4.1.</strong> Rozklad problému</a></li><li class="chapter-item "><a href="../../ruzne/nahodna_cisla.html"><strong aria-hidden="true">4.2.</strong> Generování náhodných čísel</a></li><li class="chapter-item "><a href="../../ruzne/funkce_main.html"><strong aria-hidden="true">4.3.</strong> Funkce main</a></li></ol></li><li class="chapter-item "><a href="../../ulohy/ulohy.html"><strong aria-hidden="true">5.</strong> Úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ulohy/zaklady.html"><strong aria-hidden="true">5.1.</strong> Základy</a></li><li class="chapter-item "><a href="../../ulohy/ukazatele.html"><strong aria-hidden="true">5.2.</strong> Ukazatele</a></li><li class="chapter-item "><a href="../../ulohy/pole.html"><strong aria-hidden="true">5.3.</strong> Pole</a></li><li class="chapter-item "><a href="../../ulohy/dvourozmerne_pole.html"><strong aria-hidden="true">5.4.</strong> Dvourozměrné pole</a></li><li class="chapter-item "><a href="../../ulohy/retezce.html"><strong aria-hidden="true">5.5.</strong> Řetězce</a></li><li class="chapter-item "><a href="../../ulohy/ruzne.html"><strong aria-hidden="true">5.6.</strong> Různé</a></li></ol></li><li class="chapter-item "><a href="../../caste_chyby/caste_chyby.html"><strong aria-hidden="true">6.</strong> Časté chyby</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../caste_chyby/pametove_chyby.html"><strong aria-hidden="true">6.1.</strong> Paměťové chyby</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Úvod do programování</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/mrlvsb/upr-skripta" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#práce-se-soubory" id="práce-se-soubory">Práce se soubory</a></h1>
+<p>Jakmile jsme se pokusili o otevření souboru, ujistili jsme se, že se to opravdu povedlo a získali
+jsme ukazatel <code>FILE*</code>, můžeme začít do programu zapisovat nebo z něj číst data (podle toho, v jakém
+módu jsme ho otevřeli).</p>
+<h2><a class="header" href="#pozice-v-souboru" id="pozice-v-souboru">Pozice v souboru</a></h2>
+<p>Struktura <code>FILE</code> má vnitřně uloženou <strong>pozici</strong> v souboru, na které probíhají veškeré operace čtení
+a zápisu. Pro zjednodušení práce se soubory se pozice automaticky posouvá dopředu o odpovídající
+počet bytů po každém čtení či zápisu. Jakmile tedy přečtete ze souboru <code>n</code> bytů, tak se pozice posune
+o <code>n</code> pozic dopředu. Pokud byste tedy dvakrát po sobě přečetli jeden byte ze souboru obsahující text
+<code>ABC</code>, nejprve získáte znak <code>A</code>, a podruhé už znak <code>B</code>, protože po prvním čtení se pozice posunula
+dopředu o jeden byte.</p>
+<blockquote>
+<p>Tím, že je pozice sdílená pro čtení a zápis, tak se raději vyvarujte současnému čtení i zápisu
+nad stejným otevřeným souborem. V opačném případě budete muset být opatrní, abyste si omylem
+nepřepsali data nebo nečetli data ze špatné pozice.</p>
+</blockquote>
+<p>Současnou pozici v souboru můžete zjistit pomocí funkce <a href="https://devdocs.io/c/io/ftell"><code>ftell</code></a>.
+Pokud byste chtěli pozici ručně změnit, můžete použít funkci <a href="https://devdocs.io/c/io/fseek"><code>fseek</code></a>,
+pomocí které se také například můžete v souboru přesunout na začátek (např. abyste ho přečetli
+podruhé) nebo na konec (např. abyste zjistili, kolik soubor celkově obsahuje bytů)<sup class='margin-toggle sidenote-number'>1</sup>.</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Toho můžete dosáhnout tak, že pomocí <code>fseek(file, 0, SEEK_END)</code> přesunete pozici na konec
+souboru, a dále pomocí <code>ftell(file)</code> zjistíte, na jaké pozici jste. To vám řekne, kolik má soubor
+celkově bytů.</p>
+</span>
+<blockquote>
+<p>Při použití módu <code>&quot;a&quot;</code> budou veškeré zápisy probíhat vždy na konci souboru. Tento mód se hodí
+například při zápisu do tzv. <strong>logovacích souborů</strong>, které chronologicky zaznamenávají události v
+programu (události tak vždy pouze přibývají). Zároveň se však po každém zápisu v tomto módu
+pozice posune na jeho konec. Raději tak nepoužívejte mód <code>&quot;a+&quot;</code>, který umožňuje zápis na konec i
+čtení. Práce s pozicí při současném zapisování i čtení je v takovémto módu totiž poněkud náročná.</p>
+</blockquote>
+<h2><a class="header" href="#zápis-do-souboru" id="zápis-do-souboru">Zápis do souboru</a></h2>
+<p>Pokud chceme do otevřeného souboru zapsat nějaké byty, můžeme použít funkci
+<a href="https://devdocs.io/c/io/fwrite"><code>fwrite</code></a>:</p>
+<pre><code class="language-c">size_t fwrite(
+    const void* buffer, // adresa, ze které načteme data do souboru
+    size_t size,        // velikost prvku, který zapisujeme
+    size_t count,       // počet prvků, které zapisujeme
+    FILE* stream        // soubor, do kterého zapisujeme
+);
+</code></pre>
+<p>Funkce <code>fwrite</code> předpokládá, že budeme do souboru zapisovat více hodnot stejného datového typu.
+Parametr <code>size</code> udává velikost tohoto datového typu a parametr <code>count</code> počet hodnot, které chceme
+zapsat. Pokud tuto funkci zavoláme, tak dojde k zápisu <code>size * count</code> bytů z adresy <code>buffer</code> do
+souboru <code>stream</code>. Návratová hodnota <code>fwrite</code> značí, kolik prvků bylo do souboru úspěšně zapsáno.
+Pokud je tato hodnota menší než <code>count</code>, tak došlo k nějaké chybě. Například zápis pěti celých
+čísel do souboru by mohl vypadat následovně:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int main() {
+    int pole[5] = { 1, 2, 3, 4, 5 };
+
+    // otevření souboru
+    FILE* soubor = fopen(&quot;soubor&quot;, &quot;wb&quot;);
+    assert(soubor);
+
+    // zápis do souboru
+    int zapsano = fwrite(pole, sizeof(int), 5, soubor);
+    assert(zapsano == 5);
+
+    // zavření souboru
+    fclose(soubor);    
+
+    return 0;
+}
+</code></pre>
+<p>Při takovémto použití <code>fwrite</code> může dojít k zapsání například pouze <code>3</code> čísel, pokud během zápisu
+dojde k chybě<sup class='margin-toggle sidenote-number'>2</sup>. Pokud bychom chtěli zapsat buď vše nebo nic, můžeme říct, že zapisujeme pouze
+jeden prvek a parameter <code>count</code> nastavit na celkovou velikost všech dat, které chceme zapsat:</p>
+<span class='sidenote'><p><sup class='number'>2</sup>V takovémto případě by funkce <code>fwrite</code> vrátila hodnotu <code>3</code>.</p>
+</span>
+<pre><code class="language-c">int pole[5] = { 1, 2, 3, 4, 5 };
+fwrite(pole, sizeof(pole), 1, soubor);
+</code></pre>
+<p>Pokud bychom zapsali <code>pole</code> do souboru takto, uloží se do něj celkem <code>20</code> (<code>5</code> * <code>4</code>) bytů (čísel),
+které později můžeme v programu zase <a href="#%C4%8Dten%C3%AD-ze-souboru">načíst zpátky</a>. Pokud bychom se podívali,
+co v souboru je, nalezli bychom seznam čísel <code>1 0 0 0 2 0 0 0 3 0 0 0 4 0 0 0 5 0 0 0</code>, což odpovídá
+paměťové reprezentaci pole pěti <code>int</code>ů, které bylo vytvořeno výše.</p>
+<h3><a class="header" href="#textový-zápis" id="textový-zápis">Textový zápis</a></h3>
+<p>Pokud bychom si tato data chtěli přečíst jako text, můžeme čísla z výše zmíněného pole zapsat do
+souboru pomocí nějakého textového kódování, například <a href="../text/znaky.html">ASCII</a>. K tomu můžeme
+využít funkci <a href="https://devdocs.io/c/io/fprintf"><code>fprintf</code></a>, která funguje stejně jako <code>printf</code>, s
+tím rozdílem, že text nevypisuje na <code>stdout</code>, ale do předaného souboru:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int main() {
+    int pole[5] = { 1, 2, 3, 4, 5 };
+
+    // otevření souboru
+    FILE* soubor = fopen(&quot;soubor.txt&quot;, &quot;w&quot;);
+    assert(soubor);
+
+    // zápis do souboru
+    for (int i = 0; i &lt; 5; i++) {
+        fprintf(soubor, &quot;%d &quot;, pole[i]);
+    }
+
+    // zavření souboru
+    fclose(soubor);    
+
+    return 0;
+}
+</code></pre>
+<p>V tomto případě by se do souboru zapsalo deset bytů (čísel) <code>49 32 50 32 51 32 52 32 53 32</code>, protože
+číslice jsou v <a href="https://www.asciitable.com/">ASCII</a> reprezentovány čísly <code>48</code> až <code>57</code> a mezera je
+reprezentována číslem <code>32</code>. Pokud bychom tento soubor otevřeli v textovém editoru, tak by se nám
+zobrazil text <code>1 2 3 4 5 </code>.</p>
+<h3><a class="header" href="#bufferování" id="bufferování">Bufferování</a></h3>
+<p>Stejně jako při zápisu do <code>stdout</code> se i při zápisu do souborů uplatňuje
+<a href="../text/vstupavystup.html#standardn%C3%AD-souborov%C3%A9-deskriptory"><em>bufferování</em></a>. Data, která do souboru
+zapíšeme, se tak v něm neobjeví hned. Pokud bychom chtěli donutit náš program, aby data uložená
+v bufferu opravdu vypsal do souboru, můžeme použít funkci <a href="https://devdocs.io/c/io/fflush"><code>fflush</code></a>
+<sup class='margin-toggle sidenote-number'>3</sup>.</p>
+<span class='sidenote'><p><sup class='number'>3</sup>Ani zavolání funkce <code>fflush</code> však nezajistí, že se data opravdu zapíšou na fyzické médium
+(například harddisk). To je ve skutečnosti velmi obtížný <a href="https://lwn.net/Articles/457667/">problém</a>.</p>
+</span>
+<h2><a class="header" href="#Čtení-ze-souboru" id="Čtení-ze-souboru">Čtení ze souboru</a></h2>
+<p>Pro čtení ze souboru můžeme použít funkci <a href="https://devdocs.io/c/io/fread"><code>fread</code></a>, která je
+protikladem funkce <code>fwrite</code>:</p>
+<pre><code class="language-c">size_t fread(
+    void* buffer,   // adresa, na kterou zapíšeme data ze souboru
+    size_t size,    // velikost prvku, který načítáme
+    size_t count,   // počet prvků, které načítáme
+    FILE* stream    // soubor, ze kterého čteme
+);
+</code></pre>
+<p>Tato funkce opět předpokládá, že budeme ze souboru načítat několik hodnot stejného datového typu.
+Například načtení pěti celých čísel, které jsme zapsali v kódu <a href="#z%C3%A1pis-do-souboru">výše</a>, by mohlo
+vypadat následovně:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int main() {
+    int pole[5] = { 1, 2, 3, 4, 5 };
+
+    // otevření souboru
+    FILE* soubor = fopen(&quot;soubor&quot;, &quot;rb&quot;);
+    assert(soubor);
+
+    // čtení ze souboru
+    int precteno = fread(pole, sizeof(int), 5, soubor);
+    assert(precteno == 5);
+
+    // zavření souboru
+    fclose(soubor);    
+
+    return 0;
+}
+</code></pre>
+<p>Funkce vrátí počet prvků, které úspěšně načetla ze souboru.</p>
+<h3><a class="header" href="#textové-čtení" id="textové-čtení">Textové čtení</a></h3>
+<p>Pokud bychom chtěli načítat ze souboru ASCII text, opět můžeme použít funkce pro načítání textu,
+například <a href="https://devdocs.io/c/io/fgets"><code>fgets</code></a><sup class='margin-toggle sidenote-number'>4</sup> nebo <a href="https://devdocs.io/c/io/fscanf"><code>fscanf</code></a>.</p>
+<span class='sidenote'><p><sup class='number'>4</sup>S funkcí <code>fgets</code> jsme se setkali již <a href="../text/vstup.html#na%C4%8Dten%C3%AD-%C5%99%C3%A1dku">dříve</a>, kdy jsme jí
+jako poslední parametr globální proměnnou <code>stdin</code>. Datový typ proměnné <code>stdin</code> je právě <code>FILE*</code> –
+při spuštění programu standardní knihovna <em>C</em> vytvoří proměnné <code>stdin</code>, <code>stdout</code> a <code>stderr</code> a uloží
+do nich standardní vstup, výstup a chybový výstup.</p>
+</span>
+<blockquote>
+<p>U načítání dat si vždy dejte pozor na to, abyste na adrese, kterou předáváte do <code>fread</code> nebo
+<code>fgets</code>, měli dostatek naalokované validní paměti. Jinak by se mohlo stát, že data ze souboru
+přepíšou adresy v paměti, kde leží nějaké nesouvisející hodnoty, což by vedlo k
+<a href="../../caste_chyby/pametove_chyby.html#segmentation-fault">paměťové chybě</a> 💣.</p>
+</blockquote>
+<h3><a class="header" href="#rozpoznání-konce-souboru" id="rozpoznání-konce-souboru">Rozpoznání konce souboru</a></h3>
+<p>Při čtení ze souboru je třeba vyřešit jednu dodatečnou věc – jak rozpoznáme, že už jsme soubor
+přečetli celý a už v něm nic dalšího nezbývá? Pokud načítáme data ze souboru &quot;binárně&quot;, tj.
+interpretujeme je jako byty a ne jako (ASCII) text, obvykle stačí si velikost souboru
+<a href="#pozice-v-souboru">předpočítat</a> po jeho otevření pomocí funkcí <a href="https://devdocs.io/c/io/ftell"><code>ftell</code></a>
+a <a href="https://devdocs.io/c/io/fseek"><code>fseek</code></a> nebo si ji přečíst přímo ze samotného souboru<sup class='margin-toggle sidenote-number'>5</sup>.</p>
+<span class='sidenote'><p><sup class='number'>5</sup>Spousta binárních formátů (např. <code>JPEG</code>) jsou tzv. <strong>samo-popisné</strong> (<em>self-describing</em>), což
+znamená, že typicky na začátku souboru je v pevně stanoveném formátu uvedeno, jak je daný soubor
+velký. Využijeme toho například při práci s obrázkovým formátem <a href="../aplikovane_ulohy/tga.html"><code>TGA</code></a>.</p>
+</span>
+<p>Co ale dělat, když načítáme textové soubory, jejichž formát obvykle není ani zdaleka pevně daný?
+Předpočítat si velikost souboru a pak muset po každém načtení např. řádku počítat, kolik znaků jsme
+vlastně načetli, by bylo relativně komplikované. Při čtení textových souborů se tak obvykle využívá
+jiná strategie – čteme ze souboru tak dlouho, dokud nedojde k chybě. Způsob detekce chyby záleží na
+použité funkci:</p>
+<ul>
+<li><a href="https://devdocs.io/c/io/fscanf"><code>fscanf</code></a> vrátí číslo <code>&lt;= 0</code>, pokud se jí nepodaří načíst žádný
+zástupný znak ze vstupu.</li>
+<li><a href="https://devdocs.io/c/io/fgets"><code>fgets</code></a> vrátí ukazatel s hodnotou <code>0</code>, pokud dojde k chybě při
+čtení.</li>
+</ul>
+<p>Jakmile dojde k chybě, tak bychom ještě měli ověřit, jestli jsme opravdu na konci souboru, anebo
+byla chyba způsobena něčím jiným<sup class='margin-toggle sidenote-number'>6</sup>. To můžeme zjistit pomocí funkcí
+<a href="https://devdocs.io/c/io/feof"><code>feof</code></a>, která vrátí nenulovou hodnotu, pokud jsme se před jejím
+zavoláním pokusili o čtení a <a href="#pozice-v-souboru">pozice</a> již byla na konci souboru, a
+<a href="https://devdocs.io/c/io/ferror"><code>ferror</code></a>, která vrátí nenulovou hodnotu, pokud došlo k nějaké
+jiné chybě při práci se souborem. </p>
+<span class='sidenote'><p><sup class='number'>6</sup>Například pokud čteme soubor z USB disku, který je během čtení odpojen od počítače.</p>
+</span>
+<p>Program, který by načítal a rovnou vypisoval řádky textu ze vstupního souboru, dokud nedojde na
+jeho konec, by tedy mohl vypadat například takto:</p>
+<pre><code class="language-c">#include &lt;assert.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    FILE* soubor = fopen(&quot;soubor.txt&quot;, &quot;r&quot;);
+    assert(soubor);
+
+    char radek[80];
+    while (1) {
+        if (fgets(radek, sizeof(radek), soubor)) {
+            // radek byl uspesne nacten
+            printf(&quot;Nacteny radek: %s&quot;, radek);
+        }
+        else {
+            if (feof(soubor)) {
+                printf(&quot;Dosli jsme na konec souboru\n&quot;);
+            } else if (ferror(soubor)) {
+                printf(&quot;Pri cteni ze souboru doslo k chybe: %s\n&quot;, strerror(errno));
+            }
+
+            break;
+        }
+    }
+
+    fclose(soubor);
+
+    return 0;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../c/soubory/otevirani_souboru.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../c/modularizace/modularizace.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../c/soubory/otevirani_souboru.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../c/modularizace/modularizace.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-177556287-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../theme/mode-c_cpp.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/xterm.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/fit.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/shared.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/web.js"></script>
+        
+
+        
+
+    </body>
+</html>

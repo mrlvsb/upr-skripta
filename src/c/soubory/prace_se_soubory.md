@@ -189,7 +189,7 @@ velký. Využijeme toho například při práci s obrázkovým formátem [`TGA`]
 
 Co ale dělat, když načítáme textové soubory, jejichž formát obvykle není ani zdaleka pevně daný?
 Předpočítat si velikost souboru a pak muset po každém načtení např. řádku počítat, kolik znaků jsme
-vlastně načetli by bylo relativně komplikované. Při čtení textových souborů se tak obvykle využívá
+vlastně načetli, by bylo relativně komplikované. Při čtení textových souborů se tak obvykle využívá
 jiná strategie – čteme ze souboru tak dlouho, dokud nedojde k chybě. Způsob detekce chyby záleží na
 použité funkci:
 - [`fscanf`](https://devdocs.io/c/io/fscanf) vrátí číslo `<= 0`, pokud se jí nepodaří načíst žádný
@@ -198,11 +198,11 @@ zástupný znak ze vstupu.
 čtení.
 
 Jakmile dojde k chybě, tak bychom ještě měli ověřit, jestli jsme opravdu na konci souboru, anebo
-byla chyba způsobená něčím jiným[^6]. To můžeme zjistit pomocí funkcí
-[`feof`](https://devdocs.io/c/io/feof), která vrátí nenulovou hodnotu, pokud jsme se předtím pokusili
-o čtení a [pozice](#pozice-v-souboru) již byla na konci souboru, a
-[`ferror`](https://devdocs.io/c/io/ferror), která vrátí nenulovou hodnotu, pokud došlo k nějaké jiné
-chybě při práci se souborem. 
+byla chyba způsobena něčím jiným[^6]. To můžeme zjistit pomocí funkcí
+[`feof`](https://devdocs.io/c/io/feof), která vrátí nenulovou hodnotu, pokud jsme se před jejím
+zavoláním pokusili o čtení a [pozice](#pozice-v-souboru) již byla na konci souboru, a
+[`ferror`](https://devdocs.io/c/io/ferror), která vrátí nenulovou hodnotu, pokud došlo k nějaké
+jiné chybě při práci se souborem. 
 
 [^6]: Například pokud čteme soubor z USB disku, který je během čtení odpojen od počítače.
 

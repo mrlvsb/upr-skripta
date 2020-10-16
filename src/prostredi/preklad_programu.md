@@ -80,7 +80,7 @@ procesor, ale není sám o sobě spustitelný, tj. nejedná se o program, ale po
 Jakmile jsou všechny zdrojové soubory přeloženy do objektových souborů, tak přichází na řadu další
 program, tzv. **linker**, který tyto objektové soubory spojí dohromady,
 [propojí](https://cs.wikipedia.org/wiki/Linker#Funkce_linkeru) je dle potřeby, případně k nim připojí
-externí [knihovny](../c/knihovny.md) a na konci vytvoří finální spustitelný soubor, který lze poté
+externí [knihovny](../c/modularizace/knihovny.md) a na konci vytvoří finální spustitelný soubor, který lze poté
 spustit.
 
 Když použijete program `gcc` způsobem, jaký jsme si ukázali výše, tak se na pozadí spustí překladač

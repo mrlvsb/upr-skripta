@@ -21,7 +21,7 @@ int* ukazatel;
 
 [^2]: Je jedno, jestli hvězdičku napíšete k datovému typu (`int* p`) anebo k názvu proměnné
 (`int *p`), bílé znaky jsou zde ignorovány. Pozor však na vytváření více ukazatelů na
-[jednom řádku](definice-více-ukazatelů-najednou).
+[jednom řádku](#definice-více-ukazatelů-najednou).
 
 Je důležité si uvědomit, co tato proměnná reprezentuje. Datový typ `int*` zde říká, že v proměnné
 `ukazatel` bude uloženo číslo, které budeme interpretovat jako adresu. V paměti na této adrese poté

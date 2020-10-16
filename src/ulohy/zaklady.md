@@ -32,14 +32,13 @@ S = 20000
 Ze zadané délky strany čtverce \\( a \\) a průměru kružnice \\( d \\) vypočítáme obsah vyšrafované plochy.
 Výpočet budeme provádět pomocí datového typu `float` s využitím konstanty `M_PI` z knihovny `<math.h>`.
 Druhou mocninu vypočítáme násobením, ale také pomocí funkce `pow` .
-Při použití matematických funkcí je nutné program [linkovat](../c/knihovny.md) s knihovnou `math`[^10].
-Výsledek zapíšeme na výstup na 4 desetinná místa. 
+Při použití matematických funkcí je nutné program [linkovat](../c/modularizace/knihovny.md) s
+knihovnou `math`[^10]. Výsledek zapíšeme na výstup na 4 desetinná místa. 
 
-[^10]: <p> 
-<code class="hljs">
+[^10]: Pro překlad s touto knihovnou použijte `-lm`:
+```bash
 $ gcc obsah.c -o obsah -lm
-</code>
-</p>
+```
 
 <div style="display: flex; justify-content: center">
 	<svg viewBox="0 0 130 130" width=130 height=130>

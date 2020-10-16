@@ -1,6 +1,6 @@
 # Vstup a výstup
 Už víme, jak v paměti počítače pracovat s (ASCII) znaky a řetězci. Nyní si ukážeme, jak můžou naše
-programy komunikovat s okolním světem – se [soubory](../soubory.md) na disku, s terminálem, s
+programy komunikovat s okolním světem – se [soubory](../soubory/soubory.md) na disku, s terminálem, s
 ostatními programy běžícími na vašem počítači či s úplně jiným počítačem přes síť. Komunikace programů
 se obecně označuje jako **I/O** (*input/output*).
 
@@ -46,7 +46,7 @@ cokoliv, co do něj zapíšete, se okamžite odešle na výstup deskriptoru.
 [^1]: Nebo jakmile v bufferu dojde paměť.
 
 Mimo těchto standardních deskriptorů můžete ve svých programech vytvářet i další deskriptory,
-například pomocí otevírání [souborů](../soubory.md). Více o tom, jak fungují souborové deskriptory
+například pomocí otevírání [souborů](../soubory/soubory.md). Více o tom, jak fungují souborové deskriptory
 a vstup a výstup programu se dozvíte v předmětu
 [Operační systémy](http://poli.cs.vsb.cz/edu/osy/osnova.html).
 

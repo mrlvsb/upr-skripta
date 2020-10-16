@@ -182,7 +182,7 @@ int main() {
 ```
 Situace, kdy pomocí cyklu procházíte pole je velmi častý a určitě se s ním mnohokrát setkáte a
 použijete jej. Zkuste si to procvičit například pomocí
-[těchto úloh](../../ulohy/ukazatele_a_pole.md#minimální-hodnota-v-poli).
+[těchto úloh](../../ulohy/pole.md#minimální-hodnota-v-poli).
 
 ## Předávání pole do funkcí
 Při předávání polí do funkcí si musíme dávat pozor zejména na dvě věci.

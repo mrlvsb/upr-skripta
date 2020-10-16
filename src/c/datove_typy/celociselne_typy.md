@@ -58,7 +58,7 @@ ale třeba dát pozor na několik zrádných věcí:
 
 - Při dělení dvou celočíselných čísel pomocí operátoru `/` dochází k celočíselnému dělení, tj. například
 výsledek výrazu `5 / 2` je `2`, a ne `2.5`. Pokud chcete provádět dělení desetinných čísel, musíte
-použít [odpovídající](#Desetinné-číselné-typy) datový typ. Zkuste si to:
+použít [odpovídající](desetinne_typy.md) datový typ. Zkuste si to:
     ```c,editable,mainbody
     #include <stdio.h>
     int main() {

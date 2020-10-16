@@ -17,8 +17,8 @@ Načítat vstup po jednotlivých znacích je poměrně zdlouhavé. Velmi často 
 jeden řádek textu. Toho můžeme dosáhnout například použitím funkce
 [`fgets`](https://devdocs.io/c/io/fgets). Ta jako parametry přijímá ukazatel na řetězec, do kterého
 zapíše načítaný řádek, maximální počet znaků, který lze načíst[^2]. Třetí parametr je
-[soubor](../soubory.md), ze kterého se má vstup načíst. O souborech se dozvíte více později, pokud
-chcete načítat data ze standardního vstupu, tak použijte jako třetí parametr globální proměnnou
+[soubor](../soubory/soubory.md), ze kterého se má vstup načíst. O souborech se dozvíte více později,
+pokud chcete načítat data ze standardního vstupu, tak použijte jako třetí parametr globální proměnnou
 `stdin`, která je nadefinována v souboru `<stdio.h>`. Pro jednoduché zjištění délky řetězce, do
 kterého zapisujete, můžete použít operátor `sizeof`:
 ```c

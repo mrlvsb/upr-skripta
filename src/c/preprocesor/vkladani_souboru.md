@@ -40,13 +40,13 @@ relativní cesta vyhodnotí je popsáno níže.
 ## Rozdíl mezi `#include <...>` a `#include "..."`
 Rozdíl mezi těmito variantami není pevně definován, nicméně většina preprocesorů (resp. překladačů)
 funguje takto:
-- `#include <...>` nejprve vyhledá zadanou cestu v tzv. systémových cestách. Jedná se o známé složky,
+- `#include <...>` nejprve vyhledá zadanou cestu v tzv. systémových cestách. Jedná se o známé adresáře,
 ve kterých jsou uloženy jednak soubory standardní knihovny *C*, a také dalších knihoven, které máte
 v systému nainstalované. Pouze pokud se zde daný soubor nenalezne, tak se cesta vyhodnotí relativně
 ke zdrojovému souboru, ve kterém byl `#include` použit.
 
     Seznam systémových cest si můžete vypsat pomocí příkazu `echo | gcc -E -Wp,-v -` v Linuxovém
-    terminálu. Do tohoto seznamu můžete také přidat dodatečné složky, když `gcc` předáte parametr
+    terminálu. Do tohoto seznamu můžete také přidat dodatečné adresáře, když `gcc` předáte parametr
     `-I`. Více se dozvíte v sekci o [knihovnách](../modularizace/knihovny.md).
     
     Pokud soubor, který chcete do vašeho kódu vložit, se nachází v externí knihovně, která nepatří

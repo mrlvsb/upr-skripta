@@ -16,16 +16,16 @@ začínat dopředným lomítkem.
 - **Relativní cesta** (*relative path*) se vyhodnotí relativně k tzv. **pracovnímu adresáři**
 (*working directory*) běžícího programu. Pokud spustíte váš program z terminálu, tak se pracovní
 adresář implicitně nastaví na adresář, ze kterého jste program spustili. Pokud tedy například spustíte
-váš program ze složky `/home/student/upr` a funkci `fopen` předáte cestu `soubor.txt`, tak se funkce
+váš program ze adresáře `/home/student/upr` a funkci `fopen` předáte cestu `soubor.txt`, tak se funkce
 pokusí otevřít soubor na cestě `/home/student/upr/soubor.txt`.
 
 Při zadávání cesty můžete využít zkratky `.` a `..`, které jsou užitečné zejména u relativních cest:
 - Zkratka `.` se odkazuje na současný adresář, `./soubor.txt` je tedy to samé jako `soubor.txt`.
 - Zkratka `..` se odkazuje na rodičovský adresář, `../data/abc.txt` tedy říká:
-`Podívej se do rodičovské složky, tam nalezni adresář data a v něm soubor abc.txt`.
+`Podívej se do rodičovského adresáře, tam nalezni adresář data a v něm soubor abc.txt`.
 
-Nepokoušejte se však zadávat cesty k neexistujícím složkám. `fopen` sice vytvoří nový soubor, pokud
-neexistuje, ale neexistující složku za vás nevytvoří.
+Nepokoušejte se však zadávat cesty k neexistujícím adresářům. `fopen` sice umí vytvořit nový soubor
+(pokud použijete odpovídající [mód](#mód-otevření)), neexistující adresář za vás nicméně nevytvoří.
 
 > Doposud jsme používali prvky *C*, které byly vesměs nezávislé na použitém operačním systému. Jakmile
 > ale naše programy začnou interagovat se **souborovým systémem** (*file system*), budeme muset začít

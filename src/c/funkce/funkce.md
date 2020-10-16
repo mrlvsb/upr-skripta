@@ -199,7 +199,7 @@ funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyc
     set_player_health(player_id, health);
     ```
 - Sdílení kódu: pokud budete chtít použít kód, který napsal někdo jiný, tak toho dosáhnete právě
-používáním funkcí, které vám někdo [připraví](../knihovny.md).
+používáním funkcí, které vám někdo [připraví](../modularizace/knihovny.md).
 
 ## Umístění funkcí
 Funkce v *C* musíme psát vždy na nejvyšší úrovni souboru. V *C* tedy například není možné definovat

@@ -16,5 +16,5 @@ daný soubor měl interpretovat. Samotná přípona však sama o sobě nic nezna
 stále stejná – pokud v souboru předtím nebyla data ve formátu [JPEG](https://en.wikipedia.org/wiki/JPEG),
 změna přípony tento stav nijak nezmění.
 
-Nejprve si ukážeme, jak můžeme [otevírat](otevreni_souboru.md) soubory na disku, a poté jak do
+Nejprve si ukážeme, jak můžeme [otevírat](otevirani_souboru.md) soubory na disku, a poté jak do
 otevřených souborů [zapisovat nebo číst](prace_se_soubory.md) data.

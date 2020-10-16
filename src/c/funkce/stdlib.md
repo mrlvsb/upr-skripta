@@ -10,7 +10,7 @@ a nemuseli ztrácet čas jejich psaním v každém programu od nuly.
 Tyto funkce se starají například o následující oblasti:
 - Čtení ze vstupu programu a zápis na výstup programu (například funkce `printf`)
 - [Dynamická alokace](../prace_s_pameti/dynamicka_pamet.md) paměti
-- Čtení a zápis [souborů](../soubory.md) na disku
+- Čtení a zápis [souborů](../soubory/soubory.md) na disku
 - [Generování náhodných čísel](../../ruzne/nahodna_cisla.md)
 - [Práce s textem](../text/text.md)
 - [Práce s časem a datem](http://www.cplusplus.com/reference/ctime/)

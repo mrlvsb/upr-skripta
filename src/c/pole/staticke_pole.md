@@ -89,8 +89,8 @@ int d[2] = { 2, 3 };    // pole s hodnotami 2, 3
 ```
 Hodnot samozřemě nesmíte zadat více, než je velikost pole.
 
-Pokud využijete inicializaci pole, můžete vynechat velikost pole v hranatých závorkách. Překladač
-v tomto případě dopočítá velikost za vás:
+Pokud využijete inicializaci statického pole, můžete vynechat velikost pole v hranatých závorkách.
+Překladač v tomto případě dopočítá velikost za vás:
 ```c
 int p[] = { 1, 2, 3 }; // p je pole s třemi čísly
 ```
@@ -229,3 +229,22 @@ int sum_array(int* array, int count) {
     return sum;
 }
 ```
+
+#### Výpočet velikosti pole
+Abyste při změně velikosti statického pole nemuseli ručně jeho velikost upravovat na více místech v
+kódu, tak můžete ve funkci, kde definujete statické pole, vypočítat jeho velikost pomocí operátoru
+`sizeof`:
+```c
+int pole[3] = { 1, 2, 3 };
+printf("Velikost pole v bytech: %lu\n", sizeof(pole));
+```
+Abyste zjistili počet prvků ve statickém poli, můžete velikost v bytech vydělit velikostí každého
+prvku v poli:
+ ```c
+int pole[3] = { 1, 2, 3 };
+printf("Pocet prvku v poli: %lu\n", sizeof(pole) / sizeof(pole[0]));
+```
+
+> Operátor `sizeof` bude pro toto použití fungovat pouze pro statické pole a pouze ve funkci, ve které
+> statické pole vytváříte! Pokud pole pošlete do jiné funkce, už z něj bude pouze ukazatel, pro který
+> `sizeof` vrátí velikost ukazatele (což bude na vašem PC nejspíše `8` bytů).

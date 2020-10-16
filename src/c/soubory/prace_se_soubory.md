@@ -96,12 +96,13 @@ int main() {
     int pole[5] = { 1, 2, 3, 4, 5 };
 
     // otevření souboru
-    FILE* soubor = fopen("soubor", "wb");
+    FILE* soubor = fopen("soubor.txt", "w");
     assert(soubor);
 
     // zápis do souboru
-    int zapsano = fwrite(pole, sizeof(int), 5, soubor);
-    assert(zapsano == 5);
+    for (int i = 0; i < 5; i++) {
+        fprintf(soubor, "%d ", pole[i]);
+    }
 
     // zavření souboru
     fclose(soubor);    
@@ -109,9 +110,10 @@ int main() {
     return 0;
 }
 ```
-V tomto případě by se do souboru zapsalo deset bytů (čísel) `49 32 50 32 51 32 52 32 53 32`,
-které bychom mohli např. pomocí textového editoru interpretovat jako
-[ASCII](https://www.asciitable.com/) text `1 2 3 4 5 `.
+V tomto případě by se do souboru zapsalo deset bytů (čísel) `49 32 50 32 51 32 52 32 53 32`, protože
+číslice jsou v [ASCII](https://www.asciitable.com/) reprezentovány čísly `48` až `57` a mezera je
+reprezentována číslem `32`. Pokud bychom tento soubor otevřeli v textovém editoru, tak by se nám
+zobrazil text `1 2 3 4 5 `.
 
 ### Bufferování
 Stejně jako při zápisu do `stdout` se i při zápisu do souborů uplatňuje

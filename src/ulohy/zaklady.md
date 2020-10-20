@@ -64,7 +64,9 @@ $ gcc obsah.c -o obsah -lm
 <summary>Výstup</summary>
 
 ```
-TODO
+a = 8
+r = 4
+S = 50.27
 ```
 </details>
 

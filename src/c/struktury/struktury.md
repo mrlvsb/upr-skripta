@@ -97,8 +97,11 @@ struct Prisera karel = { "Karel" }; // `jmeno` bude "Karel", `pocet_zivotu` bude
 Abyste si nemuseli pamatovat pořadí členů struktury při její inicializaci, můžete jednotlivé členy
 nainicializovat explicitně pomocí tečky a názvu daného členu:
 ```c
-struct Prisera karel = { .pocet_zivotu = 100, .jmeno = "Karel"};
+struct Prisera karel = { .pocet_zivotu = 100, .jmeno = "Karel" };
 ```
+Jednotlivé hodnoty členům se přiřazují zleva doprava, takže pokud použijete název nějakého členu
+více než jednou, "zvítězí" poslední zadaná hodnota. Tomuto se však vyhněte, a ani nekombinujte
+inicializaci pomocí pořadí a pomocí názvů členů. Takovýto kód by totiž byl značně nepřehledný.
 
 ## Přístup ke členům struktur
 Abychom mohli číst a zapisovat jednotlivé členy struktur, můžeme použít operátor
@@ -112,7 +115,7 @@ struct Osoba {
 };
 
 int main() {
-    struct Osoba martina = { 18, 10 };
+    struct Osoba martina = { .vek = 18, .pocet_pratel = 10 };
     martina.vek += 1;
     martina.pocet_pratel += 20;
     printf("Martina ma %d let a ma %d pratel\n", martina.vek, martina.pocet_pratel);
@@ -189,7 +192,7 @@ Právě takto se obvykle deklarují struktury v *C*.
 
 ## Použití struktur ve strukturách
 Jelikož deklarace struktury vytvoří nový datový typ, nic vám nebrání v tom používat struktury jako
-členy jiných struktur:
+členy jiných struktur[^3]:
 ```c
 typedef struct {
     float x;
@@ -206,18 +209,35 @@ typedef struct {
     Poloha poloha;
     Vec korist[10];
 } Prisera;
+
+int main() {
+    Prisera prisera = { .pocet_zivotu = 100, .poloha = { .x = 0, .y = 0 } };
+
+    return 0;
+}
 ```
 Díky tomu můžeme vytvářet celé hierarchie datových typů, což může značně zpřehlednit náš program,
 protože díky tomu náš kód může pracovat na vyšší úrovni abstrakce.
 
+[^3]: Lze si můžete všimnout, že vnořené struktury lze inicializovat stejně jako proměnné struktur,
+tj. pomocí složených závorek `{}`.
+
+## Rekurzivní struktury
 Pokud bychom ovšem chtěli použít jako člena struktury tu stejnou strukturu (například struktura
 `Osoba` může mít člen `matka` opět s datovým typem `Osoba`), nemůžeme takovýto člen uložit ve
-struktuře přímo, můžeme tam uložit pouze jeho adresu:
+struktuře přímo, můžeme tam uložit pouze jeho adresu[^4]:
 ```c
-struct Osoba {
+typedef struct Osoba {
     int vek;
     struct Osoba* matka;
-};
+} Osoba;
 ```
 Je to proto, že pokud by `Osoba` byla definována pomocí `Osoby`, tak by došlo k rekurzivní definici,
-kterou nelze vyřešit.
+kterou nelze vyřešit. Nešlo by totiž určit velikost `Osoby` - její velikost by závisela na velikosti
+jejího členu `matka`, jehož velikost by závisela na velikosti jeho členu `matka` atd. Proto tedy musíme
+v tomto případě použít ukazatel, který má fixní velikost, ať už ukazuje na jakýkoliv typ.
+
+[^4]: Zde si můžete všimnout, že musíme použít `struct Osoba` pro datový typ členu `matka`. Je to z
+toho důvodu, že v momentě, kdy tento člen definujeme, ještě neproběhl `typedef`, takže datový typ
+`Osoba` zatím neexistuje. K vytvoření tohoto datového typu dojde až jakmile je struktura zcela
+nadefinována.

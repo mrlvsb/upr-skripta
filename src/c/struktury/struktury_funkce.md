@@ -45,7 +45,7 @@ bool hrac_vyhral(Hrac* hrac) {
 }
 
 int main() {
-    Hrac hrac = { "Jindrich", 40, { .x = 10, .y = 20 } };
+    Hrac hrac = { .jmeno = "Jindrich", .skore = 40, .poloha = { .x = 10, .y = 20 } };
     hrac_posun(&hrac, 5, -8);
     hrac_pridej_skore(&hrac, 70);
 

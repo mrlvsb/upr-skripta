@@ -158,6 +158,10 @@ Fizz Buzz
 ```
 </details>
 
+**Složitější varianta**: Naimplementujte tento program bez použití podmínek. Nesimulujte ani podmínku
+žádným cyklem. Použijte jediný cyklus `for` pro průchod čísly 1 až 100 a uvnitř tohoto cyklu nepoužijte
+žádnou podmínku.
+
 ## Fibonacciho číslo
 Napište funkci, která vypočte `n`-té [Fibonacciho číslo](https://cs.wikipedia.org/wiki/Fibonacciho_posloupnost)
 (`n` bude parametrem funkce).

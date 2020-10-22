@@ -44,3 +44,4 @@ programů. Na následujících odkazech se můžete dozvědět například:
 - Jak si napsat vlastní [databázi](https://cstack.github.io/db_tutorial/).
 - Jak funguje [počítačová grafika](http://mrl.cs.vsb.cz/people/fabian/pg1_course.html).
 - Jak si napsat vlastní [3D herní engine](https://learnopengl.com/) pomocí OpenGL.
+- Jak si napsat program pro nějaké vestavěné (*embedded*) zařízení, například [Arduino](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink).

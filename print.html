@@ -3907,8 +3907,11 @@ struct Prisera karel = { &quot;Karel&quot; }; // `jmeno` bude &quot;Karel&quot;,
 </code></pre>
 <p>Abyste si nemuseli pamatovat pořadí členů struktury při její inicializaci, můžete jednotlivé členy
 nainicializovat explicitně pomocí tečky a názvu daného členu:</p>
-<pre><code class="language-c">struct Prisera karel = { .pocet_zivotu = 100, .jmeno = &quot;Karel&quot;};
+<pre><code class="language-c">struct Prisera karel = { .pocet_zivotu = 100, .jmeno = &quot;Karel&quot; };
 </code></pre>
+<p>Jednotlivé hodnoty členům se přiřazují zleva doprava, takže pokud použijete název nějakého členu
+více než jednou, &quot;zvítězí&quot; poslední zadaná hodnota. Tomuto se však vyhněte, a ani nekombinujte
+inicializaci pomocí pořadí a pomocí názvů členů. Takovýto kód by totiž byl značně nepřehledný.</p>
 <h2><a class="header" href="#přístup-ke-členům-struktur" id="přístup-ke-členům-struktur">Přístup ke členům struktur</a></h2>
 <p>Abychom mohli číst a zapisovat jednotlivé členy struktur, můžeme použít operátor
 <strong>přístupu ke členu</strong> (<em>member access operator</em>), který má syntaxi <code>&lt;struktura&gt;.&lt;název členu&gt;</code>:</p>
@@ -3920,7 +3923,7 @@ struct Osoba {
 };
 
 int main() {
-    struct Osoba martina = { 18, 10 };
+    struct Osoba martina = { .vek = 18, .pocet_pratel = 10 };
     martina.vek += 1;
     martina.pocet_pratel += 20;
     printf(&quot;Martina ma %d let a ma %d pratel\n&quot;, martina.vek, martina.pocet_pratel);
@@ -3987,7 +3990,10 @@ strukturu</strong> (<em>anonymous structure</em>) bez názvu, a jméno jí při�
 <p>Právě takto se obvykle deklarují struktury v <em>C</em>.</p>
 <h2><a class="header" href="#použití-struktur-ve-strukturách" id="použití-struktur-ve-strukturách">Použití struktur ve strukturách</a></h2>
 <p>Jelikož deklarace struktury vytvoří nový datový typ, nic vám nebrání v tom používat struktury jako
-členy jiných struktur:</p>
+členy jiných struktur<sup class='margin-toggle sidenote-number'>3</sup>:</p>
+<span class='sidenote'><p><sup class='number'>3</sup>Lze si můžete všimnout, že vnořené struktury lze inicializovat stejně jako proměnné struktur,
+tj. pomocí složených závorek <code>{}</code>.</p>
+</span>
 <pre><code class="language-c">typedef struct {
     float x;
     float y;
@@ -4003,19 +4009,33 @@ typedef struct {
     Poloha poloha;
     Vec korist[10];
 } Prisera;
+
+int main() {
+    Prisera prisera = { .pocet_zivotu = 100, .poloha = { .x = 0, .y = 0 } };
+
+    return 0;
+}
 </code></pre>
 <p>Díky tomu můžeme vytvářet celé hierarchie datových typů, což může značně zpřehlednit náš program,
 protože díky tomu náš kód může pracovat na vyšší úrovni abstrakce.</p>
+<h2><a class="header" href="#rekurzivní-struktury" id="rekurzivní-struktury">Rekurzivní struktury</a></h2>
 <p>Pokud bychom ovšem chtěli použít jako člena struktury tu stejnou strukturu (například struktura
 <code>Osoba</code> může mít člen <code>matka</code> opět s datovým typem <code>Osoba</code>), nemůžeme takovýto člen uložit ve
-struktuře přímo, můžeme tam uložit pouze jeho adresu:</p>
-<pre><code class="language-c">struct Osoba {
+struktuře přímo, můžeme tam uložit pouze jeho adresu<sup class='margin-toggle sidenote-number'>4</sup>:</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Zde si můžete všimnout, že musíme použít <code>struct Osoba</code> pro datový typ členu <code>matka</code>. Je to z
+toho důvodu, že v momentě, kdy tento člen definujeme, ještě neproběhl <code>typedef</code>, takže datový typ
+<code>Osoba</code> zatím neexistuje. K vytvoření tohoto datového typu dojde až jakmile je struktura zcela
+nadefinována.</p>
+</span>
+<pre><code class="language-c">typedef struct Osoba {
     int vek;
     struct Osoba* matka;
-};
+} Osoba;
 </code></pre>
 <p>Je to proto, že pokud by <code>Osoba</code> byla definována pomocí <code>Osoby</code>, tak by došlo k rekurzivní definici,
-kterou nelze vyřešit.</p>
+kterou nelze vyřešit. Nešlo by totiž určit velikost <code>Osoby</code> - její velikost by závisela na velikosti
+jejího členu <code>matka</code>, jehož velikost by závisela na velikosti jeho členu <code>matka</code> atd. Proto tedy musíme
+v tomto případě použít ukazatel, který má fixní velikost, ať už ukazuje na jakýkoliv typ.</p>
 <h1><a class="header" href="#struktury-a-funkce" id="struktury-a-funkce">Struktury a funkce</a></h1>
 <p>Pomocí struktur si můžeme vytvořit nový datový typ, což pomáhá přehlednosti programů, protože se
 díky tomu můžeme v programech vyjadřovat pomocí pojmů z oblasti (tzv. domény), kterou se náš program
@@ -4063,7 +4083,7 @@ bool hrac_vyhral(Hrac* hrac) {
 }
 
 int main() {
-    Hrac hrac = { &quot;Jindrich&quot;, 40, { .x = 10, .y = 20 } };
+    Hrac hrac = { .jmeno = &quot;Jindrich&quot;, .skore = 40, .poloha = { .x = 10, .y = 20 } };
     hrac_posun(&amp;hrac, 5, -8);
     hrac_pridej_skore(&amp;hrac, 70);
 

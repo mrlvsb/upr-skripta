@@ -28,3 +28,6 @@ nebo vytvořte issue na [GitHubu](https://github.com/mrlvsb/upr-skripta/issues/n
 
 Autory textu jsou [Jan Gaura](https://github.com/geordi), [Dan Trnka](https://github.com/trnila) a
 [Kuba Beránek](https://github.com/kobzol).
+
+*Historii změn* tohoto studijního textu můžete naleznout v jeho
+[GitHub repozitáři](https://github.com/mrlvsb/upr-skripta/commits/master).

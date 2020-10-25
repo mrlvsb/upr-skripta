@@ -243,7 +243,7 @@ konce. Alternativně také můžete využít dříve naimplementovanou funkci <c
 načtěte ze vstupu <code>n</code> čísel, které postupně uložte do vytvořeného pole. Vypište součet načteného
 pole.</p>
 <h2><a class="header" href="#counting-sort" id="counting-sort">Counting sort</a></h2>
-<p>Vygenerujte pole 10 000 000 čísel z intervalu \( \langle 1000, 2000 \rangle \).
+<p>Vygenerujte pole 10 000 000 <a href="../ruzne/nahodna_cisla.html">náhodných čísel</a> z intervalu \( \langle 1000, 2000 \rangle \).
 Pomocí algoritmu counting sort seřaďte čísla v poli od nejmenšího po největší.</p>
 <ol>
 <li>vytvořte pole počítadel pro všechny možné hodnoty v poli</li>
@@ -269,7 +269,7 @@ První terč má střed na souřadnici \( [50, 70 ] \) a poloměr \( 40 \) a dru
 50 70 40
 160 90 60
 </code></pre>
-<p>Tento vstup nezadávejte pořad dokola z klávesnice, ale přesměrujte si jej do programu ze souboru:</p>
+<p>Tento vstup nezadávejte pořad dokola z klávesnice, ale <a href="../c/text/vstupavystup.html">přesměrujte</a> si jej do programu ze souboru:</p>
 <pre><code>$ ./main &lt; terce.txt
 </code></pre>
 <p>Terče si pomocí <code>printf</code> vykreslete do vektorového obrázku ve formátu svg, ve kterém lze pomocí tagů definovat útvary.
@@ -281,7 +281,7 @@ První terč má střed na souřadnici \( [50, 70 ] \) a poloměr \( 40 \) a dru
 <p>Terč se středem \( [50, 70] \) a poloměrem \( 40 \) lze vykreslit pomocí: </p>
 <pre><code class="language-svg">&lt;circle cx='50' cy='70' r='40' stroke='black' fill='red' /&gt;
 </code></pre>
-<p>Vytvořený SVG obrázek si ze standardního výstupu přesměrujte do souboru a otevřete si jej například v prohlížeči firefox.</p>
+<p>Vytvořený SVG obrázek si ze standardního výstupu <a href="../c/text/vstupavystup.html">přesměrujte</a> do souboru a otevřete si jej například v prohlížeči firefox.</p>
 <pre><code class="language-shell">$ ./main &lt; terce.txt &gt; obrazek.svg
 $ firefox obrazek.svg
 </code></pre>

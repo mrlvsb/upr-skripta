@@ -89,7 +89,7 @@ načtěte ze vstupu `n` čísel, které postupně uložte do vytvořeného pole.
 pole.
 
 ## Counting sort
-Vygenerujte pole 10 000 000 čísel z intervalu \\( \langle 1000, 2000 \rangle \\).
+Vygenerujte pole 10 000 000 [náhodných čísel](../ruzne/nahodna_cisla.md) z intervalu \\( \langle 1000, 2000 \rangle \\).
 Pomocí algoritmu counting sort seřaďte čísla v poli od nejmenšího po největší.
 
 1. vytvořte pole počítadel pro všechny možné hodnoty v poli
@@ -122,7 +122,7 @@ První terč má střed na souřadnici \\( [50, 70 ] \\) a poloměr \\( 40 \\) a
 160 90 60
 ```
 
-Tento vstup nezadávejte pořad dokola z klávesnice, ale přesměrujte si jej do programu ze souboru:
+Tento vstup nezadávejte pořad dokola z klávesnice, ale [přesměrujte](../c/text/vstupavystup.md) si jej do programu ze souboru:
 ```
 $ ./main < terce.txt
 ```
@@ -141,7 +141,7 @@ Terč se středem \\( [50, 70] \\) a poloměrem \\( 40 \\) lze vykreslit pomocí
 <circle cx='50' cy='70' r='40' stroke='black' fill='red' />
 ```
 
-Vytvořený SVG obrázek si ze standardního výstupu přesměrujte do souboru a otevřete si jej například v prohlížeči firefox.
+Vytvořený SVG obrázek si ze standardního výstupu [přesměrujte](../c/text/vstupavystup.md) do souboru a otevřete si jej například v prohlížeči firefox.
 
 ```shell
 $ ./main < terce.txt > obrazek.svg

@@ -30,6 +30,13 @@ celkově bytů.
 > pozice posune na jeho konec. Raději tak nepoužívejte mód `"a+"`, který umožňuje zápis na konec i
 > čtení. Práce s pozicí při současném zapisování i čtení je v takovémto módu totiž poněkud náročná.
 
+Všimněte si, že při práci se `stdout` a `stdin` jsme s pozicí manipulovat nemohli. Je to proto, že
+tyto dva deskriptory jsou z jistého pohledu "obecnější" než soubory. Můžou být přesměrované na
+terminál, do souboru, ale klidně také i do jiného počítače přes síť. Tím, že nevíme, "co jsou zač",
+tak si s nimi nemůžeme dovolit provádět některé operace, jako je právě manipulace s pozicí. Pokud
+například odešleme data přes síť, už je nemůžeme "vrátit zpátky" změnou pozice. U souborů však
+víme, že opravdu pracujeme se souborem, takže pozici pro zápis a čtení měnit můžeme.
+
 ## Zápis do souboru
 Pokud chceme do otevřeného souboru zapsat nějaké byty, můžeme použít funkci
 [`fwrite`](https://devdocs.io/c/io/fwrite):

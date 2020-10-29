@@ -4217,7 +4217,7 @@ otevření souboru byste tak měli ověřit, zdali se otevření opravdu podaři
 došlo k chybě, tak se do <a href="c/soubory/../promenne/globalni_promenne.html">globální proměnné</a>
 <a href="https://devdocs.io/c/error/errno"><code>errno</code></a> uloží číslo, které identifikuje, o jaký typ chyby šlo<sup class='margin-toggle sidenote-number'>4</sup>.
 K proměnné budete mít přístup, pokud do svého programu <a href="c/soubory/../preprocesor/vkladani_souboru.html">vložíte</a>
-soubor <code>&lt;errnor.h&gt;</code>. Pomocí funkce <a href="https://devdocs.io/c/string/byte/strerror"><code>strerror</code></a> ze souboru
+soubor <code>&lt;errno.h&gt;</code>. Pomocí funkce <a href="https://devdocs.io/c/string/byte/strerror"><code>strerror</code></a> ze souboru
 <code>&lt;string.h&gt;</code> pak můžete získat řetězec, který danou chybu popisuje:</p>
 <span class='sidenote'><p><sup class='number'>4</sup>Seznam různých chybových hodnot, které se můžou v <code>errno</code> objevit, můžete naleznout například
 <a href="https://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/Errors/unix_system_errors.html">zde</a>.</p>
@@ -4300,6 +4300,12 @@ programu (události tak vždy pouze přibývají). Zároveň se však po každé
 pozice posune na jeho konec. Raději tak nepoužívejte mód <code>&quot;a+&quot;</code>, který umožňuje zápis na konec i
 čtení. Práce s pozicí při současném zapisování i čtení je v takovémto módu totiž poněkud náročná.</p>
 </blockquote>
+<p>Všimněte si, že při práci se <code>stdout</code> a <code>stdin</code> jsme s pozicí manipulovat nemohli. Je to proto, že
+tyto dva deskriptory jsou z jistého pohledu &quot;obecnější&quot; než soubory. Můžou být přesměrované na
+terminál, do souboru, ale klidně také i do jiného počítače přes síť. Tím, že nevíme, &quot;co jsou zač&quot;,
+tak si s nimi nemůžeme dovolit provádět některé operace, jako je právě manipulace s pozicí. Pokud
+například odešleme data přes síť, už je nemůžeme &quot;vrátit zpátky&quot; změnou pozice. U souborů však
+víme, že opravdu pracujeme se souborem, takže pozici pro zápis a čtení měnit můžeme.</p>
 <h2><a class="header" href="#zápis-do-souboru" id="zápis-do-souboru">Zápis do souboru</a></h2>
 <p>Pokud chceme do otevřeného souboru zapsat nějaké byty, můžeme použít funkci
 <a href="https://devdocs.io/c/io/fwrite"><code>fwrite</code></a>:</p>

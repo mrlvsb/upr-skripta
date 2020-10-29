@@ -95,7 +95,7 @@ otevření souboru byste tak měli ověřit, zdali se otevření opravdu podaři
 došlo k chybě, tak se do [globální proměnné](../promenne/globalni_promenne.md)
 [`errno`](https://devdocs.io/c/error/errno) uloží číslo, které identifikuje, o jaký typ chyby šlo[^4].
 K proměnné budete mít přístup, pokud do svého programu [vložíte](../preprocesor/vkladani_souboru.md)
-soubor `<errnor.h>`. Pomocí funkce [`strerror`](https://devdocs.io/c/string/byte/strerror) ze souboru
+soubor `<errno.h>`. Pomocí funkce [`strerror`](https://devdocs.io/c/string/byte/strerror) ze souboru
 `<string.h>` pak můžete získat řetězec, který danou chybu popisuje:
 ```c,editable
 #include <stdio.h>

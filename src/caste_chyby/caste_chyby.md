@@ -168,3 +168,8 @@ for (a0 = 0, a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0; i < pocet; i++)
     ...
 }
 ```
+
+### `undefined reference to 'NAZEV'`
+Snažíte se zavolat funkci `NAZEV`, která nebyla nalezena v žádném
+[objektovém souboru](../c/modularizace/linker.md), který jste předali pro překlad. Ověřte si, že
+máte název volané funkce správně.

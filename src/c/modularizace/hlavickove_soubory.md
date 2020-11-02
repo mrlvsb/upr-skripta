@@ -20,6 +20,9 @@ extern int moje_promenna;
 int moje_funkce() {}
 int moje_promenna;
 ```
+Hlavičkový soubor tak udává tzv. rozhraní odpovídajícího zdrojového souboru -- obsahuje seznam funkcí
+a proměnných, které jsou sdílené a zbytek programu je může používat.
+
 Ostatní soubory, které chtějí funkce z nějakého zdrojového souboru použít, pak
 [vloží](../preprocesor/vkladani_souboru.md) jeho hlavičkový soubor pomocí preprocesoru, aby mohly
 používat sdílené funkce a globální proměnné s korektní kontrolou datových typů:

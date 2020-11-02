@@ -19,11 +19,12 @@ funkce standardní knihovny umožňují používat složitější kódování ne
 - [**Komplexní čísla**](https://en.cppreference.com/w/c/numeric/complex) (*complex numbers*) vám
 umožní pracovat s datovými typy reprezentujícími komplexní čísla.
 
-Pokud si chcete ověřit, jak jste na tom se znalostí jazyka *C*, projděte si tyto
-[slidy](https://www.slideshare.net/olvemaudal/deep-c). Pokud budete umět odpovídat jako blonďatý
-kluk, tak znáte základy jazyka *C*. Pokud budete umět odpovídat jako dívka s růžovými vlasy,
-tak už vás v jazyce *C* téměř nic nepřekvapí.
+> Pokud si chcete ověřit, jak jste na tom se znalostí jazyka *C*, projděte si tyto
+> [slidy](https://www.slideshare.net/olvemaudal/deep-c). Pokud budete umět odpovídat jako blonďatý
+> kluk, tak znáte základy jazyka *C*. Pokud budete umět odpovídat jako dívka s růžovými vlasy,
+> tak už vás v jazyce *C* téměř nic nepřekvapí.
 
+## Co se dále naučit
 Se znalostí samotného jazyka *C* souvisí i spousta dalších konceptů, se kterými se postupně musíte
 seznámit, pokud chcete opravdu dopodrobna pochopit, co přesně se v počítači děje, když spustíte
 vámi napsaný program. Poté můžete těchto znalostí využít k tvorbě robustnějších a rychlejších

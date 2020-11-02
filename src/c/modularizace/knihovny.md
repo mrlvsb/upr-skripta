@@ -1,57 +1,145 @@
 # Knihovny
-Tato sekce je ve výstavbě 🚧.
+Nyní už známe vše potřebné na to, abychom si rozdělili náš vlastní program do libovolného množství
+zdrojových souborů. Často také ale budeme chtít používat kód, který už před námi napsal někdo jiný.
+Pokud bychom si totiž museli vše psát od nuly, tak bychom se daleko nedostali[^1], respektive trvalo
+by nám to dlouho.
 
-<!--**Knihovny** (*libraries*) jsou kusy kódu, které lze používat pomocí nadefinovaného rozhraní a díky tomu
-je lze sdílet mezi více projekty/programy, aby se stejný kód nemusel psát pokaždé znovu. Existuje obrovské
-množství *C* knihoven, které jsou volně dostupné na internetu, například pro [vykreslování grafiky](https://www.libsdl.org/),
-[sazbu fontů](https://www.freetype.org/) nebo [kompresi dat](http://zlib.net/). 
+[^1]: I když napsat si nějaký systém "od nuly" je dobrý způsob, jak se
+[zlepšit v programování](../co_dal.md#co-se-dále-naučit).
 
-Knihovny se obvykle nesdílí čistě jako archiv nebo adresář se zdrojovým kódem. Obvykle se setkáte s tím,
-že knihovna poskytuje dvě věci: 
+Aby programátoři mohli sdílet svůj kód s ostatními programátory, tak využívají tzv. **knihovny**
+(*libraries*). Knihovna je kód, který řeší nějakou ucelenou funkcionalitu (např.
+[vykreslování grafiky](https://www.libsdl.org/), [sazbu fontů](https://www.freetype.org/) nebo
+[kompresi dat](http://zlib.net/)) a obsahuje návod (dokumentaci), jak tento kód používat. Klíčové
+vlastnosti knihoven jsou znovupoužitelnost (můžeme je použít v různých programech) a abstrakce
+(nemusíme rozumět, jak knihovna funguje, pouze ji využijeme k vyřešení konkrétního problému).
 
-1. **Hlavičkové soubory** (*header files*) s příponou `.h`, které definují rozhraní, jak knihovnu používat.
-2. Soubory s příponami `.a` nebo `.so`, které obsahují již přeložené zdrojové soubory knihovny ve formě
-spustitelného kódu.
+> Knihovna není program – neobsahuje žádnou funkci `main` a nelze ji ani přímo spustit. V kontextu
+> jazyka *C* je knihovna typicky sada funkcí, struktur a globálních proměnných.
 
-> Více o knihovnách se můžete dozvědět například [zde](https://www.itnetwork.cz/cecko/linux/cecko-a-linux-staticke-a-dynamicke-knihovny).
+Například pokud bychom programovali hru, můžeme využít knihovny na vykreslení grafiky, na přehrávání
+zvuku, na snímání vstupu z klávesnice/myši atd. Náš kód se pak může zabývat zejména logikou hry a
+nemusí tolik řešit problémy, které již vyřešila spousta programátorů před námi.
 
-#### Použití knihoven pomocí `gcc`
-Abyste ve vašem programu použili nějakou knihovnu, musíte ji k vašemu programu tzv. **přilinkovat**.
-O to se stará tzv. **linker**, který za vás umí spustit překladač `gcc`.
+Na internetu můžete naleznout [tisice různých knihoven](https://github.com/kozross/awesome-c),
+které řeší rozlišné problémy.
 
-Dejme tomu, že chcete použít knihovnu s názvem `foo`, která obsahuje hlavičkové soubory v adresáři
-`/usr/foo/include` and zkompilovaný knihovní soubor v adresáři `/usr/foo/lib/libfoo.so`. Překladači
-`gcc` musíte říct, kde jsou umístěny knihovní soubory pomocí přepínače `-L`, které konkrétní soubory chcete
-přilinkovat pomocí přepínače `-l` a kde jsou umístěny hlavičkové soubory pomocí přepínače `-I`:
+## Sdílení knihoven
+Teoreticky bychom mohli knihovny používat prostě tak, že si nějakou najdeme na internetu, stáhneme
+její hlavičkové a zdrojové soubory k našeho programu a začneme je využívat. I když i tak to lze někdy
+udělat, není to obvyklé, protože tento přístup má spoustu nevýhod:
+- Jelikož obvykle nebudeme autory knihovny, kterou chceme použít, tak nemusíme ani být schopní
+danou knihovnu přeložit. Potřebuje daná knihovna konkrétní překladač nebo jeho specifické nastavení?
+Má závislosti na dalších knihovnách? Přeložit "cizí" knihovnu ze zdrojových souborů nemusí být
+zdaleka přímočaré.
+- Pokud dojde k vydání nové verze knihovny, která může přinášet opravy chyb a novou funkcionalitu,
+museli bychom (kromě potenciální úpravy našeho kódu) také překopírovat nebo správně upravit nové a
+změněné soubory knihovny, což by bylo náročné a náchylné na chyby.
+- Zdrojový kód knihoven není vždy zveřejněn, například aby si jejich autoři uchránili duševní
+vlastnictví. Často se tak setkáme se situací, že máme k dispozici pouze objektový kód a nemůžeme
+zkopírovat k našemu programu zdrojové soubory.
 
+Z tohoto důvodu jsou knihovny obvykle sdíleny ve formě objektových souborů (ty obsahují implementaci
+funkcí) a odpovídajících hlavičkových souborů (ty obsahují
+[deklarace](pouzivani_kodu_z_jinych_souboru.md#deklarace-vs-definice), aby šlo knihovnu jednoduše
+používat).
+
+## Statické vs dynamické knihovny
+Předávat překladači desítky či stovky objektových souborů by bylo docela nepraktické, proto se tyto
+soubory při distribuci knihovny balí do jednoho či více archivů, které mají standardizovaný formát
+a překladače s nimi umí přímo pracovat. Knihovna může být distribuována v jednom ze dvou typů archivů,
+které určují to, jak bude daná knihovna "přilinkována" (připojena) k našemu programu:
+- **Dynamická knihovna** (*dynamic library*) - objektové soubory takovéto knihovny nebudou součástí
+našeho programu (tj. nebudou obsaženy ve spustitelném souboru, který bude vytvořen překladačem).
+K jejich načtení dojde až "dynamicky" při spuštění programu[^2].
+
+    Výhody tohoto přístupu jsou, že bude mít náš spustitelný soubor menší velikost, a to jak na disku,
+    tak v operační paměti. Operační systém totiž dokáže jednu dynamickou knihovnu sdílet více programům
+    zároveň. Dynamickou knihovnu také půjde aktualizovat bez nutnosti překládat znovu náš program a
+    můžeme také při spuštění programu knihovnu
+    [nahradit jinou implementací](https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick).
+
+    Nevýhodou je, že při spuštění našeho programu musíme zajistit, že knihovna bude na daném systému
+    k dispozici (pokud by nebyla nalezena, tak program nepůjde spustit). To může být způsobovat
+    problémy zejména při distribuci našeho programu na ostatní počítače. Kvůli tomu, že se knihovna
+    načítá dynamicky, také může v určitých případech být její použití méně efektivní než v případě
+    statické knihovny.
+
+    Archivy s objektovými soubory dynamických knihoven mají příponu `.so`.
+
+- **Statická knihovna** (*static library*) - objektové soubory takovéto knihovny budou přímo přibaleny
+k našemu programu (jako bychom je přímo jeden po druhém předali překladači).
+
+    Výhody tohoto přístupu jsou, že náš program bude "samostatný" – knihovnu bude obsahovat uvnitř
+    svého spustitelného souboru, takže nebude nutné ji mít dostupnou na cílovém systému (narozdíl
+    od dynamické knihovny).
+
+    Nevýhodou je, že výsledný spustitelný soubor bude větší a knihovnu nepůjde aktualizovat bez
+    opětovného překladu celého programu.
+
+    Archivy s objektovými soubory statických knihoven mají příponu `.a`.
+
+[^2]: O toto načítání se stará tzv. [dynamický linker](https://man7.org/linux/man-pages/man8/ld.so.8.html).
+
+> Názvy přípon statických a dynamických knihoven závisí na operačním systému. Například na Windows
+> se můžete setkat s příponami `.lib` pro statické knihovny a `.dll` pro dynamické knihovny.
+
+## Použití knihoven s `gcc`
+Nyní si ukážeme, jak říct překladači `gcc`, aby připojil nějakou knihovnu k našemu programu. Pro to
+musíme mít k dispozici archiv s objektovými soubory knihovny (s příponou `.a` nebo `.so`, v
+závislosti na typu knihovny) a obvykle také i adresář s hlavičkovými soubory knihovny.
+
+Nejprve si ukážeme, jak překladači předat cestu k hlavičkovým souborům knihovny. Ty obvykle nebudou
+součástí našich zdrojových kódů, ale budou nainstalovány v nějakém systémovém adresáři (jako tomu je
+např. u `stdio.h`). Budeme je tedy chtít [vkládat](../preprocesor/vkladani_souboru.md) pomocí syntaxe
+`#include <>`. Překladači můžeme předat dodatečné adresáře, ve kterých má hledat (hlavičkové) soubory
+pro vkládání, pomocí přepínače `-I`. Pokud bychom tak měli hlavičkové soubory knihovny např. v
+adresáři `/usr/foo/include`, tak překladači při překladu předáme přepínač `-I/usr/foo/include`.
+
+Dále je třeba překladači říct, kde nalezne archivy s objektovými soubory knihovny. K tomu slouží
+dva přepínače. `-L` udává adresář, ve kterém se budou vyhledávat knihovny a `-l` poté specifikuje
+konkrétní knihovnu, která má být přilinkována k našemu programu. Pokud bychom tak měli například
+archiv knihovny v souboru `/usr/foo/lib/libknihovna.foo`, tak překladači předáme parametry
+`-L/usr/foo/lib` a `-lknihovna`. Při použití přepínače `-l` je třeba si dávat pozor na dvě věci:
+
+- Všimněte si, že se použila zkrácená konvence pro pojmenování knihovny. Obecně se knihovny
+pojmenovávají `lib<název>.so` (nebo `lib<název>.a`) a překladači se poté předává pouze jejich název,
+tj. `-l<název>`.
+- Přepínač `-l` se aplikuje na zdrojové/objektové soubory, které byly v příkazové řádce zadány před
+ním. Používejte jej tedy až po předání vašich zdrojových souborů:
+    ```bash
+    # správně
+    $ gcc main.c -lknihovna
+    
+    # špatně
+    $ gcc -lknihovna main.c
+    ```
+
+Celý příkaz pro připojení knihovny k vašemu programu by tak mohl vypadat např. takto:
 ```bash
 $ gcc -o program main.c -L/usr/foo/lib/ -lfoo -I/usr/foo/include
 ```
 
-Používá se konvence, že pokud je název knihovního souboru `lib<nazev>.so`, tak název knihovny je `<nazev>`,
-pro `gcc` se tedy zadá pouze `-l<nazev>` a ne `-llib<nazev>.so`. Přepínače `-l` by měly být vpravo (za)
-názvy zdrojových souborů. Všechny tři tyto přepínače lze použít vícekrát v rámci jednoho spuštění `gcc`.
-
-Poté ve zdrojovém souboru vložíte hlavičkové soubory knihovny a můžete používat funkce, které nabízí.
-
-Pokud je knihovna statická (knihovní soubor má příponu `.a`), tak už není třeba dělat nic dále. Pokud
-je však knihovna dynamická (přípona `.so`), tak k načtení knihovny dojde až při samotném spuštění programu
-(ne při jeho překladu). Musíme tak programu při jeho spuštění říct, kde má knihovnu hledat (pokud ji neumí
-naleznout automaticky).
-
-Abychom zjistili, které dynamické knihovny náš program vyžaduje, můžeme použít program `ldd`:
-```bash
-$ ldd program
-linux-vdso.so.1 (0x00007ffce73ae000)
-libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f193e1af000)
-/lib64/ld-linux-x86-64.so.2 (0x00007f193e7a2000)
-foo => ...
-```
-
-Pokud pro naši knihovnu ve výstupu není uvedena správná cesta, musíme při spuštění programu nastavit
-**proměnnou prostředí** `LD_LIBRARY_PATH` a uložit do ní cestu k adresáři, ve které se naše knihovna nachází:
-
+### Předání cesty k dynamické knihovně
+Pokud přeložíte program s dynamickou knihovnou, může se stát, že při jeho spuštění nebude schopen
+danou knihovnu najít. V takovém případě při spuštění programu můžete pomocí **proměnné prostředí**[^3]
+(*environment variable*) `LD_LIBRARY_PATH` předat cestu k adresáři, ve které se daná knihovna nachází:
 ```bash
 $ LD_LIBRARY_PATH=/usr/foo/lib ./program
 ```
--->
+
+[^3]: Proměnné prostředí jsou způsobem, jak parametrizovat chování programů (podobně jako
+například [parametry příkazového řádku](../../ruzne/funkce_main.md). V programu si můžete přečíst
+hodnotu konkrétní proměnné prostředí pomocí funkce [`getenv`](https://devdocs.io/c/program/getenv).
+
+### Zobrazení vyžadovaných dynamických knihoven
+Pokud si přeložíte nějaký program a použijete na něj program `ldd`, dozvíte se, které dynamické
+knihovny vyžaduje ke svému běhu. Měli byste mezi nimi naleznout mj. i
+[standardní knihovnu *C*](../funkce/stdlib.md) (`libc`) a dozvědět se tak její umístění na disku:
+```bash
+$ ldd ./program
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0d3a328000)
+```
+
+> [Standardní knihovna jazyka *C*](../funkce/stdlib.md) je používána téměř každým programem a mj. z
+> tohoto důvodu je obvykle linkována dynamicky, aby její paměť šla sdílet mezi programy.

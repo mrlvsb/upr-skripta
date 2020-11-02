@@ -33,6 +33,7 @@ int main() {
 Pokud bychom potřebovali řetězec s dynamickou nebo velkou délkou, můžeme pro vytvoření řetězce
 samozřejmě použít také [dynamickou paměť](../pole/dynamicke_pole.md).
 
+### Řetězcový literál
 Vytváření řetězců tímto způsobem je nicméně značně zdlouhavé a nepřehledné. Často chceme v programu
 jednoduše a rychle zapsat krátký textový řetězec tak, aby šel přehledně přečíst. K tomu můžeme využít
 tzv. **řetězcový literál** (*string literal*). Pokud napíšeme v *C* text do uvozovek, například
@@ -86,6 +87,36 @@ V takovémto případě se hodnota z literálu překopíruje do proměnné pole 
 
 > Pokud jsou vám řetězcové literály povědomé, je to kvůli toho, že jsme je již mnohokrát
 > využili při volání funkce `printf`.
+
+#### Víceřádkové řetězcové literály
+Pokud budete chtít zapsat řetězcový literál na více řádků kódu, můžete buď na konci každého
+neukončeného řádku použít znak `\`:
+```c
+const char* veta = "Ahoj \
+jmenuji \
+se \
+Karel";
+```
+nebo každý řádek samostatně uzavřít v uvozovkách:
+```c
+const char* veta = "Ahoj"
+"jmenuji"
+"se"
+"Karel";
+```
+
+Pozor však na to, že v ani jednom ze zmíněných případů nebude součástí řetězce znak odřádkování.
+Ten musíte vždy přidat explicitně:
+```c
+const char* radky = "radek1\n\
+radek2\n\
+radek3\n";
+
+// nebo
+const char* radky = "radek1\n"
+"radek2\n"
+"radek3\n";
+```
 
 ### K čemu slouží nulový znak na konci?
 U polí je trochu nepraktické to, že pokud je chceme poslat do nějaké funkce, musíme spolu s

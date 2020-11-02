@@ -3369,6 +3369,7 @@ int main() {
 </code></pre>
 <p>Pokud bychom potřebovali řetězec s dynamickou nebo velkou délkou, můžeme pro vytvoření řetězce
 samozřejmě použít také <a href="c/text/../pole/dynamicke_pole.html">dynamickou paměť</a>.</p>
+<h3><a class="header" href="#Řetězcový-literál" id="Řetězcový-literál">Řetězcový literál</a></h3>
 <p>Vytváření řetězců tímto způsobem je nicméně značně zdlouhavé a nepřehledné. Často chceme v programu
 jednoduše a rychle zapsat krátký textový řetězec tak, aby šel přehledně přečíst. K tomu můžeme využít
 tzv. <strong>řetězcový literál</strong> (<em>string literal</em>). Pokud napíšeme v <em>C</em> text do uvozovek, například
@@ -3420,6 +3421,31 @@ int main() {
 <p>Pokud jsou vám řetězcové literály povědomé, je to kvůli toho, že jsme je již mnohokrát
 využili při volání funkce <code>printf</code>.</p>
 </blockquote>
+<h4><a class="header" href="#víceřádkové-řetězcové-literály" id="víceřádkové-řetězcové-literály">Víceřádkové řetězcové literály</a></h4>
+<p>Pokud budete chtít zapsat řetězcový literál na více řádků kódu, můžete buď na konci každého
+neukončeného řádku použít znak <code>\</code>:</p>
+<pre><code class="language-c">const char* veta = &quot;Ahoj \
+jmenuji \
+se \
+Karel&quot;;
+</code></pre>
+<p>nebo každý řádek samostatně uzavřít v uvozovkách:</p>
+<pre><code class="language-c">const char* veta = &quot;Ahoj&quot;
+&quot;jmenuji&quot;
+&quot;se&quot;
+&quot;Karel&quot;;
+</code></pre>
+<p>Pozor však na to, že v ani jednom ze zmíněných případů nebude součástí řetězce znak odřádkování.
+Ten musíte vždy přidat explicitně:</p>
+<pre><code class="language-c">const char* radky = &quot;radek1\n\
+radek2\n\
+radek3\n&quot;;
+
+// nebo
+const char* radky = &quot;radek1\n&quot;
+&quot;radek2\n&quot;
+&quot;radek3\n&quot;;
+</code></pre>
 <h3><a class="header" href="#k-čemu-slouží-nulový-znak-na-konci" id="k-čemu-slouží-nulový-znak-na-konci">K čemu slouží nulový znak na konci?</a></h3>
 <p>U polí je trochu nepraktické to, že pokud je chceme poslat do nějaké funkce, musíme spolu s
 ukazatelem na první prvek pole předat také jeho

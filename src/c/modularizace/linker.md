@@ -4,9 +4,9 @@ již bylo stručně popsáno v sekci o [překladu](../../prostredi/preklad_progr
 budeme schopni vytvářet programy skládající se z více než jednoho zdrojového souboru.
 
 Prozatím jsme naše programy (skládající se z jediného zdrojového souboru) překládali pomocí
-následujícího příkazu:
+příkazu podobnému tomuto:
 ```bash
-$ gcc soubor.c
+$ gcc soubor.c -o program
 ```
 Tímto příkazem jsme ve skutečnosti prováděli dvě věci najednou: **překlad** (*translation*) a
 **linkování** (*linking*). Níže si vysvětlíme obě dvě tyto části detailněji.
@@ -50,8 +50,8 @@ Jak propojení jednotlivých souborů probíhá? Představme si například, že
 funkci `foo`, která v tomto souboru neexistuje. Při překladu tohoto souboru překladač vytvoří
 objektový soubor `a.o`, ve kterém bude uložena informace, že voláme funkci `foo`. Dejme tomu, že
 tato funkce existuje v souboru `b.c`, který je přeložen do objektového souboru `b.o`. Při linkování
-linker obdrží seznam všech obj. souborů, tedy `a.o` i `b.o`. Když narazí na informaci, že z `a.o`
-chceme volat funkci `foo`, pokusí se tuto funkci naleznout v některém z předaných objektových
+linker obdrží seznam všech objektových souborů, tedy `a.o` i `b.o`. Když narazí na informaci, že z
+`a.o` chceme volat funkci `foo`, pokusí se tuto funkci naleznout v některém z předaných objektových
 souborů:
 - Pokud jej nenalezne, tak vypíše chybu a program se nepřeloží[^1].
 - Pokud jej nalezne (v tomto případě v `b.o`), tak volání funkce "propojí" tak, aby se volala správná
@@ -63,7 +63,7 @@ Manuální použití linkeru[^2] je relativně složité, proto i linker budeme 
 můžeme předat sadu objektových souborů a on se postará o správné zavolání linkeru, který je spojí
 a vytvoří finální spustitelný soubor:
 ```bash
-$ gcc a.o b.o -oprogram
+$ gcc a.o b.o -o program
 ```
 
 [^2]: Na Linuxu lze naleznout například linker `ld`.

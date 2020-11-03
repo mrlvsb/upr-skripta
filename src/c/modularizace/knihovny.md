@@ -36,8 +36,8 @@ zdaleka přímočaré.
 museli bychom (kromě potenciální úpravy našeho kódu) také překopírovat nebo správně upravit nové a
 změněné soubory knihovny, což by bylo náročné a náchylné na chyby.
 - Zdrojový kód knihoven není vždy zveřejněn, například aby si jejich autoři uchránili duševní
-vlastnictví. Často se tak setkáme se situací, že máme k dispozici pouze objektový kód a nemůžeme
-zkopírovat k našemu programu zdrojové soubory.
+vlastnictví. Často se tak setkáme se situací, že máme k dispozici pouze objektový kód (např. `.dll`
+nebo `.so`) a nemůžeme zkopírovat k našemu programu zdrojové soubory.
 
 Z tohoto důvodu jsou knihovny obvykle sdíleny ve formě objektových souborů (ty obsahují implementaci
 funkcí) a odpovídajících hlavičkových souborů (ty obsahují

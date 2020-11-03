@@ -19,7 +19,7 @@ Pokud tyto dva soubory přeložíme a poté slinkujeme, tak se zavolá správná
 ```bash
 $ gcc -c soubor1.c
 $ gcc -c soubor2.c
-$ gcc soubor1.o soubor2.o -oprogram
+$ gcc soubor1.o soubor2.o -o program
 ```
 
 Nicméně, pokud bychom používali kód z jiných souborů takto "naslepo", narazili bychom na několik

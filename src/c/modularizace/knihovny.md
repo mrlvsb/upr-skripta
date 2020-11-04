@@ -99,7 +99,7 @@ adresáři `/usr/foo/include`, tak překladači při překladu předáme přepí
 Dále je třeba překladači říct, kde nalezne archivy s objektovými soubory knihovny. K tomu slouží
 dva přepínače. `-L` udává adresář, ve kterém se budou vyhledávat knihovny a `-l` poté specifikuje
 konkrétní knihovnu, která má být přilinkována k našemu programu. Pokud bychom tak měli například
-archiv knihovny v souboru `/usr/foo/lib/libknihovna.foo`, tak překladači předáme parametry
+archiv knihovny v souboru `/usr/foo/lib/libknihovna.so`, tak překladači předáme parametry
 `-L/usr/foo/lib` a `-lknihovna`. Při použití přepínače `-l` je třeba si dávat pozor na dvě věci:
 
 - Všimněte si, že se použila zkrácená konvence pro pojmenování knihovny. Obecně se knihovny

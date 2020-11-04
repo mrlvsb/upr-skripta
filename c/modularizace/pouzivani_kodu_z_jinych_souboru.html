@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="cs" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Používání kódu z jiných souborů - Úvod do programování</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <style>
+.xterm {
+  margin-top: 10px;
+}
+.content {
+  overflow-y: visible !important;
+}
+video {
+    max-width: 100%;
+}
+</style>
+<script src="https://kelvin.cs.vsb.cz/upr/animations.js"></script>
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../theme/css/tufte.css">
+        
+        <link rel="stylesheet" href="../../src/wasm/xterm.min.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../uvod/uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../uvod/programovani.html"><strong aria-hidden="true">1.1.</strong> Programování</a></li><li class="chapter-item "><a href="../../uvod/programovaci_jazyky.html"><strong aria-hidden="true">1.2.</strong> Programovací jazyky</a></li><li class="chapter-item "><a href="../../uvod/jazyk_c.html"><strong aria-hidden="true">1.3.</strong> Jazyk C</a></li><li class="chapter-item "><a href="../../uvod/pamet.html"><strong aria-hidden="true">1.4.</strong> Paměť</a></li></ol></li><li class="chapter-item "><a href="../../prostredi/nastaveni_prostredi.html"><strong aria-hidden="true">2.</strong> Nastavení prostředí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../prostredi/linux.html"><strong aria-hidden="true">2.1.</strong> Linux</a></li><li class="chapter-item "><a href="../../prostredi/editor.html"><strong aria-hidden="true">2.2.</strong> Editor</a></li><li class="chapter-item "><a href="../../prostredi/preklad_programu.html"><strong aria-hidden="true">2.3.</strong> Překlad</a></li><li class="chapter-item "><a href="../../prostredi/ladeni.html"><strong aria-hidden="true">2.4.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><a href="../../c/programovani.html"><strong aria-hidden="true">3.</strong> Programování v C</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/syntaxe.html"><strong aria-hidden="true">3.1.</strong> Syntaxe</a></li><li class="chapter-item "><a href="../../c/prikazy_vyrazy.html"><strong aria-hidden="true">3.2.</strong> Příkazy a výrazy</a></li><li class="chapter-item "><a href="../../c/promenne/promenne.html"><strong aria-hidden="true">3.3.</strong> Proměnné</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/promenne/globalni_promenne.html"><strong aria-hidden="true">3.3.1.</strong> Globální proměnné</a></li><li class="chapter-item "><a href="../../c/promenne/konstanty.html"><strong aria-hidden="true">3.3.2.</strong> Konstanty</a></li><li class="chapter-item "><a href="../../c/promenne/slozeny_zapis.html"><strong aria-hidden="true">3.3.3.</strong> Složený zápis</a></li><li class="chapter-item "><a href="../../c/promenne/pojmenovavani.html"><strong aria-hidden="true">3.3.4.</strong> Pojmenovávání proměnných</a></li></ol></li><li class="chapter-item "><a href="../../c/datove_typy/datove_typy.html"><strong aria-hidden="true">3.4.</strong> Datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/datove_typy/celociselne_typy.html"><strong aria-hidden="true">3.4.1.</strong> Celočíselné typy</a></li><li class="chapter-item "><a href="../../c/datove_typy/desetinne_typy.html"><strong aria-hidden="true">3.4.2.</strong> Desetinné číselné typy</a></li><li class="chapter-item "><a href="../../c/datove_typy/pravdivostni_typy.html"><strong aria-hidden="true">3.4.3.</strong> Pravdivostní typy</a></li></ol></li><li class="chapter-item "><a href="../../c/rizeni_toku/rizeni_toku.html"><strong aria-hidden="true">3.5.</strong> Řízení toku</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/podminky.html"><strong aria-hidden="true">3.5.1.</strong> Podmínky</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/switch.html"><strong aria-hidden="true">3.5.1.1.</strong> Příkaz switch</a></li></ol></li><li class="chapter-item "><a href="../../c/rizeni_toku/cykly.html"><strong aria-hidden="true">3.5.2.</strong> Cykly</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/rizeni_toku/while.html"><strong aria-hidden="true">3.5.2.1.</strong> Cyklus while</a></li><li class="chapter-item "><a href="../../c/rizeni_toku/for.html"><strong aria-hidden="true">3.5.2.2.</strong> Cyklus for</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../c/funkce/funkce.html"><strong aria-hidden="true">3.6.</strong> Funkce</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/funkce/rekurze.html"><strong aria-hidden="true">3.6.1.</strong> Rekurze</a></li><li class="chapter-item "><a href="../../c/funkce/stdlib.html"><strong aria-hidden="true">3.6.2.</strong> Funkce standardní knihovny</a></li></ol></li><li class="chapter-item "><a href="../../c/preprocesor/preprocesor.html"><strong aria-hidden="true">3.7.</strong> Preprocesor</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/preprocesor/vkladani_souboru.html"><strong aria-hidden="true">3.7.1.</strong> Vkládání souborů</a></li><li class="chapter-item "><a href="../../c/preprocesor/makra.html"><strong aria-hidden="true">3.7.2.</strong> Makra</a></li></ol></li><li class="chapter-item "><a href="../../c/prace_s_pameti/prace_s_pameti.html"><strong aria-hidden="true">3.8.</strong> Práce s pamětí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/prace_s_pameti/automaticka_pamet.html"><strong aria-hidden="true">3.8.1.</strong> Automatická paměť</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/ukazatele.html"><strong aria-hidden="true">3.8.2.</strong> Ukazatele</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/dynamicka_pamet.html"><strong aria-hidden="true">3.8.3.</strong> Dynamická paměť</a></li><li class="chapter-item "><a href="../../c/prace_s_pameti/globalni_pamet.html"><strong aria-hidden="true">3.8.4.</strong> Globální paměť</a></li></ol></li><li class="chapter-item "><a href="../../c/pole/pole.html"><strong aria-hidden="true">3.9.</strong> Pole</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/pole/staticke_pole.html"><strong aria-hidden="true">3.9.1.</strong> Statické pole</a></li><li class="chapter-item "><a href="../../c/pole/dynamicke_pole.html"><strong aria-hidden="true">3.9.2.</strong> Dynamické pole</a></li><li class="chapter-item "><a href="../../c/pole/vicerozmerne_pole.html"><strong aria-hidden="true">3.9.3.</strong> Vícerozměrné pole</a></li></ol></li><li class="chapter-item "><a href="../../c/text/text.html"><strong aria-hidden="true">3.10.</strong> Text</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/text/znaky.html"><strong aria-hidden="true">3.10.1.</strong> Znaky</a></li><li class="chapter-item "><a href="../../c/text/retezce.html"><strong aria-hidden="true">3.10.2.</strong> Řetězce</a></li><li class="chapter-item "><a href="../../c/text/vstupavystup.html"><strong aria-hidden="true">3.10.3.</strong> Vstup a výstup</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/text/vstup.html"><strong aria-hidden="true">3.10.3.1.</strong> Vstup</a></li><li class="chapter-item "><a href="../../c/text/vystup.html"><strong aria-hidden="true">3.10.3.2.</strong> Výstup</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../c/struktury/vlastni_datove_typy.html"><strong aria-hidden="true">3.11.</strong> Vlastní datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/struktury/struktury.html"><strong aria-hidden="true">3.11.1.</strong> Struktury</a></li><li class="chapter-item "><a href="../../c/struktury/struktury_funkce.html"><strong aria-hidden="true">3.11.2.</strong> Struktury a funkce</a></li></ol></li><li class="chapter-item "><a href="../../c/soubory/soubory.html"><strong aria-hidden="true">3.12.</strong> Soubory</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/soubory/otevirani_souboru.html"><strong aria-hidden="true">3.12.1.</strong> Otevření souborů</a></li><li class="chapter-item "><a href="../../c/soubory/prace_se_soubory.html"><strong aria-hidden="true">3.12.2.</strong> Práce se soubory</a></li></ol></li><li class="chapter-item expanded "><a href="../../c/modularizace/modularizace.html"><strong aria-hidden="true">3.13.</strong> Modularizace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/modularizace/linker.html"><strong aria-hidden="true">3.13.1.</strong> Linker</a></li><li class="chapter-item expanded "><a href="../../c/modularizace/pouzivani_kodu_z_jinych_souboru.html" class="active"><strong aria-hidden="true">3.13.2.</strong> Používání kódu z jiných souborů</a></li><li class="chapter-item "><a href="../../c/modularizace/hlavickove_soubory.html"><strong aria-hidden="true">3.13.3.</strong> Hlavičkové soubory</a></li><li class="chapter-item "><a href="../../c/modularizace/knihovny.html"><strong aria-hidden="true">3.13.4.</strong> Knihovny</a></li><li class="chapter-item "><a href="../../c/modularizace/automatizace_prekladu.html"><strong aria-hidden="true">3.13.5.</strong> Automatizace překladu</a></li></ol></li><li class="chapter-item "><a href="../../c/aplikovane_ulohy/ulohy.html"><strong aria-hidden="true">3.14.</strong> Aplikované úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../c/aplikovane_ulohy/tga.html"><strong aria-hidden="true">3.14.1.</strong> TGA</a></li><li class="chapter-item "><a href="../../c/aplikovane_ulohy/sdl.html"><strong aria-hidden="true">3.14.2.</strong> SDL</a></li></ol></li><li class="chapter-item "><a href="../../c/co_dal.html"><strong aria-hidden="true">3.15.</strong> Co dál?</a></li></ol></li><li class="chapter-item "><a href="../../ruzne/ruzne.html"><strong aria-hidden="true">4.</strong> Různé</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ruzne/rozklad_problemu.html"><strong aria-hidden="true">4.1.</strong> Rozklad problému</a></li><li class="chapter-item "><a href="../../ruzne/nahodna_cisla.html"><strong aria-hidden="true">4.2.</strong> Generování náhodných čísel</a></li><li class="chapter-item "><a href="../../ruzne/funkce_main.html"><strong aria-hidden="true">4.3.</strong> Funkce main</a></li><li class="chapter-item "><a href="../../ruzne/parametry_prekladace.html"><strong aria-hidden="true">4.4.</strong> Parametry překladače</a></li></ol></li><li class="chapter-item "><a href="../../ulohy/ulohy.html"><strong aria-hidden="true">5.</strong> Úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ulohy/zaklady.html"><strong aria-hidden="true">5.1.</strong> Základy</a></li><li class="chapter-item "><a href="../../ulohy/ukazatele.html"><strong aria-hidden="true">5.2.</strong> Ukazatele</a></li><li class="chapter-item "><a href="../../ulohy/pole.html"><strong aria-hidden="true">5.3.</strong> Pole</a></li><li class="chapter-item "><a href="../../ulohy/dvourozmerne_pole.html"><strong aria-hidden="true">5.4.</strong> Dvourozměrné pole</a></li><li class="chapter-item "><a href="../../ulohy/retezce.html"><strong aria-hidden="true">5.5.</strong> Řetězce</a></li><li class="chapter-item "><a href="../../ulohy/ruzne.html"><strong aria-hidden="true">5.6.</strong> Různé</a></li></ol></li><li class="chapter-item "><a href="../../caste_chyby/caste_chyby.html"><strong aria-hidden="true">6.</strong> Časté chyby</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../caste_chyby/pametove_chyby.html"><strong aria-hidden="true">6.1.</strong> Paměťové chyby</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Úvod do programování</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/mrlvsb/upr-skripta" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#používání-kódu-z-jiných-souborů" id="používání-kódu-z-jiných-souborů">Používání kódu z jiných souborů</a></h1>
+<p>Nyní už víme, jak přeložit program skládající se z více jednotek překladu (zdrojových souborů) a
+následně tyto jednotky spojit dohromady pomocí linkeru. V této sekci si ukážeme, jak můžeme použít
+kód, který existuje v jiném zdrojovém souboru.</p>
+<p>Pokud chceme zavolat funkci, kterou jsme napsali v jiném souboru, můžeme ji prostě zavolat a linker
+se postará o zbytek:</p>
+<pre><code class="language-c">// soubor1.c
+int main() {
+    moje_funkce();
+    return 0;
+}
+
+// soubor2.c
+void moje_funkce() {}
+</code></pre>
+<p>Pokud tyto dva soubory přeložíme a poté slinkujeme, tak se zavolá správná funkce:</p>
+<pre><code class="language-bash">$ gcc -c soubor1.c
+$ gcc -c soubor2.c
+$ gcc soubor1.o soubor2.o -o program
+</code></pre>
+<p>Nicméně, pokud bychom používali kód z jiných souborů takto &quot;naslepo&quot;, narazili bychom na několik
+problémů. Tím, že překladač v souboru <code>soubor1.c</code> nemá přístup k popisu funkce <code>moje_funkce</code>, tak
+nemůže ověřit, jestli jsme jí předali správné počet argumentů se správnými datovými typy, a ani
+neví, jaká je návratová hodnota této funkce. Tento přístup navíc nebude vůbec fungovat pro použití
+globálních proměnných (při pokusu o použití neexistující proměnné by překladač ohlásil chybu).</p>
+<h2><a class="header" href="#deklarace-vs-definice" id="deklarace-vs-definice">Deklarace vs definice</a></h2>
+<p>Ideálně bychom potřebovali překladači říct, jak bude kód, který chceme použít, vypadat -- jaký bude
+datový typ a název globální proměnné, popř. jaké budou parametry, návratový typ a název funkce.
+Toho můžeme dosáhnout pomocí tzv. <strong>deklarace</strong> (<em>declaration</em>).</p>
+<p>Deklarace &quot;slibuje&quot;, že bude v programu existovat nějaká proměnná či funkce s konkrétním názvem a
+typem, ale neříká, kde bude tato proměnná či funkce vytvořena (může to být například v jiném
+zdrojovém souboru). Samotné vytvoření funkce či proměnné se nazývá <strong>definice</strong> (<em>definition</em>).
+Zatím jsme tedy prováděli vždy definice funkcí i proměnných, nyní si ukážeme, jak vytvořit deklaraci.</p>
+<p>Deklaraci funkce provedeme tak, že zadáme její <a href="../funkce/funkce.html#syntaxe">signaturu</a>, ale ne její
+tělo:</p>
+<pre><code class="language-c">int funkce(int a, int b);           // deklarace funkce
+int funkce(int a, int b) { ... }    // definice funkce
+</code></pre>
+<p>Deklaraci globální proměnné lze provést tak, že před ní dáme klíčové slovo <code>extern</code><sup class='margin-toggle sidenote-number'>1</sup>:</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Toto klíčové slovo můžeme použít i před deklarací funkce, nicméně není to potřeba, <code>extern</code> je
+na tomto místě předpokládáno implicitně.</p>
+</span>
+<pre><code class="language-c">extern int promenna;    // deklarace proměnné
+int promenna;           // definice proměnné
+</code></pre>
+<blockquote>
+<p>Při sdílení kódu napříč soubory má smysl se bavit pouze o
+<a href="../promenne/globalni_promenne.html">globálních proměnných</a>. Lokální proměnné lze totiž používat vždy
+pouze v jejich funkci.</p>
+</blockquote>
+<p>Díky deklaracím tak můžeme v jednom zdrojovém souboru určit, jak mají vypadat funkce/proměnné, které
+chceme používat, aby překladač mohl provádět kontrolu datových typů. Linker pak během linkování použije
+správné proměnné/funkce z odpovídajících zdrojových souborů. Více o tom, kde a jak deklarace vytvářet,
+se dozvíme v příští sekci o <a href="hlavickove_soubory.html">hlavičkových souborech</a>.</p>
+<h2><a class="header" href="#jednoprůchodový-překlad" id="jednoprůchodový-překlad">Jednoprůchodový překlad</a></h2>
+<p>Z historických důvodů překladače <em>C</em> fungují v tzv. jednoprůchodovém režimu (<em>one-pass compilation</em>).
+Znamená to, že překladač &quot;čte&quot; náš zdrojový kód shora dolů, a v momentě, kdy chceme například použít
+nějakou funkci nebo proměnnou, tak již překladač dříve musel vidět (alespoň) její deklaraci, popř.
+rovnou i definici.</p>
+<p>Například v následujícím programu:</p>
+<pre><code class="language-c">void funkce1() {
+    funkce2();
+}
+void funkce2() {}
+</code></pre>
+<p>si překladač bude stěžovat na to, že na řádku 2 nezná funkci <code>funkce2</code>, protože tato funkce je v
+souboru nadefinovaná až po funkci <code>funkce1</code>, která ji používá:</p>
+<pre><code>test.c: In function ‘funkce’:
+test.c:2:5: warning: implicit declaration of function ‘funkce2’;
+    2 |     funkce2();
+</code></pre>
+<p>Pokud tedy potřebujeme nadefinovat funkci na pozdějším místě, než je její první použití, můžeme
+nejprve vytvořit její deklaraci a až později (popř. v úplně jiném souboru) vytvořit její definici:</p>
+<pre><code class="language-c">void funkce2();     // deklarace
+
+void funkce1() {
+    funkce2();
+}
+void funkce2() {}   // definice
+</code></pre>
+<p>Takovýto program už se přeloží bez varování. Koncept deklarování funkcí či proměnných v
+jednoprůchodových překladačích se nazývá <strong>dopředná deklarace</strong> (<em>forward declaration</em>).</p>
+<h2><a class="header" href="#pravidlo-jedné-definice" id="pravidlo-jedné-definice">Pravidlo jedné definice</a></h2>
+<p>V <em>C</em> platí tzv. <strong>pravidlo jedné definice</strong> (<em>one definition rule</em>). Každá proměnná i funkce musí
+být v programu <em>nadefinována</em> právě jednou (deklarována může být vícekrát). To platí jak v rámci
+jednoho souboru, tak v rámci celého programu (tj. napříč všemi zdrojovými soubory).</p>
+<ul>
+<li>Pokud bychom proměnnou či funkci pouze nadeklarovali a/nebo použili bez definice:
+<pre><code class="language-c">// soubor.c
+void funkce();
+
+int main() {
+    funkce();
+    return 0;
+}
+</code></pre>
+Tak by kompilace selhala v době linkování, protože by nenašel žádnou funkci/proměnnou, kterou
+by mohl použít:
+<pre><code class="language-bash">$ gcc -c soubor.c
+$ gcc soubor.o
+/usr/bin/ld: test.o: in function `main':
+test.c:(.text+0xe): undefined reference to `funkce'
+collect2: error: ld returned 1 exit status
+</code></pre>
+</li>
+<li>Pokud bychom naopak nadefinovali proměnnou či funkci více než jednou:
+<pre><code class="language-c">// soubor1.c
+void funkce() {}
+
+int main() {
+    funkce();
+    return 0;
+}
+// soubor2.c
+void funkce() {}
+</code></pre>
+Tak by linkování opět selhalo, protože by linker nevěděl, kterou definici použít:
+<pre><code class="language-bash">$ gcc -c soubor1.c
+$ gcc -c soubor2.c
+$ gcc soubor1.o soubor2.o
+/usr/bin/ld: soubor2.o: in function `funkce':
+soubor2.c:(.text+0x0): multiple definition of `funkce'; test.o:test.c:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+</code></pre>
+</li>
+</ul>
+<h2><a class="header" href="#viditelnost-funkcí-a-proměnných" id="viditelnost-funkcí-a-proměnných">Viditelnost funkcí a proměnných</a></h2>
+<p>Z jiných souborů lze používat pouze funkce a proměnné, které jsou <em>veřejné</em>. Implicitně jsou
+všechny funkce i všechny globální proměnné veřejné. Pokud byste chtěli zamezit tomu, aby mohly
+ostatní soubory používat nějakou funkci nebo globální proměnnou, můžete ji označit klíčovým slovem
+<code>static</code>, abyste z nich udělali <em>soukromé</em> funkce či proměnné:</p>
+<pre><code class="language-c">static void soukroma_funkce() {}
+static int soukroma_promenna;
+</code></pre>
+<p>Takovéto funkce a proměnné půjde používat pouze v souboru, ve kterém byly nadefinovány. Doporučujeme
+<code>static</code> používat pro označení proměnných a funkcí, které nechcete sdílet se zbytkem programu. Půjde
+tak na první pohled poznat, které funkce jsou určeny k použití z jiných souborů a které ne<sup class='margin-toggle sidenote-number'>2</sup>.</p>
+<span class='sidenote'><p><sup class='number'>2</sup>Použití <code>static</code> také může v určitých případech vést k vygenerování efektivnějšího kódu a
+menší velikosti výsledného spustitelného souboru.</p>
+</span>
+<blockquote>
+<p>Klíčové slovo <code>static</code> lze také použít u lokálních proměnných, zde má ovšem úplně jiný význam než
+u globálních proměnných! Použití <code>static</code> u lokální proměnné z ní udělá globální proměnnou, kterou
+ovšem půjde použít pouze ve funkci, ve které je vytvořena. Takováto proměnná se nainicializuje, když
+se program poprvé dostane k řádku s její definicí. Proměnná bude existovat po celou dobu běhu
+programu a udrží si svou hodnotu i po skončení volání funkce:</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void test() {
+  static int x = 0;
+  x += 1;
+  printf(&quot;%d\n&quot;, x);
+}
+
+int main() {
+  test();
+  test();
+  return 0;
+}
+</code></pre>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../c/modularizace/linker.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../c/modularizace/hlavickove_soubory.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../c/modularizace/linker.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../c/modularizace/hlavickove_soubory.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-177556287-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../theme/mode-c_cpp.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/xterm.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/fit.min.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/shared.js"></script>
+        
+        <script type="text/javascript" src="../../src/wasm/web.js"></script>
+        
+
+        
+
+    </body>
+</html>

@@ -12,7 +12,7 @@ rychleji.
 Seznam všech parametrů můžete naleznout v
 [dokumentaci `gcc`](https://gcc.gnu.org/onlinedocs/gcc/Invoking-GCC.html), zde je uveden seznam
 nejužitečnějších parametrů:
-- *Optimalizace*: Existuje spousta parametrů, pomocí kterých můžete ovlivnit, jak překladač převede
+- **Optimalizace**: Existuje spousta parametrů, pomocí kterých můžete ovlivnit, jak překladač převede
 váš zdrojový kód na strojové instrukce a jak je zoptimalizuje. Nejzákladnějším parametrem je `-O`:
     - `-O0` - nebudou použity téměř žádné optimalizace. Toto je implicitní nastavení,
     pokud ho nezměníte. Program v tomto stavu lze dobře [krokovat](../prostredi/ladeni.md#krokování),
@@ -30,7 +30,7 @@ váš zdrojový kód na strojové instrukce a jak je zoptimalizuje. Nejzákladn�
     Kromě parametru `-O` lze použít spousty dalších parametrů, které ovlivňují například použití
     [vektorových instrukcí](../c/co_dal.md). O těch se dozvíte více například v předmětu
     [Programování v C++](https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-2068/01&subjectBlockAssignmentId=369400&studyFormId=1&studyPlanId=21821&locale=cs&back=true).
-- *Ladění programu*:
+- **Ladění programu**:
     Jak už jste jistě poznali, při použití jazyka *C* je velmi jednoduché způsobit nějaké nedefinované
     chování, například nějakou [paměťovou chybou](../caste_chyby/pametove_chyby.md). Aby šlo tyto
     chyby detekovat, obsahují překladače tzv. *sanitizery*. Při použití sanitizeru se do vašeho
@@ -50,7 +50,7 @@ váš zdrojový kód na strojové instrukce a jak je zoptimalizuje. Nejzákladn�
     přidá do výsledného spustitelného souboru informace o zdrojovém kódu (ty jinak ve spustitelném
     souboru chybí). Díky tomu budou sanitizery schopny zobrazit konkrétní řádek, na kterém vznikl
     nějaký problém a také půjde program ladit a krokovat. 
-- *Analýza kódu*: Kromě sanitizerů, které kontrolují váš program za běhu, lze také spoustu chyb
+- **Analýza kódu**: Kromě sanitizerů, které kontrolují váš program za běhu, lze také spoustu chyb
 odhalit již při překladu programu. Bohužel překladač `gcc` v implicitním módu není moc striktní a
 některé vyloženě chybné situace vám promine a program přeloží, i když je již dopředu jasné, že při
 běhu pak dojde např. k pádu programu. Abychom tomu předešli, můžeme zapnout při překladu dodatečná

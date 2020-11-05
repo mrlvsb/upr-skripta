@@ -5087,6 +5087,27 @@ libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0d3a328000)
 <p><a href="c/modularizace/../funkce/stdlib.html">Standardní knihovna jazyka <em>C</em></a> je používána téměř každým programem a mj. z
 tohoto důvodu je obvykle linkována dynamicky, aby její paměť šla sdílet mezi programy.</p>
 </blockquote>
+<h2><a class="header" href="#vytvoření-knihovny" id="vytvoření-knihovny">Vytvoření knihovny</a></h2>
+<p>Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí <code>gcc</code>. Dejme
+tomu, že máte soubory <code>a.c</code> a <code>b.c</code>, které chcete zabalit do knihovny. Nejprve každý zdrojový soubor
+přeložíme do objektového souboru<sup class='margin-toggle sidenote-number'>4</sup>:</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Parametr <code>-fPIC</code> je nutný při překladu zdrojových souborů, které poté chceme umístit do
+knihovny. Více se můžete dozvědět např. <a href="https://stackoverflow.com/a/5311538/1107768">zde</a>.</p>
+</span>
+<pre><code class="language-bash">$ gcc -c -fPIC a.c
+$ gcc -c -fPIC b.c
+</code></pre>
+<p>Další postup závisí na tom, jaký typ knihovny chceme vytvořit:</p>
+<ul>
+<li><strong>Vytvoření statické knihovny</strong> - použijeme program <code>ar</code> (archiver):
+<pre><code class="language-bash">$ ar rcs libknihovna.a a.o b.o
+</code></pre>
+</li>
+<li><strong>Vytvoření dynamické knihovny</strong> - použijeme program <code>gcc</code> s přepínačem <code>-shared</code>:
+<pre><code class="language-bash">$ gcc -shared a.o b.o -o libknihovna.so
+</code></pre>
+</li>
+</ul>
 <h1><a class="header" href="#automatizace-překladu" id="automatizace-překladu">Automatizace překladu</a></h1>
 <p>Možná vás napadlo, že v případě rozdělení programu do více zdrojových souborů a při použití knihoven
 začne být docela namáhavé náš program vůbec přeložit. Musíme přeložit zvlášť každou

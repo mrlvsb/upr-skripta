@@ -143,3 +143,25 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0d3a328000)
 
 > [Standardní knihovna jazyka *C*](../funkce/stdlib.md) je používána téměř každým programem a mj. z
 > tohoto důvodu je obvykle linkována dynamicky, aby její paměť šla sdílet mezi programy.
+
+## Vytvoření knihovny
+Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí `gcc`. Dejme
+tomu, že máte soubory `a.c` a `b.c`, které chcete zabalit do knihovny. Nejprve každý zdrojový soubor
+přeložíme do objektového souboru[^4]:
+```bash
+$ gcc -c -fPIC a.c
+$ gcc -c -fPIC b.c
+```
+
+[^4]: Parametr `-fPIC` je nutný při překladu zdrojových souborů, které poté chceme umístit do
+knihovny. Více se můžete dozvědět např. [zde](https://stackoverflow.com/a/5311538/1107768).
+
+Další postup závisí na tom, jaký typ knihovny chceme vytvořit:
+- **Vytvoření statické knihovny** - použijeme program `ar` (archiver):
+    ```bash
+    $ ar rcs libknihovna.a a.o b.o
+    ```
+- **Vytvoření dynamické knihovny** - použijeme program `gcc` s přepínačem `-shared`:
+    ```bash
+    $ gcc -shared a.o b.o -o libknihovna.so
+    ```

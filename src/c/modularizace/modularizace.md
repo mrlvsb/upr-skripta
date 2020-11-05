@@ -5,7 +5,7 @@ už se do jednoho souboru rozumně "nevlezou". V této sekci si tak ukážeme, j
 do více zdrojových souborů.
 
 Rozdělení programu do více souborů má spoustu výhod:
-- *Větší přehlednost* - pokud by byl veškerý kód v jednom zdrojovém souboru, tak by se v takovém souboru
+- **Větší přehlednost** - pokud by byl veškerý kód v jednom zdrojovém souboru, tak by se v takovém souboru
 dalo u větších programů jen těžko vyznat. Pokud budou jednotlivé logické části programu umístěny
 v samostatných souborech či adresářích, bude např. mnohem jednodušší najít část programu, kterou
 chceme upravit.
@@ -14,7 +14,7 @@ chceme upravit.
     `zbrane.c`, `klavesnice.c`, `mys.c` atd. Pokud by některý z těchto souborů byl opět moc velký
     nebo složitý, můžeme jeho funkcionalitu rozdělit na více souborů.
 
-- *Menší provázanost* - pokud je vše v jednom souboru, znamená to, že z libovolné funkce lze volat
+- **Menší provázanost** - pokud je vše v jednom souboru, znamená to, že z libovolné funkce lze volat
 všechny ostatní funkce (popř. používat všechny ostatní struktury atd.). Toto vede k situaci, kdy jsou
 jednotlivé části programu na sobě vzájemně závislé a propojené. To možná zní nevinně, nicméně ve
 skutečnosti to téměř nevyhnutelně vede k programu, který je velmi obtížné upravit. Pokud totiž
@@ -27,13 +27,13 @@ upravit celý zbytek programu, což je náročné.
     soubor. Změny v těchto soukromých částích pak nemohou ovlivnit zbytek kódu, protože ten na nich
     nebude závislý.
  
-- *Efektivnější spolupráce v týmu* - rozdělení na více souborů také usnadní týmovou spolupráci.
+- **Efektivnější spolupráce v týmu** - rozdělení na více souborů také usnadní týmovou spolupráci.
 Pokud budou jednotliví programátoři upravovat jiné soubory, bude mnohem menší riziko tzv. "souběhu",
 kdy by jejich změny ve stejném souboru mohly kolidovat. Tyto problémy pak dále řeší tzv.
 [verzování](https://cs.wikipedia.org/wiki/Verzov%C3%A1n%C3%AD), o kterém se dozvíte v navazujících
 předmětech.
 
-- *Znovuvyužití kódu* - pokud by každý program musel implementovat veškerou funkcionalitu od nuly,
+- **Znovuvyužití kódu** - pokud by každý program musel implementovat veškerou funkcionalitu od nuly,
 tak by bylo programování i jednoduchého programu nesmírně náročné.[^1] V rámci jednoho programu s
 můžeme nějakou ucelenou funkcionalitu (např. sadu funkcí spolu se strukturami) vyčlenit do
 samostatného souboru, což nám umožní ji opakovaně používat z ostatních souborů v našem programu.

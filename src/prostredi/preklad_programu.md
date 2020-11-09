@@ -4,10 +4,10 @@ budeme používat jiný program, kterému se říká překladač.
 Překladačů jazyka *C* existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
 Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection). 
 
-Překladač `gcc`, spolu s dalšími potřebnými nástroji na Ubuntu můžete nainstalovat následujícím
-příkazem:
+Překladač `gcc`, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
+pomocí následujícího příkazu:
 ```bash
-sudo apt install build-essential
+$ sudo apt install build-essential
 ```
 
 ## Překlad prvního programu

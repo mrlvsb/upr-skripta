@@ -1,12 +1,12 @@
 # TGA
 [TGA](https://en.wikipedia.org/wiki/Truevision_TGA) je formát pro ukládání rastrových obrázků na
 disk. Slouží tedy ke stejnému účelu jako známější formáty `JPEG` nebo `PNG`, ale oproti nim je
-mnohem jednodušší. Díky tomu můžeme načíst i zapsat TGA soubor pomocí několika řádků kódu, zatímco
+mnohem jednodušší. Díky tomu můžeme načíst i zapsat `TGA` soubor pomocí několika řádků kódu, zatímco
 např. u `JPEG` nebo `PNG` bychom potřebovali buď použít již existující knihovnu anebo naimplementovat
 jejich relativně komplikované standardy, které čítají stovky stránek.
 
 ## Hlavička `TGA`
-Soubory ve formátu TGA obsahují na svém začátku tzv. **hlavičku** (*header*), která obsahuje informace
+Soubory ve formátu `TGA` obsahují na svém začátku tzv. **hlavičku** (*header*), která obsahuje informace
 popisující daný obrázek. Tyto informace jsou reprezentovány byty, které jsou umístěny na pevně
 daných pozicích. Zde je seznam jednotlivých částí hlavičky TGA:
 
@@ -23,8 +23,8 @@ daných pozicích. Zde je seznam jednotlivých částí hlavičky TGA:
 | **Barevná hloubka** | 16 | 1 |
 | Popisovač | 17 | 1 |
 
-Tato tabulka udává, jak máme interpretovat jednotlivé byty na začátku TGA souboru. Pokud bychom tedy
-například otevřeli TGA soubor a přečteli si jeho 12. a 13. byte, tak se dozvíme šířku tohoto obrázku. 
+Tato tabulka udává, jak máme interpretovat jednotlivé byty na začátku `TGA` souboru. Pokud bychom tedy
+například otevřeli `TGA` soubor a přečteli si jeho 12. a 13. byte, tak se dozvíme šířku tohoto obrázku. 
 Nás budou zajímat zejména tučně vyznačené části:
 - **Typ**: Hodnota `2` udává nekomprimovaný RGB obrázek, hodnota `3` udává nekomprimovaný
 černobílý obrázek. Ostatní platné hodnoty typu obrázku můžete nalézt např. na [Wikipedii](https://en.wikipedia.org/wiki/Truevision_TGA).
@@ -39,7 +39,7 @@ RGB, měli bychom použít hloubku 24 bitů (8 bitů na každou barevnou složku
 typ obrázku, tak použijeme hloubku 8 bitů.
 
 > Při načítání binárních dat ze souborů musíme dávat pozor na to, jestli jsou hodnoty uloženy v
-> **little-endian** nebo **big-endian** formátu. U TGA je určeno, že musí být v little-endian, což je
+> **little-endian** nebo **big-endian** formátu. U `TGA` je určeno, že musí být v little-endian, což je
 > zároveň s velkou pravděpodobností i formát, který používá vás počítač, nemusíme tedy provádět žádnou
 > konverzi. Více o tzv. **endianness** můžete nalézt např. [zde](https://en.wikipedia.org/wiki/Endianness).
 
@@ -55,7 +55,7 @@ má trochu zdlouhavý název, vytvořme si pro něj nejprve nové jméno `byte`:
 typedef unsigned char byte;
 ```
 
-Nyní si vytvořme strukturu, která bude reprezentovat TGA hlavičku. Jednotlivé atributy struktury
+Nyní si vytvořme strukturu, která bude reprezentovat `TGA` hlavičku. Jednotlivé atributy struktury
 musí přesně odpovídat hodnotám v hlavičce a musí být také uvedeny ve stejném pořadí:
 ```c
 typedef struct {
@@ -75,11 +75,11 @@ typedef struct {
 > Možná vám přijde zvláštní, proč např. šířku definujeme jako pole dvou bytů namísto použití
 > "dvou-bajtového celého čísla", tedy datového typu `short`. Děláme to, aby do této struktury překladač
 > nevložil žádné [mezery](../struktury/struktury.md#reprezentace-struktury-v-paměti). Pokud by je tam
-> vložil, tak by naše struktura v paměti už neodpovídala hlavičce TGA v souboru a četli bychom tak
+> vložil, tak by naše struktura v paměti už neodpovídala hlavičce `TGA` v souboru a četli bychom tak
 > neplatné hodnoty. Když použijeme pro všechny atributy datový typ s velikostí 1 byte, tak překladač
 > žádné mezery vkládat nebude.
 
-Nyní už stačí pouze otevřít nějaký TGA soubor (např. [tento](../../static/img/carmack.tga)),
+Nyní už stačí pouze otevřít nějaký `TGA` soubor (např. [tento](../../static/img/carmack.tga)),
 [načíst](../soubory/prace_se_soubory.md#čtení-ze-souboru) z něj počet bytů odpovídající naší struktuře
 a poté si z ní můžeme přečíst informace o daném obrázku:
 ```c
@@ -107,7 +107,7 @@ Jakmile jsme načetli hlavičku, můžeme načíst ze souboru i samotné pixely.
 hned za hlavičkou. Každý pixel má odpovídající počet bytů podle typu obrázku (u RGB 3 byty[^1], u
 černobílých obrázků 1 byte) a počet pixelů je dán rozměry obrázku (šířka * výška).
 
-[^1]: V TGA jsou jednotlivé barevné složky uložené v pořadí `blue`, `green`, `red`. Jedná se tedy
+[^1]: V `TGA` jsou jednotlivé barevné složky uložené v pořadí `blue`, `green`, `red`. Jedná se tedy
 vlastně o formát BGR.
 
 Můžeme si tak vytvořit pole pro pixely a načíst je z obrázku. Pro RGB obrázky by načtení pixelů

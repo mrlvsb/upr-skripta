@@ -64,10 +64,9 @@ v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí `&
 spuštěné příkazy v terminálu.
 </details>
 
-Pro představu je k dispozici ješte shrnující video:
+Pro představu je k dispozici ještě shrnující video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Hu7l9NpQ3g8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 ### Jak překlad probíhá?
 Překlad programů probíhá ve dvou hlavních fázích: **překlad** (*translation*) a **linkování** (*linking*).

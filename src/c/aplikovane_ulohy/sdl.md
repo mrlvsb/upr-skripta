@@ -1,4 +1,210 @@
 # SDL
-Tato sekce je ve výstavbě 🚧.
+[`SDL`](https://www.libsdl.org/) je knihovna pro tvorbu interaktivních grafických aplikací a her.
+Umožňuje vám vytvářet okna, vykreslovat do nich jednotlivé pixely, obrázky či text, snímat vstup z
+myši a klávesnice či třeba přehrávat zvuk. Jedná se tak v podstatě o tzv. **herní engine**, i když
+ve srovnání např. s enginy [Unity](https://unity.com/) nebo [Unreal](https://www.unrealengine.com/)
+je tento engine velmi jednoduchý.
 
-<!--`sudo apt install libsdl2-image-dev libsdl2-dev libsdl2-ttf-dev`-->
+## Instalace `SDL`
+Narozdíl od knihovny, kterou jsme si ukazovali pro vytváření [`GIF` animací](gif.md), `SDL` obsahuje
+spoustu zdrojových i hlavičkových souborů, a nebylo by tak ideální ji kopírovat k našemu programu.
+Připojíme ji tedy k našemu programu jako klasickou
+[knihovnu](../modularizace/knihovny.md#použití-knihoven-s-gcc). Abychom knihovnu mohli použít, nejprve
+si ji musíme stáhnout. To můžeme udělat dvěmi způsoby:
+- **Instalace pomocí správce balíčků** (*doporučeno*): Jelikož je `SDL` velmi známá a používaná
+knihovna, ve většině distribucí Linuxu není problém ji nainstalovat přímo z balíčkového manažeru.
+V Ubuntu to můžete provést pomocí následujícího příkazu v terminálu, který nainstaluje kromě balíčku
+se základní funkcionalitou také dva další balíčky nutné pro vykreslování obrázků a textu[^1]:
+    ```bash
+    $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+    ```
+    Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, `gcc` ji tak
+    budeu mět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou je, že verze
+    knihoven v systémových balíčcích typicky bývají zastaralé.
+
+[^1]: Pokud by vás zajímalo, které všechny soubory a kam se nainstalovaly, můžete po instalaci balíčků
+použít příkaz
+```bash
+$ dpkg -L libsdl2-dev
+```
+
+- **Manuální stažení knihovny**: Knihovnu si můžete také stáhnout manuálně, např. z
+[webu SDL](https://www.libsdl.org/download-2.0.php). Některé knihovny můžete naleznout na internetu
+už přeložené, nicméně `SDL` oficiálně pro Linux přeložené knihovní soubory (`.so`) nenabízí. V tomto
+případě tak musíte knihovnu nejenom stáhnout, ale také ručně přeložit, než ji budete moct použít ve
+svém programu.
+
+## Přilinkování knihovny `SDL`
+Pokud jste nainstalovali `SDL` pomocí systových balíčků, stačí při překladu programu přilinkovat
+knihovnu `SDL2`:
+```bash
+$ gcc main.c -lSDL2
+```
+Pokud jste knihovnu překládali manuálně, musíte ještě použít parametry `-I` pro předání cesty k
+hlavičkovým souborům a `-L` pro předání cesty k adresáři s přeloženou knihovnou, jak jsme si
+vysvětlovali [zde](../modularizace/knihovny.md#použití-knihoven-s-gcc).
+
+Pro práci s obrázky bude dále nutné přilinkovat knihovnu `SDL2_image` a pro práci s textem knihovnu
+`SDL2_ttf`.
+
+## Dokumentace
+Abyste mohli používat nějakou složitější knihovnu, je nutné se zorientovat v její dokumentaci. V té
+naleznete jednak deklarace a popis fungování jednotlivých funkcí, které knihovna nabízí, ale také
+různé návody pro to, jak s knihovnou pracovat.
+
+Dokumentaci funkcí `SDL` naleznete [zde](https://wiki.libsdl.org/APIByCategory), návody pro jeho
+použití například [tady](https://www.willusher.io/pages/sdl2/).
+
+> SDL je relativně rozsáhlá knihovna a není v silách těchto skript, abychom ji plně popsali. Proto
+> níže naleznete pouze velmi stručný úvod do jejího použití, zbytek najdete v dokumentaci a návodech
+> na internetu.
+
+## `SDL` hello world
+Abychom něco vykreslili, tak jako první věc musíme nainicializovat SDL a vytvořit okno[^2]:
+
+[^2]: Pro zpřehlednění kódu bude v ukázkách níže vynechána kontrola chyba. Celý program i s kontrolou
+chyb naleznete na konci této sekce.
+
+```c
+#include <SDL2/SDL.h>
+
+int main()
+{
+    SDL_Init(SDL_INIT_VIDEO);   // Inicializace SDL
+
+    // Vytvoření okna
+    SDL_Window* win = SDL_CreateWindow(
+        "SDL experiments",  // Název
+        100,                // Souřadnice x
+        100,                // Souřadnice y
+        800,                // Šířka
+        600,                // Výška
+        SDL_WINDOW_SHOWN
+    );
+```
+Jakmile máme otevřené okno, můžeme do něj něco začít vykreslovat. K tomu musíme nejprve vytvořit
+`SDL_Renderer`, neboli kreslítko:
+```c
+    // Vytvoření kreslítka
+    SDL_Renderer* ren = SDL_CreateRenderer(
+        win,
+        -1,
+        SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
+    );
+```
+
+S kreslítkem už můžeme něco nakreslit na obrazovku. Musíme vytvořit tzv.
+[**herní smyčku**](https://en.wikipedia.org/wiki/Video_game_programming#Game_structure) (*game
+loop*), která se bude provádět neustále dokola. Ve smyčce nejprve získáme události, které nastaly
+(např. došlo ke stisknutí klávesy nebo pohybu myši), poté je zpracujeme, vykreslíme nový obsah
+okna a odešleme jej k vykreslení (za použití tzv.
+[**double bufferingu**](https://en.wikipedia.org/wiki/Multiple_buffering#Double_buffering_in_computer_graphics)).
+
+Konkrétně budeme vykreslovat jednoduchou posouvající se čáru, dokud uživatel nezavře otevřené okno:
+```c
+    SDL_Event e;
+    bool quit = false;
+    int pos = 100;
+
+    while (!quit)
+    {
+        while (SDL_PollEvent(&e))
+        {
+            if (e.type == SDL_QUIT)
+            {
+                quit = true;
+            }
+        }
+        SDL_SetRenderDrawColor(ren, 0, 0, 0, 255); // Nastavení barvy na černou
+        SDL_RenderClear(ren);                      // Vykreslení pozadí
+
+        SDL_SetRenderDrawColor(ren, 255, 0, 0, 255); // Nastavení barvy na červenou
+        SDL_RenderDrawLine(ren, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
+
+        pos++;
+
+        SDL_RenderPresent(ren);  // Prezentace kreslítka
+    }
+```
+A na konci už akorát vše uvolníme:
+```c
+    // Uvolnění prostředků
+    SDL_DestroyRenderer(ren);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+
+    return 0;
+}
+``` 
+
+<details>
+<summary>Celý kód i s ošetřením chyb</summary>
+
+```c
+#include <SDL2/SDL.h>
+#include <stdbool.h>
+
+int main()
+{
+    if (SDL_Init(SDL_INIT_VIDEO)) {
+        fprintf(stderr, "SDL_Init Error: %s\n", SDL_GetError());
+        return 1;
+    }
+    SDL_Window* win = SDL_CreateWindow("SDL experiments", 100, 100, 800, 600, SDL_WINDOW_SHOWN);
+    if (!win) {
+        fprintf(stderr, "SDL_CreateWindow Error: %s\n", SDL_GetError());
+        SDL_Quit();
+        return 1;
+    }
+
+    SDL_Renderer* ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if (!ren) {
+        SDL_DestroyWindow(win);
+        fprintf(stderr, "SDL_CreateRenderer Error: %s", SDL_GetError());
+        SDL_Quit();
+        return 1;
+    }
+
+    SDL_Event e;
+    bool quit = false;
+    int pos = 100;
+
+    while (!quit)
+    {
+        while (SDL_PollEvent(&e))
+        {
+            if (e.type == SDL_QUIT)
+            {
+                quit = true;
+            }
+        }
+        SDL_SetRenderDrawColor(ren, 0, 0, 0, 255); // Nastavení barvy na černou
+        SDL_RenderClear(ren);                      // Vykreslení pozadí
+
+        SDL_SetRenderDrawColor(ren, 255, 0, 0, 255); // Nastavení barvy na červenou
+        SDL_RenderDrawLine(ren, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
+
+        pos++;
+
+        SDL_RenderPresent(ren);  // Prezentace kreslítka
+    }
+
+    SDL_DestroyRenderer(ren);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+
+    return 0;
+}
+```
+</details>
+
+## Co lze dělat pomocí `SDL`?
+Knihovna `SDL` nabízí spoustu funkcionality k tvorbě interaktivních aplikací a her. Můžete s ní
+například:
+- [Vykreslovat](https://wiki.libsdl.org/CategoryRender) body, čáry či obdélníky
+- Reprezentovat [obdélníky](https://wiki.libsdl.org/CategoryRect) a počítat jejich průniky (např.
+pro detekci kolizí herních objektů)
+- [Reagovat](https://wiki.libsdl.org/CategoryEvents) na vstup uživatele, ať už z klávesnice nebo z myši
+- Načítat a vykreslovat [obrázky](https://www.libsdl.org/projects/SDL_image/docs/SDL_image_frame.html)
+- Načítat a vykreslovat [text](https://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_frame.html)
+- Přehrávat [zvuk](https://wiki.libsdl.org/CategoryAudio)

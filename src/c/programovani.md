@@ -34,4 +34,5 @@ Javascript, Rust, C++ atd.).
 
 Navazující témata:
 - [TGA](aplikovane_ulohy/tga.md) - jednoduchý formát pro reprezentaci obrázků na disku
+- [GIF](aplikovane_ulohy/gif.md) - tvorba animací
 - [SDL](aplikovane_ulohy/sdl.md) - knihovna pro tvorbu grafických aplikací a her

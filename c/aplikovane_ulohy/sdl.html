@@ -248,7 +248,7 @@ int main()
     SDL_Init(SDL_INIT_VIDEO);   // Inicializace SDL
 
     // Vytvoření okna
-    SDL_Window* win = SDL_CreateWindow(
+    SDL_Window* window = SDL_CreateWindow(
         &quot;SDL experiments&quot;,  // Název
         100,                // Souřadnice x
         100,                // Souřadnice y
@@ -260,8 +260,8 @@ int main()
 <p>Jakmile máme otevřené okno, můžeme do něj něco začít vykreslovat. K tomu musíme nejprve vytvořit
 <code>SDL_Renderer</code>, neboli kreslítko:</p>
 <pre><code class="language-c">    // Vytvoření kreslítka
-    SDL_Renderer* ren = SDL_CreateRenderer(
-        win,
+    SDL_Renderer* renderer = SDL_CreateRenderer(
+        window,
         -1,
         SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
     );
@@ -286,21 +286,21 @@ okna a odešleme jej k vykreslení (za použití tzv.
                 quit = true;
             }
         }
-        SDL_SetRenderDrawColor(ren, 0, 0, 0, 255); // Nastavení barvy na černou
-        SDL_RenderClear(ren);                      // Vykreslení pozadí
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Nastavení barvy na černou
+        SDL_RenderClear(renderer);                      // Vykreslení pozadí
 
-        SDL_SetRenderDrawColor(ren, 255, 0, 0, 255); // Nastavení barvy na červenou
-        SDL_RenderDrawLine(ren, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Nastavení barvy na červenou
+        SDL_RenderDrawLine(renderer, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
 
         pos++;
 
-        SDL_RenderPresent(ren);  // Prezentace kreslítka
+        SDL_RenderPresent(renderer);  // Prezentace kreslítka
     }
 </code></pre>
 <p>A na konci už akorát vše uvolníme:</p>
 <pre><code class="language-c">    // Uvolnění prostředků
-    SDL_DestroyRenderer(ren);
-    SDL_DestroyWindow(win);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
     SDL_Quit();
 
     return 0;
@@ -317,16 +317,16 @@ int main()
         fprintf(stderr, &quot;SDL_Init Error: %s\n&quot;, SDL_GetError());
         return 1;
     }
-    SDL_Window* win = SDL_CreateWindow(&quot;SDL experiments&quot;, 100, 100, 800, 600, SDL_WINDOW_SHOWN);
-    if (!win) {
+    SDL_Window* window = SDL_CreateWindow(&quot;SDL experiments&quot;, 100, 100, 800, 600, SDL_WINDOW_SHOWN);
+    if (!window) {
         fprintf(stderr, &quot;SDL_CreateWindow Error: %s\n&quot;, SDL_GetError());
         SDL_Quit();
         return 1;
     }
 
-    SDL_Renderer* ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if (!ren) {
-        SDL_DestroyWindow(win);
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if (!renderer) {
+        SDL_DestroyWindow(window);
         fprintf(stderr, &quot;SDL_CreateRenderer Error: %s&quot;, SDL_GetError());
         SDL_Quit();
         return 1;
@@ -345,19 +345,19 @@ int main()
                 quit = true;
             }
         }
-        SDL_SetRenderDrawColor(ren, 0, 0, 0, 255); // Nastavení barvy na černou
-        SDL_RenderClear(ren);                      // Vykreslení pozadí
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Nastavení barvy na černou
+        SDL_RenderClear(renderer);                      // Vykreslení pozadí
 
-        SDL_SetRenderDrawColor(ren, 255, 0, 0, 255); // Nastavení barvy na červenou
-        SDL_RenderDrawLine(ren, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Nastavení barvy na červenou
+        SDL_RenderDrawLine(renderer, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
 
         pos++;
 
-        SDL_RenderPresent(ren);  // Prezentace kreslítka
+        SDL_RenderPresent(renderer);  // Prezentace kreslítka
     }
 
-    SDL_DestroyRenderer(ren);
-    SDL_DestroyWindow(win);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
     SDL_Quit();
 
     return 0;

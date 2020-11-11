@@ -19,7 +19,7 @@ se základní funkcionalitou také dva další balíčky nutné pro vykreslován
     $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
     ```
     Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, `gcc` ji tak
-    budeu mět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou je, že verze
+    bude mět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou je, že verze
     knihoven v systémových balíčcích typicky bývají zastaralé.
 
 [^1]: Pokud by vás zajímalo, které všechny soubory a kam se nainstalovaly, můžete po instalaci balíčků
@@ -35,7 +35,7 @@ případě tak musíte knihovnu nejenom stáhnout, ale také ručně přeložit,
 svém programu.
 
 ## Přilinkování knihovny `SDL`
-Pokud jste nainstalovali `SDL` pomocí systových balíčků, stačí při překladu programu přilinkovat
+Pokud jste nainstalovali `SDL` pomocí systémových balíčků, stačí při překladu programu přilinkovat
 knihovnu `SDL2`:
 ```bash
 $ gcc main.c -lSDL2
@@ -55,14 +55,14 @@ různé návody pro to, jak s knihovnou pracovat.
 Dokumentaci funkcí `SDL` naleznete [zde](https://wiki.libsdl.org/APIByCategory), návody pro jeho
 použití například [tady](https://www.willusher.io/pages/sdl2/).
 
-> SDL je relativně rozsáhlá knihovna a není v silách těchto skript, abychom ji plně popsali. Proto
-> níže naleznete pouze velmi stručný úvod do jejího použití, zbytek najdete v dokumentaci a návodech
-> na internetu.
+> SDL je relativně rozsáhlá knihovna a není v silách tohoto textu, abychom ji plně popsali. Proto
+> níže naleznete pouze velmi stručný "Hello world" a seznam věcí, které vám SDL umožňuje. Zbytek
+> najdete v dokumentaci a návodech na internetu.
 
 ## `SDL` hello world
 Abychom něco vykreslili, tak jako první věc musíme nainicializovat SDL a vytvořit okno[^2]:
 
-[^2]: Pro zpřehlednění kódu bude v ukázkách níže vynechána kontrola chyba. Celý program i s kontrolou
+[^2]: Pro zpřehlednění kódu bude v ukázkách níže vynechána kontrola chyb. Celý program i s kontrolou
 chyb naleznete na konci této sekce.
 
 ```c

@@ -1,11 +1,10 @@
 # Různé
-
-### Hádací hra (*guessing game*)
+## Hádací hra (*guessing game*)
 Vygenerujte [náhodné číslo](../ruzne/nahodna_cisla.md). Poté nechte uživatele hádat, jaké číslo
 program vygeneroval. Po každém tipu uživateli dejte vědět, jestli uhádl správně nebo jestli jeho
 tip byl vyšší či nižší než číslo, které hádá.
 
-### Odrážející se kulička v terminálu
+## Odrážející se kulička v terminálu
 Vykreslujte do terminálu obdélník spolu s pohybující se kuličkou. Jakmile kulička narazí do stěny
 čtverce, zvyšte počítadlo nárazů pro danou zeď. Dodržujte princip
 [zákonu odrazu](https://cs.wikipedia.org/wiki/Odraz_vln%C4%9Bn%C3%AD).
@@ -28,7 +27,7 @@ Výsledek by měl vypadat zhruba takto:
 
 ![Odrážející se kulička v terminálu](../static/video/ball_terminal.gif)
 
-### Kalkulačka
+## Kalkulačka
 Načtěte ze vstupu programu nebo z [parametrů příkazového řádku](../ruzne/funkce_main.md) matematický
 výraz, který bude obsahovat celá čísla a operátory `+`, `-`, `/`, `*` a vypište výsledek tohoto
 výrazu.
@@ -40,3 +39,9 @@ Nemusíte řešit prioritu operátorů.
 - *Varianta 3*: Použijte [postfixovou notaci](https://cs.wikipedia.org/wiki/Postfixov%C3%A1_notace).
 Zde bude fungovat priorita operátorů a "závorkování" bez nutnosti složitého načítání vstupu z
 varianty 2.
+
+## Tvorba animace
+Pomocí knihovny pro práci s [GIF animacemi](../c/aplikovane_ulohy/gif.md) vytvořte nějakou zajímavou
+animaci. Například se zkuste přiblížit této animaci z Matrixu:
+
+![](../static/img/matrix-rain.gif) 

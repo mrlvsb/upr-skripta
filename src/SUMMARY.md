@@ -78,6 +78,7 @@
     - [Dvourozměrné pole](ulohy/dvourozmerne_pole.md)
     - [Řetězce](ulohy/retezce.md)
     - [Struktury](ulohy/struktury.md)
+    - [Soubory](ulohy/soubory.md)
     - [Různé](ulohy/ruzne.md)
 - [Časté chyby](caste_chyby/caste_chyby.md)
     - [Paměťové chyby](caste_chyby/pametove_chyby.md)

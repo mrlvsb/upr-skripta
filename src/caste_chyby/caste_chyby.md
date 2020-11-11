@@ -68,9 +68,10 @@ V následující ukázce se provede 10× prázdné tělo cyklu `for` a následn�
 #include <stdio.h>
 
 int main() {
-  for(int i = 0; i < 10; i++); {
-    printf("Hello\n");
-  }
+    for(int i = 0; i < 10; i++); {
+        printf("Hello\n");
+    }
+    return 0;
 }
 ```
 
@@ -81,9 +82,11 @@ Zde opět středník za `if` reprezentuje prázdný příkaz, takže blok kódu 
 #include <stdio.h>
 
 int main() {
-  if(0); {
-    printf("Hello\n");
-  }
+    if(0); {
+        printf("Hello\n");
+    }
+
+    return 0;
 }
 ```
 
@@ -93,12 +96,14 @@ Je to ekvivalentní, jako byste napsali
 #include <stdio.h>
 
 int main() {
-  if (0) { /* zde není co provést */ }
+    if (0) { /* zde není co provést */ }
 
-  // tento blok se provede vždy
-  {
+    // tento blok se provede vždy
+    {
       printf("Hello\n");
-  }
+    }
+
+    return 0;
 }
 ```
 

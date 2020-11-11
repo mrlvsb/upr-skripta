@@ -79,7 +79,7 @@ Tato situace se nazývá
         return 0;
     }
     ```
-    protože jakmile vykonávání funkce `get_pointer` skončí, tak se
+    Jakmile totiž vykonávání funkce `get_pointer` skončí, tak se
     [uvolní](../c/prace_s_pameti/automaticka_pamet.md) paměť jejich lokálních proměnných. Adresa
     uložená v `p` tak obsahuje nevalidní paměť a je chybou k ní přistupovat (ať už číst, tak
     zapisovat).

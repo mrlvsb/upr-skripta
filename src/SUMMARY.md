@@ -78,6 +78,7 @@
     - [Dvourozměrné pole](ulohy/dvourozmerne_pole.md)
     - [Řetězce](ulohy/retezce.md)
     - [Struktury](ulohy/struktury.md)
+        - [TGA hodiny](ulohy/tga_watch.md)
     - [Soubory](ulohy/soubory.md)
     - [Různé](ulohy/ruzne.md)
 - [Časté chyby](caste_chyby/caste_chyby.md)

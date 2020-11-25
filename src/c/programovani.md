@@ -12,7 +12,7 @@ a přednáškách se může od tohoto seznamu lišit, tento text je určen spí�
 se můžete k jednotlivým tématům vracet, abyste si je připomněli. Text je nicméně psaný tak, aby se
 dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které zatím nebyly vysvětleny.
 
-Základní témata:
+## Základní témata
 - [Úvod](syntaxe.md) - základní syntaxe a komentáře
 - [Příkazy a výrazy](prikazy_vyrazy.md) - jak provádět výpočty
 - [Proměnné](promenne/promenne.md) - jak něco uložit a načíst z paměti paměti
@@ -32,7 +32,8 @@ programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jedn
 moct využívat téměř v libovolném populárním programovacím jazyku (Java, C#, Kotlin, Python, PHP,
 Javascript, Rust, C++ atd.). 
 
-Navazující aplikovaná témata:
+## Navazující aplikovaná témata
 - [TGA](aplikovane_ulohy/tga.md) - jak vytvořit obrázek
 - [GIF](aplikovane_ulohy/gif.md) - jak vytvořit animací
 - [SDL](aplikovane_ulohy/sdl.md) - jak vytvořit interaktivní grafickou aplikaci či hru
+- [Chipmunk](aplikovane_ulohy/chipmunk.md) - jak simulovat fyzikální procesy

@@ -19,10 +19,10 @@ Vyzkoušejte si to na následujícím příkladu:
 #include <stdio.h>
 
 int main() {
-    int count = 0;
-    while (count < 5) {
+    int pocet = 0;
+    while (pocet < 5) {
         printf("Telo cyklu se provedlo\n");
-        count = count + 1;
+        pocet = pocet + 1;
     }
     return 0;
 }
@@ -71,13 +71,13 @@ iteraci cyklu. Zkuste uhodnout, co vypíše následující kód:
     #include <stdio.h>
     
     int main() {
-        int count = 0;
-        while (count < 10) {
-            count = count + 1;
+        int pocet = 0;
+        while (pocet < 10) {
+            pocet = pocet + 1;
 
-            if (count < 5) continue;
+            if (pocet < 5) continue;
 
-            printf("Hodnota count: %d\n", count); 
+            printf("Hodnota: %d\n", pocet); 
         }
     
         return 0;
@@ -89,12 +89,12 @@ následuje za cyklem. Cyklus se tak zcela přeruší. Zkuste uhodnout, co vypí�
     #include <stdio.h>
     
     int main() {
-        int count = 0;
-        while (count < 10) {
-            if (count * 2 > 12) break;
+        int pocet = 0;
+        while (pocet < 10) {
+            if (pocet * 2 > 12) break;
     
-            printf("Hodnota count: %d\n", count);
-            count = count + 1;
+            printf("Hodnota: %d\n", pocet);
+            pocet = pocet + 1;
         }
     
         return 0;
@@ -106,21 +106,21 @@ následuje za cyklem. Cyklus se tak zcela přeruší. Zkuste uhodnout, co vypí�
 
 Příkaz `break` lze také někdy použít k usnadnění návrhu cyklů. Pokud potřebujete napsat `while` cyklus
 s nějakou složitou podmínkou ukončení, ze které se vám motá hlava, zkuste nejprve vytvořit "nekonečný"
-cyklus pomocí `while (true) { ... }`, dále vytvořte tělo cyklu a až poté přidejte dovnitř cyklu
-podmínku, která cyklus ukončí pomocí příkazu `break`:
+cyklus pomocí `while (true) { ... }`, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
+která cyklus ukončí pomocí příkazu `break`:
 ```c,editable,mainbody
 #include <stdio.h>
 
 int main() {
-    int count = 0;
-    int count2 = 1;
+    int pocet = 0;
+    int pocet2 = 1;
     while (1) {
-        printf("Hodnota count: %d\n", count);
-        count = count + 1;
-        count2 += count;
+        printf("Hodnota: %d\n", pocet);
+        pocet = pocet + 1;
+        pocet2 += pocet * 2;
 
-        if (count > 100) break;
-        if (count * 3 + count2 / count > count / 8) break;
+        if (pocet > 10) break;
+        if (pocet2 > 64) break;
     }
 
     return 0;

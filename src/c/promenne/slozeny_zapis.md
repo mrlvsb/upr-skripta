@@ -3,7 +3,7 @@
 Běžná je například operace zvýšení hodnoty proměnné o `1` (tzv. **inkrementace** proměnné).
 K tomu můžeme použít tento příkaz:
 ```c
-count = count + 1; // zvýšení hodnoty proměnné `count` o 1
+pocet = pocet + 1; // zvýšení hodnoty proměnné `pocet` o 1
 ```
 nicméně to je docela zdlouhavé. Proto *C* nabízí tzv. operátory **složeného zápisu** (*compound
 assignment*). Tyto operátory jsou spojené z normálního operátoru (např. `+`) a operátoru `=`:
@@ -18,9 +18,9 @@ je ekvivalentní příkazu
 
 Například:
 ```c
-int count = 0;
-count += 1;   // stejné jako count = count + 1;
-count *= 3;   // stejné jako count = count * 3; 
+int pocet = 0;
+pocet += 1;   // stejné jako pocet = pocet + 1;
+pocet *= 3;   // stejné jako pocet = pocet * 3; 
 ```
 
 Stejně jako [zápis](promenne.md#zápis) je složený zápis příkladem výrazu s vedlejším efektem.

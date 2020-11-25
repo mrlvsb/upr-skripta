@@ -4,7 +4,7 @@ Posledním základním datovým typem, který si ukážeme, je pravdivostní typ
 pouze dvě možné varianty - **pravda** (*true*) nebo **nepravda** (*false*). Tento typ se hodí
 zejména pro různé logické operace, například porovnávání hodnot (`Je a menší než b?` - `ano`/`ne`).
 
-V C se Booleovský datový typ nazývá `_Bool`. Nicméně tento název je docela krkolomný, obvykle se proto
+V *C* se Booleovský datový typ nazývá `_Bool`. Nicméně tento název je docela krkolomný, obvykle se proto
 používá místo něho typ `bool`. Abyste ho mohli použít, tak na začátek programu musíte vložit řádek
 `#include <stdbool.h>`. [Později](../preprocesor/vkladani_souboru.md) si vysvětlíme, co tento řádek
 dělá.
@@ -34,7 +34,7 @@ V (Booleovské) logice existují tři základní operátory:
 - **logický součet** (*OR*): `X nebo Y`
 - **logická negace** (*NOT*): `neplatí X`
 
-Tyto logické operace lze v C použít pomocí následujících operátorů:
+Tyto logické operace lze v *C* použít pomocí následujících operátorů:
 
 - **AND**: `&&`
 - **OR**: `||`
@@ -136,7 +136,7 @@ Datový typ výsledku je u těchto operátorů vždy `bool`.
 | `<=` | Menší nebo rovno než | `a <= 5` |
 
 ### Zkrácené vyhodnocování
-Při vyhodnocování Booleovských výrazů s logickými operátory se v C používá tzv. **zkrácené vyhodnocování**
+Při vyhodnocování Booleovských výrazů s logickými operátory se v *C* používá tzv. **zkrácené vyhodnocování**
 (*short-circuit evaluation*). Například pokud se vyhodnocuje výraz `a || b`, tak může dojít k následující
 situaci:
 - Počítač vše provádí v sekvenčních krocích, tj. nejprve vyhodnotí `a`.

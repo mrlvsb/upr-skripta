@@ -44,24 +44,24 @@ můžeme začít nadefinováním hlavní logiky programu pomocí volání funkc�
 jednu podúlohu. I když funkce zatím nebudou naprogramované a později se třeba trochu změní, tak nám
 toto rozdělení může pomoct přemýšlet nad problémem abstraktněji, zorientovat se v něm a také
 získat naději, že se úlohu podaří vyřešit. Stejný princip opět můžeme použít při implementaci jednotlivých
-funkcí. Program (či funkci) pak lze přečíst jako (anglickou) větu a je tak jednodušší pochopit, co má
+funkcí. Program (či funkci) pak lze přečíst jako větu a je tak jednodušší pochopit, co má
 vlastně dělat.
 
 ```c
 int main() {
-    // načti obrázek
-    FILE* input_file = open_file(...);
-    Img image = load_image(input_file);
+    // Načti obrázek
+    FILE* vstupni_soubor = otevri_soubor(...);
+    Img obrazek = nacti_obrazek(vstupni_soubor);
 
-    // změň jeho velikost
-    Img resized = resize_image(&image);
+    // Uprav jeho velikost
+    Img upraveny_obrazek = uprav_velikost_obrazku(&obrazek);
 
-    // zapiš obrázek
-    FILE* output_file = open_file(...);
-    write_image(input_file, &resized);
+    // Zapiš obrázek
+    FILE* vystupni_soubor = otevri_soubor(...);
+    zapis_obrazek(vystupni_soubor, &upraveny_obrazek);
 
-    // vykresli upravený obrázek
-    draw_image(&resized);
+    // Vykresli obrázek
+    vykresli_obrazek(&upraveny_obrazek);
 
     return 0;
 }

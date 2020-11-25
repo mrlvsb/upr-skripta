@@ -23,7 +23,7 @@ $ code --install-extension ms-vscode.cpptools
 
 ## Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
 1. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
-2. Vyhledejte rozšíření C/C++ a nainstalujte ho
+2. Vyhledejte rozšíření `C/C++` a nainstalujte ho
 
 ## Ukázka nastavení projektu
 Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)

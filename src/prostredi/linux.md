@@ -9,6 +9,9 @@ překladač [`gcc`](https://www.cyberciti.biz/faq/howto-apple-mac-os-x-install-g
 Pokud používáte operační systém Windows, tak pro použití Linuxu můžete využít jeden z následujících
 tří možností.
 
+> Návod pro práci s terminálem na Linuxu můžete najít např. [zde](https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l).
+> Tahák pro příkazy terminálu najdete [zde](https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/linux.pdf).
+
 ## Windows Subsystem for Linux (doporučeno)
 WSL je systém, který umožňuje nainstalovat Linux pod operačním systémem Windows. Jakmile jej
 nainstalujete, budete mít k dispozici Linuxový terminál (`bash`) a budete moct používat překladač

@@ -20,7 +20,7 @@ následujícím algoritmem:
 Ukázka kódu, který takovýto algoritmus implementuje:
 ```c,editable
 int S = 5;
-int random() {
+int vygeneruj_cislo() {
     int N = S;
     N = (5 * N + 3) % 6323;
     N = (4 * N + 2) % 8127;
@@ -28,11 +28,11 @@ int random() {
     return N;
 }
 int main() {
-    int r1 = random(); // 114
-    int r2 = random(); // 2294
-    int r3 = random(); // 4348
-    int r4 = random(); // 2971
-    int r5 = random(); // 723
+    int r1 = vygeneruj_cislo(); // 114
+    int r2 = vygeneruj_cislo(); // 2294
+    int r3 = vygeneruj_cislo(); // 4348
+    int r4 = vygeneruj_cislo(); // 2971
+    int r5 = vygeneruj_cislo(); // 723
     return 0;
 }
 ```
@@ -61,13 +61,13 @@ hotové řešení. To nabízí například standardní knihovna *C* ve formě fu
 #include <time.h>
 
 int main() {
-    int now = (int) time(NULL); // získej současný čas
-    srand(now); // nastav S na současný čas
+    int cas = (int) time(NULL); // získej současný čas
+    srand(cas); // nastav S na současný čas
 
-    int num1 = rand(); // pseudo-náhodné číslo z intervalu [0, RAND_MAX]
-    int num2 = rand() % 100; // z intervalu [0, 99]
-    int num3 = rand() % 100 + 5; // z intervalu [5, 104]
-    float num4 = rand() / (float) RAND_MAX; // z intervalu [0.0, 1.0]
+    int cislo1 = rand(); // pseudo-náhodné číslo z intervalu [0, RAND_MAX]
+    int cislo2 = rand() % 100; // z intervalu [0, 99]
+    int cislo3 = rand() % 100 + 5; // z intervalu [5, 104]
+    float cislo4 = rand() / (float) RAND_MAX; // z intervalu [0.0, 1.0]
 
     return 0;
 }

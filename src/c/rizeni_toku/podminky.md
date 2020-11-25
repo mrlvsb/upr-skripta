@@ -24,29 +24,29 @@ aby se blok v podmínce vykonal:
 #include <stdio.h>
 
 int main() {
-    int password_length = 5;
+    int delka_hesla = 5;
 
-    printf("Checking password...\n");
-    if (password_length > 5) {
-        printf("Password is long enough\n");
+    printf("Kontroluji heslo...\n");
+    if (delka_hesla > 5) {
+        printf("Heslo je dost dlouhe\n");
     }
-    printf("Password check completed\n");
+    printf("Kontrola hesla dokoncena\n");
 
     return 0;
 }
 ```
 
 > Anglické slovo `if` znamená v češtině `Jestliže`. Všimněte si tak, že kód výše můžete přečíst jako
-> anglickou větu, která bude mít stejný význam jako uvedený *C* kód: `Jestliže je délka hesla větší
+> větu, která bude mít stejný význam jako uvedený *C* kód: `Jestliže je délka hesla větší
 > než pět, tak (proveď kód v bloku)`.
 
 ### Provádění alternativ
 Často v programu chceme provést jednu ze dvou (nebo více) alternativ, opět v závislosti na hodnotě
 nějakého výrazu. To sice můžeme provést pomocí několika `if` příkazů za sebou:
 ```c
-if (points > 90) { grade = 1; }
-if (points <= 90 && points > 80) { grade = 2; }
-if (points <= 80 && points > 50) { grade = 3; }
+if (body > 90) { znamka = 1; }
+if (body <= 90 && body > 80) { znamka = 2; }
+if (body <= 80 && body > 50) { znamka = 3; }
 ...
 ```
 Nicméně to může být často dost zdlouhavé. *C* tak umožňuje přidat k příkazu `if` příkaz, který se provede
@@ -63,22 +63,22 @@ Pokud za blok podmínky `if` přidáte `else`, tak se program začne vykonávat 
 podmínky není splněn. Za `else` pak může následovat:
 - Blok kódu, který se rovnou provede:
     ```c
-    if (points > 90) {
+    if (body > 90) {
         // blok A
     } else {
         // blok B
     }
     // X
     ```
-    Pokud platí `points > 90`, provede se blok A, pokud ne, tak se provede blok B. V obou případech
+    Pokud platí `body > 90`, provede se blok A, pokud ne, tak se provede blok B. V obou případech
     bude dále program vykonávat kód od bodu `X`.
 - Další `if` podmínka, která je opět vyhodnocena. Takovýchto podmínek může následovat libovolný počet:
     ```c
-    if (points > 90) {
+    if (body > 90) {
         // blok A, více než 90 bodů
-    } else if (points > 80) {
+    } else if (body > 80) {
         // blok B, méně než 91 bodů, ale více než 80 bodů
-    } else if (points > 70) {
+    } else if (body > 70) {
         // blok C, méně než 81 bodů, ale více než 70 bodů
     }
     // X
@@ -90,29 +90,29 @@ podmínky není splněn. Za `else` pak může následovat:
     Na konec spojené podmínky můžete opět vložit i `else` s blokem bez podmínky. Tento blok se
     provede pouze, pokud žádná z předchozích podmínek není splněna:
     ```c
-    if (points > 90) {
+    if (body > 90) {
         // blok A, více než 90 bodů
-    } else if (points > 80) {
+    } else if (body > 80) {
         // blok B, méně než 90 bodů, ale více než 80 bodů
     } else {
         // blok C, méně než 81 bodů
     }
     ```
   
-    Všimněte si, že tento kód opět můžeme přečíst jako intuitivní anglickou větu. Pokud je počet
+    Všimněte si, že tento kód opět můžeme přečíst jako intuitivní větu. Pokud je počet
     bodů vyšší, než 90, tak proveď A. V opačném případě, pokud je vyšší než 80, tak proveď B. Jinak
     proveď C.
 
 **Cvičení**: Upravte následující program, aby vypsal:
-- `Student uspel s vyznamenanim`, pokud je hodnota `points` větší než `90`.
-- `Student uspel`, pokud je hodnota `points` v (uzavřeném) intervalu `[51, 90]`.
-- `Student neuspel`, pokud je hodnota `points` menší než `51`.
+- `Student uspel s vyznamenanim`, pokud je hodnota proměnné `body` větší než `90`.
+- `Student uspel`, pokud je hodnota proměnné `body` v (uzavřeném) intervalu `[51, 90]`.
+- `Student neuspel`, pokud je hodnota proměnné `body` menší než `51`.
 
 ```c,editable,mainbody
 #include <stdio.h>
 
 int main() {
-    int points = 50;
+    int body = 50;
 
     printf("Student uspel\n");
 
@@ -127,10 +127,10 @@ a bloky kódu můžou obsahovat libovolné příkazy, tak vám nic nebrání v t
 #include <stdio.h>
 
 int main() {
-    int password_length = 4;
-    int username_length = 3;
-    if (password_length > 5) {
-        if (username_length > 3) {
+    int delka_hesla = 4;
+    int delka_jmena = 3;
+    if (delka_hesla > 5) {
+        if (delka_jmena > 3) {
             printf("Uzivatel byl zaregistrovan\n");
         } else {
             printf("Uzivatelske jmeno neni dostatecne dlouhe\n");
@@ -150,9 +150,12 @@ Neměňte v programu nic jiného.
 Za `if` nebo `else` můžete vynechat složené závorky (`{`, `}`). V takovém případě se bude podmínka
 vztahovat k (jednomu) příkazu následujícímu za `if/else`:
 ```c
-if (points> 80) printf("Student uspel\n");
+if (body > 80) printf("Student uspel\n");
 else printf("Student neuspel\n");
 ```
+
+> Zejména ze začátku za podmínkami vždy však raději používejte složené závorky, abyste předešli případným
+> chybám a učinili kód přehlednějším.
 
 ### Ternární operátor
 Občas chcete použít jeden ze dvou výrazů v závislosti na hodnotě nějaké podmínky. Například pokud byste

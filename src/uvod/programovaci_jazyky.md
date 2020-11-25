@@ -27,14 +27,14 @@ provést. Převodu programu zapsaného v programovacím jazyce na počítačové
 (*compilation*) a programy, které tento překlad provádějí, se nazývají **překladače** (*compilers*).
 Později si ukážeme, jak takovýto překladač použít k překladu kódu.
 
-Zde je ukázka programu v jazyce C:
+Zde je ukázka části programu v jazyce *C*:
 ```c
-while (is_key_pressed(SPACE)) {
-    move_up(character);
+while (je_tlacitko_zmacknuto(MEZERNIK)) {
+    posun_nahoru(postava);
 }
 ```
 
-I někdo, kdo se s jazykem *C* nikdy nesetkal, může z tohoto programu zhruba odvodit, co asi dělá,
-pokud ho přečte jako větu v angličtině. Tento program však může být převeden na stovky až tisíce
+I někdo, kdo se s jazykem *C* nikdy nesetkal, může z tohoto kusu kódu zhruba odvodit, co asi dělá,
+pokud ho přečte jako větu. Tento program však může být převeden na stovky až tisíce
 počítačových instrukcí a z takového množství příkazů už by bylo složité odvodit, k čemu je program
 určen.

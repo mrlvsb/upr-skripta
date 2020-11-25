@@ -68,18 +68,18 @@ Tato situace se nazývá
     ```c
     #include <stdlib.h>
 
-    int* get_pointer(int x) {
+    int* vrat_ukazatel(int x) {
         int y = x + 1;
         return &y;
     }
 
     int main() {
-        int* p = get_pointer(1);
+        int* p = vrat_ukazatel(1);
         *p = 1;
         return 0;
     }
     ```
-    Jakmile totiž vykonávání funkce `get_pointer` skončí, tak se
+    Jakmile totiž vykonávání funkce `vrat_ukazatel` skončí, tak se
     [uvolní](../c/prace_s_pameti/automaticka_pamet.md) paměť jejich lokálních proměnných. Adresa
     uložená v `p` tak obsahuje nevalidní paměť a je chybou k ní přistupovat (ať už číst, tak
     zapisovat).

@@ -8,7 +8,7 @@ napsat program, kterému [překladač](../prostredi/preklad_programu.md) nebude 
 syntaktickou chybou (*syntax error*). Na syntax *C* si musíte postupně zvyknout, poté už podobné chyby
 budete schopni snadno vyřešit.
 
-Zde je asi nejkratší možný program v jazyce C:
+Zde je asi nejkratší možný program v jazyce *C*:
 ```c
 int main() {
     return 0;
@@ -117,5 +117,5 @@ while (...)
 {
 }
 ```
-Jaký styl formátování použijete, je na vás, nicméně obecně platným pravidlem je, že byste se měli
+Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.

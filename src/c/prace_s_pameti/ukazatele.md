@@ -184,15 +184,15 @@ ukazateli, a pomocí této adresy pak hodnotu proměnné změníme. Takto např�
 která vezme adresy dvou proměnných a prohodí jejich hodnoty:
     ```c,editable
     #include <stdio.h>
-    void swap(int* a, int* b) {
-        int tmp = *a;
+    void vymen(int* a, int* b) {
+        int docasna_hodnota = *a;
         *a = *b;
-        *b = tmp;
+        *b = docasna_hodnota;
     }
     int main() {
         int x = 5;
         int y = 10;
-        swap(&x, &y);
+        vymen(&x, &y);
         printf("Po prehozeni: x=%d, y=%d\n", x, y);
         return 0;
     }

@@ -4,13 +4,13 @@ jako **statická pole** (*static arrays*). Můžeme je vytvořit tak, že za ná
 hranaté závorky s číslem udávající počet prvků v poli. Takto například vytvoříme pole celých čísel
 s třemi prvky:
 ```c
-int array[3];
+int pole[3];
 ```
 Takováto proměnná bude obsahovat paměť pro 3 celá čísla (tedy nejspíše na vašem počítači dohromady
 12 bytů). Počet prvků v poli se označuje jako jeho **velikost** (*size*).
 
 > Pozor na to, že hranaté závorky se udávají za název proměnné, a ne za název datového typu.
-> `int[3] array;` je tedy špatně.
+> `int[3] pole;` je tedy špatně.
 
 [^1]: Pole můžeme tímto způsobem vytvořit také v
 [globální paměti](../prace_s_pameti/globalni_pamet.md).
@@ -105,8 +105,8 @@ jednoduše přistoupit k prvnímu prvku pole:
 #include <stdio.h>
 
 int main() {
-    int array[3] = { 1, 2, 3 };
-    printf("%d\n", *array);
+    int pole[3] = { 1, 2, 3 };
+    printf("%d\n", *pole);
     return 0;
 }
 ```
@@ -117,17 +117,17 @@ získat adresu prvku na `i`-tém indexu, stačí k ukazateli na první prvek př
 #include <stdio.h>
 
 int main() {
-    int array[3] = { 1, 2, 3 };
-    printf("%d\n", *(array + 0));   // první prvek pole
-    printf("%d\n", *(array + 1));   // druhý prvek pole
-    printf("%d\n", *(array + 2));   // třetí prvek pole
+    int pole[3] = { 1, 2, 3 };
+    printf("%d\n", *(pole + 0));   // první prvek pole
+    printf("%d\n", *(pole + 1));   // druhý prvek pole
+    printf("%d\n", *(pole + 2));   // třetí prvek pole
     return 0;
 }
 ```
 
 [^4]: Všimněte si, že při použití operátoru dereference zde používáme závorky. Je to z důvodu
-[priority operátorů](https://en.cppreference.com/w/c/language/operator_precedence). Výraz `*array + 2`
-by se vyhodnotil jako první prvek z pole `array` plus `2`, protože `*` (dereference) má větší
+[priority operátorů](https://en.cppreference.com/w/c/language/operator_precedence). Výraz `*pole + 2`
+by se vyhodnotil jako první prvek z pole `pole` plus `2`, protože `*` (dereference) má větší
 prioritu než sčítání. 
 
 Nyní už možná tušíte, proč se při práci s poli vyplatí počítat od nuly. Prvek na nultém indexu je
@@ -139,12 +139,12 @@ na začátek pole vždy odečíst jedničku, což by bylo nepraktické.
 Jelikož je operace přístupu k poli ("posunutí" ukazatele a jeho dereference) velmi
 běžná (a zároveň relativně krkolomná), *C* obsahuje speciální operátor, který jej zjednodušuje.
 Tento operátor se nazývá *array subscription operator* a má syntaxi `<výraz a>[<výraz b>]`. Slouží
-jako zkratka[^5] za `*(<výraz a> + <výraz b>)`. Například `array[0]` je ekvivalentní výrazu
-`*(array + 0)`, `array[5]` je ekvivalentní výrazu `*(array + 5)` atd:
+jako zkratka[^5] za `*(<výraz a> + <výraz b>)`. Například `pole[0]` je ekvivalentní výrazu
+`*(pole + 0)`, `pole[5]` je ekvivalentní výrazu `*(pole + 5)` atd:
 ```c
-int array[3] = { 1, 2, 3 };
-array[0] = 5;       // nastavili jsme první prvek pole na hodnotu `5`
-int c = array[2];   // nastavili jsme `c` na hodnotu posledního prvku pole
+int pole[3] = { 1, 2, 3 };
+pole[0] = 5;       // nastavili jsme první prvek pole na hodnotu `5`
+int c = pole[2];   // nastavili jsme `c` na hodnotu posledního prvku pole
 ```
 
 [^5]: Takovéto "zkratky", které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
@@ -173,9 +173,9 @@ Například, pokud bychom měli pole s velikostí `10`, tak ho můžeme "projít
 #include <stdio.h>
 
 int main() {
-    int array[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int pole[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     for (int i = 0; i < 10; i++) {
-        printf("%d ", array[i]);
+        printf("%d ", pole[i]);
     }
     return 0;
 }
@@ -196,20 +196,20 @@ proměnnou pole jako argument při volání funkce, dojde k tzv. **konverzi pole
 ```c,editable
 #include <stdio.h>
 
-void print_array(int* array) {
-    printf("%d\n", array[0]);
+void vypis_pole(int* pole) {
+    printf("%d\n", pole[0]);
 }
 
 int main() {
-    int array[3] = { 1, 2, 3 };
-    print_array(array);
+    int pole[3] = { 1, 2, 3 };
+    vypis_pole(pole);
     return 0;
 }
 ```
 
 Pro parametry sice můžete použít datový typ pole:
 ```c
-void print_array(int array[3]) { ... }
+void vypis_pole(int pole[3]) { ... }
 ```
 nicméně i v tomto případě se bude takovýto parametr chovat stejně jako ukazatel (v tomto případě
 tedy `int*`). Navíc překladač ani nebude kontrolovat, jestli do takového parametru opravdu dáváme
@@ -221,12 +221,12 @@ Tato informace je ale stěžejní, bez ní totiž nevíme, ke kolika prvkům pol
 přistupovat. Pokud tedy ukazatel na pole předáváme do funkce, je obvykle potřeba zároveň s ním
 předat i délku daného pole:
 ```c
-int sum_array(int* array, int count) {
-    int sum = 0;
-    for (int i = 0; i < count; i++) {
-        sum += array[i];
+int secti_pole(int* pole, int velikost) {
+    int soucet = 0;
+    for (int i = 0; i < velikost; i++) {
+        soucet += pole[i];
     }
-    return sum;
+    return soucet;
 }
 ```
 

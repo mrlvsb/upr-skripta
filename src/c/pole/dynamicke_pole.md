@@ -6,7 +6,7 @@ jak alokovat libovolné množství paměti na haldě pomocí funkce `malloc`. Pr
 **dynamického pole** (*dynamic array*) tak stačí použít funkci `malloc`. Například pro vytvoření
 dynamického pole pro `5` celých čísel potřebujeme naalokovat `5 * sizeof(int)` bytů:
 ```c
-int* array = (int*) malloc(5 * sizeof(int));
+int* pole = (int*) malloc(5 * sizeof(int));
 ```
 S takovouto pamětí pak můžeme pracovat jako s polem `int`ů o velikosti `5`. Jakmile již takovéto
 pole nepotřebujeme, nesmíme jej samozřejmě zapomenout

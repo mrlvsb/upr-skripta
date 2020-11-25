@@ -85,7 +85,6 @@ int main()
     assert(students[1].points == 15);
     assert(students[2].points == 3);
 
-    // zero initialize
     Student a = {}, b = {}, c = {};
     a.points = 51;
     b.points = 50;

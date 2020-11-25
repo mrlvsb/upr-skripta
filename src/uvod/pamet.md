@@ -1,5 +1,5 @@
 # Paměť
-Počítače si potřebují ukládat (mezi)výsledky výpočtů do paměti, aby je později mohly opět
+Počítače si potřebují ukládat výsledky výpočtů do paměti, aby je později mohly opět
 načíst a pracovat s nimi. Je mnoho typů paměti, s kterými lze pracovat, nejběžněji se setkáme
 s tzv. operační pamětí (**RAM**). RAM znamená Random-access Memory, tedy paměť s náhodným přístupem.
 To znamená, že počítač může do paměti šahat v libovolném pořadí a na libovolném místě, kde je to potřeba.

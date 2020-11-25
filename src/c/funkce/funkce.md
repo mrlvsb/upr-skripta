@@ -194,9 +194,9 @@ zbytku programu. Pomocí používání funkcí také bude mnohem přehlednějš�
 stačit číst, co se provádí (která funkce se volá) a ne jak se to provádí (jaké příkazy jsou v těle
 funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyce:
     ```c
-    int health = get_player_health(player_id);
-    health = health - calculate_enemy_damage(enemy_id);
-    set_player_health(player_id, health);
+    int zivot = vrat_zivoty_hrace(id_hrace);
+    zivot = zivot - vypocti_zraneni_prisery(id_prisery);
+    nastav_zivory_hrace(id_hrace, zivor);
     ```
 - Sdílení kódu: pokud budete chtít použít kód, který napsal někdo jiný, tak toho dosáhnete právě
 používáním funkcí, které vám někdo [připraví](../modularizace/knihovny.md).

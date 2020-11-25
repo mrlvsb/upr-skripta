@@ -5,7 +5,7 @@ Pokud budete chtít provádět výpočty s desetinnými čísly, tak můžete vy
 tomu, jak jsou [navržena](https://cs.wikipedia.org/wiki/Pohybliv%C3%A1_%C5%99%C3%A1dov%C3%A1_%C4%8D%C3%A1rka),
 tato čísla dokáží reprezentovat jak velmi malé, tak velmi velké hodnoty (za cenu přesnosti desetinné části).
 
-V C jsou dva základní vestavěné datové typy pro práci s desetinnými čísly, liší se pouze velikostí
+V *C* jsou dva základní vestavěné datové typy pro práci s desetinnými čísly, liší se pouze velikostí
 (a tedy i tím, jak přesně dokáží desetinná čísla reprezentovat). Oba dva typy jsou znaménkové:
 
 | Název | Počet bytů | Rozsah hodnot | Přesnost | Se znaménkem |

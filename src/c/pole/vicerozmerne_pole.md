@@ -39,21 +39,21 @@ vyskládání použijeme. Níže předpokládáme pořadí *row major*.
 Při práci s dvourozměrným polem bychom chtěli pracovat s dvourozměrným indexem (řádek `i`, sloupec
 `j`), nicméně při samotném přístupu do paměti pak musíme tento vícerozměrný index převést na 1D
 index. A naopak, z 1D indexu bychom chtěli mít možnost získat zpět 2D index. Pro výpočet indexů 2D
-pole s `rows` řádky a `cols` sloupci můžeme použít tyto jednoduché vzorce:
-- **Převod z 2D do 1D** - abychom se dostali na cílovou pozici, musíme přeskočit `row` řádků, kde
-každý řádek má `cols` prvků, a poté ještě musíme přičíst pozici sloupce (`col`).
+pole s `vyska` řádky a `sirka` sloupci můžeme použít tyto jednoduché vzorce:
+- **Převod z 2D do 1D** - abychom se dostali na cílovou pozici, musíme přeskočit `radek` řádků, kde
+každý řádek má `sirka` prvků, a poté ještě musíme přičíst pozici sloupce (`sloupec`).
     ```c
-    int to_1d(int row, int col, int cols) {
-        return row * cols + col;
+    int index_2d_na_1d(int radek, int sloupec, int sirka) {
+        return radek * sirka + sloupec;
     }
     ```
 - **Převod z 1D do 2D** - pro převod z 1D indexu zpět na 2D index stačí aplikovat opačný postup.
 Nejprve vydělíme 1D index počtem sloupců, abychom zjistili, na jakém jsme řádku, a poté použijeme
 zbytek po dělení, abychom zjistili, na jakém jsme sloupci.
     ```c
-    void to_2d(int index, int cols, int* row, int* col) {
-        *row = index / cols;
-        *col = index % col;
+    void index_1d_na_2d(int index, int sirka, int* radek, int* sloupec) {
+        *radek = index / sirka;
+        *sloupec = index % sloupec;
     }
     ```
 
@@ -82,8 +82,8 @@ Vícerozměrná pole v *C* lze zobecnit do vyšších dimenzí (můžete tak pou
 ## Vícerozměrné dynamické pole
 Pokud potřebujete vícerozměrné pole s [dynamickou velikostí](dynamicke_pole.md), stačí při volání
 funkce `malloc` vytvořit dostatek paměti pro všechny rozměry. Pokud bychom například chtěli
-naalokovat paměť pro 2D obrázek s `rows` řádky a `cols` řádky, můžeme použít následující volání
+naalokovat paměť pro 2D obrázek s `vyska` řádky a `sirka` řádky, můžeme použít následující volání
 funkce `malloc`:
 ```c
-int* image_memory = (int*) malloc(rows * cols * sizeof(int)));
+int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int)));
 ```

@@ -54,14 +54,14 @@ hodnotu a naalokovaná paměť je poté přečtena ve funkci `main`:
 ```c,editable
 #include <stdlib.h>
 
-int* allocate() {
-    int* memory = (int*) malloc(sizeof(int));
-    *memory = 5;
-    return memory; 
+int* naalokuj_pamet() {
+    int* pamet = (int*) malloc(sizeof(int));
+    *pamet = 5;
+    return pamet; 
 }
 int main() {
-    int* memory = allocate();
-    printf("%d\n", *memory);
+    int* pamet = naalokuj_pamet();
+    printf("%d\n", *pamet);
     return 0;
 }
 ```

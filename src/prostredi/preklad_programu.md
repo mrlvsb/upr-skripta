@@ -12,7 +12,7 @@ $ sudo apt install build-essential
 
 ## Překlad prvního programu
 Ještě než si ukážeme, jak vlastně programovací jazyk *C* funguje, tak zkusíme přeložit velmi jednoduchý
-C program do spustitelného souboru a spustit jej.
+*C* program do spustitelného souboru a spustit jej.
 Vytvořte soubor s názvem `main.c` a nakopírujte do něj následující *C* kód (později si vysvětlíme,
 jak tento kód funguje):
 
@@ -69,6 +69,9 @@ Pro představu je k dispozici ještě shrnující video:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Hu7l9NpQ3g8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Jak překlad probíhá?
+Překlad programu bude detailně vysvětlen v sekci o [linkeru](../c/modularizace/linker.md).
+
+Ve zkratce:
 Překlad programů probíhá ve dvou hlavních fázích: **překlad** (*translation*) a **linkování** (*linking*).
 Dohromady se oboum těmto krokům také říká **kompilace** (*compilation*).
 

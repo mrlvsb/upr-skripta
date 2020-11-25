@@ -22,7 +22,7 @@ Základní témata:
 - [Ukazatele](prace_s_pameti/ukazatele.md) - jak sdílet data v paměti a pracovat s adresami
 - [Pole](pole/pole.md) - jak jednotně pracovat s velkým množstvím dat
 - [Text](text/text.md) - jak v programech pracovat s texten
-- [Struktury](struktury/struktury.md) - jak vytvořit vlastní datové typy
+- [Struktury](struktury/vlastni_datove_typy.md) - jak vytvořit vlastní datové typy
 - [Soubory](soubory/soubory.md) - jak číst a zapisovat soubory
 - [Modularizace](modularizace/modularizace.md) - jak rozdělit program do více zdrojových souborů
 - [Knihovny](modularizace/knihovny.md) - jak využít existující kód od jiných programátorů
@@ -32,7 +32,7 @@ programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jedn
 moct využívat téměř v libovolném populárním programovacím jazyku (Java, C#, Kotlin, Python, PHP,
 Javascript, Rust, C++ atd.). 
 
-Navazující témata:
-- [TGA](aplikovane_ulohy/tga.md) - jednoduchý formát pro reprezentaci obrázků na disku
-- [GIF](aplikovane_ulohy/gif.md) - tvorba animací
-- [SDL](aplikovane_ulohy/sdl.md) - knihovna pro tvorbu grafických aplikací a her
+Navazující aplikovaná témata:
+- [TGA](aplikovane_ulohy/tga.md) - jak vytvořit obrázek
+- [GIF](aplikovane_ulohy/gif.md) - jak vytvořit animací
+- [SDL](aplikovane_ulohy/sdl.md) - jak vytvořit interaktivní grafickou aplikaci či hru

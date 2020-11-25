@@ -20,7 +20,7 @@ správný výstup. Pokud vstup neodpovídá zadání, tak by měl program vráti
 jasně definovanými kroky se nazývá **algoritmus**. Zápisu (algoritmu) v nějakém konkrétním programovacím
 jazyce se pak říká **implementace**.
 
-Zde je příklad úloh, které se během semestru naučíte vyřešit pomocí jazyka C:
+Zde je příklad úloh, které se během semestru naučíte vyřešit pomocí jazyka *C*:
 
 `Spočítej průměr seznamu čísel.`
 

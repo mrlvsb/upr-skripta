@@ -20,12 +20,12 @@ které si v programu nějak pojmenujeme a dále se na něho pomocí jeho jména 
 [ukazatelích](../prace_s_pameti/ukazatele.md).
 
 ### Definice a platnost
-Takto vypadá **definice** (vytvoření) jednoduché proměnné s názvem `age`:
+Takto vypadá **definice** (vytvoření) jednoduché proměnné s názvem `vek`:
 ```c
-int age;
+int vek;
 ```
 Jakmile proměnnou nadefinujeme, tak z ní můžeme buď číst anebo zapisovat paměť, kterou tato proměnná
-reprezentuje, pomocí jejího názvu (zde `age`).
+reprezentuje, pomocí jejího názvu (zde `vek`).
 
 Proměnná je platná (lze ji používat) vždy od místa definice do konce **bloku**, ve kterém byla
 nadefinována. Bloky jsou kusy kódu ohraničené složenými závorkami (`{` a `}`):
@@ -55,8 +55,8 @@ tuto proměnnou (resp. paměť, kterou proměnná reprezentuje) interpretovat ja
 Do proměnné bychom měli při jejím vytvoření rovnou uložit nějaký *výraz*, který musí být stejného
 datového typu jako je typ proměnné:
 ```c
-int points_a = 10;
-int points_b = 10 + 15;
+int a = 10;
+int b = 10 + 15;
 ```
 Obecná syntaxe pro definici proměnné je
 
@@ -93,6 +93,8 @@ int main() {
     int a = 5;
     int b = a;  // hodnota `b` je 5
     int c = b + a + 1;  // hodnota `c` je 11
+
+    return 0;
 }
 ```
 
@@ -102,11 +104,13 @@ pomocí [debuggeru](../../prostredi/ladeni.md#krokování).
 
 ### Zápis
 Pokud by proměnná měla pouze svou původní hodnotu, tak by nebyla moc užitečná. Hodnoty proměnných
-naštěstí jde měnit. Můžeme k tomu použít další typ *C* výrazu přiřazení (**assignment**):
+naštěstí jde měnit. Můžeme k tomu použít další typ *C* výrazu **přiřazení** (*assignment*):
 ```c
 int main() {
     int a = 5;  // hodnota `a` je 5
     a = 8;      // hodnota `a` je 8
+
+    return 0;
 }
 ```
 Obecná syntaxe pro přiřazení do proměnné je
@@ -136,9 +140,11 @@ Zatím známe pouze proměnné, později si však ukážeme [další možnosti](
 a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](../prikazy_vyrazy.md#výpis-výrazů)).
 
 ### Definice více proměnných najednou
-Pokud potřebujete vytvořit více proměnných stejného datového typu, můžete používat více názvů,
-oddělených čárkou, za datovým typem proměnné. Takto například lze vytvořit tři celočíselné proměnné
+Pokud potřebujete vytvořit více proměnných stejného datového typu, můžete použít více názvů
+oddělených čárkou za datovým typem proměnné. Takto například lze vytvořit tři celočíselné proměnné
 s názvy `x`, `y` a `z`:
 ```c
 int x = 1, y = 2, z = 3;
 ```
+
+> Doporučujeme však tento způsob tvorby více proměnných spíše nepoužívat, aby byl kód přehlednější.

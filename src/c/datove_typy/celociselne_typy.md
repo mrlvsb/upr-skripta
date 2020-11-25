@@ -15,7 +15,7 @@ znaménka, nezáporné). Tato vlastnost udává, jaké hodnoty může typ nabýv
 reprezentovat 256 různých hodnot. Pokud budeme interpretovat toto číslo se znaménkem, tak může uchovávat
 hodnoty -128 až 127. Pokud ho budeme interpretovat bez znaménka, tak může uchovávat hodnoty 0 až 255.
 
-C obsahuje několik základních typů celočíselných proměnných, které se liší v tom, kolik mají bytů a
+*C* obsahuje několik základních typů celočíselných proměnných, které se liší v tom, kolik mají bytů a
 jestli jsou znaménkové nebo ne. Pokud před název typu napíšeme `signed`, bude se jednat o znaménkový
 typ, pokud použijeme `unsigned`, tak použijeme typ bez znaménka. Většina typů je implicitně se
 znaménkem, tj. `int` je to samé jako `signed int`. V následující tabulce je seznam nejčastějších
@@ -51,7 +51,7 @@ použijete číselný výraz, například výraz `1` má datový typ `int`[^3].
 > v sekci o [řetězcích](../text/retezce.md).
 
 ### Operace s číselnými typy
-C umožňuje provádět operace nad vestavěnými datovými typy pomocí tzv. **operátorů**. Při práci s
+*C* umožňuje provádět operace nad vestavěnými datovými typy pomocí tzv. **operátorů**. Při práci s
 výrazy celočíselných typů lze provádět běžné aritmetické operace `+`, `-`, `/`, `*` nebo `%` (zbytek
 po dělení). Například `5 + 8` nebo `2 * 16` tak bude obvykle fungovat tak, jak byste očekávali. Je si
 ale třeba dát pozor na několik zrádných věcí:
@@ -72,15 +72,15 @@ desíti, tak bychom očekávali výsledek `500`, nicméně tak velké číslo ne
 Výsledkem místo toho bude `244` (`500 % 256`), pokud se jedná o číslo bez znaménka, nebo `-12`, pokud
 jde o číslo se znaménkem. Podobné výsledky jsou silně neintuitivní, pokud tedy váš program vrácí zvláštní
 číselný výsledek, zkontrolujte si, jestli neprovádíte operace, při kterých mohlo dojít k přetečení.
-- C provádí [implicitní konverze](https://www.guru99.com/c-type-casting.html) mezi datovými typy,
+- *C* provádí [implicitní konverze](https://www.guru99.com/c-type-casting.html) mezi datovými typy,
 které mohou změnit datový typ výrazů, které používáte, bez vašeho vědomí. Je tak (obzvláště ze začátku)
 vhodné ujistit se, že provádíte operace mezi stejnými datovými typy.
-- Stejně jako v matematice, tak i v C záleží u operátorů na jejich prioritě a asociativitě.
+- Stejně jako v matematice, tak i v *C* záleží u operátorů na jejich prioritě a asociativitě.
 Seznam všech operátorů spolu s jejich prioritiou naleznete [zde](https://en.cppreference.com/w/c/language/operator_precedence).
 Například výsledek výrazu `1 + 2 * 3` je `7`, a ne `9`. Pokud budete chtít prioritu ovlivnit, můžete
 výrazy **uzávorkovat**, abyste jim dali větší přednost: `(1 + 2) * 3` se vyhodnotí jako `9`.
 
-Kromě základních aritmetických operací C podporuje také [bitové operace](https://cs.wikipedia.org/wiki/Bitov%C3%A1_operace):
+Kromě základních aritmetických operací *C* podporuje také [bitové operace](https://cs.wikipedia.org/wiki/Bitov%C3%A1_operace):
 - AND: operátor `&`
 - OR: operátor `|`
 - XOR: operátor `^`

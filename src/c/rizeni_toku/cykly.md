@@ -31,7 +31,7 @@ několika málo řádky kódu říct počítači, aby provedl spoustu instrukcí
 typy cyklů, [while](while.md) a [for](for.md).
 
 > Další motivací pro využití cyklů je to, že moderní procesory počítačů mají běžně frekvence od
-> 1 do 4 GHz, takže za vteřinu zvládnou provést několik několik miliard
+> 1 do 4 GHz, takže za vteřinu zvládnou provést několik miliard
 > [taktů](https://cs.wikipedia.org/wiki/Hodinov%C3%BD_sign%C3%A1l) a během každého taktu navíc až
 > [desítky](https://cs.wikipedia.org/wiki/Superskal%C3%A1rn%C3%AD_architektura) různých operací.
 > Jistě si dovedete představit, že s pouze sekvenčním zápisem kódu bychom tento potenciál nemohli

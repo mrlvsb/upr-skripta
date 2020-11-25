@@ -135,7 +135,11 @@ A na konci už akorát vše uvolníme:
 
     return 0;
 }
-``` 
+```
+
+> Pokud spustíte program využívající `SDL` s Address sanitizerem, může se stát, že vám sanitizer
+> zobrazí nějakou [neuvolněnou paměť](../../caste_chyby/pametove_chyby.md#memory-leak). Pokud zdroj
+> alokace nepochází z vašeho kódu, můžete tyto chyby ignorovat.
 
 <details>
 <summary>Celý kód i s ošetřením chyb</summary>
@@ -201,10 +205,10 @@ int main()
 ## Co lze dělat pomocí `SDL`?
 Knihovna `SDL` nabízí spoustu funkcionality k tvorbě interaktivních aplikací a her. Můžete s ní
 například:
-- [Vykreslovat](https://wiki.libsdl.org/CategoryRender) body, čáry či obdélníky
+- [Vykreslovat](https://wiki.libsdl.org/CategoryRender) body, čáry či obdélníky.
 - Reprezentovat [obdélníky](https://wiki.libsdl.org/CategoryRect) a počítat jejich průniky (např.
-pro detekci kolizí herních objektů)
-- [Reagovat](https://wiki.libsdl.org/CategoryEvents) na vstup uživatele, ať už z klávesnice nebo z myši
-- Načítat a vykreslovat [obrázky](https://www.libsdl.org/projects/SDL_image/docs/SDL_image_frame.html)
-- Načítat a vykreslovat [text](https://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_frame.html)
-- Přehrávat [zvuk](https://wiki.libsdl.org/CategoryAudio)
+pro detekci kolizí herních objektů).
+- [Reagovat](https://wiki.libsdl.org/CategoryEvents) na vstup uživatele, ať už z klávesnice nebo z myši.
+- Načítat a vykreslovat [obrázky](https://www.libsdl.org/projects/SDL_image/docs/SDL_image_frame.html).
+- Načítat a vykreslovat [text](https://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_frame.html).
+- Přehrávat [zvuk](https://wiki.libsdl.org/CategoryAudio).

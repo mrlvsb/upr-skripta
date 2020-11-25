@@ -65,6 +65,7 @@
         - [TGA](c/aplikovane_ulohy/tga.md)
         - [GIF](c/aplikovane_ulohy/gif.md)
         - [SDL](c/aplikovane_ulohy/sdl.md)
+        - [Chipmunk](c/aplikovane_ulohy/chipmunk.md)
     - [Co dál?](c/co_dal.md)
 - [Různé](ruzne/ruzne.md)
     - [Rozklad problému](ruzne/rozklad_problemu.md)

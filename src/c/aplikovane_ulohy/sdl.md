@@ -55,7 +55,7 @@ různé návody pro to, jak s knihovnou pracovat.
 Dokumentaci funkcí `SDL` naleznete [zde](https://wiki.libsdl.org/APIByCategory), návody pro jeho
 použití například [tady](https://www.willusher.io/pages/sdl2/).
 
-> SDL je relativně rozsáhlá knihovna a není v silách tohoto textu, abychom ji plně popsali. Proto
+> `SDL` je relativně rozsáhlá knihovna a není v silách tohoto textu, abychom ji plně popsali. Proto
 > níže naleznete pouze velmi stručný "Hello world" a seznam věcí, které vám SDL umožňuje. Zbytek
 > najdete v dokumentaci a návodech na internetu.
 

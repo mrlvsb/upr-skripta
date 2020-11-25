@@ -53,5 +53,3 @@ Postupně si ukážeme:
 - jak používat funkce a proměnné [z jiných souborů](pouzivani_kodu_z_jinych_souboru.md)
 - jaké jsou konvence pro používání [více zdrojových souborů v C](hlavickove_soubory.md)
 - jak používat kód, který napsal někdo jiný, a nasdílel ho v podobě [knihovny](knihovny.md)
-- jak [zautomatizovat překlad](automatizace_prekladu.md) programů skládajících se z více zdrojových
-souborů

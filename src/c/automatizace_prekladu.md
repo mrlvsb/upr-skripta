@@ -1,7 +1,7 @@
 # Automatizace překladu
 Možná vás napadlo, že v případě rozdělení programu do více zdrojových souborů a při použití knihoven
 začne být docela namáhavé náš program vůbec přeložit. Musíme přeložit zvlášť každou
-[jednotku překladu](linker.md), nakonec je všechny slinkovat dohromady a případně ještě předat
+[jednotku překladu](modularizace/linker.md), nakonec je všechny slinkovat dohromady a případně ještě předat
 potřebné cesty k použitým knihovnám. A toto je třeba po jakékoliv změně v kódu našeho programu,
 pokud ji budeme chtít otestovat.
 
@@ -25,14 +25,24 @@ spustíte program `make`, který jej dle konfiguračního souboru přeloží.
 Návod pro vytvoření konfiguračního souboru `Makefile` a použití `make` naleznete například
 [zde](https://www.itnetwork.cz/cecko/linux/tutorial-c-linux-makefile).
 
-## [`CMake`](https://cmake.org/)
-Poněkud modernější alternativou je `CMake`. Jedná se o meta systém, ve skutečnosti totiž neřídí překlad
-vašeho programu, ale pouze generuje potřebné soubory pro nějaký jiný sestavovací systém, který váš
-program teprve přeloží. Výhodou pak je, že z jednoho `CMake` konfiguračního souboru tak můžete vygenerovat
-např. `Makefile` pro přeložení na Linuxu anebo jiné konfigurační soubory pro přeložení stejného programu
-pod Windows. Další výhodou `CMake` je, že některá vývojová prostředí (např.
+## `CMake`
+Poněkud modernější alternativou je [`CMake`](https://cmake.org/). Jedná se o meta systém, ve
+skutečnosti totiž neřídí překlad vašeho programu, ale pouze generuje potřebné soubory pro nějaký
+jiný sestavovací systém, který váš program teprve přeloží. Výhodou pak je, že z jednoho `CMake`
+konfiguračního souboru tak můžete vygenerovat např. `Makefile` pro přeložení na Linuxu anebo jiné
+konfigurační soubory pro přeložení stejného programu pod Windows.
+
+Další výhodou `CMake` je, že některá vývojová prostředí (např.
 [Visual Studio Code](https://code.visualstudio.com/) nebo [CLion](https://www.jetbrains.com/clion/))
 mu rozumí a dokáží díky němu usnadnit analýzu a ladění vašeho programu. 
+
+### Instalace
+`CMake` můžete na Ubuntu nainstalovat následujícím příkazem v terminálu:
+```bash
+$ sudo apt install cmake
+```
+
+### Použití
 
 Pro použití `CMake` musíte vytvořit konfigurační soubor `CMakeLists.txt`, ve kterém popíšete jednotlivé
 zdrojové soubory vašeho programu, a také zadáte knihovny, které chcete k vašemu programu připojit.
@@ -73,3 +83,9 @@ Dobrá zpráva je, že pokud používáte kompatibilní vývojové prostředí, 
 za vás a vám tak stačí správně nastavit soubor `CMakeLists.txt`.
 
 Návod k použití `CMake` naleznete například [zde](https://cmake.org/cmake/help/latest/guide/tutorial/index.html).
+
+### Použití ve Visual Studio Code
+Pokud chcete spustit či ladit `CMake` projekt ve VSCode, tak proveďte tyto kroky:
+1) Nainstalujte si [toto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) rozšíření do VSCode
+2) Otevřete ve VSCode složku, která bude obsahovat soubor `CMakeLists.txt`
+3) Spusťte program pomocí `Ctrl + F5`

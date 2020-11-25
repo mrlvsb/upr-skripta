@@ -60,7 +60,7 @@
         - [Používání kódu z jiných souborů](c/modularizace/pouzivani_kodu_z_jinych_souboru.md)
         - [Hlavičkové soubory](c/modularizace/hlavickove_soubory.md)
         - [Knihovny](c/modularizace/knihovny.md)
-        - [Automatizace překladu](c/modularizace/automatizace_prekladu.md)
+    - [Automatizace překladu](c/automatizace_prekladu.md)
     - [Aplikované úlohy](c/aplikovane_ulohy/ulohy.md)
         - [TGA](c/aplikovane_ulohy/tga.md)
         - [GIF](c/aplikovane_ulohy/gif.md)

@@ -1,5 +1,5 @@
 # Kreslení obrazovky Apple Watch
-Pro tuto úlohu využijte stuktury a funkce pro zápis obrázku formátu [TGA](/c/aplikovane_ulohy/tga.md) do souboru.
+Pro tuto úlohu využijte stuktury a funkce pro zápis obrázku formátu [TGA](../c/aplikovane_ulohy/tga.md) do souboru.
 
 Vše má svůj příběh a tak tedy započněme naši cestu např. ve firmě [Apple](https://www.apple.com)...
 

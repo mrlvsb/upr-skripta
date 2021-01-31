@@ -25,3 +25,5 @@ Galerie vybraných projektů od studentů ročníku 2020/2021.
 [SDL](c/aplikovane_ulohy/sdl.md)
 
 <video width="500" src="static/projekty_2020/projekt5.webm" controls></video>
+
+<video width="500" src="static/projekty_2020/projekt6.webm" controls></video>

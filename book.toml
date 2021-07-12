@@ -14,6 +14,7 @@ default-theme = "rust"
 preferred-dark-theme = "rust"
 additional-js = [
   "theme/mode-c_cpp.min.js",
+  "theme/asciinema-player.js",
   "src/wasm/xterm.min.js",
   "src/wasm/fit.min.js",
   "src/wasm/shared.js",
@@ -21,6 +22,7 @@ additional-js = [
 ]
 additional-css = [
   "theme/css/tufte.css",
+  "theme/asciinema-player.css",
   "src/wasm/xterm.min.css"
 ]
 mathjax-support = true

@@ -23,7 +23,7 @@ Využijte znalosti [dvourozměrných polí](/c/pole/vicerozmerne_pole.md), [řet
    }
    ```
    
-   Nesmíme také zapomenout ošetřovat různé chybové stavy - alokace paměti nemusí být vždy úspěná a musíme provést kontrolu, zda navrácená pamět není `NULL`.
+   Nesmíme také zapomenout ošetřovat různé chybové stavy - alokace paměti nemusí být vždy úspěšná a musíme provést kontrolu, zda navrácená paměť není `NULL`.
    K této funkci je také vhodné doimplementovat funkci pro uvolnění pixelů a poté samostatné struktury:
    ```c
    void board_delete(Board* b);
@@ -31,7 +31,7 @@ Využijte znalosti [dvourozměrných polí](/c/pole/vicerozmerne_pole.md), [řet
 
 3. Funkce pro vykreslení pixelu / znaku
 
-   Pro jednoduší a čitelnější kód si naimplementujme funkci, která nám vykreslí znak `c` na řádek `row` a sloupec `col`.
+   Pro jednoduší a čitelnější kód si naimplementujeme funkci, která nám vykreslí znak `c` na řádek `row` a sloupec `col`.
    Funkce by také měla zkontrolovat, zda souřadnice není před nultým či posledním řádkem a sloupcem, aby nedocházelo k pádu programu nebo k vykreslování jinam.
 
    ```c
@@ -41,9 +41,9 @@ Využijte znalosti [dvourozměrných polí](/c/pole/vicerozmerne_pole.md), [řet
    Přepočet 2D souřadnice `[row, col]` na 1D index můžeme podle následujícího obrázku:
    <img src="/static/img/2d_array.svg">
 
-4. Vykreslení řámečku
+4. Vykreslení rámečku
    
-   Kolem okraju vykreslíme rámeček pomocí funkce `board_draw_pixel`.
+   Kolem okrajů vykreslíme rámeček pomocí funkce `board_draw_pixel`.
    Pro vykreslování rámečku **NENÍ** potřeba procházet vnitřek - stačí dvě smyčky za sebou.
    První smyčka bude procházet všechny řádky a kreslit na nultý a poslední sloupec.
    Obdobně druhá smyčka bude procházet sloupce a kreslit na nultý a poslední řádek.
@@ -75,7 +75,7 @@ Využijte znalosti [dvourozměrných polí](/c/pole/vicerozmerne_pole.md), [řet
    } Letter;
    ```
 
-   Rychlost pohybu `speed` bude nabývat hodnot `-1` pro směr vlevo v případě sloupcové souřadníce nebo směr nahoru v případě řádkové souřadnice.
+   Rychlost pohybu `speed` bude nabývat hodnot `-1` pro směr vlevo v případě sloupcové souřadnice nebo směr nahoru v případě řádkové souřadnice.
    Hodnota `1` pak bude znamenat směr doprava respektive dolů.
 
    Následně si vytvoříme funkci pro jeho vykreslení do plochy:
@@ -90,9 +90,9 @@ Využijte znalosti [dvourozměrných polí](/c/pole/vicerozmerne_pole.md), [řet
    void letter_step(Letter *letter, Board *board);
    ```
    
-   K aktuální pozici kuličky v řádku a sloupci přičteme rychlost `speed` z odpovídající souřadnice.
+   K aktuální pozici písmenka v řádku a sloupci přičteme rychlost `speed` z odpovídající souřadnice.
    Poté zkontrolujeme, zda je nová pozice na prvním řádku/sloupci či předposledním řádku/sloupci.
-   Pokud ano, tak změníme směr kuličky a tím dojde v příštím kroku k odrazu.
+   Pokud ano, tak změníme směr písmenka a tím dojde v příštím kroku k odrazu.
  
 7. Hlavní smyčka
 
@@ -126,7 +126,7 @@ Využijte znalosti [dvourozměrných polí](/c/pole/vicerozmerne_pole.md), [řet
    ```
 8. Více písmenek
 
-   Textový řetezec si převedeme na pole létajících písmenek pomocí funkce:
+   Textový řetězec si převedeme na pole létajících písmenek pomocí funkce:
 
    ```c
    typedef struct {
@@ -138,7 +138,7 @@ Využijte znalosti [dvourozměrných polí](/c/pole/vicerozmerne_pole.md), [řet
     // dynamická alokace struktury sentence
     // dynamická alokace pole pro písmenka letters
     // v cyklu projdeme řetězec sentence a nastavíme písmenka v letters, tak aby následovala za sebou a měla náhodnou rychlost
-    // vrátime ukazatel na strukturu
+    // vrátíme ukazatel na strukturu
    }
    ```
 

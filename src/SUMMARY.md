@@ -88,7 +88,7 @@
         - [Střelba na terče](ulohy/terce.md)
         - [Meme generarátor](ulohy/meme.md)
     - [SDL hry](ulohy/sdl.md)
-        - [Had](ulohy/snake.md)
+        - [Had](ulohy/snake/snake.md)
     - [Různé](ulohy/ruzne.md)
 - [Časté chyby](caste_chyby/caste_chyby.md)
     - [Paměťové chyby](caste_chyby/pametove_chyby.md)

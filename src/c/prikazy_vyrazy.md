@@ -22,11 +22,11 @@ v podstatě prázdný, takže se pouze zapne a vypne. Prozatím budeme veškerý
 Programy v *C* se skládají z **příkazů** (*statements*). Příkaz říká počítači, co má provést, na
 mnohem vyšší úrovni než [instrukce](../uvod/programovaci_jazyky.md) - jeden C příkaz může být přeložen
 překladačem na desítky instrukcí pro procesor. Existuje mnoho různých typů příkazů, které naleznete
-v následujících sekcích.
+v následujících sekcích. Většina příkazů nějakým způsobem pracuje s *výrazy*, začneme tedy jejich popisem.
 
 # Výrazy
-Jak už vyplává z jeho názvu, nejpřirozenější a hlavní funkcí počítače je něco počítat. Jedním ze
-základních konstrukcí jazyka *C* (i jiných programovacích jazyků) tak je možnost počítat různé hodnoty.
+Jak už vyplývá z jeho názvu, hlavní funkcí počítače je něco počítat. Jedním ze
+základních konstrukcí jazyka *C* (i jiných programovacích jazyků) tak je možnost vypočítat různé hodnoty.
 Něco, co se dá vypočítat (tak, aby výsledkem byla nějaká hodnota), se nazývá **výraz** (*expression*).
 Příkladem asi nejjednoduššího výrazu je číslo, např. `5`. Takovýto výraz již není nutné dále vyhodnocovat,
 jeho hodnota je prostě `5`. Pokud v programu použijete přímo hodnotu nějakého čísla (popř. něčeho
@@ -34,6 +34,7 @@ jiného, jak uvidíme později), tak se takový výraz označuje jako **literál
 
 V *C* můžeme s výrazy provádět různé operace pomocí **operátorů**. Můžeme například použít operátor `+`
 s dvěma výrazy, čímž vznikne složitější výraz: `5 + 5`, který se v programu vyhodnotí na hodnotu `10`.
+O operátorech si více povíme v kapitole o [datových typech](datove_typy/celociselne_typy.md#operace-s-číselnými-typy).
 
 ### Výpis výrazů
 Abyste si ze začátku mohli jednoduše zobrazit hodnoty výrazů, tak si ukážeme kód, pomocí kterého
@@ -84,10 +85,10 @@ int main() {
 Když chcete vypsat například výsledek vyhodnocení výrazu `10 + 5`, tak stačí napsat:
 `printf("%d\n", 10 + 5);` a na výstup programu by se měl vypsat text `15`.
 
-Pokud chcete vytisknout více hodnot, tak prostě řádek s `printf(...);` zkopírujte a na uvedené místo
-vložte jiný výraz. Počítač provádí programy řádek po řádku, odshora dolů. Uhodnete, co se vypíše
-na výstup po přeložení a spuštění následujícího programu?
-```c,editable,readonly
+Pokud chcete vytisknout více hodnot, tak prostě řádek s `printf(…);` zkopírujte a na uvedené místo
+vložte jiný výraz. Počítač provádí programy řádek po řádku, odshora dolů. Doplňte na místo komentáře
+do programu níže nějaký výraz a zkuste uhodnout, co se vypíše na výstup po přeložení a spuštění programu.
+```c,editable
 #include <stdio.h>
 
 int main() {
@@ -96,10 +97,17 @@ int main() {
     return 0;
 }
 ```
- 
-**Cvičení**: Zkuste si na místo komentáře doplnit několik výrazů (např. `5 + 8`, `8 * 3`, `12 * (2 + 3)`),
+
+<hr />
+
+**Cvičení**
+
+Zkuste si na místo komentáře doplnit několik výrazů (např. `5 + 8`, `8 * 3`, `12 * (2 + 3)`),
 přeložit program, spustit ho a podívat se, co vypíše na výstup, abyste si vyzkoušeli vyhodnocování
-výrazů.
+výrazů. **Zkuste to na svém počítači pomocí [editoru](../prostredi/editor.md) a [překladače](../prostredi/preklad_programu.md),
+ne pouze v prohlížeči!**
+
+<hr />
 
 ### Datové typy
 Každý výraz má svůj datový typ, který udává, jak je hodnota výrazu v programu interpretována a také

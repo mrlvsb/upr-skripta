@@ -57,7 +57,7 @@ zbytek po dělení, abychom zjistili, na jakém jsme sloupci.
     }
     ```
 
-Tento koncept lze zobecnit na libovolně rozměrné pole (3D, 4D, ...).
+Tento koncept lze zobecnit na libovolně rozměrné pole (3D, 4D, …).
 
 ## Vícerozměrné pole v *C*
 *C* obsahuje základní podporu pro vytváření vícerozměrných [statických polí](staticke_pole.md). Při
@@ -72,7 +72,7 @@ toto pole přímo indexovat vícerozměrným indexem. Například první prvek p
 na pozici `pole[0][0]`, poslední na pozici `pole[2][2]`.
 
 Takováto pole jsou v paměti vyskládána postupně dle jednotlivých dimenzí zleva. Nejprve tedy v
-paměti leží prvek `pole[0][0]`, poté `pole[0][1]`, ..., `pole[1][1]`, `pole[1][2]` atd. Pokud
+paměti leží prvek `pole[0][0]`, poté `pole[0][1]`, …, `pole[1][1]`, `pole[1][2]` atd. Pokud
 bychom měli 2D pole a první index bychom pokládali za index řádku, tak toto vyskládání odpovídá
 *row major* pořadí.
 

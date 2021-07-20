@@ -4,7 +4,7 @@ Slouží k získání přehledu o základních konceptech programovacího jazyka
 Není však plnohodnotnou náhradou za poslechy přednášek a návštěvy cvičení a programovat vás (stejně
 jako žádný jiný text) nenaučí, toho lze dosáhnout pouze opakovaným zkoušením a řešením různých úloh.
 Studentům tedy silně doporučujeme, aby přednášky a cvičení navštěvovali a hlavně aby se věnovali programování
-doma, alespoň několik hodin týdně.
+doma, alespoň hodinu denně.
 
 V tomto textu naleznete stručný úvod o programování, překladu a ladění programů, nastavení prostředí
 k editaci zdrojového kódu, a zejména popis základních konstrukcí jazyka *C* (proměnné, podmínky,

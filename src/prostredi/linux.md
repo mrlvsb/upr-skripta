@@ -6,6 +6,10 @@ tento operační systém zprovoznili.
 Pokud používáte operační systém OS X, tak teoreticky Linux instalovat nemusíte, stačí si nastavit
 překladač [`gcc`](https://www.cyberciti.biz/faq/howto-apple-mac-os-x-install-gcc-compiler/).
 
+**Pokud při instalaci Linuxu narazíte na problémy, které se vám nepodaří vyřešit, konzultujte je
+ihned s vaším cvičícím, který vám s instalací pomůže. Je nezbytné mít zprovozněný překladač `gcc`
+a Linux (nebo OS X), abyste mohli řešit úlohy do UPR.**
+
 Pokud používáte operační systém Windows, tak pro použití Linuxu můžete využít jeden z následujících
 tří možností.
 

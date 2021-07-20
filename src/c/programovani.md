@@ -1,11 +1,12 @@
 # Programování v *C*
 V této kapitole naleznete popis základních konstrukcí jazyka *C*, které jsou základními
-stavebními kameny pro tvorbu programů. Ke každému tématu je k dispozici také úloh. Pokud úlohy
+stavebními kameny pro tvorbu programů. Ke každému tématu je k dispozici také sada úloh. Pokud úlohy
 zvládnete vypracovat, tak budete mít jistotu, že jste dané téma pochopili a můžete se posunout dále.
-Pokud nezvládnete úlohy splnit, tak můžete mít s dalšími koncepty problém. Pokud nebudete stíhat,
+Pokud nezvládnete úlohy splnit, tak můžete mít s navazujícími koncepty problém. Pokud nebudete stíhat,
 tak kontaktujte svého cvičícího.
 
-Před přečtením této kapitoly si přečtěte sekci o [paměti](../uvod/pamet.md).
+Před přečtením této kapitoly si nejprve přečtěte předchozí kapitoly, zejména sekci o
+[paměti](../uvod/pamet.md).
 
 Zde je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat probíraných na cvičení
 a přednáškách se může od tohoto seznamu lišit, tento text je určen spíše jako "kuchařka", ve které
@@ -13,10 +14,10 @@ se můžete k jednotlivým tématům vracet, abyste si je připomněli. Text je 
 dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které zatím nebyly vysvětleny.
 
 ## Základní témata
-- [Úvod](syntaxe.md) - základní syntaxe a komentáře
+- [Syntaxe](syntaxe.md) - jak vypadá syntaxe (způsob zápisu) jazyka *C*
 - [Příkazy a výrazy](prikazy_vyrazy.md) - jak provádět výpočty
-- [Proměnné](promenne/promenne.md) - jak něco uložit a načíst z paměti paměti
-- [Datové typy](datove_typy/datove_typy.md) - jak pracovat s daty v paměti
+- [Proměnné](promenne/promenne.md) - jak něco uložit a načíst z paměti
+- [Datové typy](datove_typy/datove_typy.md) - jak interpretovat hodnoty v paměti
 - [Řízení toku](rizeni_toku/rizeni_toku.md) - jak se rozhodovat a provádět akce opakovaně
 - [Funkce](funkce/funkce.md) - jak opakovaně využít a parametrizovat opakující se kód
 - [Ukazatele](prace_s_pameti/ukazatele.md) - jak sdílet data v paměti a pracovat s adresami

@@ -37,10 +37,10 @@ podobného:
 Takovýto program by totiž jistě nefungoval na jiném než vašem počítači. Z jakého bodu se tato
 relativní cesta vyhodnotí je popsáno níže.
 
-## Rozdíl mezi `#include <...>` a `#include "..."`
+## Rozdíl mezi `#include <…>` a `#include "…"`
 Rozdíl mezi těmito variantami není pevně definován, nicméně většina preprocesorů (resp. překladačů)
 funguje takto:
-- `#include <...>` nejprve vyhledá zadanou cestu v tzv. systémových cestách. Jedná se o známé adresáře,
+- `#include <…>` nejprve vyhledá zadanou cestu v tzv. systémových cestách. Jedná se o známé adresáře,
 ve kterých jsou uloženy jednak soubory standardní knihovny *C*, a také dalších knihoven, které máte
 v systému nainstalované. Pouze pokud se zde daný soubor nenalezne, tak se cesta vyhodnotí relativně
 ke zdrojovému souboru, ve kterém byl `#include` použit.
@@ -52,7 +52,7 @@ ke zdrojovému souboru, ve kterém byl `#include` použit.
     Pokud soubor, který chcete do vašeho kódu vložit, se nachází v externí knihovně, která nepatří
     do vašeho projektu, je běžné používat právě `#include <>`.
 
-- `#include "..."` se nedívá do systémových cest, ale rovnou hledá zadanou cestu relativně k souboru,
+- `#include "…"` se nedívá do systémových cest, ale rovnou hledá zadanou cestu relativně k souboru,
 ve kterém byl `#include` použit. Tuto formu používejte, pokud budete vkládat soubory z vašeho
 projektu.
 

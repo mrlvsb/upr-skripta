@@ -118,7 +118,7 @@ int main() {
 
 Pokud píšete malý program a nechce se vám ručně každou chybu ošetřovat, můžete využít funkci
 [`assert`](https://devdocs.io/c/error/assert) ze souboru `<assert.h>`. Tato funkce očekává
-pravdivostní hodnotu a kontroluje, zdali platí (`assert` znamená `ujisti se, že platí ...`). Pokud
+pravdivostní hodnotu a kontroluje, zdali platí (`assert` znamená `ujisti se, že platí …`). Pokud
 hodnota neplatí, tj. vyhodnotí se na `0` či `false`, tak dojde k okamžitému ukončení vašeho programu.
 Vypsanou chybovou hlášku tak nebudete moct ovlivnit, ale ošetření chyby se značně zjednodušší:
 ```c
@@ -138,7 +138,7 @@ Jakmile se souborem přestanete pracovat, je **nutné** ho zavřít. K tomu slou
 [`fclose`](https://devdocs.io/c/io/fclose):
 ```c
 FILE* soubor = fopen("soubor.txt", "w");
-// zápis/čtení ze souboru...
+// zápis/čtení ze souboru…
 fclose(soubor);
 ```
 Funkce `fclose` vrací číselnou hodnotu, která oznamuje, zdali funkce proběhla v pořádku nebo ne.

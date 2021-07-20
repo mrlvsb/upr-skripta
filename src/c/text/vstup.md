@@ -64,7 +64,7 @@ ze vstupu dvě celá čísla:
 int x, y;
 scanf("%d%d", &x, &y);
 ```
-Pomocí formátovacího řetězce můžeme také vyžadovat, co musí v textu být. Například `scanf("x%d", ...)`
+Pomocí formátovacího řetězce můžeme také vyžadovat, co musí v textu být. Například `scanf("x%d", …)`
 načte vstup pouze, pokud v něm nalezne znak `'x'` následovaný číslem.
 
 Seznam všech těchto zástupných znaků naleznete v [dokumentaci](https://devdocs.io/c/io/fscanf).

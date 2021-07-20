@@ -34,7 +34,7 @@ v dvojkové soustavě:
 uložit například hodnotu `π`, budete ji muset zaokrouhlit.
 - Kvůli použití dvojkové soustavy některé desetinné hodnoty nelze vyjádřit přesně. Například číslo
 \\( \frac{1}{3} \\) lze v desítkové soustavě vyjádřit zlomkem, ale v dvojkové soustavě toto číslo
-má nekonečný desetinný rozvoj (`0.010101...`) a opět tedy nelze vyjádřit přesně:
+má nekonečný desetinný rozvoj (`0.010101…`) a opět tedy nelze vyjádřit přesně:
     ```c,editable,mainbody
     #include <stdio.h>
     int main() {

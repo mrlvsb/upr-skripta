@@ -106,7 +106,7 @@ následuje za cyklem. Cyklus se tak zcela přeruší. Zkuste uhodnout, co vypí�
 
 Příkaz `break` lze také někdy použít k usnadnění návrhu cyklů. Pokud potřebujete napsat `while` cyklus
 s nějakou složitou podmínkou ukončení, ze které se vám motá hlava, zkuste nejprve vytvořit "nekonečný"
-cyklus pomocí `while (true) { ... }`, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
+cyklus pomocí `while (true) { … }`, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
 která cyklus ukončí pomocí příkazu `break`:
 ```c,editable,mainbody
 #include <stdio.h>

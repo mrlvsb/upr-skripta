@@ -1,5 +1,5 @@
 # Základy syntaxe
-C je (programovací) jazyk a jako každý jazyk má svá pravidla, které je nutno dodržovat.
+*C* je (programovací) jazyk a jako každý jazyk má svá pravidla, které je nutno dodržovat.
 Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abychom byli schopni výsledný
 text pochopit. Věty `jsme, M y máma, táta a` nebo `.o dku  d! ty z, jsi` nedávají smysl,
 protože obsahují interpunkční znaménka na špatných místech, větné členy jsou ve špatném pořadí
@@ -15,10 +15,11 @@ int main() {
 }
 ```
 
-V programu výše je pouze [funkce](funkce/funkce.md) s názvem `main`. Funkce si popíšeme později, prozatím
-budeme psát kód vždy do funkce `main` (před `return 0;`). Jednotlivé prvky programu si postupně vysvětlíme
-v následujících sekcích, prozatím si však všimněte, že **bílé znaky** (*whitespace*)[^1] jsou obvykle
-překladačem ignorovány. Například
+Tento program nic nedělá, pouze se zapne a poté vypne. V programu je pouze [funkce](funkce/funkce.md)
+s názvem `main`. Funkce si popíšeme později, prozatím budeme psát kód vždy uvnitř funkce `main`,
+tj. mezi složené závorky `{` `}`, na řádky před `return 0;`. Jednotlivé prvky programu si
+postupně vysvětlíme v následujících sekcích, prozatím si však všimněte, že **bílé znaky** (*whitespace*)[^1]
+jsou obvykle překladačem ignorovány. Například
 ```c
 int 
 
@@ -36,11 +37,11 @@ automaticky ve [VSCode](../prostredi/editor.md) pomocí zkratky `Ctrl + Shift + 
 
 Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v [řetězcích](text/retezce.md)
 jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. `in t` nebo
-`ma in` z programu výše by způsobily chybu při překladu).
+`ma in` v programu výše by způsobily chybu při překladu).
 
 ### Komentáře
 Abychom mohli v následujících sekcích popisovat kusy kódu, ukážeme si teď **komentáře**. Jedná se
-o text ve zdrojovém kódu, který je určen pro programátory, ne pro překladač, který je zcela ignoruje.
+o text ve zdrojovém kódu, který je určen pro programátory, a ne pro překladač, který je zcela ignoruje.
 Bez komentářů bychom nemohli do zdrojového kódu dodávat poznámky, protože překladač by jinak měl snahu
 je interpretovat jako *C* kód. Komentáře v kódu obvykle poznáte snadno, protože je váš editor bude vykreslovat
 jinou barvou než zbytek kódu.
@@ -68,13 +69,13 @@ text, dokud nedojde k ukončení komentáře pomocí `*/`.
 
 Ze začátku je asi jednodušší používat řádkové komentáře, ve VSCode můžete použít klávesovou zkratku
 `Ctrl + /` pro zakomentování/odkomentování řádku kódu. Pokud vám přijde nějaký kus kódu komplikovaný,
-tak si k němu zkuste dopsat komentář, který vysvětlí, co má daný kód dělat. Porozumíte tak kódu snáž,
-až se k němu např. za měsíc vrátíte.
+tak si k němu zkuste dopsat komentář, který vysvětlí, co má daný kód dělat. Porozumíte tak kódu
+snadněji, až se k němu např. za měsíc vrátíte.
 
 ### Klíčová slova
 **Klíčová slova** (*keywords*) jsou vestavěné názvy, kterým překladač přiřazuje speciální
-význam. V textovém editoru je typicky poznáte tak, že budou zabarvená jinou barvou. Například v
-tomto kódu jsou `int` a `return` klíčová slova:
+význam. V textovém editoru je typicky poznáte tak, že budou zabarvená jinou barvou než názvy
+vytvořené programátorem. Například v tomto kódu jsou `int` a `return` klíčová slova:
 ```c
 int main() {
     return 0;
@@ -98,7 +99,7 @@ které reprezentují mezery v textu, tj. odřádkování, mezerník, tabulátor 
 Už víme, že překladač ignoruje bílé znaky a celkové formátování kódu. Nicméně programátorům obvykle
 velmi záleží na tom, jaké má kód odsazení, zarovnání, závorkování atd. Existuje mnoho
 [stylů](https://en.wikipedia.org/wiki/Indentation_style), pomocí kterých můžete kód formátovat.
-Například programátoři se dokážou běžně pohádat o tom, zda složené závorky na začátku bloku psát na
+Například programátoři se dokážou pohádat o tom, zda složené závorky na začátku bloku psát na
 stejném:
 ```c
 if (...) {
@@ -119,3 +120,13 @@ while (...)
 ```
 Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.
+
+<hr />
+
+**Cvičení**
+
+1) Vytvořte si ve VS Code soubor (pojmenovaný např. `main.c`) a nakopírujte nebo napište do něj
+"prázdný" *C* program ukázaný výše. Zkuste program [přeložit](http://localhost:3000/prostredi/preklad_programu.html#p%C5%99eklad-prvn%C3%ADho-programu)
+a spustit.
+2) Zkuste do kódu přidat komentáře nebo bílé znaky (např. prázdné řádky nebo mezery). Otestujte, že
+překladač tyto věci při překladu ignoruje.

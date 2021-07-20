@@ -15,18 +15,16 @@ a k nim určený výstup, například:
 - odeslání informací přes síť
 
 Aby počítačový program korektně řešil nějakou úlohu, tak musí na všechny validní vstupy vrátit
-správný výstup. Pokud vstup neodpovídá zadání, tak by měl program vrátit rozumnou chybovou hlášku
-(a ne spadnout anebo ještě hůře pracovat s nevalidními daty). Postup pro řešení nějaké úlohy daný
-jasně definovanými kroky se nazývá **algoritmus**. Zápisu (algoritmu) v nějakém konkrétním programovacím
-jazyce se pak říká **implementace**.
+správný výstup. Pokud vstup neodpovídá zadání, tak by měl program vrátit rozumnou chybovou hlášku.
+Postup pro řešení nějaké úlohy daný jasně definovanými kroky se nazývá **algoritmus**. Zápisu
+(algoritmu) v nějakém konkrétním programovacím jazyce se pak říká **implementace** (algoritmu).
 
-Zde je příklad úloh, které se během semestru naučíte vyřešit pomocí jazyka *C*:
+Zde je příklad úloh, které se během semestru naučíte řešit pomocí jazyka *C*:
 
-`Spočítej průměr seznamu čísel.`
-
-nebo
-
-`Načti obrázek z disku, změň jeho velikost a ulož ho do jiného souboru.`
+- Spočítej průměr seznamu čísel
+- Načti údaje o uživateli ze souboru a vypiš je v podobě tabulky
+- Načti obrázek z disku, změň jeho velikost a ulož ho do jiného souboru
+- Vytvoř animaci ze sady obrázků na disku
 
 Řešením podobných úloh si osvojíte základy programování a budete poté moct řešit zajímavější úlohy,
 jako je například tvorba počítačové hry nebo aplikace komunikující přes internet.

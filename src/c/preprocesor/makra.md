@@ -47,7 +47,7 @@ int main() {
 ## Makra s parametry
 Makra můžou také obsahovat parametry:
 ```c
-#define <název_makra>(<param1>, <param2>, ...) <hodnota_makra>
+#define <název_makra>(<param1>, <param2>, …) <hodnota_makra>
 ```
 Tyto parametry můžete použít pro definici hodnoty. Nicméně je opět třeba dát pozor na to, že
 preprocesor pracuje pouze s textem, nerozumí jazyku *C*. Parametry tak jsou předávány čistě jako

@@ -6,8 +6,14 @@ K tomu můžeme použít tento příkaz:
 pocet = pocet + 1; // zvýšení hodnoty proměnné `pocet` o 1
 ```
 nicméně to je docela zdlouhavé. Proto *C* nabízí tzv. operátory **složeného zápisu** (*compound
-assignment*). Tyto operátory jsou spojené z normálního operátoru (např. `+`) a operátoru `=`:
-`+=`, `-=`, `*=`, atd. Složený zápis
+assignment*). Tyto operátory jsou spojené z normálního operátoru (např. `+`) a operátoru `=`, například:
+
+- `+=`
+- `-=`
+- `*=`
+- `/=`
+
+Složený zápis
 ```c
 <proměnná> <operátor>= <výraz>;
 ```
@@ -23,18 +29,19 @@ pocet += 1;   // stejné jako pocet = pocet + 1;
 pocet *= 3;   // stejné jako pocet = pocet * 3; 
 ```
 
-Stejně jako [zápis](promenne.md#zápis) je složený zápis příkladem výrazu s vedlejším efektem.
+Stejně jako [zápis](promenne.md#zápis) je složený zápis příkladem výrazu s
+[vedlejším efektem](../prikazy_vyrazy.md#vedlejší-efekty).
 
 ### Inkrementace a dekrementace
 Speciálním případem složeného zápisu je tzv. **inkrementace** (zvýšení hodnoty proměnné o jedničku)
 a **dekrementace** (snížení hodnoty proměnné o jedničku). Tyto operace jsou tak časté, že *C* obsahuje
 speciální "zkratky" pro jejich provedení. Aby to nebylo tak jednoduché, tak tyto zkratky
 existují ve dvou variantách:
-- *Postfixová*: `<proměnná>++`. Tento výraz se vyhodnotí jako hodnota dané proměnné, a **poté** zvýší
-hodnotu proměnné o jedničku. Zkuste uhodnout, co vypíše následující program:
+- *Postfixová*: `<proměnná>++`. Tento výraz se nejprve vyhodnotí jako hodnota dané proměnné, a
+  **poté** (provede vedlejší efekt, který) zvýší hodnotu proměnné o jedničku. Zkuste uhodnout, co vypíše následující program:
     ```c,editable,mainbody
     #include <stdio.h>
-    
+
     int main() {
         int a = 1;
         int b = a++;
@@ -62,7 +69,7 @@ jako (nová, již zvýšená) hodnota dané proměnné. Zkuste uhodnout, co vyp�
 Dekrementace se chová totožně jako inkrementace, pouze s tím rozdílem, že snižuje hodnotu
 proměnné o `1` a místo `++` používá `--`.
 
-Inkrementace a dekrementace jsou příklady výrazů s vedlejším efektem.
+Inkrementace a dekrementace jsou opět příklady výrazů s vedlejším efektem.
 
 > Tyto zkratky jsou sice užitečné, ale také můžou vyústit v překvapivé chování díky způsobu, kterým
 > jsou vyhodnocovány. Ze začátku je radši využívejte pouze v situacích, kdy budou použity jako příkaz,

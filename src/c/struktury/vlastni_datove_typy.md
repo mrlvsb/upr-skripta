@@ -51,7 +51,7 @@ Prisera prisery[100];
 ```
 
 Takto bychom zlepšili úroveň abstrakce našeho kódu – v tomto konkrétním případě bychom se mohli začít
-v kódu bavit o `příšeře` místo o `jménu, počtu životů, zranění, ...`, které spolu nějak souvisí.
+v kódu bavit o `příšeře` místo o `jménu, počtu životů, zranění, …`, které spolu nějak souvisí.
 
 Jinak řečeno, chtěli bychom si vytvořit náš vlastní datový typ. A právě to můžeme v *C* udělat pomocí
 [struktur](struktury.md).

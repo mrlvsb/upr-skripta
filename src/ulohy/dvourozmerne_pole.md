@@ -29,7 +29,7 @@ X    X    X
 ```
 
 Hvězdici můžete vykreslit do pole pomocí jediného cyklu.
-Zkuste vytvořit funkce na vykreslení dalších tvarů (čára, čtverec, kružnice, trojúhelník, ...).
+Zkuste vytvořit funkce na vykreslení dalších tvarů (čára, čtverec, kružnice, trojúhelník, …).
 
 ## Násobení matice skalárem
 Vytvořte funkci `matrix_mul_scalar`, která vynásobí každý prvek matice číslem `k`. 

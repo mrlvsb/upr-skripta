@@ -1,6 +1,6 @@
 # Překlad programu
-Pro překlad programu z jazyka *C* do **spustitelného** (*executable*) souboru
-budeme používat jiný program, kterému se říká překladač.
+Pro překlad programů, které budeme psát v jazyce *C*, do **spustitelného** (*executable*) souboru
+budeme používat program, kterému se říká překladač.
 Překladačů jazyka *C* existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
 Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection). 
 
@@ -13,7 +13,7 @@ $ sudo apt install build-essential
 ## Překlad prvního programu
 Ještě než si ukážeme, jak vlastně programovací jazyk *C* funguje, tak zkusíme přeložit velmi jednoduchý
 *C* program do spustitelného souboru a spustit jej.
-Vytvořte soubor s názvem `main.c` a nakopírujte do něj následující *C* kód (později si vysvětlíme,
+Vytvořte soubor s názvem `main.c` a nakopírujte[^1] do něj následující *C* kód (později si vysvětlíme,
 jak tento kód funguje):
 
 ```c,editable
@@ -25,9 +25,12 @@ int main() {
 }
 ```
 
+[^1]: Kód z buněk můžete kopírovat pomocí tlačítka <i class="fa fa-copy"></i> v pravém horním rohu
+buňky s kódem.
+
 > Tento program se nazývá `Hello world`, jelikož tento text vypíše na obrazovku.
-> Podobný jednoduchý program je obvykle tím prvním, co programátor v nějakém novém programovacím
-> jazyce vytvoří.
+> Podobný jednoduchý program je zpravidla tím prvním, co programátor vytvoří, když se učí nějaký
+> programovací jazyk.
 
 Nyní otevřete terminál (`Ctrl + Alt + T` v Ubuntu) ve složce s tímto souborem, spusťte program
 `gcc` a předejte mu cestu k tomuto souboru:
@@ -37,13 +40,12 @@ $ gcc main.c -o program
 ```
 
 Tímto příkazem řeknete "Gécécéčku", aby přeložil zdrojový soubor `main.c` a uložil výsledný spustitelný
-soubor do souboru `program`. Pokud byste přepínač `-o <nazev souboru>` nepoužili, tak se vytvoří spustitelný
-soubor s názvem `a.out`. 
+soubor do souboru `program`[^2]. Pokud byste přepínač `-o <nazev souboru>` nepoužili, tak se vytvoří spustitelný
+soubor s názvem `a.out`.
 
-> Na Windowsu spustitelné soubory mají obvykle příponu `.exe`, na Linuxu to však není běžnou praxí
-> a spustitelné soubory typicky žádnou příponu nemají.
+[^2]: Na Windowsu spustitelné soubory mají obvykle příponu `.exe`, na Linuxu to však není běžnou praxí a spustitelné soubory typicky žádnou příponu nemají.
 
-Pokud chcete nyní program spustit, stačí v terminálu zadat (relativní) cestu k danému spustitelnému souboru.
+Pokud chcete nyní program spustit, stačí v terminálu zadat cestu k danému spustitelnému souboru.
 
 ```bash
 $ ./program
@@ -54,8 +56,8 @@ Program by měl na výstup vytisknout text `Hello world!`.
 <details>
 <summary>Tipy pro práci s příkazovou řádkou</summary>
 
-- Obvykle budete chtít po změně v programu provést překlad a pak program spustit. Abyste to provedli
-v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí `&&`:
+- Při psaní programu budete chtít často po úpravě zdrojového kódu opětovně provést překlad a poté
+  program spustit. Abyste to provedli v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí `&&`:
     ```bash
     $ gcc main.c -o main && ./main
     ```
@@ -64,14 +66,14 @@ v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí `&
 spuštěné příkazy v terminálu.
 </details>
 
-Pro představu je k dispozici ještě shrnující video:
+Pro lepší představu o překladu programů zde máte k dispozici ještě krátké shrnující video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Hu7l9NpQ3g8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Jak překlad probíhá?
-Překlad programu bude detailně vysvětlen v sekci o [linkeru](../c/modularizace/linker.md).
+Překlad programu bude detailně vysvětlen později v sekci o [linkeru](../c/modularizace/linker.md).
+Prozatím nám bude stačit tato zkrácená verze:
 
-Ve zkratce:
 Překlad programů probíhá ve dvou hlavních fázích: **překlad** (*translation*) a **linkování** (*linking*).
 Dohromady se oboum těmto krokům také říká **kompilace** (*compilation*).
 

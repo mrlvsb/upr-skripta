@@ -10,7 +10,7 @@ Proč tato funkce vrací číslo (`int`) a proč jsme v dosavadních programech 
 `0`? Operační systémy mají zavedenou konvenci, že každý spuštěný program by měl po svém vykonání
 vrátit číselnou hodnotu, která systému napoví, jestli program proběhl úspěšně nebo ne. Díky tomu
 pak lze relativně jednoduše detekovat, jestli v programu nastala chyba, a případně na ni nějak
-zareagovat (na Windows možná znáte dialog "Program neproběhl správně...").
+zareagovat (na Windows možná znáte dialog "Program neproběhl správně…").
 
 Číslo, které vrátíte z funkce `main`, se použije právě jako návratová hodnota programu pro operační
 systém. Význam navrácených čísel není nijak standardizován, jediné, co platí obecně, je, že hodnota

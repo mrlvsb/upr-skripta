@@ -173,7 +173,7 @@ Pokud má funkce návratový typ `void`, tak její provádění můžeme ukonči
 ## Syntaxe
 Syntaxe funkcí v *C* vypadá takto:
 ```c
-<datový typ> <název funkce>(<dat. typ par. 1> <název par. 1>, <dat. typ par. 2> <název par. 2>, ...) {
+<datový typ> <název funkce>(<dat. typ par. 1> <název par. 1>, <dat. typ par. 2> <název par. 2>, …) {
     // blok kódu
 } 
 ```

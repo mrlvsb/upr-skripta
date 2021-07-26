@@ -47,6 +47,58 @@ a && 4; // `true`
 if (a > 5 & a < 6) {}
 ```
 
+### Použití operátoru `^` pro umocnění
+Operátor `^` provádí v *C* bitovou operaci [XOR](../c/datove_typy/celociselne_typy.md#operace-s-číselnými-typy),
+nesnažte se jej tedy použít k výpočtu mocnin! Pro výpočet mocniny použijte funkci [`pow`](https://devdocs.io/c/numeric/math/pow)
+(*power* je anglické označení pro mocninu).
+
+```c,editable,mainbody
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int a = 5 ^ 2;
+    printf("%d\n", a);
+
+    int b = pow(5, 2);
+    printf("%d\n", b);
+
+    return 0;
+}
+```
+
+### Použití neexistujících negací operátorů porovnávání
+Jediné existující operátory porovnávání v *C* jsou `<`, `<=`, `>`, `>=`, `==` a `!=`.
+Operátory jako `!<` nebo `!>` neexistují! Negací operátoru `<` je operátor `>=` a negací operátoru
+`>` je operátor `<=`.
+
+### Porovnávání výrazu s více hodnotami najednou
+Pokud budete chtít zjistit, jestli např. nějaká proměnná je menší než jedna hodnota a zároveň větší
+než jiná hodnota, musíte tyto dvě kontroly provést separátně a poté jejich výsledek spojit logickým
+operátorem `&&`. Pokud použijete výraz jako např. `2 < a < 8`, tak se `2 < a` vyhodnotí jako hodnota
+typu `bool`, a poté se provede porovnání `true < 8`, popřípadě `false < 8`, což nejspíše není to, co
+zamýšlíte.
+
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+    int a = 100;
+
+    // špatně
+    if (2 < a < 8) {
+        printf("A: a patri do intervalu (2, 8)\n");
+    }
+
+    // správně
+    if (2 < a && a < 8) {
+        printf("B: a patri do intervalu (2, 8)\n");
+    }
+
+    return 0;
+}
+```
+
 ### Středník za `for`, `while` nebo `if`
 Příkazy `for`, `while` nebo `if` za svou uzavírací závorkou `)` očekávají jeden příkaz:
 ```c

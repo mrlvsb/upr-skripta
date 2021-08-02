@@ -12,8 +12,9 @@ bohatě stačí.
 U celých číselných typů se rozlišuje, zda jsou **signed** (se znaménkem) nebo **unsigned** (bez
 znaménka, nezáporné). Tato vlastnost udává, jaké hodnoty může typ nabývat
 (tj. jestli mohou být i záporné nebo ne). Například číslem o velikosti jednoho bytu můžeme
-reprezentovat 256 různých hodnot. Pokud budeme interpretovat toto číslo se znaménkem, tak může uchovávat
-hodnoty -128 až 127. Pokud ho budeme interpretovat bez znaménka, tak může uchovávat hodnoty 0 až 255.
+reprezentovat 256 různých hodnot:
+  - Pokud ho budeme interpretovat bez znaménka, tak může uchovávat hodnoty 0 až 255.
+  - Pokud ho budeme interpretovat se znaménkem, tak může uchovávat hodnoty -128 až 127.
 
 *C* obsahuje několik základních typů celočíselných proměnných, které se liší v tom, kolik mají bytů a
 jestli jsou znaménkové nebo ne. Pokud před název typu napíšeme `signed`, bude se jednat o znaménkový
@@ -68,7 +69,7 @@ použít [odpovídající](desetinne_typy.md) datový typ. Zkuste si to:
     ```
 - Jelikož mají čísla v počítači omezenou přesnost (typicky několik jednotek bytů), tak může při matematických
 operacích dojít k tzv. **přetečení** (*overflow*). Například pokud vynásobíme jednobytové číslo `50`
-desíti, tak bychom očekávali výsledek `500`, nicméně tak velké číslo nelze v jednom bytu reprezentovat.
+hodnotou `10`, tak bychom očekávali výsledek `500`, nicméně tak velké číslo nelze v jednom bytu reprezentovat.
 Výsledkem místo toho bude `244` (`500 % 256`), pokud se jedná o číslo bez znaménka, nebo `-12`, pokud
 jde o číslo se znaménkem. Podobné výsledky jsou silně neintuitivní, pokud tedy váš program vrácí zvláštní
 číselný výsledek, zkontrolujte si, jestli neprovádíte operace, při kterých mohlo dojít k přetečení.
@@ -84,6 +85,14 @@ Kromě základních aritmetických operací *C* podporuje také [bitové operace
 - AND: operátor `&`
 - OR: operátor `|`
 - XOR: operátor `^`
+
+<hr />
+
+**Cvičení**: Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
+je na výstup. Vyhodnocování výrazů si můžete procvičit [zde](../../ruzne/vyhodnocovani_vyrazu.md)
+nebo [zde](../../ulohy/zaklady.md). 
+
+<hr />
 
 ### Tabulka aritmetických operátorů
 Zde je pro přehlednost tabulka se základními aritmetickými operátory.
@@ -105,31 +114,6 @@ Datový typ výsledku těchto operátorů záleží na datovém typu jejich para
 
 O dalších typech operátorů se postupně dozvíte během semestru.
 Plný seznam *C* operátorů naleznete [zde](https://en.cppreference.com/w/c/language/operator_precedence).
-
-### Explicitní konverze
-Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží **operátor přetypování**
-(*cast operator*), který má syntaxi `(<datový typ>) <výraz>` a převede výraz na daný datový typ.
-Například `(short) 1` převede výraz `1` z typu `int` na `short`. Je dobré si uvědomit, k čemu může
-dojít při převodu mezi různými datovými typy:
-- Pokud je cílový datový typ menší a převáděnou hodnotu v něm nelze reprezentovat, tak dojde k
-oseknutí hodnoty. V důsledku způsobu reprezentace hodnot v počítači takováto operace odpovídá
-zbytku po dělení:
-    ```c
-    unsigned short a = 256;
-    (unsigned char) a // hodnota tohoto výrazu je 0 (256 % 256)
-    ```
-- Pokud převádíte znaménkový typ na bezznaménkový a hodnota převáděného výrazu je záporná, tak nedojde
-k intuitivnímu použití absolutní hodnoty[^4]. V důsledku způsobu reprezentace hodnot v počítači takováto
-operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cílového typu:
-    ```c
-    signed char c = -50;
-    (unsigned char) c // hodnota tohoto výrazu je 206 (256 - 50)
-    ```
-
-[^4]: K tomu můžete použít například funkci [abs](http://www.cplusplus.com/reference/cstdlib/abs/).
-
-Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
-na to, jak funguje [dvojkový doplněk](https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk).
 
 ### Hexadecimální a oktální zápis čísel
 V *C* můžete zapisovat číselné hodnoty také pomocí oktální (osmičkové) či hexadecimální (šestnáctkové)

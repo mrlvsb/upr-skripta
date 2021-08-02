@@ -44,7 +44,7 @@ int main() {
 Návratový typ `void*` reprezentuje ukazatel na libovolná data. Funkce `malloc` musí fungovat pro
 alokaci libovolného datového typu, proto musí mít návratový typ právě univerzální ukazatel `void*`.
 Při zavolání funkce `malloc` bychom měli tento návratový typ
-[přetypovat](../datove_typy/celociselne_typy.md#explicitní-konverze) na ukazatel na datový typ,
+[přetypovat](../datove_typy/konverze.md) na ukazatel na datový typ,
 který alokujeme.
 
 Při zavolání `malloc`u dojde k naalokování `size` bytů na haldě. Adresa prvního bytu této

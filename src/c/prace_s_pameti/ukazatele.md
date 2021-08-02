@@ -51,7 +51,7 @@ Pro inicializaci ukazatele tak existuje několik standardních možností:
 žádnou validní adresu, tak se dle konvence inicializuje na hodnotu `0`. Takovému ukazateli se pak
 říká **nulový ukazatel** (*null pointer*). Jelikož datový typ výrazu `0` je `int`, tak před
 přiřazením této hodnoty do ukazatele jej musíme
-[přetypovat](../datove_typy/celociselne_typy.md#explicitní-konverze) na datový typ cílového
+[přetypovat](../datove_typy/konverze.md) na datový typ cílového
 ukazatele:
     ```c
     float* p = (float*) 0;

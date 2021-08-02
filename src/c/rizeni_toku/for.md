@@ -5,9 +5,9 @@ V programech velmi často potřebujeme vykonat nějaký blok kódu přesně `n`-
 - Vystřel přesně třikrát ze zbraně.
 
 I když pomocí cyklu `while` můžeme vyjádřit provedení `n` iterací, je to relativně zdlouhavé,
-protože je k tomu potřeba alespoň tří řádků:
+protože je k tomu potřeba alespoň tří řádků kódu:
 - Inicializace cyklu: vytvoření řídící proměnné, která se bude kontrolovat v cyklu
-- Kontrola výrazu: kontrola, jestli už proměnná nabrala požadované hodnoty
+- Kontrola výrazu: kontrola, jestli už proměnná dosáhla požadované hodnoty
 - Operace na konci cyklu: změna hodnoty řídící proměnné
 ```c
 int i = 0; // inicializace
@@ -39,4 +39,11 @@ Takovýto cyklus se vykoná následovně:
 Pokud je pravdivý, provede se tělo cyklu a program pokračuje bodem 3.
 3) Provede se příkaz `B` a program pokračuje bodem 2.
 
-**Cvičení**: Napište program, který pomocí cyklu `for` na výstup vypíše čísla od 0 do 9 (včetně).
+<hr/>
+
+**Cvičení**:
+- Napište program, který pomocí cyklu `for` na výstup vypíše čísla od 0 do 9 (včetně).
+- Vypište na výstup řádek `Licha iterace` v každé liché iteraci cyklu a řádek `Suda iterace` v každé
+sudé iteraci tohoto cyklu.
+
+<hr/>

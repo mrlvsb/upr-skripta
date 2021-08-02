@@ -10,14 +10,14 @@ V *C* jsou dva základní vestavěné datové typy pro práci s desetinnými č�
 
 | Název | Počet bytů | Rozsah hodnot | Přesnost | Se znaménkem |
 |---|:---:|:---:|:---:|:---:|
-| `float` | 4 | [-3.4e+38; 3.4e+38] | ~7 des. míst | <i class="fa fa-check"></i> |
-| `double` | 8 | [-1.7e+308; 1.7e+308] | ~16 des. míst | <i class="fa fa-check"></i> |
+| `float` | 4 | [-3.4x10<sup>38</sup>; 3.4x10<sup>38</sup>] | ~7 des. míst | <i class="fa fa-check"></i> |
+| `double` | 8 | [-1.7x10<sup>308</sup>; 1.7x10 <sup>308</sup>] | ~16 des. míst | <i class="fa fa-check"></i> |
 
-Název `double` pochází z "double precision", tedy dvojitá přesnost (typ `float` se také někdy označuje
-pomocí "single precision").
+Slovo `double` pochází z pojmu "double precision", tedy dvojitá přesnost (typ `float` se také někdy
+označuje pomocí "single precision").
 
 Pokud chcete v programu vytvořit výraz datového typu `double`, stačí napsat desetinné číslo (jako
-desetinný oddělovač se používá tečka, ne čárka): `1O.5`, `-0.73`. Pokud chcete vytvořit výraz typu
+desetinný oddělovač se používá tečka, ne čárka): `10.5`, `-0.73`. Pokud chcete vytvořit výraz typu
 `float`, tak za toto číslo ještě přidejte znak `f`: `10.5f`, `-0.73f`.
 
 Pokud chcete vytisknout na výstup hodnotu datového typu `float` nebo `double`, můžete použít

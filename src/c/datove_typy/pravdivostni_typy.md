@@ -4,8 +4,8 @@ Posledním základním datovým typem, který si ukážeme, je pravdivostní typ
 pouze dvě možné varianty - **pravda** (*true*) nebo **nepravda** (*false*). Tento typ se hodí
 zejména pro různé logické operace, například porovnávání hodnot (`Je a menší než b?` - `ano`/`ne`).
 
-V *C* se Booleovský datový typ nazývá `_Bool`. Nicméně tento název je docela krkolomný, obvykle se proto
-používá místo něho typ `bool`. Abyste ho mohli použít, tak na začátek programu musíte vložit řádek
+V *C* se Booleovský datový typ nazývá `_Bool`. Nicméně tento název je docela krkolomný, obvykle se
+proto používá spíše název `bool`. Abyste ho mohli použít, tak na začátek programu musíte vložit řádek
 `#include <stdbool.h>`. [Později](../preprocesor/vkladani_souboru.md) si vysvětlíme, co tento řádek
 dělá.
 ```c,editable,mainbody
@@ -30,8 +30,8 @@ Hodnoty Booleovského typu obvykle zabírají v paměti jeden *byte*.
 
 ### Logické operace
 V (Booleovské) logice existují tři základní operátory:
-- **logický součin** (*AND*): `X a zároveň Y`
-- **logický součet** (*OR*): `X nebo Y`
+- **logický součin** (*AND*): `platí X a zároveň Y`
+- **logický součet** (*OR*): `platí X nebo Y`
 - **logická negace** (*NOT*): `neplatí X`
 
 Tyto logické operace lze v *C* použít pomocí následujících operátorů:
@@ -40,7 +40,7 @@ Tyto logické operace lze v *C* použít pomocí následujících operátorů:
 - **OR**: `||`
 - **NOT**: `!`
 
-Tyto operátory můžete použít mezi dvěmi výrazy datového typu `bool`. Například:
+Tyto operátory můžete použít mezi dvěma výrazy datového typu `bool`. Například:
 ```c
 bool je_muz = true;
 bool je_zena = false;
@@ -75,7 +75,8 @@ K tomu slouží šest základních porovnávacích operátorů:
 - **Menší nebo rovno**: `<=`
 
 [^2]: Zde si dávejte velký pozor na rozdíl mezi `=` (přiřazení hodnoty) a `==` (porovnání dvou hodnot).
-Záměna těchto dvou operátorů je častou začátečnickou chybou a vede k obtížně nalezitelným chybám.
+Záměna těchto dvou operátorů je častou [začátečnickou chybou](../../caste_chyby/caste_chyby.md#záměna--a-)
+a vede k obtížně nalezitelným chybám.
 
 Porovnávat mezi sebou můžete libovolné hodnoty dvou stejných datových typů. Výsledkem porovnání
 je výraz datového typu `bool`:
@@ -83,7 +84,7 @@ je výraz datového typu `bool`:
 int jarda_body = 10;
 int kamil_body = 13;
 
-bool remize = jarda_body == kamil_body; // false
+bool remiza = jarda_body == kamil_body; // false
 bool vyhra_jardy = jarda_body > kamil_body; // true
 
 int delka_hesla = 8;

@@ -1,5 +1,5 @@
 # Cykly
-V programech chceme často provádět nějakou operaci opakovaně, například:
+Ve svých programech budete často chtít provádět nějakou operaci opakovaně, například:
 - Pro každý záznam v databázi vypiš řádek do souboru.
 - Pošli zprávu každému účastníkovi chatu.
 - Načítej řádky ze souboru, dokud nedojdeš na konec souboru.
@@ -37,5 +37,5 @@ typy cyklů, [while](while.md) a [for](for.md).
 > Jistě si dovedete představit, že s pouze sekvenčním zápisem kódu bychom tento potenciál nemohli
 > naplno využít. I když jeden řádek *C* kódu může být přeložen až na desítky procesorových instrukcí,
 > tak i kdybychom zvládli napsat program se stovkami milionů řádek, pořád bychom takovýmto programem
-> "zabavili" procesor na pouhou vteřinu. Běžící programy tak obvykle tráví většinu času prováděním
-> nějakého cyklu.
+> "zabavili" procesor na pouhou vteřinu. Běžící programy tak obvykle tráví většinu času právě
+> prováděním nějakého cyklu.

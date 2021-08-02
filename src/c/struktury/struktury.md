@@ -76,7 +76,7 @@ Proto pro zjištění velikosti struktury (například při dynamické alokaci p
 operátor [`sizeof`](../prace_s_pameti/dynamicka_pamet.md#velikost-alokované-paměti).
 
 ### Umístění a platnost struktur
-Stejně jako u [proměnných](../promenne/promenne.md#definice-a-platnost) platí, že strukturu lze
+Stejně jako u [proměnných](../promenne/promenne.md#platnost) platí, že strukturu lze
 používat pouze v oblasti, ve které je platná (v jejím tzv. *scopu*). Narozdíl od
 [funkcí](../funkce/funkce.md#umístění-funkcí) lze struktury deklarovat i uvnitř funkcí, nicméně
 nejčastěji se struktury deklarují na nejvyšší úrovni souboru (tzv. *global scope*). 

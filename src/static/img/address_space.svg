@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="118.59133mm"
    height="114.25919mm"
    viewBox="0 0 118.59133 114.25919"
    version="1.1"
    id="svg8"
-   inkscape:version="1.0.1 (1.0.1+r73)"
-   sodipodi:docname="address_space.svg">
+   inkscape:version="1.1 (1:1.1+202105261517+ce6663b3b7)"
+   sodipodi:docname="address_space.svg"
+   inkscape:export-filename="/projects/vsb/upr/upr-skripta/src/static/img/address_space.png"
+   inkscape:export-xdpi="200.07143"
+   inkscape:export-ydpi="200.07143"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2">
     <marker
@@ -66,11 +69,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="135.7124"
-     inkscape:cy="209.38338"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-167.68532"
+     inkscape:cy="261.62951"
      inkscape:document-units="mm"
-     inkscape:current-layer="g857"
+     inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      fit-margin-top="0"
@@ -78,10 +81,11 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:window-width="1920"
-     inkscape:window-height="1016"
+     inkscape:window-height="1015"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -90,7 +94,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -107,29 +111,34 @@
        x="44.223545"
        y="11.857526" />
     <g
-       id="g857">
-      <rect
-         style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
-         id="rect10-3"
-         width="70.867256"
-         height="19.463905"
-         x="44.231579"
-         y="11.857526" />
-      <text
-         xml:space="preserve"
-         style="font-size:5.48041px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
-         x="54.760025"
-         y="22.978762"
-         id="text852"><tspan
-           sodipodi:role="line"
-           id="tspan850"
+       id="g857"
+       transform="translate(0,17.991665)">
+      <g
+         id="g870"
+         transform="translate(0,74.083337)">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+           id="rect10-3"
+           width="70.867256"
+           height="19.463905"
+           x="44.231579"
+           y="11.857526" />
+        <text
+           xml:space="preserve"
+           style="font-size:5.48041px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';stroke-width:0.264583"
            x="54.760025"
            y="22.978762"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.48041px;font-family:Raleway;-inkscape-font-specification:Raleway;stroke-width:0.264583">Instrukce programu</tspan></text>
+           id="text852"><tspan
+             sodipodi:role="line"
+             id="tspan850"
+             x="54.760025"
+             y="22.978762"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.48041px;font-family:Raleway;-inkscape-font-specification:Raleway;stroke-width:0.264583">Instrukce programu</tspan></text>
+      </g>
     </g>
     <g
        id="g946"
-       transform="translate(0,1.7866481)">
+       transform="translate(0,-24.142519)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
          id="rect10-3-6"
@@ -173,7 +182,7 @@
          style="font-size:5.64444px;stroke-width:0.264583">Nejvyšší adresa</tspan></text>
     <g
        id="g946-0"
-       transform="translate(0,33.032305)">
+       transform="translate(0,11.865637)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
          id="rect10-3-6-9"
@@ -195,7 +204,7 @@
     </g>
     <g
        id="g946-0-0"
-       transform="translate(0,64.277947)">
+       transform="translate(0,43.111279)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
          id="rect10-3-6-9-6"

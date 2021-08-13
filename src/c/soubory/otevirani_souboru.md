@@ -16,7 +16,7 @@ začínat dopředným lomítkem.
 - **Relativní cesta** (*relative path*) se vyhodnotí relativně k tzv. **pracovnímu adresáři**
 (*working directory*) běžícího programu. Pokud spustíte váš program z terminálu, tak se pracovní
 adresář implicitně nastaví na adresář, ze kterého jste program spustili. Pokud tedy například spustíte
-váš program ze adresáře `/home/student/upr` a funkci `fopen` předáte cestu `soubor.txt`, tak se funkce
+váš program z adresáře `/home/student/upr` a funkci `fopen` předáte cestu `soubor.txt`, tak se funkce
 pokusí otevřít soubor na cestě `/home/student/upr/soubor.txt`.
 
 Při zadávání cesty můžete využít zkratky `.` a `..`, které jsou užitečné zejména u relativních cest:
@@ -61,7 +61,7 @@ dochází ke konverzi určitých bytů při čtení a zápisu ze souboru. Asi ne
 je takto konvertován, je `'\n'`, neboli **odřádkování** (*newline*). Různé operační systémy totiž
 při interpretaci souborů používají různé znaky pro odlišení situace, kdy má dojít k přesunu kurzoru
 na nový řádek:
-- `LF`: Linux a macOS[^2] používají pro konec řádku ASCII přímo znak `LF (line feed)`, který lze v
+- `LF`: Linux a macOS[^2] používají pro konec řádku přímo ASCII znak `LF (line feed)`, který lze v
 *C* zapsat jako `'\n'`.
 - `CRLF`: Windows používá pro konec řádku dvojici ASCII znaků `CR (carriage return)` a `LF`
 (v tomto pořadí). `CR` lze v *C* zapsat jako `'\r'`.
@@ -86,7 +86,7 @@ u jakékoliv práce se vstupem a výstupem i při práci se soubory však může
 chybám.
 
 [^3]: `FILE` je tzv. **neprůhledná** (*opaque*) struktura deklarovaná ve standardní knihovně *C*.
-Nebudete přistupovat k žádným jejím členům, pouze ukazatel na ni budete posílat do různých funkcí
+Nebudete přistupovat k žádným jejím členům, pouze budete ukazatel na ni posílat do různých funkcí
 pro práci se soubory, abyste určili, s jakým (otevřeným) souborem chcete pracovat.
 
 Pokud byste se například pokoušeli otevřít neexistující soubor v módu pro čtení `"r"`, dojde k chybě.
@@ -97,7 +97,7 @@ došlo k chybě, tak se do [globální proměnné](../promenne/globalni_promenne
 K proměnné budete mít přístup, pokud do svého programu [vložíte](../preprocesor/vkladani_souboru.md)
 soubor `<errno.h>`. Pomocí funkce [`strerror`](https://devdocs.io/c/string/byte/strerror) ze souboru
 `<string.h>` pak můžete získat řetězec, který danou chybu popisuje:
-```c,editable
+```c
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
@@ -114,13 +114,15 @@ int main() {
 ```
 
 [^4]: Seznam různých chybových hodnot, které se můžou v `errno` objevit, můžete naleznout například
-[zde](https://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/Errors/unix_system_errors.html).
+[zde](https://www.thegeekstuff.com/2010/10/linux-error-codes/#optiontable).
 
-Pokud píšete malý program a nechce se vám ručně každou chybu ošetřovat, můžete využít funkci
-[`assert`](https://devdocs.io/c/error/assert) ze souboru `<assert.h>`. Tato funkce očekává
-pravdivostní hodnotu a kontroluje, zdali platí (`assert` znamená `ujisti se, že platí …`). Pokud
-hodnota neplatí, tj. vyhodnotí se na `0` či `false`, tak dojde k okamžitému ukončení vašeho programu.
-Vypsanou chybovou hlášku tak nebudete moct ovlivnit, ale ošetření chyby se značně zjednodušší:
+### Použití `assert`
+Pokud píšete malý program a nechce se vám ručně každou chybu ošetřovat, můžete využít
+[makro](../preprocesor/makra.md) [`assert`](https://devdocs.io/c/error/assert) ze souboru `<assert.h>`.
+Toto makro očekává pravdivostní hodnotu a kontroluje, zdali platí (`assert` znamená
+`ujisti se, že platí …`). Pokud hodnota neplatí, tj. vyhodnotí se na `0` či `false`, tak dojde k
+okamžitému ukončení vašeho programu. Nebudete tak sice moct ovlivnit vypsanou chybovou hlášku, ale
+ošetření chyby se značně zjednodušší:
 ```c
 FILE* soubor = fopen("soubor.txt", "r");
 assert(soubor); // pokud je `soubor` roven `NULL`, program se zde ukončí

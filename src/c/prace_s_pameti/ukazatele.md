@@ -1,10 +1,10 @@
 # Ukazatele
 Abychom v *C* mohli manuálně pracovat s pamětí, potřebujeme mít možnost odkazovat se na jednotlivé
-hodnoty v paměti pomocí [adres](../../uvod/pamet.md). Adresa je číslo, takže bychom mohli pro popis
-adres používat například datový typ `unsigned int`[^1]. To by ale nebyl dobrý nápad, protože tento
-datový typ neumožňuje provádět operace, které bychom s adresami chtěli dělat (načíst hodnotu z adresy
-či zapsat hodnotu na adresu), a naopak umožňuje provádět operace, které s adresami dělat nechceme
-(například násobení či dělení adres obvykle nedává valný smysl).
+hodnoty v paměti pomocí [adres](../../uvod/pamet.md#adresování-paměti). Adresa je číslo, takže
+bychom mohli pro popis adres používat například datový typ `unsigned int`[^1]. To by ale nebyl dobrý
+nápad, protože tento datový typ neumožňuje provádět operace, které bychom s adresami chtěli dělat
+(načíst hodnotu z adresy či zapsat hodnotu na adresu), a naopak umožňuje provádět operace, které s
+adresami dělat nechceme (například násobení či dělení adres obvykle nedává valný smysl).
 
 [^1]: Nejnižší možná adresa je `0`, takže záporné hodnoty nemá cenu reprezentovat.
 
@@ -28,8 +28,8 @@ Je důležité si uvědomit, co tato proměnná reprezentuje. Datový typ `int*`
 bude ležet číslo, které budeme interpretovat jako datový typ `int` (celé číslo se znaménkem).
 
 Ukazatele lze libovolně "vnořovat", tj. můžeme mít například "ukazatel na ukazatel na celé číslo"
-(`int**`). Ukazatel ale i tehdy bude prostě číslo, akorát ho budeme interpretovat jako adresu na
-adresu. Pro procvičení je níže uvedeno několik datových typů spolu s tím, jak je interpretujeme.
+(`int**`). Ukazatel ale i tehdy bude prostě číslo, akorát ho budeme interpretovat jako adresu jiné
+adresy. Pro procvičení je níže uvedeno několik datových typů spolu s tím, jak je interpretujeme.
 - `int` - interpretujeme jako celé číslo
 - `int*` - interpretujeme jako adresu, na které je uloženo celé číslo
 - `float*` - interpretujeme jako adresu, na které je uloženo desetinné číslo
@@ -38,16 +38,16 @@ adresu. Pro procvičení je níže uvedeno několik datových typů spolu s tím
 Někdy chceme použít "univerzální" ukazatel, který prostě obsahuje adresu, bez toho, abychom striktně
 určovali, jaká hodnota na dané adrese bude uložena. V tom případě můžeme použít datový typ `void*`.
 
-> Velikost všech ukazatelů v programu je stejná a je daná použitým operačním systémem a překladačem.
-> Ukazatele musí být dostatečně velké, aby zvládli reprezentovat libovolnou adresu, která se v programu
-> může vyskytnout. Na vašem počítači to bude nejspíše 8 bytů, protože pravděpodobně používáte
+> Velikost všech ukazatelů v programu je stejná a je dána použitým operačním systémem a překladačem.
+> Ukazatele musí být dostatečně velké, aby zvládly reprezentovat libovolnou adresu, která se v programu
+> může vyskytnout. Na vašem počítači to bude nejspíše **8 bytů**, protože pravděpodobně používáte
 > 64-bitový systém.
 
 ## Inicializace ukazatele
 Jelikož před spuštěním programu nevíme, na jaké adrese budou uloženy hodnoty, které nás budou
 zajímat, tak obvykle nedává smysl inicializovat ukazatel na konkrétní adresu (např. `int* p = 5;`).
 Pro inicializaci ukazatele tak existuje několik standardních možností:
-- **Inicializace na nulu**: Pokud chceme vytvořit "prázdný" ukazatel, který zatím neukazuje na
+- **Inicializace na nulu** Pokud chceme vytvořit "prázdný" ukazatel, který zatím neukazuje na
 žádnou validní adresu, tak se dle konvence inicializuje na hodnotu `0`. Takovému ukazateli se pak
 říká **nulový ukazatel** (*null pointer*). Jelikož datový typ výrazu `0` je `int`, tak před
 přiřazením této hodnoty do ukazatele jej musíme
@@ -61,11 +61,12 @@ ukazatele:
     vás. Můžete jej najít například v souboru `stdlib.h`:
     ```c
     #include <stdlib.h>
+    // ...
     float* p = NULL;
     ```
-- **Využití alokační funkce**: Pokud budete alokovat paměť [manuálně](dynamicka_pamet.md), tak
-použijete funkce, které vám hodnotu ukazatele vrátí jako svou návratovou hodnotu.
-- **Využití operátoru adresy**: Pokud chcete ukazatel nastavit na adresu již existující hodnoty v
+- **Využití alokační funkce** Pokud budete alokovat paměť [manuálně](dynamicka_pamet.md), tak
+použijete funkce, které vám vrátí adresu jako svou návratovou hodnotu.
+- **Využití operátoru adresy** Pokud chcete ukazatel nastavit na adresu již existující hodnoty v
 paměti, můžete použít **operátor adresy** (*address-of operator*). Ten má syntaxi `&<proměnná>`.
 Tento operátor se vyhodnotí jako adresa předané proměnné[^3]:
     ```c,editable,mainbody
@@ -83,9 +84,9 @@ Tento operátor se vyhodnotí jako adresa předané proměnné[^3]:
     ```
 
     Výraz předaný operátoru `&` se musí vyhodnotit na něco, co má adresu v paměti (většinou to bude
-    [proměnná](../promenne/promenne.md)). Nedává smysl použít něco jako `&5`, protože 5 je číselná
-    hodnota, která nemá žádnou adresu v paměti.
-    
+    [proměnná](../promenne/promenne.md)). Nedává tedy smysl použít něco jako `&5`, protože 5 je
+    číslo, které nemá samo o sobě žádnou adresu v paměti.
+
     Při použití tohoto operátoru je také třeba dávat si pozor na to, aby hodnota v paměti, jejíž
     adresu použitím `&` získáme, stále existovala, když se budeme později snažit k této adrese
     pomocí ukazatele přistoupit. V opačném případu by mohlo dojít k
@@ -116,6 +117,12 @@ int main() {
 V tomto programu se do proměnné `ukazatel` uloží adresa proměnné `cislo`, a poté dojde k načtení
 hodnoty (`*ukazatel`) této proměnné z paměti přes adresu uloženou v ukazateli.
 
+<details>
+  <summary>Interaktivní vizualizace kódu</summary>
+
+  <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%0A%20%20%20%20printf%28%22%25p%5Cn%22,%20ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=5&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+</details>
+
 Pokud chceme do adresy uložené v ukazateli naopak nějakou hodnotu zapsat, tak můžeme operátor
 dereference použít také na levé straně operátoru [zápisu](../promenne/promenne.md#zápis).
 Uhodnete, co vypíše tento program?
@@ -133,9 +140,29 @@ int main() {
 }
 ```
 
+<details>
+  <summary>Interaktivní vizualizace kódu</summary>
+
+  <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+</details>
+
 Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat "pouze" s adresou,
 která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která v paměti leží na adrese
 uložené v ukazateli, musíte použít operátor dereference.
+
+> Pozor na rozdíl mezi `*` používanou pro deklaraci datového typu ukazatel, operátorem dereference
+> a operátorem násobení. Všechny tyto věci sice používají hvězdičku, ale jinak spolu nesouvisí.
+> Vždy záleží na kontextu, kde jsou tyto znaky použity:
+> ```c
+> // hvězdička říká, že datový typ proměnné `p` je ukazatel na `int`
+> int* p;
+> 
+> // hvězdička provede dereferenci návratové hodnoty funkce `vrat_ukazatel`
+> int x = *vrat_ukazatel();
+> 
+> // hvězdička provede násobení dvou čísel
+> int a = 5 * 6;
+> ```
 
 ## Aritmetika s ukazateli
 Abychom se mohli v paměti "posouvat" o určitý kus dopředu či dozadu (relativně k nějaké adrese),
@@ -145,7 +172,7 @@ typ přičteme hodnotu `n`, tak se adresa v ukazateli zvýší o `n`-násobek ve
 na který ukazatel ukazuje. Při aritmetice s ukazateli se tak neposouváme po jednotlivých bytech,
 ale po celých hodnotách daného datového typu[^4].
 
-[^4]: Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli `void*`, protože ty neukazují
+[^4]: Z toho vyplývá, že aritmetiku nemůžeme provádět nad ukazateli typu `void*`, protože ty neukazují
 na žádný konkrétní datový typ.
 
 Například, pokud bychom měli ukazatel `int* p` s hodnotou `16` (tj. "ukazuje" na adresu `16`) a
@@ -166,44 +193,72 @@ p += 1;     // zvýšili jsme adresu v `p` o `4` (tj. p nyní už neukazuje na `
 > K čemu je aritmetika s ukazateli užitečná se dozvíte v sekci o práci s
 > [více proměnnými zároveň](../pole/staticke_pole.md#přístup-k-prvkům-pole).
 
-Kromě dereference a aritmetiky lze s ukazateli provádět také porovnávání (klasicky pomocí operátorů
-`==` nebo `>`). Díky toho můžeme například zjistit, jestli se dvě adresy rovnají.
+Kromě dereference a aritmetiky lze s ukazateli provádět také porovnávání (klasicky pomocí operátoru
+`==`). Díky toho můžeme zjistit, jestli se dvě adresy rovnají.
 
 ## Využití ukazatelů
 Jak se dozvíte v [následující sekci](dynamicka_pamet.md), ukazatele jsou nezbytné pro
-manuální alokaci paměti. Hodí se také při práci s [více proměnnými](../pole/pole.md) zároveň. Kromě
+dynamickou alokaci paměti. Hodí se také při práci s [více proměnnými](../pole/pole.md) zároveň. Kromě
 toho je ale lze použít také například v následujících situacích, které všechny souvisí s předáváním
 adres (ukazatelů) do funkcí:
-- **Změna vnějších hodnot zevnitř funkce** - hodnoty argumentů předávaných při
+- **Změna vnějších hodnot zevnitř funkce** Hodnoty argumentů předávaných při
 [volání funkcí](../funkce/funkce.md#parametrizace-funkcí) se do funkce kopírují, nelze tak jednoduše
 zevnitř funkce měnit hodnoty proměnných, které existují mimo danou funkci. To je sice samo o sobě
 vhodná vlastnost, protože pokud bude funkce měnit pouze své lokální proměnné, případně parametry,
 tak bude jednodušší se v ní vyznat. Nicméně, někdy opravdu chceme ve funkci změnit hodnoty externích
-proměnných. Toho můžeme dosáhnout tak, že si do funkce místo hodnoty proměnné pošleme její adresu v
-ukazateli, a pomocí této adresy pak hodnotu proměnné změníme. Takto například můžeme vytvořit funkci,
-která vezme adresy dvou proměnných a prohodí jejich hodnoty:
-    ```c,editable
-    #include <stdio.h>
-    void vymen(int* a, int* b) {
-        int docasna_hodnota = *a;
-        *a = *b;
-        *b = docasna_hodnota;
-    }
-    int main() {
-        int x = 5;
-        int y = 10;
-        vymen(&x, &y);
-        printf("Po prehozeni: x=%d, y=%d\n", x, y);
-        return 0;
-    }
-    ```
-- **Vrácení více návratových hodnot** - posílání adres proměnných do funkce můžeme využít také k
+proměnných.
+
+  Toho můžeme dosáhnout tak, že si do funkce místo hodnoty proměnné pošleme její adresu v
+  ukazateli, a pomocí této adresy pak hodnotu proměnné změníme. Takto například můžeme vytvořit funkci,
+  která vezme adresy dvou proměnných a prohodí jejich hodnoty:
+  ```c,editable
+  #include <stdio.h>
+  void vymen(int* a, int* b) {
+      int docasna_hodnota = *a;
+      *a = *b;
+      *b = docasna_hodnota;
+  }
+  int main() {
+      int x = 5;
+      int y = 10;
+      vymen(&x, &y);
+      printf("Po prehozeni: x=%d, y=%d\n", x, y);
+      return 0;
+  }
+  ```
+
+  <details>
+    <summary>Interaktivní vizualizace kódu</summary>
+
+    <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0Avoid%20vymen%28int*%20a,%20int*%20b%29%20%7B%0A%20%20%20%20int%20docasna_hodnota%20%3D%20*a%3B%0A%20%20%20%20*a%20%3D%20*b%3B%0A%20%20%20%20*b%20%3D%20docasna_hodnota%3B%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20x%20%3D%205%3B%0A%20%20%20%20int%20y%20%3D%2010%3B%0A%20%20%20%20vymen%28%26x,%20%26y%29%3B%0A%20%20%20%20printf%28%22Po%20prehozeni%3A%20x%3D%25d,%20y%3D%25d%5Cn%22,%20x,%20y%29%3B%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=12&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+
+  </details>
+
+- **Vrácení více návratových hodnot** Posílání adres proměnných do funkce můžeme využít také k
 tomu, abychom z funkce vrátili více než jednu návratovou hodnotu (do adres uložených v parametrech
 totiž můžeme zapsat "návratové" hodnoty). Toho bychom však měli využívat pouze, pokud je to opravdu
 nezbytné. Takovéto funkce je totiž složitější volat a nejsou
 [čisté](../funkce/funkce.md#proč-název-funkce), protože obsahují vedlejší efekt - mění externí stav
 programu.
-- **Sdílení hodnot bez kopírování** - pokud bychom měli proměnné, které v paměti zabírají velké
+  ```c,editable
+  #include <stdio.h>
+
+  void vrat_dve_hodnoty(int* a, int* b) {
+      *a = 5;
+      *b = 6;
+  }
+
+  int main() {
+      int a = 0;
+      int b = 0;
+      vrat_dve_hodnoty(&a, &b);
+
+      printf("a=%d, b=%d\n", a, b);
+
+      return 0;
+  }
+  ```
+- **Sdílení hodnot bez kopírování** Pokud bychom měli proměnné, které v paměti zabírají velké
 množství bytů (například [struktury](../struktury/struktury.md)), a předávali je jako argumenty
 funkci, tak může být zbytečně pomalé je pokaždé kopírovat. Pokud do funkce pouze předáme jejich
 adresu, tak dojde ke kopii pouze jednoho čísla s adresou, nezávisle na tom, jak velká je proměnná,

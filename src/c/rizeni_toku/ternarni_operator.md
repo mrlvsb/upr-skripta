@@ -1,4 +1,8 @@
 # Ternární operátor
+
+> 🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
+> a vrátit se k ní později.
+
 Občas chcete použít jeden ze dvou výrazů v závislosti na hodnotě nějaké podmínky. Například pokud byste
 chtěli přiřadit minimum ze dvou hodnot do proměnné:
 ```c

@@ -6,8 +6,6 @@ nepotřebovali použít:
 - [**Variadiacké funkce**](https://en.cppreference.com/w/c/variadic), které umožňují přijímat
 libovolný počet parametrů (takto funguje například i nám známá funkce
 [`printf`](https://devdocs.io/c/io/fprintf)).
-- [**Ukazatele na funkce**](https://www.cprogramming.com/tutorial/function-pointers.html)
-(*function pointers*), které umožňují ukládat adresy funkcí do ukazatelů.
 - [**Enumerace**](https://en.cppreference.com/w/c/language/enum) (*enumerations*), které umožňují
 seskupit pojmenované konstanty.
 - [**Sjednocené struktury**](https://en.cppreference.com/w/c/language/union) (*unions*), které

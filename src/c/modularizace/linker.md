@@ -16,11 +16,11 @@ Tímto příkazem jsme ve skutečnosti prováděli dvě věci najednou: **překl
 ## Překlad programu
 Programy v *C* se skládají z jedné či více tzv. **jednotek překladu** (*translation unit*). Jedná se
 o nezávislé komponenty, ze kterých je nakonec vytvořen cílový program. Každá jednotka je obvykle
-tvořena jedním zdrojovým souborem (obvykle s příponou `.c`). Pří překladu **překladač** převede
+tvořena jedním zdrojovým souborem (obvykle s příponou `.c`). Při překladu **překladač** převede
 jednotku ze zdrojového kódu v *C* do instrukcí procesoru, tzv. **objektového kódu** (*object code*).
 
 Pokud chceme překladačem `gcc` (pouze) přeložit zdrojový soubor do objektového kódu (resp.
-objektového souboru), použijeme přepínač `-c`:
+objektového souboru), můžeme použít přepínač `-c`:
 ```bash
 $ gcc -c soubor.c
 ```
@@ -66,7 +66,7 @@ a vytvoří finální spustitelný soubor:
 $ gcc a.o b.o -o program
 ```
 
-[^2]: Na Linuxu lze naleznout například linker `ld`.
+[^2]: Na Linuxu lze použít například linker `ld`.
 
 Při finálním linkování programu také dochází ke kontrole toho, jestli je v některém z objektových
 souborů obsažena funkce `main`, aby program věděl, kde má začít své vykonávání.
@@ -78,20 +78,21 @@ dát všechny zdrojové soubory našeho programu tak, jak jsme to dělali doposu
 $ gcc soubor1.c soubor2.c soubor3.c ...
 ```
 
-Ve skutečnosti i to lze provést (tento postup se nazývá tzv. **unity build**). Nicméně má dvě
-vážné nevýhody:
-- Pokud bychom neuměli používat zvlášť překladač a linker, nemohli bychom používat
+Ve skutečnosti i to lze provést (tento postup se nazývá tzv. **unity build**). Nicméně má velkou
+nevýhodu. Pokud bychom překládali celý náš program najednou, při sebemenší změně kódu bychom museli
+přeložit všechny soubory znovu. Pokud bychom tak měli obrovský program s tisícem zdrojových souborů
+a změnili jeden znak v jednom souboru, muselo by se všech tisíc souborů přeložit znovu, což může být
+dost pomalé[^3].
+
+Pokud překládáme každý soubor zvlášť, tak po změně v jednom souboru stačí přeložit daný soubor a znovu
+slinkovat všechny objektové soubory (ty původní můžeme znovuvyužít, protože se nezměnily). To je u
+velkých programů mnohem rychlejší než překládat vše od nuly.
+
+[^3]: Velké programy v *C* může trvat přeložit klidně i několik hodin nebo dokonce dnů!
+
+Navíc pokud bychom se nanučili používat zvlášť překladač a linker, nemohli bychom používat
 [knihovny](knihovny.md), u kterých obvykle nemáme přístup k samotnému zdrojovému kódu, ale pouze k
-již přeloženému objektovému kódu[^3].
+již přeloženému objektovému kódu[^4].
 
-[^3]: Například proto, aby autor knihovny zatajil původní zdrojový kód, který je jeho duševním
+[^4]: Například proto, aby autor knihovny zatajil původní zdrojový kód, který je jeho duševním
 vlastnictvím.
-
-- Pokud bychom překládali celý náš program najednou, při sebemenší změně kódu bychom museli přeložit
-všechny soubory znovu. Pokud bychom tak měli obrovský program s tisícem zdrojových souborů a změnili
-jeden znak v jednom souboru, muselo by se všech tisíc souborů přeložit znovu, což může být dost
-pomalé[^4]. Pokud překládáme každý soubor zvlášť, tak po změně v jednom souboru stačí přeložit daný
-soubor a znovu slinkovat všechny objektové soubory (ty původní můžeme znovuvyužít, protože se
-nezměnily). To je u velkých programů mnohem rychlejší než překládat vše od nuly.
-
-[^4]: Velké programy v *C* může trvat přeložit klidně i několik hodin nebo dokonce dnů!

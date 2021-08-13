@@ -6,9 +6,10 @@ adresovatelné paměti, která je použita právě jako zásobník.
 
 Při každém zavolání funkce vznikne na zásobníku tzv. **zásobníkový rámec** (*stack frame*).
 V tomto rámci je vyhrazena paměť pro lokální proměnné volané funkce a také pro její
-[parametry](../funkce/funkce.md#parametrizace-funkcí). Rámec vzniká při zavolání funkce, v jednu chvíli tak
-na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů) pro stejnou funkci.
-Rámce vznikají v paměti jeden za druhým, a jsou uvolněny v momentě, kdy se jejich funkce dokončí.[^1]
+[parametry](../funkce/funkce.md#parametrizace-funkcí). Rámec vzniká při každém zavolání funkce, v
+jednu chvíli tak na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů)
+pro stejnou funkci. Rámce vznikají v paměti za sebou, a jsou uvolněny v momentě, kdy se jejich
+funkce dokončí.[^1]
 
 [^1]: Rámce tak mohou vznikat nebo zanikat pouze na konci zásobníku, ne uprostřed. Proto se tato
 oblast nazývá zásobník, podle
@@ -29,7 +30,10 @@ hodnoty lokálních proměnných. Můžete si všimnout, že lokální proměnn�
 [nedefinovanou hodnotu](../promenne/promenne.md#vždy-inicializujte-proměnné), dokud do nich není
 nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.
 
-<upr-svgs src="../../static/animations/stack/stack-" to="15" height="400"></upr-svgs>
+<!-- TODO: fix -->
+<div style="display: block; height: 450px">
+    <upr-svgs src="../../static/animations/stack/stack-" to="15" height="400"></upr-svgs>
+</div>
 
 V animaci si můžete všimnout, že rámce vždy vznikají a zanikají pouze na konci zásobníku.[^3]
 Uhodnete, jaké číslo tento program vypíše?
@@ -55,15 +59,15 @@ protože automatická paměť má i určité nedostatky:
 tak naalokovat paměť s velikostí závislou na vstupu programu. Například pokud uživatel zadá
 číslo `n` a my bychom chtěli vytvořit paměť pro `n` čísel, tak nestačí použití zásobníku.
 - Paměť lokálních proměnných a parametrů je uvolněna při dokončení provádění funkce. Jediným způsobem,
-jak předat hodnotu z volání funkce, je pomocí návratového typu, lze takto tedy vrátit pouze jednu
-hodnotu. Nelze tak jednoduše sdílet hodnoty mezi funkcemi, protože paměť lokálních proměnných je po
-dokončení volání funkce uvolněna a nelze ji tak použít z volající funkce.  
+jak předat hodnotu z volání funkce, je pomocí návratové hodnoty. Takto lze vrátit pouze jednu
+hodnotu a nelze jednoduše sdílet paměť mezi funkcemi, protože paměť lokálních proměnných je po dokončení
+volání funkce uvolněna a nelze ji tak použít z volající funkce.  
 - Argumenty předávané do funkcí se kopírují do zásobníkového rámce volané funkce a návratová hodnota
 se zase kopíruje zpět do rámce volající funkce. Toto kopírování může být zbytečně pomalé pro hodnoty
 zabírající velký počet bytů. 
 
-[^4]: Obvykle jde o jednotky KiB/MiB.
+[^4]: Obvykle jde o jednotky KiB nebo MiB.
 
 Abychom mohli alokovat větší množství paměti či jednoduššeji sdílet hodnoty proměnných mezi funkcemi,
-tak musíme mít možnost alokovat a uvolňovat paměť [manuálně](dynamicka_pamet.md). Nejprve ale
-potřebujeme způsob, jak pracovat přímo s adresami v paměti, k čemuž slouží [ukazatele](ukazatele.md).
+tak musíme mít možnost alokovat a uvolňovat paměť manuálně. K tomu ale nejprve potřebujeme vědět,
+jak pracovat přímo s adresami v paměti, k čemuž slouží [ukazatele](ukazatele.md).

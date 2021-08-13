@@ -26,5 +26,10 @@ Pokud se vám toto nechce programovat ručně, tak můžete také použít funkc
 [`realloc`](https://devdocs.io/c/memory/realloc) ze standardní knihovny *C*, která to udělá za vás.
 Tato funkce očekává původní adresu alokace z `malloc`/`calloc` a počet bytů nové alokace.
 
-**Cvičení**: Zkuste si naprogramovat funkci, která obdrží pole a jeho původní velikost
-a realokuje ho na novou velikost.
+<hr />
+
+**Cvičení**: Zkuste naprogramovat funkci `realokace`, která obdrží dynamicky naalokované pole
+(tedy ukazatel), jeho původní velikost a novou velikost. Funkce realokuje pole na novou velikost a
+vrátí ukazatel na nově naalokované pole.
+
+<hr />

@@ -23,20 +23,23 @@ $ gcc soubor1.o soubor2.o -o program
 ```
 
 Nicméně, pokud bychom používali kód z jiných souborů takto "naslepo", narazili bychom na několik
-problémů. Tím, že překladač v souboru `soubor1.c` nemá přístup k popisu funkce `moje_funkce`, tak
-nemůže ověřit, jestli jsme jí předali správné počet argumentů se správnými datovými typy, a ani
-neví, jaká je návratová hodnota této funkce. Tento přístup navíc nebude vůbec fungovat pro použití
-globálních proměnných (při pokusu o použití neexistující proměnné by překladač ohlásil chybu).
+problémů. Tím, že překladač v souboru `soubor1.c` nemá přístup k [signatuře](../funkce/funkce.md#syntaxe)
+funkce `moje_funkce`, tak nemůže ověřit, jestli jsme jí předali správný počet argumentů se správnými
+datovými typy, a ani neví, jaký je datový typ návratové hodnoty této funkce.
+
+Kód "naslepo" navíc nebude vůbec fungovat pro použití (globálních) proměnných. Při pokusu o
+použití neexistující proměnné by překladač totiž rovnou ohlásil chybu.
 
 ## Deklarace vs definice
-Ideálně bychom potřebovali překladači říct, jak bude kód, který chceme použít, vypadat -- jaký bude
+Ideálně bychom potřebovali překladači říct, jak bude kód, který chceme použít, vypadat – jaký bude
 datový typ a název globální proměnné, popř. jaké budou parametry, návratový typ a název funkce.
 Toho můžeme dosáhnout pomocí tzv. **deklarace** (*declaration*).
 
 Deklarace "slibuje", že bude v programu existovat nějaká proměnná či funkce s konkrétním názvem a
 typem, ale neříká, kde bude tato proměnná či funkce vytvořena (může to být například v jiném
 zdrojovém souboru). Samotné vytvoření funkce či proměnné se nazývá **definice** (*definition*).
-Zatím jsme tedy prováděli vždy definice funkcí i proměnných, nyní si ukážeme, jak vytvořit deklaraci.
+Zatím jsme tedy prováděli vždy definice funkcí i proměnných, nyní si ukážeme, jak vytvořit pouze
+deklaraci.
 
 Deklaraci funkce provedeme tak, že zadáme její [signaturu](../funkce/funkce.md#syntaxe), ale ne její
 tělo:
@@ -56,9 +59,9 @@ na tomto místě předpokládáno implicitně.
 
 > Při sdílení kódu napříč soubory má smysl se bavit pouze o
 > [globálních proměnných](../promenne/globalni_promenne.md). Lokální proměnné lze totiž používat vždy
-> pouze v jejich funkci.
+> pouze v rámci jedné funkce.
 
-Díky deklaracím tak můžeme v jednom zdrojovém souboru určit, jak mají vypadat funkce/proměnné, které
+Díky deklaracím tak můžeme v jednom zdrojovém souboru určit, jak mají vypadat funkce a proměnné, které
 chceme používat, aby překladač mohl provádět kontrolu datových typů. Linker pak během linkování použije
 správné proměnné/funkce z odpovídajících zdrojových souborů. Více o tom, kde a jak deklarace vytvářet,
 se dozvíme v příští sekci o [hlavičkových souborech](hlavickove_soubory.md).
@@ -89,7 +92,7 @@ nejprve vytvořit její deklaraci a až později (popř. v úplně jiném soubor
 void funkce2();     // deklarace
 
 void funkce1() {
-    funkce2();
+    funkce2();      // použití
 }
 void funkce2() {}   // definice
 ```
@@ -158,8 +161,8 @@ tak na první pohled poznat, které funkce jsou určeny k použití z jiných so
 menší velikosti výsledného spustitelného souboru.
 
 > Klíčové slovo `static` lze také použít u lokálních proměnných, zde má ovšem úplně jiný význam než
-> u globálních proměnných! Použití `static` u lokální proměnné z ní udělá globální proměnnou, kterou
-> ovšem půjde použít pouze ve funkci, ve které je vytvořena. Takováto proměnná se nainicializuje, když
+> u globálních proměnných! Použití `static` u lokální proměnné z ní udělá proměnnou uloženou v
+> [globální paměti](../prace_s_pameti/globalni_pamet.md). Takováto proměnná se nainicializuje, když
 > se program poprvé dostane k řádku s její definicí. Proměnná bude existovat po celou dobu běhu
 > programu a udrží si svou hodnotu i po skončení volání funkce:
 > ```c,editable

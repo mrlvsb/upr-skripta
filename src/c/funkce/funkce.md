@@ -1,10 +1,10 @@
 # Funkce
-Zatím jsme veškerý kód psali pouze na jedno místo v programu, do "mainu". Jakmile programy začnou
-být větší a větší, tak začne také být neustále těžší a těžší se v nich zorientovat a udržet je celé
-v hlavě, abychom nad nimi mohli přemýšlet. Zároveň se nám v programu brzy začnou objevovat úseky kódu,
-které jsou téměř totožné, ale liší se v drobných detailech. Chtěli bychom tak mít možnost takovýto
-kód napsat pouze jednou a tyto měnící se detaily do něj pouze "dosadit". K rozdělení kódu programu
-do sady ucelených částí a jejich parametrizaci slouží **funkce** (*functions*).
+Zatím jsme veškerý kód psali pouze na jedno místo v programu, do ["mainu"](../../ruzne/funkce_main.md).
+Jakmile programy začnou být větší a větší, tak začne také být neustále těžší a těžší se v nich zorientovat
+a udržet je celé v hlavě, abychom nad nimi mohli přemýšlet. Zároveň se nám v programu brzy začnou
+objevovat úseky kódu, které jsou téměř totožné, ale liší se v drobných detailech. Chtěli bychom tak
+mít možnost takovýto kód napsat pouze jednou a tyto měnící se detaily do něj pouze "dosadit".
+K rozdělení kódu programu do sady ucelených částí a jejich parametrizaci slouží **funkce** (*functions*).
 
 Funkce je pojmenovaný blok kódu, na který se můžeme odkázat v jiné části programu a vykonat tak
 kód, který se ve funkci nachází. S jednou funkcí už jsme se setkali. Jedná se o funkci `main`, jejíž
@@ -48,10 +48,13 @@ funkce `vypis_text`. Jakmile se příkazy z této funkce vykonají, tak program 
 Pomocí volání funkcí můžeme mít kus kódu v programu zapsán pouze jednou ve funkci, a poté ho
 můžeme spouštět z různých částí programu, podle toho, kdy se nám to zrovna bude hodit.
 
+> Funkce `main` je zavolána při spuštění programu, čímž dojde k tomu, že se začnou vykonávat její
+> příkazy.
+
 ## Parametrizace funkcí
-Funkcím lze dávat vstupy zvané **parametry** (*parameters*). Parametry jsou proměnné uvnitř funkce,
-jejichž hodnotu nastavujeme při zavolání dané funkce. Například následující funkce `vypis_cislo` má
-parametr `cislo` s datovým typem `int`.
+Funkcím můžeme přiřadit vstupy zvané **parametry** (*parameters*). Parametry jsou proměnné dostupné
+uvnitř funkce, jejichž hodnotu nastavujeme při zavolání dané funkce. Například následující funkce
+`vypis_cislo` má parametr `cislo` s datovým typem `int`.
 ```c,editable
 #include <stdio.h>
 
@@ -65,8 +68,8 @@ int main() {
 ```
 Při zavolání funkce musíme pro každý její parametr do závorek dát hodnotu odpovídajícího datového typu.
 Zde je jediný parameter typu `int`, takže při zavolání této funkce musíme do závorek dát jednu hodnotu
-datového typu `int`: `vypis_cislo(5)`. Před spuštěním příkazů ve funkci dojde k tomu, že hodnota každého
-parametru se nastaví na hodnotu předanou ve volání funkce[^3]. Při zavolání `vypis_cislo(5)` si tak můžete
+datového typu `int`: `vypis_cislo(5)`. Před spuštěním příkazů ve funkci dojde k tomu, že se každý
+parametr nastaví na hodnotu předanou při volání funkce[^3]. Při zavolání `vypis_cislo(5)` si tak můžete
 představit, že se vykoná následující kód:
 ```c
 {
@@ -81,7 +84,31 @@ představit, že se vykoná následující kód:
 [^3]: Hodnoty (výrazy) předávané při volání funkce se nazývají **argumenty** (*arguments*). Při
 volání `vypis_cislo(5)` se tedy do parametru `cislo` nastaví hodnota argumentu `5`.
 
-Parametrů mohou funkce brát libovolný počet, nicméně obvykle se používá maximálně cca 5
+Je důležité si uvědomit, že při každém zavolání funkce můžeme použít různé hodnoty argumentů:
+
+```c,editable
+#include <stdio.h>
+
+void vypis_cislo(int cislo) {
+    printf("Cislo: %d\n", cislo);
+    if (cislo < 0) {
+        printf("Predane cislo je zaporne\n");
+    } else {
+        printf("Predane cislo je nezaporne\n");
+    }
+}
+int main() {
+    vypis_cislo(5);
+    vypis_cislo(1 + 8);
+
+    int x = -10;
+    vypis_cislo(x);
+
+    return 0;
+}
+```
+
+Parametrů mohou funkce brát libovolný počet, nicméně obvykle se používají jednotky (maximálně cca 5)
 parametrů, aby funkce a její používání (volání) nebylo příliš složité. Jednotlivé parametry jsou
 odděleny v definici funkce i v jejím volání čárkami:
 ```c,editable
@@ -105,10 +132,15 @@ znaky `x` o straně `n`.
 - Funkci `vykresli_pixel`, která přijme jako parametry souřadnici na obrazovce a barvu a vykreslí
 na obrazovce na dané pozici pixel s odpovídající barvou.
 
-**Cvičení**: Zkuste naprogramovat funkci `vypis_ctverec`.
+<hr />
+
+**Cvičení**: Zkuste naprogramovat funkci `vypis_ctverec`. Další zadání jednoduchých funkcí naleznete
+[zde](../../ulohy/zaklady.md#fibonacciho-číslo).
+
+<hr />
 
 ## Návratová hodnota funkcí
-Nejenom, že funkce můžou přijímat vstup, ale umí také vracet výstup. Datový typ uvedený před názvem
+Nejenom, že funkce mohou přijímat vstup, ale umí také vracet výstup. Datový typ uvedený před názvem
 funkce udává, jakého typu bude tzv. **návratová hodnota** (*return value*) dané funkce. V příkladech
 výše jsme viděli datový typ `void`. Tento datový typ je speciální, protože říká, že funkce nebude
 vracet *nic*. Pokud funkce má návratový typ `void`, tak nevrací žádnou hodnotu - pokud zavoláme
@@ -124,7 +156,8 @@ int main() {
 ```
 
 Často bychom nicméně chtěli funkci, která přijme nějaké hodnoty (parametry), vypočte nějakou hodnotu
-a poté ji vrátí. Toho můžeme dosáhnout pomocí příkazu `return <výraz>;`. Při provedení tohoto výrazu
+a poté ji vrátí. Toho můžeme dosáhnout tak, že funkci dáme návratový typ jiný než `void` a poté
+ve funkci použijeme příkaz `return <výraz>;`. Při provedení tohoto výrazu
 se přestane funkce vykonávat a její volání se vyhodnotí hodnotou předaného výrazu. Zde je příklad
 funkce, která bere jako vstup jedno číslo a spočítá jeho třetí mocninu:
  ```c,editable
@@ -138,6 +171,9 @@ int main() {
     return 0;
 }
 ```
+
+> Jak probíhá vyhodnocování funkcí si můžete procvičit [zde](../../ruzne/vyhodnocovani_vyrazu.md).
+
 Příkazů `return` může být ve funkci více:
 ```c
 int absolutni_hodnota(int cislo) {
@@ -178,17 +214,19 @@ Syntaxe funkcí v *C* vypadá takto:
 } 
 ```
 Datovému typu, názvu funkce a jejím parametrům se dohromady říká **signatura** (*signature*) funkce.
-Tato informace je důležitá, abychom věděli, jak s danou funkcí pracovat (jak ji volat), k tomu není
-nutné znát obsah těla funkce.
+Abychom věděli, jak s danou funkcí pracovat (jak ji volat), tak nám stačí znát její signaturu,
+nemusíme nutné znát obsah jejího těla.[^4]
+
+[^4]: Tento fakt bude důležitý [později](../modularizace/pouzivani_kodu_z_jinych_souboru.md#deklarace-vs-definice).
 
 ## Výhody funkcí
 Zde je pro zopakování uveden přehled výhod používání funkcí:
-- Znovupoužitelnost kódu: pokud chcete stejný kód použít na více místech programu, nemusíte ho
-"copy-pastovat". Stačí ho vložit do funkce a tu poté zavolat.
-- Parametrizace kódu: pokud chcete spouštět stejný kód nad různými vstupními hodnotami, stačí udělat
+- **Znovupoužitelnost kódu** Pokud chcete stejný kód použít na více místech programu, nemusíte ho
+"copy-pastovat". Stačí ho vložit do funkce a tu poté opakovaně volat.
+- **Parametrizace kódu** Pokud chcete spouštět stejný kód s různými vstupními hodnotami, stačí udělat
 funkci, která dané hodnoty přijme jako parametry (a případně vrátí výsledek výpočtu jako svou
 návratovou hodnotu).
-- Abstrakce: když rozdělíte logiku programu do sady funkcí, tak si značně usnadníte přemýšlení nad
+- **Abstrakce** Když rozdělíte logiku programu do sady funkcí, tak si značně usnadníte přemýšlení nad
 celým programem. Jednotlivé funkce budete moct testovat a přemýšlet nad nimi separátně, nezávisle na
 zbytku programu. Pomocí používání funkcí také bude mnohem přehlednější čtení programu, protože bude
 stačit číst, co se provádí (která funkce se volá) a ne jak se to provádí (jaké příkazy jsou v těle
@@ -196,10 +234,10 @@ funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyc
     ```c
     int zivot = vrat_zivoty_hrace(id_hrace);
     zivot = zivot - vypocti_zraneni_prisery(id_prisery);
-    nastav_zivory_hrace(id_hrace, zivor);
+    nastav_zivoty_hrace(id_hrace, zivor);
     ```
-- Sdílení kódu: pokud budete chtít použít kód, který napsal někdo jiný, tak toho dosáhnete právě
-používáním funkcí, které vám někdo [připraví](../modularizace/knihovny.md).
+- **Sdílení kódu** Pokud budete chtít použít kód, který napsal někdo jiný, tak toho můžete dosáhnout
+právě používáním funkcí, které vám někdo [nasdílí](../modularizace/knihovny.md).
 
 ## Umístění funkcí
 Funkce v *C* musíme psát vždy na nejvyšší úrovni souboru. V *C* tedy například není možné definovat
@@ -223,14 +261,14 @@ int f(int x) {
     return 2 * x;
 }
 ```
-Aby ale funkce v *C* splňovala požadavky matematické funkce, musí být splněno několik vlastností:
+Aby ale funkce v *C* splňovala požadavky matematické funkce, musí být splněno několik podmínek:
 - Funkce nesmí mít žádné [vedlejší efekty](../prikazy_vyrazy.md#vedlejší-efekty). To znamená, že by
 měla pouze provést výpočet na základě vstupních parametrů a vrátit vypočtenou hodnotu. Neměla by
-číst nebo modifikovat [globální proměnné](../promenne/globalni_promenne.md) nebo například interagovat se
-soubory na disku.
+číst ani modifikovat [globální proměnné](../promenne/globalni_promenne.md) nebo například pracovat
+se soubory na disku či komunikovat po síti.
 - Funkce musí mít návratový typ jiný než `void`, aby vracela nějakou hodnotu. Z toho také vyplývá,
-že funkce s návratovým typem `void` musí mít nutně nějaké vedlejší efekty, jinak by totiž nemělo
-cenu ji volat (protože nic nevrací).
+že funkce s návratovým typem `void` by měla mít nějaké vedlejší efekty, jinak by totiž nemělo
+smysl ji volat (protože nic nevrací).
 - Pokud je funkce zavolána se stejnými hodnotami parametrů, musí vždy vrátit stejnou návratovou
 hodnotu. Této vlastnosti se říká *idempotence*. Jelikož jsou počítače deterministické, tato
 vlastnost by měla být triviálně splněna, pokud funkce neobsahuje žádné vedlejší efekty.
@@ -242,4 +280,4 @@ funkce psát tímto stylem (samozřejmě ne vždy je to možné).
 
 V předmětu
 [Funkcionální programování](http://behalek.cs.vsb.cz/wiki/index.php/Functional_programming/cs)
-budete pracovat s funkcionálními programovacími jazyky, ve kterých je většina funkcí čistých.
+budete pracovat s funkcionálními programovacími jazyky, ve kterých je právě většina funkcí čistých.

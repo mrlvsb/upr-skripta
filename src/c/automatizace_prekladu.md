@@ -1,9 +1,9 @@
 # Automatizace překladu
 Možná vás napadlo, že v případě rozdělení programu do více zdrojových souborů a při použití knihoven
 začne být docela namáhavé náš program vůbec přeložit. Musíme přeložit zvlášť každou
-[jednotku překladu](modularizace/linker.md), nakonec je všechny slinkovat dohromady a případně ještě předat
-potřebné cesty k použitým knihovnám. A toto je třeba po jakékoliv změně v kódu našeho programu,
-pokud ji budeme chtít otestovat.
+[jednotku překladu](modularizace/linker.md#překlad-programu), nakonec je všechny slinkovat dohromady
+a případně ještě předat potřebné cesty k použitým knihovnám. A toto je třeba po jakékoliv změně v
+kódu našeho programu, pokud ji budeme chtít otestovat.
 
 Tento problém se dá řešit různými způsoby, od vytvoření [shell skriptu](https://en.wikipedia.org/wiki/Shell_script),
 pomocí kterého můžeme všechny tyto úkony provést pomocí jediného příkazu v terminálu, až po pokročilé
@@ -15,10 +15,10 @@ Bohužel neexistuje jednotný standardní sestavovací systém pro programy naps
 integraci do našich programů. Sestavovací systémy se navíc obvykle nastavují pomocí konfiguračních
 souborů, které jsou psány v proprietárních jazycích, které se musíte naučit a pochopit, abyste daný
 sestavovací systém mohli používat. Situaci nepomáhá ani to, že se od sebe jednotlivé systémy značně
-liší a bývají velmi složité. 
+liší a bývají velmi komplikované. 
 
 ## [`make`](https://en.wikipedia.org/wiki/Make_(software))
-Asi stále nejpoužívanějším sestavovacím systémem je `make`, který existuje už od roku 1976. Pro jeho
+Asi stále nejpoužívanějším sestavovacím systémem je `make`, který existuje již od roku 1976. Pro jeho
 použití musíte vytvořit soubor `Makefile`, ve kterém popíšete, jak se má váš program přeložit, a poté
 spustíte program `make`, který jej dle konfiguračního souboru přeloží.
   
@@ -26,7 +26,7 @@ Návod pro vytvoření konfiguračního souboru `Makefile` a použití `make` na
 [zde](https://www.itnetwork.cz/cecko/linux/tutorial-c-linux-makefile).
 
 ## `CMake`
-Poněkud modernější alternativou je [`CMake`](https://cmake.org/). Jedná se o meta systém, ve
+Poněkud modernější alternativou je [`CMake`](https://cmake.org/). Jedná se o tzv. meta systém, ve
 skutečnosti totiž neřídí překlad vašeho programu, ale pouze generuje potřebné soubory pro nějaký
 jiný sestavovací systém, který váš program teprve přeloží. Výhodou pak je, že z jednoho `CMake`
 konfiguračního souboru tak můžete vygenerovat např. `Makefile` pro přeložení na Linuxu anebo jiné

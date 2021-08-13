@@ -10,7 +10,7 @@ struct <název struktury> {
     ...
 };
 ```
-> Při definici struktury nezapomínejte na finální středník za složenými závorkami, je povinný.
+> Při deklaraci struktury nezapomínejte na finální středník za složenými závorkami, je povinný.
 
 [^1]: Můžete se setkat také s názvy **atribut** (*attribute*), **vlastnost** (*property*) nebo
 *field*. V kontextu struktur *C* označují všechny tyto názvy jedno a to samé - člena struktury.
@@ -23,7 +23,7 @@ struct Prisera {
     int pocet_zivotu;
 };
 ```
-Tento kód sám o sobě **nic neprovádí**! Pouze pomocí něho říkáme překladači, že vytváříme nový datový
+Tento kód sám o sobě **nic neprovádí**! Pouze pomocí něj říkáme překladači, že vytváříme nový datový
 typ s názvem `struct Prisera`. Poté nám překladač umožní dále v programu vytvořit například lokální
 proměnnou tohoto datového typu:
 ```c
@@ -41,7 +41,7 @@ Pro pojmenovávání struktur používejte v rámci předmětu UPR jmennou konve
 ## Reprezentace struktury v paměti
 Pokud vytvoříme proměnnou datového typu struktury, tak překladač naalokuje paměť pro všechny
 členy této struktury. V případě výše by proměnná `karel` obsahovala nejprve byty pro ukazatel
-`const char*` a poté byty pro `int`. Členové struktury budou v paměti uloženy ve stejném pořadí,
+`const char*` a poté byty pro `int`. Členové struktury budou v paměti uloženi ve stejném pořadí,
 v jakém byly popsány při deklaraci struktury. Neznamená to ovšem, že musí ležet hned za sebou!
 Překladač se může rozhodnout mezi členy struktury v paměti vložit mezery (tzv. *padding*) kvůli
 urychlení provádění programu[^2].
@@ -79,7 +79,8 @@ operátor [`sizeof`](../prace_s_pameti/dynamicka_pamet.md#velikost-alokované-pa
 Stejně jako u [proměnných](../promenne/promenne.md#platnost) platí, že strukturu lze
 používat pouze v oblasti, ve které je platná (v jejím tzv. *scopu*). Narozdíl od
 [funkcí](../funkce/funkce.md#umístění-funkcí) lze struktury deklarovat i uvnitř funkcí, nicméně
-nejčastěji se struktury deklarují na nejvyšší úrovni souboru (tzv. *global scope*). 
+nejčastěji se struktury deklarují na nejvyšší úrovni souboru (tzv. *global scope*), stejně jako
+funkce.
 
 ## Inicializace struktury
 Stejně jako u [základních datových typů](../promenne/promenne.md#vždy-inicializujte-proměnné) a
@@ -105,7 +106,7 @@ inicializaci pomocí pořadí a pomocí názvů členů. Takovýto kód by toti�
 
 ## Přístup ke členům struktur
 Abychom mohli číst a zapisovat jednotlivé členy struktur, můžeme použít operátor
-**přístupu ke členu** (*member access operator*), který má syntaxi `<struktura>.<název členu>`:
+**přístupu ke členu** (*member access operator*), který má syntaxi `<výraz typu struktura>.<název členu>`:
 ```c,editable
 #include <stdio.h>
 
@@ -142,7 +143,7 @@ void pridej_pratele(struct Osoba* osoba) {
     osoba->pocet_pratel++;
 }
 ```
-Operátor `->` je čistě syntaktickou zkratkou, tj. `*(ukazatel).clen == ukazatel->clen`.
+Operátor `->` je čistě syntaktickou zkratkou, tj. platí `*(ukazatel).clen == ukazatel->clen`.
 
 ## Vytváření nových jmen pro datové typy
 Možná vás napadlo, že psát při každém použití struktury klíčové slovo `struct` před jejím názvem je
@@ -156,12 +157,12 @@ int main() {
     return 0;
 }
 ```
-Pomocí `typedef` dáme danému datovému typu nové jméno, pomocí kterého pak tento typ můžeme
-používat (původní název datového typu toto nijak neovlivní). Opět platí, že takto vytvořené jméno
-lze použít pouze v oblasti (*scopu*), kde byl `typedef` použit. Obvykle se používá na nejvyšší
-úrovni souboru. 
+Pomocí `typedef` vytvoříme nové jméno pro datový typ, pomocí kterého se pak na tento typ můžeme
+odkazovat (původní název datového typu to však nijak neovlivní a můžeme ho stále používat). Opět
+platí, že takto vytvořené jméno lze použít pouze v oblasti (*scopu*), kde byl `typedef` použit.
+Obvykle se používá na nejvyšší úrovni souboru. 
 
-U struktur si pomocí `typedef` můžeme zkrátit jejich název z `struct <nazev>` na `<nazev>`:
+U struktur si pomocí `typedef` můžeme zkrátit jejich název ze `struct <nazev>` na `<nazev>`:
 ```c
 struct Osoba {
     int vek;
@@ -217,13 +218,13 @@ int main() {
 }
 ```
 Díky tomu můžeme vytvářet celé hierarchie datových typů, což může značně zpřehlednit náš program,
-protože díky tomu náš kód může pracovat na vyšší úrovni abstrakce.
+protože můžeme pracovat s kódem na vyšší úrovni abstrakce.
 
 [^3]: Lze si můžete všimnout, že vnořené struktury lze inicializovat stejně jako proměnné struktur,
 tj. pomocí složených závorek `{}`.
 
-## Rekurzivní struktury
-Pokud bychom ovšem chtěli použít jako člena struktury tu stejnou strukturu (například struktura
+### Rekurzivní struktury
+Pokud bychom chtěli použít jako člena struktury tu stejnou strukturu (například struktura
 `Osoba` může mít člen `matka` opět s datovým typem `Osoba`), nemůžeme takovýto člen uložit ve
 struktuře přímo, můžeme tam uložit pouze jeho adresu[^4]:
 ```c
@@ -238,6 +239,6 @@ jejího členu `matka`, jehož velikost by závisela na velikosti jeho členu `m
 v tomto případě použít ukazatel, který má fixní velikost, ať už ukazuje na jakýkoliv typ.
 
 [^4]: Zde si můžete všimnout, že musíme použít `struct Osoba` pro datový typ členu `matka`. Je to z
-toho důvodu, že v momentě, kdy tento člen definujeme, ještě neproběhl `typedef`, takže datový typ
-`Osoba` zatím neexistuje. K vytvoření tohoto datového typu dojde až jakmile je struktura zcela
-nadefinována.
+toho důvodu, že v momentě, kdy tento člen definujeme, tak ještě není platný `typedef`, ve kterém se
+struktura nachází, takže datový typ `Osoba` zatím neexistuje. Nové jméno pro datový typ lze používat
+až za středníkem daného `typedef`u.

@@ -1,4 +1,8 @@
 # Příkaz `switch`
+
+> 🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
+> a vrátit se k ní později.
+
 V případě, že byste chtěli provést rozlišný kód v závislosti na hodnotě nějakého výrazu,
 a tento výraz (např. hodnota proměnné) může nabývat většího množství různých hodnot, tak může být
 zdlouhavé použít spoustu `if`ů:

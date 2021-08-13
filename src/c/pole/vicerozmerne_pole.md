@@ -1,7 +1,7 @@
 # Vícerozměrné pole
 Někdy potřebujeme v programech reprezentovat věci, které jsou přirozeně vícerozměrné. Typickým
 příkladem jsou obrázky, které lze reprezentovat jako dvourozměrnou mřížku pixelů (jeden rozměr udává
-řádek a druhý sloupec).
+řádky a druhý sloupce).
 
 [Paměťové adresy](../../uvod/pamet.md) však mají pouze jeden rozměr, jelikož jsou reprezentovány
 jedním číslem. Jak tedy můžeme do jednorozměrné paměti uložit vícerozměrnou hodnotu? Způsobů je více,
@@ -15,21 +15,9 @@ můžeme ji reprezentovat tak, že nejprve do paměti uložíme první řádek, 
 
 Tento koncept se označuje jako **vícerozměrné pole** (*multidimensional array*).
 
-## Inicializace vícerozměrných polí
-Vícerozměrné pole můžete nainicializovat [stejně](staticke_pole.md#inicializace-pole) jako klasické
-pole. Pro zpřehlednění kódu však také můžete použít složené závorky pro oddělení jednotlivých
-dimenzí:
-```c
-int pole_2d[3][4] = {  
-   {0, 1, 2, 3},    // hodnoty pro první řádek
-   {4, 5, 6, 7},    // hodnoty pro druhý řádek
-   {8, 9, 10, 11}   // hodnoty pro třetí řádek
-};
-```
-
 ## Způsob vyskládání dimenzí
 Je na nás, v jakém pořadí jednotlivé dimenze do paměti uložíme. Pokud bychom se bavili o 2D poli,
-tak můžeme do paměti uložit řádek po řádku (viz obrázek výše), toto je nazývané jako
+tak můžeme do paměti uložit řádek po řádku (viz obrázek výše), což se označuje jako
 **row major ordering**. Můžeme ale také do paměti vyskládat sloupec po sloupci, což se nazývá
 **column major ordering**. Je víceméně jedno, který způsob použijeme, je ale důležité se držet
 jednoho přístupu, jinak může dojít k záměně indexů. Indexování totiž záleží na tom, jaký způsob
@@ -78,6 +66,18 @@ bychom měli 2D pole a první index bychom pokládali za index řádku, tak toto
 
 Vícerozměrná pole v *C* lze zobecnit do vyšších dimenzí (můžete tak použít například
 `int pole[3][3][3]` atd.), nicméně je dobré to nepřehánět, aby kód zůstal přehledný.
+
+### Inicializace vícerozměrných polí
+Vícerozměrné pole můžete nainicializovat [stejně](staticke_pole.md#inicializace-pole) jako klasické
+pole. Pro zpřehlednění kódu však také můžete použít složené závorky pro oddělení jednotlivých
+dimenzí:
+```c
+int pole_2d[3][4] = {  
+   {0, 1, 2, 3},    // hodnoty pro první řádek
+   {4, 5, 6, 7},    // hodnoty pro druhý řádek
+   {8, 9, 10, 11}   // hodnoty pro třetí řádek
+};
+```
 
 ## Vícerozměrné dynamické pole
 Pokud potřebujete vícerozměrné pole s [dynamickou velikostí](dynamicke_pole.md), stačí při volání

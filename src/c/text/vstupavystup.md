@@ -30,15 +30,15 @@ Opět to ale není jediná možnost, `stdout` může být například přesměro
     ```bash
     $ ./program > soubor.txt
     ```
-    Pokud použijete například funkci `printf`, tak ta pošle svůj výstup právě do deskriptoru `stdout`.
-    
+    Funkce `printf` posílá svůj výstup právě do deskriptoru `stdout`.
+
     Pokud toto nastavení [nezměníte](https://devdocs.io/c/io/setvbuf), tak `stdout` implicitně používá 
     tzv. **bufferování po řádcích** (*line buffering*). To znamená, že pokud zapíšete do `stdout`
     pomocí některé z funkcí standardní knihovny *C* nějaký text, tak tento text se nejprve zapíše
-    do dočasného pole (*bufferu*) v paměti. Až jakmile na výstup zapíšete znak odřádkování `'\n'`[^1],
+    do dočasného pole (tzv. *bufferu*) v paměti. Až jakmile na výstup zapíšete znak odřádkování `'\n'`[^1],
     tak dojde k vyprázdnění (*flush*) bufferu, kdy je jeho obsah odeslán na výstup. Jinak řečeno,
     dokud nevypíšete znak odřádkování, váš výstup se neobjeví např. v terminálu. Bufferování po
-    řádcích se provádí jako optimalizace, výstup (i vstup) programu totiž může být velmi pomalý.
+    řádcích se provádí jako optimalizace, výstup (i vstup) totiž dost často brzdí vykonávání programů.
 - **Standardní chybový výstup** (`stderr`): tento deskriptor má číslo `2` a používá se pro výpis
 chyb a logovacích záznamů. Narozdíl od `stdout` nepoužívá `stderr` implicitně line buffering, takže
 cokoliv, co do něj zapíšete, se okamžite odešle na výstup deskriptoru.
@@ -59,14 +59,15 @@ v binárním editoru, budou to pro něj pouze tři celá čísla. Pro prohlíže
 mohla reprezentovat barevné složky RGB pixelu.
 
 Aby tak komunikace dvou stran dávala smysl, musí se obě strany dohodnout na tom, jak budou
-interpretovat přenášená data. 
+interpretovat přenášená data. Například u souborů se způsob interpretace obvykle udává tím, jakou
+dáme souboru příponu (`.txt` je pokládán za textový soubor, `.jpg` za JPEG obrázek atd.).
 
 ## Ošetření chyb
 Zatím jsme předpokládali, že operace, které provádíme v programu, vždy uspějí. Například při zápisu
 hodnoty do proměnné jsme předpokládali, že se hodnota v paměti na adrese dané proměnné opravdu objeví
 a když ji pak zpátky načteme, tak se při přenosu nijak neznehodnotí.
 
-Při načítání vstupu či výpisu dat ovšem může velmi často dojít k různým chybovým situacím.
+Při načítání vstupu či vypisování dat ovšem může velmi často dojít k různým chybovým situacím.
 Během zápisu souboru na USB "flashku" ji můžeme omylem vytáhnout, při posílání dat přes síť nám může
 vypadnout připojení k internetu nebo při načítání čísla z terminálu nám může zákeřný uživatel zadat
 něco, co číslo ani zdaleka nepřipomíná.

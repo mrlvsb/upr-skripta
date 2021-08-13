@@ -1,5 +1,5 @@
 # Časté chyby
-V této sekci najdete často se vyskytující chyby, na které můžete narazit, spolu s návodem, jak je
+V této sekci naleznete často se vyskytující chyby, na které můžete narazit, spolu s návodem, jak je
 vyřešit.
 
 ### Záměna `=` a `==`
@@ -112,8 +112,8 @@ if (a > b) {
 }
 ```
 
-Pokud však za závorku dáte rovnou středník (`;`), tak překladač to pochopí jako prázdný příkaz, který nic nedělá.
-
+Pokud však za závorku dáte rovnou středník (`;`), tak to překladač pochopí jako prázdný příkaz, který
+nic nedělá.
 
 V následující ukázce se provede 10× prázdné tělo cyklu `for` a následně se jednou vypíše řetězec `"Hello\n"`.
 ```c,editable,mainbody
@@ -127,8 +127,8 @@ int main() {
 }
 ```
 
-Zde opět středník za `if` reprezentuje prázdný příkaz, takže blok kódu s příkazem `printf` se provede vždy, i když je tato podmínka nesplnitelná.
-
+Zde opět středník za `if` reprezentuje prázdný příkaz, takže blok kódu s příkazem `printf` se provede
+vždy, i když je tato podmínka nesplnitelná.
 
 ```c,editable,mainbody
 #include <stdio.h>

@@ -14,22 +14,20 @@ Seznam všech parametrů můžete naleznout v
 nejužitečnějších parametrů:
 - **Optimalizace**: Existuje spousta parametrů, pomocí kterých můžete ovlivnit, jak překladač převede
 váš zdrojový kód na strojové instrukce a jak je zoptimalizuje. Nejzákladnějším parametrem je `-O`:
-    - `-O0` - nebudou použity téměř žádné optimalizace. Toto je implicitní nastavení,
+    - `-O0` Nebudou použity téměř žádné optimalizace. Toto je implicitní nastavení,
     pokud ho nezměníte. Program v tomto stavu lze dobře [krokovat](../prostredi/ladeni.md#krokování),
     ale může být dost pomalý.
-    - `-O1` - aplikuje základní optimalizace.
-    - `-O2` - aplikuje nejužitečnější optimalizace. Pokud chcete získat rozumně rychlý program,
+    - `-O1` Aplikuje základní optimalizace.
+    - `-O2` Aplikuje nejužitečnější optimalizace. Pokud chcete získat rozumně rychlý program,
     doporučujeme použít tento mód. Díky němu může být program třeba až 1000x rychlejší než s `-O0`.[^1]
-
-    - `-O3` - aplikuje ještě více optimalizací. Program tak může být ještě rychlejší než s `-O2`.
+    - `-O3` Aplikuje ještě více optimalizací. Program tak může být ještě rychlejší než s `-O2`.
     Obecně při použití optimalizací však platí, že čím vyšší optimalizační stupeň, tím více hrozí,
     že se váš program přestane chovat správně, pokud program obsahuje jakékoliv
     [nedefinované chování](../c/promenne/promenne.md#vždy-inicializujte-proměnné). Je tak třeba dávat
     pozor na to, aby k tomu nedošlo.
 
     Kromě parametru `-O` lze použít spousty dalších parametrů, které ovlivňují například použití
-    [vektorových instrukcí](../c/co_dal.md). O těch se dozvíte více například v předmětu
-    [Programování v C++](https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-2068/01&subjectBlockAssignmentId=369400&studyFormId=1&studyPlanId=21821&locale=cs&back=true).
+    [vektorových instrukcí](../c/co_dal.md).
 - **Ladění programu**:
     Jak už jste jistě poznali, při použití jazyka *C* je velmi jednoduché způsobit nějaké nedefinované
     chování, například nějakou [paměťovou chybou](../caste_chyby/pametove_chyby.md). Aby šlo tyto
@@ -40,10 +38,10 @@ váš zdrojový kód na strojové instrukce a jak je zoptimalizuje. Nejzákladn�
 
     Existuje více [typů sanitizerů](https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html),
     my si ukážeme dva:
-    - `-fsanitize=address` - použije tzv. *Address Sanitizer*, který hlídá paměťové chyby, například
+    - `-fsanitize=address` Použije tzv. *Address Sanitizer*, který hlídá paměťové chyby, například
     přístup k nevalidní paměti nebo neuvolnění [dynamické paměti](../c/prace_s_pameti/dynamicka_pamet.md).
-    Tento sanitizer je nesmírně užitečný a doporučujeme ho používat při vývoji automaticky.
-    - `-fsanitize=undefined` - použije tzv. *Undefined behaviour sanitizer*, který hlídá dodatečné
+    Tento sanitizer je nesmírně užitečný a doporučujeme ho vždy používat při vývoji programů v *C*.
+    - `-fsanitize=undefined` Použije tzv. *Undefined behaviour sanitizer*, který hlídá dodatečné
     situace, při kterých může dojít k nedefinovanému chování (kromě paměťových chyb).
 
     Obecně při ladění programu je taky vhodné vždy použít přepínač `-g`. Ten způsobí, že překladač
@@ -55,13 +53,13 @@ odhalit již při překladu programu. Bohužel překladač `gcc` v implicitním 
 některé vyloženě chybné situace vám promine a program přeloží, i když je již dopředu jasné, že při
 běhu pak dojde např. k pádu programu. Abychom tomu předešli, můžeme zapnout při překladu dodatečná
 **varování** (*warnings*), která nás mohou na potenciálně problematické situace upozornit:
-    - `-Wall` - zapne sadu několika desítek základních varování.
-    - `-Wextra` - zapne dodatečnou sadu varování.
-    - `-pedantic` - zapne striktní kontrolu toho, že dodržujete předepsaný standard *C*. V kombinaci
+    - `-Wall` Zapne sadu několika desítek základních varování.
+    - `-Wextra` Zapne dodatečnou sadu varování.
+    - `-pedantic` Zapne striktní kontrolu toho, že dodržujete předepsaný standard *C*. V kombinaci
     s tímto přepínačem byste také měli explicitně říct, který standard chcete použít. V UPR používáme
     standard *C99*, který lze zadat pomocí `-std=c99`.
-    - `-Werror` - tento přepínač způsobí, že libovolné varování bude vnímáno jako chyba. Pokud tak
-    v programu `gcc` nalezne jakékoliv varování, program se nepřeloží.
+    - `-Werror` Tento přepínač způsobí, že libovolné varování bude vnímáno jako chyba. Pokud tak
+    v programu `gcc` nalezne jakoukoliv situaci, která vytvoří varování, program se nepřeloží.
 
     Pokud chcete mít při překladu co největší zpětnou vazbu od překladače a zajistit co největší
     "bezpečnost" vašeho programu, doporučujeme používat tuto kombinaci přepínačů:

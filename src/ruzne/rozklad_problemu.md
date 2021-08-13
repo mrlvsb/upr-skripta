@@ -41,11 +41,11 @@ původní složité úlohy.
 
 Tímto způsobem můžeme programy rovnou od začátku začít psát. Například při řešení výše zmíněné úlohy
 můžeme začít nadefinováním hlavní logiky programu pomocí volání funkcí, kde každá funkce bude reprezentovat
-jednu podúlohu. I když funkce zatím nebudou naprogramované a později se třeba trochu změní, tak nám
-toto rozdělení může pomoct přemýšlet nad problémem abstraktněji, zorientovat se v něm a také
-získat naději, že se úlohu podaří vyřešit. Stejný princip opět můžeme použít při implementaci jednotlivých
-funkcí. Program (či funkci) pak lze přečíst jako větu a je tak jednodušší pochopit, co má
-vlastně dělat.
+jednu podúlohu. I když funkce zatím nebudou naprogramované a později se třeba jejich název nebo rozhraní
+trochu změní, tak nám toto rozdělení může pomoct přemýšlet nad problémem abstraktněji, zorientovat s
+v něm a také získat naději, že se nám úlohu vůbec podaří vyřešit. Stejný princip opět můžeme použít
+při implementaci jednotlivých funkcí. Program (či funkci) pak lze přečíst jako větu a je tak jednodušší
+pochopit, co má vlastně dělat.
 
 ```c
 int main() {

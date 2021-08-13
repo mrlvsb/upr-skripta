@@ -3,14 +3,14 @@
 většinu důležitých konstrukcí, která jsou v *C* dostupné. Nicméně neukázali jsme si úplně všechny –
 zde je seznam několika vybraných věcí, které byly buď moc pokročilé pro UPR anebo jsme je jednoduše
 nepotřebovali použít:
-- [**Variadiacké funkce**](https://en.cppreference.com/w/c/variadic), které umožňují přijímat
+- [**Variadiacké funkce**](https://en.cppreference.com/w/c/variadic) umožňují přijímat
 libovolný počet parametrů (takto funguje například i nám známá funkce
 [`printf`](https://devdocs.io/c/io/fprintf)).
-- [**Enumerace**](https://en.cppreference.com/w/c/language/enum) (*enumerations*), které umožňují
+- [**Enumerace**](https://en.cppreference.com/w/c/language/enum) (*enumerations*) umožňují
 seskupit pojmenované konstanty.
-- [**Sjednocené struktury**](https://en.cppreference.com/w/c/language/union) (*unions*), které
+- [**Sjednocené struktury**](https://en.cppreference.com/w/c/language/union) (*unions*)
 umožňují interpretovat strukturu jako více různých datových typů.
-- [**Bitová pole**](https://en.cppreference.com/w/c/language/bit_field) (*bit fields*), která
+- [**Bitová pole**](https://en.cppreference.com/w/c/language/bit_field) (*bit fields*)
 umožňují rozdělit paměť struktury na úrovni jednotlivých bitů. 
 - [**Široké znaky**](http://www.cplusplus.com/reference/cwchar/) (*wide chars*) a s nimi související
 funkce standardní knihovny umožňují používat složitější kódování než ASCII.
@@ -18,7 +18,7 @@ funkce standardní knihovny umožňují používat složitější kódování ne
 umožní pracovat s datovými typy reprezentujícími komplexní čísla.
 
 > Pokud si chcete ověřit, jak jste na tom se znalostí jazyka *C*, projděte si tyto
-> [slidy](https://www.slideshare.net/olvemaudal/deep-c). Pokud budete umět odpovídat jako blonďatý
+> [slidy](../static/files/deepc.pdf). Pokud budete umět odpovídat jako blonďatý
 > kluk, tak znáte základy jazyka *C*. Pokud budete umět odpovídat jako dívka s růžovými vlasy,
 > tak už vás v jazyce *C* téměř nic nepřekvapí.
 
@@ -30,7 +30,7 @@ programů. Na následujících odkazech se můžete dozvědět například:
 - Jak fungují [operační systémy](http://poli.cs.vsb.cz/edu/osy/osnova.html).
     - Nebo dokonce jak si nějaký [napsat od nuly](https://littleosbook.github.io/).
 - Jak komunikovat s jinými programi po [síti](http://www.beej.us/guide/bgnet/).
-- Jak psát programy pomocí [instrukcí procesoru](http://poli.cs.vsb.cz/edu/soj/down/soj-skripta.pdf)
+- Jak psát programy přímo pomocí [instrukcí procesoru](http://poli.cs.vsb.cz/edu/soj/down/soj-skripta.pdf)
 - Jak urychlit provádění programů:
     - Pomocí [vláken](https://computing.llnl.gov/tutorials/pthreads/), které umí využít potenciál
     vícejádrových procesorů.
@@ -42,5 +42,5 @@ programů. Na následujících odkazech se můžete dozvědět například:
 [programovací jazyk](http://www.buildyourownlisp.com/chapter1_introduction).
 - Jak si napsat vlastní [databázi](https://cstack.github.io/db_tutorial/).
 - Jak funguje [počítačová grafika](http://mrl.cs.vsb.cz/people/fabian/pg1_course.html).
-- Jak si napsat vlastní [3D herní engine](https://learnopengl.com/) pomocí OpenGL.
+  - Můžete si napsat vlastní [3D herní engine](https://learnopengl.com/) pomocí OpenGL.
 - Jak si napsat program pro nějaké vestavěné (*embedded*) zařízení, například [Arduino](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink).

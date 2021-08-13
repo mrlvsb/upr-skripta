@@ -100,4 +100,5 @@
     - [Různé](ulohy/ruzne.md)
 - [Časté chyby](caste_chyby/caste_chyby.md)
     - [Paměťové chyby](caste_chyby/pametove_chyby.md)
-- [Galerie projektů (2020/2021)](projekty_2020.md)
+- [Galerie projektů](galerie_projektu/galerie_projektu.md)
+  - [2020/2021](galerie_projektu/2020.md)

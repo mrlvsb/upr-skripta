@@ -27,10 +27,10 @@ definuje čtyři barvy:
 typedef unsigned char byte;
 
 byte palette[] = {
-    0x00, 0x00, 0x00, /* 0 -> černá */
-    0xFF, 0x00, 0x00, /* 1 -> červená */
-    0x00, 0xFF, 0x00, /* 2 -> zelená */
-    0x00, 0x00, 0xFF, /* 3 -> modrá */
+    0x00, 0x00, 0x00, /* 0 -> černá   (R=0, G=0, B=0)   */
+    0xFF, 0x00, 0x00, /* 1 -> červená (R=255, G=0, B=0) */
+    0x00, 0xFF, 0x00, /* 2 -> zelená  (R=0, G=255, B=0) */
+    0x00, 0x00, 0xFF, /* 3 -> modrá   (R=0, G=0, B=255) */
 };
 ```
 Pokud použijeme pro pixel index `1`, bude vykreslen červenou barvou, protože v této paletě se na
@@ -54,11 +54,14 @@ ge_GIF* gif = ge_new_gif(
 ```
 Parametr hloubky palety by měl být nastaven na dvojkový logaritmus počtu baret v paletě. V naší
 paletě jsou 4 barvy, takže jsme zde předali hodnotu parametru `2`. Poslední parametr udává, kolikrát
-se má animace přehrát. Hodnota `0` udává, že se má animace opakovat neustále dokola.
+se má animace přehrát. Hodnota `0` udává, že se má animace opakovat neustále dokola[^3].
 
 [^2]: Pro použití hlavičkového souboru knihovny nezapomeňte na začátku svého programu
 [vložit](../preprocesor/vkladani_souboru.md) [hlavičkový soubor](../modularizace/hlavickove_soubory.md)
 `gifenc.h`.
+
+[^3]: Všechny tyto údaje lze vyčíst z [dokumentace](https://github.com/lecram/gifenc/blob/master/README#L25)
+knihovny.
 
 ### Zápis snímků
 Když nyní máme vytvořenou animaci, můžeme do ní postupně zapisovat snímky. Zápis probíhá následovně:
@@ -68,9 +71,9 @@ klasický převod z [2D na 1D index](../pole/vicerozmerne_pole.md#indexování).
 2) Zavoláme funkci `ge_add_frame`, které řekneme, na jak dlouhou dobu se má tento snímek zobrazit.
 Tato doba je v setinách vteřiny.
 
-Jakmile zapíšeme jeden snímek, můžeme celý proces opakovat pro zápis více snímků.
+Jakmile zapíšeme jeden snímek, můžeme celý proces opakovat pro zápis dalších snímků.
 
-Uhodnete, jakou animaci vygeneruje následující kód[^3]?
+Uhodnete, jakou animaci vygeneruje následující kód[^4]?
 ```c
 for (int i = 0; i < 100; i++) {
     memset(gif->frame, 0, sizeof(uint8_t) * width * height);
@@ -86,7 +89,7 @@ for (int i = 0; i < 100; i++) {
 }
 ```
 
-[^3]: Pro ověření tipu si program přeložte a podívejte se na výslednou animaci. Zakomentujte řádek
+[^4]: Pro ověření tipu si program přeložte a podívejte se na výslednou animaci. Zakomentujte řádek
 s `memset` a zkuste odhadnout, jak a proč to změní výslednou animaci.
 
 <details>
@@ -107,3 +110,15 @@ ge_close_gif(gif);
 Pokud byste naopak chtěli nějakou `GIF` animaci načíst ze souboru a něco s ní dále provést, můžete
 použít knihovnu [`gifdec`](https://github.com/lecram/gifdec) od stejného autora, která slouží k
 načítání `GIF` souborů.
+
+<hr />
+
+**Cvičení**: Zkuste použít knihovnu `gifdef` pro převod animace z `GIF` do `TGA`:
+1) Načtěte `GIF` animaci z disku.
+2) Projděte všechny snímky animace.
+3) Pro každý snímek převeďte pixely snímku z indexované palety do klasické mřížky pixelů používané
+ve formátu `TGA`.
+4) Zapište každý snímek na disk jako individuální `TGA` obrázek. Můžete na kraj obrázku vykreslit
+informaci o pořadí snímku.
+
+<hr />

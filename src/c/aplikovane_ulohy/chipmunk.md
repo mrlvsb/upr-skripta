@@ -1,17 +1,17 @@
 # Chipmunk
 Při tvorbě interaktivních grafických aplikací nebo her můžeme chtít simulovat pohyb objektů tak, aby
-dodržoval fyzikální zákony (působení gravitace, tření a kolize objektů, pohyb lana atd.). Pro to
+dodržoval fyzikální zákony (působení gravitace, tření a kolize objektů, pohyb lana atd.). K tomu
 můžeme použít nějakou knihovnu na simulaci fyziky. [`Chipmunk`](https://chipmunk-physics.net) je
 knihovna pro simulování jednoduchých fyzikálních procesů ve 2D prostoru.
 [Zde](https://www.youtube.com/watch?v=K84I4qqU8wg) se můžete podívat, co všechno se s takovou
 knihovnou dá udělat.
 
-Pokud znáte hry jako [Angry Birds](https://youtu.be/aiiQ8btusrs?t=399) nebo
-[Fruit Ninja](https://youtu.be/3bdBToxbGqg?t=212), tak tyto hry by se bez knihovny pro simulaci
-fyziky neobešly.
+Možná znáte hry jako [Angry Birds](https://youtu.be/aiiQ8btusrs?t=399) nebo
+[Fruit Ninja](https://youtu.be/3bdBToxbGqg?t=212). Podobné typy her by se bez nějaké knihovny pro
+simulaci fyziky neobešly.
 
 ## Instalace
-Knihovna Chipmunk nenabízí distribuce již přeložených objektových souborů, musíme tedy její zdrojové
+Knihovna Chipmunk nenabízí distribuci již přeložených objektových souborů, musíme tedy její zdrojové
 soubory přidat k našemu projektu a přeložit je ručně.
 
 Stáhněte si poslední verzi [zdrojových kódů knihovny](https://chipmunk-physics.net/release/ChipmunkLatest.tgz)

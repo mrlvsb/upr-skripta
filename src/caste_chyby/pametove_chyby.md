@@ -97,6 +97,9 @@ Tato situace se nazývá
     }
     ```
 
+> Zkuste si programy výše spustit nejprve bez Address sanitizeru a poté s ním. Dokázal sanitizer
+> detekovat některé z popsaných paměťových chyb?
+
 ## Memory leak
 Pokud (opakovaně) alokujeme [dynamickou paměť](../c/prace_s_pameti/dynamicka_pamet.md) a neuvolňujeme ji, tak
 dochází k tzv. [*memory leaku*](https://owasp.org/www-community/vulnerabilities/Memory_leak)
@@ -108,12 +111,12 @@ void leak() {
     malloc(sizeof(int));
 }
 ```
-Tato chyba je celkem zákeřná, protože pokud paměť roste pomalu, tak může trvat dost dlouho, než se
-projeví. K nalezení chyby doporučujeme použít Address sanitizer, který na konci programu zkontroluje,
-jestli všechny dynamicky naalokované bloky byly korektně uvolněny.
+Tato chyba je celkem zákeřná, protože pokud paměť roste pomalu, tak může trvat dost dlouho, než
+paměť programu dojde a vy se tak dozvíte o problému. K nalezení chyby doporučujeme opět použít Address
+sanitizer, který na konci programu zkontroluje, jestli všechny dynamicky naalokované bloky byly
+korektně uvolněny.
 
 > Nemusíte se však bát, že by neuvolněná paměť ve vašem programu nějak narušovala chod operačního
 > systému. I když paměť manuálně neuvolníte, tak moderní operační systémy veškerou paměť vašeho
 > spuštěného programu uvolní, jakmile program skončí. Dokud však program běží, tak bude neuvolněná
 > paměť zabírat místo, což může způsobovat problémy.
-

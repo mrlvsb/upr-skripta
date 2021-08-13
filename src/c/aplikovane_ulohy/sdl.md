@@ -9,8 +9,8 @@ je tento engine velmi jednoduchý.
 Narozdíl od knihovny, kterou jsme si ukazovali pro vytváření [`GIF` animací](gif.md), `SDL` obsahuje
 spoustu zdrojových i hlavičkových souborů, a nebylo by tak ideální ji kopírovat k našemu programu.
 Připojíme ji tedy k našemu programu jako klasickou
-[knihovnu](../modularizace/knihovny.md#použití-knihoven-s-gcc). Abychom knihovnu mohli použít, nejprve
-si ji musíme stáhnout. To můžeme udělat dvěmi způsoby:
+[knihovnu](../modularizace/knihovny.md#použití-knihoven-s-gcc) ve formě archivu. Abychom knihovnu
+mohli použít, nejprve si ji musíme stáhnout. To můžeme udělat dvěmi způsoby:
 - **Instalace pomocí správce balíčků** (*doporučeno*): Jelikož je `SDL` velmi známá a používaná
 knihovna, ve většině distribucí Linuxu není problém ji nainstalovat přímo z balíčkového manažeru.
 V Ubuntu to můžete provést pomocí následujícího příkazu v terminálu, který nainstaluje kromě balíčku
@@ -19,8 +19,8 @@ se základní funkcionalitou také dva další balíčky nutné pro vykreslován
     $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
     ```
     Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, `gcc` ji tak
-    bude mět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou je, že verze
-    knihoven v systémových balíčcích typicky bývají zastaralé.
+    bude umět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou je, že verze
+    knihoven nacházejících se v balíčkových manažerech bývají typicky dosti zastaralé.
 
 [^1]: Pokud by vás zajímalo, které všechny soubory a kam se nainstalovaly, můžete po instalaci balíčků
 použít příkaz
@@ -41,8 +41,8 @@ knihovnu `SDL2`:
 $ gcc main.c -lSDL2
 ```
 Pokud jste knihovnu překládali manuálně, musíte ještě použít parametry `-I` pro předání cesty k
-hlavičkovým souborům a `-L` pro předání cesty k adresáři s přeloženou knihovnou, jak jsme si
-vysvětlovali [zde](../modularizace/knihovny.md#použití-knihoven-s-gcc).
+hlavičkovým souborům a `-L` pro předání cesty k adresáři s přeloženou knihovnou, jak již bylo
+vysvětleno [zde](../modularizace/knihovny.md#použití-knihoven-s-gcc).
 
 Pro práci s obrázky bude dále nutné přilinkovat knihovnu `SDL2_image` a pro práci s textem knihovnu
 `SDL2_ttf`.
@@ -53,11 +53,13 @@ naleznete jednak deklarace a popis fungování jednotlivých funkcí, které kni
 různé návody pro to, jak s knihovnou pracovat.
 
 Dokumentaci funkcí `SDL` naleznete [zde](https://wiki.libsdl.org/APIByCategory), návody pro jeho
-použití například [tady](https://www.willusher.io/pages/sdl2/).
+použití například [tady](https://www.willusher.io/pages/sdl2/). V `UPR` budeme používat pouze `SDL`
+verze 2, které se značně liší od předchozí verze. Dávejte si tedy u návodů na internetu pozor na to,
+jestli se týkají správné verze `SDL`.
 
 > `SDL` je relativně rozsáhlá knihovna a není v silách tohoto textu, abychom ji plně popsali. Proto
 > níže naleznete pouze velmi stručný "Hello world" a seznam věcí, které vám SDL umožňuje. Zbytek
-> najdete v dokumentaci a návodech na internetu.
+> naleznete v dokumentaci a návodech na internetu.
 
 ## `SDL` hello world
 Abychom něco vykreslili, tak jako první věc musíme nainicializovat SDL a vytvořit okno[^2]:
@@ -66,7 +68,8 @@ Abychom něco vykreslili, tak jako první věc musíme nainicializovat SDL a vyt
 chyb naleznete na konci této sekce.
 
 ```c
-#include <SDL2/SDL.h>
+#include <SDL2/SDL.h>  // Vložení hlavního hlavičkového souboru SDL
+#include <stdbool.h>
 
 int main()
 {
@@ -79,7 +82,7 @@ int main()
         100,                // Souřadnice y
         800,                // Šířka
         600,                // Výška
-        SDL_WINDOW_SHOWN
+        SDL_WINDOW_SHOWN    // Okno se má po vytvoření rovnou zobrazit
     );
 ```
 Jakmile máme otevřené okno, můžeme do něj něco začít vykreslovat. K tomu musíme nejprve vytvořit
@@ -108,22 +111,32 @@ Konkrétně budeme vykreslovat jednoduchou posouvající se čáru, dokud uživa
 
     while (!quit)
     {
+        // Dokud jsou k dispozici nějaké události, ukládej je do proměnné `e`
         while (SDL_PollEvent(&e))
         {
+            // Pokud došlo k uzavření okna, nastav proměnnou `quit` na `true`
             if (e.type == SDL_QUIT)
             {
                 quit = true;
             }
         }
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Nastavení barvy na černou
-        SDL_RenderClear(renderer);                      // Vykreslení pozadí
 
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Nastavení barvy na červenou
-        SDL_RenderDrawLine(renderer, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
+        // Nastavení barvy vykreslování na černou
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
+        // Vykreslení pozadí
+        SDL_RenderClear(renderer);
+
+        // Nastavení barvy na červenou
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+        // Vykreslení čáry
+        SDL_RenderDrawLine(renderer, pos, pos, pos + 100, pos + 100);
 
         pos++;
 
-        SDL_RenderPresent(renderer);  // Prezentace kreslítka
+        // Zobrazení vykreslených prvků na obrazovku
+        SDL_RenderPresent(renderer);
     }
 ```
 A na konci už akorát vše uvolníme:
@@ -186,7 +199,7 @@ int main()
         SDL_RenderClear(renderer);                      // Vykreslení pozadí
 
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Nastavení barvy na červenou
-        SDL_RenderDrawLine(renderer, pos, pos, pos + 10, pos + 10); // Vykreslení čáry
+        SDL_RenderDrawLine(renderer, pos, pos, pos + 100, pos + 100); // Vykreslení čáry
 
         pos++;
 

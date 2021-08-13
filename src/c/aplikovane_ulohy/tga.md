@@ -78,9 +78,12 @@ typedef struct {
 > vložil, tak by naše struktura v paměti už neodpovídala hlavičce `TGA` v souboru a četli bychom tak
 > neplatné hodnoty. Když použijeme pro všechny atributy datový typ s velikostí 1 byte, tak překladač
 > žádné mezery vkládat nebude.
+> 
+> Alternativním řešením by bylo říct překladači, ať do dané struktury žádné mezery
+> [nevkládá](https://stackoverflow.com/a/40642888/1107768).
 
 Nyní už stačí pouze otevřít nějaký `TGA` soubor (např. [tento](../../static/img/carmack.tga)),
-[načíst](../soubory/prace_se_soubory.md#čtení-ze-souboru) z něj počet bytů odpovídající naší struktuře
+[načíst](../soubory/cteni_ze_souboru.md) z něj počet bytů odpovídající naší struktuře
 a poté si z ní můžeme přečíst informace o daném obrázku:
 ```c
 FILE* file = fopen("carmack.tga", "rb");
@@ -105,7 +108,7 @@ memcpy(&height, header->height, 2);
 ## Načtení pixelů ze souboru
 Jakmile jsme načetli hlavičku, můžeme načíst ze souboru i samotné pixely. Ty jsou umístěny v souboru
 hned za hlavičkou. Každý pixel má odpovídající počet bytů podle typu obrázku (u RGB 3 byty[^1], u
-černobílých obrázků 1 byte) a počet pixelů je dán rozměry obrázku (šířka * výška).
+černobílých obrázků 1 byte) a počet pixelů je dán rozměry obrázku (`šířka * výška`).
 
 [^1]: V `TGA` jsou jednotlivé barevné složky uložené v pořadí `blue`, `green`, `red`. Jedná se tedy
 vlastně o formát BGR.

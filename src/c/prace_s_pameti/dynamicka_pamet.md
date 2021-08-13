@@ -29,7 +29,7 @@ Parametr `size` udává, kolik bytů paměti se má naalokovat. Tuto velikost m�
 manuálně, nicméně to není moc dobrý nápad, protože bychom si museli pamatovat velikosti datových
 typů (přičemž jejich velikost se může lišit v závislosti na použitém operačním systému či
 překladači!). Abychom tomu předešli, tak můžeme použít operátor `sizeof`, kterému můžeme předat datový
-typ[^2] a tento výraz se poté vyhodnotí jako velikost daného datového typu:
+typ[^2]. Tento výraz se poté vyhodnotí jako velikost daného datového typu:
 ```c,editable,mainbody
 #include <stdio.h>
 int main() {
@@ -42,10 +42,9 @@ int main() {
 [^2]: Případně výraz, v tom případě si `sizeof` vezme jeho datový typ.
 
 Návratový typ `void*` reprezentuje ukazatel na libovolná data. Funkce `malloc` musí fungovat pro
-alokaci libovolného datového typu, proto musí mít návratový typ právě univerzální ukazatel `void*`.
-Při zavolání funkce `malloc` bychom měli tento návratový typ
-[přetypovat](../datove_typy/konverze.md) na ukazatel na datový typ,
-který alokujeme.
+alokaci libovolného datového typu, proto musí mít jako návratový typ právě univerzální ukazatel
+`void*`. Při zavolání funkce `malloc` bychom měli tento návratový typ
+[přetypovat](../datove_typy/konverze.md) na ukazatel na datový typ, který alokujeme.
 
 Při zavolání `malloc`u dojde k naalokování `size` bytů na haldě. Adresa prvního bytu této
 naalokované paměti se poté vrátí jako návratová hodnota `malloc`u. Zde je ukázka programu, který
@@ -66,30 +65,35 @@ int main() {
 }
 ```
 
+<details>
+  <summary>Interaktivní vizualizace kódu</summary>
+
+  <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdlib.h%3E%0A%0Aint*%20naalokuj_pamet%28%29%20%7B%0A%20%20%20%20int*%20pamet%20%3D%20%28int*%29%20malloc%28sizeof%28int%29%29%3B%0A%20%20%20%20*pamet%20%3D%205%3B%0A%20%20%20%20return%20pamet%3B%20%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int*%20pamet%20%3D%20naalokuj_pamet%28%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*pamet%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=8&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+</details>
+
 ### Iniciální hodnota paměti
-Stejně jako u [lokálních proměnných](../promenne/promenne.md#vždy-inicializujte-proměnné) platí, že
-hodnota naalokované paměti je nedefinovaná. Než se tedy hodnotu dané paměti pokusíte přečíst, musíte
-jí nainicializovat zápisem nějaké hodnoty! Jinak bude program obsahovat nedefinované chování 💣.
+Stejně jako u [lokálních proměnných](../promenne/promenne.md#vždy-inicializujte-proměnné), i u
+dynamicky naalokované paměti platí, že její hodnota je zpočátku nedefinovaná. Než se tedy hodnotu
+dané paměti pokusíte přečíst, musíte jí nainicializovat zápisem nějaké hodnoty! Jinak bude program
+obsahovat nedefinované chování 💣.
 
 Pokud byste chtěli, aby naalokovaná paměť byla rovnou při alokaci vynulována (všechny byty
 nastavené na hodnotu `0`), můžete místo funkce `malloc` použít funkci
-[`calloc`](https://devdocs.io/c/memory/calloc)[^3].
-
-Případně můžete použít užitečnou funkci [`memset`](https://devdocs.io/c/string/byte/memset), která
-vám vyplní blok paměti zadaným bytem.
+[`calloc`](https://devdocs.io/c/memory/calloc)[^3]. Případně můžete použít užitečnou funkci
+[`memset`](https://devdocs.io/c/string/byte/memset), která vám vyplní blok paměti zadaným bytem.
 
 [^3]: Pozor však na to, že tato funkce má jiné parametry než `malloc`. Očekává počet hodnot, které
 se mají naalokovat, a velikost každé hodnoty.
 
 ## Uvolnění paměti
 S velkou mocí přichází i velká [zodpovědnost](https://citaty.net/citaty/1957976-stan-lee-s-velkou-moci-prichazi-velka-odpovednost/),
-takže při použití dynamické paměti sice máme více možností než při použití zásobníku, ale zároveň
-**MUSÍME** tuto paměť korektně uvolňovat (což se u automatické paměti provádělo automaticky). Pokud
-bychom totiž paměť neustále pouze alokovali a neuvolňovali, tak by nám
+takže při použití dynamické paměti sice máme více možností než při použití automatické paměti
+(resp. zásobníku), ale zároveň **MUSÍME** tuto paměť korektně uvolňovat (což se u automatické paměti
+provádělo automaticky). Pokud bychom totiž paměť neustále pouze alokovali a neuvolňovali, tak by nám
 [brzy došla](../../caste_chyby/pametove_chyby.md#memory-leak).
 
 Abychom paměť naalokovanou pomocí funkcí `malloc` či `calloc` uvolnili, tak musíme použít funkci
-`free`:
+[`free`](https://devdocs.io/c/memory/free):
 ```c,editable
 #include <stdlib.h>
 
@@ -112,9 +116,9 @@ Jakmile se paměť uvolní, tak už k této paměti nesmíte přistupovat! Pokud
 nebo zapsat uvolněnou paměť, tak dojde k nedefinovanému chování 💣. Nesmíte ani paměť uvolnit více
 než jednou.
 
-Při práci s dynamickou (manuální) pamětí tak dbejte zvýšené opatrnosti a ideálně používejte při
+Při práci s dynamicky alokovanou pamětí tak dbejte zvýšené opatrnosti a ideálně používejte při
 vývoji [Address sanitizer](../../prostredi/ladeni.md#address-sanitizer). (Neúplný) seznam věcí,
-které se můžou pokazit, pokud kombinaci manuální alokace a uvolňování paměti pokazíte, naleznete
+které se můžou pokazit, pokud kombinaci dynamické alokace a uvolňování paměti pokazíte, naleznete
 [zde](../../caste_chyby/pametove_chyby.md).
 
 ## Alokace více hodnot zároveň

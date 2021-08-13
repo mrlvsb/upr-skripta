@@ -2,8 +2,8 @@
 Pokud funkce obsahuje volání sama sebe, tak tuto situaci nazýváme **rekurzí** (*recursion*).
 Pro řešení některých problémů může být přirozené rozdělovat je na čím dál tím menší podproblémy,
 dokud se nedostaneme k podproblému, který je dostatečně jednoduchý, abychom ho vyřešili rovnou.
-Toto můžeme modelovat právě rekurzí, kdy voláme stejnou funkci s jinými parametry, dokud se
-nedostaneme k parametrům, pro které umíme problém vyřešit jednoduše, a v ten moment rekurzi ukončíme.
+Toto můžeme modelovat právě rekurzí, kdy voláme stejnou funkci s různými argumenty, dokud se
+nedostaneme k hodnotám, pro které umíme problém vyřešit jednoduše, a v ten moment rekurzi ukončíme.
 
 Jedním z jednoduchých problémů, na kterém můžeme rekurzi demonstrovat, je výpočet
 [faktoriálu](https://cs.wikipedia.org/wiki/Faktori%C3%A1l). Faktoriál lze nadefinovat například takto:
@@ -12,9 +12,9 @@ Jedním z jednoduchých problémů, na kterém můžeme rekurzi demonstrovat, je
 
 Vidíme, že tato samotná definice je "rekurzivní": pro výpočet faktoriálu `n` musíme znát hodnotu
 faktoriálu `n - 1`. Výpočet faktoriálu můžeme provést například následující funkcí:
-```c,editable
+```c
 int faktorial(int n) {
-    if (n < 1) return 1;
+    if (n <= 1) return 1;
     return n * faktorial(n - 1);
 }
 ```

@@ -37,7 +37,7 @@ tyto proměnné vlastně patří k jednomu logickému prvku (příšeře).
         ...
     ) { }
     ```
-    Celou příšeru bychom ani nemohli z funkce přímočaře vrátit, protože funkce můžou vracet pouze
+    Celou příšeru bychom ani nemohli z funkce přímočaře vrátit, protože funkce mohou vracet pouze
     jednu hodnotu.
 - Pokud bychom chtěli příšeře přidat novou vlastnost, museli bychom přidat novou proměnnou nebo pole
 na všechna místa, kde s příšerami pracujeme. Například by se musely změnit parametry každé funkce,
@@ -51,7 +51,7 @@ Prisera prisery[100];
 ```
 
 Takto bychom zlepšili úroveň abstrakce našeho kódu – v tomto konkrétním případě bychom se mohli začít
-v kódu bavit o `příšeře` místo o `jménu, počtu životů, zranění, …`, které spolu nějak souvisí.
+v kódu bavit o `příšeře` místo pouze o sadě atributů `jméno, počet životů, zranění, …`.
 
 Jinak řečeno, chtěli bychom si vytvořit náš vlastní datový typ. A právě to můžeme v *C* udělat pomocí
 [struktur](struktury.md).

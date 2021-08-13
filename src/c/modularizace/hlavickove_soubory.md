@@ -4,7 +4,7 @@ Nyní už víme, že pro použití kódu z jiných souborů bychom nejprve měli
 v každém souboru, ve kterém chceme použít kód z jiného souboru, museli vytvářet deklarace pro
 každou funkci či proměnnou, kterou chceme použít, bylo by to docela zdlouhavé. Pokud by navíc došlo
 ke změně datového typu či názvu takovéto sdílené funkce či proměnné, museli bychom deklarace upravit
-ve všech programech, kde funkci či proměnnou používáme.
+ve všech souborech, kde funkci či proměnnou používáme.
 
 Pro vyřešení tohoto problému se v *C* často využívá koncept tzv. **hlavičkových souborů**
 (*header files*). Pro každý zdrojový soubor, jehož kód chceme sdílet, vytvoříme hlavičkový soubor,
@@ -20,8 +20,8 @@ extern int moje_promenna;
 int moje_funkce() {}
 int moje_promenna;
 ```
-Hlavičkový soubor tak udává tzv. rozhraní odpovídajícího zdrojového souboru -- obsahuje seznam funkcí
-a proměnných, které jsou sdílené a zbytek programu je může používat.
+Hlavičkový soubor tak udává tzv. **rozhraní** (*interface*) odpovídajícího zdrojového souboru –
+obsahuje seznam funkcí a proměnných, které jsou sdílené a zbytek programu je může používat.
 
 Ostatní soubory, které chtějí funkce z nějakého zdrojového souboru použít, pak
 [vloží](../preprocesor/vkladani_souboru.md) jeho hlavičkový soubor pomocí preprocesoru, aby mohly
@@ -42,8 +42,8 @@ Pokud dojde ke změně signatury funkce či typu/názvu proměnné, tak stačí 
 používají, pak budou okamžitě využívat upravenou deklaraci díky použití `#include`.
 
 S hlavičkovými soubory jsme již setkali při použití [standardní knihovny](../funkce/stdlib.md). V
-souborech jako je `stdio.h` se nazývají deklarace funkcí jako je například `printf`, jejichž definice
-je poté obsažena v objektových souborech standardní knihovny. 
+souborech jako je `stdio.h` se nacházejí deklarace funkcí jako je například `printf`, jejichž definice
+je poté obsažena v objektových souborech standardní knihovny.
 
 ## Obsah hlavičkového souboru
 Jelikož hlavičkové soubory jsou určeny k tomu, aby byly využívány (vkládány) v různých zdrojových
@@ -65,7 +65,7 @@ bude vložen ve více jednotkách překladu), tak nebude hlásit chybu, ale pros
 definicí vybere. Pokud by definice stejné nebyly, může to vést k dost zvláštnímu chování. Pokuste
 se tak `inline` raději nevyužívat.
 
-> U proměnných nemá valný důvod `inline` používat.
+> U (globálních) proměnných nemá smysl `inline` používat.
 
 Kromě deklarací funkcí a proměnných se do hlavičkových souborů také běžně vkládají struktury, které
 jsou součástí typů sdílených proměnných či parametrů nebo návratových hodnot sdílených funkcí.
@@ -86,8 +86,8 @@ int zpracuj_osobu(Osoba osoba);
 int zpracuj_osobu(Osoba osoba) { ... }
 ```
 Pro použití struktur nebo např.
-[`typedefů`](../struktury/struktury.md#vytváření-nových-jmen-pro-datové-typy) je také běžné, že
-hlavičkové soubory vkládají jiné hlavičkové soubory.
+[`typedefů`](../struktury/struktury.md#vytváření-nových-jmen-pro-datové-typy) z ostatních souborů
+je také běžné, že hlavičkové soubory vkládají jiné hlavičkové soubory.
 
 ## Ochrana vkládání
 U hlavičkových souborů je nutné řešit ještě jednu další věc. Jelikož se běžně používají v kombinaci

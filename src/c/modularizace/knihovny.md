@@ -18,8 +18,8 @@ vlastnosti knihoven jsou znovupoužitelnost (můžeme je použít v různých pr
 > jazyka *C* je knihovna typicky sada funkcí, struktur a globálních proměnných.
 
 Například pokud bychom programovali hru, můžeme využít knihovny na vykreslení grafiky, na přehrávání
-zvuku, na snímání vstupu z klávesnice/myši atd. Náš kód se pak může zabývat zejména logikou hry a
-nemusí tolik řešit problémy, které již vyřešila spousta programátorů před námi.
+zvuku, na snímání vstupu z klávesnice nebo myši atd. Náš kód se pak může zabývat zejména logikou hry
+a nemusí tolik řešit problémy, které již vyřešila spousta programátorů před námi.
 
 Na internetu můžete naleznout [tisice různých knihoven](https://github.com/kozross/awesome-c),
 které řeší rozlišné problémy.
@@ -36,8 +36,8 @@ zdaleka přímočaré.
 museli bychom (kromě potenciální úpravy našeho kódu) také překopírovat nebo správně upravit nové a
 změněné soubory knihovny, což by bylo náročné a náchylné na chyby.
 - Zdrojový kód knihoven není vždy zveřejněn, například aby si jejich autoři uchránili duševní
-vlastnictví. Často se tak setkáme se situací, že máme k dispozici pouze objektový kód (např. `.dll`
-nebo `.so`) a nemůžeme zkopírovat k našemu programu zdrojové soubory.
+vlastnictví. Často se tak setkáme se situací, že máme k dispozici pouze objektový kód (např. `.so`
+nebo `.dll`) a nemůžeme tak získat zdrojové soubory knihovny.
 
 Z tohoto důvodu jsou knihovny obvykle sdíleny ve formě objektových souborů (ty obsahují implementaci
 funkcí) a odpovídajících hlavičkových souborů (ty obsahují
@@ -54,16 +54,16 @@ našeho programu (tj. nebudou obsaženy ve spustitelném souboru, který bude vy
 K jejich načtení dojde až "dynamicky" při spuštění programu[^2].
 
     Výhody tohoto přístupu jsou, že bude mít náš spustitelný soubor menší velikost, a to jak na disku,
-    tak v operační paměti. Operační systém totiž dokáže jednu dynamickou knihovnu sdílet více programům
-    zároveň. Dynamickou knihovnu také půjde aktualizovat bez nutnosti překládat znovu náš program a
-    můžeme také při spuštění programu knihovnu
+    tak v operační paměti. Operační systém totiž dokáže jednu dynamickou knihovnu sdílet mezi více
+    programy najednou. Dynamickou knihovnu také půjde aktualizovat bez nutnosti překládat znovu náš
+    program a můžeme také při spuštění programu knihovnu
     [nahradit jinou implementací](https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick).
 
     Nevýhodou je, že při spuštění našeho programu musíme zajistit, že knihovna bude na daném systému
-    k dispozici (pokud by nebyla nalezena, tak program nepůjde spustit). To může být způsobovat
-    problémy zejména při distribuci našeho programu na ostatní počítače. Kvůli tomu, že se knihovna
-    načítá dynamicky, také může v určitých případech být její použití méně efektivní než v případě
-    statické knihovny.
+    k dispozici (pokud by nebyla nalezena, tak program nepůjde spustit). To může způsobovat problémy
+    zejména při distribuci našeho programu na jiné počítače. Kvůli tomu, že se knihovna načítá
+    dynamicky, také může v určitých případech být její použití méně efektivní než v případě statické
+    knihovny.
 
     Archivy s objektovými soubory dynamických knihoven mají příponu `.so`.
 
@@ -96,11 +96,12 @@ např. u `stdio.h`). Budeme je tedy chtít [vkládat](../preprocesor/vkladani_so
 pro vkládání, pomocí přepínače `-I`. Pokud bychom tak měli hlavičkové soubory knihovny např. v
 adresáři `/usr/foo/include`, tak překladači při překladu předáme přepínač `-I/usr/foo/include`.
 
-Dále je třeba překladači říct, kde nalezne archivy s objektovými soubory knihovny. K tomu slouží
-dva přepínače. `-L` udává adresář, ve kterém se budou vyhledávat knihovny a `-l` poté specifikuje
-konkrétní knihovnu, která má být přilinkována k našemu programu. Pokud bychom tak měli například
-archiv knihovny v souboru `/usr/foo/lib/libknihovna.so`, tak překladači předáme parametry
-`-L/usr/foo/lib` a `-lknihovna`. Při použití přepínače `-l` je třeba si dávat pozor na dvě věci:
+Dále je třeba překladači říct, které archivy s objektovými soubory knihovny má k našemu programu
+přilinkovat. K tomu slouží dva přepínače. `-L` udává adresář, ve kterém se budou vyhledávat knihovny
+a `-l` poté specifikuje konkrétní knihovnu, která má být přilinkována k našemu programu. Pokud bychom
+tak měli například archiv knihovny v souboru `/usr/foo/lib/libknihovna.so`, tak překladači předáme
+parametry`-L/usr/foo/lib` a `-lknihovna`. Při použití přepínače `-l` je třeba si dávat pozor na dvě
+věci:
 
 - Všimněte si, že se použila zkrácená konvence pro pojmenování knihovny. Obecně se knihovny
 pojmenovávají `lib<název>.so` (nebo `lib<název>.a`) a překladači se poté předává pouze jejich název,
@@ -122,15 +123,17 @@ $ gcc -o program main.c -L/usr/foo/lib/ -lfoo -I/usr/foo/include
 
 ### Předání cesty k dynamické knihovně
 Pokud přeložíte program s dynamickou knihovnou, může se stát, že při jeho spuštění nebude schopen
-danou knihovnu najít. V takovém případě při spuštění programu můžete pomocí **proměnné prostředí**[^3]
+danou knihovnu najít. V takovém případě při spuštění programu můžete pomocí
+[**proměnné prostředí**](https://cs.wikipedia.org/wiki/Prom%C4%9Bnn%C3%A1_prost%C5%99ed%C3%AD)[^3]
 (*environment variable*) `LD_LIBRARY_PATH` předat cestu k adresáři, ve které se daná knihovna nachází:
 ```bash
 $ LD_LIBRARY_PATH=/usr/foo/lib ./program
 ```
 
-[^3]: Proměnné prostředí jsou způsobem, jak parametrizovat chování programů (podobně jako
-například [parametry příkazového řádku](../../ruzne/funkce_main.md). V programu si můžete přečíst
-hodnotu konkrétní proměnné prostředí pomocí funkce [`getenv`](https://devdocs.io/c/program/getenv).
+[^3]: Proměnné prostředí jsou způsobem, jak předávat parametry programům (podobně jako
+například [parametry příkazového řádku](../../ruzne/funkce_main.md#vstupní-parametry-funkce-main)).
+V programu si můžete přečíst hodnotu konkrétní proměnné prostředí pomocí funkce
+[`getenv`](https://devdocs.io/c/program/getenv).
 
 ### Zobrazení vyžadovaných dynamických knihoven
 Pokud si přeložíte nějaký program a použijete na něj program `ldd`, dozvíte se, které dynamické
@@ -141,7 +144,7 @@ $ ldd ./program
 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0d3a328000)
 ```
 
-> [Standardní knihovna jazyka *C*](../funkce/stdlib.md) je používána téměř každým programem a mj. z
+> [Standardní knihovna jazyka *C*](../funkce/stdlib.md) je používána téměř každým programem a i z
 > tohoto důvodu je obvykle linkována dynamicky, aby její paměť šla sdílet mezi programy.
 
 ## Vytvoření knihovny

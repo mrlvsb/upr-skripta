@@ -12,15 +12,16 @@ Takováto proměnná bude obsahovat paměť pro 3 celá čísla (tedy nejspíše
 > Pozor na to, že hranaté závorky se udávají za název proměnné, a ne za název datového typu.
 > `int[3] pole;` je tedy špatně.
 
-[^1]: Pole můžeme tímto způsobem vytvořit také v
-[globální paměti](../prace_s_pameti/globalni_pamet.md).
+[^1]: Pole můžete tímto způsobem vytvořit také v
+[globální paměti](../prace_s_pameti/globalni_pamet.md), pokud vytvoříte
+[globální proměnnou](../promenne/globalni_promenne.md) datového typu pole.
 
 Čísla takového pole budou v paměti uložena jeden za druhým[^2]:
 <upr-container>
   <upr-array array='[0, 0, 0]'></upr-array>
 </upr-container>
 
-[^2]: Každý zelený čtverec na tomto obrázku reprezentuje 4 bytů v paměti (velikost jednoho `int`u).
+[^2]: Každý zelený čtverec na tomto obrázku reprezentuje 4 byty v paměti (velikost jednoho `int`u).
 
 V jistém smyslu je tak pole pouze zobecněním normální proměnné. Pokud totiž vytvoříte pole o
 velikosti jedna (`int a[1]`), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
@@ -30,36 +31,22 @@ velikosti jedna (`int a[1]`), tak v paměti bude reprezentováno úplně stejně
 > popsané koncepty jsou platné i pro dynamická pole, nicméně budeme je demonstrovat na statických
 > polích, protože ty je jednodušší vytvořit.
 
-## Počítání od nuly
-Pozice jednotlivých prvků v poli se označují jako jejich **indexy** (*array indices*). Tyto pozice
-se číslují od hodnoty `0` (tedy ne od jedničky, jak můžete být jinak zvyklí). První prvek pole je
-tedy ve skutečnosti na nulté pozici (indexu), druhý na první pozici, atd. (viz obrázek nahoře).
-**Počítání od nuly** (*zero-based indexing*) je ve světě programování běžné a budete si na něj
-muset zvyknout. Jeden z důvodů, proč se prvky počítají právě od nuly, se dozvíte
-[níže](#přístup-k-prvkům-pole).
-
-Z tohoto vyplývá jedna důležitá vlastnost - poslední prvek pole je vždy na indexu
-`<velikost pole> - 1`! Pokud byste se pokusili přistoupit k prvku na indexu `<velikost pole>`,
-budete přistupovat mimo paměť pole, což pravděpodobně způsobí
-[paměťovou chybu](../../caste_chyby/pametove_chyby.md).
-
 ### Konstantní velikost statického pole
 Hodnota zadaná v hranatých závorkách by měla být konstantní (tj. buď přímo číselná hodnota anebo
 [konstantní proměnná](../promenne/konstanty.md)). Pokud budete potřebovat pole dynamické velikosti,
-tak byste měli použít [manuální alokaci paměti](dynamicke_pole.md).
+tak byste měli použít [dynamickou alokaci paměti](dynamicke_pole.md).
 
 Jazyk *C* od verze [*C99*](https://en.wikipedia.org/wiki/C99) již sice povoluje dávat do hranatých
-závorek i "dynamické hodnoty":
+závorek i "dynamické" hodnoty, tj. výrazy, jejichž hodnota nemusí být známa v době překladu:
 ```c
 int velikost = ...; // velikost se načte např. ze souboru
 int pole[velikost];
 ```
-Nicméně tuto [funkcionalitu](https://en.wikipedia.org/wiki/Variable-length_array) není vhodné
-používat. Zásobník má
-[omezenou velikost](../prace_s_pameti/automaticka_pamet.md#nevýhody-automatické-paměti) a není určen
-pro alokaci velkého množství paměti[^3]. Pokud navíc velikost takovéhoto pole může ovlivnit uživatel
-programu (např. zadáním vstupu), může váš program jednoduše "shodit", pokud by zadal velké číslo a
-došlo by k pokusu o vytvoření velkého pole na zásobníku. Zkuste se tak vyvarovat používání
+Nicméně tuto [funkcionalitu](https://en.wikipedia.org/wiki/Variable-length_array) raději nepoužívejte.
+Zásobník má značně [omezenou velikost](../prace_s_pameti/automaticka_pamet.md#nevýhody-automatické-paměti)
+a není určen pro alokaci velkého množství paměti[^3]. Pokud navíc velikost takovéhoto pole může ovlivnit
+uživatel programu (např. zadáním vstupu), může váš program jednoduše "shodit", pokud by zadal velké
+číslo a došlo by k pokusu o vytvoření velkého pole na zásobníku. Zkuste se tak vyvarovat používání
 dynamických hodnot při vytváření polí na zásobníku.
 
 [^3]: Můžete si například zkusit přeložit následující program:
@@ -74,33 +61,47 @@ Při spuštění by měl program selhat na
 pravděpodobně více než `10000000 * 4` (cca `38` MiB) paměti. Pokud chcete alokovat více než několik
 stovek bytů, použijte raději [dynamickou alokaci](dynamicke_pole.md) na haldě.
 
+## Počítání od nuly
+Pozice jednotlivých prvků v poli se označují jako jejich **indexy** (*array indices*). Tyto pozice
+se číslují od hodnoty `0` (tedy ne od jedničky, jak můžete být jinak zvyklí). První prvek pole je
+tedy ve skutečnosti na nulté pozici (indexu), druhý na první pozici atd. (viz obrázek nahoře).
+**Počítání od nuly** (*zero-based indexing*) je ve světě programování běžné a budete si na něj
+muset zvyknout. Jeden z důvodů, proč se prvky počítají právě od nuly, se dozvíte
+[níže](#přístup-k-prvkům-pole).
+
+Z tohoto vyplývá jedna důležitá vlastnost - poslední prvek pole je vždy na indexu
+`<velikost pole> - 1`! Pokud byste se pokusili přistoupit k prvku na indexu `<velikost pole>`,
+budete přistupovat mimo paměť pole, což pravděpodobně způsobí
+[paměťovou chybu](../../caste_chyby/pametove_chyby.md).
+
 ## Inicializace pole
 Stejně jako u normálních lokálních proměnných
 [platí](../promenne/promenne.md#vždy-inicializujte-proměnné), že pokud pole nenainicializujete,
-tak bude obsahovat nedefinované hodnoty. V takovém případě z pole nesmíte jakkoliv číst, jinak by
-došlo k nedefinovanému chování 💣! K inicializaci hodnoty můžete použít složené závorky se seznamem
-hodnot (oddělených čárkou), které budou do pole uloženy. Pokud nezadáte dostatek hodnot pro vyplnění
-celého pole, tak zbytek hodnot bude nulových.
+tak bude obsahovat nedefinované hodnoty. V takovém případě nesmíte hodnoty v poli jakkoliv číst,
+jinak by došlo k nedefinovanému chování 💣! K inicializaci pole můžete použít složené závorky se
+seznamem hodnot oddělených čárkou, které budou do pole uloženy. Pokud nezadáte dostatek hodnot
+pro vyplnění celého pole, tak zbytek hodnot bude nastaveno na nulu.
 ```c
 int a[3];               // pole bez definované hodnoty, nepoužívat!
 int b[3] = {};          // pole s hodnotami 0, 0, 0
 int c[4] = { 1 };       // pole s hodnotami 1, 0, 0, 0
 int d[2] = { 2, 3 };    // pole s hodnotami 2, 3
 ```
-Hodnot samozřemě nesmíte zadat více, než je velikost pole.
+Hodnot samozřemě nemůžete zadat více, než je velikost pole.
 
 Pokud využijete inicializaci statického pole, můžete vynechat velikost pole v hranatých závorkách.
 Překladač v tomto případě dopočítá velikost za vás:
 ```c
-int p[] = { 1, 2, 3 }; // p je pole s třemi čísly
+int p[] = { 1, 2, 3 }; // p je pole s třemi čísly, překladač si odvodí int p[3]
 ```
 
 ## Přístup k prvkům pole
-K přístupu k jednotlivým prvkům pole můžeme využít
+Abychom využili toho, že nám pole umožňují vytvořit větší množství paměti najednou, musíme mít
+možnost přistupovat k jednotlivým prvkům v poli. K tomu můžeme využít
 [ukazatelů](../prace_s_pameti/ukazatele.md). Proměnná pole se totiž chová jako ukazatel na první
-prvek (prvek na nultém indexu) daného pole, pomocí operátoru
-[dereference](../prace_s_pameti/ukazatele.md#přístup-k-paměti-pomocí-ukazatele) tak můžeme
-jednoduše přistoupit k prvnímu prvku pole:
+prvek (prvek na nultém indexu!) daného pole, pomocí operátoru
+[dereference](../prace_s_pameti/ukazatele.md#přístup-k-paměti-pomocí-ukazatele) tak k tomutu prvku
+můžeme jednoduše přistoupit:
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -135,40 +136,53 @@ totiž vzdálen nula prvků od začátku pole. Prvek na prvním indexu je vzdál
 pole atd. Pokud bychom indexovali od jedničky, museli bychom při výpočtu adresy relativně k ukazateli
 na začátek pole vždy odečíst jedničku, což by bylo nepraktické.
 
+> Přistupování k prvkům pole se běžně označuje pojmem **indexování pole**.
+
 ## Operátor přístupu k poli
 Jelikož je operace přístupu k poli ("posunutí" ukazatele a jeho dereference) velmi
-běžná (a zároveň relativně krkolomná), *C* obsahuje speciální operátor, který jej zjednodušuje.
-Tento operátor se nazývá *array subscription operator* a má syntaxi `<výraz a>[<výraz b>]`. Slouží
-jako zkratka[^5] za `*(<výraz a> + <výraz b>)`. Například `pole[0]` je ekvivalentní výrazu
-`*(pole + 0)`, `pole[5]` je ekvivalentní výrazu `*(pole + 5)` atd:
+běžná (a zároveň relativně krkolomná), *C* obsahuje speciální operátor, který ji zjednodušuje.
+Tento operátor se nazývá *array subscription operator* a má syntaxi
+
+`<výraz a>[<výraz b>]`
+
+Slouží jako zkratka[^5] za výraz
+
+`*(<výraz a> + <výraz b>)`
+
+Příklad:
+- `pole[0]` je ekvivalentní výrazu `*(pole + 0)`
+- `pole[5]` je ekvivalentní výrazu `*(pole + 5)`
+
 ```c
 int pole[3] = { 1, 2, 3 };
 pole[0] = 5;       // nastavili jsme první prvek pole na hodnotu `5`
-int c = pole[2];   // nastavili jsme `c` na hodnotu posledního prvku pole
+int c = pole[2];   // nastavili jsme `c` na hodnotu posledního (třetího) prvku pole
 ```
 
 [^5]: Takovéto "zkratky", které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
 či zjednoduššují často používané kombinace příkazů, se označují jako
-[**syntax sugar**](https://en.wikipedia.org/wiki/Syntactic_sugar).
+[**syntactic sugar**](https://en.wikipedia.org/wiki/Syntactic_sugar).
 
 Jelikož je používání hranatých závorek přehlednější než používání závorek a hvězdiček, doporučujeme
 je používat pro přistupování k prvkům pole, pokud to půjde.
 
 > Pozor na rozdíl mezi tímto operátorem a definicí pole. Obojí sice používá hranaté závorky, ale
 > jinak spolu tyto dvě věci nesouvisejí. Podobně jako se `*` používá pro definici datového typu
-> [ukazatele](../prace_s_pameti/ukazatele.md) a zároveň jako operátor dereference (navíc i jako
-> operátor pro násobení). Vždy záleží na kontextu, kde jsou tyto znaky použity.
+> ukazatele a [zároveň](../prace_s_pameti/ukazatele.md#přístup-k-paměti-pomocí-ukazatele)
+> jako operátor dereference (navíc i jako operátor pro násobení). Vždy záleží na kontextu, kde jsou
+> tyto znaky použity.
 
 ## Použití polí s cykly
 Pokud bychom k polím přistupovali po individuálních prvcích, tak bychom nemohli využít jejich plný
 potenciál. I když umíme jedním řádkem kódu vytvořit například 100 různých hodnot (`int pole[100];`),
 pokud bychom museli psát `pole[0]`, `pole[1]` atd. pro přístup k jednotlivým prvkům, tak bychom
-nemohli s polem efektivně pracovat. Smyslem polí je zpracovat velké množství dat jednotným způsobem
-pomocí malého množství kódu. Jinak řečeno, chtěli bychom mít stejný kód, který umí zpracovat
+nemohli s polem efektivně pracovat. Smyslem polí je umožnit zpracování velkého množství dat jednotným
+způsobem pomocí krátkého kusu kódu. Jinak řečeno, chtěli bychom mít stejný kód, který umí zpracovat
 pole o velikosti `2` i `1000`. K tomu můžeme efektivně využít [cykly](../rizeni_toku/cykly.md).
 
-Velmi často je praktické použít řídící proměnnou cyklu k tomu, abychom pomocí ní indexovali pole.
-Například, pokud bychom měli pole s velikostí `10`, tak ho můžeme "projít" pomocí cyklu `for`:
+Často je praktické použít [řídící proměnnou](../rizeni_toku/while.md#Řídící-proměnná) cyklu k tomu,
+abychom pomocí ní indexovali pole. Například, pokud bychom měli pole s velikostí `10`, tak ho můžeme
+"projít"[^6] pomocí cyklu `for`:
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -180,18 +194,22 @@ int main() {
     return 0;
 }
 ```
-Situace, kdy pomocí cyklu procházíte pole je velmi častý a určitě se s ním mnohokrát setkáte a
-použijete jej. Zkuste si to procvičit například pomocí
+
+[^6]: Používá se také pojem *proiterovat*.
+
+Situace, kdy pomocí cyklu projdeme pole, je velmi častá a určitě se s ní mnohokrát setkáte a
+využijete ji. Zkuste si to procvičit například pomocí
 [těchto úloh](../../ulohy/pole.md#minimální-hodnota-v-poli).
 
 ## Předávání pole do funkcí
-Při předávání polí do funkcí si musíme dávat pozor zejména na dvě věci.
+Pole můžeme (stejně jako hodnoty jiných datových typů) předávat jako argumenty do funkcí.
+Musíme si při tom však dávat pozor zejména na dvě věci.
 
 ### Převod pole na ukazatel
 Už víme, že když předáváme [argumenty](../funkce/funkce.md#parametrizace-funkcí) do funkcí, tak se
 jejich hodnota zkopíruje. U statických polí tomu tak ovšem není, protože pole můžou být potenciálně
-velmi velká a provádění kopií polí by tak potenciálně mohlo trvat dlouhou dobu. Když tak použijeme
-proměnnou pole jako argument při volání funkce, dojde k tzv. **konverzi pole na ukazatel**
+velmi velká a provádění kopií polí by tak potenciálně mohlo brzdit provádění programu. Když tak
+použijeme proměnnou pole jako argument při volání funkce, dojde k tzv. **konverzi pole na ukazatel**
 (*array to pointer decay*). Pole se tak vždy předá jako ukazatel na jeho první prvek:
 ```c,editable
 #include <stdio.h>
@@ -213,7 +231,7 @@ void vypis_pole(int pole[3]) { ... }
 ```
 nicméně i v tomto případě se bude takovýto parametr chovat stejně jako ukazatel (v tomto případě
 tedy `int*`). Navíc překladač ani nebude kontrolovat, jestli do takového parametru opravdu dáváme
-pole se správnou velikostí. Pro parametry reprezentující pole tak radši používejte ukazatel.
+pole se správnou velikostí. Pro parametry reprezentující pole tak raději rovnou používejte ukazatel.
 
 ### Předávání velikosti pole
 Když ve funkci přijmeme jako parametr ukazatel na pole, tak nevíme, kolik prvků v tomto poli je.

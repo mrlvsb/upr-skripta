@@ -16,7 +16,7 @@ Práce s kódováním Unicode však není v jazyce *C* přímočará, navíc pro
 
 V rámci předmětu UPR si tak vystačíme s kódováním [ASCII](https://en.wikipedia.org/wiki/ASCII)
 (American Standard Code for Information Interchange). Toto kódování sice obsahuje pouze 128 znaků
-(čísla, malá a velká písmena anglické abecedy, interpunkce apod.), nicméně práce s ním je díky tomu
+(číslice, malá a velká písmena anglické abecedy, interpunkce apod.), nicméně práce s ním je díky tomu
 velmi jednoduchá. Je navíc podmnožinou Unicode, takže programy, které podporují Unicode kódování, si
 s ASCII hravě poradí. Tabulku, která uvádí, jak ASCII mapuje jednotlivé znaky na čísla, naleznete např.
 [zde](https://www.asciitable.com/)[^2].
@@ -66,7 +66,7 @@ jako vícebytový znak, což téměř jistě není to, čeho chcete dosáhnout. 
 najednou) slouží [řetězce](retezce.md). Jedinou výjimkou jsou speciální znaky, které se zapisují
 pomocí zpětného lomítka, například:
 - `'\n'` reprezentuje znak `LF`, který udává, že má dojít k přechodu kurzoru na nový řádek.[^4]
-- `'\t'` reprezentuje znak `TAB`, který reprezentuje tabulátor.
+- `'\t'` reprezentuje znak `TAB`, který udává, že má dojít k výpisu delší mezery.
 - `'\0'` reprezentuje znak `NUL` s číselnou hodnotou `0`.
 
 [^4]: Nepleťte si ho se znakem `'n'`, který reprezentuje klasické písmeno `n` z abecedy.
@@ -82,6 +82,6 @@ a pomocí apostrofů ho lze zapsat jako `'\t'`. Pokud bychom do znaku chtěli za
 číslici `9`, musíme použít buď literál `'9'` nebo číselnou hodnotu `57`, která devítku v ASCII
 reprezentuje.
 
-Pokud byste chtěli převést ASCII znak číslice na její číselnou hodnotu, stačí od něho odečíst hodnotu
+Pokud byste chtěli převést ASCII znak číslice na její číselnou hodnotu, stačí od něj odečíst hodnotu
 `48`, neboli znak `'0'`. `'0' - '0'` je `0`, `'5' - '0'` je `5` atd. To je způsobeno tím, že číslice
-v ASCII mají přiřazeny sekvenční číselné hodnoty.
+mají v ASCII kódování přiřazeny sekvenční číselné hodnoty.

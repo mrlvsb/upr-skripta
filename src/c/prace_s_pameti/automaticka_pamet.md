@@ -30,9 +30,8 @@ hodnoty lokálních proměnných. Můžete si všimnout, že lokální proměnn�
 [nedefinovanou hodnotu](../promenne/promenne.md#vždy-inicializujte-proměnné), dokud do nich není
 nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.
 
-<!-- TODO: fix -->
-<div style="display: block; height: 450px">
-    <upr-svgs src="../../static/animations/stack/stack-" to="15" height="400"></upr-svgs>
+<div style="height: 450px">
+    <upr-slideshow src="../../static/animations/stack/stack-" to="15" extension="png"></upr-slideshow>
 </div>
 
 V animaci si můžete všimnout, že rámce vždy vznikají a zanikají pouze na konci zásobníku.[^3]

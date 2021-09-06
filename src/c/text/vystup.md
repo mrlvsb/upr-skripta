@@ -11,16 +11,24 @@ Pro vypsání jednoho znaku na standardní výstup (`stdout`) můžeme použít 
 [`putchar`](https://devdocs.io/c/io/putchar).
 
 ## Vypsání řetězce
-Pro vypsání celého řetězce na `stdout` můžete použít funkci [`puts`](https://devdocs.io/c/io/puts).
+Pro vypsání celého řetězce na `stdout` můžete použít funkci [`puts`](https://devdocs.io/c/io/puts),
+která zároveň za řetězcem vypíše znak odřádkování `\n`:
 
-```c
-puts("Ahoj svete!\n");
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+    puts("Ahoj");
+    puts("UPR");
+    return 0;
+}
 ```
 
 Dávejte si pozor na to, že v předaném řetězci musí být obsažen ukončovací `NUL` znak! Funkce `puts`
 se bude snažit číst a vypisovat znaky ze zadané adresy, až dokud na takovýto znak nenarazí. Pokud
-by tento znak v předaném řetězci nebyl, tak se může funkce pokoušet číst nevalidní paměť i za pamětí
-řetězci, dokud na `NUL` nenarazí.
+by tento znak v předaném řetězci nebyl, tak se bude funkce pokoušet číst nevalidní paměť za koncem
+řetězce, dokud na `NUL` nenarazí, což by vedlo k
+[paměťové chybě](../../caste_chyby/pametove_chyby.md) 💣.
 
 ## Vypsání formátovaného textu
 K výpisu formátovaného textu na `stdout` můžeme použít funkci `printf`, s kterou jsme se již

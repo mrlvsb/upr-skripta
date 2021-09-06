@@ -27,7 +27,8 @@ Tato tabulka udává, jak máme interpretovat jednotlivé byty na začátku `TGA
 například otevřeli `TGA` soubor a přečteli si jeho 12. a 13. byte, tak se dozvíme šířku tohoto obrázku. 
 Nás budou zajímat zejména tučně vyznačené části:
 - **Typ**: Hodnota `2` udává nekomprimovaný RGB obrázek, hodnota `3` udává nekomprimovaný
-černobílý obrázek. Ostatní platné hodnoty typu obrázku můžete nalézt např. na [Wikipedii](https://en.wikipedia.org/wiki/Truevision_TGA).
+obrázek ve stupních šedi ("černobílý" obrázek). Ostatní platné hodnoty typu obrázku můžete nalézt
+např. na [Wikipedii](https://en.wikipedia.org/wiki/Truevision_TGA).
 - **Počátek**: Tato část hlavičky určuje, kde bude počátek souřadnicového systému obrázku. Jinak
 řečeno, pokud do obrázku zapíšete pixel na pozici `(0, 0)`, tak se objeví na pozici počátku. Pokud
 použijete počátek `(0, 0)`, tak tato pozice bude v levém dolním rohu obrázku. Počátek je rozdělený
@@ -35,8 +36,8 @@ do souřadnic `x` a `y`, obě dvě zabírají dva byty.
 - **Rozměry**: Tato část hlavičky určuje rozměry obrázku. Stejně jako u počátku šířka i výška
 zabírá dva byty (aby formát podporoval i obrázky s rozměry většími než 255 pixelů).
 - **Barevná hloubka**: Udává, kolik bitů bude zabírat každý pixel obrázku. Pokud použijeme typ obrázku
-RGB, měli bychom použít hloubku 24 bitů (8 bitů na každou barevnou složku), pokud použijeme černobílý
-typ obrázku, tak použijeme hloubku 8 bitů.
+RGB, měli bychom použít hloubku 24 bitů (8 bitů na každou barevnou složku), pokud použijeme typ
+obrázku ve stupních šedi, tak použijeme hloubku 8 bitů.
 
 > Při načítání binárních dat ze souborů musíme dávat pozor na to, jestli jsou hodnoty uloženy v
 > **little-endian** nebo **big-endian** formátu. U `TGA` je určeno, že musí být v little-endian, což je
@@ -107,8 +108,8 @@ memcpy(&height, header->height, 2);
 
 ## Načtení pixelů ze souboru
 Jakmile jsme načetli hlavičku, můžeme načíst ze souboru i samotné pixely. Ty jsou umístěny v souboru
-hned za hlavičkou. Každý pixel má odpovídající počet bytů podle typu obrázku (u RGB 3 byty[^1], u
-černobílých obrázků 1 byte) a počet pixelů je dán rozměry obrázku (`šířka * výška`).
+hned za hlavičkou. Každý pixel má odpovídající počet bytů podle typu obrázku (u RGB obrázků 3 byty[^1],
+u obrázků ve stupních šedi 1 byte) a počet pixelů je dán rozměry obrázku (`šířka * výška`).
 
 [^1]: V `TGA` jsou jednotlivé barevné složky uložené v pořadí `blue`, `green`, `red`. Jedná se tedy
 vlastně o formát BGR.

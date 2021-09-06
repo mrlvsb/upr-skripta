@@ -10,7 +10,7 @@ Narozdíl od knihovny, kterou jsme si ukazovali pro vytváření [`GIF` animací
 spoustu zdrojových i hlavičkových souborů, a nebylo by tak ideální ji kopírovat k našemu programu.
 Připojíme ji tedy k našemu programu jako klasickou
 [knihovnu](../modularizace/knihovny.md#použití-knihoven-s-gcc) ve formě archivu. Abychom knihovnu
-mohli použít, nejprve si ji musíme stáhnout. To můžeme udělat dvěmi způsoby:
+mohli použít, nejprve si ji musíme stáhnout. To můžeme udělat dvěma způsoby:
 - **Instalace pomocí správce balíčků** (*doporučeno*): Jelikož je `SDL` velmi známá a používaná
 knihovna, ve většině distribucí Linuxu není problém ji nainstalovat přímo z balíčkového manažeru.
 V Ubuntu to můžete provést pomocí následujícího příkazu v terminálu, který nainstaluje kromě balíčku
@@ -53,9 +53,9 @@ naleznete jednak deklarace a popis fungování jednotlivých funkcí, které kni
 různé návody pro to, jak s knihovnou pracovat.
 
 Dokumentaci funkcí `SDL` naleznete [zde](https://wiki.libsdl.org/APIByCategory), návody pro jeho
-použití například [tady](https://www.willusher.io/pages/sdl2/). V `UPR` budeme používat pouze `SDL`
-verze 2, které se značně liší od předchozí verze. Dávejte si tedy u návodů na internetu pozor na to,
-jestli se týkají správné verze `SDL`.
+použití například [tady](https://www.willusher.io/pages/sdl2/). V předmětu `UPR` budeme používat
+pouze `SDL` verze 2, které se značně liší od předchozí verze. Dávejte si tedy u návodů na internetu
+pozor na to, jestli se týkají správné verze `SDL`.
 
 > `SDL` je relativně rozsáhlá knihovna a není v silách tohoto textu, abychom ji plně popsali. Proto
 > níže naleznete pouze velmi stručný "Hello world" a seznam věcí, které vám SDL umožňuje. Zbytek

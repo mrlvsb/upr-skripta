@@ -79,6 +79,10 @@ která nemají být interpretována jako text, můžete na konec módu přidat z
 otevře v tzv. **binární režimu**, kde k žádné konverzi nedojde. Mód `"rb"` tak například říká
 `Otevři soubor pro čtení v binárním režimu`.
 
+> Pokud byste chtěli explicitně říct, že se má použít textový režim, můžete na konec módu přidat
+> znak `t`. Například mód `"rt"` je ekvivalentní s módem `"r"` a označuje otevření souboru pro
+> textové čtení.
+
 ### Ošetření chyb
 Jakmile řeknete funkci `fopen` jaký soubor (a v jakém módu) má otevřít, funkce jej otevře a vrátí
 vám ukazatel na strukturu `FILE`, pomocí které můžete se souborem dále pracovat[^3]. Stejně jako

@@ -194,7 +194,7 @@ p += 1;     // zvýšili jsme adresu v `p` o `4` (tj. p nyní už neukazuje na `
 > [více proměnnými zároveň](../pole/staticke_pole.md#přístup-k-prvkům-pole).
 
 Kromě dereference a aritmetiky lze s ukazateli provádět také porovnávání (klasicky pomocí operátoru
-`==`). Díky toho můžeme zjistit, jestli se dvě adresy rovnají.
+`==`). Díky tomu můžeme zjistit, jestli se dvě adresy rovnají.
 
 ## Využití ukazatelů
 Jak se dozvíte v [následující sekci](dynamicka_pamet.md), ukazatele jsou nezbytné pro

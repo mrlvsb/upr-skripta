@@ -126,7 +126,7 @@ držet ve svých programech jednotného stylu a nemíchat více stylů dohromady
 **Cvičení**
 
 1) Vytvořte si ve VS Code soubor (pojmenovaný např. `main.c`) a nakopírujte nebo napište do něj
-"prázdný" *C* program ukázaný výše. Zkuste program [přeložit](http://localhost:3000/prostredi/preklad_programu.html#p%C5%99eklad-prvn%C3%ADho-programu)
-a spustit.
+"prázdný" *C* program ukázaný výše. Zkuste program
+[přeložit](../prostredi/preklad_programu.md#překlad-prvního-programu) a spustit.
 2) Zkuste do kódu přidat komentáře nebo bílé znaky (např. prázdné řádky nebo mezery). Otestujte, že
 překladač tyto věci při překladu ignoruje.

@@ -65,7 +65,7 @@ int main() {
     int pole[5] = { 1, 2, 3, 4, 5 };
 
     // otevření souboru
-    FILE* soubor = fopen("soubor.txt", "w");
+    FILE* soubor = fopen("soubor.txt", "wt");
     assert(soubor);
 
     // textový zápis do souboru

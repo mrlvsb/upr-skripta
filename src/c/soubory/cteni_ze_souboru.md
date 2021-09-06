@@ -91,7 +91,7 @@ jeho konec, by tedy mohl vypadat například takto:
 #include <string.h>
 
 int main() {
-    FILE* soubor = fopen("soubor.txt", "r");
+    FILE* soubor = fopen("soubor.txt", "rt");
     assert(soubor);
 
     char radek[80];

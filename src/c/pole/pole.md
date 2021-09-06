@@ -5,8 +5,8 @@ tak naplno využili, chtěli bychom zpracovávat mnoho proměnných najednou. Na
 - V dokumentu otevřeném ve Wordu můžeme mít uložené tisíce různých znaků.
 - Na server v online hře může v danou chvíli být připojené velké množství hráčů a všem musíme
 posílat informace o stavu hry.
-- Obrázky se běžně v programech reprezentují jako dvourozměrná mřížka pixelů. Například černobílý
-obrázek s rozměry `1024x1024` vyžaduje držet v paměti `1048576` bytů (čísel) reprezentujících
+- Obrázky se běžně v programech reprezentují jako dvourozměrná mřížka pixelů. Například obrázek
+ve stupních šedi s rozměry `1024x1024` vyžaduje držet v paměti `1048576` bytů (čísel) reprezentujících
 jednotlivé pixely.
 
 Asi si dovedete představit, že například pro reprezentaci obrázku bychom si s proměnnými, které jsme

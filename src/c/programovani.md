@@ -35,6 +35,6 @@ Javascript, Rust, C++ atd.).
 
 ## Navazující aplikovaná témata
 - [TGA](aplikovane_ulohy/tga.md) - jak vytvořit obrázek
-- [GIF](aplikovane_ulohy/gif.md) - jak vytvořit animací
+- [GIF](aplikovane_ulohy/gif.md) - jak vytvořit animaci
 - [SDL](aplikovane_ulohy/sdl.md) - jak vytvořit interaktivní grafickou aplikaci či hru
 - [Chipmunk](aplikovane_ulohy/chipmunk.md) - jak simulovat fyzikální procesy

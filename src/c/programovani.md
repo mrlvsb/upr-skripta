@@ -22,7 +22,7 @@ dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které za
 - [Funkce](funkce/funkce.md) - jak opakovaně využít a parametrizovat opakující se kód
 - [Ukazatele](prace_s_pameti/ukazatele.md) - jak sdílet data v paměti a pracovat s adresami
 - [Pole](pole/pole.md) - jak jednotně pracovat s velkým množstvím dat
-- [Text](text/text.md) - jak v programech pracovat s texten
+- [Text](text/text.md) - jak v programech pracovat s textem
 - [Struktury](struktury/vlastni_datove_typy.md) - jak vytvořit vlastní datové typy
 - [Soubory](soubory/soubory.md) - jak číst a zapisovat soubory
 - [Modularizace](modularizace/modularizace.md) - jak rozdělit program do více zdrojových souborů

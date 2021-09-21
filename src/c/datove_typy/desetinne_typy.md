@@ -32,7 +32,7 @@ Jednoduché použití zástupného znaku `%f` však způsobí, že se desetinné
 tj. pro číslo `1.0` se vypíše do termínálu `1.000000`.
 
 Pro to, abychom mohli specifikovat kolik číslic chceme vypsat za desetinnou tečkou, musíme k zástupnému znaku
-doplnit formátování. Pro datový typ `float` a `double` používáme následujícíc syntaxi:
+doplnit formátování. Pro datový typ `float` a `double` používáme následující syntaxi:
 
 ```c
 printf("Desetinne cislo: %.2f\n", 1.0);

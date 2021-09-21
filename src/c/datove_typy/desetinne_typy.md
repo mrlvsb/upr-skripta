@@ -28,7 +28,7 @@ Pokud chcete vytisknout na výstup hodnotu datového typu `float` nebo `double`,
 printf("Desetinne cislo: %f\n", 1.0);
 ```
 
-Jednoduché použití zástupného znaku `%f` však způsobí, že se desetinné číslo výpíše v rozvoji,
+Jednoduché použití zástupného znaku `%f` však způsobí, že se desetinné číslo vypíše v rozvoji,
 tj. pro číslo `1.0` se vypíše do termínálu `1.000000`.
 
 Pro to, abychom mohli specifikovat kolik číslic chceme vypsat za desetinnou tečkou, musíme k zástupnému znaku

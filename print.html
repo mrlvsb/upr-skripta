@@ -1395,10 +1395,19 @@ označuje pomocí &quot;single precision&quot;).</p>
 <p>Pokud chcete v programu vytvořit výraz datového typu <code>double</code>, stačí napsat desetinné číslo (jako
 desetinný oddělovač se používá tečka, ne čárka): <code>10.5</code>, <code>-0.73</code>. Pokud chcete vytvořit výraz typu
 <code>float</code>, tak za toto číslo ještě přidejte znak <code>f</code>: <code>10.5f</code>, <code>-0.73f</code>.</p>
+<h3><a class="header" href="#formátovaný-výstup-desetinných-čísel" id="formátovaný-výstup-desetinných-čísel">Formátovaný výstup desetinných čísel</a></h3>
 <p>Pokud chcete vytisknout na výstup hodnotu datového typu <code>float</code> nebo <code>double</code>, můžete použít
 <a href="c/datove_typy/../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">zástupný znak</a> <code>%f</code>:</p>
 <pre><code class="language-c">printf(&quot;Desetinne cislo: %f\n&quot;, 1.0);
 </code></pre>
+<p>Jednoduché použití zástupného znaku <code>%f</code> však způsobí, že se desetinné číslo vypíše v rozvoji,
+tj. pro číslo <code>1.0</code> se vypíše do termínálu <code>1.000000</code>.</p>
+<p>Pro to, abychom mohli specifikovat kolik číslic chceme vypsat za desetinnou tečkou, musíme k zástupnému znaku
+doplnit formátování. Pro datový typ <code>float</code> a <code>double</code> používáme následující syntaxi:</p>
+<pre><code class="language-c">printf(&quot;Desetinne cislo: %.2f\n&quot;, 1.0);
+</code></pre>
+<p>kde před zástupný znak <code>f</code> napíšeme <code>.</code> a doplníme požadovaným počtem číslic za desetinnou tečkou.
+Takto specifikovaný řetězec se zástupným znakem již vytiskne číslo <code>1.00</code>.</p>
 <h3><a class="header" href="#přesnost-desetinných-čísel" id="přesnost-desetinných-čísel">Přesnost desetinných čísel</a></h3>
 <p>Je třeba si uvědomit, že desetinná čísla v počítači mají pouze konečnou přesnost a jsou reprezentována
 v dvojkové soustavě:</p>

@@ -27,6 +27,9 @@ Návod pro zprovoznění WSL spolu s prostředím pro vývoj v jazyce *C* nalezn
 [zde](https://code.visualstudio.com/docs/cpp/config-wsl). Při instalaci WSL používejte distribuci
 `Ubuntu 20.04`.
 
+Pokud se Vám nedaří zprovoznit WSL podle výše uvedeného oficiálního návodu,
+tak zkuste [Virtulizovaný Linux](#virtualizovan%C3%BD-linux), který je popsán hned níže.
+
 ## Virtualizovaný Linux
 Linux můžete také používat ve virtualizované podobě pomocí
 [virtuálního stroje](https://cs.wikipedia.org/wiki/Virtu%C3%A1ln%C3%AD_stroj). Připravili jsme pro

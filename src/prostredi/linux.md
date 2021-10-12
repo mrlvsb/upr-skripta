@@ -28,7 +28,7 @@ Návod pro zprovoznění WSL spolu s prostředím pro vývoj v jazyce *C* nalezn
 `Ubuntu 20.04`.
 
 Pokud se Vám nedaří zprovoznit WSL podle výše uvedeného oficiálního návodu,
-tak zkuste [Virtulizovaný Linux](#virtualizovan%C3%BD-linux), který je popsán hned níže.
+tak zkuste [Virtualizovaný Linux](#virtualizovan%C3%BD-linux), který je popsán hned níže.
 
 ## Virtualizovaný Linux
 Linux můžete také používat ve virtualizované podobě pomocí

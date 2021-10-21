@@ -10,8 +10,8 @@ V *C* jsou dva základní vestavěné datové typy pro práci s desetinnými č�
 
 | Název | Počet bytů | Rozsah hodnot | Přesnost | Se znaménkem |
 |---|:---:|:---:|:---:|:---:|
-| `float` | 4 | [-3.4x10<sup>38</sup>; 3.4x10<sup>38</sup>] | ~7 des. míst | <i class="fa fa-check"></i> |
-| `double` | 8 | [-1.7x10<sup>308</sup>; 1.7x10 <sup>308</sup>] | ~16 des. míst | <i class="fa fa-check"></i> |
+| `float` | 4 | \[-3.4x10<sup>38</sup>; 3.4x10<sup>38</sup>\] | ~7 des. míst | <i class="fa fa-check"></i> |
+| `double` | 8 | \[-1.7x10<sup>308</sup>; 1.7x10 <sup>308</sup>\] | ~16 des. míst | <i class="fa fa-check"></i> |
 
 Slovo `double` pochází z pojmu "double precision", tedy dvojitá přesnost (typ `float` se také někdy
 označuje pomocí "single precision").

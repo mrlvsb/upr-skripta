@@ -5,9 +5,9 @@ Asi nejlepším nástrojem pro tento účel je použití [debuggeru](../prostred
 pomocí kterého můžete provádět váš program příkaz po příkazu a sledovat, jak se během toho měni
 jeho výstup a hodnoty v paměti.
 
-Důležité je zejména vědět, jak fungují příkazy [řízení toku](../c/rizeni_toku) a jak funguje
-vyhodnocování [výrazů](../c/prikazy_vyrazy.md). Níže naleznete několik příkladů, které slouží k
-demonstraci toho, jak se postupně vyhodnocují výrazy v jazyce *C*.[^1]
+Důležité je zejména vědět, jak fungují příkazy [řízení toku](../c/rizeni_toku/rizeni_toku.md) a
+jak funguje vyhodnocování [výrazů](../c/prikazy_vyrazy.md). Níže naleznete několik příkladů, které
+slouží k demonstraci toho, jak se postupně vyhodnocují výrazy v jazyce *C*.[^1]
 
 [^1]: Procesor ve skutečnosti s největší pravděpodobností nebude výrazy vyhodnocovat přesně tak,
 jak je zde ukázáno, ale mnohem efektivněji. Výsledek by však měl být stejný, proto se vyplatí umět

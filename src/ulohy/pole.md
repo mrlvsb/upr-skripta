@@ -115,7 +115,7 @@ Ze vstupu přečtěte počet terčů a následně si dynamicky alokujte 3 pole t
 Poté pro každý terč přečtěte jeho `x` souřadnici, `y` souřadnici, poloměr a uložte je do
 odpovídajících polí.
 Například následující vstup nám popisuje 2 terče.
-První terč má střed na souřadnici \\( [50, 70 ] \\) a poloměr \\( 40 \\) a druhý terč leží na středu \\( [160, 90 ] \\) s poloměrem \\( 60 \\).
+První terč má střed na souřadnici \\( \[50, 70 \] \\) a poloměr \\( 40 \\) a druhý terč leží na středu \\( \[160, 90 \] \\) s poloměrem \\( 60 \\).
 ```
 2
 50 70 40
@@ -136,7 +136,7 @@ Terče si pomocí `printf` vykreslete do vektorového obrázku ve formátu svg, 
 </svg>
 ```
 
-Terč se středem \\( [50, 70] \\) a poloměrem \\( 40 \\) lze vykreslit pomocí: 
+Terč se středem \\( \[50, 70\] \\) a poloměrem \\( 40 \\) lze vykreslit pomocí: 
 ```svg
 <circle cx='50' cy='70' r='40' stroke='black' fill='red' />
 ```

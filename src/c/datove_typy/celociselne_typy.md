@@ -24,14 +24,14 @@ celočíselných typů[^2]:
 
 | Název | Počet bytů | Rozsah hodnot | Se znaménkem |
 |---|:---:|:---:|:---:|
-| `char` nebo<br />`signed char` | 1 | [-128; 127] | <i class="fa fa-check"></i> |
-| `unsigned char` | 1 | [0; 255] | <i class="fa fa-times"></i> |
-| `short` nebo<br />`signed short` | 2 | [-32 768; 32 767] | <i class="fa fa-check"></i> |
-| `unsigned short` | 2 | [0; 65 535] | <i class="fa fa-times"></i> |
-| **`int`** nebo<br />`signed int` | 4 | [-2 147 483 648; 2 147 483 647] | <i class="fa fa-check"></i> |
-| `unsigned int` | 4 | [0; 4 294 967 295] | <i class="fa fa-times"></i> |
-| `long` nebo<br />`signed long` | 8 | [-9 223 372 036 854 775 808;<br />9 223 372 036 854 775 807] | <i class="fa fa-check"></i> |
-| `unsigned long` | 8 | [0; 18 446 744 073 709 551 615] | <i class="fa fa-times"></i> |
+| `char` nebo<br />`signed char` | 1 | \[-128; 127\] | <i class="fa fa-check"></i> |
+| `unsigned char` | 1 | \[0; 255\] | <i class="fa fa-times"></i> |
+| `short` nebo<br />`signed short` | 2 | \[-32 768; 32 767\] | <i class="fa fa-check"></i> |
+| `unsigned short` | 2 | \[0; 65 535\] | <i class="fa fa-times"></i> |
+| **`int`** nebo<br />`signed int` | 4 | \[-2 147 483 648; 2 147 483 647\] | <i class="fa fa-check"></i> |
+| `unsigned int` | 4 | \[0; 4 294 967 295\] | <i class="fa fa-times"></i> |
+| `long` nebo<br />`signed long` | 8 | \[-9 223 372 036 854 775 808;<br />9 223 372 036 854 775 807\] | <i class="fa fa-check"></i> |
+| `unsigned long` | 8 | \[0; 18 446 744 073 709 551 615] | <i class="fa fa-times"></i> |
 
 [^2]: Počet bytů (a znaménkovost u typu `char`) záleží na kombinaci použitého hardwaru,
 operačního systému a překladače. Zde jsou uvedeny hodnoty, se kterými se můžete

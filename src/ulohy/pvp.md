@@ -72,4 +72,4 @@ Barvy v terminálu můžeme měnit pomocí escape sekvencí:
 printf(RED "%d" RESET, hp_left); 
 ```
 
-Návrh hry také můžete později vylepšit pomocí [struktury](/c/struktury/vlastni_datove_typy.md) `Player`, která by obsahovala životy, štít a zbraně jednoho hráče po kupě.
+Návrh hry také můžete později vylepšit pomocí [struktury](../c/struktury/vlastni_datove_typy.md) `Player`, která by obsahovala životy, štít a zbraně jednoho hráče po kupě.

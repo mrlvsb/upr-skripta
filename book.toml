@@ -35,5 +35,8 @@ editable = true
 enable = true
 level = 0
 
+[output.linkcheck]
+warning-policy = "error"
+
 [preprocessor.plantuml]
 plantuml-cmd="http://www.plantuml.com/plantuml"

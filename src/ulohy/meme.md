@@ -14,7 +14,7 @@ i do them in C
 
 Možné kroky pro vytvoření generátoru:
 
-1. načíst [TGA obrázek](/c/aplikovane_ulohy/tga.html) pozadí, uložit a otestovat správnost
+1. načíst [TGA obrázek](../c/aplikovane_ulohy/tga.md) pozadí, uložit a otestovat správnost
   
    Jeden pixel obrázku budeme reprezentovat pomocí čtyř kanálu/bajtů: RGB + alfa průhlednost
 

@@ -21,19 +21,22 @@ jobs:
                   mv ./mdbook ~/bin/
                   echo "~/bin" >> $GITHUB_PATH
 
-            - name: Cache mdbook-plantuml
+            - name: Cache mdbook plugins
               uses: actions/cache@v2
               with:
                 path: |
                   ~/.cargo/bin/mdbook-plantuml
+                  ~/.cargo/bin/mdbook-linkcheck
                   ~/.cargo/.crates.toml
                   ~/.cargo/.crates2.json
-                key: ${{ runner.os }}-cache-plantuml-${{ github.run_id }}
+                key: ${{ runner.os }}-cache-mdbook-${{ github.run_id }}
                 restore-keys: |
-                  ${{ runner.os }}-cache-plantuml-
+                  ${{ runner.os }}-cache-mdbook-
 
-            - name: Install mdbook-plantuml
-              run: cargo install mdbook-plantuml
+            - name: Install mdbook plugins
+              run: |
+                cargo install mdbook-plantuml
+                cargo install mdbook-linkcheck
 
             - name: Build
               run: mdbook build

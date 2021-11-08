@@ -211,6 +211,9 @@ zdali jsou dva řetězce stejné, popřípadě který z nich je menší[^5]. Fun
 rovnají, zápornou hodnotu, pokud je první řetězec menší než ten druhý, a kladnou hodnotu, pokud je
 druhý řetězec menší než první.
 
+  > Pro porovnávání dvou řetězců nikdy nepoužívejte operátor `==`! Nebude to
+  > [fungovat](../../caste_chyby/caste_chyby.md#porovnávání-řetězců-pomocí-).
+
 [^5]: Pro porovnávání řetězců se používá [lexikografické uspořádání](https://cs.wikipedia.org/wiki/Lexikografick%C3%A9_uspo%C5%99%C3%A1d%C3%A1n%C3%AD).
 Nalezne se první dvojice znaků (zleva), ve kterém se řetězce liší, a tyto dva znaky se porovnají
 pomocí jejich číselné (ASCII) hodnoty.

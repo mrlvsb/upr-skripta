@@ -188,6 +188,32 @@ char a = 'x';               // správně
 const char* str = "hello";  // správně
 ```
 
+### Porovnávání řetězců pomocí `==`
+Řetězce jsou v jazyce *C* reprezentovány jako [pole znaků](../c/text/retezce.md). Když pracujete
+s řetězcem, tak máte obvykle k dispozici [ukazatel](../c/prace_s_pameti/ukazatele.md) na jeho první
+[znak](../c/text/znaky.md).
+
+Pokud k porovnání dvou řetězců použijete operátor `==`, tak vlastně porovnáte akorát hodnotu dvou
+ukazatelů. Pokud budou tyto ukazatele obsahovat stejnou adresu v paměti, tak bude výsledek pravdivý.
+Ale dva řetězce se můžou rovnat i v případě, že leží na různých místech v paměti! Pro porovnání
+dvou řetězců tak použijte funkci [`strcmp`](https://devdocs.io/c/string/byte/strcmp).
+
+```c
+#include <string.h>
+
+void funkce(const char* a, const char* b) {
+    if (a == b) { ... }             // špatně
+    if (strcmp(a, b) == 0) { ... }  // správně
+}
+```
+
+> Může vám přijít zvláštní, že pokud porovnáváte dva [řetězcové literály](../c/text/retezce.md#Řetězcový-literál),
+> tak porovnání dvou stejných řetězců pomocí `==` bude fungovat (vrátí pravdivou hodnotu). To je ale
+> dáno pouze tím, že překladač stejné řetězcové literály ukládá na stejné místo v paměti, takže mají
+> stejnou adresu a `==` zde bude fungovat. Pro porovnávání řetězců, které ale načtete např. z
+> terminálu nebo ze souboru, to však fungovat nebude, proto `==` nikdy pro porovnávání řetězců
+> nepoužívejte.
+
 ### Špatná práce s ukazatelem
 [Ukazatele](../c/prace_s_pameti/ukazatele.md) jsou čísla, která interpretujeme jako
 [adresy v paměti](../uvod/pamet.md). Můžete s nimi sice provádět některé aritmetické operace

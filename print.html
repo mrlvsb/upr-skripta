@@ -4301,14 +4301,21 @@ for (int i = 0; i &lt; delka; i++) {
 </li>
 </ul>
 <ul>
-<li><strong>Porovnání dvou řetězců</strong>: běžnou operací, kterou bychom s řetězci chtěli udělat, je porovnat,
+<li>
+<p><strong>Porovnání dvou řetězců</strong>: běžnou operací, kterou bychom s řetězci chtěli udělat, je porovnat,
 zdali jsou dva řetězce stejné, popřípadě který z nich je menší<sup class='margin-toggle sidenote-number'>5</sup>. Funkce
 <a href="https://devdocs.io/c/string/byte/strcmp"><code>strcmp</code></a> bere dva řetězce a vrací nulu, pokud se řetězce
 rovnají, zápornou hodnotu, pokud je první řetězec menší než ten druhý, a kladnou hodnotu, pokud je
-druhý řetězec menší než první.<span class='sidenote'><p><sup class='number'>5</sup>Pro porovnávání řetězců se používá <a href="https://cs.wikipedia.org/wiki/Lexikografick%C3%A9_uspo%C5%99%C3%A1d%C3%A1n%C3%AD">lexikografické uspořádání</a>.
+druhý řetězec menší než první.</p>
+<span class='sidenote'><p><sup class='number'>5</sup>Pro porovnávání řetězců se používá <a href="https://cs.wikipedia.org/wiki/Lexikografick%C3%A9_uspo%C5%99%C3%A1d%C3%A1n%C3%AD">lexikografické uspořádání</a>.
 Nalezne se první dvojice znaků (zleva), ve kterém se řetězce liší, a tyto dva znaky se porovnají
 pomocí jejich číselné (ASCII) hodnoty.</p>
-</span></li>
+</span>
+<blockquote>
+<p>Pro porovnávání dvou řetězců nikdy nepoužívejte operátor <code>==</code>! Nebude to
+<a href="c/text/../../caste_chyby/caste_chyby.html#porovn%C3%A1v%C3%A1n%C3%AD-%C5%99et%C4%9Bzc%C5%AF-pomoc%C3%AD-">fungovat</a>.</p>
+</blockquote>
+</li>
 </ul>
 <ul>
 <li>
@@ -8550,6 +8557,29 @@ char a = &quot;asd&quot;; // špatně, ukládáme řetězec do typu `char` (měl
 char a = 'x';               // správně
 const char* str = &quot;hello&quot;;  // správně
 </code></pre>
+<h3><a class="header" href="#porovnávání-řetězců-pomocí-" id="porovnávání-řetězců-pomocí-">Porovnávání řetězců pomocí <code>==</code></a></h3>
+<p>Řetězce jsou v jazyce <em>C</em> reprezentovány jako <a href="caste_chyby/../c/text/retezce.html">pole znaků</a>. Když pracujete
+s řetězcem, tak máte obvykle k dispozici <a href="caste_chyby/../c/prace_s_pameti/ukazatele.html">ukazatel</a> na jeho první
+<a href="caste_chyby/../c/text/znaky.html">znak</a>.</p>
+<p>Pokud k porovnání dvou řetězců použijete operátor <code>==</code>, tak vlastně porovnáte akorát hodnotu dvou
+ukazatelů. Pokud budou tyto ukazatele obsahovat stejnou adresu v paměti, tak bude výsledek pravdivý.
+Ale dva řetězce se můžou rovnat i v případě, že leží na různých místech v paměti! Pro porovnání
+dvou řetězců tak použijte funkci <a href="https://devdocs.io/c/string/byte/strcmp"><code>strcmp</code></a>.</p>
+<pre><code class="language-c">#include &lt;string.h&gt;
+
+void funkce(const char* a, const char* b) {
+    if (a == b) { ... }             // špatně
+    if (strcmp(a, b) == 0) { ... }  // správně
+}
+</code></pre>
+<blockquote>
+<p>Může vám přijít zvláštní, že pokud porovnáváte dva <a href="caste_chyby/../c/text/retezce.html#%C5%98et%C4%9Bzcov%C3%BD-liter%C3%A1l">řetězcové literály</a>,
+tak porovnání dvou stejných řetězců pomocí <code>==</code> bude fungovat (vrátí pravdivou hodnotu). To je ale
+dáno pouze tím, že překladač stejné řetězcové literály ukládá na stejné místo v paměti, takže mají
+stejnou adresu a <code>==</code> zde bude fungovat. Pro porovnávání řetězců, které ale načtete např. z
+terminálu nebo ze souboru, to však fungovat nebude, proto <code>==</code> nikdy pro porovnávání řetězců
+nepoužívejte.</p>
+</blockquote>
 <h3><a class="header" href="#Špatná-práce-s-ukazatelem" id="Špatná-práce-s-ukazatelem">Špatná práce s ukazatelem</a></h3>
 <p><a href="caste_chyby/../c/prace_s_pameti/ukazatele.html">Ukazatele</a> jsou čísla, která interpretujeme jako
 <a href="caste_chyby/../uvod/pamet.html">adresy v paměti</a>. Můžete s nimi sice provádět některé aritmetické operace

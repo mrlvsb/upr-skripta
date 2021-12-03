@@ -241,6 +241,12 @@ int main() {
     return 0;
 }
 </code></pre>
+<blockquote>
+<p>Pokud byl na vstupu řádek ukončený odřádkováním (<code>\n</code>), tak se toto odřádkování bude nacházet i v
+načteném řetězci po zavolání <code>fgets</code>! Pokud tedy takto načtený řetězec chcete například porovnat s
+jiným řetězcem, měli byste nejprve znak odřádkování odstranit. Více se můžete dozvědět
+<a href="../../caste_chyby/caste_chyby.html#porovn%C3%A1v%C3%A1n%C3%AD-%C5%99et%C4%9Bzce-na%C4%8Dten%C3%A9ho-funkc%C3%AD-fgets">zde</a>.</p>
+</blockquote>
 <h2><a class="header" href="#načtení-formátovaného-textu" id="načtení-formátovaného-textu">Načtení formátovaného textu</a></h2>
 <p>Pokud chceme načítat text, u kterého očekáváme, že bude mít nějaký specifický formát, popřípadě chceme
 text rovnou nějak zpracovat, například jej převést na číslo, můžeme použít formátované načítání vstupu

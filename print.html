@@ -4470,6 +4470,12 @@ int main() {
     return 0;
 }
 </code></pre>
+<blockquote>
+<p>Pokud byl na vstupu řádek ukončený odřádkováním (<code>\n</code>), tak se toto odřádkování bude nacházet i v
+načteném řetězci po zavolání <code>fgets</code>! Pokud tedy takto načtený řetězec chcete například porovnat s
+jiným řetězcem, měli byste nejprve znak odřádkování odstranit. Více se můžete dozvědět
+<a href="c/text/../../caste_chyby/caste_chyby.html#porovn%C3%A1v%C3%A1n%C3%AD-%C5%99et%C4%9Bzce-na%C4%8Dten%C3%A9ho-funkc%C3%AD-fgets">zde</a>.</p>
+</blockquote>
 <h2><a class="header" href="#načtení-formátovaného-textu" id="načtení-formátovaného-textu">Načtení formátovaného textu</a></h2>
 <p>Pokud chceme načítat text, u kterého očekáváme, že bude mít nějaký specifický formát, popřípadě chceme
 text rovnou nějak zpracovat, například jej převést na číslo, můžeme použít formátované načítání vstupu
@@ -8580,6 +8586,33 @@ stejnou adresu a <code>==</code> zde bude fungovat. Pro porovnávání řetězc�
 terminálu nebo ze souboru, to však fungovat nebude, proto <code>==</code> nikdy pro porovnávání řetězců
 nepoužívejte.</p>
 </blockquote>
+<h3><a class="header" href="#porovnávání-řetězce-načteného-funkcí-fgets" id="porovnávání-řetězce-načteného-funkcí-fgets">Porovnávání řetězce načteného funkcí <code>fgets</code></a></h3>
+<p>Funkce <code>fgets</code> umí načíst <a href="caste_chyby/../c/text/vstup.html#na%C4%8Dten%C3%AD-%C5%99%C3%A1dku">řádek</a> ze vstupního souboru či ze
+standardního vstupu. Pokud s takto načteným řádkem chcete dále pracovat, dejte si pozor na to, že
+na konci tohoto řetězce může být znak odřádkování (<code>'\n'</code>)! Pokud tomu tak bude, tak nebude např.
+fungovat přímé porovnání řádku s nějakým řetězcovým literálem:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char buffer[80];
+    fgets(buffer, sizeof(buffer), stdin);
+
+    // Pokud uživatel zadá v terminálu ahoj, tak v proměnné `buffer` bude
+    // řetězec &quot;ahoj\n&quot;, takže toto porovnání nebude fungovat.
+    if (strcmp(buffer, &quot;ahoj&quot;) == 0) {
+        printf(&quot;Ahoj!\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>Pokud tedy chcete takto pracovat s načteným řádkem, nejprve byste se měli podívat, jestli nekončí
+znakem odřádkování, a pokud ano, tak tento znak
+<a href="caste_chyby/../c/text/retezce.html#k-%C4%8Demu-slou%C5%BE%C3%AD-nulov%C3%BD-znak-na-konci">odstranit</a>.</p>
+<p>Znak odřádkování na konci řetězce být nemusí například pokud načtete poslední řádek ze souboru,
+který není ukončen znakem odřádkování. Před změnou řetězce s načteným řádkem byste tak vždy měli
+nejprve zkontrolovat, že se na jeho konci znak odřádkování opravdu nachází.</p>
 <h3><a class="header" href="#Špatná-práce-s-ukazatelem" id="Špatná-práce-s-ukazatelem">Špatná práce s ukazatelem</a></h3>
 <p><a href="caste_chyby/../c/prace_s_pameti/ukazatele.html">Ukazatele</a> jsou čísla, která interpretujeme jako
 <a href="caste_chyby/../uvod/pamet.html">adresy v paměti</a>. Můžete s nimi sice provádět některé aritmetické operace

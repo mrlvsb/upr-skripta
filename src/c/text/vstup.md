@@ -32,6 +32,11 @@ zapíše načítaný řádek a maximální počet znaků, který lze načíst[^2
 pokud chcete načítat data ze standardního vstupu, tak použijte jako třetí parametr globální proměnnou
 `stdin`, která je nadefinována v souboru `<stdio.h>`. Pro jednoduché zjištění délky řetězce, do
 kterého zapisujete, můžete použít operátor `sizeof`:
+
+[^2]: Tato velikost je včetně znaku `'\0'`, který je vždy zapsán na konec vstupního řetězce. Pokud
+tak máte řetězec (pole) o délce `10`, předejte do `fgets` hodnotu `10`. Funkce načte maximálně `9`
+znaků a na konec řetězce umístí znak `'\0'`.
+
 ```c
 #include <stdio.h>
 
@@ -43,6 +48,7 @@ int main() {
     return 0;
 }
 ```
+
 Pokud tato funkce vrátí návratovou hodnotu `NULL`, tak při načítání došlo k chybě. Tuto chybu byste
 tak ideálně měli nějak ošetřit:
 ```c
@@ -59,9 +65,10 @@ int main() {
 }
 ```
 
-[^2]: Tato velikost je včetně znaku `'\0'`, který je vždy zapsán na konec vstupního řetězce. Pokud
-tak máte řetězec (pole) o délce `10`, předejte do `fgets` hodnotu `10`. Funkce načte maximálně `9`
-znaků a na konec řetězce umístí znak `'\0'`.
+> Pokud byl na vstupu řádek ukončený odřádkováním (`\n`), tak se toto odřádkování bude nacházet i v
+> načteném řetězci po zavolání `fgets`! Pokud tedy takto načtený řetězec chcete například porovnat s
+> jiným řetězcem, měli byste nejprve znak odřádkování odstranit. Více se můžete dozvědět
+> [zde](../../caste_chyby/caste_chyby.md#porovnávání-řetězce-načteného-funkcí-fgets).
 
 ## Načtení formátovaného textu
 Pokud chceme načítat text, u kterého očekáváme, že bude mít nějaký specifický formát, popřípadě chceme

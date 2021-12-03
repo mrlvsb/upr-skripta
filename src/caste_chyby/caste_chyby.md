@@ -214,6 +214,38 @@ void funkce(const char* a, const char* b) {
 > terminálu nebo ze souboru, to však fungovat nebude, proto `==` nikdy pro porovnávání řetězců
 > nepoužívejte.
 
+### Porovnávání řetězce načteného funkcí `fgets`
+Funkce `fgets` umí načíst [řádek](../c/text/vstup.md#načtení-řádku) ze vstupního souboru či ze
+standardního vstupu. Pokud s takto načteným řádkem chcete dále pracovat, dejte si pozor na to, že
+na konci tohoto řetězce může být znak odřádkování (`'\n'`)! Pokud tomu tak bude, tak nebude např.
+fungovat přímé porovnání řádku s nějakým řetězcovým literálem:
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char buffer[80];
+    fgets(buffer, sizeof(buffer), stdin);
+
+    // Pokud uživatel zadá v terminálu ahoj, tak v proměnné `buffer` bude
+    // řetězec "ahoj\n", takže toto porovnání nebude fungovat.
+    if (strcmp(buffer, "ahoj") == 0) {
+        printf("Ahoj!\n");
+    }
+
+    return 0;
+}
+```
+
+Pokud tedy chcete takto pracovat s načteným řádkem, nejprve byste se měli podívat, jestli nekončí
+znakem odřádkování, a pokud ano, tak tento znak
+[odstranit](../c/text/retezce.md#k-čemu-slouží-nulový-znak-na-konci).
+
+Znak odřádkování na konci řetězce být nemusí například pokud načtete poslední řádek ze souboru,
+který není ukončen znakem odřádkování. Před změnou řetězce s načteným řádkem byste tak vždy měli
+nejprve zkontrolovat, že se na jeho konci znak odřádkování opravdu nachází.
+
 ### Špatná práce s ukazatelem
 [Ukazatele](../c/prace_s_pameti/ukazatele.md) jsou čísla, která interpretujeme jako
 [adresy v paměti](../uvod/pamet.md). Můžete s nimi sice provádět některé aritmetické operace

@@ -6113,7 +6113,7 @@ a poté si z ní můžeme přečíst informace o daném obrázku:</p>
 assert(file);
 
 TGAHeader header = {};
-assert(fread(header, sizeof(TGAHeader), 1, file) == 1);
+assert(fread(&amp;header, sizeof(TGAHeader), 1, file) == 1);
 
 printf(&quot;Image type: %d, pixel depth: %d\n&quot;, header.image_type, header.depth);
 </code></pre>

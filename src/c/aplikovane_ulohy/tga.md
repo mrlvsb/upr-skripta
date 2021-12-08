@@ -91,7 +91,7 @@ FILE* file = fopen("carmack.tga", "rb");
 assert(file);
 
 TGAHeader header = {};
-assert(fread(header, sizeof(TGAHeader), 1, file) == 1);
+assert(fread(&header, sizeof(TGAHeader), 1, file) == 1);
 
 printf("Image type: %d, pixel depth: %d\n", header.image_type, header.depth);
 ```

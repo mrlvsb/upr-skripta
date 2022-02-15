@@ -10,16 +10,25 @@ Na cvičeních UPR budeme používat editor `Visual Studio Code`, který je
 programování se hodí detailně znát a efektivně využívat editor, který používáte, ale pro začátek
 nám budou stačit naprosté základy.
 
+## Instalace VSCode
+- Pokud používáte virtualizovaný nebo nativní Linux (Ubuntu), stáhněte si [odsud](https://code.visualstudio.com/)
+`.deb` soubor s balíčkem VSCode a nainstalujte jej (poklikáním myši na soubor nebo spuštěním příkazu
+    ```bash
+    $ sudo apt install ./<nazev-souboru>.deb
+    ```
+- Pokud používáte `WSL`, tak si stáhněte a nainstalujte VSCode **na Windows**. Při instalaci vyberte
+možnost `Add to PATH`, aby byl VSCode poté jednoduše dostupný z WSL. Dále budete muset do VSCod
+doinstalovat [toto](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+rozšíření pro práci s WSL. Podrobný návod, jak zprovoznit VSCode v kombinaci s WSL, naleznete
+[zde](https://code.visualstudio.com/docs/remote/wsl) nebo [zde](https://code.visualstudio.com/docs/cpp/config-wsl).
+
 ## Instalace potřebných rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
-tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk C. V terminálu spusťte tyto příkazy:
+tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk *C*. V terminálu spusťte tyto příkazy:
 
 ```bash
 $ code --install-extension ms-vscode.cpptools
 ```
-
-> Návod pro práci s terminálem na Linuxu můžete najít např. [zde](https://wiki.ubuntu.cz/syst%C3%A9m/p%C5%99%C3%ADkazov%C3%A1_%C5%99%C3%A1dka/termin%C3%A1l).
-> Tahák pro příkazy terminálu najdete [zde](https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/linux.pdf).
 
 ## Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
 1. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
@@ -27,7 +36,8 @@ $ code --install-extension ms-vscode.cpptools
 
 ## Ukázka nastavení projektu
 Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)
-šablonu.
+šablonu. Pro otevření adresáře ve VSCode klikněte na `Soubor (File) -> Otevřít adresář (Open Folder)`
+a vyberte nějaký adresář, ve kterém chcete programovat.
 
 ![Nastavení VSCode](../static/video/vsc_first_run.gif)
 

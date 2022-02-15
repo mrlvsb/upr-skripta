@@ -15,7 +15,7 @@ Knihovna Chipmunk nenabízí distribuci již přeložených objektových soubor�
 soubory přidat k našemu projektu a přeložit je ručně.
 
 Stáhněte si poslední verzi [zdrojových kódů knihovny](https://chipmunk-physics.net/release/ChipmunkLatest.tgz)
-z webu [Chipmunku](https://chipmunk-physics.net/downloads.php), rozbalte je a výslednou složku
+z webu [Chipmunku](https://chipmunk-physics.net/downloads.php), rozbalte je a výsledný adresář
 přejmenujte z `Chipmunk-X.Y.Z` na `Chipmunk`.
 
 Dále můžete knihovnu přidat ke svému `CMake` projektu pomocí následující `CMakeLists.txt` souboru:
@@ -31,7 +31,7 @@ project(physics)
 # Parametr -pthread je nutný při použítí této knihovny
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")
 
-# Vložení složky Chipmunk
+# Vložení adresáře Chipmunk
 add_subdirectory(Chipmunk)
 
 # Vytvoření programu

@@ -1,5 +1,5 @@
 # Základy syntaxe
-*C* je (programovací) jazyk a jako každý jazyk má svá pravidla, které je nutno dodržovat.
+*C* je (programovací) jazyk a jako každý jazyk má svá pravidla, která je nutno dodržovat.
 Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abychom byli schopni výsledný
 text pochopit. Věty `jsme, M y máma, táta a` nebo `.o dku  d! ty z, jsi` nedávají smysl,
 protože obsahují interpunkční znaménka na špatných místech, větné členy jsou ve špatném pořadí

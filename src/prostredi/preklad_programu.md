@@ -32,8 +32,8 @@ buňky s kódem.
 > Podobný jednoduchý program je zpravidla tím prvním, co programátor vytvoří, když se učí nějaký
 > programovací jazyk.
 
-Nyní otevřete terminál (`Ctrl + Alt + T` v Ubuntu) ve složce s tímto souborem, spusťte program
-`gcc` a předejte mu cestu k tomuto souboru:
+Nyní otevřete terminál (`Ctrl + Alt + T` v Ubuntu), přesuňte se do složky s tímto souborem pomocí
+příkazu `cd`, spusťte program `gcc` a předejte mu cestu k tomuto souboru:
 
 ```bash
 $ gcc main.c -o program

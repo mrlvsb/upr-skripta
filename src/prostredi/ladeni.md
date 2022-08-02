@@ -34,8 +34,11 @@ možných problémových místech ve vašem kódu:
 $ gcc -Wall -Wextra -pedantic main.c -o program
 ``` 
 
+Podívejte se také do sekce [Časté chyby](../caste_chyby/caste_chyby.md), kde je seznam často se
+vyskytujících chyb.
+
 ### Chyby při běhu programu
-Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:
+Pokud váš program tzv. "padá" při běhu, můžete zkusit následující způsoby ladění:
 
 #### Address sanitizer
 Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
@@ -59,6 +62,10 @@ Pro interaktivnější zkoumání chování programů je možné je tzv. **kroko
 který umí program pozastavit při jeho běhu a zobrazit uživateli, co se v něm děje. Takovéto nástroje se nazývají
 **debuggery**. Při krokování se program zastaví na určitém místě (řádku) v kódu, a programátor pak může
 zkoumat hodnoty proměnných a spouštět program řádek po řádku.
+
+> Doporučujeme za začátku používat **krokování** neustále, abyste se naučili, jak se vlastně program
+> provádí a lépe tak pochopili, co vykonávají jednotlivé příkazy, které v kódu píšete. Je to také mocný
+> nástroj na hledání chyb v programech.
 
 Pro vás je nejjednodušší použít krokování integrované ve VSCode:
 - Klikněte na sloupeček vlevo od čísla řádku, na kterém chcete, aby se program zastavil.

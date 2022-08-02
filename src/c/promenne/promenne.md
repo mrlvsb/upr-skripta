@@ -170,3 +170,143 @@ podívali, jaké jsou hodnoty jednotlivých proměnných a jak se měni v čase 
 Více úloh naleznete [zde](../../ulohy/zaklady.md).
 
 <hr />
+
+**Kvíz**
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+    
+    int main() {
+        int a = 5;
+        printf("a\n");
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše znak `a`, jelikož vše uvnitř uvozovek se bere jako text. Aby program vypsal
+    hodnotu proměnné `a`, museli bychom použít např. příkaz `printf("a=%d\n", a);`.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 5;
+        printf("%d\n", a);
+        a = 8;
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše znak `5`, protože v době, kdy proměnnou vypisujeme, tak je její hodnota `5`.
+    Po vypsání proměnné sice její hodnotu změníme na `8`, ale poté už ji nevypíšeme a program skončí.
+    </details>
+3) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 5;
+        a + 1;
+        printf("%d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše znak `5`. Provedeme sice výraz `a + 1`, který se vyhodnotí jako `6`, ale výsledek
+    tohoto výrazu se "zahodí", nijak tedy neovlivní další chování programu. Abychom změnili hodnotu
+    proměnné `a`, museli bychom výsledek tohoto výrazu zpět do proměnné uložit: `a = a + 1;`.
+    Vyzkoušejte si to.
+    </details>
+4) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 5;
+        int b = a;
+        a = 8;
+
+        printf("%d\n", a);
+        printf("%d\n", b);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    8
+    5
+    ```
+    Při definici proměnné `b` jsme ji inicializovali hodnotou proměnné `a`. Výraz `a` se tedy
+    vyhodnotil jako hodnota `5`, která byla uložena do proměnné `b`. Dále však už spolu proměnné
+    nesouvisí, změna hodnoty proměnné `a` tedy nijak neovlivní hodnotu uloženou v proměnné `b`.
+    </details>
+5) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        printf("%d\n", a);
+        int a = 5;
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Překlad programu skončí s chybou (`use of undeclared identifier 'a'`), protože se snažíme číst
+    hodnotu proměnné, která na daném řádku zatím nebyla nadefinována. Proměnnou `a` můžeme začít
+    používat až poté, co ji nadefinujeme, tj. za řádkem `int a = 5;`.
+    </details>
+6) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        a = 5;
+        printf("%d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Překlad programu skončí s chybou (`use of undeclared identifier 'a'`), protože se snažíme zapsat
+    výraz `5` do proměnné, která neexistuje. Před prvním použitím proměnné ji vždy nejprve musíme
+    nadefinovat: `int a = 5;`.
+    </details>
+7) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a;
+        printf("%d\n", a + 1);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣, protože čteme hodnotu proměnné, která nebyla
+    inicializována, a její hodnota je tedy nedefinovaná. Nelze tak určit, co tento program provede,
+    překladač jej může přeložit na totální nesmysl. Takovýto program je špatně a nemá smysl zkoumat,
+    co provede, je potřeba jej nejprve opravit tak, že proměnnou `a` nainicializujeme.
+    </details>

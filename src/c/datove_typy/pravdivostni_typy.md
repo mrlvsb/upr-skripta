@@ -48,17 +48,17 @@ bool je_clovek = je_muz || je_zena; // true || false -> true
 
 bool je_rodic = true;
 bool je_otec = je_rodic && je_muz;  // true && true -> true
-bool je_matka = je_rodic && ~je_otec; // true && ~true -> true && false -> false
+bool je_matka = je_rodic && !je_otec; // true && !true -> true && false -> false
 ```
 
 Pro připomenutí, zde je pravdivostní tabulka těchto logických operátorů:
 
-| `X` | `Y` | `X && Y` | <code>X &#124;&#124; Y</code> | `~X` |
-|---|:---:|:---:|:---:|:---:|
-| `false` | `false` | `false` | `false` | `true` |
-| `false` | `true` | `false` | `true` | `true` |
-| `true` | `false` | `false` | `true` | `false` |
-| `true` | `true` | `true` | `true` | `false` |
+| `X`     |   `Y`   | `X && Y` | <code>X &#124;&#124; Y</code> |  `!X`   |
+|---------|:-------:|:--------:|:-----------------------------:|:-------:|
+| `false` | `false` | `false`  |            `false`            | `true`  |
+| `false` | `true`  | `false`  |            `true`             | `true`  |
+| `true`  | `false` | `false`  |            `true`             | `false` |
+| `true`  | `true`  |  `true`  |            `true`             | `false` |
 
 ### Porovnávání hodnot
 Při programování často potřebujete porovnat hodnoty mezi sebou:
@@ -81,8 +81,8 @@ a vede k obtížně nalezitelným chybám.
 Porovnávat mezi sebou můžete libovolné hodnoty dvou stejných datových typů. Výsledkem porovnání
 je výraz datového typu `bool`:
 ```c
-int jarda_body = 10;
-int kamil_body = 13;
+int jarda_body = 13;
+int kamil_body = 10;
 
 bool remiza = jarda_body == kamil_body; // false
 bool vyhra_jardy = jarda_body > kamil_body; // true
@@ -124,17 +124,17 @@ může tak vracet jiný výsledek, než očekáváte.
 Zde je pro přehlednost tabulka s logickými operátory.
 Datový typ výsledku je u těchto operátorů vždy `bool`.
 
-| Operátor | Popis | Příklad |
-|:---:|:---:|:---:|
-| `&&` | Logický součin (AND) | `a == b && c >= d` |
-| <code>&#124;&#124;</code> | Logický součet (OR) | <code>a < b &#124;&#124; c == d</code> |
-| `!` | Logická negace (NOT) | `!(a > b && c < d)` |
-| `==` | Rovná se | `a == 5` |
-| `!=` | Nerovná se | `a != 5` |
-| `>` | Větší než | `a > 5` |
-| `>=` | Větší nebo rovno než | `a >= 5` |
-| `<` | Menší než | `a < 5` |
-| `<=` | Menší nebo rovno než | `a <= 5` |
+|         Operátor          |        Popis         |                Příklad                 |
+|:-------------------------:|:--------------------:|:--------------------------------------:|
+|           `&&`            | Logický součin (AND) |           `a == b && c >= d`           |
+| <code>&#124;&#124;</code> | Logický součet (OR)  | <code>a < b &#124;&#124; c == d</code> |
+|            `!`            | Logická negace (NOT) |          `!(a > b && c < d)`           |
+|           `==`            |       Rovná se       |                `a == 5`                |
+|           `!=`            |      Nerovná se      |                `a != 5`                |
+|            `>`            |      Větší než       |                `a > 5`                 |
+|           `>=`            | Větší nebo rovno než |                `a >= 5`                |
+|            `<`            |      Menší než       |                `a < 5`                 |
+|           `<=`            | Menší nebo rovno než |                `a <= 5`                |
 
 ### Zkrácené vyhodnocování
 Při vyhodnocování Booleovských výrazů s logickými operátory se v *C* používá tzv. **zkrácené vyhodnocování**
@@ -159,3 +159,63 @@ Pokud se pokusíte o převod celého či desetinného čísla na `bool`, tak mů
 V opačném směru (konverze `bool` u na číslo) dojde k následující konverzi:
 - `true` se převede na `1`
 - `false` se převede na `0`
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main() {
+        int pocet_zidli = 14;
+        int pocet_lidi = 8;
+        int pocet_znicenych_zidli = 4;
+
+        bool dostatek_zidli = (pocet_zidli - pocet_znicenych_zidli) >= pocet_lidi;
+        bool dostatek_lidi = pocet_lidi >= 6;
+        bool party_pripravena = dostatek_zidli && dostatek_lidi;
+
+        printf("Party: %d\n", party_pripravena);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `Party: 1`.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main() {
+        int a = 5;
+        int b = 4;
+
+        bool x = a >= 3 || (b = 8);
+
+        printf("a=%d\n", a);
+        printf("b=%d\n", b);
+        printf("x=%d\n", x);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    a=5
+    b=4
+    x=1
+    ```
+    Výraz přiřazení `b = 8` se neprovede kvůli [zkrácenému vyhodnocování](#zkrácené-vyhodnocování),
+    hodnota proměnné `b` se tak nezmění. Raději nepoužívejte výrazy obsahující vedlejší efekty v
+    kombinaci s `||` a `&&`.
+    </details>

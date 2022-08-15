@@ -3,8 +3,9 @@
 > 🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
 > a vrátit se k ní později.
 
-Občas chcete použít jeden ze dvou výrazů v závislosti na hodnotě nějaké podmínky. Například pokud byste
-chtěli přiřadit minimum ze dvou hodnot do proměnné:
+Občas se nám může hodit vytvořit výraz, který bude mít hodnotu jednoho ze dvou konkrétních výrazů,
+v závislosti na hodnotě nějaké podmínky. Například pokud bychom chtěli přiřadit minimum ze dvou
+hodnot do proměnné, tak to můžeme napsat takto:
 ```c
 int a = 1;
 int b = 5;
@@ -16,7 +17,11 @@ if (a < b) {
     c = b;
 }
 ```
-Toto lze provést zkráceně pomocí výrazu **ternárního operátoru** (*ternary operator*). Tento výraz
+Všimněte si, že do proměnné `c` ukládáme buď výraz `a` nebo výraz `b`, v závislosti na tom, jaká je
+hodnota podmínky `a < b`.
+
+Jelikož je tato situace relativně častá, a její vyřešení pomocí příkazu `if` je relativně zdlouhavé,
+tak jazyk `C` obsahuje zkratku v podobě **ternárního operátoru** (*ternary operator*). Tento výraz
 má následující syntaxi:
 ```c
 <výraz X typu bool> ? <výraz A> : <výraz B>

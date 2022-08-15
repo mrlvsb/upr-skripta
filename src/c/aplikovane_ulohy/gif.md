@@ -113,7 +113,9 @@ načítání `GIF` souborů.
 
 <hr />
 
-**Cvičení**: Zkuste použít knihovnu `gifdef` pro převod animace z `GIF` do `TGA`:
+**Cvičení** 🏋
+
+Zkuste použít knihovnu `gifdef` pro převod animace z `GIF` do `TGA`:
 1) Načtěte `GIF` animaci z disku.
 2) Projděte všechny snímky animace.
 3) Pro každý snímek převeďte pixely snímku z indexované palety do klasické mřížky pixelů používané

@@ -73,7 +73,9 @@ int main() {
 
 <hr/>
 
-**Cvičení**: Upravte kód výše tak, aby program vypsal `Posledni iterace` při provádění poslední
+**Cvičení** 🏋
+
+Upravte kód výše tak, aby program vypsal `Posledni iterace` při provádění poslední
 iterace cyklu. Zkuste poté kód upravit tak, aby fungoval pro libovolný počet iterací (tj.
 ať už bude počet iterací libovolný, kód samotného cyklu musí zůstat stejný).
 

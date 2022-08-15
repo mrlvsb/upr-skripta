@@ -27,9 +27,10 @@ switch (<výraz>) {
     ...
 }
 ```
-Tento příkaz vyhodnotí předaný výraz, a pokud se ve `switch`i nachází klíčové slovo `case` následované
-hodnotou odpovídající hodnotě výrazu, tak program skočí na blok, který následuje za `case`. Dále se program
-bude vykonávat sekvenčně až do konce `switch`e (při tomto vykonávání už se `case` ignoruje)[^1].
+Tento příkaz vyhodnotí výraz v závorce za klíčovým slovem `switch`. Pokud se v bloku kódu za závorkou
+nachází klíčové slovo `case` následované hodnotou odpovídající hodnotě výrazu, tak program začne vykonávat
+blok kódu, který následuje za tímto `case`. Dále se program bude vykonávat sekvenčně až do bloku `switch`e
+(při tomto vykonávání už se klíčová slovo `case` i hodnoty za ním ignorují)[^1].
 
 [^1]: Toto chování se anglicky označuje jako *fallthrough*.
 
@@ -51,8 +52,8 @@ int main() {
 ```
 
 ## Klíčové slovo `default`
-Do `switch`e lze předat i blok pojmenovaný `default`, na který program skočí v případě, že se
-nenalezne žádný `case` s odpovídající hodnotou:
+Do bloku kódu příkazu `switch` lze předat i blok pojmenovaný `default`, na který program skočí v
+případě, že se nenalezne žádný `case` s odpovídající hodnotou:
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -70,7 +71,7 @@ int main() {
 ```
 
 ## Klíčové slovo `break`
-Velmi často chcete provést pouze jeden blok kódu u jednoho `case` a nepokračovat po něm až do konce
+Velmi často chceme provést pouze jeden blok kódu u jednoho `case` a nepokračovat po něm až do konce
 celého `switch` bloku. Běžně se tedy za každým `case` blokem používá příkaz `break`, který ukončí
 provádějí celého `switch` příkazu:
 ```c,editable,mainbody
@@ -88,8 +89,13 @@ int main() {
 }
 ```
 
+## Hodnota za `case`
+Hodnota za klíčovým slovem `case` musí být konstantní, jinak řečeno musí to být hodnota známá již v
+době překladu programu, např. [literál](../prikazy_vyrazy.md#výrazy). Za `case` tak nelze dát např.
+výraz obsahující název proměnné.
+
 ## Použití příkazu `switch`
-Příkaz `switch` lze použít pouze s vestavěnými datovými typy, zejména s čísly. Nelze jej použít např.
-na porovnávání [struktur](../struktury/struktury.md) či [řetězců](../text/retezce.md). Jeho chování
-také může být ze začátku matoucí, pokud za jednotlivými `case` konstrukcemi nepoužijete příkaz `break`.
-Proto tak doporučujeme ze začátku používat pro podmíněné vykonávání spíše příkaz [`if`](if.md).
+Výraz v závorce za `switch` vestavěný datový typ, v podstatě se zde dá použít pouze celé číslo.
+Nelze jej použít např. na porovnávání [struktur](../struktury/struktury.md) či [řetězců](../text/retezce.md).
+Jeho chování také může být matoucí, pokud se za jednotlivými `case` konstrukcemi nepoužije příkaz
+`break`. Proto tak doporučujeme ze začátku používat pro podmíněné vykonávání spíše příkaz [`if`](if.md).

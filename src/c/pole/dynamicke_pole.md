@@ -28,7 +28,9 @@ Tato funkce očekává původní adresu alokace z `malloc`/`calloc` a počet byt
 
 <hr />
 
-**Cvičení**: Zkuste naprogramovat funkci `realokace`, která obdrží dynamicky naalokované pole
+**Cvičení** 🏋
+
+Zkuste naprogramovat funkci `realokace`, která obdrží dynamicky naalokované pole
 (tedy ukazatel), jeho původní velikost a novou velikost. Funkce realokuje pole na novou velikost a
 vrátí ukazatel na nově naalokované pole.
 

@@ -73,5 +73,5 @@ Inkrementace a dekrementace jsou opět příklady výrazů s vedlejším efektem
 
 > Tyto zkratky jsou sice užitečné, ale také můžou vyústit v překvapivé chování díky způsobu, kterým
 > jsou vyhodnocovány. Ze začátku je radši využívejte pouze v situacích, kdy budou použity jako příkaz,
-> který změní hodnotu proměnné (`i++;`). Jinak řečeno, raději se moc nespoléhejte na hodnotu, ve
+> který změní hodnotu proměnné (`i++;`). Jinak řečeno, raději se moc nespoléhejte na hodnotu, na
 > kterou se inkrementace/dekrementace vyhodnotí.

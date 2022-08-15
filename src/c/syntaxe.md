@@ -123,7 +123,7 @@ držet ve svých programech jednotného stylu a nemíchat více stylů dohromady
 
 <hr />
 
-**Cvičení**
+**Cvičení** 🏋
 
 1) Vytvořte si ve VS Code soubor (pojmenovaný např. `main.c`) a nakopírujte nebo napište do něj
 "prázdný" *C* program ukázaný výše. Zkuste program

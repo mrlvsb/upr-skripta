@@ -78,6 +78,8 @@ Poloha vrat_pocatecni_polohu() { ... }
 
 <hr />
 
-**Cvičení**: Vyzkoušejte si práci se strukturami a funkcemi [zde](../../ulohy/struktury.md).
+**Cvičení** 🏋
+
+Vyzkoušejte si práci se strukturami a funkcemi [zde](../../ulohy/struktury.md).
 
 <hr />

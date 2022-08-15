@@ -9,7 +9,7 @@ Pokud bychom se snažili o změnu proměnné s takovýmto datovým typem, překl
 ```c,editable,mainbody
 int main() {
     const int a = 5;
-    a += 1; // chyba
+    a = a + 1; // chyba, nelze přeložit
 
     return 0;
 }
@@ -22,7 +22,7 @@ hlavně je, abyste ve volbě umístění modifikátorů byli konzistentní a pou
 stejně.
 
 Použití konstant může mít několik důvodů:
-- V programech někdy opakovaně použiváme konstantní hodnoty, které mají pevně danou hodnotu. Při
+- V programech někdy opakovaně používáme konstantní hodnoty, které mají pevně danou hodnotu. Při
 čtení zdrojového kódu nemusí být jasné, co takového hodnoty znamenají (v takovém případě se hanlivě
 označují jako "magické konstanty"). Abychom takového hodnoty pojmenovali, můžeme je uložit do
 konstantní proměnné. Při čtení programu pak bude zřejmé, co reprezentují. Porovnejte variantu

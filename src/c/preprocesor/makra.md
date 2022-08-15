@@ -104,7 +104,9 @@ použití makra `MOCNINA` výše by zde došlo k dvojnásobené inkrementaci pro
 
     <hr />
 
-    **Cvičení**: Zamyslete se nad tím, jaké hodnoty vypsal program s makrem s vedlejšími efekty výše.
+    **Cvičení** 🏋
+
+    Zamyslete se nad tím, jaké hodnoty vypsal program s makrem s vedlejšími efekty výše.
     Zkuste si rozepsat makro a odsimulovat v hlavě běh programu. Dojdete ke stejnému výsledku?
 
     <hr />

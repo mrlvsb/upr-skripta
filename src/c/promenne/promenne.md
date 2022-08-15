@@ -160,7 +160,7 @@ int x = 1, y = 2, z = 3;
 
 <hr />
 
-**Cvičení**
+**Cvičení** 🏋
 
 1) Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
 a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme si již ukázali [dříve](../prikazy_vyrazy.md#výpis-výrazů)).
@@ -171,7 +171,7 @@ Více úloh naleznete [zde](../../ulohy/zaklady.md).
 
 <hr />
 
-**Kvíz**
+**Kvíz** 🤔
 
 1) Co vypíše následující program?
     ```c,editable,mainbody
@@ -296,6 +296,57 @@ Více úloh naleznete [zde](../../ulohy/zaklady.md).
     #include <stdio.h>
 
     int main() {
+        int a = 1;
+        int b = a = 5;
+        printf("%d\n", a);
+        printf("%d\n", b);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    5
+    5
+    ```
+    Výraz přiřazení (`<promenna> = <vyraz>`) se vyhodnotí jako přiřazená hodnota (`<vyraz>`), a takto
+    vyhodnocený výraz lze dále v programu použít a např. přiřadit do jiné proměnné. Přiřazení se
+    vyhodnotí následovně:
+    ```c
+    int b = a = 5;
+    // int b = 5;
+    ```
+    Nicméně jak asi sami uznáte, takovýto zápis je dosti zmatečný a nemusí být na první pohled jasné,
+    jak se takovýto výraz vyhodnotí. Proto výsledek výrazu přiřazení raději dále nepoužívejte a
+    přiřazení vždy používejte na samostatném řádku se středníkem.
+    </details>
+8) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 1;
+        5 = a + 1;
+        printf("%d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Překlad programu skončí s chybou `expression is not assignable`. Snažíme se zde uložit hodnotu
+    výrazu `a + 1` na nějaké místo v paměti, ale `5` žádné takové místo neoznačuje, `5` je prostě
+    číselný literál s hodnotou `5`, který nemůžeme přepsat či změnit.
+    </details>
+9) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
         int a;
         printf("%d\n", a + 1);
 
@@ -309,4 +360,42 @@ Více úloh naleznete [zde](../../ulohy/zaklady.md).
     inicializována, a její hodnota je tedy nedefinovaná. Nelze tak určit, co tento program provede,
     překladač jej může přeložit na totální nesmysl. Takovýto program je špatně a nemá smysl zkoumat,
     co provede, je potřeba jej nejprve opravit tak, že proměnnou `a` nainicializujeme.
+    </details>
+10) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = a + 1;
+        printf("%d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣, stejně jako předchozí ukázka. Při inicializaci
+    proměnné `a` používáme její hodnotu, která ale v té době není definovaná. Je to jako kdybychom napsali
+    ```c
+    int a;
+    a = a + 1;
+    ```
+    </details>
+11) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        printf("cislo: %d\n");
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣. Pokud při použití příkazu `printf` v textu
+    mezi uvozovkami použijeme zástupný znak (`%d`), musíme za každý takovýto použitý znak předat
+    této *funkci* také nějaký celočíselný výraz. V opačném případě bude chování programu nedefinované.
     </details>

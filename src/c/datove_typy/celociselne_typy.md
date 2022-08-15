@@ -22,16 +22,16 @@ typ, pokud použijeme `unsigned`, tak použijeme typ bez znaménka. Většina ty
 znaménkem, tj. `int` je to samé jako `signed int`. V následující tabulce je seznam nejčastějších
 celočíselných typů[^2]:
 
-| Název | Počet bytů | Rozsah hodnot | Se znaménkem |
-|---|:---:|:---:|:---:|
-| `char` nebo<br />`signed char` | 1 | \[-128; 127\] | <i class="fa fa-check"></i> |
-| `unsigned char` | 1 | \[0; 255\] | <i class="fa fa-times"></i> |
-| `short` nebo<br />`signed short` | 2 | \[-32 768; 32 767\] | <i class="fa fa-check"></i> |
-| `unsigned short` | 2 | \[0; 65 535\] | <i class="fa fa-times"></i> |
-| **`int`** nebo<br />`signed int` | 4 | \[-2 147 483 648; 2 147 483 647\] | <i class="fa fa-check"></i> |
-| `unsigned int` | 4 | \[0; 4 294 967 295\] | <i class="fa fa-times"></i> |
-| `long` nebo<br />`signed long` | 8 | \[-9 223 372 036 854 775 808;<br />9 223 372 036 854 775 807\] | <i class="fa fa-check"></i> |
-| `unsigned long` | 8 | \[0; 18 446 744 073 709 551 615] | <i class="fa fa-times"></i> |
+| Název                            | Počet bytů |                         Rozsah hodnot                          |        Se znaménkem         |
+|----------------------------------|:----------:|:--------------------------------------------------------------:|:---------------------------:|
+| `char` nebo<br />`signed char`   |     1      |                         \[-128; 127\]                          | <i class="fa fa-check"></i> |
+| `unsigned char`                  |     1      |                           \[0; 255\]                           | <i class="fa fa-times"></i> |
+| `short` nebo<br />`signed short` |     2      |                      \[-32 768; 32 767\]                       | <i class="fa fa-check"></i> |
+| `unsigned short`                 |     2      |                         \[0; 65 535\]                          | <i class="fa fa-times"></i> |
+| **`int`** nebo<br />`signed int` |     4      |               \[-2 147 483 648; 2 147 483 647\]                | <i class="fa fa-check"></i> |
+| `unsigned int`                   |     4      |                      \[0; 4 294 967 295\]                      | <i class="fa fa-times"></i> |
+| `long` nebo<br />`signed long`   |     8      | \[-9 223 372 036 854 775 808;<br />9 223 372 036 854 775 807\] | <i class="fa fa-check"></i> |
+| `unsigned long`                  |     8      |                \[0; 18 446 744 073 709 551 615]                | <i class="fa fa-times"></i> |
 
 [^2]: Počet bytů (a znaménkovost u typu `char`) záleží na kombinaci použitého hardwaru,
 operačního systému a překladače. Zde jsou uvedeny hodnoty, se kterými se můžete
@@ -86,9 +86,14 @@ Kromě základních aritmetických operací *C* podporuje také [bitové operace
 - OR: operátor `|`
 - XOR: operátor `^`
 
+> Zkuste si procvičit, jestli správně rozumíte, jak *C* vyhodnocuje výrazy, na
+> [této](../../ruzne/vyhodnocovani_vyrazu.md) stránce.
+
 <hr />
 
-**Cvičení**: Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
+**Cvičení** 🏋
+
+Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
 je na výstup. Vyhodnocování výrazů si můžete procvičit [zde](../../ruzne/vyhodnocovani_vyrazu.md)
 nebo [zde](../../ulohy/zaklady.md). 
 
@@ -98,19 +103,19 @@ nebo [zde](../../ulohy/zaklady.md).
 Zde je pro přehlednost tabulka se základními aritmetickými operátory.
 Datový typ výsledku těchto operátorů záleží na datovém typu jejich parametrů.
 
-| Operátor | Popis | Příklad |
-|:---:|:---:|:---:|
-| `+` | Sečtení | `1 + 5` |
-| `-` | Odečtení | `2.3 - 4.8` |
-| `*` | Násobení | `3 * 8` |
-| `/` | Dělení | `4 / 2` |
-| `%` | Zbytek po dělení (modulo) | `5 % 2` |
-| `&` | Bitový součin | `12 & 4` |
-| <code>&#124;</code> | Bitový součet | <code>12 &#124; 4</code> |
-| `~` | Bitová negace | `~8` |
-| `^` | Bitový XOR | `14 ^ 18` |
-| `<<` | Bitový posun doprava | `137 << 2` |
-| `>>` | Bitový posun doleva | `140 >> 3` |
+|      Operátor       |           Popis           |         Příklad          |
+|:-------------------:|:-------------------------:|:------------------------:|
+|         `+`         |          Sečtení          |         `1 + 5`          |
+|         `-`         |         Odečtení          |       `2.3 - 4.8`        |
+|         `*`         |         Násobení          |         `3 * 8`          |
+|         `/`         |          Dělení           |         `4 / 2`          |
+|         `%`         | Zbytek po dělení (modulo) |         `5 % 2`          |
+|         `&`         |       Bitový součin       |         `12 & 4`         |
+| <code>&#124;</code> |       Bitový součet       | <code>12 &#124; 4</code> |
+|         `~`         |       Bitová negace       |           `~8`           |
+|         `^`         |        Bitový XOR         |        `14 ^ 18`         |
+|        `<<`         |    Bitový posun doleva    |        `137 << 2`        |
+|        `>>`         |   Bitový posun doprava    |        `140 >> 3`        |
 
 O dalších typech operátorů se postupně dozvíte během semestru.
 Plný seznam *C* operátorů naleznete [zde](https://en.cppreference.com/w/c/language/operator_precedence).
@@ -133,3 +138,40 @@ int main() {
     return 0;
 }
 ```
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+    
+    int main() {
+        printf("%d\n", 1 + 3 * 8 - 2);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `23`.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+    
+    int main() {
+        int a = 1 + 4 * 2;
+        int b = a + 2 * a;
+        printf("%d\n", (b + 1) * 2);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `56`.
+    </details>

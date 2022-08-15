@@ -100,7 +100,7 @@ int main() {
 
 <hr />
 
-**Cvičení**
+**Cvičení** 🏋
 
 Zkuste si na místo komentáře doplnit několik výrazů (např. `5 + 8`, `8 * 3`, `12 * (2 + 3)`),
 přeložit program, spustit ho a podívat se, co vypíše na výstup, abyste si vyzkoušeli vyhodnocování

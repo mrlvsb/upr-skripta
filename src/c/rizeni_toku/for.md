@@ -41,7 +41,8 @@ Pokud je pravdivý, provede se tělo cyklu a program pokračuje bodem 3.
 
 <hr/>
 
-**Cvičení**:
+**Cvičení** 🏋
+
 - Napište program, který pomocí cyklu `for` na výstup vypíše čísla od 0 do 9 (včetně).
 - Vypište na výstup řádek `Licha iterace` v každé liché iteraci cyklu a řádek `Suda iterace` v každé
 sudé iteraci tohoto cyklu.

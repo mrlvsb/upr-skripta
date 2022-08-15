@@ -8,7 +8,7 @@ tak kontaktujte svého cvičícího.
 Před přečtením této kapitoly si nejprve přečtěte předchozí kapitoly, zejména sekci o
 [paměti](../uvod/pamet.md).
 
-Zde je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat probíraných na cvičení
+Níže je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat probíraných na cvičení
 a přednáškách se může od tohoto seznamu lišit, tento text je určen spíše jako "kuchařka", ve které
 se můžete k jednotlivým tématům vracet, abyste si je připomněli. Text je nicméně psaný tak, aby se
 dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které zatím nebyly vysvětleny.
@@ -38,3 +38,15 @@ Javascript, Rust, C++ atd.).
 - [GIF](aplikovane_ulohy/gif.md) - jak vytvořit animaci
 - [SDL](aplikovane_ulohy/sdl.md) - jak vytvořit interaktivní grafickou aplikaci či hru
 - [Chipmunk](aplikovane_ulohy/chipmunk.md) - jak simulovat fyzikální procesy
+
+## Struktura textu
+V textu se občas budou objevovat krátké sekce nazvané **Cvičení** 🏋️ a **Kvízy** 🤔. Ty obsahují krátká
+zadání, která slouží k tomu, abyste si vyzkoušeli nějakou konstrukci jazyka *C* anebo se zamysleli nad
+tím, jak daná konstrukce funguje. Další úlohy k procvičení také naleznete v kapitole [Úlohy](../ulohy).
+
+Některé sekce jsou dále označené jako doplňující učivo 🤓. Tyto sekce označují učivo, které není
+nezbytně nutné zcela pochopit, abyste se mohli v textu posunout dále. Pokud nebudete stíhat nebo toho
+na vás bude moc, můžete tyto sekce prozatím přeskočit, nicméně později byste se k nim měli vrátit.
+
+**Pouze si o programování číst nestačí k tomu, abyste se naučili programovat, proto vám doporučujeme,
+abyste si co nejvíce cvičení, kvízů a úloh vypracovali.**

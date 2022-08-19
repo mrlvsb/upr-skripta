@@ -10,8 +10,8 @@ adresami dělat nechceme (například násobení či dělení adres obvykle ned�
 
 Z tohoto důvodu *C* obsahuje datový typ, který je interpretován jako adresa v paměti běžícího
 programu. Nazývá se **ukazatel** (*pointer*). Kromě toho, že reprezentuje adresu, tak každý datový
-typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty je uložen v paměti na adrese obsažené
-v ukazateli. Poté říkáme, že ukazatel "ukazuje na" daný datový typ.
+typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty by měl být uložen v paměti na adrese
+obsažené v ukazateli. Poté říkáme, že ukazatel "ukazuje na" daný datový typ.
 
 Abychom vytvořili datový typ ukazatele, vezmeme datový typ, na který bude ukazovat, a přidáme za něj
 hvezdičku (`*`). Takto například vypadá proměnná datového typu "ukazatel na `int`"[^2]:
@@ -36,12 +36,12 @@ adresy. Pro procvičení je níže uvedeno několik datových typů spolu s tím
 - `int**` - interpretujeme jako adresu, na které je uložena adresa, na které je uloženo celé číslo
 
 Někdy chceme použít "univerzální" ukazatel, který prostě obsahuje adresu, bez toho, abychom striktně
-určovali, jaká hodnota na dané adrese bude uložena. V tom případě můžeme použít datový typ `void*`.
+určovali, jak interpretovat hodnotu na dané adrese. V tom případě můžeme použít datový typ `void*`.
 
-> Velikost všech ukazatelů v programu je stejná a je dána použitým operačním systémem a překladačem.
-> Ukazatele musí být dostatečně velké, aby zvládly reprezentovat libovolnou adresu, která se v programu
-> může vyskytnout. Na vašem počítači to bude nejspíše **8 bytů**, protože pravděpodobně používáte
-> 64-bitový systém.
+> Velikost všech ukazatelů v programu je obvykle stejná a je dána použitým operačním systémem a
+> překladačem. Ukazatele musí být dostatečně velké, aby zvládly reprezentovat libovolnou adresu,
+> která se v programu může vyskytnout. Na vašem počítači to bude nejspíše **8 bytů**, protože
+> pravděpodobně používáte 64-bitový systém.
 
 ## Inicializace ukazatele
 Jelikož před spuštěním programu nevíme, na jaké adrese budou uloženy hodnoty, které nás budou
@@ -124,8 +124,7 @@ hodnoty (`*ukazatel`) této proměnné z paměti přes adresu uloženou v ukazat
 </details>
 
 Pokud chceme do adresy uložené v ukazateli naopak nějakou hodnotu zapsat, tak můžeme operátor
-dereference použít také na levé straně operátoru [zápisu](../promenne/promenne.md#zápis).
-Uhodnete, co vypíše tento program?
+dereference použít také na levé straně operátoru [zápisu](../promenne/promenne.md#zápis):
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -139,6 +138,9 @@ int main() {
     return 0;
 }
 ```
+Tento program vypíše `5`, protože jsme pomocí ukazatele změnili hodnotu na adrese v paměti, kde leží
+proměnná `cislo`. Když při výpisu poté načteme hodnotu proměnné `cislo`, tak už v ní bude upravená
+hodnota.
 
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
@@ -147,7 +149,7 @@ int main() {
 </details>
 
 Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat "pouze" s adresou,
-která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která v paměti leží na adrese
+která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která leží v paměti na adrese
 uložené v ukazateli, musíte použít operátor dereference.
 
 > Pozor na rozdíl mezi `*` používanou pro deklaraci datového typu ukazatel, operátorem dereference
@@ -213,10 +215,11 @@ proměnných.
   která vezme adresy dvou proměnných a prohodí jejich hodnoty:
   ```c,editable
   #include <stdio.h>
+
   void vymen(int* a, int* b) {
-      int docasna_hodnota = *a;
-      *a = *b;
-      *b = docasna_hodnota;
+      int docasna_hodnota = *a;  // načti hodnotu na adrese v `a`
+      *a = *b;  // načti hodnotu na adrese v `b` a ulož ji na adresu v `a`
+      *b = docasna_hodnota;  // ulož uloženou hodnotu na adresu v `b`
   }
   int main() {
       int x = 5;
@@ -291,3 +294,165 @@ Pokud byste chtěli vytvořit tři ukazatele, musíte dát hvězdičku před ka�
 ```c
 int* x, *y, *z;
 ```
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 2;
+        int* p = &a;
+        p = 5;
+
+        printf("%d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `2`. Přiřazením `p = 5` změníme adresu uloženou v ukazateli `p` na `5`. Touto
+    operací se tedy nijak nezmění hodnota proměnné `a`, jejíž adresu ukazatel před tímto přiřazením
+    obsahoval. Aby k tomuto došlo, museli bychom napsat `*p = 5`.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 2;
+        int b = 3;
+
+        int* p = &a;
+        p = &b;
+
+        *p += 1;
+
+        printf("a = %d, b = %d\n", a, b);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `a = 2, b = 4`. Nejprve jsme sice nastavili ukazatel `p` na adresu proměnné `a`,
+    ale poté jsme do `p` zapsali adresu proměnné `b`. Řádek `*p += 1;` tak zvedne hodnotu v paměti
+    na adrese, kde leží `b`, o jedničku, jinak řečeno zvýší hodnotu proměnné `b` o jedničku.
+    </details>
+3) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    void zmen_ukazatel(int* p, int a) {
+        p = &a;
+    }
+
+    int main() {
+        int a = 2;
+        int b = 3;
+
+        int* p = &b;
+        zmen_ukazatel(p, a);
+
+        printf("%d\n", *p);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `3`. Když předáme argument typu ukazatele do funkce, tak stejně jako u jiných datových
+    typů dojde k tomu, že se ve funkci vytvoří nová proměnná a do ní se nakopíruje hodnota argumentu.
+    Změna adresy v ukazateli `p` uvnitř funkce `zmen_ukazatel` tak neovlivní adresu v ukazateli `p`
+    uvnitř funkce `main`. A jelikož `p` v `main`u ukazuje na proměnnou `b`, tak dereference tohoto
+    ukazatele se vyhodnotí jako hodnota `3`.
+    </details>
+4) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 2;
+
+        int* p = &a;
+        *p = 4;
+
+        int b = *p;
+        *p = 8;
+
+        printf("a = %d, b = %d\n", a, b);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `a = 8, b = 4`. Při vytváření proměnné `b` se hodnota na adrese uložené v ukazateli
+    `p` uloží do `b`. V danou chvíli je na této adrese uložena hodnota `4`, proto se do proměnné `b`
+    uloží právě hodnota `4`. Další změny hodnot na adrese uložené v `p` už proměnnou `b` neovlivní.
+    </details>
+5) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 2;
+        int* p = &a;
+
+        printf("%d\n", p);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣, protože jsme použili
+    [zástupný znak](../prikazy_vyrazy.md#výpis-výrazů) `%d`, který slouží k výpisu celých čísel, ale
+    předali jsme funkci `printf` argument `p`, který je datového typu ukazatel.
+
+    Správně můžeme buď použít zástupný znak `%p`, abychom vypsali adresu uloženou v ukazateli, nebo
+    můžeme použít dereferenci a vypsat hodnotu uloženou na adrese v ukazateli:
+    ```c
+    printf("%p\n", p);
+    printf("%d\n", *p);
+    ```
+    </details>
+6) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 2;
+        int b = 3;
+
+        int* p = &a;
+        int** px = &p;
+        *px = &b;
+
+        *p = 8;
+
+        printf("a = %d, b = %d\n", a, b);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `a = 2, b = 8`. Proměnná `px` je ukazatel na ukazatel na `int`. Obsahuje adresu,
+    kde v paměti leží proměnná `p`. Pomocí `*px` změníme hodnotu na této adrese na `&b`, tj. adresu
+    proměnné `b`. V podstatě je to to stejné, jako kdybychom napsali `p = &b`.
+
+    Zkuste si na papír nakreslit, jak tento program bude vypadat v paměti, jaké adresy/hodnoty budou
+    v jednotlivých proměnných. Výsledek si můžete ověřit [touto](https://pythontutor.com/render.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20a%20%3D%202%3B%0A%20%20%20%20int%20b%20%3D%203%3B%0A%0A%20%20%20%20int*%20p%20%3D%20%26a%3B%0A%20%20%20%20int**%20px%20%3D%20%26p%3B%0A%20%20%20%20*px%20%3D%20%26b%3B%0A%0A%20%20%20%20*p%20%3D%208%3B%0A%0A%20%20%20%20printf%28%22a%20%3D%20%25d,%20b%20%3D%20%25d%5Cn%22,%20a,%20b%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&cumulative=false&curInstr=9&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D&textReferences=false)
+    vizualizací.
+    </details>

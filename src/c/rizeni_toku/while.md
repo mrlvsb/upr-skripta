@@ -6,7 +6,7 @@ while (<výraz typu bool>) {
 }
 ```
 Funguje následovně:
-1) Nejprve se vyhodnotí (Booleovský) výraz v závorce za `while`.
+1) Nejprve se vyhodnotí (Booleovský) výraz v závorce za `while` a provede se bod 2.
 2) Pokud:
     - Je výraz pravdivý, tak se provede blok[^1] cyklu a dále se pokračuje opět bodem 1.
     - Není výraz pravdivý, tak se provede bod 3.
@@ -14,8 +14,8 @@ Funguje následovně:
 
 [^1]: [Blok](../promenne/promenne.md#platnost) cyklu se také často nazývá jako **tělo** (*body*) cyklu.
 
-Jinak řečeno, dokud bude splněná podmínka za `while`, tak se bude opakovaně provádět tělo cyklu.
-Vyzkoušejte si to na následujícím příkladu:
+Jinak řečeno, dokud bude splněná podmínka za `while`, tak se budou opakovaně provádět příkazy uvnitř
+těla cyklu. Vyzkoušejte si to na následujícím příkladu:
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -35,25 +35,29 @@ protože se tělo cyklu provede pětkrát.
 Pokud výraz za `while` není vyhodnocen jako pravdivý v momentě, kdy se `while` začne vykonávat, tak
 se tělo cyklu nemusí provést ani jednou (tj. bude mít nula iterací).
 
+### Nekonečný cyklus
 Je důležité dávat si pozor na to, aby cyklus, který použijeme, nebyl nechtěně **nekonečný**
 (*infinite loop*), jinak by náš program nikdy neskončil. Zkuste v kódu výše zakomentovat nebo odstranit
-řádek `count = count + 1;` a zkuste program spustit. Jelikož se hodnota proměnné `count` nebude nijak
-měnit, tak výraz `count < 5` bude stále pravdivý a cyklus se tak bude provádět neustále dokola.
+řádek `pocet = pocet + 1;` a zkuste program spustit. Jelikož se hodnota proměnné `pocet` nebude nijak
+měnit, tak výraz `pocet < 5` bude stále pravdivý a cyklus se tak bude provádět neustále dokola.
 Této situaci se lidově říká "zacyklení"[^2].
 
 > Pokud se vám někdy stalo, že se program, který jste zrovna používali, "zaseknul" a přestal reagovat
 > na váš vstup, mohlo to být právě například tím, že v něm nechtěně došlo k provedení nekonečného
-> cyklu (došlo k tzv. "zacyklení").
+> cyklu (došlo k zacyklení).
 
 [^2]: Pokud program spouštíte v terminálu a zacyklí se, můžete ho přerušit pomocí klávesové zkratky `Ctrl + C`.
 Pokud jej spustíte v prohlížeči, tak poté radši restartujte tuto stránku pomocí `F5` :)
 
 ### Řídící proměnná
-Často chceme provést v těle cyklu různé příkazy, v závislosti na tom, která iterace se zrovna vykonává.
-K tomu obvykle slouží tzv. **řídící proměnná** (*index variable*), která udává, v jaké iteraci cyklu
-se nacházíme, a podle ní se poté provede odpovídající operace. Například pokud chceme něco provést
-pouze v první iteraci cyklu, můžeme použít [podmínku](podminky.md), ve které zkontrolujeme aktuální
-hodnotu řídící proměnné:
+Provést úplně identický kód opakovaně se někdy hodí, ale většinou chceme provést v těle cyklu trochu
+jiné příkazy, v závislosti na tom, která iterace se zrovna vykonává.
+K tomu můžeme použít proměnnou, která si budeme pamatovat, v jaké iteraci cyklu
+se nacházíme, a podle ní se poté provede odpovídající operace. Takováto proměnná se obvykle označuje
+jako **řídící proměnná** (*index variable*).
+
+Například pokud chceme něco provést pouze v první iteraci cyklu, můžeme použít
+příkaz [if](if.md) s podmínkou, ve které zkontrolujeme aktuální hodnotu řídící proměnné:
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -77,7 +81,7 @@ int main() {
 
 Upravte kód výše tak, aby program vypsal `Posledni iterace` při provádění poslední
 iterace cyklu. Zkuste poté kód upravit tak, aby fungoval pro libovolný počet iterací (tj.
-ať už bude počet iterací libovolný, kód samotného cyklu musí zůstat stejný).
+ať už bude počet iterací libovolný, kód v těle i podmínce samotného cyklu musí zůstat stejný).
 
 <hr/>
 
@@ -130,7 +134,7 @@ následuje za cyklem. Cyklus se tak zcela přeruší. Zkuste uhodnout, co vypí�
 
 Příkaz `break` lze také někdy použít k usnadnění návrhu cyklů. Pokud potřebujete napsat `while` cyklus
 s nějakou složitou podmínkou ukončení, ze které se vám motá hlava, zkuste nejprve vytvořit "nekonečný"
-cyklus pomocí `while (true) { … }`, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
+cyklus pomocí `while (1) { … }`, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
 která cyklus ukončí pomocí příkazu `break`:
 ```c,editable,mainbody
 #include <stdio.h>
@@ -152,8 +156,12 @@ int main() {
 ```
 Nemusíte tak hned ze začátku vymýšlet výraz pro `while`, na čemž byste se mohli zaseknout. 
 
-Místo `while (true)` můžete použít také `while (1)`, protože `1` se při převodu na `bool` převede
-na `true`.
+Místo `while (1)` můžete použít také `while (true)`. Nezapomeňte ale na
+[vložení řádku](../datove_typy/pravdivostni_typy.md)
+```c
+#include <stdbool.h>
+```
+na začátek programu!
 </details>
 
 ### Vnořování cyklů
@@ -178,6 +186,7 @@ int main() {
 
         i = i + 1;
     }
+    printf("Konec programu\n");
 
     return 0;
 }
@@ -201,3 +210,104 @@ se má provést další iterace cyklu, vyhodnocuje až na konci cyklu. Tělo cyk
 alespoň jednou (i kdyby byl výraz od začátku nepravdivý).
 
 Pokud pro to nemáte zvláštní důvod, asi není třeba tento typ cyklu používat.
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main() {
+        int a = 0;
+        int b = 8;
+
+        while (true) {
+          if (a > 2) {
+            printf("Hodnota a = %d\n", a);
+          }
+
+          a = a + 2;
+
+          if (a >= b) {
+            break;
+          }
+        }
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    Hodnota a = 4
+    Hodnota a = 6
+    ```
+    V každé iteraci cyklu se hodnota proměnné `a` zvýší o dvojku. Pokud je na začátku iterace hodnota
+    `a` větší, než dva, tak se vypíše její hodnota. V čtvrté iteraci cyklu se hodnota proměnné `a`
+    zvýší na osm. Poté příkaz se podmínka příkazu `if` vyhodnotí jako `true`, takže se provede příkaz
+    `break`, který provádění cyklu ukončí. Hodnota proměnné `a` se tak vypíše pouze dvakrát.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main() {
+        int a = 0;
+        int b = 8;
+
+        while (true) {
+          if (a > 2) {
+            printf("Hodnota a = %d\n", a);
+          }
+
+          if (a >= b) {
+            break;
+          }
+          a = a + 2;
+        }
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    Hodnota a = 4
+    Hodnota a = 6
+    Hodnota a = 8
+    ```
+    V každé iteraci cyklu se hodnota proměnné `a` zvýší o dvojku. Pokud je na začátku iterace hodnota
+    `a` větší, než dva, tak se vypíše její hodnota. V páté iteraci cyklu je hodnota proměnné `a`
+    osm, takže se cyklus ukončí příkazem `break`. Všimněte si rozdílu pořadí příkazu `if` a zvýšení
+    hodnoty proměnné `a` v tomto a předchozím příkladu.
+    </details>
+3) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 0;
+        int b = 6;
+
+        while (a > b) {
+          printf("Hodnota b = %d\n", b);
+          b = b + 1;
+        }
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program nevypíše nic, protože podmínka `a > b` se vyhodnotí jako `false`. Tělo cyklu se tak
+    neprovede ani jednou.
+    </details>

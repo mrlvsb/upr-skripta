@@ -263,6 +263,30 @@ else printf("Student neuspel\n");
     ```
     <details>
     <summary>Odpověď</summary>
+
     Tento program nevypíše nic. Podmínka `a > 1` se vyhodnotí jako `false`, takže blok kódu za touto
     podmínkou se vůbec nevykoná.
+    </details>
+4) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a = 1;
+        if (a = 2) {
+          printf("a se rovna dvoum\n");
+        }
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program vypíše `a se rovna dvoum`. Pozor na to, že operátor přiřazení `[x] = [y]` přiřadí
+    výraz `[y]` do `[x]`, a vyhodnotí se jako hodnota `[y]`. V tomto případě se tedy do proměnné
+    `a` uloží hodnota `2`, a jelikož `2` se po [převodu](../datove_typy/pravdivostni_typy.md#konverze)
+    na `bool` vyhodnotí jako pravda (`true`), se tělo příkazu `if` provede. Záměna přiřazení (`=`)
+    a `==` (porovnání) je častou [začátečnickou chybou](../../caste_chyby/caste_chyby.md#záměna--a-).
+    
     </details>

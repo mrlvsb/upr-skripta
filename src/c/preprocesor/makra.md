@@ -80,7 +80,7 @@ můžeme ho napsat takto:
     #define MOCNINA(a) (a) * (a)
     ```
     Pak by zde již došlo k úpravě na `printf("%d\n", (1 + 1) * (1 + 1));`, což vrátí druhou mocninu
-    hodnoty `1 + 1`, tedy `4`.
+    výrazu `1 + 1`, tedy `4`.
 - **Vedlejší efekty** Pokud mají argumenty předávané do makra nějaké
 [vedlejší efekty](../prikazy_vyrazy.md#vedlejší-efekty), je třeba si dávat pozor na to, že makro může
 jednoduše takovýto argument rozkopírovat a tím pádem vedlejší efekt provést vícekrát. Například při
@@ -101,15 +101,6 @@ použití makra `MOCNINA` výše by zde došlo k dvojnásobené inkrementaci pro
     ```
 
     Do maker tak radši nedávejte argumenty, které způsobují vedlejší efekty.
-
-    <hr />
-
-    **Cvičení** 🏋
-
-    Zamyslete se nad tím, jaké hodnoty vypsal program s makrem s vedlejšími efekty výše.
-    Zkuste si rozepsat makro a odsimulovat v hlavě běh programu. Dojdete ke stejnému výsledku?
-
-    <hr />
 
 ## Makra vs globální proměnné
 [Globální proměnné](../promenne/globalni_promenne.md) jsou také pojmenované hodnoty definované na

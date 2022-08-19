@@ -9,7 +9,9 @@ Ukážeme si dva typy příkazů, které preprocesor umí zpracovávat:
 - Vytváření [maker](makra.md) (`#define`)
 
 Pokud si chcete ověřit, jak vypadá váš zdrojový soubor poté, co jej zpracuje preprocesor, ale předtím,
-než je přeložen na strojové instrukce, můžete k tomu použít tento příkaz:
+než je přeložen na strojové instrukce, můžete k tomu použít tento příkaz[^1]:
 ```bash
 $ gcc -P -E main.c
 ```
+
+[^1]: Místo `main.c` doplňte název zdrojového souboru, který chcete zpracovat preprocesorem.

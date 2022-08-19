@@ -236,7 +236,7 @@ funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyc
     ```c
     int zivot = vrat_zivoty_hrace(id_hrace);
     zivot = zivot - vypocti_zraneni_prisery(id_prisery);
-    nastav_zivoty_hrace(id_hrace, zivor);
+    nastav_zivoty_hrace(id_hrace, zivot);
     ```
 - **Sdílení kódu** Pokud budete chtít použít kód, který napsal někdo jiný, tak toho můžete dosáhnout
 právě používáním funkcí, které vám někdo [nasdílí](../modularizace/knihovny.md).
@@ -249,6 +249,22 @@ int main() {
     int test() { }
 }
 ```
+
+Důležité je ale také to, kam přesně funkci ve zdrojovém kódu umístíte. Abyste mohli nějakou funkci
+zavolat, tak její definice se musí v kódu nacházet nad řádkem, kde funkci voláte. Tento kód tak nebude
+fungovat:
+```c
+int main() {
+    vypis_text();
+    return 0;
+}
+void vypis_text() {
+    // ...
+}
+```
+
+Proč tomu tak je, a jak lze toto pravidlo obejít, si řekneme
+[později](../modularizace/pouzivani_kodu_z_jinych_souboru.md#deklarace-vs-definice). 
 
 ## Proč název "funkce"?
 Možná vás napadlo, že název funkce zní podobně jako [funkce](https://matematika.cz/co-je-to-funkce)
@@ -283,3 +299,221 @@ funkce psát tímto stylem (samozřejmě ne vždy je to možné).
 V předmětu
 [Funkcionální programování](http://behalek.cs.vsb.cz/wiki/index.php/Functional_programming/cs)
 budete pracovat s funkcionálními programovacími jazyky, ve kterých je právě většina funkcí čistých.
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    void zmen_cislo(int cislo) {
+        cislo = 5;
+    }
+
+    int main() {
+        int cislo = 8;
+        zmen_cislo(cislo);
+        printf("%d\n", cislo);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `8`. Při volání `zmen_cislo` se uvnitř této funkce vytvoří nová lokální proměnná
+    pro parametr `cislo` a uloží se do ní hodnota z odpovídajícího předaného argumentu. Změna hodnoty
+    tohoto parametru uvnitř `zmen_cislo` nijak neovlivní proměnnou `cislo` uvnitř funkce `main`.
+
+    Můžete si to představit tak, že se při zavolání této funkce provedl cca takovýto kód:
+
+    ```c
+    {
+      // nastavení parametru
+      int cislo = 8;
+
+      // kód funkce
+      cislo = 5;
+    }
+    ```
+
+    To, že se zde parametr jmenuje stejně jako proměnná, kterou předáváme jako argument, nemá žádný
+    speciální význam. Funkci jsme mohli klidně zavolat např. takto: `zmen_cislo(1 + 9)`. Z toho je zřejmé,
+    že změna hodnoty parametru nijak neovlivní předaný argument.
+
+    > Mimochodem, tím, že `zmen_cislo` nic nevrací a nemá žádný vedlejší efekt, tak v podstatě ani nemá
+    > žádný smysl. Je to pouze ukázka.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    void vytvor_promennou() {
+        int x = 5;
+    }
+
+    int main() {
+        vytvor_promennou();
+        printf("%d\n", x);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program se nepřeloží, protože uvnitř funkce `main` neexistuje proměnná s názvem `x`.
+    Lokální proměnné jsou dostupné pouze v rámci [bloku](../promenne/promenne.md#platnost), ve kterém
+    byly nadefinovány. Proměnnou `x` tak lze použít pouze v kódu uvnitř funkce `vytvor_promennou`.
+    </details>
+3) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    void vypis_soucet(int x) {
+        int soucet = x + b;
+        printf("%d\n", soucet);
+    }
+
+    int main() {
+        int a = 5;
+        int b = 8;
+
+        vypis_soucet(a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program se nepřeloží, protože uvnitř funkce `vypis_soucet` neexistuje proměnná s názvem
+    `b`. Na řádku, kde funkci voláme, sice existuje proměnná `b` uvnitř funkce `main`, ale to s tím 
+    nijak nesouvisí - co kdybychom `vypis_soucet` volali z nějakého jiného místa programu, kde
+    by žádná proměnná `b` neexistovala? Funkce má přístup pouze ke svým lokálním proměnným a parametrům
+    (případně také ještě ke [globálním](../promenne/globalni_promenne.md) proměnným). Pokud chceme
+    nějakou hodnotu z jedné funkce použít v jiné funkci, musíme ji předat jako parametr:
+    ```c
+    void vypis_soucet(int x, int b) {
+        int soucet = x + b;
+        printf("%d\n", soucet);
+    }
+    
+    int main() {
+        int a = 5;
+        int b = 8;
+
+        vypis_soucet(a, b);
+
+        return 0;
+    }
+    ```
+    </details>
+4) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    int vrat_cislo(int x) {
+        return x;
+    }
+
+    int main() {
+        int cislo = 5;
+        vrat_cislo(cislo) = 8;
+        printf("%d\n", cislo);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program se nepřeloží, protože se snažíme provést operaci přiřazení (`=`), ale na levé straně
+    od rovnítka není místo v paměti (např. proměnná), do které bychom mohli hodnotu `8` zapsat.
+    Volání funkce je výraz, který se vyhodnotí jako návratová hodnota, kterou tato funkce vrátí.
+    Je to jako bychom napsali toto:
+    ```c
+    5 = 8;
+    ```
+    Což zřejmě nedává smysl, a proto se program nepřeloží.
+    </details>
+5) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    int umocni(int x) {
+        return x * x;
+    }
+
+    int main() {
+        int cislo = 5;
+        umocni(cislo);
+        printf("%d\n", cislo);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `5`. Volání funkce `umocni` sice vrátí hodnotu `25`, ale tato hodnota se okamžitě
+    "zahodí", protože ji nikam neuložíme. Hodnota proměnné `cislo` se tak nezmění. Aby program vypsal
+    `25`, tak bychom museli návratovou hodnotu z volání funkce uložit zpět do proměnné `cislo`:
+    ```c
+    cislo = umocni(cislo);
+    ```
+    </details>
+6) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    void vypis_cislo(int x) {
+        if (x < 0) {
+            return;
+        }
+        printf("cislo = %d\n", x);
+    }
+
+    int main() {
+        vypis_cislo(1);
+        vypis_cislo(-1);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `cislo = 1`. Při volání `vypis_cislo(-1)` bude splněna podmínka uvnitř `vypis_cislo`,
+    takže dojde k ukončení provádění funkce příkazem `return;` a nedojde tak k vypsání tohoto
+    záporného čísla.
+    </details>
+7) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    int vypocet(int x) {
+        if (x > 5) {
+            return x + 1;
+        }
+        return x * 2;
+    }
+
+    int main() {
+        int a = 6;
+        int b = 4;
+        int c = vypocet(vypocet(a) + vypocet(b));
+        printf("%d\n", c);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `16`. Není zde žádná zrada :) Nejprve se vyhodnotí `vypocet(a)` na `7`, poté
+    `vypocet(b)` na `8`, a poté se zavolá `vypocet(7 + 8)`, který se vyhodnotí na `16`. Vyhodnocování
+    výrazů a volání funkcí si můžete procvičit [zde](../../ruzne/vyhodnocovani_vyrazu.md).
+    </details>

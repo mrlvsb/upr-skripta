@@ -1,4 +1,8 @@
 # Rekurze
+
+> 🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
+> a vrátit se k ní později.
+
 Pokud funkce obsahuje volání sama sebe, tak tuto situaci nazýváme **rekurzí** (*recursion*).
 Pro řešení některých problémů může být přirozené rozdělovat je na čím dál tím menší podproblémy,
 dokud se nedostaneme k podproblému, který je dostatečně jednoduchý, abychom ho vyřešili rovnou.

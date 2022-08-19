@@ -5,9 +5,9 @@ kterou nazýváme **zásobník** (*stack*). Každý běžící program má vyhra
 adresovatelné paměti, která je použita právě jako zásobník.
 
 Při každém zavolání funkce vznikne na zásobníku tzv. **zásobníkový rámec** (*stack frame*).
-V tomto rámci je vyhrazena paměť pro lokální proměnné volané funkce a také pro její
-[parametry](../funkce/funkce.md#parametrizace-funkcí). Rámec vzniká při každém zavolání funkce, v
-jednu chvíli tak na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů)
+V tomto rámci je vyhrazena (tzv. **naalokována**) paměť pro lokální proměnné volané funkce a také pro
+její [parametry](../funkce/funkce.md#parametrizace-funkcí). Rámec vzniká při každém zavolání funkce,
+v jednu chvíli tak na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů)
 pro stejnou funkci. Rámce vznikají v paměti za sebou, a jsou uvolněny v momentě, kdy se jejich
 funkce dokončí.[^1]
 
@@ -16,26 +16,58 @@ oblast nazývá zásobník, podle
 [datové struktury](https://cs.wikipedia.org/wiki/Z%C3%A1sobn%C3%ADk_(datov%C3%A1_struktura)), která
 má tuto vlastnost.
 
-Při zavolání funkce se do paměti určené pro jednotlivé parametry v rámci nakopírují hodnoty argumentů
-předaných při volání funkce. Jakmile funkce skončí, tak je rámec, spolu s pamětí lokálních
-proměnných, uvolněn[^2].
+Při zavolání funkce se do paměti určené pro jednotlivé parametry v rámci nakopírují hodnoty předaných
+argumentů. Jakmile funkce skončí, tak je rámec, a tedy i paměť obsahující lokální proměnné a parametry
+dané funkce, uvolněn[^2].
 
 [^2]: Uvolnění zde znamená pouze to, že program bude pokládat danou paměť za volnou k dalšímu použití.
 Pokud tak například funkce bude mít lokální proměnnou s hodnotou `5` a vykonání funkce skončí, tato
 hodnota v paměti zůstane, dokud nebude přepsána příštím zavoláním funkce.
 
 V následující animaci můžete vidět sekvenci volání funkcí. Ve sloupci vpravo je zobrazen stav
-zásobníku při provádění tohoto programu. Modře jsou v něm znázorněny hodnoty parametrů a červeně
-hodnoty lokálních proměnných. Můžete si všimnout, že lokální proměnné mají
+zásobníku při provádění tohoto programu:
+- Šedé obdélníky označují zásobníkové rámce.
+- Modré obdélníky znázorňují hodnoty parametrů v rámci.
+- Červené obdélníky znázorňují hodnoty lokálních proměnných v rámci. Můžete si
+všimnout, že lokální proměnné mají
 [nedefinovanou hodnotu](../promenne/promenne.md#vždy-inicializujte-proměnné), dokud do nich není
 nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.
+- Oranžová šipka označuje, který řádek programu je právě prováděn.
+
+Pomocí šipek v levém horním rohu animace se můžete postupně proklikat průběhem vykonání tohoto programu.
+Uhodnotete, jaké číslo tento program vypíše?
 
 <div style="height: 450px">
     <upr-slideshow src="../../static/animations/stack/stack-" to="15" extension="png"></upr-slideshow>
 </div>
 
 V animaci si můžete všimnout, že rámce vždy vznikají a zanikají pouze na konci zásobníku.[^3]
-Uhodnete, jaké číslo tento program vypíše?
+Pokud byste si chtěli tento program spustit lokálně, tak jeho zdrojový kód je dostupný níže.
+
+<details>
+<summary>Zdrojový kód programu</summary>
+
+```c,editable
+#include <stdio.h>
+
+int fun1(int par) {
+    int res = par * 2;
+    if (res < 50) {
+        return fun1(res);
+    }
+    else { return res; }
+}
+int fun2(int a, int b) {
+    int x = a + b * 2;
+    int y = fun1(x);
+    return x + y;
+}
+int main() {
+    printf("%d\n", fun2(5, 6));
+    return 0;
+}
+```
+</details>
 
 [^3]: Z [historických](https://stackoverflow.com/questions/2035568/why-do-stacks-typically-grow-downwards)
 důvodů zásobník roste "dolů", tj. nové rámce se vytvářejí na nižší adrese v paměti.
@@ -56,7 +88,7 @@ protože automatická paměť má i určité nedostatky:
 - Maximální velikost zásobníku je omezena[^4]. Nemůžeme tak na něm naalokovat větší množství paměti.
 - Počet a velikost lokálních proměnných je "zadrátována" do programu během jeho překladu. Nemůžeme
 tak naalokovat paměť s velikostí závislou na vstupu programu. Například pokud uživatel zadá
-číslo `n` a my bychom chtěli vytvořit paměť pro `n` čísel, tak nestačí použití zásobníku.
+číslo `n` a my bychom chtěli vytvořit paměť pro `n` čísel, tak obvykle nestačí použití zásobníku.
 - Paměť lokálních proměnných a parametrů je uvolněna při dokončení provádění funkce. Jediným způsobem,
 jak předat hodnotu z volání funkce, je pomocí návratové hodnoty. Takto lze vrátit pouze jednu
 hodnotu a nelze jednoduše sdílet paměť mezi funkcemi, protože paměť lokálních proměnných je po dokončení

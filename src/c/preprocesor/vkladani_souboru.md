@@ -21,6 +21,7 @@ Zkuste si například tento zdrojový soubor pojmenovat jako `main.c` a pomocí 
 v terminálu zjistit, jak vypadá poté, co na něj byl aplikován preprocesor:
 ```c
 #include <stdio.h>
+
 int main() {
     printf("Hello world\n");
     return 0;
@@ -311,7 +312,7 @@ podobného:
 ```c
 #include "C:/Users/Kamil/Desktop/upr/muj_soubor.h"
 ```
-Takovýto program by totiž jistě nefungoval na jiném než vašem počítači. Z kterého adresáře se tato
+Takovýto program by totiž jistě nefungoval na jiném, než vašem počítači. Z kterého adresáře se tato
 relativní cesta vyhodnotí je popsáno níže.
 
 ## Rozdíl mezi `#include <…>` a `#include "…"`
@@ -323,10 +324,10 @@ v systému nainstalované. Pouze pokud se zde daný soubor nenalezne, tak se ces
 k zdrojovému souboru, ve kterém byl `#include` použit.
 
     Seznam systémových cest si můžete vypsat pomocí příkazu `echo | gcc -E -Wp,-v -` v Linuxovém
-    terminálu. Do tohoto seznamu můžete také přidat dodatečné adresáře, když `gcc` předáte parametr
+    terminálu. Do tohoto seznamu můžete také přidat dodatečné adresáře, pokud `gcc` předáte parametr
     `-I`. Více se dozvíte v sekci o [knihovnách](../modularizace/knihovny.md).
-    
-    Pokud soubor, který chcete do vašeho kódu vložit, se nachází v externí knihovně, která nepatří
+
+    Pokud se soubor, který chcete do vašeho kódu vložit, nachází v externí knihovně, která nepatří
     do vašeho projektu, je běžné používat právě `#include <>`.
 
 - `#include "…"` se nedívá do systémových cest, ale rovnou hledá zadanou cestu relativně k souboru,

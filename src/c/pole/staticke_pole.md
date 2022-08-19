@@ -1,8 +1,8 @@
 # Statické pole
 Pole v [automatické paměti](../prace_s_pameti/automaticka_pamet.md)[^1] (na zásobníku) se označují
-jako **statická pole** (*static arrays*). Můžeme je vytvořit tak, že za název proměnné přidáme
-hranaté závorky s číslem udávající počet prvků v poli. Takto například vytvoříme pole celých čísel
-s třemi prvky:
+jako **statická pole** (*static arrays*). Můžeme je vytvořit tak, že při definici proměnné za její
+název přidáme hranaté závorky s číslem udávajícím počet prvků v poli. Takto například vytvoříme pole
+celých čísel s třemi prvky:
 ```c
 int pole[3];
 ```
@@ -16,7 +16,7 @@ Takováto proměnná bude obsahovat paměť pro 3 celá čísla (tedy nejspíše
 [globální paměti](../prace_s_pameti/globalni_pamet.md), pokud vytvoříte
 [globální proměnnou](../promenne/globalni_promenne.md) datového typu pole.
 
-Čísla takového pole budou v paměti uložena jeden za druhým[^2]:
+Čísla takového pole budou v paměti uložena jedno za druhým[^2]:
 <upr-container>
   <upr-array array='[0, 0, 0]'></upr-array>
 </upr-container>
@@ -24,8 +24,8 @@ Takováto proměnná bude obsahovat paměť pro 3 celá čísla (tedy nejspíše
 [^2]: Každý zelený čtverec na tomto obrázku reprezentuje 4 byty v paměti (velikost jednoho `int`u).
 
 V jistém smyslu je tak pole pouze zobecněním normální proměnné. Pokud totiž vytvoříte pole o
-velikosti jedna (`int a[1]`), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
-(`int a`).
+velikosti jedna (`int a[1];`), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
+(`int a;`).
 
 > Pole lze vytvořit také na haldě pomocí [dynamické alokace paměti](dynamicke_pole.md). Všechny níže
 > popsané koncepty jsou platné i pro dynamická pole, nicméně budeme je demonstrovat na statických
@@ -71,7 +71,7 @@ muset zvyknout. Jeden z důvodů, proč se prvky počítají právě od nuly, se
 
 Z tohoto vyplývá jedna důležitá vlastnost - poslední prvek pole je vždy na indexu
 `<velikost pole> - 1`! Pokud byste se pokusili přistoupit k prvku na indexu `<velikost pole>`,
-budete přistupovat mimo paměť pole, což pravděpodobně způsobí
+budete přistupovat mimo paměť pole, což způsobí
 [paměťovou chybu](../../caste_chyby/pametove_chyby.md).
 
 ## Inicializace pole
@@ -143,11 +143,15 @@ Jelikož je operace přístupu k poli ("posunutí" ukazatele a jeho dereference)
 běžná (a zároveň relativně krkolomná), *C* obsahuje speciální operátor, který ji zjednodušuje.
 Tento operátor se nazývá *array subscription operator* a má syntaxi
 
-`<výraz a>[<výraz b>]`
+```
+<výraz a>[<výraz b>]
+```
 
 Slouží jako zkratka[^5] za výraz
 
-`*(<výraz a> + <výraz b>)`
+```
+*(<výraz a> + <výraz b>)
+```
 
 Příklad:
 - `pole[0]` je ekvivalentní výrazu `*(pole + 0)`
@@ -266,3 +270,151 @@ printf("Pocet prvku v poli: %lu\n", sizeof(pole) / sizeof(pole[0]));
 > Operátor `sizeof` bude pro toto použití fungovat pouze pro statické pole a pouze ve funkci, ve které
 > statické pole vytváříte! Pokud pole pošlete do jiné funkce, už z něj bude pouze ukazatel, pro který
 > `sizeof` vrátí velikost ukazatele (což bude na vašem PC nejspíše `8` bytů).
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int pole[3] = { 1, 4, 7 };
+        int a = *pole + 1;
+        int b = *(pole + 1);
+
+        printf("a = %d, b = %d\n", a, b);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `a = 2, b = 4`. Jelikož má operátor dereference (`*`) větší
+    [prioritu](https://en.cppreference.com/w/c/language/operator_precedence) než operátor sečtení
+    (`+`), tak se do proměnné `a` uloží hodnota (`2`). Nejprve se totiž provede výraz `*pole`, kde
+    dojde k dereferenci ukazatele na první prvek pole, čímž vznikne hodnota `1`, a k ní se poté přičte
+    jednička.
+
+    V případě proměnné `b` se nejprve ukazatel na první prvek pole posune o jeden prvek dopředu, tj.
+    na adresu druhého prvku pole, který má hodnotu `4`. Poté dojde k dereferenci adresy tohoto prvku,
+    do proměnné `b` se tak uloží hodnota `4`.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    void prijmi_pole(int p[3]) {
+        p[2] += 1;
+    }
+
+    int main() {
+        int pole[3] = { 1, 2, 3 };
+
+        prijmi_pole(pole); 
+
+        printf("{ %d, %d, %d }\n", pole[0], pole[1], pole[2]);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `{ 1, 2, 4 }`. Při předávání statického pole do funkce dojde pouze k předání
+    ukazatele na jeho první prvek (i když má parametr typ `int p[3]`). Pokud tedy pomocí ukazatele
+    `p` změníme hodnotu třetího prvku pole, tato změna se nám projeví i ve funkci `main`, protože
+    stále pracujeme s tou stejnou pamětí.
+    </details>
+3) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int pole[3] = { 1, 2, 3 };
+        int *p = pole;
+
+        p[1] = 5;
+        pole[0] = 8;
+
+        printf("%d, %d\n", *p, pole[1]);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `8, 5`. Do ukazatele `p` jsme si uložili adresu prvního prvku v poli. Pomocí
+    `p[1]` posuneme ukazatel o jeden prvek v paměti "dopředu" (bude tedy ukazovat na druhý prvek pole)
+    a rovnou na tuto adresu v paměti zapíšeme hodnotu `5`. Poté změníme hodnotu prvního prvku pole
+    na `8`. Jelikož `p` ukazuje na první prvek v poli, tak při jeho dereferenci získáme právě hodnotu
+    `8`. A jelikož jsme předtím pomocí ukazatele `p` změnili druhý prvek pole na `5`, tak `pole[1]`
+    také vrátí hodnotu `5`.
+    </details>
+4) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int pole[3] = { 1, 2, 3 };
+        printf("%d\n", pole);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣, protože jsme použili
+    [zástupný znak](../prikazy_vyrazy.md#výpis-výrazů) `%d`, který slouží k výpisu celých čísel, ale
+    předali jsme funkci `printf` argument `pole`, který je datového typu pole (resp. ukazatel na první
+    prvek tohoto pole).
+    </details>
+5) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int p[3] = { 1, 2, 3 };
+        for (int i = 0; i <= 3; i++) {
+            printf("%d\n", p[i]);
+        }
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣, protože jsme přistoupili (dereferencovali)
+    paměť mimo rozsah pole! Pole `p` má pouze tři prvky, nesmíme tedy přistoupit k indexu `3` či vyššímu,
+    což se však v tomto programu stane, protože proměnná `i` nabývá hodnot `0`, `1`, `2` a `3`.
+
+    Ať už tento program při konkrétním spuštění vypíše cokoliv, nemá cenu se tím zaobírat. Tento program
+    obsahuje paměťovou chybu, která může způsobit pád programu, libovolnou změnu hodnot v paměti nebo
+    cokoliv jiného. Chybu musíte nejprve odstranit, jinak program nebude správně fungovat.
+    </details>
+6) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int pole[3] = { 1, 2, 3 };
+        2[pole] = 5;
+
+        printf("%d\n", pole[2]);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `5`. I když to vypadá zvláštně, tak jelikož je sčítání komutativní, a operátor
+    `a[b]` je definován jako `*(a + b)`, tak je jedno, jestli napíšete `a[b]` nebo `b[a]`. Takovýto
+    zápis je nicméně nestandardní a nepoužívá se, tato úloha pouze měla demonstrovat, že jej takto
+    teoreticky použít lze, a že `a[b]` opravdu není nic jiného, než zkratka za `*(a + b)`.
+    </details>

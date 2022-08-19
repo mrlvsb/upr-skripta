@@ -22,7 +22,7 @@ void* malloc(size_t size);
 
 [^1]: Datový typ [`size_t`](https://devdocs.io/c/types/size_t) reprezentuje bezznaménkové
 celé číslo, do kterého by měla jít uložit velikost největší možné hodnoty libovolného typu. Často
-se používá pro indexaci [polí](../pole/pole.md).
+se používá pro indexaci [polí](../pole/pole.md) nebo právě určování velikosti (např. alokací).
 
 ### Velikost alokované paměti
 Parametr `size` udává, kolik bytů paměti se má naalokovat. Tuto velikost můžeme "tipnout"
@@ -61,6 +61,9 @@ int* naalokuj_pamet() {
 int main() {
     int* pamet = naalokuj_pamet();
     printf("%d\n", *pamet);
+
+    free(pamet); // uvolnění paměti, vysvětleno níže
+
     return 0;
 }
 ```
@@ -87,7 +90,7 @@ se mají naalokovat, a velikost každé hodnoty.
 
 ## Uvolnění paměti
 S velkou mocí přichází i velká [zodpovědnost](https://citaty.net/citaty/1957976-stan-lee-s-velkou-moci-prichazi-velka-odpovednost/),
-takže při použití dynamické paměti sice máme více možností než při použití automatické paměti
+takže při použití dynamické paměti sice máme více možností, než při použití automatické paměti
 (resp. zásobníku), ale zároveň **MUSÍME** tuto paměť korektně uvolňovat (což se u automatické paměti
 provádělo automaticky). Pokud bychom totiž paměť neustále pouze alokovali a neuvolňovali, tak by nám
 [brzy došla](../../caste_chyby/pametove_chyby.md#memory-leak).
@@ -127,3 +130,18 @@ Nemusíte se tak omezovat velikostí základních datových typů, můžete nap�
 5 `int`ů zároveň, které poté budou ležet za sebou v paměti a bude tak jednoduché k nim přistupovat
 v cyklu. Jak tento koncept funguje se dozvíte v sekci o
 [dynamických polích](../pole/dynamicke_pole.md).
+
+## Kdy použít dynamicky alokovanou paměť?
+Řiďte se pravidlem, že pokud lze použít [automatickou paměť](automaticka_pamet.md) na zásobníku,
+tak ji využijte a `malloc` nepoužívejte. Až v momentě, kdy z nějakého důvodu nebude stačit naalokovat
+paměť na zásobníku, tak se obraťe na `malloc`.
+
+Seznam situací, ve kterých se může dynamická paměť hodit, se
+[nachází](automaticka_pamet.md#nevýhody-automatické-paměti) v sekci o automatické paměti.
+
+<hr />
+
+**Kvíz** 🤔
+
+Podívejte se na sekci o [paměťových chybách](../../caste_chyby/pametove_chyby.md) pro příklad toho,
+co všechno se může při práci s dynamickou pamětí a ukazateli pokazit.

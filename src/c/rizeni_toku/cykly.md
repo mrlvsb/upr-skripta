@@ -4,8 +4,9 @@ Ve svých programech budete často chtít provádět nějakou operaci opakovaně
 - Pošli zprávu každému účastníkovi chatu.
 - Načítej řádky ze souboru, dokud nedojdeš na konec souboru.
 
-Pokud bychom používali pouze sekvenční zápis příkazů, tak bychom museli neustále kopírovat
-("copy-pastovat") kód:
+Pokud bychom vždy pouze přidávali nové příkazy pod sebe, tak, jak to zatím známe, abychom nějaký příkaz
+provedli vícekrát, tak by naše programy jednak byly nejspíše dost dlouhé. Nejspíše bychom bychom
+neustále kopírovali ("copy-pastovali") velmi podobný kód:
 ```c
 printf("0\n");
 printf("1\n");
@@ -20,10 +21,11 @@ opravit na všech místech, kam jsme kód zkopírovali.
 Ani s kopírováním kódu bychom si však nevystačili, pokud bychom potřebovali provádět kód opakovaně
 v závislosti na vstupu programu. Představte si situaci, kdy nám uživatel na vstup programu zadá číslo,
 kolikrát má náš program vypsat nějaký řádek textu na výstup. Uživatel se při každém spuštění programu
-může rozhodnout pro jiné číslo, `0`, `1`, `42`, `1000`. Program však zůstává stále stejný - při jeho
-psaní se musíme rozhodnout, kolik příkazů pro výpis v něm použijeme, a už poté nemůžeme jednoduše
-tuto volbu změnit, když program běží. Takovýto program bychom tedy zatím (pouze pomocí proměnných a
-podmínek) neměli jak naprogramovat. 
+může rozhodnout pro jiné číslo, `0`, `1`, `42`, `1000`. Program však zůstává stále stejný - už při
+tvorbě (psaní) programu se musíme rozhodnout, kolik příkazů pro výpis do něj vložíme. Poté se program
+[přeloží](../../prostredi/preklad_programu.md) na spustitelný soubor a poté už naši volbu nemůžeme
+jednoduše změnit. Takovýto program bychom tedy zatím (pouze pomocí proměnných a podmínek) neměli jak
+naprogramovat. 
 
 Proto programovací jazyky nabízí tzv. **cykly** (*loops*), pomocí kterých můžeme jednoduše říct
 počítači, aby určitý blok kódu opakoval, kolikrát budeme chtít. Díky tomu může program i s pouze

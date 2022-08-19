@@ -37,7 +37,7 @@ int (*)(int mocnina, int mocnitel);
 ```
 
 ## Použití v proměnné
-Pokud chcete vytvořit promměnou (či parametr) datového typu ukazatel na funkce, tak musíte použít
+Pokud chcete vytvořit proměnnou (či parametr) datového typu ukazatel na funkce, tak musíte použít
 speciální syntaxi. Běžně při vytváření proměnné nejprve napíšeme její datový typ a poté její název.
 U ukazatele na funkci se však název proměnné nepíše až za datový typ, ale dovnitř závorek s hvězdičkou.
 Takto lze vytvořit proměnnou s názvem `ukazatel1`, do které půjde uložit adresu funkcí, které vrací `int`
@@ -60,7 +60,7 @@ int main() {
     return 0;
 }
 ```
-Signature přiřazené funkce musí odpovídat datovému typu ukazatele, nelze tak například přiřadit
+Signatura přiřazené funkce musí odpovídat datovému typu ukazatele, nelze tak například přiřadit
 funkci, která nic nevrací, do ukazatele, který má signaturu `int (*)()`.
 
 Jakmile máme v proměnné ukazatele na funkci uloženou adresu nějaké funkce, můžeme pomocí názvu této
@@ -162,12 +162,12 @@ int main() {
     return 0;
 }
 ```
-Ukazatele na funkce nám umožňují vytvářet kód, který je více *composable*, jinak řečeno lze do
-sebe skládat jako kostky Lega a nenutí nás zadrátovat možné způsoby použití dopředu (jako tomu bylo
-v prvním řešení s parametrem `int operace`).
+Ukazatele na funkce nám umožňují vytvářet kód, který je více *composable*, jinak řečeno lze jej
+skládat jako kostky Lega a nenutí nás zadrátovat všechny možné způsoby použití dopředu (jako tomu
+bylo v prvním řešení s parametrem `int operace`).
 
 Ještě užitečnější jsou ukazatele na funkci v kombinacemi se zpracováním více hodnot pomocí
 [polí](../pole/pole.md), kdy můžeme napsat obecnou funkci, která nějak zpracovává pole, a předat jí
 například ukazatel na funkci, která se má zavolat nad každým prvkem v poli. Hodí se také při práci
 se [strukturami](../struktury/struktury.md), kdy můžeme do atributu struktury uložit ukazatel na
-funkci a přidat tak individuální chování k různým hodnotám struktur.
+funkci a přidat tak individuální chování k různým hodnotám stejné struktury.

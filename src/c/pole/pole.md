@@ -12,7 +12,7 @@ jednotlivé pixely.
 Asi si dovedete představit, že například pro reprezentaci obrázku bychom si s proměnnými, které jsme
 používali doposud, nevystačili. Pokud bychom po jedné vytvářeli proměnné `pixel1`, `pixel2`,
 `pixel3`, tak by jednak byl náš zdrojový kód obrovský a nedalo by se v něm vyznat, a také bychom
-nemohli mít velikost obrázku závislou na vstupu programu, protože počet proměnných by byl
+nemohli mít velikost obrázku závislou na vstupu programu, protože počet proměnných (pixelů) by byl
 "zadrátovaný" ve zdrojovém kódu programu. Chtěli bychom tak mít možnost napsat kód, který bude umět
 zpracovat 1, 2, 100 nebo třeba 1000 hodnot bez toho, abychom tento kód museli jakkoliv měnit.
 

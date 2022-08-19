@@ -1,7 +1,10 @@
 # Dynamické pole
 Pole alokovaná na zásobníku by měly mít velikost danou při překladu programu, často ale potřebujeme
-vytvářet pole v závislosti na vstupu programu (například když načítáme soubor, tak dopředu nevíme,
-kolik bude mít řádků). Ze sekce o [dynamické paměti](../prace_s_pameti/dynamicka_pamet.md) již víme,
+vytvářet pole v závislosti na vstupu programu. Například, pokud bychom chtěli vytvořit pole, které
+by obsahovalo všechny řádky souboru, tak dopředu nevíme, kolik těch řádků bude nějaký konkrétní
+soubor mít.
+
+Ze sekce o [dynamické paměti](../prace_s_pameti/dynamicka_pamet.md) již víme,
 jak alokovat libovolné množství paměti na haldě pomocí funkce `malloc`. Pro vytvoření
 **dynamického pole** (*dynamic array*) tak stačí použít funkci `malloc`. Například pro vytvoření
 dynamického pole pro `5` celých čísel potřebujeme naalokovat `5 * sizeof(int)` bytů:

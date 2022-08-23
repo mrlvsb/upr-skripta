@@ -1,5 +1,9 @@
+# Install dependencies
 # cargo install --git https://github.com/kobzol/mdBook mdbook
+# cargo install mdbook-linkcheck --version 0.7.5
 
-mdbook build
+# Build book
+# mdbook build
 
-# mdbook serve
+# Serve book
+mdbook serve

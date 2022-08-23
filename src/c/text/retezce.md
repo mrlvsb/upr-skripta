@@ -83,7 +83,8 @@ int main() {
     return 0;
 }
 ```
-V takovémto případě se hodnota z literálu překopíruje do proměnné pole znaků na zásobníku.
+V takovémto případě se hodnota z literálu překopíruje do proměnné pole znaků na zásobníku, který již
+lze měnit.
 
 > Pokud jsou vám řetězcové literály povědomé, je to kvůli toho, že jsme je již mnohokrát
 > využili při volání funkce `printf`.
@@ -182,7 +183,7 @@ být užitečné:
 
 - **Zjištění délky řetězce**: funkce [`strlen`](https://devdocs.io/c/string/byte/strlen) bere jako
 parametr řetězec a vrací jeho délku. Jedná se o jednu z nejčastěji používaných funkcí při práci s
-řetězci a vyplatí se jí tak znát.
+řetězci a vyplatí se ji tak znát.
 
     Při jejím použití je ovšem nutné si dát pozor na to, že délka provádění této funkce závisí na tom, jak je
     řetězec dlouhý. Pokud bude mít řetězec milion znaků, tak bude tato funkce muset projít všech milion
@@ -240,3 +241,57 @@ Pro procvičení práce s řetězci si můžete zkusit některé z těchto funkc
 naprogramovat. Další úlohy pro práci s řetězci můžete nalézt [zde](../../ulohy/retezce.md).
 
 <hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        const char* str = "hello";
+
+        printf("%c\n", str[3]);
+        printf("%c\n", str[2]);
+        printf("%c\n", str[1]);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    l
+    l
+    e
+    ```
+    Jelikož jsou řetězce poli znaků, tak při přistoupení na nějaký index řetězce získáme hodnotu
+    datového typu znak.
+    </details>
+2) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        const char* str = "hello";
+        
+        for (int i = 0; i < 5; i++) {
+            printf("%c", str[i] - 32);
+        }
+        printf("\n");
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše `HELLO`. Když se podíváte na [ASCII tabulku](https://www.asciitable.com/), tak
+    zjistíte, že rozdíl mezi čísly reprezentujícími jednotlivé znaky malé a velké anglické abecedy
+    je `32`, a že znaky malé abecedy jsou reprezentovány vyššími čísly. Když tak např. od `'h'`
+    odečteme hodnotu `32`, získáme znak `'H'`. Přehlednější by bylo napsat tuto konverzi jako
+    `str[i] - ('a' - 'A')` nebo použít funkci [`tolower`](https://devdocs.io/c/string/byte/tolower)
+    ze standardní knihovny jazyka *C*.
+    </details>

@@ -23,7 +23,7 @@ float prisera_poloha_y[100];
 I když by jistě šlo programy tvořit tímto způsobem, asi sami uznáte, že to není ideální, protože to
 má spoustu nevýhod:
 - Pokud bychom například změnili (maximální) počet příšer, museli bychom synchronizovat tuto velikost
-mezi všemi poli, které reprezentují jednotlivé vlastnosti příšer.
+mezi všemi poli, která reprezentují jednotlivé vlastnosti příšer.
 - K názvům proměnných musíme přidávat nějakou předponu (např. `prisera`), abychom dali najevo, že
 tyto proměnné vlastně patří k jednomu logickému prvku (příšeře).
 - Pokud bychom chtěli jednu takovou příšeru poslat do funkce, tak by to vyžadovalo spoustu parametrů:

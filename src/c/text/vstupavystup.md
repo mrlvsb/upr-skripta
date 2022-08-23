@@ -32,7 +32,7 @@ Opět to ale není jediná možnost, `stdout` může být například přesměro
     ```
     Funkce `printf` posílá svůj výstup právě do deskriptoru `stdout`.
 
-    Pokud toto nastavení [nezměníte](https://devdocs.io/c/io/setvbuf), tak `stdout` implicitně používá 
+    Pokud to [nezměníte](https://devdocs.io/c/io/setvbuf), tak `stdout` implicitně používá 
     tzv. **bufferování po řádcích** (*line buffering*). To znamená, že pokud zapíšete do `stdout`
     pomocí některé z funkcí standardní knihovny *C* nějaký text, tak tento text se nejprve zapíše
     do dočasného pole (tzv. *bufferu*) v paměti. Až jakmile na výstup zapíšete znak odřádkování `'\n'`[^1],

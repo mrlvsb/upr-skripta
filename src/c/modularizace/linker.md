@@ -88,11 +88,11 @@ Pokud překládáme každý soubor zvlášť, tak po změně v jednom souboru st
 slinkovat všechny objektové soubory (ty původní můžeme znovuvyužít, protože se nezměnily). To je u
 velkých programů mnohem rychlejší než překládat vše od nuly.
 
-[^3]: Velké programy v *C* může trvat přeložit klidně i několik hodin nebo dokonce dnů!
+[^3]: Velké programy v *C* může trvat přeložit klidně i několik hodin!
 
-Navíc pokud bychom se nanučili používat zvlášť překladač a linker, nemohli bychom používat
+Navíc pokud bychom se nenaučili používat zvlášť překladač a linker, nemohli bychom používat
 [knihovny](knihovny.md), u kterých obvykle nemáme přístup k samotnému zdrojovému kódu, ale pouze k
 již přeloženému objektovému kódu[^4].
 
-[^4]: Například proto, aby autor knihovny zatajil původní zdrojový kód, který je jeho duševním
+[^4]: Například proto, aby autor knihovny "zatajil" původní zdrojový kód, který je jeho duševním
 vlastnictvím.

@@ -26,7 +26,7 @@ které řeší rozlišné problémy.
 
 ## Sdílení knihoven
 Teoreticky bychom mohli knihovny používat prostě tak, že si nějakou najdeme na internetu, stáhneme
-její hlavičkové a zdrojové soubory k našeho programu a začneme je využívat. I když i tak to lze někdy
+její hlavičkové a zdrojové soubory k našemu programu a začneme je využívat. I když i tak to lze někdy
 udělat, není to obvyklé, protože tento přístup má spoustu nevýhod:
 - Jelikož obvykle nebudeme autory knihovny, kterou chceme použít, tak nemusíme ani být schopní
 danou knihovnu přeložit. Potřebuje daná knihovna konkrétní překladač nebo jeho specifické nastavení?
@@ -54,9 +54,9 @@ našeho programu (tj. nebudou obsaženy ve spustitelném souboru, který bude vy
 K jejich načtení dojde až "dynamicky" při spuštění programu[^2].
 
     Výhody tohoto přístupu jsou, že bude mít náš spustitelný soubor menší velikost, a to jak na disku,
-    tak v operační paměti. Operační systém totiž dokáže jednu dynamickou knihovnu sdílet mezi více
-    programy najednou. Dynamickou knihovnu také půjde aktualizovat bez nutnosti překládat znovu náš
-    program a můžeme také při spuštění programu knihovnu
+    tak v operační paměti. Operační systémy totiž dokážou stejnou dynamickou knihovnu částečně sdílet
+    mezi více běžícími programy najednou. Dynamickou knihovnu také půjde aktualizovat bez nutnosti
+    překládat znovu náš program a můžeme také při spuštění programu knihovnu
     [nahradit jinou implementací](https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick).
 
     Nevýhodou je, že při spuštění našeho programu musíme zajistit, že knihovna bude na daném systému

@@ -75,8 +75,8 @@ zástupný znak ze vstupu.
 
 Jakmile dojde k chybě, tak bychom ještě měli ověřit, jestli jsme opravdu na konci souboru, anebo
 byla chyba způsobena něčím jiným[^3]. To můžeme zjistit pomocí funkcí
-[`feof`](https://devdocs.io/c/io/feof), která vrátí nenulovou hodnotu, pokud jsme se před jejím
-zavoláním pokusili o čtení a [pozice](prace_se_soubory.md#pozice-v-souboru) již byla na konci souboru,
+[`feof`](https://devdocs.io/c/io/feof), která vrátí nenulovou hodnotu, pokud jsme se **před jejím
+zavoláním** pokusili o čtení a [pozice](prace_se_soubory.md#pozice-v-souboru) již byla na konci souboru,
 a [`ferror`](https://devdocs.io/c/io/ferror), která vrátí nenulovou hodnotu, pokud došlo k nějaké
 jiné chybě při práci se souborem. 
 
@@ -116,3 +116,50 @@ int main() {
     return 0;
 }
 ```
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program za předpokladu, že v souboru `soubor.txt` je tento obsah?
+    ```
+    radek1
+    radek2
+    radek3
+    ```
+
+    ```c
+    #include <stdio.h>
+    #include <assert.h>
+
+    int main() {
+        FILE* soubor = fopen("soubor.txt", "r");
+        assert(soubor);
+
+        char radek[80];
+        while (feof(soubor) == false) {
+            fgets(radek, sizeof(radek), soubor);
+            printf("Nacteny radek: %s", radek);
+        }
+
+        fclose(soubor);
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    radek1
+    radek2
+    radek3
+    radek3
+    ```
+    Funkce `feof` vrátí pravdivou hodnotu pouze tehdy, kdy před jejím zavoláním na daném souborovém
+    deskriptoru došlo k pokusu o čtení, který selhal z důvodu konce vstupního souboru. Po načtení
+    prvních tří řádků tedy `feof` vrátí `false`, protože poslední pokus o čtení uspěl. Až v momentě,
+    kdy se pokusíme načíst čtvrtý řádek, tak funkce `fgets` selže a poté `feof` vrátí `true`. Jelikož
+    ale tento kód nekontroluje návratovou hodnotu funkce `fgets` a vždy po pokusu o načtení řádku vypíše
+    proměnnou `radek`, tak se poslední řádek souboru vypíše dvakrát.
+    </details>

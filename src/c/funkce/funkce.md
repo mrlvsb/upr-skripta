@@ -517,3 +517,33 @@ budete pracovat s funkcionálními programovacími jazyky, ve kterých je práv�
     `vypocet(b)` na `8`, a poté se zavolá `vypocet(7 + 8)`, který se vyhodnotí na `16`. Vyhodnocování
     výrazů a volání funkcí si můžete procvičit [zde](../../ruzne/vyhodnocovani_vyrazu.md).
     </details>
+8) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    int cislo = 1;
+
+    void uprav_promennou() {
+        cislo = 2;
+    }
+
+    int main() {
+        printf("%d\n", cislo);
+        uprav_promennou();
+        printf("%d\n", cislo);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Program vypíše:
+    ```
+    1
+    2
+    ```
+    Jelikož je proměnná `cislo` globální, tak k ní mají přístup funkce `uprav_promennou` i `main`.
+    Změna této proměnné ve funkci `uprav_promennou` se tedy promítne, když budeme číst hodnotu této
+    proměnné ve funkci `main`.
+    </details>

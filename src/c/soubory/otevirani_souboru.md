@@ -1,6 +1,6 @@
 # Otevírání souborů
 Abychom mohli s nějakým souborem začít pracovat, musíme ho nejprve v našem programu otevřít, aby
-byl vytvořen souborový deskriptor, do kterého pak můžeme zapisovat či z něho číst data. K tomu slouží
+byl vytvořen souborový deskriptor, do kterého pak můžeme zapisovat či z něj číst data. K tomu slouží
 funkce [`fopen`](https://devdocs.io/c/io/fopen), která má následující
 [signaturu](../funkce/funkce.md#syntaxe):
 ```c
@@ -19,10 +19,11 @@ adresář implicitně nastaví na adresář, ze kterého jste program spustili. 
 váš program z adresáře `/home/student/upr` a funkci `fopen` předáte cestu `soubor.txt`, tak se funkce
 pokusí otevřít soubor na cestě `/home/student/upr/soubor.txt`.
 
-Při zadávání cesty můžete využít zkratky `.` a `..`, které jsou užitečné zejména u relativních cest:
-- Zkratka `.` se odkazuje na současný adresář, `./soubor.txt` je tedy to samé jako `soubor.txt`.
-- Zkratka `..` se odkazuje na rodičovský adresář, `../data/abc.txt` tedy říká:
-`Podívej se do rodičovského adresáře, tam nalezni adresář data a v něm soubor abc.txt`.
+Při zadávání cesty můžete využít speciální odkazy `.` a `..`, které jsou užitečné zejména u relativních
+cest:
+- Odkaz `.` se odkazuje na současný adresář, `./soubor.txt` je tedy to samé jako `soubor.txt`.
+- Odkaz `..` se odkazuje na rodičovský adresář, `../data/abc.txt` tedy říká:
+`Podívej se do rodičovského adresáře, tam vyhledej adresář data a v něm soubor abc.txt`.
 
 Nepokoušejte se však zadávat cesty k neexistujícím adresářům. `fopen` sice umí vytvořit nový soubor
 (pokud použijete odpovídající [mód](#mód-otevření)), neexistující adresář za vás nicméně nevytvoří.
@@ -33,27 +34,27 @@ Nepokoušejte se však zadávat cesty k neexistujícím adresářům. `fopen` si
 > k souborům vždy používejte dopředná lomítka (`/`) pro oddělování adresářů, pokud program budete
 > spouštět na Linuxu. 
 
-[^1]: Na Windows by podobná cesta mohla vypadat například jako
-`C:\Users\student\upr\soubor.txt`.
+[^1]: Na Windows by podobná cesta mohla vypadat například takto: `C:\Users\student\upr\soubor.txt`.
 
 ## Mód otevření
 Druhým parametrem funkce `fopen` je řetězec, jehož obsah určuje, v jakém **módu** (*mode*) se má
 soubor otevřít. Kompletní seznam všech kombinací módů naleznete v
 [dokumentaci](https://devdocs.io/c/io/fopen), zde je seznam běžných variant:
 
-| Mód | Možné operace | Co se stane, když už soubor existuje? | Co se stane, když soubor neexistuje? |
-|:---:|:---:|:---:|:---:|
-| `"r"` | Čtení | | chyba |
-| `"w"` | Zápis | obsah souboru je smazán | soubor je vytvořen |
-| `"a"` | Zápis na konci | | soubor je vytvořen |
-| `"r+"` | Čtení, zápis | | chyba |
-| `"w+"` | Čtení, zápis | obsah souboru je smazán | soubor je vytvořen |
-| `"a+"` | Čtení, zápis na konci | | soubor je vytvořen |
+|  Mód   |     Možné operace     | Co se stane, když už soubor existuje? | Co se stane, když soubor neexistuje? |
+|:------:|:---------------------:|:-------------------------------------:|:------------------------------------:|
+| `"r"`  |         Čtení         |                                       |                chyba                 |
+| `"w"`  |         Zápis         |        obsah souboru je smazán        |          soubor je vytvořen          |
+| `"a"`  |    Zápis na konci     |                                       |          soubor je vytvořen          |
+| `"r+"` |     Čtení, zápis      |                                       |                chyba                 |
+| `"w+"` |     Čtení, zápis      |        obsah souboru je smazán        |          soubor je vytvořen          |
+| `"a+"` | Čtení, zápis na konci |                                       |          soubor je vytvořen          |
 
 Při otevírání souboru si musíte rozmyslet, jestli z něj chcete číst, zapisovat do něj nebo provádět
 obojí. Zároveň si musíte určit, jestli chcete soubor vytvořit v případě, že neexistuje, popřípadě
 jestli má být jeho obsah smazán, pokud už existuje. Podle těchto vlastností si pak zvolte odpovídající
-mód otevření souboru.
+mód otevření souboru. Nejběžněji používanými módy jsou `"r"` pro čtení ze souboru a `"w"` pro zápis
+do souboru.
 
 ### Textový vs binární režim
 Pokud použijete jeden ze základních módů, soubor se otevře v tzv. **textovém režimu**. V tomto režimu
@@ -76,7 +77,7 @@ na `\n`. Na Linuxu textový mód v podstatě nic nedělá, protože se zde pro o
 
 Pokud byste však chtěli mít jistotu, že opravdu k žádné konverzi nedojde, a budete zapisovat data,
 která nemají být interpretována jako text, můžete na konec módu přidat znak `b`. Poté se soubor
-otevře v tzv. **binární režimu**, kde k žádné konverzi nedojde. Mód `"rb"` tak například říká
+otevře v tzv. **binární režimu**, kde k žádné konverzi nedochází. Mód `"rb"` tak například říká
 `Otevři soubor pro čtení v binárním režimu`.
 
 > Pokud byste chtěli explicitně říct, že se má použít textový režim, můžete na konec módu přidat
@@ -117,8 +118,8 @@ int main() {
 }
 ```
 
-[^4]: Seznam různých chybových hodnot, které se můžou v `errno` objevit, můžete naleznout například
-[zde](https://www.thegeekstuff.com/2010/10/linux-error-codes/#optiontable).
+[^4]: Seznam různých chybových hodnot, které se můžou v `errno` objevit na operačním systému Linux,
+můžete naleznout například [zde](https://www.thegeekstuff.com/2010/10/linux-error-codes/#optiontable).
 
 ### Použití `assert`
 Pokud píšete malý program a nechce se vám ručně každou chybu ošetřovat, můžete využít

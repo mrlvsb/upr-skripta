@@ -122,7 +122,7 @@ scanf("%s", buf);
 ### Zpracování bílých znaků
 Funkce `scanf` ignoruje bílé znaky (mezery, odřádkování, tabulátory atd.) mezi jednotlivými
 zástupnými znaky ve formátovacím řetězci. Například v následujícím kódu je validním vstupem `x8`,
-`x 8` i `x  8`:
+`x 8` i `x   8`:
 ```c
 int a;
 scanf("x%d", &a);
@@ -156,8 +156,8 @@ int x, y;
 scanf("%d%d", &x, &y);
 ```
 předali text `5 asd`, tak funkce vrátí hodnotu `1`, tj. načetla ze vstupu jedno číslo. Nyní ovšem už
-funkci nemůžeme zavolat znovu (jakmile bychom např. ve vstupu přeskočili nevalidní text), protože
-v této chvíli už bychom chtěli načíst pouze jedno číslo. 
+funkci nemůžeme zavolat znovu se stejnými parametry (jakmile bychom např. ve vstupu přeskočili nevalidní
+text), protože v tuto chvíli už bychom chtěli načíst pouze jedno číslo. 
 
 ## Parametry příkazového řádku
 Další možností, jak předat nějaký vstup vašemu programu, je předat mu parametry při spuštění v
@@ -167,3 +167,73 @@ $ ./program arg1 arg2 arg3
 ```
 K těmto předaným řetězcům poté lze přistoupit ve funkci
 [`main`](../../ruzne/funkce_main.md#vstupní-parametry-funkce-main).
+
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program, pokud na vstup zadáme `5`?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a;
+        scanf("%d", a);
+
+        printf("Hodnota: %d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣. Funkce `scanf` očekává pro každý zástupný
+    znak ve svém formátovacím řetězci další argument, který musí obsahovat **adresu**, do které se
+    daná hodnota ze vstupu uloží. Zde místo adresy předáváme do `scanf` hodnotu číselné proměnné,
+    která navíc ani není inicializovaná, takže její předání do funkce je samo o sobě také nedefinovaným
+    chováním.
+    </details>
+2) Co vypíše následující program, pokud na vstup zadáme `5`?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int* p;
+        scanf("%d", p);
+
+        printf("Hodnota: %d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣. Sice správně do funkce `scanf` předává adresu
+    celého čísla, ale tato adresa je neinicializovaná! Adresy předané funkci `scanf` po formátovacím
+    řetězci jsou výstupnímu argumenty, jinak řečeno do předaných adres budou zapsány hodnoty načtené
+    ze vstupu. Musíme tak do funkce předat validní adresu na kus paměti, kde je opravdu uloženo celé
+    číslo, což v tomto případě neplatí.
+    </details>
+3) Co vypíše následující program, pokud na vstup zadáme `5`?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        int a;
+        scanf("%s", &a);
+
+        printf("Hodnota: %d\n", a);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Tento program obsahuje **nedefinované chování** 💣. Sice správně do funkce `scanf` předává adresu
+    proměnné, ale špatného typu. Zástupný znak `%s` vyžaduje adresu (pole) znaků, zatímco zde předáváme
+    adresu celého čísla.
+    </details>

@@ -25,7 +25,7 @@ upravit celý zbytek programu, což je náročné.
     Abychom tomu předešli, je vhodné učinit jednotlivé části programu samostatné, sdílet z nich se
     zbytkem kódu pouze to, co je opravdu potřeba, a zbytek funkcionality učinit "soukromou" pro daný
     soubor. Změny v těchto soukromých částech pak nemohou ovlivnit zbytek kódu, protože ten na nich
-    nebude závislý.
+    nebude záviset.
  
 - **Efektivnější spolupráce v týmu** Rozdělení na více souborů také usnadní týmovou spolupráci.
 Pokud budou jednotliví programátoři upravovat jiné soubory, bude mnohem menší riziko tzv. "souběhu",

@@ -117,8 +117,8 @@ struct Osoba {
 
 int main() {
     struct Osoba martina = { .vek = 18, .pocet_pratel = 10 };
-    martina.vek += 1;
-    martina.pocet_pratel += 20;
+    martina.vek += 1;           // přístup k členu `vek`
+    martina.pocet_pratel += 20; // přístup k členu `pocet_pratel`
     printf("Martina ma %d let a ma %d pratel\n", martina.vek, martina.pocet_pratel);
 
     return 0;
@@ -162,7 +162,7 @@ odkazovat (původní název datového typu to však nijak neovlivní a můžeme 
 platí, že takto vytvořené jméno lze použít pouze v oblasti (*scopu*), kde byl `typedef` použit.
 Obvykle se používá na nejvyšší úrovni souboru. 
 
-U struktur si pomocí `typedef` můžeme zkrátit jejich název ze `struct <nazev>` na `<nazev>`:
+U struktur si pomocí `typedef` můžeme zkrátit jejich název, typicky ze `struct <nazev>` na `<nazev>`:
 ```c
 struct Osoba {
     int vek;
@@ -241,4 +241,5 @@ v tomto případě použít ukazatel, který má fixní velikost, ať už ukazuj
 [^4]: Zde si můžete všimnout, že musíme použít `struct Osoba` pro datový typ členu `matka`. Je to z
 toho důvodu, že v momentě, kdy tento člen definujeme, tak ještě není platný `typedef`, ve kterém se
 struktura nachází, takže datový typ `Osoba` zatím neexistuje. Nové jméno pro datový typ lze používat
-až za středníkem daného `typedef`u.
+až za středníkem daného `typedef`u. V tomto případě také nemůžeme vytvořit strukturu jako anonymní,
+ale musíme ji rovnou pojmenovat (`typedef struct Osoba ...`).

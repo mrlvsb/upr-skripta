@@ -3,12 +3,22 @@ Stejně jako pro načítání vstupu, i pro výpis textu na výstup nabízí sta
 užitečných funkcí, opět umístěných v souboru `<stdio.h>`. Stejně jako u načítání [vstupu](vstup.md)
 bychom i u výstupu měli řešit [ošetření chyb](vstupavystup.md#ošetření-chyb). Nicméně, u zápisu to
 (alespoň u malých programů) není až tak nezbytné, protože chyby zápisu jsou vzácnější než chyby při
-vstupu. Zdrojem dat je totiž náš program, a nemusíme tak kontrolovat, jestli jsou data validní.
-Tato povinnost v jistém smyslu přechází na druhou stranu, s kterou náš program komunikuje.
+vstupu. Zdrojem dat je totiž náš program, a nemusíme tedy tak striktně kontrolovat, jestli jsou
+vypsaná data validní. Tato povinnost v jistém smyslu přechází na druhou stranu, s kterou náš program
+komunikuje, protože ta bude námi vypsaná data číst.
 
 ## Vypsání znaku
 Pro vypsání jednoho znaku na standardní výstup (`stdout`) můžeme použít funkci
 [`putchar`](https://devdocs.io/c/io/putchar).
+
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+    putchar('x');
+    return 0;
+}
+```
 
 ## Vypsání řetězce
 Pro vypsání celého řetězce na `stdout` můžete použít funkci [`puts`](https://devdocs.io/c/io/puts),

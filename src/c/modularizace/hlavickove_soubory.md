@@ -12,11 +12,11 @@ který bude obsahovat deklarace všech sdílených veřejných funkcí a globál
 zdrojového souboru. Ve zdrojovém souboru pak budou jejich definice. Dle jmenné konvence se hlavičkový
 soubor pojmenovává jako `<název zdrojového souboru>.h`:
 ```c
-// soubor.h
+// soubor.h (deklarace)
 int moje_funkce();
 extern int moje_promenna;
 
-// soubor.c
+// soubor.c (definice)
 int moje_funkce() {}
 int moje_promenna;
 ```
@@ -62,13 +62,13 @@ inline void moje_funkce() { ... }
 Tímto klíčovým slovem slibujete linkeru, že všechny definice funkce s tímto názvem jsou stejné.
 Pokud tak linker narazí na definici této funkce vícekrát (což nastane, když tento hlavičkový soubor
 bude vložen ve více jednotkách překladu), tak nebude hlásit chybu, ale prostě si jednu z těchto
-definicí vybere. Pokud by definice stejné nebyly, může to vést k dost zvláštnímu chování. Pokuste
+definicí vybere. Pokud by definice stejné nebyly, může to vést k nedefinovanému chování 💣. Pokuste
 se tak `inline` raději nevyužívat.
 
 > U (globálních) proměnných nemá smysl `inline` používat.
 
 Kromě deklarací funkcí a proměnných se do hlavičkových souborů také běžně vkládají struktury, které
-jsou součástí typů sdílených proměnných či parametrů nebo návratových hodnot sdílených funkcí.
+jsou součástí typů sdílených proměnných či parametrů a návratových hodnot sdílených funkcí.
 
 Aby mohly zdrojové soubory používat sdílené struktury i sdílené funkce v
 [libovolném pořadí](pouzivani_kodu_z_jinych_souboru.md#jednoprůchodový-překlad), tak obvykle zdrojové

@@ -292,7 +292,7 @@ scanf(&quot;%s&quot;, buf);
 <h3><a class="header" href="#zpracování-bílých-znaků" id="zpracování-bílých-znaků">Zpracování bílých znaků</a></h3>
 <p>Funkce <code>scanf</code> ignoruje bílé znaky (mezery, odřádkování, tabulátory atd.) mezi jednotlivými
 zástupnými znaky ve formátovacím řetězci. Například v následujícím kódu je validním vstupem <code>x8</code>,
-<code>x 8</code> i <code>x  8</code>:</p>
+<code>x 8</code> i <code>x   8</code>:</p>
 <pre><code class="language-c">int a;
 scanf(&quot;x%d&quot;, &amp;a);
 </code></pre>
@@ -321,8 +321,8 @@ snažila načíst data, která již načetla. Například pokud bychom tomuto pr
 scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
 </code></pre>
 <p>předali text <code>5 asd</code>, tak funkce vrátí hodnotu <code>1</code>, tj. načetla ze vstupu jedno číslo. Nyní ovšem už
-funkci nemůžeme zavolat znovu (jakmile bychom např. ve vstupu přeskočili nevalidní text), protože
-v této chvíli už bychom chtěli načíst pouze jedno číslo. </p>
+funkci nemůžeme zavolat znovu se stejnými parametry (jakmile bychom např. ve vstupu přeskočili nevalidní
+text), protože v tuto chvíli už bychom chtěli načíst pouze jedno číslo. </p>
 <h2><a class="header" href="#parametry-příkazového-řádku" id="parametry-příkazového-řádku">Parametry příkazového řádku</a></h2>
 <p>Další možností, jak předat nějaký vstup vašemu programu, je předat mu parametry při spuštění v
 terminálu:</p>
@@ -330,6 +330,74 @@ terminálu:</p>
 </code></pre>
 <p>K těmto předaným řetězcům poté lze přistoupit ve funkci
 <a href="../../ruzne/funkce_main.html#vstupn%C3%AD-parametry-funkce-main"><code>main</code></a>.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program, pokud na vstup zadáme <code>5</code>?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    scanf(&quot;%d&quot;, a);
+
+    printf(&quot;Hodnota: %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Funkce <code>scanf</code> očekává pro každý zástupný
+znak ve svém formátovacím řetězci další argument, který musí obsahovat <strong>adresu</strong>, do které se
+daná hodnota ze vstupu uloží. Zde místo adresy předáváme do <code>scanf</code> hodnotu číselné proměnné,
+která navíc ani není inicializovaná, takže její předání do funkce je samo o sobě také nedefinovaným
+chováním.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program, pokud na vstup zadáme <code>5</code>?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int* p;
+    scanf(&quot;%d&quot;, p);
+
+    printf(&quot;Hodnota: %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Sice správně do funkce <code>scanf</code> předává adresu
+celého čísla, ale tato adresa je neinicializovaná! Adresy předané funkci <code>scanf</code> po formátovacím
+řetězci jsou výstupnímu argumenty, jinak řečeno do předaných adres budou zapsány hodnoty načtené
+ze vstupu. Musíme tak do funkce předat validní adresu na kus paměti, kde je opravdu uloženo celé
+číslo, což v tomto případě neplatí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program, pokud na vstup zadáme <code>5</code>?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    scanf(&quot;%s&quot;, &amp;a);
+
+    printf(&quot;Hodnota: %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Sice správně do funkce <code>scanf</code> předává adresu
+proměnné, ale špatného typu. Zástupný znak <code>%s</code> vyžaduje adresu (pole) znaků, zatímco zde předáváme
+adresu celého čísla.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

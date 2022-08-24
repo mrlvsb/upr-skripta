@@ -185,11 +185,12 @@ video {
                     <main>
                         <h1><a class="header" href="#desetinné-číselné-typy" id="desetinné-číselné-typy">Desetinné číselné typy</a></h1>
 <p>Pokud budete chtít provádět výpočty s desetinnými čísly, tak můžete využít datové typy s tzv.
-<strong>plovoucí řádovou čárkou</strong> (<em>floating point numbers</em>). Hodnoty těchto datových typů umožňují udržovat
-čísla sestávající se z celé a z desetinné části. Díky
+<strong>plovoucí řádovou čárkou</strong> (<em>floating point numbers</em>). Hodnoty těchto datových typů umožňují pracovat
+s čísly, které se skládají z celé a z desetinné části. Díky
 tomu, jak jsou <a href="https://cs.wikipedia.org/wiki/Pohybliv%C3%A1_%C5%99%C3%A1dov%C3%A1_%C4%8D%C3%A1rka">navržena</a>,
-tato čísla dokáží reprezentovat jak velmi malé, tak velmi velké hodnoty (za cenu přesnosti desetinné části).</p>
-<p>V <em>C</em> jsou dva základní vestavěné datové typy pro práci s desetinnými čísly, liší se pouze velikostí
+tato čísla dokáží reprezentovat jak velmi malé, tak velmi velké hodnoty (za cenu menší přesnosti
+desetinné části).</p>
+<p>V <em>C</em> jsou dva základní vestavěné datové typy pro práci s desetinnými čísly, které se liší velikostí
 (a tedy i tím, jak přesně dokáží desetinná čísla reprezentovat). Oba dva typy jsou znaménkové:</p>
 <table><thead><tr><th>Název</th><th align="center">Počet bytů</th><th align="center">Rozsah hodnot</th><th align="center">Přesnost</th><th align="center">Se znaménkem</th></tr></thead><tbody>
 <tr><td><code>float</code></td><td align="center">4</td><td align="center">[-3.4x10<sup>38</sup>; 3.4x10<sup>38</sup>]</td><td align="center">~7 des. míst</td><td align="center"><i class="fa fa-check"></i></td></tr>
@@ -207,7 +208,7 @@ desetinný oddělovač se používá tečka, ne čárka): <code>10.5</code>, <co
 </code></pre>
 <p>Jednoduché použití zástupného znaku <code>%f</code> však způsobí, že se desetinné číslo vypíše v rozvoji,
 tj. pro číslo <code>1.0</code> se vypíše do termínálu <code>1.000000</code>.</p>
-<p>Pro to, abychom mohli specifikovat kolik číslic chceme vypsat za desetinnou tečkou, musíme k zástupnému znaku
+<p>Abychom mohli specifikovat, kolik číslic chceme vypsat za desetinnou tečkou, musíme k zástupnému znaku
 doplnit formátování. Pro datový typ <code>float</code> a <code>double</code> používáme následující syntaxi:</p>
 <pre><code class="language-c">printf(&quot;Desetinne cislo: %.2f\n&quot;, 1.0);
 </code></pre>
@@ -231,7 +232,8 @@ int main() {
 </li>
 </ul>
 <h3><a class="header" href="#konverze-na-celé-číslo" id="konverze-na-celé-číslo">Konverze na celé číslo</a></h3>
-<p>Pokud budete konvertovat desetinné číslo na celé číslo, tak dojde k &quot;useknutí&quot; desetinné části:</p>
+<p>Pokud budete <a href="konverze.html">konvertovat</a> desetinné číslo na celé číslo, tak dojde k &quot;useknutí&quot;
+desetinné části:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 int main() {
     printf(&quot;%d\n&quot;, (int) 1.6);
@@ -240,6 +242,47 @@ int main() {
 }
 </code></pre>
 <p>Toto chování odpovídá zaokrouhlení k nule, tj. kladná čísla se zaokrouhlí dolů a záporná čísla nahoru.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;%d\n&quot;, 1.5);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Pokud při použití příkazu <code>printf</code> v textu
+mezi uvozovkami použijeme zástupný znak <code>%d</code>, musíme za čárkou předat výraz datového typu celého
+čísla. Zde jsme ale předali výraz datového typu desetinného čísla.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    float a = 2.0f;
+    float b = 5.0f;
+    int c = b / a;
+    printf(&quot;%d\n&quot;, c);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>2</code>, protože výraz desetinného číselného typu <code>b / a</code>, který se vyhodnotil na
+<code>2.5</code>, byl poté uložen do proměnné celočíselného typu, která si z něj ponechala pouze celou část,
+tj. <code>2</code>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

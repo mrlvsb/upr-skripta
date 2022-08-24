@@ -215,7 +215,7 @@ Opět to ale není jediná možnost, <code>stdout</code> může být například
 <pre><code class="language-bash">$ ./program &gt; soubor.txt
 </code></pre>
 <p>Funkce <code>printf</code> posílá svůj výstup právě do deskriptoru <code>stdout</code>.</p>
-<p>Pokud toto nastavení <a href="https://devdocs.io/c/io/setvbuf">nezměníte</a>, tak <code>stdout</code> implicitně používá 
+<p>Pokud to <a href="https://devdocs.io/c/io/setvbuf">nezměníte</a>, tak <code>stdout</code> implicitně používá 
 tzv. <strong>bufferování po řádcích</strong> (<em>line buffering</em>). To znamená, že pokud zapíšete do <code>stdout</code>
 pomocí některé z funkcí standardní knihovny <em>C</em> nějaký text, tak tento text se nejprve zapíše
 do dočasného pole (tzv. <em>bufferu</em>) v paměti. Až jakmile na výstup zapíšete znak odřádkování <code>'\n'</code><sup class='margin-toggle sidenote-number'>1</sup>,

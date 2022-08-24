@@ -210,9 +210,10 @@ else if (a == 2) {
     ...
 }
 </code></pre>
-<p>Tento příkaz vyhodnotí předaný výraz, a pokud se ve <code>switch</code>i nachází klíčové slovo <code>case</code> následované
-hodnotou odpovídající hodnotě výrazu, tak program skočí na blok, který následuje za <code>case</code>. Dále se program
-bude vykonávat sekvenčně až do konce <code>switch</code>e (při tomto vykonávání už se <code>case</code> ignoruje)<sup class='margin-toggle sidenote-number'>1</sup>.</p>
+<p>Tento příkaz vyhodnotí výraz v závorce za klíčovým slovem <code>switch</code>. Pokud se v bloku kódu za závorkou
+nachází klíčové slovo <code>case</code> následované hodnotou odpovídající hodnotě výrazu, tak program začne vykonávat
+blok kódu, který následuje za tímto <code>case</code>. Dále se program bude vykonávat sekvenčně až do bloku <code>switch</code>e
+(při tomto vykonávání už se klíčová slovo <code>case</code> i hodnoty za ním ignorují)<sup class='margin-toggle sidenote-number'>1</sup>.</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Toto chování se anglicky označuje jako <em>fallthrough</em>.</p>
 </span>
 <p>Tento program vypíše <code>52</code>, protože předaný výraz má hodnotu <code>5</code>, takže program skočí na blok za
@@ -231,8 +232,8 @@ int main() {
 }
 </code></pre>
 <h2><a class="header" href="#klíčové-slovo-default" id="klíčové-slovo-default">Klíčové slovo <code>default</code></a></h2>
-<p>Do <code>switch</code>e lze předat i blok pojmenovaný <code>default</code>, na který program skočí v případě, že se
-nenalezne žádný <code>case</code> s odpovídající hodnotou:</p>
+<p>Do bloku kódu příkazu <code>switch</code> lze předat i blok pojmenovaný <code>default</code>, na který program skočí v
+případě, že se nenalezne žádný <code>case</code> s odpovídající hodnotou:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -248,7 +249,7 @@ int main() {
 }
 </code></pre>
 <h2><a class="header" href="#klíčové-slovo-break" id="klíčové-slovo-break">Klíčové slovo <code>break</code></a></h2>
-<p>Velmi často chcete provést pouze jeden blok kódu u jednoho <code>case</code> a nepokračovat po něm až do konce
+<p>Velmi často chceme provést pouze jeden blok kódu u jednoho <code>case</code> a nepokračovat po něm až do konce
 celého <code>switch</code> bloku. Běžně se tedy za každým <code>case</code> blokem používá příkaz <code>break</code>, který ukončí
 provádějí celého <code>switch</code> příkazu:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
@@ -264,11 +265,15 @@ int main() {
     return 0;
 }
 </code></pre>
+<h2><a class="header" href="#hodnota-za-case" id="hodnota-za-case">Hodnota za <code>case</code></a></h2>
+<p>Hodnota za klíčovým slovem <code>case</code> musí být konstantní, jinak řečeno musí to být hodnota známá již v
+době překladu programu, např. <a href="../prikazy_vyrazy.html#v%C3%BDrazy">literál</a>. Za <code>case</code> tak nelze dát např.
+výraz obsahující název proměnné.</p>
 <h2><a class="header" href="#použití-příkazu-switch" id="použití-příkazu-switch">Použití příkazu <code>switch</code></a></h2>
-<p>Příkaz <code>switch</code> lze použít pouze s vestavěnými datovými typy, zejména s čísly. Nelze jej použít např.
-na porovnávání <a href="../struktury/struktury.html">struktur</a> či <a href="../text/retezce.html">řetězců</a>. Jeho chování
-také může být ze začátku matoucí, pokud za jednotlivými <code>case</code> konstrukcemi nepoužijete příkaz <code>break</code>.
-Proto tak doporučujeme ze začátku používat pro podmíněné vykonávání spíše příkaz <a href="if.html"><code>if</code></a>.</p>
+<p>Výraz v závorce za <code>switch</code> vestavěný datový typ, v podstatě se zde dá použít pouze celé číslo.
+Nelze jej použít např. na porovnávání <a href="../struktury/struktury.html">struktur</a> či <a href="../text/retezce.html">řetězců</a>.
+Jeho chování také může být matoucí, pokud se za jednotlivými <code>case</code> konstrukcemi nepoužije příkaz
+<code>break</code>. Proto tak doporučujeme ze začátku používat pro podmíněné vykonávání spíše příkaz <a href="if.html"><code>if</code></a>.</p>
 
                     </main>
 

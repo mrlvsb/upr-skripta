@@ -189,11 +189,11 @@ video {
     // blok kódu
 }
 </code></pre>
-<p>Pokud se výraz předaný <code>if</code>u vyhodnotí jako <code>true</code> (pravda), tak se provede
-<a href="../promenne/promenne.html#platnost">blok</a> kódu uvnitř <code>if</code>u tak, jak jste zvyklí, a program dále
-bude pokračovat za příkazem <code>if</code>. Pokud se však výraz vyhodnotí jako <code>false</code> (nepravda), tak se blok kódu
-uvnitř <code>if</code>u vůbec neprovede. V následujícím programu zkuste změnit výraz uvnitř závorek za <code>if</code> tak,
-aby se blok v podmínce vykonal:</p>
+<p>Pokud se výraz v závorce za <code>if</code> vyhodnotí jako <code>true</code> (pravda), tak se provede
+<a href="../promenne/promenne.html#platnost">blok</a> kódu za závorkou tak, jak jste zvyklí, a poté bude program
+dále pokračovat za příkazem <code>if</code>. Pokud se však výraz vyhodnotí jako <code>false</code> (nepravda), tak se blok
+kódu za závorkou vůbec neprovede. V následujícím programu zkuste změnit výraz uvnitř závorek za <code>if</code>
+tak, aby se blok v podmínce vykonal:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -201,7 +201,7 @@ int main() {
 
     printf(&quot;Kontroluji heslo...\n&quot;);
     if (delka_hesla &gt; 5) {
-        printf(&quot;Heslo je dost dlouhe\n&quot;);
+        printf(&quot;Heslo je dostatecne dlouhe\n&quot;);
     }
     printf(&quot;Kontrola hesla dokoncena\n&quot;);
 
@@ -224,9 +224,9 @@ if (body &lt;= 80 &amp;&amp; body &gt; 50) { znamka = 3; }
 </code></pre>
 <p>Nicméně to může být často dosti &quot;ukecané&quot;, protože se musíme v každé podmínce ujistit, že již nebyla
 splněna předchozí podmínka, jinak by se mohla provést více než jedna alternativa.</p>
-<p><em>C</em> tak umožňuje přidat k příkazu <code>if</code> další příkaz, který se provede pouze v případě, že podmínka &quot;<code>if</code>u&quot;
-není splněna. Takto lze řetězit více podmínek za sebou, kdy v každé následující podmínce víme, že
-žádná z předchozích nebyla splněna. Dosáhneme toho tak, že za blokem podmínky <code>if</code> použijeme klíčové
+<p>Jazyk <em>C</em> tak umožňuje přidat k příkazu <code>if</code> další příkaz, který se provede pouze v případě, že podmínka
+&quot;<code>if</code>u&quot; není splněna. Takto lze řetězit více podmínek za sebou, kdy v každé následující podmínce víme,
+že žádná z předchozích nebyla splněna. Dosáhneme toho tak, že za blokem podmínky <code>if</code> použijeme klíčové
 slovo <code>else</code> (&quot;v opačném případě&quot;):</p>
 <pre><code class="language-c">if (&lt;výraz typu bool&gt;) {
     // blok kódu
@@ -261,8 +261,8 @@ bude dále program vykonávat kód od bodu <code>X</code>.</p>
 <p>Takovéto spojené podmínky se vyhodnocují postupně shora dolů. První podmínka <code>if</code>, jejíž výraz
 je vyhodnocen jako <code>true</code>, způsobí, že se provede blok této podmínky, a následně program pokračuje
 za celou spojenou podmínkou (bod <code>X</code>).</p>
-<p>Na konec spojené podmínky můžete opět vložit i <code>else</code> s blokem bez podmínky. Tento blok se
-provede pouze, pokud žádná z předchozích podmínek není splněna:</p>
+<p>Na konec spojené podmínky můžete opět vložit klíčové slovo <code>else</code> s blokem bez podmínky. Tento blok
+se provede pouze, pokud žádná z předchozích podmínek není splněna:</p>
 <pre><code class="language-c">if (body &gt; 90) {
     // blok A, více než 90 bodů
 } else if (body &gt; 80) {
@@ -271,13 +271,16 @@ provede pouze, pokud žádná z předchozích podmínek není splněna:</p>
     // blok C, méně než 81 bodů
 }
 </code></pre>
+<blockquote>
 <p>Všimněte si, že tento kód opět můžeme přečíst jako intuitivní větu. Pokud je počet
 bodů vyšší, než 90, tak proveď A. V opačném případě, pokud je vyšší než 80, tak proveď B. Jinak
 proveď C.</p>
+</blockquote>
 </li>
 </ul>
 <hr />
-<p><strong>Cvičení</strong>: Upravte následující program, aby vypsal:</p>
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Upravte následující program, aby vypsal:</p>
 <ul>
 <li><code>Student uspel s vyznamenanim</code>, pokud je hodnota proměnné <code>body</code> větší než <code>90</code>.</li>
 <li><code>Student uspel</code>, pokud je hodnota proměnné <code>body</code> v (uzavřeném) intervalu <code>[51, 90]</code>.</li>
@@ -316,7 +319,8 @@ int main() {
 }
 </code></pre>
 <hr />
-<p><strong>Cvičení</strong>: Upravte hodnotu proměnných <code>delka_hesla</code> a <code>delka_jmena</code> v programu výše tak, aby program
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Upravte hodnotu proměnných <code>delka_hesla</code> a <code>delka_jmena</code> v programu výše tak, aby program
 vypsal <code>Uzivatel byl zaregistrovan</code>. Neměňte v programu nic jiného.</p>
 <hr />
 <h4><a class="header" href="#vynechání-složených-zárovek" id="vynechání-složených-zárovek">Vynechání složených zárovek</a></h4>
@@ -329,6 +333,124 @@ else printf(&quot;Student neuspel\n&quot;);
 <p>Zejména ze začátku za podmínkami vždy však raději používejte složené závorky, abyste předešli případným
 <a href="../../caste_chyby/caste_chyby.html#st%C5%99edn%C3%ADk-za-for-while-nebo-if">chybám</a> a učinili kód přehlednějším.</p>
 </blockquote>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    if (a &gt;= 3) {
+      printf(&quot;a &gt;= 3\n&quot;);
+    } else if (a &gt;= 2) {
+      printf(&quot;a &gt;= 2\n&quot;);
+    } else if (a &gt;= 1) {
+      printf(&quot;a &gt;= 1\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a &gt;= 2</code>. Příkaz <code>if</code>, za kterým následuje sada návazných příkazů <code>else if</code>,
+případně na poslední pozici <code>else</code>, se vyhodnocuje shora dolů. Provede se blok kódu prvního <code>if</code>u,
+jehož podmínka (výraz v závorce) se vyhodnotí jako <code>true</code>, což je v tomto případě podmínka <code>else if (a &gt;= 2)</code>.
+I když jistě platí i podmínka <code>a &gt;= 1</code>, tak blok kódu za posledním <code>else if</code> se zde neprovede, protože
+se už provedl blok kódu za dřívější podmínkou.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    if (a &gt;= 3) {
+      printf(&quot;a &gt;= 3\n&quot;);
+    } else if (a &gt;= 2) {
+      printf(&quot;a &gt;= 2\n&quot;);
+    } if (a &gt;= 1) {
+      printf(&quot;a &gt;= 1\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>a &gt;= 2
+a &gt;= 1
+</code></pre>
+<p>Všimněte si, že před posledním příkazem <code>if</code> není <code>else</code>! To znamená, že se jedná o nezávislý
+příkaz <code>if</code>, který nijak nesouvisí s prvním příkazem <code>if</code> nad ním. Kvůli toho se tento příkaz
+provede, i když byl předtím proveden blok za podmínkou <code>else if (a &gt;= 2)</code>.</p>
+<p>V běžném programu by byl tento kód formátován spíše následovně:</p>
+<pre><code class="language-c">int a = 2;
+if (a &gt;= 3) {
+  printf(&quot;a &gt;= 3\n&quot;);
+} else if (a &gt;= 2) {
+  printf(&quot;a &gt;= 2\n&quot;);
+}
+
+if (a &gt;= 1) {
+  printf(&quot;a &gt;= 1\n&quot;);
+}
+</code></pre>
+<p>S tímto formátováním je mnohem jednodušší rozpoznat, že spolu tyto dva příkazy <code>if</code> nesouvisí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    int b = 4;
+
+    if (a &gt; 1) {
+      if (b == 4) {
+         printf(&quot;b == 4\n&quot;);
+      } else {
+         printf(&quot;b != 4\n&quot;);
+      }
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program nevypíše nic. Podmínka <code>a &gt; 1</code> se vyhodnotí jako <code>false</code>, takže blok kódu za touto
+podmínkou se vůbec nevykoná.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    if (a = 2) {
+      printf(&quot;a se rovna dvoum\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program vypíše <code>a se rovna dvoum</code>. Pozor na to, že operátor přiřazení <code>[x] = [y]</code> přiřadí
+výraz <code>[y]</code> do <code>[x]</code>, a vyhodnotí se jako hodnota <code>[y]</code>. V tomto případě se tedy do proměnné
+<code>a</code> uloží hodnota <code>2</code>, a jelikož <code>2</code> se po <a href="../datove_typy/pravdivostni_typy.html#konverze">převodu</a>
+na <code>bool</code> vyhodnotí jako pravda (<code>true</code>), se tělo příkazu <code>if</code> provede. Záměna přiřazení (<code>=</code>)
+a <code>==</code> (porovnání) je častou <a href="../../caste_chyby/caste_chyby.html#z%C3%A1m%C4%9Bna--a-">začátečnickou chybou</a>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

@@ -268,8 +268,13 @@ výrazy <strong>uzávorkovat</strong>, abyste jim dali větší přednost: <code
 <li>OR: operátor <code>|</code></li>
 <li>XOR: operátor <code>^</code></li>
 </ul>
+<blockquote>
+<p>Zkuste si procvičit, jestli správně rozumíte, jak <em>C</em> vyhodnocuje výrazy, na
+<a href="../../ruzne/vyhodnocovani_vyrazu.html">této</a> stránce.</p>
+</blockquote>
 <hr />
-<p><strong>Cvičení</strong>: Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
 je na výstup. Vyhodnocování výrazů si můžete procvičit <a href="../../ruzne/vyhodnocovani_vyrazu.html">zde</a>
 nebo <a href="../../ulohy/zaklady.html">zde</a>. </p>
 <hr />
@@ -286,8 +291,8 @@ Datový typ výsledku těchto operátorů záleží na datovém typu jejich para
 <tr><td align="center"><code>|</code></td><td align="center">Bitový součet</td><td align="center"><code>12 | 4</code></td></tr>
 <tr><td align="center"><code>~</code></td><td align="center">Bitová negace</td><td align="center"><code>~8</code></td></tr>
 <tr><td align="center"><code>^</code></td><td align="center">Bitový XOR</td><td align="center"><code>14 ^ 18</code></td></tr>
-<tr><td align="center"><code>&lt;&lt;</code></td><td align="center">Bitový posun doprava</td><td align="center"><code>137 &lt;&lt; 2</code></td></tr>
-<tr><td align="center"><code>&gt;&gt;</code></td><td align="center">Bitový posun doleva</td><td align="center"><code>140 &gt;&gt; 3</code></td></tr>
+<tr><td align="center"><code>&lt;&lt;</code></td><td align="center">Bitový posun doleva</td><td align="center"><code>137 &lt;&lt; 2</code></td></tr>
+<tr><td align="center"><code>&gt;&gt;</code></td><td align="center">Bitový posun doprava</td><td align="center"><code>140 &gt;&gt; 3</code></td></tr>
 </tbody></table>
 <p>O dalších typech operátorů se postupně dozvíte během semestru.
 Plný seznam <em>C</em> operátorů naleznete <a href="https://en.cppreference.com/w/c/language/operator_precedence">zde</a>.</p>
@@ -308,6 +313,42 @@ int main() {
     return 0;
 }
 </code></pre>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;%d\n&quot;, 1 + 3 * 8 - 2);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>23</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1 + 4 * 2;
+    int b = a + 2 * a;
+    printf(&quot;%d\n&quot;, (b + 1) * 2);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>56</code>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

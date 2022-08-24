@@ -194,11 +194,11 @@ video {
 protože je k tomu potřeba alespoň tří řádků kódu:</p>
 <ul>
 <li>Inicializace cyklu: vytvoření řídící proměnné, která se bude kontrolovat v cyklu</li>
-<li>Kontrola výrazu: kontrola, jestli už proměnná dosáhla požadované hodnoty</li>
+<li>Kontrola výrazu: kontrola, jestli už řídící proměnná dosáhla požadované hodnoty</li>
 <li>Operace na konci cyklu: změna hodnoty řídící proměnné</li>
 </ul>
-<pre><code class="language-c">int i = 0; // inicializace
-while (i &lt; 10) { // kontrola výrazu
+<pre><code class="language-c">int i = 0; // inicializace řídící proměnné
+while (i &lt; 10) { // kontrola hodnoty řídící proměnné
     // tělo cyklu
     i += 1; // změna hodnoty řídící proměnné
 }
@@ -223,14 +223,106 @@ po každé iteraci. Obecná syntaxe tohoto cyklu vypadá takto:</p>
 Pokud je pravdivý, provede se tělo cyklu a program pokračuje bodem 3.</li>
 <li>Provede se příkaz <code>B</code> a program pokračuje bodem 2.</li>
 </ol>
+<blockquote>
+<p>Výraz v příkazu <code>for</code> může chybět, v takovém případě se pokládá automaticky za <code>true</code>. Zároveň platí,
+že středníkem (<code>;</code>) lze vyjádřit tzv. <em>prázdný příkaz</em>, který nic neprovede. Všechny tři části cyklu
+<code>for</code> tak můžou chybět, v tom případě se pak jedná o <a href="while.html#nekone%C4%8Dn%C3%BD-cyklus">nekonečný cyklus</a>:</p>
+<pre><code class="language-c">for (;;) {
+   ...
+}
+</code></pre>
+</blockquote>
 <hr/>
-<p><strong>Cvičení</strong>:</p>
+<p><strong>Cvičení</strong> 🏋</p>
 <ul>
 <li>Napište program, který pomocí cyklu <code>for</code> na výstup vypíše čísla od 0 do 9 (včetně).</li>
 <li>Vypište na výstup řádek <code>Licha iterace</code> v každé liché iteraci cyklu a řádek <code>Suda iterace</code> v každé
 sudé iteraci tohoto cyklu.</li>
 </ul>
 <hr/>
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    for (; a &gt;= 0; a = a - 1) {
+       printf(&quot;iterace %d\n&quot;, a);
+    }
+    printf(&quot;a = %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code class="language-c">iterace 5
+iterace 4
+iterace 3
+iterace 2
+iterace 1
+iterace 0
+a = -1
+</code></pre>
+<p>Při poslední iteraci cyklu se hodnota proměnné <code>a</code> zmenší z <code>0</code> na <code>-1</code>, poté už se podmínka cyklu
+vyhodnotí na <code>false</code> a cyklus skončí.</p>
+<p>Všimněte si, že definice a inicializace řídící proměnné je mimo cyklus, jinak bychom k této proměnné
+po ukončení provádění cyklu již neměli přístup. Definice řídící proměnné před cyklem se nám může
+občas hodit, pokud bychom s hodnotou řídící proměnné chtěli pracovat dále za cyklem (například
+abychom zjistili, kolik iterací cyklus provedl).</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    for (int a = 0; a &lt;= 5; a = a + 1) {
+       printf(&quot;iterace %d\n&quot;, a);
+       if (a &lt;= 2) {
+         a = a + 1;
+       }
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code class="language-c">iterace 0
+iterace 2
+iterace 4
+iterace 5
+</code></pre>
+<p>Pokud je při provádění iterace cyklu hodnota <code>a</code> menší nebo rovno dvoum, tak se hodnota <code>a</code> v
+iteraci zvýší o jedničku dvakrát (jednou uvnitř příkazu <code>if</code> a jednou na konci iterace cyklu <code>for</code>).</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    for (int a = 0; a = 5; a = a + 1) {
+       printf(&quot;iterace %d\n&quot;, a);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program program bude neustále vypisovat hodnotu proměnné <code>a</code>, protože výraz <code>a = 5</code> se vyhodnotí
+jako <code>5</code>, a toto číslo se při <a href="../datove_typy/pravdivostni_typy.html#konverze">převodu</a> na <code>bool</code>
+vyhodnotí jako pravda (<code>true</code>), takže tento cyklus je nekonečný. Záměna přiřazení (<code>=</code>)
+a <code>==</code> (porovnání) je častou <a href="../../caste_chyby/caste_chyby.html#z%C3%A1m%C4%9Bna--a-">začátečnickou chybou</a>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

@@ -188,11 +188,19 @@ video {
 užitečných funkcí, opět umístěných v souboru <code>&lt;stdio.h&gt;</code>. Stejně jako u načítání <a href="vstup.html">vstupu</a>
 bychom i u výstupu měli řešit <a href="vstupavystup.html#o%C5%A1et%C5%99en%C3%AD-chyb">ošetření chyb</a>. Nicméně, u zápisu to
 (alespoň u malých programů) není až tak nezbytné, protože chyby zápisu jsou vzácnější než chyby při
-vstupu. Zdrojem dat je totiž náš program, a nemusíme tak kontrolovat, jestli jsou data validní.
-Tato povinnost v jistém smyslu přechází na druhou stranu, s kterou náš program komunikuje.</p>
+vstupu. Zdrojem dat je totiž náš program, a nemusíme tedy tak striktně kontrolovat, jestli jsou
+vypsaná data validní. Tato povinnost v jistém smyslu přechází na druhou stranu, s kterou náš program
+komunikuje, protože ta bude námi vypsaná data číst.</p>
 <h2><a class="header" href="#vypsání-znaku" id="vypsání-znaku">Vypsání znaku</a></h2>
 <p>Pro vypsání jednoho znaku na standardní výstup (<code>stdout</code>) můžeme použít funkci
 <a href="https://devdocs.io/c/io/putchar"><code>putchar</code></a>.</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    putchar('x');
+    return 0;
+}
+</code></pre>
 <h2><a class="header" href="#vypsání-řetězce" id="vypsání-řetězce">Vypsání řetězce</a></h2>
 <p>Pro vypsání celého řetězce na <code>stdout</code> můžete použít funkci <a href="https://devdocs.io/c/io/puts"><code>puts</code></a>,
 která zároveň za řetězcem vypíše znak odřádkování <code>\n</code>:</p>

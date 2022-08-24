@@ -197,7 +197,7 @@ stejně.</p>
 </span>
 <pre><code class="language-c editable mainbody">int main() {
     const int a = 5;
-    a += 1; // chyba
+    a = a + 1; // chyba, nelze přeložit
 
     return 0;
 }
@@ -205,7 +205,7 @@ stejně.</p>
 <p>Použití konstant může mít několik důvodů:</p>
 <ul>
 <li>
-<p>V programech někdy opakovaně použiváme konstantní hodnoty, které mají pevně danou hodnotu. Při
+<p>V programech někdy opakovaně používáme konstantní hodnoty, které mají pevně danou hodnotu. Při
 čtení zdrojového kódu nemusí být jasné, co takového hodnoty znamenají (v takovém případě se hanlivě
 označují jako &quot;magické konstanty&quot;). Abychom takového hodnoty pojmenovali, můžeme je uložit do
 konstantní proměnné. Při čtení programu pak bude zřejmé, co reprezentují. Porovnejte variantu

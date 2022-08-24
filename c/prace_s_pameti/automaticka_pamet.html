@@ -189,9 +189,9 @@ tedy nijak starat o to, kde existují v paměti. Lokální proměnné se ukláda
 kterou nazýváme <strong>zásobník</strong> (<em>stack</em>). Každý běžící program má vyhrazen určitou oblast
 adresovatelné paměti, která je použita právě jako zásobník.</p>
 <p>Při každém zavolání funkce vznikne na zásobníku tzv. <strong>zásobníkový rámec</strong> (<em>stack frame</em>).
-V tomto rámci je vyhrazena paměť pro lokální proměnné volané funkce a také pro její
-<a href="../funkce/funkce.html#parametrizace-funkc%C3%AD">parametry</a>. Rámec vzniká při každém zavolání funkce, v
-jednu chvíli tak na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů)
+V tomto rámci je vyhrazena (tzv. <strong>naalokována</strong>) paměť pro lokální proměnné volané funkce a také pro
+její <a href="../funkce/funkce.html#parametrizace-funkc%C3%AD">parametry</a>. Rámec vzniká při každém zavolání funkce,
+v jednu chvíli tak na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů)
 pro stejnou funkci. Rámce vznikají v paměti za sebou, a jsou uvolněny v momentě, kdy se jejich
 funkce dokončí.<sup class='margin-toggle sidenote-number'>1</sup></p>
 <span class='sidenote'><p><sup class='number'>1</sup>Rámce tak mohou vznikat nebo zanikat pouze na konci zásobníku, ne uprostřed. Proto se tato
@@ -199,26 +199,55 @@ oblast nazývá zásobník, podle
 <a href="https://cs.wikipedia.org/wiki/Z%C3%A1sobn%C3%ADk_(datov%C3%A1_struktura)">datové struktury</a>, která
 má tuto vlastnost.</p>
 </span>
-<p>Při zavolání funkce se do paměti určené pro jednotlivé parametry v rámci nakopírují hodnoty argumentů
-předaných při volání funkce. Jakmile funkce skončí, tak je rámec, spolu s pamětí lokálních
-proměnných, uvolněn<sup class='margin-toggle sidenote-number'>2</sup>.</p>
+<p>Při zavolání funkce se do paměti určené pro jednotlivé parametry v rámci nakopírují hodnoty předaných
+argumentů. Jakmile funkce skončí, tak je rámec, a tedy i paměť obsahující lokální proměnné a parametry
+dané funkce, uvolněn<sup class='margin-toggle sidenote-number'>2</sup>.</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Uvolnění zde znamená pouze to, že program bude pokládat danou paměť za volnou k dalšímu použití.
 Pokud tak například funkce bude mít lokální proměnnou s hodnotou <code>5</code> a vykonání funkce skončí, tato
 hodnota v paměti zůstane, dokud nebude přepsána příštím zavoláním funkce.</p>
 </span>
 <p>V následující animaci můžete vidět sekvenci volání funkcí. Ve sloupci vpravo je zobrazen stav
-zásobníku při provádění tohoto programu. Modře jsou v něm znázorněny hodnoty parametrů a červeně
-hodnoty lokálních proměnných. Můžete si všimnout, že lokální proměnné mají
+zásobníku při provádění tohoto programu:</p>
+<ul>
+<li>Šedé obdélníky označují zásobníkové rámce.</li>
+<li>Modré obdélníky znázorňují hodnoty parametrů v rámci.</li>
+<li>Červené obdélníky znázorňují hodnoty lokálních proměnných v rámci. Můžete si
+všimnout, že lokální proměnné mají
 <a href="../promenne/promenne.html#v%C5%BEdy-inicializujte-prom%C4%9Bnn%C3%A9">nedefinovanou hodnotu</a>, dokud do nich není
-nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.</p>
+nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.</li>
+<li>Oranžová šipka označuje, který řádek programu je právě prováděn.</li>
+</ul>
+<p>Pomocí šipek v levém horním rohu animace se můžete postupně proklikat průběhem vykonání tohoto programu.
+Uhodnotete, jaké číslo tento program vypíše?</p>
 <div style="height: 450px">
     <upr-slideshow src="../../static/animations/stack/stack-" to="15" extension="png"></upr-slideshow>
 </div>
 <p>V animaci si můžete všimnout, že rámce vždy vznikají a zanikají pouze na konci zásobníku.<sup class='margin-toggle sidenote-number'>3</sup>
-Uhodnete, jaké číslo tento program vypíše?</p>
+Pokud byste si chtěli tento program spustit lokálně, tak jeho zdrojový kód je dostupný níže.</p>
 <span class='sidenote'><p><sup class='number'>3</sup>Z <a href="https://stackoverflow.com/questions/2035568/why-do-stacks-typically-grow-downwards">historických</a>
 důvodů zásobník roste &quot;dolů&quot;, tj. nové rámce se vytvářejí na nižší adrese v paměti.</p>
-</span>
+</span><details>
+<summary>Zdrojový kód programu</summary>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int fun1(int par) {
+    int res = par * 2;
+    if (res &lt; 50) {
+        return fun1(res);
+    }
+    else { return res; }
+}
+int fun2(int a, int b) {
+    int x = a + b * 2;
+    int y = fun1(x);
+    return x + y;
+}
+int main() {
+    printf(&quot;%d\n&quot;, fun2(5, 6));
+    return 0;
+}
+</code></pre>
+</details>
 <h2><a class="header" href="#výhody-automatické-paměti" id="výhody-automatické-paměti">Výhody automatické paměti</a></h2>
 <p>Používání automatické paměti má značné výhody:</p>
 <ul>
@@ -237,7 +266,7 @@ protože automatická paměť má i určité nedostatky:</p>
 </span></li>
 <li>Počet a velikost lokálních proměnných je &quot;zadrátována&quot; do programu během jeho překladu. Nemůžeme
 tak naalokovat paměť s velikostí závislou na vstupu programu. Například pokud uživatel zadá
-číslo <code>n</code> a my bychom chtěli vytvořit paměť pro <code>n</code> čísel, tak nestačí použití zásobníku.</li>
+číslo <code>n</code> a my bychom chtěli vytvořit paměť pro <code>n</code> čísel, tak obvykle nestačí použití zásobníku.</li>
 <li>Paměť lokálních proměnných a parametrů je uvolněna při dokončení provádění funkce. Jediným způsobem,
 jak předat hodnotu z volání funkce, je pomocí návratové hodnoty. Takto lze vrátit pouze jednu
 hodnotu a nelze jednoduše sdílet paměť mezi funkcemi, protože paměť lokálních proměnných je po dokončení

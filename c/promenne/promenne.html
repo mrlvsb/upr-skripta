@@ -323,7 +323,7 @@ s názvy <code>x</code>, <code>y</code> a <code>z</code>:</p>
 <p>Doporučujeme však tento způsob tvorby více proměnných spíše nepoužívat, aby byl kód přehlednější.</p>
 </blockquote>
 <hr />
-<p><strong>Cvičení</strong></p>
+<p><strong>Cvičení</strong> 🏋</p>
 <ol>
 <li>Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
 a pak je vypíše na výstup programu (k výpisu využijte <code>printf</code>, který jsme si již ukázali <a href="../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">dříve</a>).</li>
@@ -332,6 +332,231 @@ podívali, jaké jsou hodnoty jednotlivých proměnných a jak se měni v čase 
 </ol>
 <p>Více úloh naleznete <a href="../../ulohy/zaklady.html">zde</a>.</p>
 <hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    printf(&quot;a\n&quot;);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše znak <code>a</code>, jelikož vše uvnitř uvozovek se bere jako text. Aby program vypsal
+hodnotu proměnné <code>a</code>, museli bychom použít např. příkaz <code>printf(&quot;a=%d\n&quot;, a);</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    printf(&quot;%d\n&quot;, a);
+    a = 8;
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše znak <code>5</code>, protože v době, kdy proměnnou vypisujeme, tak je její hodnota <code>5</code>.
+Po vypsání proměnné sice její hodnotu změníme na <code>8</code>, ale poté už ji nevypíšeme a program skončí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    a + 1;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše znak <code>5</code>. Provedeme sice výraz <code>a + 1</code>, který se vyhodnotí jako <code>6</code>, ale výsledek
+tohoto výrazu se &quot;zahodí&quot;, nijak tedy neovlivní další chování programu. Abychom změnili hodnotu
+proměnné <code>a</code>, museli bychom výsledek tohoto výrazu zpět do proměnné uložit: <code>a = a + 1;</code>.
+Vyzkoušejte si to.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    int b = a;
+    a = 8;
+
+    printf(&quot;%d\n&quot;, a);
+    printf(&quot;%d\n&quot;, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>8
+5
+</code></pre>
+<p>Při definici proměnné <code>b</code> jsme ji inicializovali hodnotou proměnné <code>a</code>. Výraz <code>a</code> se tedy
+vyhodnotil jako hodnota <code>5</code>, která byla uložena do proměnné <code>b</code>. Dále však už spolu proměnné
+nesouvisí, změna hodnoty proměnné <code>a</code> tedy nijak neovlivní hodnotu uloženou v proměnné <code>b</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;%d\n&quot;, a);
+    int a = 5;
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Překlad programu skončí s chybou (<code>use of undeclared identifier 'a'</code>), protože se snažíme číst
+hodnotu proměnné, která na daném řádku zatím nebyla nadefinována. Proměnnou <code>a</code> můžeme začít
+používat až poté, co ji nadefinujeme, tj. za řádkem <code>int a = 5;</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    a = 5;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Překlad programu skončí s chybou (<code>use of undeclared identifier 'a'</code>), protože se snažíme zapsat
+výraz <code>5</code> do proměnné, která neexistuje. Před prvním použitím proměnné ji vždy nejprve musíme
+nadefinovat: <code>int a = 5;</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    int b = a = 5;
+    printf(&quot;%d\n&quot;, a);
+    printf(&quot;%d\n&quot;, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>5
+5
+</code></pre>
+<p>Výraz přiřazení (<code>&lt;promenna&gt; = &lt;vyraz&gt;</code>) se vyhodnotí jako přiřazená hodnota (<code>&lt;vyraz&gt;</code>), a takto
+vyhodnocený výraz lze dále v programu použít a např. přiřadit do jiné proměnné. Přiřazení se
+vyhodnotí následovně:</p>
+<pre><code class="language-c">int b = a = 5;
+// int b = 5;
+</code></pre>
+<p>Nicméně jak asi sami uznáte, takovýto zápis je dosti zmatečný a nemusí být na první pohled jasné,
+jak se takovýto výraz vyhodnotí. Proto výsledek výrazu přiřazení raději dále nepoužívejte a
+přiřazení vždy používejte na samostatném řádku se středníkem.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    5 = a + 1;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Překlad programu skončí s chybou <code>expression is not assignable</code>. Snažíme se zde uložit hodnotu
+výrazu <code>a + 1</code> na nějaké místo v paměti, ale <code>5</code> žádné takové místo neoznačuje, <code>5</code> je prostě
+číselný literál s hodnotou <code>5</code>, který nemůžeme přepsat či změnit.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    printf(&quot;%d\n&quot;, a + 1);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože čteme hodnotu proměnné, která nebyla
+inicializována, a její hodnota je tedy nedefinovaná. Nelze tak určit, co tento program provede,
+překladač jej může přeložit na totální nesmysl. Takovýto program je špatně a nemá smysl zkoumat,
+co provede, je potřeba jej nejprve opravit tak, že proměnnou <code>a</code> nainicializujeme.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = a + 1;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, stejně jako předchozí ukázka. Při inicializaci
+proměnné <code>a</code> používáme její hodnotu, která ale v té době není definovaná. Je to jako kdybychom napsali</p>
+<pre><code class="language-c">int a;
+a = a + 1;
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;cislo: %d\n&quot;);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Pokud při použití příkazu <code>printf</code> v textu
+mezi uvozovkami použijeme zástupný znak (<code>%d</code>), musíme za každý takovýto použitý znak předat
+této <em>funkci</em> také nějaký celočíselný výraz. V opačném případě bude chování programu nedefinované.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

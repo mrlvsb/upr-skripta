@@ -230,10 +230,10 @@ bool je_clovek = je_muz || je_zena; // true || false -&gt; true
 
 bool je_rodic = true;
 bool je_otec = je_rodic &amp;&amp; je_muz;  // true &amp;&amp; true -&gt; true
-bool je_matka = je_rodic &amp;&amp; ~je_otec; // true &amp;&amp; ~true -&gt; true &amp;&amp; false -&gt; false
+bool je_matka = je_rodic &amp;&amp; !je_otec; // true &amp;&amp; !true -&gt; true &amp;&amp; false -&gt; false
 </code></pre>
 <p>Pro připomenutí, zde je pravdivostní tabulka těchto logických operátorů:</p>
-<table><thead><tr><th><code>X</code></th><th align="center"><code>Y</code></th><th align="center"><code>X &amp;&amp; Y</code></th><th align="center"><code>X || Y</code></th><th align="center"><code>~X</code></th></tr></thead><tbody>
+<table><thead><tr><th><code>X</code></th><th align="center"><code>Y</code></th><th align="center"><code>X &amp;&amp; Y</code></th><th align="center"><code>X || Y</code></th><th align="center"><code>!X</code></th></tr></thead><tbody>
 <tr><td><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td></tr>
 <tr><td><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>true</code></td></tr>
 <tr><td><code>true</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>false</code></td></tr>
@@ -260,8 +260,8 @@ a vede k obtížně nalezitelným chybám.</p>
 </ul>
 <p>Porovnávat mezi sebou můžete libovolné hodnoty dvou stejných datových typů. Výsledkem porovnání
 je výraz datového typu <code>bool</code>:</p>
-<pre><code class="language-c">int jarda_body = 10;
-int kamil_body = 13;
+<pre><code class="language-c">int jarda_body = 13;
+int kamil_body = 10;
 
 bool remiza = jarda_body == kamil_body; // false
 bool vyhra_jardy = jarda_body &gt; kamil_body; // true
@@ -335,6 +335,64 @@ tak ta je jedním z případů výrazů, které mají vedlejší efekt (změnu h
 <li><code>true</code> se převede na <code>1</code></li>
 <li><code>false</code> se převede na <code>0</code></li>
 </ul>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int pocet_zidli = 14;
+    int pocet_lidi = 8;
+    int pocet_znicenych_zidli = 4;
+
+    bool dostatek_zidli = (pocet_zidli - pocet_znicenych_zidli) &gt;= pocet_lidi;
+    bool dostatek_lidi = pocet_lidi &gt;= 6;
+    bool party_pripravena = dostatek_zidli &amp;&amp; dostatek_lidi;
+
+    printf(&quot;Party: %d\n&quot;, party_pripravena);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>Party: 1</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int a = 5;
+    int b = 4;
+
+    bool x = a &gt;= 3 || (b = 8);
+
+    printf(&quot;a=%d\n&quot;, a);
+    printf(&quot;b=%d\n&quot;, b);
+    printf(&quot;x=%d\n&quot;, x);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>a=5
+b=4
+x=1
+</code></pre>
+<p>Výraz přiřazení <code>b = 8</code> se neprovede kvůli <a href="#zkr%C3%A1cen%C3%A9-vyhodnocov%C3%A1n%C3%AD">zkrácenému vyhodnocování</a>,
+hodnota proměnné <code>b</code> se tak nezmění. Raději nepoužívejte výrazy obsahující vedlejší efekty v
+kombinaci s <code>||</code> a <code>&amp;&amp;</code>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

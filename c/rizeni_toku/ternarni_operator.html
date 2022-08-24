@@ -188,8 +188,9 @@ video {
 <p>🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
 a vrátit se k ní později.</p>
 </blockquote>
-<p>Občas chcete použít jeden ze dvou výrazů v závislosti na hodnotě nějaké podmínky. Například pokud byste
-chtěli přiřadit minimum ze dvou hodnot do proměnné:</p>
+<p>Občas se nám může hodit vytvořit výraz, který bude mít hodnotu jednoho ze dvou konkrétních výrazů,
+v závislosti na hodnotě nějaké podmínky. Například pokud bychom chtěli přiřadit minimum ze dvou
+hodnot do proměnné, tak to můžeme napsat takto:</p>
 <pre><code class="language-c">int a = 1;
 int b = 5;
 
@@ -200,7 +201,10 @@ if (a &lt; b) {
     c = b;
 }
 </code></pre>
-<p>Toto lze provést zkráceně pomocí výrazu <strong>ternárního operátoru</strong> (<em>ternary operator</em>). Tento výraz
+<p>Všimněte si, že do proměnné <code>c</code> ukládáme buď výraz <code>a</code> nebo výraz <code>b</code>, v závislosti na tom, jaká je
+hodnota podmínky <code>a &lt; b</code>.</p>
+<p>Jelikož je tato situace relativně častá, a její vyřešení pomocí příkazu <code>if</code> je relativně zdlouhavé,
+tak jazyk <code>C</code> obsahuje zkratku v podobě <strong>ternárního operátoru</strong> (<em>ternary operator</em>). Tento výraz
 má následující syntaxi:</p>
 <pre><code class="language-c">&lt;výraz X typu bool&gt; ? &lt;výraz A&gt; : &lt;výraz B&gt;
 </code></pre>

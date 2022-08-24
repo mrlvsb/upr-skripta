@@ -191,7 +191,7 @@ video {
 </code></pre>
 <p>Funguje následovně:</p>
 <ol>
-<li>Nejprve se vyhodnotí (Booleovský) výraz v závorce za <code>while</code>.</li>
+<li>Nejprve se vyhodnotí (Booleovský) výraz v závorce za <code>while</code> a provede se bod 2.</li>
 <li>Pokud:
 <ul>
 <li>Je výraz pravdivý, tak se provede blok<sup class='margin-toggle sidenote-number'>1</sup> cyklu a dále se pokračuje opět bodem 1.<span class='sidenote'><p><sup class='number'>1</sup><a href="../promenne/promenne.html#platnost">Blok</a> cyklu se také často nazývá jako <strong>tělo</strong> (<em>body</em>) cyklu.</p>
@@ -201,8 +201,8 @@ video {
 </li>
 <li>Program pokračuje za cyklem <code>while</code>.</li>
 </ol>
-<p>Jinak řečeno, dokud bude splněná podmínka za <code>while</code>, tak se bude opakovaně provádět tělo cyklu.
-Vyzkoušejte si to na následujícím příkladu:</p>
+<p>Jinak řečeno, dokud bude splněná podmínka za <code>while</code>, tak se budou opakovaně provádět příkazy uvnitř
+těla cyklu. Vyzkoušejte si to na následujícím příkladu:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -218,10 +218,11 @@ int main() {
 protože se tělo cyklu provede pětkrát.</p>
 <p>Pokud výraz za <code>while</code> není vyhodnocen jako pravdivý v momentě, kdy se <code>while</code> začne vykonávat, tak
 se tělo cyklu nemusí provést ani jednou (tj. bude mít nula iterací).</p>
+<h3><a class="header" href="#nekonečný-cyklus" id="nekonečný-cyklus">Nekonečný cyklus</a></h3>
 <p>Je důležité dávat si pozor na to, aby cyklus, který použijeme, nebyl nechtěně <strong>nekonečný</strong>
 (<em>infinite loop</em>), jinak by náš program nikdy neskončil. Zkuste v kódu výše zakomentovat nebo odstranit
-řádek <code>count = count + 1;</code> a zkuste program spustit. Jelikož se hodnota proměnné <code>count</code> nebude nijak
-měnit, tak výraz <code>count &lt; 5</code> bude stále pravdivý a cyklus se tak bude provádět neustále dokola.
+řádek <code>pocet = pocet + 1;</code> a zkuste program spustit. Jelikož se hodnota proměnné <code>pocet</code> nebude nijak
+měnit, tak výraz <code>pocet &lt; 5</code> bude stále pravdivý a cyklus se tak bude provádět neustále dokola.
 Této situaci se lidově říká &quot;zacyklení&quot;<sup class='margin-toggle sidenote-number'>2</sup>.</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Pokud program spouštíte v terminálu a zacyklí se, můžete ho přerušit pomocí klávesové zkratky <code>Ctrl + C</code>.
 Pokud jej spustíte v prohlížeči, tak poté radši restartujte tuto stránku pomocí <code>F5</code> :)</p>
@@ -229,14 +230,16 @@ Pokud jej spustíte v prohlížeči, tak poté radši restartujte tuto stránku 
 <blockquote>
 <p>Pokud se vám někdy stalo, že se program, který jste zrovna používali, &quot;zaseknul&quot; a přestal reagovat
 na váš vstup, mohlo to být právě například tím, že v něm nechtěně došlo k provedení nekonečného
-cyklu (došlo k tzv. &quot;zacyklení&quot;).</p>
+cyklu (došlo k zacyklení).</p>
 </blockquote>
 <h3><a class="header" href="#Řídící-proměnná" id="Řídící-proměnná">Řídící proměnná</a></h3>
-<p>Často chceme provést v těle cyklu různé příkazy, v závislosti na tom, která iterace se zrovna vykonává.
-K tomu obvykle slouží tzv. <strong>řídící proměnná</strong> (<em>index variable</em>), která udává, v jaké iteraci cyklu
-se nacházíme, a podle ní se poté provede odpovídající operace. Například pokud chceme něco provést
-pouze v první iteraci cyklu, můžeme použít <a href="podminky.html">podmínku</a>, ve které zkontrolujeme aktuální
-hodnotu řídící proměnné:</p>
+<p>Provést úplně identický kód opakovaně se někdy hodí, ale většinou chceme provést v těle cyklu trochu
+jiné příkazy, v závislosti na tom, která iterace se zrovna vykonává.
+K tomu můžeme použít proměnnou, která si budeme pamatovat, v jaké iteraci cyklu
+se nacházíme, a podle ní se poté provede odpovídající operace. Takováto proměnná se obvykle označuje
+jako <strong>řídící proměnná</strong> (<em>index variable</em>).</p>
+<p>Například pokud chceme něco provést pouze v první iteraci cyklu, můžeme použít
+příkaz <a href="if.html">if</a> s podmínkou, ve které zkontrolujeme aktuální hodnotu řídící proměnné:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -253,9 +256,10 @@ int main() {
 </code></pre>
 <p>Řídící proměnná je zde <code>i</code> - tento název se pro řídící proměnné pro jednoduchost často používá.</p>
 <hr/>
-<p><strong>Cvičení</strong>: Upravte kód výše tak, aby program vypsal <code>Posledni iterace</code> při provádění poslední
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Upravte kód výše tak, aby program vypsal <code>Posledni iterace</code> při provádění poslední
 iterace cyklu. Zkuste poté kód upravit tak, aby fungoval pro libovolný počet iterací (tj.
-ať už bude počet iterací libovolný, kód samotného cyklu musí zůstat stejný).</p>
+ať už bude počet iterací libovolný, kód v těle i podmínce samotného cyklu musí zůstat stejný).</p>
 <hr/>
 <h3><a class="header" href="#Řízení-toku-cyklu" id="Řízení-toku-cyklu">Řízení toku cyklu</a></h3>
 <p>V cyklech můžete využít dva speciální příkazy, které fungují pouze uvnitř těla (bloku kódu) nějakého
@@ -306,7 +310,7 @@ int main() {
 <summary>Tip pro návrh cyklů while</summary>
 <p>Příkaz <code>break</code> lze také někdy použít k usnadnění návrhu cyklů. Pokud potřebujete napsat <code>while</code> cyklus
 s nějakou složitou podmínkou ukončení, ze které se vám motá hlava, zkuste nejprve vytvořit &quot;nekonečný&quot;
-cyklus pomocí <code>while (true) { … }</code>, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
+cyklus pomocí <code>while (1) { … }</code>, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
 která cyklus ukončí pomocí příkazu <code>break</code>:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
@@ -326,8 +330,11 @@ int main() {
 }
 </code></pre>
 <p>Nemusíte tak hned ze začátku vymýšlet výraz pro <code>while</code>, na čemž byste se mohli zaseknout. </p>
-<p>Místo <code>while (true)</code> můžete použít také <code>while (1)</code>, protože <code>1</code> se při převodu na <code>bool</code> převede
-na <code>true</code>.</p>
+<p>Místo <code>while (1)</code> můžete použít také <code>while (true)</code>. Nezapomeňte ale na
+<a href="../datove_typy/pravdivostni_typy.html">vložení řádku</a></p>
+<pre><code class="language-c">#include &lt;stdbool.h&gt;
+</code></pre>
+<p>na začátek programu!</p>
 </details>
 <h3><a class="header" href="#vnořování-cyklů" id="vnořování-cyklů">Vnořování cyklů</a></h3>
 <p>Stejně jako podmínky, i cykly jsou příkazy, a můžete je tak používat libovolně v blocích <em>C</em> kódu
@@ -350,6 +357,7 @@ int main() {
 
         i = i + 1;
     }
+    printf(&quot;Konec programu\n&quot;);
 
     return 0;
 }
@@ -368,6 +376,104 @@ while (&lt;výraz typu bool&gt;);
 se má provést další iterace cyklu, vyhodnocuje až na konci cyklu. Tělo cyklu tak bude pokaždé provedeno
 alespoň jednou (i kdyby byl výraz od začátku nepravdivý).</p>
 <p>Pokud pro to nemáte zvláštní důvod, asi není třeba tento typ cyklu používat.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int a = 0;
+    int b = 8;
+
+    while (true) {
+      if (a &gt; 2) {
+        printf(&quot;Hodnota a = %d\n&quot;, a);
+      }
+
+      a = a + 2;
+
+      if (a &gt;= b) {
+        break;
+      }
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>Hodnota a = 4
+Hodnota a = 6
+</code></pre>
+<p>V každé iteraci cyklu se hodnota proměnné <code>a</code> zvýší o dvojku. Pokud je na začátku iterace hodnota
+<code>a</code> větší, než dva, tak se vypíše její hodnota. V čtvrté iteraci cyklu se hodnota proměnné <code>a</code>
+zvýší na osm. Poté příkaz se podmínka příkazu <code>if</code> vyhodnotí jako <code>true</code>, takže se provede příkaz
+<code>break</code>, který provádění cyklu ukončí. Hodnota proměnné <code>a</code> se tak vypíše pouze dvakrát.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int a = 0;
+    int b = 8;
+
+    while (true) {
+      if (a &gt; 2) {
+        printf(&quot;Hodnota a = %d\n&quot;, a);
+      }
+
+      if (a &gt;= b) {
+        break;
+      }
+      a = a + 2;
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>Hodnota a = 4
+Hodnota a = 6
+Hodnota a = 8
+</code></pre>
+<p>V každé iteraci cyklu se hodnota proměnné <code>a</code> zvýší o dvojku. Pokud je na začátku iterace hodnota
+<code>a</code> větší, než dva, tak se vypíše její hodnota. V páté iteraci cyklu je hodnota proměnné <code>a</code>
+osm, takže se cyklus ukončí příkazem <code>break</code>. Všimněte si rozdílu pořadí příkazu <code>if</code> a zvýšení
+hodnoty proměnné <code>a</code> v tomto a předchozím příkladu.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 0;
+    int b = 6;
+
+    while (a &gt; b) {
+      printf(&quot;Hodnota b = %d\n&quot;, b);
+      b = b + 1;
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program nevypíše nic, protože podmínka <code>a &gt; b</code> se vyhodnotí jako <code>false</code>. Tělo cyklu se tak
+neprovede ani jednou.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

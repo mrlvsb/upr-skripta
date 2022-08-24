@@ -256,7 +256,7 @@ závorkami:</p>
 <pre><code class="language-c">#define MOCNINA(a) (a) * (a)
 </code></pre>
 <p>Pak by zde již došlo k úpravě na <code>printf(&quot;%d\n&quot;, (1 + 1) * (1 + 1));</code>, což vrátí druhou mocninu
-hodnoty <code>1 + 1</code>, tedy <code>4</code>.</p>
+výrazu <code>1 + 1</code>, tedy <code>4</code>.</p>
 </li>
 <li>
 <p><strong>Vedlejší efekty</strong> Pokud mají argumenty předávané do makra nějaké
@@ -276,10 +276,6 @@ int main() {
 }
 </code></pre>
 <p>Do maker tak radši nedávejte argumenty, které způsobují vedlejší efekty.</p>
-<hr />
-<p><strong>Cvičení</strong>: Zamyslete se nad tím, jaké hodnoty vypsal program s makrem s vedlejšími efekty výše.
-Zkuste si rozepsat makro a odsimulovat v hlavě běh programu. Dojdete ke stejnému výsledku?</p>
-<hr />
 </li>
 </ul>
 <h2><a class="header" href="#makra-vs-globální-proměnné" id="makra-vs-globální-proměnné">Makra vs globální proměnné</a></h2>

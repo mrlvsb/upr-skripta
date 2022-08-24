@@ -304,7 +304,8 @@ znaky <code>x</code> o straně <code>n</code>.</li>
 na obrazovce na dané pozici pixel s odpovídající barvou.</li>
 </ul>
 <hr />
-<p><strong>Cvičení</strong>: Zkuste naprogramovat funkci <code>vypis_ctverec</code>. Další zadání jednoduchých funkcí naleznete
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Zkuste naprogramovat funkci <code>vypis_ctverec</code>. Další zadání jednoduchých funkcí naleznete
 <a href="../../ulohy/zaklady.html#fibonacciho-%C4%8D%C3%ADslo">zde</a>.</p>
 <hr />
 <h2><a class="header" href="#návratová-hodnota-funkcí" id="návratová-hodnota-funkcí">Návratová hodnota funkcí</a></h2>
@@ -393,7 +394,7 @@ stačit číst, co se provádí (která funkce se volá) a ne jak se to provád�
 funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyce:
 <pre><code class="language-c">int zivot = vrat_zivoty_hrace(id_hrace);
 zivot = zivot - vypocti_zraneni_prisery(id_prisery);
-nastav_zivoty_hrace(id_hrace, zivor);
+nastav_zivoty_hrace(id_hrace, zivot);
 </code></pre>
 </li>
 <li><strong>Sdílení kódu</strong> Pokud budete chtít použít kód, který napsal někdo jiný, tak toho můžete dosáhnout
@@ -406,6 +407,19 @@ funkci uvnitř jiné funkce:</p>
     int test() { }
 }
 </code></pre>
+<p>Důležité je ale také to, kam přesně funkci ve zdrojovém kódu umístíte. Abyste mohli nějakou funkci
+zavolat, tak její definice se musí v kódu nacházet nad řádkem, kde funkci voláte. Tento kód tak nebude
+fungovat:</p>
+<pre><code class="language-c">int main() {
+    vypis_text();
+    return 0;
+}
+void vypis_text() {
+    // ...
+}
+</code></pre>
+<p>Proč tomu tak je, a jak lze toto pravidlo obejít, si řekneme
+<a href="../modularizace/pouzivani_kodu_z_jinych_souboru.html#deklarace-vs-definice">později</a>. </p>
 <h2><a class="header" href="#proč-název-funkce" id="proč-název-funkce">Proč název &quot;funkce&quot;?</a></h2>
 <p>Možná vás napadlo, že název funkce zní podobně jako <a href="https://matematika.cz/co-je-to-funkce">funkce</a>
 v matematice. Není to náhoda, funkce v programech se tak opravdu dají částečně chápat – berou nějaký
@@ -436,6 +450,246 @@ funkce psát tímto stylem (samozřejmě ne vždy je to možné).</p>
 <p>V předmětu
 <a href="http://behalek.cs.vsb.cz/wiki/index.php/Functional_programming/cs">Funkcionální programování</a>
 budete pracovat s funkcionálními programovacími jazyky, ve kterých je právě většina funkcí čistých.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void zmen_cislo(int cislo) {
+    cislo = 5;
+}
+
+int main() {
+    int cislo = 8;
+    zmen_cislo(cislo);
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>8</code>. Při volání <code>zmen_cislo</code> se uvnitř této funkce vytvoří nová lokální proměnná
+pro parametr <code>cislo</code> a uloží se do ní hodnota z odpovídajícího předaného argumentu. Změna hodnoty
+tohoto parametru uvnitř <code>zmen_cislo</code> nijak neovlivní proměnnou <code>cislo</code> uvnitř funkce <code>main</code>.</p>
+<p>Můžete si to představit tak, že se při zavolání této funkce provedl cca takovýto kód:</p>
+<pre><code class="language-c">{
+  // nastavení parametru
+  int cislo = 8;
+
+  // kód funkce
+  cislo = 5;
+}
+</code></pre>
+<p>To, že se zde parametr jmenuje stejně jako proměnná, kterou předáváme jako argument, nemá žádný
+speciální význam. Funkci jsme mohli klidně zavolat např. takto: <code>zmen_cislo(1 + 9)</code>. Z toho je zřejmé,
+že změna hodnoty parametru nijak neovlivní předaný argument.</p>
+<blockquote>
+<p>Mimochodem, tím, že <code>zmen_cislo</code> nic nevrací a nemá žádný vedlejší efekt, tak v podstatě ani nemá
+žádný smysl. Je to pouze ukázka.</p>
+</blockquote>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void vytvor_promennou() {
+    int x = 5;
+}
+
+int main() {
+    vytvor_promennou();
+    printf(&quot;%d\n&quot;, x);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program se nepřeloží, protože uvnitř funkce <code>main</code> neexistuje proměnná s názvem <code>x</code>.
+Lokální proměnné jsou dostupné pouze v rámci <a href="../promenne/promenne.html#platnost">bloku</a>, ve kterém
+byly nadefinovány. Proměnnou <code>x</code> tak lze použít pouze v kódu uvnitř funkce <code>vytvor_promennou</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void vypis_soucet(int x) {
+    int soucet = x + b;
+    printf(&quot;%d\n&quot;, soucet);
+}
+
+int main() {
+    int a = 5;
+    int b = 8;
+
+    vypis_soucet(a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program se nepřeloží, protože uvnitř funkce <code>vypis_soucet</code> neexistuje proměnná s názvem
+<code>b</code>. Na řádku, kde funkci voláme, sice existuje proměnná <code>b</code> uvnitř funkce <code>main</code>, ale to s tím 
+nijak nesouvisí - co kdybychom <code>vypis_soucet</code> volali z nějakého jiného místa programu, kde
+by žádná proměnná <code>b</code> neexistovala? Funkce má přístup pouze ke svým lokálním proměnným a parametrům
+(případně také ještě ke <a href="../promenne/globalni_promenne.html">globálním</a> proměnným). Pokud chceme
+nějakou hodnotu z jedné funkce použít v jiné funkci, musíme ji předat jako parametr:</p>
+<pre><code class="language-c">void vypis_soucet(int x, int b) {
+    int soucet = x + b;
+    printf(&quot;%d\n&quot;, soucet);
+}
+
+int main() {
+    int a = 5;
+    int b = 8;
+
+    vypis_soucet(a, b);
+
+    return 0;
+}
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int vrat_cislo(int x) {
+    return x;
+}
+
+int main() {
+    int cislo = 5;
+    vrat_cislo(cislo) = 8;
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program se nepřeloží, protože se snažíme provést operaci přiřazení (<code>=</code>), ale na levé straně
+od rovnítka není místo v paměti (např. proměnná), do které bychom mohli hodnotu <code>8</code> zapsat.
+Volání funkce je výraz, který se vyhodnotí jako návratová hodnota, kterou tato funkce vrátí.
+Je to jako bychom napsali toto:</p>
+<pre><code class="language-c">5 = 8;
+</code></pre>
+<p>Což zřejmě nedává smysl, a proto se program nepřeloží.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int umocni(int x) {
+    return x * x;
+}
+
+int main() {
+    int cislo = 5;
+    umocni(cislo);
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>5</code>. Volání funkce <code>umocni</code> sice vrátí hodnotu <code>25</code>, ale tato hodnota se okamžitě
+&quot;zahodí&quot;, protože ji nikam neuložíme. Hodnota proměnné <code>cislo</code> se tak nezmění. Aby program vypsal
+<code>25</code>, tak bychom museli návratovou hodnotu z volání funkce uložit zpět do proměnné <code>cislo</code>:</p>
+<pre><code class="language-c">cislo = umocni(cislo);
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void vypis_cislo(int x) {
+    if (x &lt; 0) {
+        return;
+    }
+    printf(&quot;cislo = %d\n&quot;, x);
+}
+
+int main() {
+    vypis_cislo(1);
+    vypis_cislo(-1);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>cislo = 1</code>. Při volání <code>vypis_cislo(-1)</code> bude splněna podmínka uvnitř <code>vypis_cislo</code>,
+takže dojde k ukončení provádění funkce příkazem <code>return;</code> a nedojde tak k vypsání tohoto
+záporného čísla.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int vypocet(int x) {
+    if (x &gt; 5) {
+        return x + 1;
+    }
+    return x * 2;
+}
+
+int main() {
+    int a = 6;
+    int b = 4;
+    int c = vypocet(vypocet(a) + vypocet(b));
+    printf(&quot;%d\n&quot;, c);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>16</code>. Není zde žádná zrada :) Nejprve se vyhodnotí <code>vypocet(a)</code> na <code>7</code>, poté
+<code>vypocet(b)</code> na <code>8</code>, a poté se zavolá <code>vypocet(7 + 8)</code>, který se vyhodnotí na <code>16</code>. Vyhodnocování
+výrazů a volání funkcí si můžete procvičit <a href="../../ruzne/vyhodnocovani_vyrazu.html">zde</a>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int cislo = 1;
+
+void uprav_promennou() {
+    cislo = 2;
+}
+
+int main() {
+    printf(&quot;%d\n&quot;, cislo);
+    uprav_promennou();
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>1
+2
+</code></pre>
+<p>Jelikož je proměnná <code>cislo</code> globální, tak k ní mají přístup funkce <code>uprav_promennou</code> i <code>main</code>.
+Změna této proměnné ve funkci <code>uprav_promennou</code> se tedy promítne, když budeme číst hodnotu této
+proměnné ve funkci <code>main</code>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

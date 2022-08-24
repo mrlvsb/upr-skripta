@@ -194,7 +194,9 @@ se speciálními příkazy začínajícími na <code>#</code>.</p>
 <li>Vytváření <a href="makra.html">maker</a> (<code>#define</code>)</li>
 </ul>
 <p>Pokud si chcete ověřit, jak vypadá váš zdrojový soubor poté, co jej zpracuje preprocesor, ale předtím,
-než je přeložen na strojové instrukce, můžete k tomu použít tento příkaz:</p>
+než je přeložen na strojové instrukce, můžete k tomu použít tento příkaz<sup class='margin-toggle sidenote-number'>1</sup>:</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Místo <code>main.c</code> doplňte název zdrojového souboru, který chcete zpracovat preprocesorem.</p>
+</span>
 <pre><code class="language-bash">$ gcc -P -E main.c
 </code></pre>
 

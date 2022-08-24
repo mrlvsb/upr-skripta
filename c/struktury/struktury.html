@@ -289,8 +289,8 @@ struct Osoba {
 
 int main() {
     struct Osoba martina = { .vek = 18, .pocet_pratel = 10 };
-    martina.vek += 1;
-    martina.pocet_pratel += 20;
+    martina.vek += 1;           // přístup k členu `vek`
+    martina.pocet_pratel += 20; // přístup k členu `pocet_pratel`
     printf(&quot;Martina ma %d let a ma %d pratel\n&quot;, martina.vek, martina.pocet_pratel);
 
     return 0;
@@ -328,7 +328,7 @@ int main() {
 odkazovat (původní název datového typu to však nijak neovlivní a můžeme ho stále používat). Opět
 platí, že takto vytvořené jméno lze použít pouze v oblasti (<em>scopu</em>), kde byl <code>typedef</code> použit.
 Obvykle se používá na nejvyšší úrovni souboru. </p>
-<p>U struktur si pomocí <code>typedef</code> můžeme zkrátit jejich název ze <code>struct &lt;nazev&gt;</code> na <code>&lt;nazev&gt;</code>:</p>
+<p>U struktur si pomocí <code>typedef</code> můžeme zkrátit jejich název, typicky ze <code>struct &lt;nazev&gt;</code> na <code>&lt;nazev&gt;</code>:</p>
 <pre><code class="language-c">struct Osoba {
     int vek;
 };
@@ -390,7 +390,8 @@ struktuře přímo, můžeme tam uložit pouze jeho adresu<sup class='margin-tog
 <span class='sidenote'><p><sup class='number'>4</sup>Zde si můžete všimnout, že musíme použít <code>struct Osoba</code> pro datový typ členu <code>matka</code>. Je to z
 toho důvodu, že v momentě, kdy tento člen definujeme, tak ještě není platný <code>typedef</code>, ve kterém se
 struktura nachází, takže datový typ <code>Osoba</code> zatím neexistuje. Nové jméno pro datový typ lze používat
-až za středníkem daného <code>typedef</code>u.</p>
+až za středníkem daného <code>typedef</code>u. V tomto případě také nemůžeme vytvořit strukturu jako anonymní,
+ale musíme ji rovnou pojmenovat (<code>typedef struct Osoba ...</code>).</p>
 </span>
 <pre><code class="language-c">typedef struct Osoba {
     int vek;

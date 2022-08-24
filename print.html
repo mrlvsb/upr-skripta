@@ -578,8 +578,8 @@ int main() {
 Podobný jednoduchý program je zpravidla tím prvním, co programátor vytvoří, když se učí nějaký
 programovací jazyk.</p>
 </blockquote>
-<p>Nyní otevřete terminál (<code>Ctrl + Alt + T</code> v Ubuntu) ve složce s tímto souborem, spusťte program
-<code>gcc</code> a předejte mu cestu k tomuto souboru:</p>
+<p>Nyní otevřete terminál (<code>Ctrl + Alt + T</code> v Ubuntu), přesuňte se do složky s tímto souborem pomocí
+příkazu <code>cd</code>, spusťte program <code>gcc</code> a předejte mu cestu k tomuto souboru:</p>
 <pre><code class="language-bash">$ gcc main.c -o program
 </code></pre>
 <p>Tímto příkazem řeknete &quot;Gécécéčku&quot;, aby přeložil zdrojový soubor <code>main.c</code> a uložil výsledný spustitelný
@@ -651,8 +651,10 @@ byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;
 možných problémových místech ve vašem kódu:</p>
 <pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
 </code></pre>
+<p>Podívejte se také do sekce <a href="prostredi/../caste_chyby/caste_chyby.html">Časté chyby</a>, kde je seznam často se
+vyskytujících chyb.</p>
 <h3><a class="header" href="#chyby-při-běhu-programu" id="chyby-při-běhu-programu">Chyby při běhu programu</a></h3>
-<p>Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:</p>
+<p>Pokud váš program tzv. &quot;padá&quot; při běhu, můžete zkusit následující způsoby ladění:</p>
 <h4><a class="header" href="#address-sanitizer" id="address-sanitizer">Address sanitizer</a></h4>
 <p>Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
 a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, k jakému problému došlo. </p>
@@ -671,6 +673,11 @@ můžete pak podle výstupu zpětně rekonstruovat, co se při běhu programu d�
 který umí program pozastavit při jeho běhu a zobrazit uživateli, co se v něm děje. Takovéto nástroje se nazývají
 <strong>debuggery</strong>. Při krokování se program zastaví na určitém místě (řádku) v kódu, a programátor pak může
 zkoumat hodnoty proměnných a spouštět program řádek po řádku.</p>
+<blockquote>
+<p>Doporučujeme za začátku používat <strong>krokování</strong> neustále, abyste se naučili, jak se vlastně program
+provádí a lépe tak pochopili, co vykonávají jednotlivé příkazy, které v kódu píšete. Je to také mocný
+nástroj na hledání chyb v programech.</p>
+</blockquote>
 <p>Pro vás je nejjednodušší použít krokování integrované ve VSCode:</p>
 <ul>
 <li>Klikněte na sloupeček vlevo od čísla řádku, na kterém chcete, aby se program zastavil.
@@ -689,11 +696,11 @@ můžete najít například <a href="https://www.root.cz/clanky/trasovani-a-lade
 <p>V této kapitole naleznete popis základních konstrukcí jazyka <em>C</em>, které jsou základními
 stavebními kameny pro tvorbu programů. Ke každému tématu je k dispozici také sada úloh. Pokud úlohy
 zvládnete vypracovat, tak budete mít jistotu, že jste dané téma pochopili a můžete se posunout dále.
-Pokud nezvládnete úlohy splnit, tak můžete mít s navazujícími koncepty problém. Pokud nebudete stíhat,
-tak kontaktujte svého cvičícího.</p>
+Pokud nezvládnete úlohy splnit, tak můžete mít s navazujícími koncepty problém. Pokud nebudete
+stíhat, tak kontaktujte svého cvičícího.</p>
 <p>Před přečtením této kapitoly si nejprve přečtěte předchozí kapitoly, zejména sekci o
 <a href="c/../uvod/pamet.html">paměti</a>.</p>
-<p>Zde je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat probíraných na cvičení
+<p>Níže je přibližný seznam témat, které si během semestru ukážeme. Pořadí témat probíraných na cvičení
 a přednáškách se může od tohoto seznamu lišit, tento text je určen spíše jako &quot;kuchařka&quot;, ve které
 se můžete k jednotlivým tématům vracet, abyste si je připomněli. Text je nicméně psaný tak, aby se
 dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které zatím nebyly vysvětleny.</p>
@@ -713,10 +720,11 @@ dal zhruba číst v uvedeném pořadí bez toho, aby používal pojmy, které za
 <li><a href="c/modularizace/modularizace.html">Modularizace</a> - jak rozdělit program do více zdrojových souborů</li>
 <li><a href="c/modularizace/knihovny.html">Knihovny</a> - jak využít existující kód od jiných programátorů</li>
 </ul>
-<p>Všechny tyto koncepty jsou velmi univerzální a v tzv. <a href="https://cs.wikipedia.org/wiki/Imperativn%C3%AD_programov%C3%A1n%C3%AD">imperativních</a>
+<p>Všechny tyto koncepty jsou velmi univerzální a v
+tzv. <a href="https://cs.wikipedia.org/wiki/Imperativn%C3%AD_programov%C3%A1n%C3%AD">imperativních</a>
 programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jednou naučíte, tak je budete
 moct využívat téměř v libovolném populárním programovacím jazyku (Java, C#, Kotlin, Python, PHP,
-Javascript, Rust, C++ atd.). </p>
+Javascript, Rust, C++ atd.).</p>
 <h2><a class="header" href="#navazující-aplikovaná-témata" id="navazující-aplikovaná-témata">Navazující aplikovaná témata</a></h2>
 <ul>
 <li><a href="c/aplikovane_ulohy/tga.html">TGA</a> - jak vytvořit obrázek</li>
@@ -724,8 +732,19 @@ Javascript, Rust, C++ atd.). </p>
 <li><a href="c/aplikovane_ulohy/sdl.html">SDL</a> - jak vytvořit interaktivní grafickou aplikaci či hru</li>
 <li><a href="c/aplikovane_ulohy/chipmunk.html">Chipmunk</a> - jak simulovat fyzikální procesy</li>
 </ul>
+<h2><a class="header" href="#struktura-textu" id="struktura-textu">Struktura textu</a></h2>
+<p>V textu se občas budou objevovat krátké sekce nazvané <strong>Cvičení</strong> 🏋️ a <strong>Kvízy</strong> 🤔. Ty obsahují
+krátká zadání, která slouží k tomu, abyste si vyzkoušeli nějakou konstrukci jazyka <em>C</em> anebo se
+zamysleli nad tím, jak daná konstrukce funguje. Další úlohy k procvičení také naleznete v kapitole
+<a href="c/../ulohy/ulohy.html">Úlohy</a>.</p>
+<p>Některé sekce jsou dále označené jako doplňující učivo 🤓. Tyto sekce označují učivo, které není
+nezbytně nutné zcela pochopit, abyste se mohli v textu posunout dále. Pokud nebudete stíhat nebo
+toho na vás bude moc, můžete tyto sekce prozatím přeskočit, nicméně později byste se k nim měli
+vrátit.</p>
+<p><strong>Pouze si o programování číst nestačí k tomu, abyste se naučili programovat, proto vám
+doporučujeme, abyste si co nejvíce cvičení, kvízů a úloh vypracovali.</strong></p>
 <h1><a class="header" href="#základy-syntaxe" id="základy-syntaxe">Základy syntaxe</a></h1>
-<p><em>C</em> je (programovací) jazyk a jako každý jazyk má svá pravidla, které je nutno dodržovat.
+<p><em>C</em> je (programovací) jazyk a jako každý jazyk má svá pravidla, která je nutno dodržovat.
 Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abychom byli schopni výsledný
 text pochopit. Věty <code>jsme, M y máma, táta a</code> nebo <code>.o dku  d! ty z, jsi</code> nedávají smysl,
 protože obsahují interpunkční znaménka na špatných místech, větné členy jsou ve špatném pořadí
@@ -834,7 +853,7 @@ while (...)
 <p>Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.</p>
 <hr />
-<p><strong>Cvičení</strong></p>
+<p><strong>Cvičení</strong> 🏋</p>
 <ol>
 <li>Vytvořte si ve VS Code soubor (pojmenovaný např. <code>main.c</code>) a nakopírujte nebo napište do něj
 &quot;prázdný&quot; <em>C</em> program ukázaný výše. Zkuste program
@@ -926,7 +945,7 @@ int main() {
 }
 </code></pre>
 <hr />
-<p><strong>Cvičení</strong></p>
+<p><strong>Cvičení</strong> 🏋</p>
 <p>Zkuste si na místo komentáře doplnit několik výrazů (např. <code>5 + 8</code>, <code>8 * 3</code>, <code>12 * (2 + 3)</code>),
 přeložit program, spustit ho a podívat se, co vypíše na výstup, abyste si vyzkoušeli vyhodnocování
 výrazů. <strong>Zkuste to na svém počítači pomocí <a href="c/../prostredi/editor.html">editoru</a> a <a href="c/../prostredi/preklad_programu.html">překladače</a>,
@@ -1089,7 +1108,7 @@ s názvy <code>x</code>, <code>y</code> a <code>z</code>:</p>
 <p>Doporučujeme však tento způsob tvorby více proměnných spíše nepoužívat, aby byl kód přehlednější.</p>
 </blockquote>
 <hr />
-<p><strong>Cvičení</strong></p>
+<p><strong>Cvičení</strong> 🏋</p>
 <ol>
 <li>Zkuste napsat program, který vytvoří několik proměnných, přečte a změní jejich hodnoty
 a pak je vypíše na výstup programu (k výpisu využijte <code>printf</code>, který jsme si již ukázali <a href="c/promenne/../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">dříve</a>).</li>
@@ -1098,6 +1117,231 @@ podívali, jaké jsou hodnoty jednotlivých proměnných a jak se měni v čase 
 </ol>
 <p>Více úloh naleznete <a href="c/promenne/../../ulohy/zaklady.html">zde</a>.</p>
 <hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    printf(&quot;a\n&quot;);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše znak <code>a</code>, jelikož vše uvnitř uvozovek se bere jako text. Aby program vypsal
+hodnotu proměnné <code>a</code>, museli bychom použít např. příkaz <code>printf(&quot;a=%d\n&quot;, a);</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    printf(&quot;%d\n&quot;, a);
+    a = 8;
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše znak <code>5</code>, protože v době, kdy proměnnou vypisujeme, tak je její hodnota <code>5</code>.
+Po vypsání proměnné sice její hodnotu změníme na <code>8</code>, ale poté už ji nevypíšeme a program skončí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    a + 1;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše znak <code>5</code>. Provedeme sice výraz <code>a + 1</code>, který se vyhodnotí jako <code>6</code>, ale výsledek
+tohoto výrazu se &quot;zahodí&quot;, nijak tedy neovlivní další chování programu. Abychom změnili hodnotu
+proměnné <code>a</code>, museli bychom výsledek tohoto výrazu zpět do proměnné uložit: <code>a = a + 1;</code>.
+Vyzkoušejte si to.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    int b = a;
+    a = 8;
+
+    printf(&quot;%d\n&quot;, a);
+    printf(&quot;%d\n&quot;, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>8
+5
+</code></pre>
+<p>Při definici proměnné <code>b</code> jsme ji inicializovali hodnotou proměnné <code>a</code>. Výraz <code>a</code> se tedy
+vyhodnotil jako hodnota <code>5</code>, která byla uložena do proměnné <code>b</code>. Dále však už spolu proměnné
+nesouvisí, změna hodnoty proměnné <code>a</code> tedy nijak neovlivní hodnotu uloženou v proměnné <code>b</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;%d\n&quot;, a);
+    int a = 5;
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Překlad programu skončí s chybou (<code>use of undeclared identifier 'a'</code>), protože se snažíme číst
+hodnotu proměnné, která na daném řádku zatím nebyla nadefinována. Proměnnou <code>a</code> můžeme začít
+používat až poté, co ji nadefinujeme, tj. za řádkem <code>int a = 5;</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    a = 5;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Překlad programu skončí s chybou (<code>use of undeclared identifier 'a'</code>), protože se snažíme zapsat
+výraz <code>5</code> do proměnné, která neexistuje. Před prvním použitím proměnné ji vždy nejprve musíme
+nadefinovat: <code>int a = 5;</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    int b = a = 5;
+    printf(&quot;%d\n&quot;, a);
+    printf(&quot;%d\n&quot;, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>5
+5
+</code></pre>
+<p>Výraz přiřazení (<code>&lt;promenna&gt; = &lt;vyraz&gt;</code>) se vyhodnotí jako přiřazená hodnota (<code>&lt;vyraz&gt;</code>), a takto
+vyhodnocený výraz lze dále v programu použít a např. přiřadit do jiné proměnné. Přiřazení se
+vyhodnotí následovně:</p>
+<pre><code class="language-c">int b = a = 5;
+// int b = 5;
+</code></pre>
+<p>Nicméně jak asi sami uznáte, takovýto zápis je dosti zmatečný a nemusí být na první pohled jasné,
+jak se takovýto výraz vyhodnotí. Proto výsledek výrazu přiřazení raději dále nepoužívejte a
+přiřazení vždy používejte na samostatném řádku se středníkem.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    5 = a + 1;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Překlad programu skončí s chybou <code>expression is not assignable</code>. Snažíme se zde uložit hodnotu
+výrazu <code>a + 1</code> na nějaké místo v paměti, ale <code>5</code> žádné takové místo neoznačuje, <code>5</code> je prostě
+číselný literál s hodnotou <code>5</code>, který nemůžeme přepsat či změnit.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    printf(&quot;%d\n&quot;, a + 1);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože čteme hodnotu proměnné, která nebyla
+inicializována, a její hodnota je tedy nedefinovaná. Nelze tak určit, co tento program provede,
+překladač jej může přeložit na totální nesmysl. Takovýto program je špatně a nemá smysl zkoumat,
+co provede, je potřeba jej nejprve opravit tak, že proměnnou <code>a</code> nainicializujeme.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = a + 1;
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, stejně jako předchozí ukázka. Při inicializaci
+proměnné <code>a</code> používáme její hodnotu, která ale v té době není definovaná. Je to jako kdybychom napsali</p>
+<pre><code class="language-c">int a;
+a = a + 1;
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;cislo: %d\n&quot;);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Pokud při použití příkazu <code>printf</code> v textu
+mezi uvozovkami použijeme zástupný znak (<code>%d</code>), musíme za každý takovýto použitý znak předat
+této <em>funkci</em> také nějaký celočíselný výraz. V opačném případě bude chování programu nedefinované.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#globální-proměnné" id="globální-proměnné">Globální proměnné</a></h1>
 <p>Proměnné, které jsme si ukázali, byly vytvářeny uvnitř <a href="c/promenne/../funkce/funkce.html">funkcí</a> (tj. ne na nejvyšší
 úrovni souboru). Takovéto proměnné se nazývají <strong>lokální proměnné</strong>. Pokud chceme, aby k nějaké
@@ -1164,7 +1408,7 @@ stejně.</p>
 </span>
 <pre><code class="language-c editable mainbody">int main() {
     const int a = 5;
-    a += 1; // chyba
+    a = a + 1; // chyba, nelze přeložit
 
     return 0;
 }
@@ -1172,7 +1416,7 @@ stejně.</p>
 <p>Použití konstant může mít několik důvodů:</p>
 <ul>
 <li>
-<p>V programech někdy opakovaně použiváme konstantní hodnoty, které mají pevně danou hodnotu. Při
+<p>V programech někdy opakovaně používáme konstantní hodnoty, které mají pevně danou hodnotu. Při
 čtení zdrojového kódu nemusí být jasné, co takového hodnoty znamenají (v takovém případě se hanlivě
 označují jako &quot;magické konstanty&quot;). Abychom takového hodnoty pojmenovali, můžeme je uložit do
 konstantní proměnné. Při čtení programu pak bude zřejmé, co reprezentují. Porovnejte variantu
@@ -1277,7 +1521,7 @@ proměnné o <code>1</code> a místo <code>++</code> používá <code>--</code>.
 <blockquote>
 <p>Tyto zkratky jsou sice užitečné, ale také můžou vyústit v překvapivé chování díky způsobu, kterým
 jsou vyhodnocovány. Ze začátku je radši využívejte pouze v situacích, kdy budou použity jako příkaz,
-který změní hodnotu proměnné (<code>i++;</code>). Jinak řečeno, raději se moc nespoléhejte na hodnotu, ve
+který změní hodnotu proměnné (<code>i++;</code>). Jinak řečeno, raději se moc nespoléhejte na hodnotu, na
 kterou se inkrementace/dekrementace vyhodnotí.</p>
 </blockquote>
 <h1><a class="header" href="#pojmenovávání-proměnných" id="pojmenovávání-proměnných">Pojmenovávání proměnných</a></h1>
@@ -1340,8 +1584,8 @@ fontech či barvách, pokud programujeme počítačovou hru, chceme se bavit o z
 či pixelech.</p>
 <p>Přesně k tomu slouží <strong>datové typy</strong>, které popisují, jak budeme interpretovat konkrétní hodnoty
 daného typu v paměti, kolik bytů budou zabírat a jaké operace nad nimi budeme moct provádět. Jazyk
-<em>C</em> obsahuje několik vestavěných datových typů, <a href="c/datove_typy/../struktury/struktury.html">později</a> si ukážeme, jak
-vytvořit své vlastní.</p>
+Nejprve se podíváme na několik datových typů, které jsou vestavěné v jazyce <em>C</em>, a
+<a href="c/datove_typy/../struktury/struktury.html">později</a> si ukážeme, jak si vytvořit své vlastní datové typy.</p>
 <h1><a class="header" href="#celočíselné-datové-typy" id="celočíselné-datové-typy">Celočíselné datové typy</a></h1>
 <p>Asi nejpřirozenějším a nejpoužívanějším datovým typem ve většině programovacích jazyků jsou (celá)
 čísla. Tyto číselné datové typy nám umožňují pracovat s celými čísly, které mají typicky jednotky
@@ -1427,8 +1671,13 @@ výrazy <strong>uzávorkovat</strong>, abyste jim dali větší přednost: <code
 <li>OR: operátor <code>|</code></li>
 <li>XOR: operátor <code>^</code></li>
 </ul>
+<blockquote>
+<p>Zkuste si procvičit, jestli správně rozumíte, jak <em>C</em> vyhodnocuje výrazy, na
+<a href="c/datove_typy/../../ruzne/vyhodnocovani_vyrazu.html">této</a> stránce.</p>
+</blockquote>
 <hr />
-<p><strong>Cvičení</strong>: Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
 je na výstup. Vyhodnocování výrazů si můžete procvičit <a href="c/datove_typy/../../ruzne/vyhodnocovani_vyrazu.html">zde</a>
 nebo <a href="c/datove_typy/../../ulohy/zaklady.html">zde</a>. </p>
 <hr />
@@ -1445,8 +1694,8 @@ Datový typ výsledku těchto operátorů záleží na datovém typu jejich para
 <tr><td align="center"><code>|</code></td><td align="center">Bitový součet</td><td align="center"><code>12 | 4</code></td></tr>
 <tr><td align="center"><code>~</code></td><td align="center">Bitová negace</td><td align="center"><code>~8</code></td></tr>
 <tr><td align="center"><code>^</code></td><td align="center">Bitový XOR</td><td align="center"><code>14 ^ 18</code></td></tr>
-<tr><td align="center"><code>&lt;&lt;</code></td><td align="center">Bitový posun doprava</td><td align="center"><code>137 &lt;&lt; 2</code></td></tr>
-<tr><td align="center"><code>&gt;&gt;</code></td><td align="center">Bitový posun doleva</td><td align="center"><code>140 &gt;&gt; 3</code></td></tr>
+<tr><td align="center"><code>&lt;&lt;</code></td><td align="center">Bitový posun doleva</td><td align="center"><code>137 &lt;&lt; 2</code></td></tr>
+<tr><td align="center"><code>&gt;&gt;</code></td><td align="center">Bitový posun doprava</td><td align="center"><code>140 &gt;&gt; 3</code></td></tr>
 </tbody></table>
 <p>O dalších typech operátorů se postupně dozvíte během semestru.
 Plný seznam <em>C</em> operátorů naleznete <a href="https://en.cppreference.com/w/c/language/operator_precedence">zde</a>.</p>
@@ -1467,13 +1716,50 @@ int main() {
     return 0;
 }
 </code></pre>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;%d\n&quot;, 1 + 3 * 8 - 2);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>23</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1 + 4 * 2;
+    int b = a + 2 * a;
+    printf(&quot;%d\n&quot;, (b + 1) * 2);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>56</code>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#desetinné-číselné-typy" id="desetinné-číselné-typy">Desetinné číselné typy</a></h1>
 <p>Pokud budete chtít provádět výpočty s desetinnými čísly, tak můžete využít datové typy s tzv.
-<strong>plovoucí řádovou čárkou</strong> (<em>floating point numbers</em>). Hodnoty těchto datových typů umožňují udržovat
-čísla sestávající se z celé a z desetinné části. Díky
+<strong>plovoucí řádovou čárkou</strong> (<em>floating point numbers</em>). Hodnoty těchto datových typů umožňují pracovat
+s čísly, které se skládají z celé a z desetinné části. Díky
 tomu, jak jsou <a href="https://cs.wikipedia.org/wiki/Pohybliv%C3%A1_%C5%99%C3%A1dov%C3%A1_%C4%8D%C3%A1rka">navržena</a>,
-tato čísla dokáží reprezentovat jak velmi malé, tak velmi velké hodnoty (za cenu přesnosti desetinné části).</p>
-<p>V <em>C</em> jsou dva základní vestavěné datové typy pro práci s desetinnými čísly, liší se pouze velikostí
+tato čísla dokáží reprezentovat jak velmi malé, tak velmi velké hodnoty (za cenu menší přesnosti
+desetinné části).</p>
+<p>V <em>C</em> jsou dva základní vestavěné datové typy pro práci s desetinnými čísly, které se liší velikostí
 (a tedy i tím, jak přesně dokáží desetinná čísla reprezentovat). Oba dva typy jsou znaménkové:</p>
 <table><thead><tr><th>Název</th><th align="center">Počet bytů</th><th align="center">Rozsah hodnot</th><th align="center">Přesnost</th><th align="center">Se znaménkem</th></tr></thead><tbody>
 <tr><td><code>float</code></td><td align="center">4</td><td align="center">[-3.4x10<sup>38</sup>; 3.4x10<sup>38</sup>]</td><td align="center">~7 des. míst</td><td align="center"><i class="fa fa-check"></i></td></tr>
@@ -1491,7 +1777,7 @@ desetinný oddělovač se používá tečka, ne čárka): <code>10.5</code>, <co
 </code></pre>
 <p>Jednoduché použití zástupného znaku <code>%f</code> však způsobí, že se desetinné číslo vypíše v rozvoji,
 tj. pro číslo <code>1.0</code> se vypíše do termínálu <code>1.000000</code>.</p>
-<p>Pro to, abychom mohli specifikovat kolik číslic chceme vypsat za desetinnou tečkou, musíme k zástupnému znaku
+<p>Abychom mohli specifikovat, kolik číslic chceme vypsat za desetinnou tečkou, musíme k zástupnému znaku
 doplnit formátování. Pro datový typ <code>float</code> a <code>double</code> používáme následující syntaxi:</p>
 <pre><code class="language-c">printf(&quot;Desetinne cislo: %.2f\n&quot;, 1.0);
 </code></pre>
@@ -1515,7 +1801,8 @@ int main() {
 </li>
 </ul>
 <h3><a class="header" href="#konverze-na-celé-číslo" id="konverze-na-celé-číslo">Konverze na celé číslo</a></h3>
-<p>Pokud budete konvertovat desetinné číslo na celé číslo, tak dojde k &quot;useknutí&quot; desetinné části:</p>
+<p>Pokud budete <a href="c/datove_typy/konverze.html">konvertovat</a> desetinné číslo na celé číslo, tak dojde k &quot;useknutí&quot;
+desetinné části:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 int main() {
     printf(&quot;%d\n&quot;, (int) 1.6);
@@ -1524,6 +1811,47 @@ int main() {
 }
 </code></pre>
 <p>Toto chování odpovídá zaokrouhlení k nule, tj. kladná čísla se zaokrouhlí dolů a záporná čísla nahoru.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;%d\n&quot;, 1.5);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Pokud při použití příkazu <code>printf</code> v textu
+mezi uvozovkami použijeme zástupný znak <code>%d</code>, musíme za čárkou předat výraz datového typu celého
+čísla. Zde jsme ale předali výraz datového typu desetinného čísla.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    float a = 2.0f;
+    float b = 5.0f;
+    int c = b / a;
+    printf(&quot;%d\n&quot;, c);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>2</code>, protože výraz desetinného číselného typu <code>b / a</code>, který se vyhodnotil na
+<code>2.5</code>, byl poté uložen do proměnné celočíselného typu, která si z něj ponechala pouze celou část,
+tj. <code>2</code>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#pravdivostní-typy" id="pravdivostní-typy">Pravdivostní typy</a></h1>
 <p>Posledním základním datovým typem, který si ukážeme, je pravdivostní typ
 <strong><a href="https://cs.wikipedia.org/wiki/Boolean">Booleovské logiky</a></strong>. Hodnoty tohoto datového typu mají
@@ -1571,10 +1899,10 @@ bool je_clovek = je_muz || je_zena; // true || false -&gt; true
 
 bool je_rodic = true;
 bool je_otec = je_rodic &amp;&amp; je_muz;  // true &amp;&amp; true -&gt; true
-bool je_matka = je_rodic &amp;&amp; ~je_otec; // true &amp;&amp; ~true -&gt; true &amp;&amp; false -&gt; false
+bool je_matka = je_rodic &amp;&amp; !je_otec; // true &amp;&amp; !true -&gt; true &amp;&amp; false -&gt; false
 </code></pre>
 <p>Pro připomenutí, zde je pravdivostní tabulka těchto logických operátorů:</p>
-<table><thead><tr><th><code>X</code></th><th align="center"><code>Y</code></th><th align="center"><code>X &amp;&amp; Y</code></th><th align="center"><code>X || Y</code></th><th align="center"><code>~X</code></th></tr></thead><tbody>
+<table><thead><tr><th><code>X</code></th><th align="center"><code>Y</code></th><th align="center"><code>X &amp;&amp; Y</code></th><th align="center"><code>X || Y</code></th><th align="center"><code>!X</code></th></tr></thead><tbody>
 <tr><td><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td></tr>
 <tr><td><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>true</code></td></tr>
 <tr><td><code>true</code></td><td align="center"><code>false</code></td><td align="center"><code>false</code></td><td align="center"><code>true</code></td><td align="center"><code>false</code></td></tr>
@@ -1601,8 +1929,8 @@ a vede k obtížně nalezitelným chybám.</p>
 </ul>
 <p>Porovnávat mezi sebou můžete libovolné hodnoty dvou stejných datových typů. Výsledkem porovnání
 je výraz datového typu <code>bool</code>:</p>
-<pre><code class="language-c">int jarda_body = 10;
-int kamil_body = 13;
+<pre><code class="language-c">int jarda_body = 13;
+int kamil_body = 10;
 
 bool remiza = jarda_body == kamil_body; // false
 bool vyhra_jardy = jarda_body &gt; kamil_body; // true
@@ -1676,6 +2004,64 @@ tak ta je jedním z případů výrazů, které mají vedlejší efekt (změnu h
 <li><code>true</code> se převede na <code>1</code></li>
 <li><code>false</code> se převede na <code>0</code></li>
 </ul>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int pocet_zidli = 14;
+    int pocet_lidi = 8;
+    int pocet_znicenych_zidli = 4;
+
+    bool dostatek_zidli = (pocet_zidli - pocet_znicenych_zidli) &gt;= pocet_lidi;
+    bool dostatek_lidi = pocet_lidi &gt;= 6;
+    bool party_pripravena = dostatek_zidli &amp;&amp; dostatek_lidi;
+
+    printf(&quot;Party: %d\n&quot;, party_pripravena);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>Party: 1</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int a = 5;
+    int b = 4;
+
+    bool x = a &gt;= 3 || (b = 8);
+
+    printf(&quot;a=%d\n&quot;, a);
+    printf(&quot;b=%d\n&quot;, b);
+    printf(&quot;x=%d\n&quot;, x);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>a=5
+b=4
+x=1
+</code></pre>
+<p>Výraz přiřazení <code>b = 8</code> se neprovede kvůli <a href="c/datove_typy/pravdivostni_typy.html#zkr%C3%A1cen%C3%A9-vyhodnocov%C3%A1n%C3%AD">zkrácenému vyhodnocování</a>,
+hodnota proměnné <code>b</code> se tak nezmění. Raději nepoužívejte výrazy obsahující vedlejší efekty v
+kombinaci s <code>||</code> a <code>&amp;&amp;</code>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#explicitní-konverze" id="explicitní-konverze">(Explicitní) konverze</a></h1>
 <p>Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží <strong>operátor přetypování</strong>
 (<em>cast operator</em>), který má syntaxi <code>(&lt;datový typ&gt;) &lt;výraz&gt;</code> a převede výraz na daný datový typ.
@@ -1717,7 +2103,7 @@ operaci pro všechny prvky ze vstupu programu anebo ji provádět, dokud nedojde
 byli schopni napsat libovolný počítačový program. Pomocí těchto tří jednoduchých konstrukcí byste
 tak teoreticky mohli vytvořit třeba textový editor, hru nebo i celý operační systém. Nicméně, pokud
 bychom využívali pouze tyto konstrukce, tak ve větších programech by bylo složité se zorientovat a
-byly by také dost neefektivní. V následujících sekcích se tak dozvíteo několika dalších konstrukcích,
+byly by také dost neefektivní. V následujících sekcích se tak dozvíte o několika dalších konstrukcích,
 které vám můžou programování usnadnit.</p>
 </blockquote>
 <h1><a class="header" href="#podmínky" id="podmínky">Podmínky</a></h1>
@@ -1737,11 +2123,11 @@ pokud nulové, tak černou.</li>
     // blok kódu
 }
 </code></pre>
-<p>Pokud se výraz předaný <code>if</code>u vyhodnotí jako <code>true</code> (pravda), tak se provede
-<a href="c/rizeni_toku/../promenne/promenne.html#platnost">blok</a> kódu uvnitř <code>if</code>u tak, jak jste zvyklí, a program dále
-bude pokračovat za příkazem <code>if</code>. Pokud se však výraz vyhodnotí jako <code>false</code> (nepravda), tak se blok kódu
-uvnitř <code>if</code>u vůbec neprovede. V následujícím programu zkuste změnit výraz uvnitř závorek za <code>if</code> tak,
-aby se blok v podmínce vykonal:</p>
+<p>Pokud se výraz v závorce za <code>if</code> vyhodnotí jako <code>true</code> (pravda), tak se provede
+<a href="c/rizeni_toku/../promenne/promenne.html#platnost">blok</a> kódu za závorkou tak, jak jste zvyklí, a poté bude program
+dále pokračovat za příkazem <code>if</code>. Pokud se však výraz vyhodnotí jako <code>false</code> (nepravda), tak se blok
+kódu za závorkou vůbec neprovede. V následujícím programu zkuste změnit výraz uvnitř závorek za <code>if</code>
+tak, aby se blok v podmínce vykonal:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -1749,7 +2135,7 @@ int main() {
 
     printf(&quot;Kontroluji heslo...\n&quot;);
     if (delka_hesla &gt; 5) {
-        printf(&quot;Heslo je dost dlouhe\n&quot;);
+        printf(&quot;Heslo je dostatecne dlouhe\n&quot;);
     }
     printf(&quot;Kontrola hesla dokoncena\n&quot;);
 
@@ -1772,9 +2158,9 @@ if (body &lt;= 80 &amp;&amp; body &gt; 50) { znamka = 3; }
 </code></pre>
 <p>Nicméně to může být často dosti &quot;ukecané&quot;, protože se musíme v každé podmínce ujistit, že již nebyla
 splněna předchozí podmínka, jinak by se mohla provést více než jedna alternativa.</p>
-<p><em>C</em> tak umožňuje přidat k příkazu <code>if</code> další příkaz, který se provede pouze v případě, že podmínka &quot;<code>if</code>u&quot;
-není splněna. Takto lze řetězit více podmínek za sebou, kdy v každé následující podmínce víme, že
-žádná z předchozích nebyla splněna. Dosáhneme toho tak, že za blokem podmínky <code>if</code> použijeme klíčové
+<p>Jazyk <em>C</em> tak umožňuje přidat k příkazu <code>if</code> další příkaz, který se provede pouze v případě, že podmínka
+&quot;<code>if</code>u&quot; není splněna. Takto lze řetězit více podmínek za sebou, kdy v každé následující podmínce víme,
+že žádná z předchozích nebyla splněna. Dosáhneme toho tak, že za blokem podmínky <code>if</code> použijeme klíčové
 slovo <code>else</code> (&quot;v opačném případě&quot;):</p>
 <pre><code class="language-c">if (&lt;výraz typu bool&gt;) {
     // blok kódu
@@ -1809,8 +2195,8 @@ bude dále program vykonávat kód od bodu <code>X</code>.</p>
 <p>Takovéto spojené podmínky se vyhodnocují postupně shora dolů. První podmínka <code>if</code>, jejíž výraz
 je vyhodnocen jako <code>true</code>, způsobí, že se provede blok této podmínky, a následně program pokračuje
 za celou spojenou podmínkou (bod <code>X</code>).</p>
-<p>Na konec spojené podmínky můžete opět vložit i <code>else</code> s blokem bez podmínky. Tento blok se
-provede pouze, pokud žádná z předchozích podmínek není splněna:</p>
+<p>Na konec spojené podmínky můžete opět vložit klíčové slovo <code>else</code> s blokem bez podmínky. Tento blok
+se provede pouze, pokud žádná z předchozích podmínek není splněna:</p>
 <pre><code class="language-c">if (body &gt; 90) {
     // blok A, více než 90 bodů
 } else if (body &gt; 80) {
@@ -1819,13 +2205,16 @@ provede pouze, pokud žádná z předchozích podmínek není splněna:</p>
     // blok C, méně než 81 bodů
 }
 </code></pre>
+<blockquote>
 <p>Všimněte si, že tento kód opět můžeme přečíst jako intuitivní větu. Pokud je počet
 bodů vyšší, než 90, tak proveď A. V opačném případě, pokud je vyšší než 80, tak proveď B. Jinak
 proveď C.</p>
+</blockquote>
 </li>
 </ul>
 <hr />
-<p><strong>Cvičení</strong>: Upravte následující program, aby vypsal:</p>
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Upravte následující program, aby vypsal:</p>
 <ul>
 <li><code>Student uspel s vyznamenanim</code>, pokud je hodnota proměnné <code>body</code> větší než <code>90</code>.</li>
 <li><code>Student uspel</code>, pokud je hodnota proměnné <code>body</code> v (uzavřeném) intervalu <code>[51, 90]</code>.</li>
@@ -1864,7 +2253,8 @@ int main() {
 }
 </code></pre>
 <hr />
-<p><strong>Cvičení</strong>: Upravte hodnotu proměnných <code>delka_hesla</code> a <code>delka_jmena</code> v programu výše tak, aby program
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Upravte hodnotu proměnných <code>delka_hesla</code> a <code>delka_jmena</code> v programu výše tak, aby program
 vypsal <code>Uzivatel byl zaregistrovan</code>. Neměňte v programu nic jiného.</p>
 <hr />
 <h4><a class="header" href="#vynechání-složených-zárovek" id="vynechání-složených-zárovek">Vynechání složených zárovek</a></h4>
@@ -1877,6 +2267,124 @@ else printf(&quot;Student neuspel\n&quot;);
 <p>Zejména ze začátku za podmínkami vždy však raději používejte složené závorky, abyste předešli případným
 <a href="c/rizeni_toku/../../caste_chyby/caste_chyby.html#st%C5%99edn%C3%ADk-za-for-while-nebo-if">chybám</a> a učinili kód přehlednějším.</p>
 </blockquote>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    if (a &gt;= 3) {
+      printf(&quot;a &gt;= 3\n&quot;);
+    } else if (a &gt;= 2) {
+      printf(&quot;a &gt;= 2\n&quot;);
+    } else if (a &gt;= 1) {
+      printf(&quot;a &gt;= 1\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a &gt;= 2</code>. Příkaz <code>if</code>, za kterým následuje sada návazných příkazů <code>else if</code>,
+případně na poslední pozici <code>else</code>, se vyhodnocuje shora dolů. Provede se blok kódu prvního <code>if</code>u,
+jehož podmínka (výraz v závorce) se vyhodnotí jako <code>true</code>, což je v tomto případě podmínka <code>else if (a &gt;= 2)</code>.
+I když jistě platí i podmínka <code>a &gt;= 1</code>, tak blok kódu za posledním <code>else if</code> se zde neprovede, protože
+se už provedl blok kódu za dřívější podmínkou.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    if (a &gt;= 3) {
+      printf(&quot;a &gt;= 3\n&quot;);
+    } else if (a &gt;= 2) {
+      printf(&quot;a &gt;= 2\n&quot;);
+    } if (a &gt;= 1) {
+      printf(&quot;a &gt;= 1\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>a &gt;= 2
+a &gt;= 1
+</code></pre>
+<p>Všimněte si, že před posledním příkazem <code>if</code> není <code>else</code>! To znamená, že se jedná o nezávislý
+příkaz <code>if</code>, který nijak nesouvisí s prvním příkazem <code>if</code> nad ním. Kvůli toho se tento příkaz
+provede, i když byl předtím proveden blok za podmínkou <code>else if (a &gt;= 2)</code>.</p>
+<p>V běžném programu by byl tento kód formátován spíše následovně:</p>
+<pre><code class="language-c">int a = 2;
+if (a &gt;= 3) {
+  printf(&quot;a &gt;= 3\n&quot;);
+} else if (a &gt;= 2) {
+  printf(&quot;a &gt;= 2\n&quot;);
+}
+
+if (a &gt;= 1) {
+  printf(&quot;a &gt;= 1\n&quot;);
+}
+</code></pre>
+<p>S tímto formátováním je mnohem jednodušší rozpoznat, že spolu tyto dva příkazy <code>if</code> nesouvisí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    int b = 4;
+
+    if (a &gt; 1) {
+      if (b == 4) {
+         printf(&quot;b == 4\n&quot;);
+      } else {
+         printf(&quot;b != 4\n&quot;);
+      }
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program nevypíše nic. Podmínka <code>a &gt; 1</code> se vyhodnotí jako <code>false</code>, takže blok kódu za touto
+podmínkou se vůbec nevykoná.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+    if (a = 2) {
+      printf(&quot;a se rovna dvoum\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program vypíše <code>a se rovna dvoum</code>. Pozor na to, že operátor přiřazení <code>[x] = [y]</code> přiřadí
+výraz <code>[y]</code> do <code>[x]</code>, a vyhodnotí se jako hodnota <code>[y]</code>. V tomto případě se tedy do proměnné
+<code>a</code> uloží hodnota <code>2</code>, a jelikož <code>2</code> se po <a href="c/rizeni_toku/../datove_typy/pravdivostni_typy.html#konverze">převodu</a>
+na <code>bool</code> vyhodnotí jako pravda (<code>true</code>), se tělo příkazu <code>if</code> provede. Záměna přiřazení (<code>=</code>)
+a <code>==</code> (porovnání) je častou <a href="c/rizeni_toku/../../caste_chyby/caste_chyby.html#z%C3%A1m%C4%9Bna--a-">začátečnickou chybou</a>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#příkaz-switch" id="příkaz-switch">Příkaz <code>switch</code></a></h1>
 <blockquote>
 <p>🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
@@ -1904,9 +2412,10 @@ else if (a == 2) {
     ...
 }
 </code></pre>
-<p>Tento příkaz vyhodnotí předaný výraz, a pokud se ve <code>switch</code>i nachází klíčové slovo <code>case</code> následované
-hodnotou odpovídající hodnotě výrazu, tak program skočí na blok, který následuje za <code>case</code>. Dále se program
-bude vykonávat sekvenčně až do konce <code>switch</code>e (při tomto vykonávání už se <code>case</code> ignoruje)<sup class='margin-toggle sidenote-number'>1</sup>.</p>
+<p>Tento příkaz vyhodnotí výraz v závorce za klíčovým slovem <code>switch</code>. Pokud se v bloku kódu za závorkou
+nachází klíčové slovo <code>case</code> následované hodnotou odpovídající hodnotě výrazu, tak program začne vykonávat
+blok kódu, který následuje za tímto <code>case</code>. Dále se program bude vykonávat sekvenčně až do bloku <code>switch</code>e
+(při tomto vykonávání už se klíčová slovo <code>case</code> i hodnoty za ním ignorují)<sup class='margin-toggle sidenote-number'>1</sup>.</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Toto chování se anglicky označuje jako <em>fallthrough</em>.</p>
 </span>
 <p>Tento program vypíše <code>52</code>, protože předaný výraz má hodnotu <code>5</code>, takže program skočí na blok za
@@ -1925,8 +2434,8 @@ int main() {
 }
 </code></pre>
 <h2><a class="header" href="#klíčové-slovo-default" id="klíčové-slovo-default">Klíčové slovo <code>default</code></a></h2>
-<p>Do <code>switch</code>e lze předat i blok pojmenovaný <code>default</code>, na který program skočí v případě, že se
-nenalezne žádný <code>case</code> s odpovídající hodnotou:</p>
+<p>Do bloku kódu příkazu <code>switch</code> lze předat i blok pojmenovaný <code>default</code>, na který program skočí v
+případě, že se nenalezne žádný <code>case</code> s odpovídající hodnotou:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -1942,7 +2451,7 @@ int main() {
 }
 </code></pre>
 <h2><a class="header" href="#klíčové-slovo-break" id="klíčové-slovo-break">Klíčové slovo <code>break</code></a></h2>
-<p>Velmi často chcete provést pouze jeden blok kódu u jednoho <code>case</code> a nepokračovat po něm až do konce
+<p>Velmi často chceme provést pouze jeden blok kódu u jednoho <code>case</code> a nepokračovat po něm až do konce
 celého <code>switch</code> bloku. Běžně se tedy za každým <code>case</code> blokem používá příkaz <code>break</code>, který ukončí
 provádějí celého <code>switch</code> příkazu:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
@@ -1958,18 +2467,23 @@ int main() {
     return 0;
 }
 </code></pre>
+<h2><a class="header" href="#hodnota-za-case" id="hodnota-za-case">Hodnota za <code>case</code></a></h2>
+<p>Hodnota za klíčovým slovem <code>case</code> musí být konstantní, jinak řečeno musí to být hodnota známá již v
+době překladu programu, např. <a href="c/rizeni_toku/../prikazy_vyrazy.html#v%C3%BDrazy">literál</a>. Za <code>case</code> tak nelze dát např.
+výraz obsahující název proměnné.</p>
 <h2><a class="header" href="#použití-příkazu-switch" id="použití-příkazu-switch">Použití příkazu <code>switch</code></a></h2>
-<p>Příkaz <code>switch</code> lze použít pouze s vestavěnými datovými typy, zejména s čísly. Nelze jej použít např.
-na porovnávání <a href="c/rizeni_toku/../struktury/struktury.html">struktur</a> či <a href="c/rizeni_toku/../text/retezce.html">řetězců</a>. Jeho chování
-také může být ze začátku matoucí, pokud za jednotlivými <code>case</code> konstrukcemi nepoužijete příkaz <code>break</code>.
-Proto tak doporučujeme ze začátku používat pro podmíněné vykonávání spíše příkaz <a href="c/rizeni_toku/if.html"><code>if</code></a>.</p>
+<p>Výraz v závorce za <code>switch</code> vestavěný datový typ, v podstatě se zde dá použít pouze celé číslo.
+Nelze jej použít např. na porovnávání <a href="c/rizeni_toku/../struktury/struktury.html">struktur</a> či <a href="c/rizeni_toku/../text/retezce.html">řetězců</a>.
+Jeho chování také může být matoucí, pokud se za jednotlivými <code>case</code> konstrukcemi nepoužije příkaz
+<code>break</code>. Proto tak doporučujeme ze začátku používat pro podmíněné vykonávání spíše příkaz <a href="c/rizeni_toku/if.html"><code>if</code></a>.</p>
 <h1><a class="header" href="#ternární-operátor" id="ternární-operátor">Ternární operátor</a></h1>
 <blockquote>
 <p>🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
 a vrátit se k ní později.</p>
 </blockquote>
-<p>Občas chcete použít jeden ze dvou výrazů v závislosti na hodnotě nějaké podmínky. Například pokud byste
-chtěli přiřadit minimum ze dvou hodnot do proměnné:</p>
+<p>Občas se nám může hodit vytvořit výraz, který bude mít hodnotu jednoho ze dvou konkrétních výrazů,
+v závislosti na hodnotě nějaké podmínky. Například pokud bychom chtěli přiřadit minimum ze dvou
+hodnot do proměnné, tak to můžeme napsat takto:</p>
 <pre><code class="language-c">int a = 1;
 int b = 5;
 
@@ -1980,7 +2494,10 @@ if (a &lt; b) {
     c = b;
 }
 </code></pre>
-<p>Toto lze provést zkráceně pomocí výrazu <strong>ternárního operátoru</strong> (<em>ternary operator</em>). Tento výraz
+<p>Všimněte si, že do proměnné <code>c</code> ukládáme buď výraz <code>a</code> nebo výraz <code>b</code>, v závislosti na tom, jaká je
+hodnota podmínky <code>a &lt; b</code>.</p>
+<p>Jelikož je tato situace relativně častá, a její vyřešení pomocí příkazu <code>if</code> je relativně zdlouhavé,
+tak jazyk <code>C</code> obsahuje zkratku v podobě <strong>ternárního operátoru</strong> (<em>ternary operator</em>). Tento výraz
 má následující syntaxi:</p>
 <pre><code class="language-c">&lt;výraz X typu bool&gt; ? &lt;výraz A&gt; : &lt;výraz B&gt;
 </code></pre>
@@ -2004,8 +2521,9 @@ int main() {
 <li>Pošli zprávu každému účastníkovi chatu.</li>
 <li>Načítej řádky ze souboru, dokud nedojdeš na konec souboru.</li>
 </ul>
-<p>Pokud bychom používali pouze sekvenční zápis příkazů, tak bychom museli neustále kopírovat
-(&quot;copy-pastovat&quot;) kód:</p>
+<p>Pokud bychom vždy pouze přidávali nové příkazy pod sebe, tak, jak to zatím známe, abychom nějaký příkaz
+provedli vícekrát, tak by naše programy jednak byly nejspíše dost dlouhé. Nejspíše bychom bychom
+neustále kopírovali (&quot;copy-pastovali&quot;) velmi podobný kód:</p>
 <pre><code class="language-c">printf(&quot;0\n&quot;);
 printf(&quot;1\n&quot;);
 printf(&quot;2\n&quot;);
@@ -2018,10 +2536,11 @@ opravit na všech místech, kam jsme kód zkopírovali.</p>
 <p>Ani s kopírováním kódu bychom si však nevystačili, pokud bychom potřebovali provádět kód opakovaně
 v závislosti na vstupu programu. Představte si situaci, kdy nám uživatel na vstup programu zadá číslo,
 kolikrát má náš program vypsat nějaký řádek textu na výstup. Uživatel se při každém spuštění programu
-může rozhodnout pro jiné číslo, <code>0</code>, <code>1</code>, <code>42</code>, <code>1000</code>. Program však zůstává stále stejný - při jeho
-psaní se musíme rozhodnout, kolik příkazů pro výpis v něm použijeme, a už poté nemůžeme jednoduše
-tuto volbu změnit, když program běží. Takovýto program bychom tedy zatím (pouze pomocí proměnných a
-podmínek) neměli jak naprogramovat. </p>
+může rozhodnout pro jiné číslo, <code>0</code>, <code>1</code>, <code>42</code>, <code>1000</code>. Program však zůstává stále stejný - už při
+tvorbě (psaní) programu se musíme rozhodnout, kolik příkazů pro výpis do něj vložíme. Poté se program
+<a href="c/rizeni_toku/../../prostredi/preklad_programu.html">přeloží</a> na spustitelný soubor a poté už naši volbu nemůžeme
+jednoduše změnit. Takovýto program bychom tedy zatím (pouze pomocí proměnných a podmínek) neměli jak
+naprogramovat. </p>
 <p>Proto programovací jazyky nabízí tzv. <strong>cykly</strong> (<em>loops</em>), pomocí kterých můžeme jednoduše říct
 počítači, aby určitý blok kódu opakoval, kolikrát budeme chtít. Díky tomu může program i s pouze
 několika málo řádky kódu říct počítači, aby provedl spoustu instrukcí. Jazyk <em>C</em> nabízí dva základní
@@ -2045,7 +2564,7 @@ prováděním nějakého cyklu.</p>
 </code></pre>
 <p>Funguje následovně:</p>
 <ol>
-<li>Nejprve se vyhodnotí (Booleovský) výraz v závorce za <code>while</code>.</li>
+<li>Nejprve se vyhodnotí (Booleovský) výraz v závorce za <code>while</code> a provede se bod 2.</li>
 <li>Pokud:
 <ul>
 <li>Je výraz pravdivý, tak se provede blok<sup class='margin-toggle sidenote-number'>1</sup> cyklu a dále se pokračuje opět bodem 1.<span class='sidenote'><p><sup class='number'>1</sup><a href="c/rizeni_toku/../promenne/promenne.html#platnost">Blok</a> cyklu se také často nazývá jako <strong>tělo</strong> (<em>body</em>) cyklu.</p>
@@ -2055,8 +2574,8 @@ prováděním nějakého cyklu.</p>
 </li>
 <li>Program pokračuje za cyklem <code>while</code>.</li>
 </ol>
-<p>Jinak řečeno, dokud bude splněná podmínka za <code>while</code>, tak se bude opakovaně provádět tělo cyklu.
-Vyzkoušejte si to na následujícím příkladu:</p>
+<p>Jinak řečeno, dokud bude splněná podmínka za <code>while</code>, tak se budou opakovaně provádět příkazy uvnitř
+těla cyklu. Vyzkoušejte si to na následujícím příkladu:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -2072,10 +2591,11 @@ int main() {
 protože se tělo cyklu provede pětkrát.</p>
 <p>Pokud výraz za <code>while</code> není vyhodnocen jako pravdivý v momentě, kdy se <code>while</code> začne vykonávat, tak
 se tělo cyklu nemusí provést ani jednou (tj. bude mít nula iterací).</p>
+<h3><a class="header" href="#nekonečný-cyklus" id="nekonečný-cyklus">Nekonečný cyklus</a></h3>
 <p>Je důležité dávat si pozor na to, aby cyklus, který použijeme, nebyl nechtěně <strong>nekonečný</strong>
 (<em>infinite loop</em>), jinak by náš program nikdy neskončil. Zkuste v kódu výše zakomentovat nebo odstranit
-řádek <code>count = count + 1;</code> a zkuste program spustit. Jelikož se hodnota proměnné <code>count</code> nebude nijak
-měnit, tak výraz <code>count &lt; 5</code> bude stále pravdivý a cyklus se tak bude provádět neustále dokola.
+řádek <code>pocet = pocet + 1;</code> a zkuste program spustit. Jelikož se hodnota proměnné <code>pocet</code> nebude nijak
+měnit, tak výraz <code>pocet &lt; 5</code> bude stále pravdivý a cyklus se tak bude provádět neustále dokola.
 Této situaci se lidově říká &quot;zacyklení&quot;<sup class='margin-toggle sidenote-number'>2</sup>.</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Pokud program spouštíte v terminálu a zacyklí se, můžete ho přerušit pomocí klávesové zkratky <code>Ctrl + C</code>.
 Pokud jej spustíte v prohlížeči, tak poté radši restartujte tuto stránku pomocí <code>F5</code> :)</p>
@@ -2083,14 +2603,16 @@ Pokud jej spustíte v prohlížeči, tak poté radši restartujte tuto stránku 
 <blockquote>
 <p>Pokud se vám někdy stalo, že se program, který jste zrovna používali, &quot;zaseknul&quot; a přestal reagovat
 na váš vstup, mohlo to být právě například tím, že v něm nechtěně došlo k provedení nekonečného
-cyklu (došlo k tzv. &quot;zacyklení&quot;).</p>
+cyklu (došlo k zacyklení).</p>
 </blockquote>
 <h3><a class="header" href="#Řídící-proměnná" id="Řídící-proměnná">Řídící proměnná</a></h3>
-<p>Často chceme provést v těle cyklu různé příkazy, v závislosti na tom, která iterace se zrovna vykonává.
-K tomu obvykle slouží tzv. <strong>řídící proměnná</strong> (<em>index variable</em>), která udává, v jaké iteraci cyklu
-se nacházíme, a podle ní se poté provede odpovídající operace. Například pokud chceme něco provést
-pouze v první iteraci cyklu, můžeme použít <a href="c/rizeni_toku/podminky.html">podmínku</a>, ve které zkontrolujeme aktuální
-hodnotu řídící proměnné:</p>
+<p>Provést úplně identický kód opakovaně se někdy hodí, ale většinou chceme provést v těle cyklu trochu
+jiné příkazy, v závislosti na tom, která iterace se zrovna vykonává.
+K tomu můžeme použít proměnnou, která si budeme pamatovat, v jaké iteraci cyklu
+se nacházíme, a podle ní se poté provede odpovídající operace. Takováto proměnná se obvykle označuje
+jako <strong>řídící proměnná</strong> (<em>index variable</em>).</p>
+<p>Například pokud chceme něco provést pouze v první iteraci cyklu, můžeme použít
+příkaz <a href="c/rizeni_toku/if.html">if</a> s podmínkou, ve které zkontrolujeme aktuální hodnotu řídící proměnné:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -2107,9 +2629,10 @@ int main() {
 </code></pre>
 <p>Řídící proměnná je zde <code>i</code> - tento název se pro řídící proměnné pro jednoduchost často používá.</p>
 <hr/>
-<p><strong>Cvičení</strong>: Upravte kód výše tak, aby program vypsal <code>Posledni iterace</code> při provádění poslední
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Upravte kód výše tak, aby program vypsal <code>Posledni iterace</code> při provádění poslední
 iterace cyklu. Zkuste poté kód upravit tak, aby fungoval pro libovolný počet iterací (tj.
-ať už bude počet iterací libovolný, kód samotného cyklu musí zůstat stejný).</p>
+ať už bude počet iterací libovolný, kód v těle i podmínce samotného cyklu musí zůstat stejný).</p>
 <hr/>
 <h3><a class="header" href="#Řízení-toku-cyklu" id="Řízení-toku-cyklu">Řízení toku cyklu</a></h3>
 <p>V cyklech můžete využít dva speciální příkazy, které fungují pouze uvnitř těla (bloku kódu) nějakého
@@ -2160,7 +2683,7 @@ int main() {
 <summary>Tip pro návrh cyklů while</summary>
 <p>Příkaz <code>break</code> lze také někdy použít k usnadnění návrhu cyklů. Pokud potřebujete napsat <code>while</code> cyklus
 s nějakou složitou podmínkou ukončení, ze které se vám motá hlava, zkuste nejprve vytvořit &quot;nekonečný&quot;
-cyklus pomocí <code>while (true) { … }</code>, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
+cyklus pomocí <code>while (1) { … }</code>, dále vytvořte tělo cyklu a až nakonec vymyslete podmínku,
 která cyklus ukončí pomocí příkazu <code>break</code>:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
@@ -2180,8 +2703,11 @@ int main() {
 }
 </code></pre>
 <p>Nemusíte tak hned ze začátku vymýšlet výraz pro <code>while</code>, na čemž byste se mohli zaseknout. </p>
-<p>Místo <code>while (true)</code> můžete použít také <code>while (1)</code>, protože <code>1</code> se při převodu na <code>bool</code> převede
-na <code>true</code>.</p>
+<p>Místo <code>while (1)</code> můžete použít také <code>while (true)</code>. Nezapomeňte ale na
+<a href="c/rizeni_toku/../datove_typy/pravdivostni_typy.html">vložení řádku</a></p>
+<pre><code class="language-c">#include &lt;stdbool.h&gt;
+</code></pre>
+<p>na začátek programu!</p>
 </details>
 <h3><a class="header" href="#vnořování-cyklů" id="vnořování-cyklů">Vnořování cyklů</a></h3>
 <p>Stejně jako podmínky, i cykly jsou příkazy, a můžete je tak používat libovolně v blocích <em>C</em> kódu
@@ -2204,6 +2730,7 @@ int main() {
 
         i = i + 1;
     }
+    printf(&quot;Konec programu\n&quot;);
 
     return 0;
 }
@@ -2222,6 +2749,104 @@ while (&lt;výraz typu bool&gt;);
 se má provést další iterace cyklu, vyhodnocuje až na konci cyklu. Tělo cyklu tak bude pokaždé provedeno
 alespoň jednou (i kdyby byl výraz od začátku nepravdivý).</p>
 <p>Pokud pro to nemáte zvláštní důvod, asi není třeba tento typ cyklu používat.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int a = 0;
+    int b = 8;
+
+    while (true) {
+      if (a &gt; 2) {
+        printf(&quot;Hodnota a = %d\n&quot;, a);
+      }
+
+      a = a + 2;
+
+      if (a &gt;= b) {
+        break;
+      }
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>Hodnota a = 4
+Hodnota a = 6
+</code></pre>
+<p>V každé iteraci cyklu se hodnota proměnné <code>a</code> zvýší o dvojku. Pokud je na začátku iterace hodnota
+<code>a</code> větší, než dva, tak se vypíše její hodnota. V čtvrté iteraci cyklu se hodnota proměnné <code>a</code>
+zvýší na osm. Poté příkaz se podmínka příkazu <code>if</code> vyhodnotí jako <code>true</code>, takže se provede příkaz
+<code>break</code>, který provádění cyklu ukončí. Hodnota proměnné <code>a</code> se tak vypíše pouze dvakrát.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    int a = 0;
+    int b = 8;
+
+    while (true) {
+      if (a &gt; 2) {
+        printf(&quot;Hodnota a = %d\n&quot;, a);
+      }
+
+      if (a &gt;= b) {
+        break;
+      }
+      a = a + 2;
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>Hodnota a = 4
+Hodnota a = 6
+Hodnota a = 8
+</code></pre>
+<p>V každé iteraci cyklu se hodnota proměnné <code>a</code> zvýší o dvojku. Pokud je na začátku iterace hodnota
+<code>a</code> větší, než dva, tak se vypíše její hodnota. V páté iteraci cyklu je hodnota proměnné <code>a</code>
+osm, takže se cyklus ukončí příkazem <code>break</code>. Všimněte si rozdílu pořadí příkazu <code>if</code> a zvýšení
+hodnoty proměnné <code>a</code> v tomto a předchozím příkladu.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 0;
+    int b = 6;
+
+    while (a &gt; b) {
+      printf(&quot;Hodnota b = %d\n&quot;, b);
+      b = b + 1;
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program nevypíše nic, protože podmínka <code>a &gt; b</code> se vyhodnotí jako <code>false</code>. Tělo cyklu se tak
+neprovede ani jednou.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#cyklus-for" id="cyklus-for">Cyklus <code>for</code></a></h1>
 <p>V programech velmi často potřebujeme vykonat nějaký blok kódu přesně <code>n</code>-krát:</p>
 <ul>
@@ -2233,11 +2858,11 @@ alespoň jednou (i kdyby byl výraz od začátku nepravdivý).</p>
 protože je k tomu potřeba alespoň tří řádků kódu:</p>
 <ul>
 <li>Inicializace cyklu: vytvoření řídící proměnné, která se bude kontrolovat v cyklu</li>
-<li>Kontrola výrazu: kontrola, jestli už proměnná dosáhla požadované hodnoty</li>
+<li>Kontrola výrazu: kontrola, jestli už řídící proměnná dosáhla požadované hodnoty</li>
 <li>Operace na konci cyklu: změna hodnoty řídící proměnné</li>
 </ul>
-<pre><code class="language-c">int i = 0; // inicializace
-while (i &lt; 10) { // kontrola výrazu
+<pre><code class="language-c">int i = 0; // inicializace řídící proměnné
+while (i &lt; 10) { // kontrola hodnoty řídící proměnné
     // tělo cyklu
     i += 1; // změna hodnoty řídící proměnné
 }
@@ -2262,14 +2887,106 @@ po každé iteraci. Obecná syntaxe tohoto cyklu vypadá takto:</p>
 Pokud je pravdivý, provede se tělo cyklu a program pokračuje bodem 3.</li>
 <li>Provede se příkaz <code>B</code> a program pokračuje bodem 2.</li>
 </ol>
+<blockquote>
+<p>Výraz v příkazu <code>for</code> může chybět, v takovém případě se pokládá automaticky za <code>true</code>. Zároveň platí,
+že středníkem (<code>;</code>) lze vyjádřit tzv. <em>prázdný příkaz</em>, který nic neprovede. Všechny tři části cyklu
+<code>for</code> tak můžou chybět, v tom případě se pak jedná o <a href="c/rizeni_toku/while.html#nekone%C4%8Dn%C3%BD-cyklus">nekonečný cyklus</a>:</p>
+<pre><code class="language-c">for (;;) {
+   ...
+}
+</code></pre>
+</blockquote>
 <hr/>
-<p><strong>Cvičení</strong>:</p>
+<p><strong>Cvičení</strong> 🏋</p>
 <ul>
 <li>Napište program, který pomocí cyklu <code>for</code> na výstup vypíše čísla od 0 do 9 (včetně).</li>
 <li>Vypište na výstup řádek <code>Licha iterace</code> v každé liché iteraci cyklu a řádek <code>Suda iterace</code> v každé
 sudé iteraci tohoto cyklu.</li>
 </ul>
 <hr/>
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5;
+    for (; a &gt;= 0; a = a - 1) {
+       printf(&quot;iterace %d\n&quot;, a);
+    }
+    printf(&quot;a = %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code class="language-c">iterace 5
+iterace 4
+iterace 3
+iterace 2
+iterace 1
+iterace 0
+a = -1
+</code></pre>
+<p>Při poslední iteraci cyklu se hodnota proměnné <code>a</code> zmenší z <code>0</code> na <code>-1</code>, poté už se podmínka cyklu
+vyhodnotí na <code>false</code> a cyklus skončí.</p>
+<p>Všimněte si, že definice a inicializace řídící proměnné je mimo cyklus, jinak bychom k této proměnné
+po ukončení provádění cyklu již neměli přístup. Definice řídící proměnné před cyklem se nám může
+občas hodit, pokud bychom s hodnotou řídící proměnné chtěli pracovat dále za cyklem (například
+abychom zjistili, kolik iterací cyklus provedl).</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    for (int a = 0; a &lt;= 5; a = a + 1) {
+       printf(&quot;iterace %d\n&quot;, a);
+       if (a &lt;= 2) {
+         a = a + 1;
+       }
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code class="language-c">iterace 0
+iterace 2
+iterace 4
+iterace 5
+</code></pre>
+<p>Pokud je při provádění iterace cyklu hodnota <code>a</code> menší nebo rovno dvoum, tak se hodnota <code>a</code> v
+iteraci zvýší o jedničku dvakrát (jednou uvnitř příkazu <code>if</code> a jednou na konci iterace cyklu <code>for</code>).</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    for (int a = 0; a = 5; a = a + 1) {
+       printf(&quot;iterace %d\n&quot;, a);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program program bude neustále vypisovat hodnotu proměnné <code>a</code>, protože výraz <code>a = 5</code> se vyhodnotí
+jako <code>5</code>, a toto číslo se při <a href="c/rizeni_toku/../datove_typy/pravdivostni_typy.html#konverze">převodu</a> na <code>bool</code>
+vyhodnotí jako pravda (<code>true</code>), takže tento cyklus je nekonečný. Záměna přiřazení (<code>=</code>)
+a <code>==</code> (porovnání) je častou <a href="c/rizeni_toku/../../caste_chyby/caste_chyby.html#z%C3%A1m%C4%9Bna--a-">začátečnickou chybou</a>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#funkce" id="funkce">Funkce</a></h1>
 <p>Zatím jsme veškerý kód psali pouze na jedno místo v programu, do <a href="c/funkce/../../ruzne/funkce_main.html">&quot;mainu&quot;</a>.
 Jakmile programy začnou být větší a větší, tak začne také být neustále těžší a těžší se v nich zorientovat
@@ -2391,7 +3108,8 @@ znaky <code>x</code> o straně <code>n</code>.</li>
 na obrazovce na dané pozici pixel s odpovídající barvou.</li>
 </ul>
 <hr />
-<p><strong>Cvičení</strong>: Zkuste naprogramovat funkci <code>vypis_ctverec</code>. Další zadání jednoduchých funkcí naleznete
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Zkuste naprogramovat funkci <code>vypis_ctverec</code>. Další zadání jednoduchých funkcí naleznete
 <a href="c/funkce/../../ulohy/zaklady.html#fibonacciho-%C4%8D%C3%ADslo">zde</a>.</p>
 <hr />
 <h2><a class="header" href="#návratová-hodnota-funkcí" id="návratová-hodnota-funkcí">Návratová hodnota funkcí</a></h2>
@@ -2480,7 +3198,7 @@ stačit číst, co se provádí (která funkce se volá) a ne jak se to provád�
 funkce). Takovýhle kód pak lze číst téměř jako větu v přirozeném jazyce:
 <pre><code class="language-c">int zivot = vrat_zivoty_hrace(id_hrace);
 zivot = zivot - vypocti_zraneni_prisery(id_prisery);
-nastav_zivoty_hrace(id_hrace, zivor);
+nastav_zivoty_hrace(id_hrace, zivot);
 </code></pre>
 </li>
 <li><strong>Sdílení kódu</strong> Pokud budete chtít použít kód, který napsal někdo jiný, tak toho můžete dosáhnout
@@ -2493,6 +3211,19 @@ funkci uvnitř jiné funkce:</p>
     int test() { }
 }
 </code></pre>
+<p>Důležité je ale také to, kam přesně funkci ve zdrojovém kódu umístíte. Abyste mohli nějakou funkci
+zavolat, tak její definice se musí v kódu nacházet nad řádkem, kde funkci voláte. Tento kód tak nebude
+fungovat:</p>
+<pre><code class="language-c">int main() {
+    vypis_text();
+    return 0;
+}
+void vypis_text() {
+    // ...
+}
+</code></pre>
+<p>Proč tomu tak je, a jak lze toto pravidlo obejít, si řekneme
+<a href="c/funkce/../modularizace/pouzivani_kodu_z_jinych_souboru.html#deklarace-vs-definice">později</a>. </p>
 <h2><a class="header" href="#proč-název-funkce" id="proč-název-funkce">Proč název &quot;funkce&quot;?</a></h2>
 <p>Možná vás napadlo, že název funkce zní podobně jako <a href="https://matematika.cz/co-je-to-funkce">funkce</a>
 v matematice. Není to náhoda, funkce v programech se tak opravdu dají částečně chápat – berou nějaký
@@ -2523,7 +3254,251 @@ funkce psát tímto stylem (samozřejmě ne vždy je to možné).</p>
 <p>V předmětu
 <a href="http://behalek.cs.vsb.cz/wiki/index.php/Functional_programming/cs">Funkcionální programování</a>
 budete pracovat s funkcionálními programovacími jazyky, ve kterých je právě většina funkcí čistých.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void zmen_cislo(int cislo) {
+    cislo = 5;
+}
+
+int main() {
+    int cislo = 8;
+    zmen_cislo(cislo);
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>8</code>. Při volání <code>zmen_cislo</code> se uvnitř této funkce vytvoří nová lokální proměnná
+pro parametr <code>cislo</code> a uloží se do ní hodnota z odpovídajícího předaného argumentu. Změna hodnoty
+tohoto parametru uvnitř <code>zmen_cislo</code> nijak neovlivní proměnnou <code>cislo</code> uvnitř funkce <code>main</code>.</p>
+<p>Můžete si to představit tak, že se při zavolání této funkce provedl cca takovýto kód:</p>
+<pre><code class="language-c">{
+  // nastavení parametru
+  int cislo = 8;
+
+  // kód funkce
+  cislo = 5;
+}
+</code></pre>
+<p>To, že se zde parametr jmenuje stejně jako proměnná, kterou předáváme jako argument, nemá žádný
+speciální význam. Funkci jsme mohli klidně zavolat např. takto: <code>zmen_cislo(1 + 9)</code>. Z toho je zřejmé,
+že změna hodnoty parametru nijak neovlivní předaný argument.</p>
+<blockquote>
+<p>Mimochodem, tím, že <code>zmen_cislo</code> nic nevrací a nemá žádný vedlejší efekt, tak v podstatě ani nemá
+žádný smysl. Je to pouze ukázka.</p>
+</blockquote>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void vytvor_promennou() {
+    int x = 5;
+}
+
+int main() {
+    vytvor_promennou();
+    printf(&quot;%d\n&quot;, x);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program se nepřeloží, protože uvnitř funkce <code>main</code> neexistuje proměnná s názvem <code>x</code>.
+Lokální proměnné jsou dostupné pouze v rámci <a href="c/funkce/../promenne/promenne.html#platnost">bloku</a>, ve kterém
+byly nadefinovány. Proměnnou <code>x</code> tak lze použít pouze v kódu uvnitř funkce <code>vytvor_promennou</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void vypis_soucet(int x) {
+    int soucet = x + b;
+    printf(&quot;%d\n&quot;, soucet);
+}
+
+int main() {
+    int a = 5;
+    int b = 8;
+
+    vypis_soucet(a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program se nepřeloží, protože uvnitř funkce <code>vypis_soucet</code> neexistuje proměnná s názvem
+<code>b</code>. Na řádku, kde funkci voláme, sice existuje proměnná <code>b</code> uvnitř funkce <code>main</code>, ale to s tím 
+nijak nesouvisí - co kdybychom <code>vypis_soucet</code> volali z nějakého jiného místa programu, kde
+by žádná proměnná <code>b</code> neexistovala? Funkce má přístup pouze ke svým lokálním proměnným a parametrům
+(případně také ještě ke <a href="c/funkce/../promenne/globalni_promenne.html">globálním</a> proměnným). Pokud chceme
+nějakou hodnotu z jedné funkce použít v jiné funkci, musíme ji předat jako parametr:</p>
+<pre><code class="language-c">void vypis_soucet(int x, int b) {
+    int soucet = x + b;
+    printf(&quot;%d\n&quot;, soucet);
+}
+
+int main() {
+    int a = 5;
+    int b = 8;
+
+    vypis_soucet(a, b);
+
+    return 0;
+}
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int vrat_cislo(int x) {
+    return x;
+}
+
+int main() {
+    int cislo = 5;
+    vrat_cislo(cislo) = 8;
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program se nepřeloží, protože se snažíme provést operaci přiřazení (<code>=</code>), ale na levé straně
+od rovnítka není místo v paměti (např. proměnná), do které bychom mohli hodnotu <code>8</code> zapsat.
+Volání funkce je výraz, který se vyhodnotí jako návratová hodnota, kterou tato funkce vrátí.
+Je to jako bychom napsali toto:</p>
+<pre><code class="language-c">5 = 8;
+</code></pre>
+<p>Což zřejmě nedává smysl, a proto se program nepřeloží.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int umocni(int x) {
+    return x * x;
+}
+
+int main() {
+    int cislo = 5;
+    umocni(cislo);
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>5</code>. Volání funkce <code>umocni</code> sice vrátí hodnotu <code>25</code>, ale tato hodnota se okamžitě
+&quot;zahodí&quot;, protože ji nikam neuložíme. Hodnota proměnné <code>cislo</code> se tak nezmění. Aby program vypsal
+<code>25</code>, tak bychom museli návratovou hodnotu z volání funkce uložit zpět do proměnné <code>cislo</code>:</p>
+<pre><code class="language-c">cislo = umocni(cislo);
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void vypis_cislo(int x) {
+    if (x &lt; 0) {
+        return;
+    }
+    printf(&quot;cislo = %d\n&quot;, x);
+}
+
+int main() {
+    vypis_cislo(1);
+    vypis_cislo(-1);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>cislo = 1</code>. Při volání <code>vypis_cislo(-1)</code> bude splněna podmínka uvnitř <code>vypis_cislo</code>,
+takže dojde k ukončení provádění funkce příkazem <code>return;</code> a nedojde tak k vypsání tohoto
+záporného čísla.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int vypocet(int x) {
+    if (x &gt; 5) {
+        return x + 1;
+    }
+    return x * 2;
+}
+
+int main() {
+    int a = 6;
+    int b = 4;
+    int c = vypocet(vypocet(a) + vypocet(b));
+    printf(&quot;%d\n&quot;, c);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>16</code>. Není zde žádná zrada :) Nejprve se vyhodnotí <code>vypocet(a)</code> na <code>7</code>, poté
+<code>vypocet(b)</code> na <code>8</code>, a poté se zavolá <code>vypocet(7 + 8)</code>, který se vyhodnotí na <code>16</code>. Vyhodnocování
+výrazů a volání funkcí si můžete procvičit <a href="c/funkce/../../ruzne/vyhodnocovani_vyrazu.html">zde</a>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int cislo = 1;
+
+void uprav_promennou() {
+    cislo = 2;
+}
+
+int main() {
+    printf(&quot;%d\n&quot;, cislo);
+    uprav_promennou();
+    printf(&quot;%d\n&quot;, cislo);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>1
+2
+</code></pre>
+<p>Jelikož je proměnná <code>cislo</code> globální, tak k ní mají přístup funkce <code>uprav_promennou</code> i <code>main</code>.
+Změna této proměnné ve funkci <code>uprav_promennou</code> se tedy promítne, když budeme číst hodnotu této
+proměnné ve funkci <code>main</code>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#rekurze" id="rekurze">Rekurze</a></h1>
+<blockquote>
+<p>🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
+a vrátit se k ní později.</p>
+</blockquote>
 <p>Pokud funkce obsahuje volání sama sebe, tak tuto situaci nazýváme <strong>rekurzí</strong> (<em>recursion</em>).
 Pro řešení některých problémů může být přirozené rozdělovat je na čím dál tím menší podproblémy,
 dokud se nedostaneme k podproblému, který je dostatečně jednoduchý, abychom ho vyřešili rovnou.
@@ -2594,7 +3569,9 @@ se speciálními příkazy začínajícími na <code>#</code>.</p>
 <li>Vytváření <a href="c/preprocesor/makra.html">maker</a> (<code>#define</code>)</li>
 </ul>
 <p>Pokud si chcete ověřit, jak vypadá váš zdrojový soubor poté, co jej zpracuje preprocesor, ale předtím,
-než je přeložen na strojové instrukce, můžete k tomu použít tento příkaz:</p>
+než je přeložen na strojové instrukce, můžete k tomu použít tento příkaz<sup class='margin-toggle sidenote-number'>1</sup>:</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Místo <code>main.c</code> doplňte název zdrojového souboru, který chcete zpracovat preprocesorem.</p>
+</span>
 <pre><code class="language-bash">$ gcc -P -E main.c
 </code></pre>
 <h1><a class="header" href="#vkládání-souborů" id="vkládání-souborů">Vkládání souborů</a></h1>
@@ -2615,6 +3592,7 @@ vytvořit vlastní soubory, které lze vkládat, a vytvářet tak <em>C</em> pro
 <p>Zkuste si například tento zdrojový soubor pojmenovat jako <code>main.c</code> a pomocí příkazu <code>gcc -P -E main.c</code>
 v terminálu zjistit, jak vypadá poté, co na něj byl aplikován preprocesor:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
+
 int main() {
     printf(&quot;Hello world\n&quot;);
     return 0;
@@ -2898,7 +3876,7 @@ něco vytisknout na výstup programu.</p>
 podobného:</p>
 <pre><code class="language-c">#include &quot;C:/Users/Kamil/Desktop/upr/muj_soubor.h&quot;
 </code></pre>
-<p>Takovýto program by totiž jistě nefungoval na jiném než vašem počítači. Z kterého adresáře se tato
+<p>Takovýto program by totiž jistě nefungoval na jiném, než vašem počítači. Z kterého adresáře se tato
 relativní cesta vyhodnotí je popsáno níže.</p>
 <h2><a class="header" href="#rozdíl-mezi-include--a-include-" id="rozdíl-mezi-include--a-include-">Rozdíl mezi <code>#include &lt;…&gt;</code> a <code>#include &quot;…&quot;</code></a></h2>
 <p>Rozdíl mezi těmito variantami není pevně definován, nicméně většina preprocesorů (resp. překladačů)
@@ -2910,9 +3888,9 @@ ve kterých jsou uloženy jak soubory standardní knihovny <em>C</em>, tak i dal
 v systému nainstalované. Pouze pokud se zde daný soubor nenalezne, tak se cesta vyhodnotí relativně
 k zdrojovému souboru, ve kterém byl <code>#include</code> použit.</p>
 <p>Seznam systémových cest si můžete vypsat pomocí příkazu <code>echo | gcc -E -Wp,-v -</code> v Linuxovém
-terminálu. Do tohoto seznamu můžete také přidat dodatečné adresáře, když <code>gcc</code> předáte parametr
+terminálu. Do tohoto seznamu můžete také přidat dodatečné adresáře, pokud <code>gcc</code> předáte parametr
 <code>-I</code>. Více se dozvíte v sekci o <a href="c/preprocesor/../modularizace/knihovny.html">knihovnách</a>.</p>
-<p>Pokud soubor, který chcete do vašeho kódu vložit, se nachází v externí knihovně, která nepatří
+<p>Pokud se soubor, který chcete do vašeho kódu vložit, nachází v externí knihovně, která nepatří
 do vašeho projektu, je běžné používat právě <code>#include &lt;&gt;</code>.</p>
 </li>
 <li>
@@ -2994,7 +3972,7 @@ závorkami:</p>
 <pre><code class="language-c">#define MOCNINA(a) (a) * (a)
 </code></pre>
 <p>Pak by zde již došlo k úpravě na <code>printf(&quot;%d\n&quot;, (1 + 1) * (1 + 1));</code>, což vrátí druhou mocninu
-hodnoty <code>1 + 1</code>, tedy <code>4</code>.</p>
+výrazu <code>1 + 1</code>, tedy <code>4</code>.</p>
 </li>
 <li>
 <p><strong>Vedlejší efekty</strong> Pokud mají argumenty předávané do makra nějaké
@@ -3014,10 +3992,6 @@ int main() {
 }
 </code></pre>
 <p>Do maker tak radši nedávejte argumenty, které způsobují vedlejší efekty.</p>
-<hr />
-<p><strong>Cvičení</strong>: Zamyslete se nad tím, jaké hodnoty vypsal program s makrem s vedlejšími efekty výše.
-Zkuste si rozepsat makro a odsimulovat v hlavě běh programu. Dojdete ke stejnému výsledku?</p>
-<hr />
 </li>
 </ul>
 <h2><a class="header" href="#makra-vs-globální-proměnné" id="makra-vs-globální-proměnné">Makra vs globální proměnné</a></h2>
@@ -3048,6 +4022,11 @@ implementaci pro Linux a jinou pro Windows).</p>
 pomocí číselných adres. Prozatím jsme nicméně v našich programech s žádnými adresami explicitně
 nepracovali, pouze jsme vytvářeli proměnné, jejichž paměť byla spravována automaticky. V této sekci
 se dozvíte základy toho, jak tzv. <strong>správa paměti</strong> (<em>memory management</em>) funguje.</p>
+<blockquote>
+<p>Práce s pamětí je asi nejklíčovější částí jazyka <em>C</em>. Je potřeba ji správně pochopit, jinak
+vaše programy nebudou správně fungovat a nebudete schopni odhalit, proč tomu tak je. Věnujte tedy
+této kapitole zvláštní pozornost.</p>
+</blockquote>
 <h2><a class="header" href="#adresní-prostor-programu" id="adresní-prostor-programu">Adresní prostor programu</a></h2>
 <p>Když spustíte svůj program, tak pro něj operační systém vytvoří tzv. <strong>adresní prostor</strong>
 (<em>address space</em>), což je oblast paměti, se kterou program může pracovat.<sup class='margin-toggle sidenote-number'>1</sup> Tato oblast je typicky
@@ -3055,7 +4034,9 @@ rozdělena na několik částí, z nichž každá slouží pro různé typy dat:
 <span class='sidenote'><p><sup class='number'>1</sup>Díky mechanismu
 <a href="https://cs.wikipedia.org/wiki/Virtu%C3%A1ln%C3%AD_pam%C4%9B%C5%A5">virtuální paměti</a> je tento
 prostor soukromý pro váš běžící program - ostatní běžící programy do něj nemají přístup, pokud jim
-to explicitně nepovolíte.</p>
+to explicitně nepovolíte.<br /><br />
+Obrázek adresního prostoru je pouze ilustrativní, různé operační systémy či běhová prostředí mohou
+umísťovat jednotlivé oblasti v adresním prostoru různě.</p>
 </span><div style="display: flex; justify-content: center;">
     <img src="c/prace_s_pameti/../../static/img/address_space.png" alt="Adresní prostor běžícího programu" width="300px" />
 </div>
@@ -3068,8 +4049,9 @@ adresního prostoru popisuje sekce o <a href="c/prace_s_pameti/dynamicka_pamet.h
 <li><strong>Globální data</strong> Tato část obsahuje <a href="c/prace_s_pameti/../promenne/globalni_promenne.html">globální proměnné</a>,
 které žijí po celou dobu běhu programu.</li>
 <li><strong>Instrukce programu</strong> Do této části paměti se při spuštění programu zkopírují jeho instrukce
-ze spustitelného souboru na disku. Procesor poté čte instrukce, které má vykonat, právě z této části
-paměti. Tato paměť je obvykle chráněna proti zápisu a slouží pouze pro čtení.</li>
+ze spustitelného souboru na disku. Nachází se tak v ní přeložený kód
+<a href="c/prace_s_pameti/../funkce/funkce.html">funkcí</a> vašeho programu. Procesor poté čte instrukce, které má vykonat, právě
+z této části paměti. Tato paměť je obvykle chráněna proti zápisu a slouží pouze pro čtení.</li>
 </ul>
 <h1><a class="header" href="#automatická-paměť" id="automatická-paměť">Automatická paměť</a></h1>
 <p>Zatím jsme používali (lokální) proměnné, které vznikají a zanikají uvnitř funkcí. Nemuseli jsme se
@@ -3077,9 +4059,9 @@ tedy nijak starat o to, kde existují v paměti. Lokální proměnné se ukláda
 kterou nazýváme <strong>zásobník</strong> (<em>stack</em>). Každý běžící program má vyhrazen určitou oblast
 adresovatelné paměti, která je použita právě jako zásobník.</p>
 <p>Při každém zavolání funkce vznikne na zásobníku tzv. <strong>zásobníkový rámec</strong> (<em>stack frame</em>).
-V tomto rámci je vyhrazena paměť pro lokální proměnné volané funkce a také pro její
-<a href="c/prace_s_pameti/../funkce/funkce.html#parametrizace-funkc%C3%AD">parametry</a>. Rámec vzniká při každém zavolání funkce, v
-jednu chvíli tak na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů)
+V tomto rámci je vyhrazena (tzv. <strong>naalokována</strong>) paměť pro lokální proměnné volané funkce a také pro
+její <a href="c/prace_s_pameti/../funkce/funkce.html#parametrizace-funkc%C3%AD">parametry</a>. Rámec vzniká při každém zavolání funkce,
+v jednu chvíli tak na zásobníku může existovat více rámců (s různými hodnotami proměnných a parametrů)
 pro stejnou funkci. Rámce vznikají v paměti za sebou, a jsou uvolněny v momentě, kdy se jejich
 funkce dokončí.<sup class='margin-toggle sidenote-number'>1</sup></p>
 <span class='sidenote'><p><sup class='number'>1</sup>Rámce tak mohou vznikat nebo zanikat pouze na konci zásobníku, ne uprostřed. Proto se tato
@@ -3087,26 +4069,55 @@ oblast nazývá zásobník, podle
 <a href="https://cs.wikipedia.org/wiki/Z%C3%A1sobn%C3%ADk_(datov%C3%A1_struktura)">datové struktury</a>, která
 má tuto vlastnost.</p>
 </span>
-<p>Při zavolání funkce se do paměti určené pro jednotlivé parametry v rámci nakopírují hodnoty argumentů
-předaných při volání funkce. Jakmile funkce skončí, tak je rámec, spolu s pamětí lokálních
-proměnných, uvolněn<sup class='margin-toggle sidenote-number'>2</sup>.</p>
+<p>Při zavolání funkce se do paměti určené pro jednotlivé parametry v rámci nakopírují hodnoty předaných
+argumentů. Jakmile funkce skončí, tak je rámec, a tedy i paměť obsahující lokální proměnné a parametry
+dané funkce, uvolněn<sup class='margin-toggle sidenote-number'>2</sup>.</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Uvolnění zde znamená pouze to, že program bude pokládat danou paměť za volnou k dalšímu použití.
 Pokud tak například funkce bude mít lokální proměnnou s hodnotou <code>5</code> a vykonání funkce skončí, tato
 hodnota v paměti zůstane, dokud nebude přepsána příštím zavoláním funkce.</p>
 </span>
 <p>V následující animaci můžete vidět sekvenci volání funkcí. Ve sloupci vpravo je zobrazen stav
-zásobníku při provádění tohoto programu. Modře jsou v něm znázorněny hodnoty parametrů a červeně
-hodnoty lokálních proměnných. Můžete si všimnout, že lokální proměnné mají
+zásobníku při provádění tohoto programu:</p>
+<ul>
+<li>Šedé obdélníky označují zásobníkové rámce.</li>
+<li>Modré obdélníky znázorňují hodnoty parametrů v rámci.</li>
+<li>Červené obdélníky znázorňují hodnoty lokálních proměnných v rámci. Můžete si
+všimnout, že lokální proměnné mají
 <a href="c/prace_s_pameti/../promenne/promenne.html#v%C5%BEdy-inicializujte-prom%C4%9Bnn%C3%A9">nedefinovanou hodnotu</a>, dokud do nich není
-nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.</p>
+nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku provádění funkce.</li>
+<li>Oranžová šipka označuje, který řádek programu je právě prováděn.</li>
+</ul>
+<p>Pomocí šipek v levém horním rohu animace se můžete postupně proklikat průběhem vykonání tohoto programu.
+Uhodnotete, jaké číslo tento program vypíše?</p>
 <div style="height: 450px">
     <upr-slideshow src="../../static/animations/stack/stack-" to="15" extension="png"></upr-slideshow>
 </div>
 <p>V animaci si můžete všimnout, že rámce vždy vznikají a zanikají pouze na konci zásobníku.<sup class='margin-toggle sidenote-number'>3</sup>
-Uhodnete, jaké číslo tento program vypíše?</p>
+Pokud byste si chtěli tento program spustit lokálně, tak jeho zdrojový kód je dostupný níže.</p>
 <span class='sidenote'><p><sup class='number'>3</sup>Z <a href="https://stackoverflow.com/questions/2035568/why-do-stacks-typically-grow-downwards">historických</a>
 důvodů zásobník roste &quot;dolů&quot;, tj. nové rámce se vytvářejí na nižší adrese v paměti.</p>
-</span>
+</span><details>
+<summary>Zdrojový kód programu</summary>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+int fun1(int par) {
+    int res = par * 2;
+    if (res &lt; 50) {
+        return fun1(res);
+    }
+    else { return res; }
+}
+int fun2(int a, int b) {
+    int x = a + b * 2;
+    int y = fun1(x);
+    return x + y;
+}
+int main() {
+    printf(&quot;%d\n&quot;, fun2(5, 6));
+    return 0;
+}
+</code></pre>
+</details>
 <h2><a class="header" href="#výhody-automatické-paměti" id="výhody-automatické-paměti">Výhody automatické paměti</a></h2>
 <p>Používání automatické paměti má značné výhody:</p>
 <ul>
@@ -3125,7 +4136,7 @@ protože automatická paměť má i určité nedostatky:</p>
 </span></li>
 <li>Počet a velikost lokálních proměnných je &quot;zadrátována&quot; do programu během jeho překladu. Nemůžeme
 tak naalokovat paměť s velikostí závislou na vstupu programu. Například pokud uživatel zadá
-číslo <code>n</code> a my bychom chtěli vytvořit paměť pro <code>n</code> čísel, tak nestačí použití zásobníku.</li>
+číslo <code>n</code> a my bychom chtěli vytvořit paměť pro <code>n</code> čísel, tak obvykle nestačí použití zásobníku.</li>
 <li>Paměť lokálních proměnných a parametrů je uvolněna při dokončení provádění funkce. Jediným způsobem,
 jak předat hodnotu z volání funkce, je pomocí návratové hodnoty. Takto lze vrátit pouze jednu
 hodnotu a nelze jednoduše sdílet paměť mezi funkcemi, protože paměť lokálních proměnných je po dokončení
@@ -3148,8 +4159,8 @@ adresami dělat nechceme (například násobení či dělení adres obvykle ned�
 </span>
 <p>Z tohoto důvodu <em>C</em> obsahuje datový typ, který je interpretován jako adresa v paměti běžícího
 programu. Nazývá se <strong>ukazatel</strong> (<em>pointer</em>). Kromě toho, že reprezentuje adresu, tak každý datový
-typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty je uložen v paměti na adrese obsažené
-v ukazateli. Poté říkáme, že ukazatel &quot;ukazuje na&quot; daný datový typ.</p>
+typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty by měl být uložen v paměti na adrese
+obsažené v ukazateli. Poté říkáme, že ukazatel &quot;ukazuje na&quot; daný datový typ.</p>
 <p>Abychom vytvořili datový typ ukazatele, vezmeme datový typ, na který bude ukazovat, a přidáme za něj
 hvezdičku (<code>*</code>). Takto například vypadá proměnná datového typu &quot;ukazatel na <code>int</code>&quot;<sup class='margin-toggle sidenote-number'>2</sup>:</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Je jedno, jestli hvězdičku napíšete k datovému typu (<code>int* p</code>) anebo k názvu proměnné
@@ -3171,12 +4182,12 @@ adresy. Pro procvičení je níže uvedeno několik datových typů spolu s tím
 <li><code>int**</code> - interpretujeme jako adresu, na které je uložena adresa, na které je uloženo celé číslo</li>
 </ul>
 <p>Někdy chceme použít &quot;univerzální&quot; ukazatel, který prostě obsahuje adresu, bez toho, abychom striktně
-určovali, jaká hodnota na dané adrese bude uložena. V tom případě můžeme použít datový typ <code>void*</code>.</p>
+určovali, jak interpretovat hodnotu na dané adrese. V tom případě můžeme použít datový typ <code>void*</code>.</p>
 <blockquote>
-<p>Velikost všech ukazatelů v programu je stejná a je dána použitým operačním systémem a překladačem.
-Ukazatele musí být dostatečně velké, aby zvládly reprezentovat libovolnou adresu, která se v programu
-může vyskytnout. Na vašem počítači to bude nejspíše <strong>8 bytů</strong>, protože pravděpodobně používáte
-64-bitový systém.</p>
+<p>Velikost všech ukazatelů v programu je obvykle stejná a je dána použitým operačním systémem a
+překladačem. Ukazatele musí být dostatečně velké, aby zvládly reprezentovat libovolnou adresu,
+která se v programu může vyskytnout. Na vašem počítači to bude nejspíše <strong>8 bytů</strong>, protože
+pravděpodobně používáte 64-bitový systém.</p>
 </blockquote>
 <h2><a class="header" href="#inicializace-ukazatele" id="inicializace-ukazatele">Inicializace ukazatele</a></h2>
 <p>Jelikož před spuštěním programu nevíme, na jaké adrese budou uloženy hodnoty, které nás budou
@@ -3257,8 +4268,7 @@ hodnoty (<code>*ukazatel</code>) této proměnné z paměti přes adresu uložen
 <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%0A%20%20%20%20printf%28%22%25p%5Cn%22,%20ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=5&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 <p>Pokud chceme do adresy uložené v ukazateli naopak nějakou hodnotu zapsat, tak můžeme operátor
-dereference použít také na levé straně operátoru <a href="c/prace_s_pameti/../promenne/promenne.html#z%C3%A1pis">zápisu</a>.
-Uhodnete, co vypíše tento program?</p>
+dereference použít také na levé straně operátoru <a href="c/prace_s_pameti/../promenne/promenne.html#z%C3%A1pis">zápisu</a>:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -3271,12 +4281,15 @@ int main() {
     return 0;
 }
 </code></pre>
+<p>Tento program vypíše <code>5</code>, protože jsme pomocí ukazatele změnili hodnotu na adrese v paměti, kde leží
+proměnná <code>cislo</code>. Když při výpisu poté načteme hodnotu proměnné <code>cislo</code>, tak už v ní bude upravená
+hodnota.</p>
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
 <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 <p>Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat &quot;pouze&quot; s adresou,
-která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která v paměti leží na adrese
+která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která leží v paměti na adrese
 uložené v ukazateli, musíte použít operátor dereference.</p>
 <blockquote>
 <p>Pozor na rozdíl mezi <code>*</code> používanou pro deklaraci datového typu ukazatel, operátorem dereference
@@ -3337,10 +4350,11 @@ proměnných.</p>
 ukazateli, a pomocí této adresy pak hodnotu proměnné změníme. Takto například můžeme vytvořit funkci,
 která vezme adresy dvou proměnných a prohodí jejich hodnoty:</p>
 <pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
 void vymen(int* a, int* b) {
-    int docasna_hodnota = *a;
-    *a = *b;
-    *b = docasna_hodnota;
+    int docasna_hodnota = *a;  // načti hodnotu na adrese v `a`
+    *a = *b;  // načti hodnotu na adrese v `b` a ulož ji na adresu v `a`
+    *b = docasna_hodnota;  // ulož uloženou hodnotu na adresu v `b`
 }
 int main() {
     int x = 5;
@@ -3414,6 +4428,164 @@ vytvoří ukazatel s názvem <code>x</code>, a dvě celá čísla s názvy <code
 <p>Pokud byste chtěli vytvořit tři ukazatele, musíte dát hvězdičku před každý název proměnné:</p>
 <pre><code class="language-c">int* x, *y, *z;
 </code></pre>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int* p = &amp;a;
+    p = 5;
+
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>2</code>. Přiřazením <code>p = 5</code> změníme adresu uloženou v ukazateli <code>p</code> na <code>5</code>. Touto
+operací se tedy nijak nezmění hodnota proměnné <code>a</code>, jejíž adresu ukazatel před tímto přiřazením
+obsahoval. Aby k tomuto došlo, museli bychom napsat <code>*p = 5</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int b = 3;
+
+    int* p = &amp;a;
+    p = &amp;b;
+
+    *p += 1;
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 2, b = 4</code>. Nejprve jsme sice nastavili ukazatel <code>p</code> na adresu proměnné <code>a</code>,
+ale poté jsme do <code>p</code> zapsali adresu proměnné <code>b</code>. Řádek <code>*p += 1;</code> tak zvedne hodnotu v paměti
+na adrese, kde leží <code>b</code>, o jedničku, jinak řečeno zvýší hodnotu proměnné <code>b</code> o jedničku.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+void zmen_ukazatel(int* p, int a) {
+    p = &amp;a;
+}
+
+int main() {
+    int a = 2;
+    int b = 3;
+
+    int* p = &amp;b;
+    zmen_ukazatel(p, a);
+
+    printf(&quot;%d\n&quot;, *p);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>3</code>. Když předáme argument typu ukazatele do funkce, tak stejně jako u jiných datových
+typů dojde k tomu, že se ve funkci vytvoří nová proměnná a do ní se nakopíruje hodnota argumentu.
+Změna adresy v ukazateli <code>p</code> uvnitř funkce <code>zmen_ukazatel</code> tak neovlivní adresu v ukazateli <code>p</code>
+uvnitř funkce <code>main</code>. A jelikož <code>p</code> v <code>main</code>u ukazuje na proměnnou <code>b</code>, tak dereference tohoto
+ukazatele se vyhodnotí jako hodnota <code>3</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+
+    int* p = &amp;a;
+    *p = 4;
+
+    int b = *p;
+    *p = 8;
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 8, b = 4</code>. Při vytváření proměnné <code>b</code> se hodnota na adrese uložené v ukazateli
+<code>p</code> uloží do <code>b</code>. V danou chvíli je na této adrese uložena hodnota <code>4</code>, proto se do proměnné <code>b</code>
+uloží právě hodnota <code>4</code>. Další změny hodnot na adrese uložené v <code>p</code> už proměnnou <code>b</code> neovlivní.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int* p = &amp;a;
+
+    printf(&quot;%d\n&quot;, p);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože jsme použili
+<a href="c/prace_s_pameti/../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">zástupný znak</a> <code>%d</code>, který slouží k výpisu celých čísel, ale
+předali jsme funkci <code>printf</code> argument <code>p</code>, který je datového typu ukazatel.</p>
+<p>Správně můžeme buď použít zástupný znak <code>%p</code>, abychom vypsali adresu uloženou v ukazateli, nebo
+můžeme použít dereferenci a vypsat hodnotu uloženou na adrese v ukazateli:</p>
+<pre><code class="language-c">printf(&quot;%p\n&quot;, p);
+printf(&quot;%d\n&quot;, *p);
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int b = 3;
+
+    int* p = &amp;a;
+    int** px = &amp;p;
+    *px = &amp;b;
+
+    *p = 8;
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 2, b = 8</code>. Proměnná <code>px</code> je ukazatel na ukazatel na <code>int</code>. Obsahuje adresu,
+kde v paměti leží proměnná <code>p</code>. Pomocí <code>*px</code> změníme hodnotu na této adrese na <code>&amp;b</code>, tj. adresu
+proměnné <code>b</code>. V podstatě je to to stejné, jako kdybychom napsali <code>p = &amp;b</code>.</p>
+<p>Zkuste si na papír nakreslit, jak tento program bude vypadat v paměti, jaké adresy/hodnoty budou
+v jednotlivých proměnných. Výsledek si můžete ověřit <a href="https://pythontutor.com/render.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20a%20%3D%202%3B%0A%20%20%20%20int%20b%20%3D%203%3B%0A%0A%20%20%20%20int*%20p%20%3D%20%26a%3B%0A%20%20%20%20int**%20px%20%3D%20%26p%3B%0A%20%20%20%20*px%20%3D%20%26b%3B%0A%0A%20%20%20%20*p%20%3D%208%3B%0A%0A%20%20%20%20printf%28%22a%20%3D%20%25d,%20b%20%3D%20%25d%5Cn%22,%20a,%20b%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&amp;cumulative=false&amp;curInstr=9&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">touto</a>
+vizualizací.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#ukazatele-na-funkce" id="ukazatele-na-funkce">Ukazatele na funkce</a></h1>
 <blockquote>
 <p>🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit
@@ -3448,7 +4620,7 @@ parametry pojmenovávat. Pokud ale chcete kód učinit přehlednější, můžet
 <pre><code class="language-c">int (*)(int mocnina, int mocnitel); 
 </code></pre>
 <h2><a class="header" href="#použití-v-proměnné" id="použití-v-proměnné">Použití v proměnné</a></h2>
-<p>Pokud chcete vytvořit promměnou (či parametr) datového typu ukazatel na funkce, tak musíte použít
+<p>Pokud chcete vytvořit proměnnou (či parametr) datového typu ukazatel na funkce, tak musíte použít
 speciální syntaxi. Běžně při vytváření proměnné nejprve napíšeme její datový typ a poté její název.
 U ukazatele na funkci se však název proměnné nepíše až za datový typ, ale dovnitř závorek s hvězdičkou.
 Takto lze vytvořit proměnnou s názvem <code>ukazatel1</code>, do které půjde uložit adresu funkcí, které vrací <code>int</code>
@@ -3468,7 +4640,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<p>Signature přiřazené funkce musí odpovídat datovému typu ukazatele, nelze tak například přiřadit
+<p>Signatura přiřazené funkce musí odpovídat datovému typu ukazatele, nelze tak například přiřadit
 funkci, která nic nevrací, do ukazatele, který má signaturu <code>int (*)()</code>.</p>
 <p>Jakmile máme v proměnné ukazatele na funkci uloženou adresu nějaké funkce, můžeme pomocí názvu této
 proměnné danou funkci zavolat.</p>
@@ -3560,14 +4732,14 @@ int main() {
     return 0;
 }
 </code></pre>
-<p>Ukazatele na funkce nám umožňují vytvářet kód, který je více <em>composable</em>, jinak řečeno lze do
-sebe skládat jako kostky Lega a nenutí nás zadrátovat možné způsoby použití dopředu (jako tomu bylo
-v prvním řešení s parametrem <code>int operace</code>).</p>
+<p>Ukazatele na funkce nám umožňují vytvářet kód, který je více <em>composable</em>, jinak řečeno lze jej
+skládat jako kostky Lega a nenutí nás zadrátovat všechny možné způsoby použití dopředu (jako tomu
+bylo v prvním řešení s parametrem <code>int operace</code>).</p>
 <p>Ještě užitečnější jsou ukazatele na funkci v kombinacemi se zpracováním více hodnot pomocí
 <a href="c/prace_s_pameti/../pole/pole.html">polí</a>, kdy můžeme napsat obecnou funkci, která nějak zpracovává pole, a předat jí
 například ukazatel na funkci, která se má zavolat nad každým prvkem v poli. Hodí se také při práci
 se <a href="c/prace_s_pameti/../struktury/struktury.html">strukturami</a>, kdy můžeme do atributu struktury uložit ukazatel na
-funkci a přidat tak individuální chování k různým hodnotám struktur.</p>
+funkci a přidat tak individuální chování k různým hodnotám stejné struktury.</p>
 <h1><a class="header" href="#dynamická-paměť" id="dynamická-paměť">Dynamická paměť</a></h1>
 <p>Už víme, že pomocí <a href="c/prace_s_pameti/automaticka_pamet.html">automatické paměti</a> na zásobníku nemůžeme alokovat
 velké množství paměti a nemůžeme ani alokovat paměť s dynamickou velikostí (závislou na velikosti
@@ -3586,7 +4758,7 @@ alloc</em>), která je dostupná v souboru <code>stdlib.h</code> ze <a href="c/p
 Tato funkce má následující signaturu<sup class='margin-toggle sidenote-number'>1</sup>:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Datový typ <a href="https://devdocs.io/c/types/size_t"><code>size_t</code></a> reprezentuje bezznaménkové
 celé číslo, do kterého by měla jít uložit velikost největší možné hodnoty libovolného typu. Často
-se používá pro indexaci <a href="c/prace_s_pameti/../pole/pole.html">polí</a>.</p>
+se používá pro indexaci <a href="c/prace_s_pameti/../pole/pole.html">polí</a> nebo právě určování velikosti (např. alokací).</p>
 </span>
 <pre><code class="language-c">void* malloc(size_t size);
 </code></pre>
@@ -3623,6 +4795,9 @@ int* naalokuj_pamet() {
 int main() {
     int* pamet = naalokuj_pamet();
     printf(&quot;%d\n&quot;, *pamet);
+
+    free(pamet); // uvolnění paměti, vysvětleno níže
+
     return 0;
 }
 </code></pre>
@@ -3644,7 +4819,7 @@ se mají naalokovat, a velikost každé hodnoty.</p>
 </span>
 <h2><a class="header" href="#uvolnění-paměti" id="uvolnění-paměti">Uvolnění paměti</a></h2>
 <p>S velkou mocí přichází i velká <a href="https://citaty.net/citaty/1957976-stan-lee-s-velkou-moci-prichazi-velka-odpovednost/">zodpovědnost</a>,
-takže při použití dynamické paměti sice máme více možností než při použití automatické paměti
+takže při použití dynamické paměti sice máme více možností, než při použití automatické paměti
 (resp. zásobníku), ale zároveň <strong>MUSÍME</strong> tuto paměť korektně uvolňovat (což se u automatické paměti
 provádělo automaticky). Pokud bychom totiž paměť neustále pouze alokovali a neuvolňovali, tak by nám
 <a href="c/prace_s_pameti/../../caste_chyby/pametove_chyby.html#memory-leak">brzy došla</a>.</p>
@@ -3678,6 +4853,16 @@ Nemusíte se tak omezovat velikostí základních datových typů, můžete nap�
 5 <code>int</code>ů zároveň, které poté budou ležet za sebou v paměti a bude tak jednoduché k nim přistupovat
 v cyklu. Jak tento koncept funguje se dozvíte v sekci o
 <a href="c/prace_s_pameti/../pole/dynamicke_pole.html">dynamických polích</a>.</p>
+<h2><a class="header" href="#kdy-použít-dynamicky-alokovanou-paměť" id="kdy-použít-dynamicky-alokovanou-paměť">Kdy použít dynamicky alokovanou paměť?</a></h2>
+<p>Řiďte se pravidlem, že pokud lze použít <a href="c/prace_s_pameti/automaticka_pamet.html">automatickou paměť</a> na zásobníku,
+tak ji využijte a <code>malloc</code> nepoužívejte. Až v momentě, kdy z nějakého důvodu nebude stačit naalokovat
+paměť na zásobníku, tak se obraťe na <code>malloc</code>.</p>
+<p>Seznam situací, ve kterých se může dynamická paměť hodit, se
+<a href="c/prace_s_pameti/automaticka_pamet.html#nev%C3%BDhody-automatick%C3%A9-pam%C4%9Bti">nachází</a> v sekci o automatické paměti.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<p>Podívejte se na sekci o <a href="c/prace_s_pameti/../../caste_chyby/pametove_chyby.html">paměťových chybách</a> pro příklad toho,
+co všechno se může při práci s dynamickou pamětí a ukazateli pokazit.</p>
 <h1><a class="header" href="#globální-paměť" id="globální-paměť">Globální paměť</a></h1>
 <p>Posledním základním typem paměti je tzv. globální (nazývaná také statická) paměť. Tato paměť je
 specifická tím, že vzniká při spuštění programu a zaniká při jeho ukončení, lze ji tak používat
@@ -3705,7 +4890,7 @@ jednotlivé pixely.</li>
 <p>Asi si dovedete představit, že například pro reprezentaci obrázku bychom si s proměnnými, které jsme
 používali doposud, nevystačili. Pokud bychom po jedné vytvářeli proměnné <code>pixel1</code>, <code>pixel2</code>,
 <code>pixel3</code>, tak by jednak byl náš zdrojový kód obrovský a nedalo by se v něm vyznat, a také bychom
-nemohli mít velikost obrázku závislou na vstupu programu, protože počet proměnných by byl
+nemohli mít velikost obrázku závislou na vstupu programu, protože počet proměnných (pixelů) by byl
 &quot;zadrátovaný&quot; ve zdrojovém kódu programu. Chtěli bychom tak mít možnost napsat kód, který bude umět
 zpracovat 1, 2, 100 nebo třeba 1000 hodnot bez toho, abychom tento kód museli jakkoliv měnit.</p>
 <p>Asi nejběžnějším a nejjednodušším způsobem, jak v paměti počítače uchovávat větší množství hodnot,
@@ -3721,9 +4906,9 @@ nejjednodušších datových struktur.</p>
 reprezentovat <a href="c/pole/vicerozmerne_pole.html">vícerozměrná pole</a>.</p>
 <h1><a class="header" href="#statické-pole" id="statické-pole">Statické pole</a></h1>
 <p>Pole v <a href="c/pole/../prace_s_pameti/automaticka_pamet.html">automatické paměti</a><sup class='margin-toggle sidenote-number'>1</sup> (na zásobníku) se označují
-jako <strong>statická pole</strong> (<em>static arrays</em>). Můžeme je vytvořit tak, že za název proměnné přidáme
-hranaté závorky s číslem udávající počet prvků v poli. Takto například vytvoříme pole celých čísel
-s třemi prvky:</p>
+jako <strong>statická pole</strong> (<em>static arrays</em>). Můžeme je vytvořit tak, že při definici proměnné za její
+název přidáme hranaté závorky s číslem udávajícím počet prvků v poli. Takto například vytvoříme pole
+celých čísel s třemi prvky:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Pole můžete tímto způsobem vytvořit také v
 <a href="c/pole/../prace_s_pameti/globalni_pamet.html">globální paměti</a>, pokud vytvoříte
 <a href="c/pole/../promenne/globalni_promenne.html">globální proměnnou</a> datového typu pole.</p>
@@ -3736,15 +4921,15 @@ s třemi prvky:</p>
 <p>Pozor na to, že hranaté závorky se udávají za název proměnné, a ne za název datového typu.
 <code>int[3] pole;</code> je tedy špatně.</p>
 </blockquote>
-<p>Čísla takového pole budou v paměti uložena jeden za druhým<sup class='margin-toggle sidenote-number'>2</sup>:
+<p>Čísla takového pole budou v paměti uložena jedno za druhým<sup class='margin-toggle sidenote-number'>2</sup>:
 <upr-container>
 <upr-array array='[0, 0, 0]'></upr-array>
 </upr-container></p>
 <span class='sidenote'><p><sup class='number'>2</sup>Každý zelený čtverec na tomto obrázku reprezentuje 4 byty v paměti (velikost jednoho <code>int</code>u).</p>
 </span>
 <p>V jistém smyslu je tak pole pouze zobecněním normální proměnné. Pokud totiž vytvoříte pole o
-velikosti jedna (<code>int a[1]</code>), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
-(<code>int a</code>).</p>
+velikosti jedna (<code>int a[1];</code>), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
+(<code>int a;</code>).</p>
 <blockquote>
 <p>Pole lze vytvořit také na haldě pomocí <a href="c/pole/dynamicke_pole.html">dynamické alokace paměti</a>. Všechny níže
 popsané koncepty jsou platné i pro dynamická pole, nicméně budeme je demonstrovat na statických
@@ -3785,7 +4970,7 @@ muset zvyknout. Jeden z důvodů, proč se prvky počítají právě od nuly, se
 <a href="c/pole/staticke_pole.html#p%C5%99%C3%ADstup-k-prvk%C5%AFm-pole">níže</a>.</p>
 <p>Z tohoto vyplývá jedna důležitá vlastnost - poslední prvek pole je vždy na indexu
 <code>&lt;velikost pole&gt; - 1</code>! Pokud byste se pokusili přistoupit k prvku na indexu <code>&lt;velikost pole&gt;</code>,
-budete přistupovat mimo paměť pole, což pravděpodobně způsobí
+budete přistupovat mimo paměť pole, což způsobí
 <a href="c/pole/../../caste_chyby/pametove_chyby.html">paměťovou chybu</a>.</p>
 <h2><a class="header" href="#inicializace-pole" id="inicializace-pole">Inicializace pole</a></h2>
 <p>Stejně jako u normálních lokálních proměnných
@@ -3848,13 +5033,15 @@ na začátek pole vždy odečíst jedničku, což by bylo nepraktické.</p>
 <p>Jelikož je operace přístupu k poli (&quot;posunutí&quot; ukazatele a jeho dereference) velmi
 běžná (a zároveň relativně krkolomná), <em>C</em> obsahuje speciální operátor, který ji zjednodušuje.
 Tento operátor se nazývá <em>array subscription operator</em> a má syntaxi</p>
-<p><code>&lt;výraz a&gt;[&lt;výraz b&gt;]</code></p>
+<pre><code>&lt;výraz a&gt;[&lt;výraz b&gt;]
+</code></pre>
 <p>Slouží jako zkratka<sup class='margin-toggle sidenote-number'>5</sup> za výraz</p>
 <span class='sidenote'><p><sup class='number'>5</sup>Takovéto &quot;zkratky&quot;, které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
 či zjednoduššují často používané kombinace příkazů, se označují jako
 <a href="https://en.wikipedia.org/wiki/Syntactic_sugar"><strong>syntactic sugar</strong></a>.</p>
 </span>
-<p><code>*(&lt;výraz a&gt; + &lt;výraz b&gt;)</code></p>
+<pre><code>*(&lt;výraz a&gt; + &lt;výraz b&gt;)
+</code></pre>
 <p>Příklad:</p>
 <ul>
 <li><code>pole[0]</code> je ekvivalentní výrazu <code>*(pole + 0)</code></li>
@@ -3955,10 +5142,157 @@ printf(&quot;Pocet prvku v poli: %lu\n&quot;, sizeof(pole) / sizeof(pole[0]));
 statické pole vytváříte! Pokud pole pošlete do jiné funkce, už z něj bude pouze ukazatel, pro který
 <code>sizeof</code> vrátí velikost ukazatele (což bude na vašem PC nejspíše <code>8</code> bytů).</p>
 </blockquote>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 4, 7 };
+    int a = *pole + 1;
+    int b = *(pole + 1);
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 2, b = 4</code>. Jelikož má operátor dereference (<code>*</code>) větší
+<a href="https://en.cppreference.com/w/c/language/operator_precedence">prioritu</a> než operátor sečtení
+(<code>+</code>), tak se do proměnné <code>a</code> uloží hodnota (<code>2</code>). Nejprve se totiž provede výraz <code>*pole</code>, kde
+dojde k dereferenci ukazatele na první prvek pole, čímž vznikne hodnota <code>1</code>, a k ní se poté přičte
+jednička.</p>
+<p>V případě proměnné <code>b</code> se nejprve ukazatel na první prvek pole posune o jeden prvek dopředu, tj.
+na adresu druhého prvku pole, který má hodnotu <code>4</code>. Poté dojde k dereferenci adresy tohoto prvku,
+do proměnné <code>b</code> se tak uloží hodnota <code>4</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+void prijmi_pole(int p[3]) {
+    p[2] += 1;
+}
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+
+    prijmi_pole(pole); 
+
+    printf(&quot;{ %d, %d, %d }\n&quot;, pole[0], pole[1], pole[2]);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>{ 1, 2, 4 }</code>. Při předávání statického pole do funkce dojde pouze k předání
+ukazatele na jeho první prvek (i když má parametr typ <code>int p[3]</code>). Pokud tedy pomocí ukazatele
+<code>p</code> změníme hodnotu třetího prvku pole, tato změna se nám projeví i ve funkci <code>main</code>, protože
+stále pracujeme s tou stejnou pamětí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+    int *p = pole;
+
+    p[1] = 5;
+    pole[0] = 8;
+
+    printf(&quot;%d, %d\n&quot;, *p, pole[1]);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>8, 5</code>. Do ukazatele <code>p</code> jsme si uložili adresu prvního prvku v poli. Pomocí
+<code>p[1]</code> posuneme ukazatel o jeden prvek v paměti &quot;dopředu&quot; (bude tedy ukazovat na druhý prvek pole)
+a rovnou na tuto adresu v paměti zapíšeme hodnotu <code>5</code>. Poté změníme hodnotu prvního prvku pole
+na <code>8</code>. Jelikož <code>p</code> ukazuje na první prvek v poli, tak při jeho dereferenci získáme právě hodnotu
+<code>8</code>. A jelikož jsme předtím pomocí ukazatele <code>p</code> změnili druhý prvek pole na <code>5</code>, tak <code>pole[1]</code>
+také vrátí hodnotu <code>5</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+    printf(&quot;%d\n&quot;, pole);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože jsme použili
+<a href="c/pole/../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">zástupný znak</a> <code>%d</code>, který slouží k výpisu celých čísel, ale
+předali jsme funkci <code>printf</code> argument <code>pole</code>, který je datového typu pole (resp. ukazatel na první
+prvek tohoto pole).</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int p[3] = { 1, 2, 3 };
+    for (int i = 0; i &lt;= 3; i++) {
+        printf(&quot;%d\n&quot;, p[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože jsme přistoupili (dereferencovali)
+paměť mimo rozsah pole! Pole <code>p</code> má pouze tři prvky, nesmíme tedy přistoupit k indexu <code>3</code> či vyššímu,
+což se však v tomto programu stane, protože proměnná <code>i</code> nabývá hodnot <code>0</code>, <code>1</code>, <code>2</code> a <code>3</code>.</p>
+<p>Ať už tento program při konkrétním spuštění vypíše cokoliv, nemá cenu se tím zaobírat. Tento program
+obsahuje paměťovou chybu, která může způsobit pád programu, libovolnou změnu hodnot v paměti nebo
+cokoliv jiného. Chybu musíte nejprve odstranit, jinak program nebude správně fungovat.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+    2[pole] = 5;
+
+    printf(&quot;%d\n&quot;, pole[2]);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>5</code>. I když to vypadá zvláštně, tak jelikož je sčítání komutativní, a operátor
+<code>a[b]</code> je definován jako <code>*(a + b)</code>, tak je jedno, jestli napíšete <code>a[b]</code> nebo <code>b[a]</code>. Takovýto
+zápis je nicméně nestandardní a nepoužívá se, tato úloha pouze měla demonstrovat, že jej takto
+teoreticky použít lze, a že <code>a[b]</code> opravdu není nic jiného, než zkratka za <code>*(a + b)</code>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#dynamické-pole" id="dynamické-pole">Dynamické pole</a></h1>
 <p>Pole alokovaná na zásobníku by měly mít velikost danou při překladu programu, často ale potřebujeme
-vytvářet pole v závislosti na vstupu programu (například když načítáme soubor, tak dopředu nevíme,
-kolik bude mít řádků). Ze sekce o <a href="c/pole/../prace_s_pameti/dynamicka_pamet.html">dynamické paměti</a> již víme,
+vytvářet pole v závislosti na vstupu programu. Například, pokud bychom chtěli vytvořit pole, které
+by obsahovalo všechny řádky souboru, tak dopředu nevíme, kolik těch řádků bude nějaký konkrétní
+soubor mít.</p>
+<p>Ze sekce o <a href="c/pole/../prace_s_pameti/dynamicka_pamet.html">dynamické paměti</a> již víme,
 jak alokovat libovolné množství paměti na haldě pomocí funkce <code>malloc</code>. Pro vytvoření
 <strong>dynamického pole</strong> (<em>dynamic array</em>) tak stačí použít funkci <code>malloc</code>. Například pro vytvoření
 dynamického pole pro <code>5</code> celých čísel potřebujeme naalokovat <code>5 * sizeof(int)</code> bytů:</p>
@@ -3982,7 +5316,8 @@ se nazývá <strong>realokace</strong> (<em>reallocation</em>) a lze jej provés
 <a href="https://devdocs.io/c/memory/realloc"><code>realloc</code></a> ze standardní knihovny <em>C</em>, která to udělá za vás.
 Tato funkce očekává původní adresu alokace z <code>malloc</code>/<code>calloc</code> a počet bytů nové alokace.</p>
 <hr />
-<p><strong>Cvičení</strong>: Zkuste naprogramovat funkci <code>realokace</code>, která obdrží dynamicky naalokované pole
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Zkuste naprogramovat funkci <code>realokace</code>, která obdrží dynamicky naalokované pole
 (tedy ukazatel), jeho původní velikost a novou velikost. Funkce realokuje pole na novou velikost a
 vrátí ukazatel na nově naalokované pole.</p>
 <hr />
@@ -4277,7 +5612,8 @@ int main() {
     return 0;
 }
 </code></pre>
-<p>V takovémto případě se hodnota z literálu překopíruje do proměnné pole znaků na zásobníku.</p>
+<p>V takovémto případě se hodnota z literálu překopíruje do proměnné pole znaků na zásobníku, který již
+lze měnit.</p>
 <blockquote>
 <p>Pokud jsou vám řetězcové literály povědomé, je to kvůli toho, že jsme je již mnohokrát
 využili při volání funkce <code>printf</code>.</p>
@@ -4365,7 +5701,7 @@ být užitečné:</p>
 <li>
 <p><strong>Zjištění délky řetězce</strong>: funkce <a href="https://devdocs.io/c/string/byte/strlen"><code>strlen</code></a> bere jako
 parametr řetězec a vrací jeho délku. Jedná se o jednu z nejčastěji používaných funkcí při práci s
-řetězci a vyplatí se jí tak znát.</p>
+řetězci a vyplatí se ji tak znát.</p>
 <p>Při jejím použití je ovšem nutné si dát pozor na to, že délka provádění této funkce závisí na tom, jak je
 řetězec dlouhý. Pokud bude mít řetězec milion znaků, tak bude tato funkce muset projít všech milion
 znaků, dokud nenarazí na znak <code>NUL</code>. Dávejte si tak pozor, abyste tuto funkci nevolali zbytečně často.
@@ -4422,9 +5758,63 @@ jednodušší na použití, ale při jejím použití nelze zjistit, zdali při 
 </li>
 </ul>
 <hr />
-<p><strong>Cvičení</strong>: Pro procvičení práce s řetězci si můžete zkusit některé z těchto funkcí sami
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Pro procvičení práce s řetězci si můžete zkusit některé z těchto funkcí sami
 naprogramovat. Další úlohy pro práci s řetězci můžete nalézt <a href="c/text/../../ulohy/retezce.html">zde</a>.</p>
 <hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    const char* str = &quot;hello&quot;;
+
+    printf(&quot;%c\n&quot;, str[3]);
+    printf(&quot;%c\n&quot;, str[2]);
+    printf(&quot;%c\n&quot;, str[1]);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>l
+l
+e
+</code></pre>
+<p>Jelikož jsou řetězce poli znaků, tak při přistoupení na nějaký index řetězce získáme hodnotu
+datového typu znak.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    const char* str = &quot;hello&quot;;
+    
+    for (int i = 0; i &lt; 5; i++) {
+        printf(&quot;%c&quot;, str[i] - 32);
+    }
+    printf(&quot;\n&quot;);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>HELLO</code>. Když se podíváte na <a href="https://www.asciitable.com/">ASCII tabulku</a>, tak
+zjistíte, že rozdíl mezi čísly reprezentujícími jednotlivé znaky malé a velké anglické abecedy
+je <code>32</code>, a že znaky malé abecedy jsou reprezentovány vyššími čísly. Když tak např. od <code>'h'</code>
+odečteme hodnotu <code>32</code>, získáme znak <code>'H'</code>. Přehlednější by bylo napsat tuto konverzi jako
+<code>str[i] - ('a' - 'A')</code> nebo použít funkci <a href="https://devdocs.io/c/string/byte/tolower"><code>tolower</code></a>
+ze standardní knihovny jazyka <em>C</em>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#vstup-a-výstup" id="vstup-a-výstup">Vstup a výstup</a></h1>
 <p>Už víme, jak v paměti počítače pracovat s (ASCII) znaky a řetězci. Nyní si ukážeme, jak můžou naše
 programy komunikovat s okolním světem – se <a href="c/text/../soubory/soubory.html">soubory</a> na disku, s terminálem, s
@@ -4457,7 +5847,7 @@ Opět to ale není jediná možnost, <code>stdout</code> může být například
 <pre><code class="language-bash">$ ./program &gt; soubor.txt
 </code></pre>
 <p>Funkce <code>printf</code> posílá svůj výstup právě do deskriptoru <code>stdout</code>.</p>
-<p>Pokud toto nastavení <a href="https://devdocs.io/c/io/setvbuf">nezměníte</a>, tak <code>stdout</code> implicitně používá 
+<p>Pokud to <a href="https://devdocs.io/c/io/setvbuf">nezměníte</a>, tak <code>stdout</code> implicitně používá 
 tzv. <strong>bufferování po řádcích</strong> (<em>line buffering</em>). To znamená, že pokud zapíšete do <code>stdout</code>
 pomocí některé z funkcí standardní knihovny <em>C</em> nějaký text, tak tento text se nejprve zapíše
 do dočasného pole (tzv. <em>bufferu</em>) v paměti. Až jakmile na výstup zapíšete znak odřádkování <code>'\n'</code><sup class='margin-toggle sidenote-number'>1</sup>,
@@ -4608,7 +5998,7 @@ scanf(&quot;%s&quot;, buf);
 <h3><a class="header" href="#zpracování-bílých-znaků" id="zpracování-bílých-znaků">Zpracování bílých znaků</a></h3>
 <p>Funkce <code>scanf</code> ignoruje bílé znaky (mezery, odřádkování, tabulátory atd.) mezi jednotlivými
 zástupnými znaky ve formátovacím řetězci. Například v následujícím kódu je validním vstupem <code>x8</code>,
-<code>x 8</code> i <code>x  8</code>:</p>
+<code>x 8</code> i <code>x   8</code>:</p>
 <pre><code class="language-c">int a;
 scanf(&quot;x%d&quot;, &amp;a);
 </code></pre>
@@ -4637,8 +6027,8 @@ snažila načíst data, která již načetla. Například pokud bychom tomuto pr
 scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
 </code></pre>
 <p>předali text <code>5 asd</code>, tak funkce vrátí hodnotu <code>1</code>, tj. načetla ze vstupu jedno číslo. Nyní ovšem už
-funkci nemůžeme zavolat znovu (jakmile bychom např. ve vstupu přeskočili nevalidní text), protože
-v této chvíli už bychom chtěli načíst pouze jedno číslo. </p>
+funkci nemůžeme zavolat znovu se stejnými parametry (jakmile bychom např. ve vstupu přeskočili nevalidní
+text), protože v tuto chvíli už bychom chtěli načíst pouze jedno číslo. </p>
 <h2><a class="header" href="#parametry-příkazového-řádku" id="parametry-příkazového-řádku">Parametry příkazového řádku</a></h2>
 <p>Další možností, jak předat nějaký vstup vašemu programu, je předat mu parametry při spuštění v
 terminálu:</p>
@@ -4646,16 +6036,92 @@ terminálu:</p>
 </code></pre>
 <p>K těmto předaným řetězcům poté lze přistoupit ve funkci
 <a href="c/text/../../ruzne/funkce_main.html#vstupn%C3%AD-parametry-funkce-main"><code>main</code></a>.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program, pokud na vstup zadáme <code>5</code>?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    scanf(&quot;%d&quot;, a);
+
+    printf(&quot;Hodnota: %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Funkce <code>scanf</code> očekává pro každý zástupný
+znak ve svém formátovacím řetězci další argument, který musí obsahovat <strong>adresu</strong>, do které se
+daná hodnota ze vstupu uloží. Zde místo adresy předáváme do <code>scanf</code> hodnotu číselné proměnné,
+která navíc ani není inicializovaná, takže její předání do funkce je samo o sobě také nedefinovaným
+chováním.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program, pokud na vstup zadáme <code>5</code>?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int* p;
+    scanf(&quot;%d&quot;, p);
+
+    printf(&quot;Hodnota: %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Sice správně do funkce <code>scanf</code> předává adresu
+celého čísla, ale tato adresa je neinicializovaná! Adresy předané funkci <code>scanf</code> po formátovacím
+řetězci jsou výstupnímu argumenty, jinak řečeno do předaných adres budou zapsány hodnoty načtené
+ze vstupu. Musíme tak do funkce předat validní adresu na kus paměti, kde je opravdu uloženo celé
+číslo, což v tomto případě neplatí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program, pokud na vstup zadáme <code>5</code>?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    scanf(&quot;%s&quot;, &amp;a);
+
+    printf(&quot;Hodnota: %d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Sice správně do funkce <code>scanf</code> předává adresu
+proměnné, ale špatného typu. Zástupný znak <code>%s</code> vyžaduje adresu (pole) znaků, zatímco zde předáváme
+adresu celého čísla.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#výstup" id="výstup">Výstup</a></h1>
 <p>Stejně jako pro načítání vstupu, i pro výpis textu na výstup nabízí standardní knihovna <em>C</em> sadu
 užitečných funkcí, opět umístěných v souboru <code>&lt;stdio.h&gt;</code>. Stejně jako u načítání <a href="c/text/vstup.html">vstupu</a>
 bychom i u výstupu měli řešit <a href="c/text/vstupavystup.html#o%C5%A1et%C5%99en%C3%AD-chyb">ošetření chyb</a>. Nicméně, u zápisu to
 (alespoň u malých programů) není až tak nezbytné, protože chyby zápisu jsou vzácnější než chyby při
-vstupu. Zdrojem dat je totiž náš program, a nemusíme tak kontrolovat, jestli jsou data validní.
-Tato povinnost v jistém smyslu přechází na druhou stranu, s kterou náš program komunikuje.</p>
+vstupu. Zdrojem dat je totiž náš program, a nemusíme tedy tak striktně kontrolovat, jestli jsou
+vypsaná data validní. Tato povinnost v jistém smyslu přechází na druhou stranu, s kterou náš program
+komunikuje, protože ta bude námi vypsaná data číst.</p>
 <h2><a class="header" href="#vypsání-znaku" id="vypsání-znaku">Vypsání znaku</a></h2>
 <p>Pro vypsání jednoho znaku na standardní výstup (<code>stdout</code>) můžeme použít funkci
 <a href="https://devdocs.io/c/io/putchar"><code>putchar</code></a>.</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    putchar('x');
+    return 0;
+}
+</code></pre>
 <h2><a class="header" href="#vypsání-řetězce" id="vypsání-řetězce">Vypsání řetězce</a></h2>
 <p>Pro vypsání celého řetězce na <code>stdout</code> můžete použít funkci <a href="https://devdocs.io/c/io/puts"><code>puts</code></a>,
 která zároveň za řetězcem vypíše znak odřádkování <code>\n</code>:</p>
@@ -4710,7 +6176,7 @@ float prisera_poloha_y[100];
 má spoustu nevýhod:</p>
 <ul>
 <li>Pokud bychom například změnili (maximální) počet příšer, museli bychom synchronizovat tuto velikost
-mezi všemi poli, které reprezentují jednotlivé vlastnosti příšer.</li>
+mezi všemi poli, která reprezentují jednotlivé vlastnosti příšer.</li>
 <li>K názvům proměnných musíme přidávat nějakou předponu (např. <code>prisera</code>), abychom dali najevo, že
 tyto proměnné vlastně patří k jednomu logickému prvku (příšeře).</li>
 <li>Pokud bychom chtěli jednu takovou příšeru poslat do funkce, tak by to vyžadovalo spoustu parametrů:
@@ -4848,8 +6314,8 @@ struct Osoba {
 
 int main() {
     struct Osoba martina = { .vek = 18, .pocet_pratel = 10 };
-    martina.vek += 1;
-    martina.pocet_pratel += 20;
+    martina.vek += 1;           // přístup k členu `vek`
+    martina.pocet_pratel += 20; // přístup k členu `pocet_pratel`
     printf(&quot;Martina ma %d let a ma %d pratel\n&quot;, martina.vek, martina.pocet_pratel);
 
     return 0;
@@ -4887,7 +6353,7 @@ int main() {
 odkazovat (původní název datového typu to však nijak neovlivní a můžeme ho stále používat). Opět
 platí, že takto vytvořené jméno lze použít pouze v oblasti (<em>scopu</em>), kde byl <code>typedef</code> použit.
 Obvykle se používá na nejvyšší úrovni souboru. </p>
-<p>U struktur si pomocí <code>typedef</code> můžeme zkrátit jejich název ze <code>struct &lt;nazev&gt;</code> na <code>&lt;nazev&gt;</code>:</p>
+<p>U struktur si pomocí <code>typedef</code> můžeme zkrátit jejich název, typicky ze <code>struct &lt;nazev&gt;</code> na <code>&lt;nazev&gt;</code>:</p>
 <pre><code class="language-c">struct Osoba {
     int vek;
 };
@@ -4949,7 +6415,8 @@ struktuře přímo, můžeme tam uložit pouze jeho adresu<sup class='margin-tog
 <span class='sidenote'><p><sup class='number'>4</sup>Zde si můžete všimnout, že musíme použít <code>struct Osoba</code> pro datový typ členu <code>matka</code>. Je to z
 toho důvodu, že v momentě, kdy tento člen definujeme, tak ještě není platný <code>typedef</code>, ve kterém se
 struktura nachází, takže datový typ <code>Osoba</code> zatím neexistuje. Nové jméno pro datový typ lze používat
-až za středníkem daného <code>typedef</code>u.</p>
+až za středníkem daného <code>typedef</code>u. V tomto případě také nemůžeme vytvořit strukturu jako anonymní,
+ale musíme ji rovnou pojmenovat (<code>typedef struct Osoba ...</code>).</p>
 </span>
 <pre><code class="language-c">typedef struct Osoba {
     int vek;
@@ -4968,7 +6435,7 @@ rozumí počítač (číslo, znak, pravdivostní hodnota).</p>
 <p>Abychom pracovali s ještě vyšší úrovní abstrakce, bylo by užitečné, pokud bychom mohli k
 vlastním datovým typům nadefinovat také vlastní operace, které by s nimi uměly pracovat. Některé
 programovací jazyky umožňují provádět tzv.
-<a href="https://en.wikipedia.org/wiki/Operator_overloading"><strong>přetěžování operátorů</strong></a> (<em>operator overloading</em>),
+<a href="https://en.wikipedia.org/wiki/Operator_overloading">přetěžování operátorů</a> (<em>operator overloading</em>),
 pomocí kterého můžeme například umožnit používání operátorů jako je <code>+</code> s vlastními datovými typy.
 <em>C</em> toto sice neumožňuje, nicméně chování můžeme k námi vytvořeným strukturám přidat pomocí funkcí.</p>
 <p>Často tak k naší struktuře chceme vytvořit sadu funkcí, které s ní budou pracovat. V <em>C</em> pro tento
@@ -5019,7 +6486,7 @@ int main() {
 <p>Pokud vytvoříme vhodné datové typy (struktury) a budeme s nimi pracovat pomocí funkcí, tak by se naše
 programy měly přibližovat k tomu, aby je šlo číst jako plynulý a přehledný text. </p>
 <blockquote>
-<p>Vytváření vlastních datových typů, které mají přidružené chování, je základem tzv.
+<p>Vytváření vlastních datových typů, které mají přidružené chování, je jedním z rysů tzv.
 <a href="https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-2055/01&amp;subjectBlockAssignmentId=375759&amp;studyFormId=2&amp;studyPlanId=22001&amp;locale=cs&amp;back=true">Objektově orientovaného programování</a>.</p>
 </blockquote>
 <h2><a class="header" href="#struktury-jako-návratový-typ-funkce" id="struktury-jako-návratový-typ-funkce">Struktury jako návratový typ funkce</a></h2>
@@ -5033,8 +6500,72 @@ funkce mohou vracet pouze jednu hodnotu:</p>
 Poloha vrat_pocatecni_polohu() { ... }
 </code></pre>
 <hr />
-<p><strong>Cvičení</strong>: Vyzkoušejte si práci se strukturami a funkcemi <a href="c/struktury/../../ulohy/struktury.html">zde</a>.</p>
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Vyzkoušejte si práci se strukturami a funkcemi <a href="c/struktury/../../ulohy/struktury.html">zde</a>.</p>
 <hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int vek;
+} Osoba;
+
+void oslav_narozeniny(Osoba osoba) {
+    osoba.vek += 1;
+}
+
+int main() {
+    Osoba milan = { .vek = 17 };
+    oslav_narozeniny(milan);
+    printf(&quot;Vek Milana: %d\n&quot;, milan.vek);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>Vek Milana: 17</code>. Stejně jako u ostatních datových typů, tak i u struktur platí,
+že při předávání hodnot struktur do funkcí dojde ke kopii předávané hodnoty. Když tedy změníme
+hodnotu členu <code>vek</code> uvntř funkce <code>oslav_narozeniny</code>, nijak se to neprojeví v proměnné <code>milan</code>
+ve funkci <code>main</code>. Abychom strukturu mohli upravit, museli bychom do funkce předat její adresu
+a změnit typ parametru na <code>Osoba* osoba</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+typedef struct {
+    char* jmeno;
+} Osoba;
+
+void uprav_jmeno(Osoba osoba) {
+    osoba.jmeno[0] = 'k';
+}
+
+int main() {
+    char jmeno[] = &quot;Karel&quot;;
+
+    Osoba karel = { .jmeno = jmeno };
+    uprav_jmeno(karel);
+    printf(&quot;Jmeno Karla: %s\n&quot;, karel.jmeno);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>Jmeno Karla: karel</code>. Do funkce <code>uprav_jmeno</code> se sice předá struktura pomocí kopie,
+nicméně uvnitř funkce přistoupíme na adresu uloženou v členu <code>jmeno</code> a změníme hodnotu v paměti
+na této adrese. Jelikož na této adrese leží pole <code>jmeno</code> uvnitř funkce <code>main</code>, a proměnná <code>karel</code>
+obsahuje ukazatel na tu stejnou adresu v paměti, tak se tato změna projeví při výpisu jména proměnné
+<code>karel</code>.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#soubory" id="soubory">Soubory</a></h1>
 <p>V sekci o <a href="c/soubory/../text/vstupavystup.html">vstupu a výstupu</a> jsme si ukázali, jak pracovat se souborovými
 deskriptory <code>stdin</code> a <code>stdout</code> pro základní komunikaci s okolním světem (obvykle s terminálem).
@@ -5056,7 +6587,7 @@ změna přípony tento stav nijak nezmění a soubor se nám tak nejspíše jako
 otevřených souborů <a href="c/soubory/prace_se_soubory.html">zapisovat nebo z nich číst</a> data.</p>
 <h1><a class="header" href="#otevírání-souborů" id="otevírání-souborů">Otevírání souborů</a></h1>
 <p>Abychom mohli s nějakým souborem začít pracovat, musíme ho nejprve v našem programu otevřít, aby
-byl vytvořen souborový deskriptor, do kterého pak můžeme zapisovat či z něho číst data. K tomu slouží
+byl vytvořen souborový deskriptor, do kterého pak můžeme zapisovat či z něj číst data. K tomu slouží
 funkce <a href="https://devdocs.io/c/io/fopen"><code>fopen</code></a>, která má následující
 <a href="c/soubory/../funkce/funkce.html#syntaxe">signaturu</a>:</p>
 <pre><code class="language-c">FILE* fopen(const char* filename, const char* mode);
@@ -5067,8 +6598,7 @@ Cestu můžete zadat dvěma způsoby:</p>
 <ul>
 <li><strong>Absolutní cesta</strong> (<em>absolute path</em>) je cesta, která začíná kořenovým adresářem souborového
 systému, například <code>/home/student/upr/soubor.txt</code><sup class='margin-toggle sidenote-number'>1</sup>. Aby byla cesta absolutní, musí na Linuxu
-začínat dopředným lomítkem.<span class='sidenote'><p><sup class='number'>1</sup>Na Windows by podobná cesta mohla vypadat například jako
-<code>C:\Users\student\upr\soubor.txt</code>.</p>
+začínat dopředným lomítkem.<span class='sidenote'><p><sup class='number'>1</sup>Na Windows by podobná cesta mohla vypadat například takto: <code>C:\Users\student\upr\soubor.txt</code>.</p>
 </span></li>
 <li><strong>Relativní cesta</strong> (<em>relative path</em>) se vyhodnotí relativně k tzv. <strong>pracovnímu adresáři</strong>
 (<em>working directory</em>) běžícího programu. Pokud spustíte váš program z terminálu, tak se pracovní
@@ -5076,11 +6606,12 @@ adresář implicitně nastaví na adresář, ze kterého jste program spustili. 
 váš program z adresáře <code>/home/student/upr</code> a funkci <code>fopen</code> předáte cestu <code>soubor.txt</code>, tak se funkce
 pokusí otevřít soubor na cestě <code>/home/student/upr/soubor.txt</code>.</li>
 </ul>
-<p>Při zadávání cesty můžete využít zkratky <code>.</code> a <code>..</code>, které jsou užitečné zejména u relativních cest:</p>
+<p>Při zadávání cesty můžete využít speciální odkazy <code>.</code> a <code>..</code>, které jsou užitečné zejména u relativních
+cest:</p>
 <ul>
-<li>Zkratka <code>.</code> se odkazuje na současný adresář, <code>./soubor.txt</code> je tedy to samé jako <code>soubor.txt</code>.</li>
-<li>Zkratka <code>..</code> se odkazuje na rodičovský adresář, <code>../data/abc.txt</code> tedy říká:
-<code>Podívej se do rodičovského adresáře, tam nalezni adresář data a v něm soubor abc.txt</code>.</li>
+<li>Odkaz <code>.</code> se odkazuje na současný adresář, <code>./soubor.txt</code> je tedy to samé jako <code>soubor.txt</code>.</li>
+<li>Odkaz <code>..</code> se odkazuje na rodičovský adresář, <code>../data/abc.txt</code> tedy říká:
+<code>Podívej se do rodičovského adresáře, tam vyhledej adresář data a v něm soubor abc.txt</code>.</li>
 </ul>
 <p>Nepokoušejte se však zadávat cesty k neexistujícím adresářům. <code>fopen</code> sice umí vytvořit nový soubor
 (pokud použijete odpovídající <a href="c/soubory/otevirani_souboru.html#m%C3%B3d-otev%C5%99en%C3%AD">mód</a>), neexistující adresář za vás nicméně nevytvoří.</p>
@@ -5106,7 +6637,8 @@ soubor otevřít. Kompletní seznam všech kombinací módů naleznete v
 <p>Při otevírání souboru si musíte rozmyslet, jestli z něj chcete číst, zapisovat do něj nebo provádět
 obojí. Zároveň si musíte určit, jestli chcete soubor vytvořit v případě, že neexistuje, popřípadě
 jestli má být jeho obsah smazán, pokud už existuje. Podle těchto vlastností si pak zvolte odpovídající
-mód otevření souboru.</p>
+mód otevření souboru. Nejběžněji používanými módy jsou <code>&quot;r&quot;</code> pro čtení ze souboru a <code>&quot;w&quot;</code> pro zápis
+do souboru.</p>
 <h3><a class="header" href="#textový-vs-binární-režim" id="textový-vs-binární-režim">Textový vs binární režim</a></h3>
 <p>Pokud použijete jeden ze základních módů, soubor se otevře v tzv. <strong>textovém režimu</strong>. V tomto režimu
 dochází ke konverzi určitých bytů při čtení a zápisu ze souboru. Asi nejdůležitějším znakem, který
@@ -5127,7 +6659,7 @@ na <code>\n</code>. Na Linuxu textový mód v podstatě nic nedělá, protože s
 znak <code>\n</code>.</p>
 <p>Pokud byste však chtěli mít jistotu, že opravdu k žádné konverzi nedojde, a budete zapisovat data,
 která nemají být interpretována jako text, můžete na konec módu přidat znak <code>b</code>. Poté se soubor
-otevře v tzv. <strong>binární režimu</strong>, kde k žádné konverzi nedojde. Mód <code>&quot;rb&quot;</code> tak například říká
+otevře v tzv. <strong>binární režimu</strong>, kde k žádné konverzi nedochází. Mód <code>&quot;rb&quot;</code> tak například říká
 <code>Otevři soubor pro čtení v binárním režimu</code>.</p>
 <blockquote>
 <p>Pokud byste chtěli explicitně říct, že se má použít textový režim, můžete na konec módu přidat
@@ -5151,8 +6683,8 @@ došlo k chybě, tak se do <a href="c/soubory/../promenne/globalni_promenne.html
 K proměnné budete mít přístup, pokud do svého programu <a href="c/soubory/../preprocesor/vkladani_souboru.html">vložíte</a>
 soubor <code>&lt;errno.h&gt;</code>. Pomocí funkce <a href="https://devdocs.io/c/string/byte/strerror"><code>strerror</code></a> ze souboru
 <code>&lt;string.h&gt;</code> pak můžete získat řetězec, který danou chybu popisuje:</p>
-<span class='sidenote'><p><sup class='number'>4</sup>Seznam různých chybových hodnot, které se můžou v <code>errno</code> objevit, můžete naleznout například
-<a href="https://www.thegeekstuff.com/2010/10/linux-error-codes/#optiontable">zde</a>.</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Seznam různých chybových hodnot, které se můžou v <code>errno</code> objevit na operačním systému Linux,
+můžete naleznout například <a href="https://www.thegeekstuff.com/2010/10/linux-error-codes/#optiontable">zde</a>.</p>
 </span>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;errno.h&gt;
@@ -5409,8 +6941,8 @@ zástupný znak ze vstupu.</li>
 </ul>
 <p>Jakmile dojde k chybě, tak bychom ještě měli ověřit, jestli jsme opravdu na konci souboru, anebo
 byla chyba způsobena něčím jiným<sup class='margin-toggle sidenote-number'>3</sup>. To můžeme zjistit pomocí funkcí
-<a href="https://devdocs.io/c/io/feof"><code>feof</code></a>, která vrátí nenulovou hodnotu, pokud jsme se před jejím
-zavoláním pokusili o čtení a <a href="c/soubory/prace_se_soubory.html#pozice-v-souboru">pozice</a> již byla na konci souboru,
+<a href="https://devdocs.io/c/io/feof"><code>feof</code></a>, která vrátí nenulovou hodnotu, pokud jsme se <strong>před jejím
+zavoláním</strong> pokusili o čtení a <a href="c/soubory/prace_se_soubory.html#pozice-v-souboru">pozice</a> již byla na konci souboru,
 a <a href="https://devdocs.io/c/io/ferror"><code>ferror</code></a>, která vrátí nenulovou hodnotu, pokud došlo k nějaké
 jiné chybě při práci se souborem. </p>
 <span class='sidenote'><p><sup class='number'>3</sup>Například pokud čteme soubor z USB flashky, který je během čtení odpojen od počítače.</p>
@@ -5448,6 +6980,49 @@ int main() {
     return 0;
 }
 </code></pre>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program za předpokladu, že v souboru <code>soubor.txt</code> je tento obsah?</p>
+<pre><code>radek1
+radek2
+radek3
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int main() {
+    FILE* soubor = fopen(&quot;soubor.txt&quot;, &quot;r&quot;);
+    assert(soubor);
+
+    char radek[80];
+    while (feof(soubor) == false) {
+        fgets(radek, sizeof(radek), soubor);
+        printf(&quot;Nacteny radek: %s&quot;, radek);
+    }
+
+    fclose(soubor);
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>radek1
+radek2
+radek3
+radek3
+</code></pre>
+<p>Funkce <code>feof</code> vrátí pravdivou hodnotu pouze tehdy, kdy před jejím zavoláním na daném souborovém
+deskriptoru došlo k pokusu o čtení, který selhal z důvodu konce vstupního souboru. Po načtení
+prvních tří řádků tedy <code>feof</code> vrátí <code>false</code>, protože poslední pokus o čtení uspěl. Až v momentě,
+kdy se pokusíme načíst čtvrtý řádek, tak funkce <code>fgets</code> selže a poté <code>feof</code> vrátí <code>true</code>. Jelikož
+ale tento kód nekontroluje návratovou hodnotu funkce <code>fgets</code> a vždy po pokusu o načtení řádku vypíše
+proměnnou <code>radek</code>, tak se poslední řádek souboru vypíše dvakrát.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#modularizace" id="modularizace">Modularizace</a></h1>
 <p>Prozatím byly naše programy tvořeny pouze jedním zdrojovým souborem. Pro krátké programy do pár
 stovek řádků to stačí, nicméně asi si dovedete představit, že programy s tisíce či miliony řádků kódu
@@ -5475,7 +7050,7 @@ upravit celý zbytek programu, což je náročné.</p>
 <p>Abychom tomu předešli, je vhodné učinit jednotlivé části programu samostatné, sdílet z nich se
 zbytkem kódu pouze to, co je opravdu potřeba, a zbytek funkcionality učinit &quot;soukromou&quot; pro daný
 soubor. Změny v těchto soukromých částech pak nemohou ovlivnit zbytek kódu, protože ten na nich
-nebude závislý.</p>
+nebude záviset.</p>
 </li>
 <li>
 <p><strong>Efektivnější spolupráce v týmu</strong> Rozdělení na více souborů také usnadní týmovou spolupráci.
@@ -5577,15 +7152,15 @@ nevýhodu. Pokud bychom překládali celý náš program najednou, při sebemen�
 přeložit všechny soubory znovu. Pokud bychom tak měli obrovský program s tisícem zdrojových souborů
 a změnili jeden znak v jednom souboru, muselo by se všech tisíc souborů přeložit znovu, což může být
 dost pomalé<sup class='margin-toggle sidenote-number'>3</sup>.</p>
-<span class='sidenote'><p><sup class='number'>3</sup>Velké programy v <em>C</em> může trvat přeložit klidně i několik hodin nebo dokonce dnů!</p>
+<span class='sidenote'><p><sup class='number'>3</sup>Velké programy v <em>C</em> může trvat přeložit klidně i několik hodin!</p>
 </span>
 <p>Pokud překládáme každý soubor zvlášť, tak po změně v jednom souboru stačí přeložit daný soubor a znovu
 slinkovat všechny objektové soubory (ty původní můžeme znovuvyužít, protože se nezměnily). To je u
 velkých programů mnohem rychlejší než překládat vše od nuly.</p>
-<p>Navíc pokud bychom se nanučili používat zvlášť překladač a linker, nemohli bychom používat
+<p>Navíc pokud bychom se nenaučili používat zvlášť překladač a linker, nemohli bychom používat
 <a href="c/modularizace/knihovny.html">knihovny</a>, u kterých obvykle nemáme přístup k samotnému zdrojovému kódu, ale pouze k
 již přeloženému objektovému kódu<sup class='margin-toggle sidenote-number'>4</sup>.</p>
-<span class='sidenote'><p><sup class='number'>4</sup>Například proto, aby autor knihovny zatajil původní zdrojový kód, který je jeho duševním
+<span class='sidenote'><p><sup class='number'>4</sup>Například proto, aby autor knihovny &quot;zatajil&quot; původní zdrojový kód, který je jeho duševním
 vlastnictvím.</p>
 </span><h1><a class="header" href="#používání-kódu-z-jiných-souborů" id="používání-kódu-z-jiných-souborů">Používání kódu z jiných souborů</a></h1>
 <p>Nyní už víme, jak přeložit program skládající se z více jednotek překladu (zdrojových souborů) a
@@ -5762,11 +7337,11 @@ ve všech souborech, kde funkci či proměnnou používáme.</p>
 který bude obsahovat deklarace všech sdílených veřejných funkcí a globálních proměnných z daného
 zdrojového souboru. Ve zdrojovém souboru pak budou jejich definice. Dle jmenné konvence se hlavičkový
 soubor pojmenovává jako <code>&lt;název zdrojového souboru&gt;.h</code>:</p>
-<pre><code class="language-c">// soubor.h
+<pre><code class="language-c">// soubor.h (deklarace)
 int moje_funkce();
 extern int moje_promenna;
 
-// soubor.c
+// soubor.c (definice)
 int moje_funkce() {}
 int moje_promenna;
 </code></pre>
@@ -5806,13 +7381,13 @@ inline void moje_funkce() { ... }
 <p>Tímto klíčovým slovem slibujete linkeru, že všechny definice funkce s tímto názvem jsou stejné.
 Pokud tak linker narazí na definici této funkce vícekrát (což nastane, když tento hlavičkový soubor
 bude vložen ve více jednotkách překladu), tak nebude hlásit chybu, ale prostě si jednu z těchto
-definicí vybere. Pokud by definice stejné nebyly, může to vést k dost zvláštnímu chování. Pokuste
+definicí vybere. Pokud by definice stejné nebyly, může to vést k nedefinovanému chování 💣. Pokuste
 se tak <code>inline</code> raději nevyužívat.</p>
 <blockquote>
 <p>U (globálních) proměnných nemá smysl <code>inline</code> používat.</p>
 </blockquote>
 <p>Kromě deklarací funkcí a proměnných se do hlavičkových souborů také běžně vkládají struktury, které
-jsou součástí typů sdílených proměnných či parametrů nebo návratových hodnot sdílených funkcí.</p>
+jsou součástí typů sdílených proměnných či parametrů a návratových hodnot sdílených funkcí.</p>
 <p>Aby mohly zdrojové soubory používat sdílené struktury i sdílené funkce v
 <a href="c/modularizace/pouzivani_kodu_z_jinych_souboru.html#jednopr%C5%AFchodov%C3%BD-p%C5%99eklad">libovolném pořadí</a>, tak obvykle zdrojové
 soubory vkládají svůj vlastní hlavičkový soubor:</p>
@@ -5893,7 +7468,7 @@ a nemusí tolik řešit problémy, které již vyřešila spousta programátorů
 které řeší rozlišné problémy.</p>
 <h2><a class="header" href="#sdílení-knihoven" id="sdílení-knihoven">Sdílení knihoven</a></h2>
 <p>Teoreticky bychom mohli knihovny používat prostě tak, že si nějakou najdeme na internetu, stáhneme
-její hlavičkové a zdrojové soubory k našeho programu a začneme je využívat. I když i tak to lze někdy
+její hlavičkové a zdrojové soubory k našemu programu a začneme je využívat. I když i tak to lze někdy
 udělat, není to obvyklé, protože tento přístup má spoustu nevýhod:</p>
 <ul>
 <li>Jelikož obvykle nebudeme autory knihovny, kterou chceme použít, tak nemusíme ani být schopní
@@ -5924,9 +7499,9 @@ K jejich načtení dojde až &quot;dynamicky&quot; při spuštění programu<sup
 <span class='sidenote'><p><sup class='number'>2</sup>O toto načítání se stará tzv. <a href="https://man7.org/linux/man-pages/man8/ld.so.8.html">dynamický linker</a>.</p>
 </span>
 <p>Výhody tohoto přístupu jsou, že bude mít náš spustitelný soubor menší velikost, a to jak na disku,
-tak v operační paměti. Operační systém totiž dokáže jednu dynamickou knihovnu sdílet mezi více
-programy najednou. Dynamickou knihovnu také půjde aktualizovat bez nutnosti překládat znovu náš
-program a můžeme také při spuštění programu knihovnu
+tak v operační paměti. Operační systémy totiž dokážou stejnou dynamickou knihovnu částečně sdílet
+mezi více běžícími programy najednou. Dynamickou knihovnu také půjde aktualizovat bez nutnosti
+překládat znovu náš program a můžeme také při spuštění programu knihovnu
 <a href="https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick">nahradit jinou implementací</a>.</p>
 <p>Nevýhodou je, že při spuštění našeho programu musíme zajistit, že knihovna bude na daném systému
 k dispozici (pokud by nebyla nalezena, tak program nepůjde spustit). To může způsobovat problémy
@@ -6342,7 +7917,8 @@ souboru a uvolnit její paměť pomocí funkce <code>ge_close_gif</code>:</p>
 použít knihovnu <a href="https://github.com/lecram/gifdec"><code>gifdec</code></a> od stejného autora, která slouží k
 načítání <code>GIF</code> souborů.</p>
 <hr />
-<p><strong>Cvičení</strong>: Zkuste použít knihovnu <code>gifdef</code> pro převod animace z <code>GIF</code> do <code>TGA</code>:</p>
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Zkuste použít knihovnu <code>gifdef</code> pro převod animace z <code>GIF</code> do <code>TGA</code>:</p>
 <ol>
 <li>Načtěte <code>GIF</code> animaci z disku.</li>
 <li>Projděte všechny snímky animace.</li>

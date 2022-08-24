@@ -185,7 +185,7 @@ video {
                     <main>
                         <h1><a class="header" href="#otevírání-souborů" id="otevírání-souborů">Otevírání souborů</a></h1>
 <p>Abychom mohli s nějakým souborem začít pracovat, musíme ho nejprve v našem programu otevřít, aby
-byl vytvořen souborový deskriptor, do kterého pak můžeme zapisovat či z něho číst data. K tomu slouží
+byl vytvořen souborový deskriptor, do kterého pak můžeme zapisovat či z něj číst data. K tomu slouží
 funkce <a href="https://devdocs.io/c/io/fopen"><code>fopen</code></a>, která má následující
 <a href="../funkce/funkce.html#syntaxe">signaturu</a>:</p>
 <pre><code class="language-c">FILE* fopen(const char* filename, const char* mode);
@@ -196,8 +196,7 @@ Cestu můžete zadat dvěma způsoby:</p>
 <ul>
 <li><strong>Absolutní cesta</strong> (<em>absolute path</em>) je cesta, která začíná kořenovým adresářem souborového
 systému, například <code>/home/student/upr/soubor.txt</code><sup class='margin-toggle sidenote-number'>1</sup>. Aby byla cesta absolutní, musí na Linuxu
-začínat dopředným lomítkem.<span class='sidenote'><p><sup class='number'>1</sup>Na Windows by podobná cesta mohla vypadat například jako
-<code>C:\Users\student\upr\soubor.txt</code>.</p>
+začínat dopředným lomítkem.<span class='sidenote'><p><sup class='number'>1</sup>Na Windows by podobná cesta mohla vypadat například takto: <code>C:\Users\student\upr\soubor.txt</code>.</p>
 </span></li>
 <li><strong>Relativní cesta</strong> (<em>relative path</em>) se vyhodnotí relativně k tzv. <strong>pracovnímu adresáři</strong>
 (<em>working directory</em>) běžícího programu. Pokud spustíte váš program z terminálu, tak se pracovní
@@ -205,11 +204,12 @@ adresář implicitně nastaví na adresář, ze kterého jste program spustili. 
 váš program z adresáře <code>/home/student/upr</code> a funkci <code>fopen</code> předáte cestu <code>soubor.txt</code>, tak se funkce
 pokusí otevřít soubor na cestě <code>/home/student/upr/soubor.txt</code>.</li>
 </ul>
-<p>Při zadávání cesty můžete využít zkratky <code>.</code> a <code>..</code>, které jsou užitečné zejména u relativních cest:</p>
+<p>Při zadávání cesty můžete využít speciální odkazy <code>.</code> a <code>..</code>, které jsou užitečné zejména u relativních
+cest:</p>
 <ul>
-<li>Zkratka <code>.</code> se odkazuje na současný adresář, <code>./soubor.txt</code> je tedy to samé jako <code>soubor.txt</code>.</li>
-<li>Zkratka <code>..</code> se odkazuje na rodičovský adresář, <code>../data/abc.txt</code> tedy říká:
-<code>Podívej se do rodičovského adresáře, tam nalezni adresář data a v něm soubor abc.txt</code>.</li>
+<li>Odkaz <code>.</code> se odkazuje na současný adresář, <code>./soubor.txt</code> je tedy to samé jako <code>soubor.txt</code>.</li>
+<li>Odkaz <code>..</code> se odkazuje na rodičovský adresář, <code>../data/abc.txt</code> tedy říká:
+<code>Podívej se do rodičovského adresáře, tam vyhledej adresář data a v něm soubor abc.txt</code>.</li>
 </ul>
 <p>Nepokoušejte se však zadávat cesty k neexistujícím adresářům. <code>fopen</code> sice umí vytvořit nový soubor
 (pokud použijete odpovídající <a href="#m%C3%B3d-otev%C5%99en%C3%AD">mód</a>), neexistující adresář za vás nicméně nevytvoří.</p>
@@ -235,7 +235,8 @@ soubor otevřít. Kompletní seznam všech kombinací módů naleznete v
 <p>Při otevírání souboru si musíte rozmyslet, jestli z něj chcete číst, zapisovat do něj nebo provádět
 obojí. Zároveň si musíte určit, jestli chcete soubor vytvořit v případě, že neexistuje, popřípadě
 jestli má být jeho obsah smazán, pokud už existuje. Podle těchto vlastností si pak zvolte odpovídající
-mód otevření souboru.</p>
+mód otevření souboru. Nejběžněji používanými módy jsou <code>&quot;r&quot;</code> pro čtení ze souboru a <code>&quot;w&quot;</code> pro zápis
+do souboru.</p>
 <h3><a class="header" href="#textový-vs-binární-režim" id="textový-vs-binární-režim">Textový vs binární režim</a></h3>
 <p>Pokud použijete jeden ze základních módů, soubor se otevře v tzv. <strong>textovém režimu</strong>. V tomto režimu
 dochází ke konverzi určitých bytů při čtení a zápisu ze souboru. Asi nejdůležitějším znakem, který
@@ -256,7 +257,7 @@ na <code>\n</code>. Na Linuxu textový mód v podstatě nic nedělá, protože s
 znak <code>\n</code>.</p>
 <p>Pokud byste však chtěli mít jistotu, že opravdu k žádné konverzi nedojde, a budete zapisovat data,
 která nemají být interpretována jako text, můžete na konec módu přidat znak <code>b</code>. Poté se soubor
-otevře v tzv. <strong>binární režimu</strong>, kde k žádné konverzi nedojde. Mód <code>&quot;rb&quot;</code> tak například říká
+otevře v tzv. <strong>binární režimu</strong>, kde k žádné konverzi nedochází. Mód <code>&quot;rb&quot;</code> tak například říká
 <code>Otevři soubor pro čtení v binárním režimu</code>.</p>
 <blockquote>
 <p>Pokud byste chtěli explicitně říct, že se má použít textový režim, můžete na konec módu přidat
@@ -280,8 +281,8 @@ došlo k chybě, tak se do <a href="../promenne/globalni_promenne.html">globáln
 K proměnné budete mít přístup, pokud do svého programu <a href="../preprocesor/vkladani_souboru.html">vložíte</a>
 soubor <code>&lt;errno.h&gt;</code>. Pomocí funkce <a href="https://devdocs.io/c/string/byte/strerror"><code>strerror</code></a> ze souboru
 <code>&lt;string.h&gt;</code> pak můžete získat řetězec, který danou chybu popisuje:</p>
-<span class='sidenote'><p><sup class='number'>4</sup>Seznam různých chybových hodnot, které se můžou v <code>errno</code> objevit, můžete naleznout například
-<a href="https://www.thegeekstuff.com/2010/10/linux-error-codes/#optiontable">zde</a>.</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Seznam různých chybových hodnot, které se můžou v <code>errno</code> objevit na operačním systému Linux,
+můžete naleznout například <a href="https://www.thegeekstuff.com/2010/10/linux-error-codes/#optiontable">zde</a>.</p>
 </span>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;errno.h&gt;

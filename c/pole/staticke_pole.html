@@ -185,9 +185,9 @@ video {
                     <main>
                         <h1><a class="header" href="#statické-pole" id="statické-pole">Statické pole</a></h1>
 <p>Pole v <a href="../prace_s_pameti/automaticka_pamet.html">automatické paměti</a><sup class='margin-toggle sidenote-number'>1</sup> (na zásobníku) se označují
-jako <strong>statická pole</strong> (<em>static arrays</em>). Můžeme je vytvořit tak, že za název proměnné přidáme
-hranaté závorky s číslem udávající počet prvků v poli. Takto například vytvoříme pole celých čísel
-s třemi prvky:</p>
+jako <strong>statická pole</strong> (<em>static arrays</em>). Můžeme je vytvořit tak, že při definici proměnné za její
+název přidáme hranaté závorky s číslem udávajícím počet prvků v poli. Takto například vytvoříme pole
+celých čísel s třemi prvky:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Pole můžete tímto způsobem vytvořit také v
 <a href="../prace_s_pameti/globalni_pamet.html">globální paměti</a>, pokud vytvoříte
 <a href="../promenne/globalni_promenne.html">globální proměnnou</a> datového typu pole.</p>
@@ -200,15 +200,15 @@ s třemi prvky:</p>
 <p>Pozor na to, že hranaté závorky se udávají za název proměnné, a ne za název datového typu.
 <code>int[3] pole;</code> je tedy špatně.</p>
 </blockquote>
-<p>Čísla takového pole budou v paměti uložena jeden za druhým<sup class='margin-toggle sidenote-number'>2</sup>:
+<p>Čísla takového pole budou v paměti uložena jedno za druhým<sup class='margin-toggle sidenote-number'>2</sup>:
 <upr-container>
 <upr-array array='[0, 0, 0]'></upr-array>
 </upr-container></p>
 <span class='sidenote'><p><sup class='number'>2</sup>Každý zelený čtverec na tomto obrázku reprezentuje 4 byty v paměti (velikost jednoho <code>int</code>u).</p>
 </span>
 <p>V jistém smyslu je tak pole pouze zobecněním normální proměnné. Pokud totiž vytvoříte pole o
-velikosti jedna (<code>int a[1]</code>), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
-(<code>int a</code>).</p>
+velikosti jedna (<code>int a[1];</code>), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
+(<code>int a;</code>).</p>
 <blockquote>
 <p>Pole lze vytvořit také na haldě pomocí <a href="dynamicke_pole.html">dynamické alokace paměti</a>. Všechny níže
 popsané koncepty jsou platné i pro dynamická pole, nicméně budeme je demonstrovat na statických
@@ -249,7 +249,7 @@ muset zvyknout. Jeden z důvodů, proč se prvky počítají právě od nuly, se
 <a href="#p%C5%99%C3%ADstup-k-prvk%C5%AFm-pole">níže</a>.</p>
 <p>Z tohoto vyplývá jedna důležitá vlastnost - poslední prvek pole je vždy na indexu
 <code>&lt;velikost pole&gt; - 1</code>! Pokud byste se pokusili přistoupit k prvku na indexu <code>&lt;velikost pole&gt;</code>,
-budete přistupovat mimo paměť pole, což pravděpodobně způsobí
+budete přistupovat mimo paměť pole, což způsobí
 <a href="../../caste_chyby/pametove_chyby.html">paměťovou chybu</a>.</p>
 <h2><a class="header" href="#inicializace-pole" id="inicializace-pole">Inicializace pole</a></h2>
 <p>Stejně jako u normálních lokálních proměnných
@@ -312,13 +312,15 @@ na začátek pole vždy odečíst jedničku, což by bylo nepraktické.</p>
 <p>Jelikož je operace přístupu k poli (&quot;posunutí&quot; ukazatele a jeho dereference) velmi
 běžná (a zároveň relativně krkolomná), <em>C</em> obsahuje speciální operátor, který ji zjednodušuje.
 Tento operátor se nazývá <em>array subscription operator</em> a má syntaxi</p>
-<p><code>&lt;výraz a&gt;[&lt;výraz b&gt;]</code></p>
+<pre><code>&lt;výraz a&gt;[&lt;výraz b&gt;]
+</code></pre>
 <p>Slouží jako zkratka<sup class='margin-toggle sidenote-number'>5</sup> za výraz</p>
 <span class='sidenote'><p><sup class='number'>5</sup>Takovéto &quot;zkratky&quot;, které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
 či zjednoduššují často používané kombinace příkazů, se označují jako
 <a href="https://en.wikipedia.org/wiki/Syntactic_sugar"><strong>syntactic sugar</strong></a>.</p>
 </span>
-<p><code>*(&lt;výraz a&gt; + &lt;výraz b&gt;)</code></p>
+<pre><code>*(&lt;výraz a&gt; + &lt;výraz b&gt;)
+</code></pre>
 <p>Příklad:</p>
 <ul>
 <li><code>pole[0]</code> je ekvivalentní výrazu <code>*(pole + 0)</code></li>
@@ -419,6 +421,151 @@ printf(&quot;Pocet prvku v poli: %lu\n&quot;, sizeof(pole) / sizeof(pole[0]));
 statické pole vytváříte! Pokud pole pošlete do jiné funkce, už z něj bude pouze ukazatel, pro který
 <code>sizeof</code> vrátí velikost ukazatele (což bude na vašem PC nejspíše <code>8</code> bytů).</p>
 </blockquote>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 4, 7 };
+    int a = *pole + 1;
+    int b = *(pole + 1);
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 2, b = 4</code>. Jelikož má operátor dereference (<code>*</code>) větší
+<a href="https://en.cppreference.com/w/c/language/operator_precedence">prioritu</a> než operátor sečtení
+(<code>+</code>), tak se do proměnné <code>a</code> uloží hodnota (<code>2</code>). Nejprve se totiž provede výraz <code>*pole</code>, kde
+dojde k dereferenci ukazatele na první prvek pole, čímž vznikne hodnota <code>1</code>, a k ní se poté přičte
+jednička.</p>
+<p>V případě proměnné <code>b</code> se nejprve ukazatel na první prvek pole posune o jeden prvek dopředu, tj.
+na adresu druhého prvku pole, který má hodnotu <code>4</code>. Poté dojde k dereferenci adresy tohoto prvku,
+do proměnné <code>b</code> se tak uloží hodnota <code>4</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+void prijmi_pole(int p[3]) {
+    p[2] += 1;
+}
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+
+    prijmi_pole(pole); 
+
+    printf(&quot;{ %d, %d, %d }\n&quot;, pole[0], pole[1], pole[2]);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>{ 1, 2, 4 }</code>. Při předávání statického pole do funkce dojde pouze k předání
+ukazatele na jeho první prvek (i když má parametr typ <code>int p[3]</code>). Pokud tedy pomocí ukazatele
+<code>p</code> změníme hodnotu třetího prvku pole, tato změna se nám projeví i ve funkci <code>main</code>, protože
+stále pracujeme s tou stejnou pamětí.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+    int *p = pole;
+
+    p[1] = 5;
+    pole[0] = 8;
+
+    printf(&quot;%d, %d\n&quot;, *p, pole[1]);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>8, 5</code>. Do ukazatele <code>p</code> jsme si uložili adresu prvního prvku v poli. Pomocí
+<code>p[1]</code> posuneme ukazatel o jeden prvek v paměti &quot;dopředu&quot; (bude tedy ukazovat na druhý prvek pole)
+a rovnou na tuto adresu v paměti zapíšeme hodnotu <code>5</code>. Poté změníme hodnotu prvního prvku pole
+na <code>8</code>. Jelikož <code>p</code> ukazuje na první prvek v poli, tak při jeho dereferenci získáme právě hodnotu
+<code>8</code>. A jelikož jsme předtím pomocí ukazatele <code>p</code> změnili druhý prvek pole na <code>5</code>, tak <code>pole[1]</code>
+také vrátí hodnotu <code>5</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+    printf(&quot;%d\n&quot;, pole);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože jsme použili
+<a href="../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">zástupný znak</a> <code>%d</code>, který slouží k výpisu celých čísel, ale
+předali jsme funkci <code>printf</code> argument <code>pole</code>, který je datového typu pole (resp. ukazatel na první
+prvek tohoto pole).</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int p[3] = { 1, 2, 3 };
+    for (int i = 0; i &lt;= 3; i++) {
+        printf(&quot;%d\n&quot;, p[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože jsme přistoupili (dereferencovali)
+paměť mimo rozsah pole! Pole <code>p</code> má pouze tři prvky, nesmíme tedy přistoupit k indexu <code>3</code> či vyššímu,
+což se však v tomto programu stane, protože proměnná <code>i</code> nabývá hodnot <code>0</code>, <code>1</code>, <code>2</code> a <code>3</code>.</p>
+<p>Ať už tento program při konkrétním spuštění vypíše cokoliv, nemá cenu se tím zaobírat. Tento program
+obsahuje paměťovou chybu, která může způsobit pád programu, libovolnou změnu hodnot v paměti nebo
+cokoliv jiného. Chybu musíte nejprve odstranit, jinak program nebude správně fungovat.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int pole[3] = { 1, 2, 3 };
+    2[pole] = 5;
+
+    printf(&quot;%d\n&quot;, pole[2]);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>5</code>. I když to vypadá zvláštně, tak jelikož je sčítání komutativní, a operátor
+<code>a[b]</code> je definován jako <code>*(a + b)</code>, tak je jedno, jestli napíšete <code>a[b]</code> nebo <code>b[a]</code>. Takovýto
+zápis je nicméně nestandardní a nepoužívá se, tato úloha pouze měla demonstrovat, že jej takto
+teoreticky použít lze, a že <code>a[b]</code> opravdu není nic jiného, než zkratka za <code>*(a + b)</code>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

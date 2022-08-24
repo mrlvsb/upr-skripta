@@ -188,6 +188,11 @@ video {
 pomocí číselných adres. Prozatím jsme nicméně v našich programech s žádnými adresami explicitně
 nepracovali, pouze jsme vytvářeli proměnné, jejichž paměť byla spravována automaticky. V této sekci
 se dozvíte základy toho, jak tzv. <strong>správa paměti</strong> (<em>memory management</em>) funguje.</p>
+<blockquote>
+<p>Práce s pamětí je asi nejklíčovější částí jazyka <em>C</em>. Je potřeba ji správně pochopit, jinak
+vaše programy nebudou správně fungovat a nebudete schopni odhalit, proč tomu tak je. Věnujte tedy
+této kapitole zvláštní pozornost.</p>
+</blockquote>
 <h2><a class="header" href="#adresní-prostor-programu" id="adresní-prostor-programu">Adresní prostor programu</a></h2>
 <p>Když spustíte svůj program, tak pro něj operační systém vytvoří tzv. <strong>adresní prostor</strong>
 (<em>address space</em>), což je oblast paměti, se kterou program může pracovat.<sup class='margin-toggle sidenote-number'>1</sup> Tato oblast je typicky
@@ -195,7 +200,9 @@ rozdělena na několik částí, z nichž každá slouží pro různé typy dat:
 <span class='sidenote'><p><sup class='number'>1</sup>Díky mechanismu
 <a href="https://cs.wikipedia.org/wiki/Virtu%C3%A1ln%C3%AD_pam%C4%9B%C5%A5">virtuální paměti</a> je tento
 prostor soukromý pro váš běžící program - ostatní běžící programy do něj nemají přístup, pokud jim
-to explicitně nepovolíte.</p>
+to explicitně nepovolíte.<br /><br />
+Obrázek adresního prostoru je pouze ilustrativní, různé operační systémy či běhová prostředí mohou
+umísťovat jednotlivé oblasti v adresním prostoru různě.</p>
 </span><div style="display: flex; justify-content: center;">
     <img src="../../static/img/address_space.png" alt="Adresní prostor běžícího programu" width="300px" />
 </div>
@@ -208,8 +215,9 @@ adresního prostoru popisuje sekce o <a href="dynamicka_pamet.html">dynamické p
 <li><strong>Globální data</strong> Tato část obsahuje <a href="../promenne/globalni_promenne.html">globální proměnné</a>,
 které žijí po celou dobu běhu programu.</li>
 <li><strong>Instrukce programu</strong> Do této části paměti se při spuštění programu zkopírují jeho instrukce
-ze spustitelného souboru na disku. Procesor poté čte instrukce, které má vykonat, právě z této části
-paměti. Tato paměť je obvykle chráněna proti zápisu a slouží pouze pro čtení.</li>
+ze spustitelného souboru na disku. Nachází se tak v ní přeložený kód
+<a href="../funkce/funkce.html">funkcí</a> vašeho programu. Procesor poté čte instrukce, které má vykonat, právě
+z této části paměti. Tato paměť je obvykle chráněna proti zápisu a slouží pouze pro čtení.</li>
 </ul>
 
                     </main>

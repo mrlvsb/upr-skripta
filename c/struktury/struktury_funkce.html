@@ -191,7 +191,7 @@ rozumí počítač (číslo, znak, pravdivostní hodnota).</p>
 <p>Abychom pracovali s ještě vyšší úrovní abstrakce, bylo by užitečné, pokud bychom mohli k
 vlastním datovým typům nadefinovat také vlastní operace, které by s nimi uměly pracovat. Některé
 programovací jazyky umožňují provádět tzv.
-<a href="https://en.wikipedia.org/wiki/Operator_overloading"><strong>přetěžování operátorů</strong></a> (<em>operator overloading</em>),
+<a href="https://en.wikipedia.org/wiki/Operator_overloading">přetěžování operátorů</a> (<em>operator overloading</em>),
 pomocí kterého můžeme například umožnit používání operátorů jako je <code>+</code> s vlastními datovými typy.
 <em>C</em> toto sice neumožňuje, nicméně chování můžeme k námi vytvořeným strukturám přidat pomocí funkcí.</p>
 <p>Často tak k naší struktuře chceme vytvořit sadu funkcí, které s ní budou pracovat. V <em>C</em> pro tento
@@ -242,7 +242,7 @@ int main() {
 <p>Pokud vytvoříme vhodné datové typy (struktury) a budeme s nimi pracovat pomocí funkcí, tak by se naše
 programy měly přibližovat k tomu, aby je šlo číst jako plynulý a přehledný text. </p>
 <blockquote>
-<p>Vytváření vlastních datových typů, které mají přidružené chování, je základem tzv.
+<p>Vytváření vlastních datových typů, které mají přidružené chování, je jedním z rysů tzv.
 <a href="https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-2055/01&amp;subjectBlockAssignmentId=375759&amp;studyFormId=2&amp;studyPlanId=22001&amp;locale=cs&amp;back=true">Objektově orientovaného programování</a>.</p>
 </blockquote>
 <h2><a class="header" href="#struktury-jako-návratový-typ-funkce" id="struktury-jako-návratový-typ-funkce">Struktury jako návratový typ funkce</a></h2>
@@ -256,8 +256,72 @@ funkce mohou vracet pouze jednu hodnotu:</p>
 Poloha vrat_pocatecni_polohu() { ... }
 </code></pre>
 <hr />
-<p><strong>Cvičení</strong>: Vyzkoušejte si práci se strukturami a funkcemi <a href="../../ulohy/struktury.html">zde</a>.</p>
+<p><strong>Cvičení</strong> 🏋</p>
+<p>Vyzkoušejte si práci se strukturami a funkcemi <a href="../../ulohy/struktury.html">zde</a>.</p>
 <hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int vek;
+} Osoba;
+
+void oslav_narozeniny(Osoba osoba) {
+    osoba.vek += 1;
+}
+
+int main() {
+    Osoba milan = { .vek = 17 };
+    oslav_narozeniny(milan);
+    printf(&quot;Vek Milana: %d\n&quot;, milan.vek);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>Vek Milana: 17</code>. Stejně jako u ostatních datových typů, tak i u struktur platí,
+že při předávání hodnot struktur do funkcí dojde ke kopii předávané hodnoty. Když tedy změníme
+hodnotu členu <code>vek</code> uvntř funkce <code>oslav_narozeniny</code>, nijak se to neprojeví v proměnné <code>milan</code>
+ve funkci <code>main</code>. Abychom strukturu mohli upravit, museli bychom do funkce předat její adresu
+a změnit typ parametru na <code>Osoba* osoba</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+typedef struct {
+    char* jmeno;
+} Osoba;
+
+void uprav_jmeno(Osoba osoba) {
+    osoba.jmeno[0] = 'k';
+}
+
+int main() {
+    char jmeno[] = &quot;Karel&quot;;
+
+    Osoba karel = { .jmeno = jmeno };
+    uprav_jmeno(karel);
+    printf(&quot;Jmeno Karla: %s\n&quot;, karel.jmeno);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>Jmeno Karla: karel</code>. Do funkce <code>uprav_jmeno</code> se sice předá struktura pomocí kopie,
+nicméně uvnitř funkce přistoupíme na adresu uloženou v členu <code>jmeno</code> a změníme hodnotu v paměti
+na této adrese. Jelikož na této adrese leží pole <code>jmeno</code> uvnitř funkce <code>main</code>, a proměnná <code>karel</code>
+obsahuje ukazatel na tu stejnou adresu v paměti, tak se tato změna projeví při výpisu jména proměnné
+<code>karel</code>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

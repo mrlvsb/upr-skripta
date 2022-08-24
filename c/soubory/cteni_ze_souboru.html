@@ -257,8 +257,8 @@ zástupný znak ze vstupu.</li>
 </ul>
 <p>Jakmile dojde k chybě, tak bychom ještě měli ověřit, jestli jsme opravdu na konci souboru, anebo
 byla chyba způsobena něčím jiným<sup class='margin-toggle sidenote-number'>3</sup>. To můžeme zjistit pomocí funkcí
-<a href="https://devdocs.io/c/io/feof"><code>feof</code></a>, která vrátí nenulovou hodnotu, pokud jsme se před jejím
-zavoláním pokusili o čtení a <a href="prace_se_soubory.html#pozice-v-souboru">pozice</a> již byla na konci souboru,
+<a href="https://devdocs.io/c/io/feof"><code>feof</code></a>, která vrátí nenulovou hodnotu, pokud jsme se <strong>před jejím
+zavoláním</strong> pokusili o čtení a <a href="prace_se_soubory.html#pozice-v-souboru">pozice</a> již byla na konci souboru,
 a <a href="https://devdocs.io/c/io/ferror"><code>ferror</code></a>, která vrátí nenulovou hodnotu, pokud došlo k nějaké
 jiné chybě při práci se souborem. </p>
 <span class='sidenote'><p><sup class='number'>3</sup>Například pokud čteme soubor z USB flashky, který je během čtení odpojen od počítače.</p>
@@ -296,6 +296,49 @@ int main() {
     return 0;
 }
 </code></pre>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program za předpokladu, že v souboru <code>soubor.txt</code> je tento obsah?</p>
+<pre><code>radek1
+radek2
+radek3
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int main() {
+    FILE* soubor = fopen(&quot;soubor.txt&quot;, &quot;r&quot;);
+    assert(soubor);
+
+    char radek[80];
+    while (feof(soubor) == false) {
+        fgets(radek, sizeof(radek), soubor);
+        printf(&quot;Nacteny radek: %s&quot;, radek);
+    }
+
+    fclose(soubor);
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše:</p>
+<pre><code>radek1
+radek2
+radek3
+radek3
+</code></pre>
+<p>Funkce <code>feof</code> vrátí pravdivou hodnotu pouze tehdy, kdy před jejím zavoláním na daném souborovém
+deskriptoru došlo k pokusu o čtení, který selhal z důvodu konce vstupního souboru. Po načtení
+prvních tří řádků tedy <code>feof</code> vrátí <code>false</code>, protože poslední pokus o čtení uspěl. Až v momentě,
+kdy se pokusíme načíst čtvrtý řádek, tak funkce <code>fgets</code> selže a poté <code>feof</code> vrátí <code>true</code>. Jelikož
+ale tento kód nekontroluje návratovou hodnotu funkce <code>fgets</code> a vždy po pokusu o načtení řádku vypíše
+proměnnou <code>radek</code>, tak se poslední řádek souboru vypíše dvakrát.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

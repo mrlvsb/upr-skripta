@@ -194,8 +194,8 @@ adresami dělat nechceme (například násobení či dělení adres obvykle ned�
 </span>
 <p>Z tohoto důvodu <em>C</em> obsahuje datový typ, který je interpretován jako adresa v paměti běžícího
 programu. Nazývá se <strong>ukazatel</strong> (<em>pointer</em>). Kromě toho, že reprezentuje adresu, tak každý datový
-typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty je uložen v paměti na adrese obsažené
-v ukazateli. Poté říkáme, že ukazatel &quot;ukazuje na&quot; daný datový typ.</p>
+typ ukazatele také obsahuje informaci o tom, jaký typ hodnoty by měl být uložen v paměti na adrese
+obsažené v ukazateli. Poté říkáme, že ukazatel &quot;ukazuje na&quot; daný datový typ.</p>
 <p>Abychom vytvořili datový typ ukazatele, vezmeme datový typ, na který bude ukazovat, a přidáme za něj
 hvezdičku (<code>*</code>). Takto například vypadá proměnná datového typu &quot;ukazatel na <code>int</code>&quot;<sup class='margin-toggle sidenote-number'>2</sup>:</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Je jedno, jestli hvězdičku napíšete k datovému typu (<code>int* p</code>) anebo k názvu proměnné
@@ -217,12 +217,12 @@ adresy. Pro procvičení je níže uvedeno několik datových typů spolu s tím
 <li><code>int**</code> - interpretujeme jako adresu, na které je uložena adresa, na které je uloženo celé číslo</li>
 </ul>
 <p>Někdy chceme použít &quot;univerzální&quot; ukazatel, který prostě obsahuje adresu, bez toho, abychom striktně
-určovali, jaká hodnota na dané adrese bude uložena. V tom případě můžeme použít datový typ <code>void*</code>.</p>
+určovali, jak interpretovat hodnotu na dané adrese. V tom případě můžeme použít datový typ <code>void*</code>.</p>
 <blockquote>
-<p>Velikost všech ukazatelů v programu je stejná a je dána použitým operačním systémem a překladačem.
-Ukazatele musí být dostatečně velké, aby zvládly reprezentovat libovolnou adresu, která se v programu
-může vyskytnout. Na vašem počítači to bude nejspíše <strong>8 bytů</strong>, protože pravděpodobně používáte
-64-bitový systém.</p>
+<p>Velikost všech ukazatelů v programu je obvykle stejná a je dána použitým operačním systémem a
+překladačem. Ukazatele musí být dostatečně velké, aby zvládly reprezentovat libovolnou adresu,
+která se v programu může vyskytnout. Na vašem počítači to bude nejspíše <strong>8 bytů</strong>, protože
+pravděpodobně používáte 64-bitový systém.</p>
 </blockquote>
 <h2><a class="header" href="#inicializace-ukazatele" id="inicializace-ukazatele">Inicializace ukazatele</a></h2>
 <p>Jelikož před spuštěním programu nevíme, na jaké adrese budou uloženy hodnoty, které nás budou
@@ -303,8 +303,7 @@ hodnoty (<code>*ukazatel</code>) této proměnné z paměti přes adresu uložen
 <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%0A%20%20%20%20printf%28%22%25p%5Cn%22,%20ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=5&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 <p>Pokud chceme do adresy uložené v ukazateli naopak nějakou hodnotu zapsat, tak můžeme operátor
-dereference použít také na levé straně operátoru <a href="../promenne/promenne.html#z%C3%A1pis">zápisu</a>.
-Uhodnete, co vypíše tento program?</p>
+dereference použít také na levé straně operátoru <a href="../promenne/promenne.html#z%C3%A1pis">zápisu</a>:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -317,12 +316,15 @@ int main() {
     return 0;
 }
 </code></pre>
+<p>Tento program vypíše <code>5</code>, protože jsme pomocí ukazatele změnili hodnotu na adrese v paměti, kde leží
+proměnná <code>cislo</code>. Když při výpisu poté načteme hodnotu proměnné <code>cislo</code>, tak už v ní bude upravená
+hodnota.</p>
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
 <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 <p>Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat &quot;pouze&quot; s adresou,
-která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která v paměti leží na adrese
+která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která leží v paměti na adrese
 uložené v ukazateli, musíte použít operátor dereference.</p>
 <blockquote>
 <p>Pozor na rozdíl mezi <code>*</code> používanou pro deklaraci datového typu ukazatel, operátorem dereference
@@ -383,10 +385,11 @@ proměnných.</p>
 ukazateli, a pomocí této adresy pak hodnotu proměnné změníme. Takto například můžeme vytvořit funkci,
 která vezme adresy dvou proměnných a prohodí jejich hodnoty:</p>
 <pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
 void vymen(int* a, int* b) {
-    int docasna_hodnota = *a;
-    *a = *b;
-    *b = docasna_hodnota;
+    int docasna_hodnota = *a;  // načti hodnotu na adrese v `a`
+    *a = *b;  // načti hodnotu na adrese v `b` a ulož ji na adresu v `a`
+    *b = docasna_hodnota;  // ulož uloženou hodnotu na adresu v `b`
 }
 int main() {
     int x = 5;
@@ -460,6 +463,164 @@ vytvoří ukazatel s názvem <code>x</code>, a dvě celá čísla s názvy <code
 <p>Pokud byste chtěli vytvořit tři ukazatele, musíte dát hvězdičku před každý název proměnné:</p>
 <pre><code class="language-c">int* x, *y, *z;
 </code></pre>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int* p = &amp;a;
+    p = 5;
+
+    printf(&quot;%d\n&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>2</code>. Přiřazením <code>p = 5</code> změníme adresu uloženou v ukazateli <code>p</code> na <code>5</code>. Touto
+operací se tedy nijak nezmění hodnota proměnné <code>a</code>, jejíž adresu ukazatel před tímto přiřazením
+obsahoval. Aby k tomuto došlo, museli bychom napsat <code>*p = 5</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int b = 3;
+
+    int* p = &amp;a;
+    p = &amp;b;
+
+    *p += 1;
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 2, b = 4</code>. Nejprve jsme sice nastavili ukazatel <code>p</code> na adresu proměnné <code>a</code>,
+ale poté jsme do <code>p</code> zapsali adresu proměnné <code>b</code>. Řádek <code>*p += 1;</code> tak zvedne hodnotu v paměti
+na adrese, kde leží <code>b</code>, o jedničku, jinak řečeno zvýší hodnotu proměnné <code>b</code> o jedničku.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+void zmen_ukazatel(int* p, int a) {
+    p = &amp;a;
+}
+
+int main() {
+    int a = 2;
+    int b = 3;
+
+    int* p = &amp;b;
+    zmen_ukazatel(p, a);
+
+    printf(&quot;%d\n&quot;, *p);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>3</code>. Když předáme argument typu ukazatele do funkce, tak stejně jako u jiných datových
+typů dojde k tomu, že se ve funkci vytvoří nová proměnná a do ní se nakopíruje hodnota argumentu.
+Změna adresy v ukazateli <code>p</code> uvnitř funkce <code>zmen_ukazatel</code> tak neovlivní adresu v ukazateli <code>p</code>
+uvnitř funkce <code>main</code>. A jelikož <code>p</code> v <code>main</code>u ukazuje na proměnnou <code>b</code>, tak dereference tohoto
+ukazatele se vyhodnotí jako hodnota <code>3</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+
+    int* p = &amp;a;
+    *p = 4;
+
+    int b = *p;
+    *p = 8;
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 8, b = 4</code>. Při vytváření proměnné <code>b</code> se hodnota na adrese uložené v ukazateli
+<code>p</code> uloží do <code>b</code>. V danou chvíli je na této adrese uložena hodnota <code>4</code>, proto se do proměnné <code>b</code>
+uloží právě hodnota <code>4</code>. Další změny hodnot na adrese uložené v <code>p</code> už proměnnou <code>b</code> neovlivní.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int* p = &amp;a;
+
+    printf(&quot;%d\n&quot;, p);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣, protože jsme použili
+<a href="../prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">zástupný znak</a> <code>%d</code>, který slouží k výpisu celých čísel, ale
+předali jsme funkci <code>printf</code> argument <code>p</code>, který je datového typu ukazatel.</p>
+<p>Správně můžeme buď použít zástupný znak <code>%p</code>, abychom vypsali adresu uloženou v ukazateli, nebo
+můžeme použít dereferenci a vypsat hodnotu uloženou na adrese v ukazateli:</p>
+<pre><code class="language-c">printf(&quot;%p\n&quot;, p);
+printf(&quot;%d\n&quot;, *p);
+</code></pre>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 2;
+    int b = 3;
+
+    int* p = &amp;a;
+    int** px = &amp;p;
+    *px = &amp;b;
+
+    *p = 8;
+
+    printf(&quot;a = %d, b = %d\n&quot;, a, b);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>a = 2, b = 8</code>. Proměnná <code>px</code> je ukazatel na ukazatel na <code>int</code>. Obsahuje adresu,
+kde v paměti leží proměnná <code>p</code>. Pomocí <code>*px</code> změníme hodnotu na této adrese na <code>&amp;b</code>, tj. adresu
+proměnné <code>b</code>. V podstatě je to to stejné, jako kdybychom napsali <code>p = &amp;b</code>.</p>
+<p>Zkuste si na papír nakreslit, jak tento program bude vypadat v paměti, jaké adresy/hodnoty budou
+v jednotlivých proměnných. Výsledek si můžete ověřit <a href="https://pythontutor.com/render.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20a%20%3D%202%3B%0A%20%20%20%20int%20b%20%3D%203%3B%0A%0A%20%20%20%20int*%20p%20%3D%20%26a%3B%0A%20%20%20%20int**%20px%20%3D%20%26p%3B%0A%20%20%20%20*px%20%3D%20%26b%3B%0A%0A%20%20%20%20*p%20%3D%208%3B%0A%0A%20%20%20%20printf%28%22a%20%3D%20%25d,%20b%20%3D%20%25d%5Cn%22,%20a,%20b%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&amp;cumulative=false&amp;curInstr=9&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">touto</a>
+vizualizací.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

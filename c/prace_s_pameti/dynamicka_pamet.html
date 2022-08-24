@@ -201,7 +201,7 @@ alloc</em>), která je dostupná v souboru <code>stdlib.h</code> ze <a href="../
 Tato funkce má následující signaturu<sup class='margin-toggle sidenote-number'>1</sup>:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Datový typ <a href="https://devdocs.io/c/types/size_t"><code>size_t</code></a> reprezentuje bezznaménkové
 celé číslo, do kterého by měla jít uložit velikost největší možné hodnoty libovolného typu. Často
-se používá pro indexaci <a href="../pole/pole.html">polí</a>.</p>
+se používá pro indexaci <a href="../pole/pole.html">polí</a> nebo právě určování velikosti (např. alokací).</p>
 </span>
 <pre><code class="language-c">void* malloc(size_t size);
 </code></pre>
@@ -238,6 +238,9 @@ int* naalokuj_pamet() {
 int main() {
     int* pamet = naalokuj_pamet();
     printf(&quot;%d\n&quot;, *pamet);
+
+    free(pamet); // uvolnění paměti, vysvětleno níže
+
     return 0;
 }
 </code></pre>
@@ -259,7 +262,7 @@ se mají naalokovat, a velikost každé hodnoty.</p>
 </span>
 <h2><a class="header" href="#uvolnění-paměti" id="uvolnění-paměti">Uvolnění paměti</a></h2>
 <p>S velkou mocí přichází i velká <a href="https://citaty.net/citaty/1957976-stan-lee-s-velkou-moci-prichazi-velka-odpovednost/">zodpovědnost</a>,
-takže při použití dynamické paměti sice máme více možností než při použití automatické paměti
+takže při použití dynamické paměti sice máme více možností, než při použití automatické paměti
 (resp. zásobníku), ale zároveň <strong>MUSÍME</strong> tuto paměť korektně uvolňovat (což se u automatické paměti
 provádělo automaticky). Pokud bychom totiž paměť neustále pouze alokovali a neuvolňovali, tak by nám
 <a href="../../caste_chyby/pametove_chyby.html#memory-leak">brzy došla</a>.</p>
@@ -293,6 +296,16 @@ Nemusíte se tak omezovat velikostí základních datových typů, můžete nap�
 5 <code>int</code>ů zároveň, které poté budou ležet za sebou v paměti a bude tak jednoduché k nim přistupovat
 v cyklu. Jak tento koncept funguje se dozvíte v sekci o
 <a href="../pole/dynamicke_pole.html">dynamických polích</a>.</p>
+<h2><a class="header" href="#kdy-použít-dynamicky-alokovanou-paměť" id="kdy-použít-dynamicky-alokovanou-paměť">Kdy použít dynamicky alokovanou paměť?</a></h2>
+<p>Řiďte se pravidlem, že pokud lze použít <a href="automaticka_pamet.html">automatickou paměť</a> na zásobníku,
+tak ji využijte a <code>malloc</code> nepoužívejte. Až v momentě, kdy z nějakého důvodu nebude stačit naalokovat
+paměť na zásobníku, tak se obraťe na <code>malloc</code>.</p>
+<p>Seznam situací, ve kterých se může dynamická paměť hodit, se
+<a href="automaticka_pamet.html#nev%C3%BDhody-automatick%C3%A9-pam%C4%9Bti">nachází</a> v sekci o automatické paměti.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<p>Podívejte se na sekci o <a href="../../caste_chyby/pametove_chyby.html">paměťových chybách</a> pro příklad toho,
+co všechno se může při práci s dynamickou pamětí a ukazateli pokazit.</p>
 
                     </main>
 

@@ -208,7 +208,7 @@ a nemusí tolik řešit problémy, které již vyřešila spousta programátorů
 které řeší rozlišné problémy.</p>
 <h2><a class="header" href="#sdílení-knihoven" id="sdílení-knihoven">Sdílení knihoven</a></h2>
 <p>Teoreticky bychom mohli knihovny používat prostě tak, že si nějakou najdeme na internetu, stáhneme
-její hlavičkové a zdrojové soubory k našeho programu a začneme je využívat. I když i tak to lze někdy
+její hlavičkové a zdrojové soubory k našemu programu a začneme je využívat. I když i tak to lze někdy
 udělat, není to obvyklé, protože tento přístup má spoustu nevýhod:</p>
 <ul>
 <li>Jelikož obvykle nebudeme autory knihovny, kterou chceme použít, tak nemusíme ani být schopní
@@ -239,9 +239,9 @@ K jejich načtení dojde až &quot;dynamicky&quot; při spuštění programu<sup
 <span class='sidenote'><p><sup class='number'>2</sup>O toto načítání se stará tzv. <a href="https://man7.org/linux/man-pages/man8/ld.so.8.html">dynamický linker</a>.</p>
 </span>
 <p>Výhody tohoto přístupu jsou, že bude mít náš spustitelný soubor menší velikost, a to jak na disku,
-tak v operační paměti. Operační systém totiž dokáže jednu dynamickou knihovnu sdílet mezi více
-programy najednou. Dynamickou knihovnu také půjde aktualizovat bez nutnosti překládat znovu náš
-program a můžeme také při spuštění programu knihovnu
+tak v operační paměti. Operační systémy totiž dokážou stejnou dynamickou knihovnu částečně sdílet
+mezi více běžícími programy najednou. Dynamickou knihovnu také půjde aktualizovat bez nutnosti
+překládat znovu náš program a můžeme také při spuštění programu knihovnu
 <a href="https://stackoverflow.com/questions/426230/what-is-the-ld-preload-trick">nahradit jinou implementací</a>.</p>
 <p>Nevýhodou je, že při spuštění našeho programu musíme zajistit, že knihovna bude na daném systému
 k dispozici (pokud by nebyla nalezena, tak program nepůjde spustit). To může způsobovat problémy

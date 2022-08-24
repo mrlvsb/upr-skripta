@@ -201,6 +201,7 @@ vytvořit vlastní soubory, které lze vkládat, a vytvářet tak <em>C</em> pro
 <p>Zkuste si například tento zdrojový soubor pojmenovat jako <code>main.c</code> a pomocí příkazu <code>gcc -P -E main.c</code>
 v terminálu zjistit, jak vypadá poté, co na něj byl aplikován preprocesor:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
+
 int main() {
     printf(&quot;Hello world\n&quot;);
     return 0;
@@ -484,7 +485,7 @@ něco vytisknout na výstup programu.</p>
 podobného:</p>
 <pre><code class="language-c">#include &quot;C:/Users/Kamil/Desktop/upr/muj_soubor.h&quot;
 </code></pre>
-<p>Takovýto program by totiž jistě nefungoval na jiném než vašem počítači. Z kterého adresáře se tato
+<p>Takovýto program by totiž jistě nefungoval na jiném, než vašem počítači. Z kterého adresáře se tato
 relativní cesta vyhodnotí je popsáno níže.</p>
 <h2><a class="header" href="#rozdíl-mezi-include--a-include-" id="rozdíl-mezi-include--a-include-">Rozdíl mezi <code>#include &lt;…&gt;</code> a <code>#include &quot;…&quot;</code></a></h2>
 <p>Rozdíl mezi těmito variantami není pevně definován, nicméně většina preprocesorů (resp. překladačů)
@@ -496,9 +497,9 @@ ve kterých jsou uloženy jak soubory standardní knihovny <em>C</em>, tak i dal
 v systému nainstalované. Pouze pokud se zde daný soubor nenalezne, tak se cesta vyhodnotí relativně
 k zdrojovému souboru, ve kterém byl <code>#include</code> použit.</p>
 <p>Seznam systémových cest si můžete vypsat pomocí příkazu <code>echo | gcc -E -Wp,-v -</code> v Linuxovém
-terminálu. Do tohoto seznamu můžete také přidat dodatečné adresáře, když <code>gcc</code> předáte parametr
+terminálu. Do tohoto seznamu můžete také přidat dodatečné adresáře, pokud <code>gcc</code> předáte parametr
 <code>-I</code>. Více se dozvíte v sekci o <a href="../modularizace/knihovny.html">knihovnách</a>.</p>
-<p>Pokud soubor, který chcete do vašeho kódu vložit, se nachází v externí knihovně, která nepatří
+<p>Pokud se soubor, který chcete do vašeho kódu vložit, nachází v externí knihovně, která nepatří
 do vašeho projektu, je běžné používat právě <code>#include &lt;&gt;</code>.</p>
 </li>
 <li>

@@ -210,8 +210,10 @@ byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;
 možných problémových místech ve vašem kódu:</p>
 <pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
 </code></pre>
+<p>Podívejte se také do sekce <a href="../caste_chyby/caste_chyby.html">Časté chyby</a>, kde je seznam často se
+vyskytujících chyb.</p>
 <h3><a class="header" href="#chyby-při-běhu-programu" id="chyby-při-běhu-programu">Chyby při běhu programu</a></h3>
-<p>Pokud váš program padá při běhu, můžete zkusit následující způsoby ladění:</p>
+<p>Pokud váš program tzv. &quot;padá&quot; při běhu, můžete zkusit následující způsoby ladění:</p>
 <h4><a class="header" href="#address-sanitizer" id="address-sanitizer">Address sanitizer</a></h4>
 <p>Tento nástroj modifikuje váš program tak, aby dokázal detekovat značné množství chyb při jeho běhu,
 a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, k jakému problému došlo. </p>
@@ -230,6 +232,11 @@ můžete pak podle výstupu zpětně rekonstruovat, co se při běhu programu d�
 který umí program pozastavit při jeho běhu a zobrazit uživateli, co se v něm děje. Takovéto nástroje se nazývají
 <strong>debuggery</strong>. Při krokování se program zastaví na určitém místě (řádku) v kódu, a programátor pak může
 zkoumat hodnoty proměnných a spouštět program řádek po řádku.</p>
+<blockquote>
+<p>Doporučujeme za začátku používat <strong>krokování</strong> neustále, abyste se naučili, jak se vlastně program
+provádí a lépe tak pochopili, co vykonávají jednotlivé příkazy, které v kódu píšete. Je to také mocný
+nástroj na hledání chyb v programech.</p>
+</blockquote>
 <p>Pro vás je nejjednodušší použít krokování integrované ve VSCode:</p>
 <ul>
 <li>Klikněte na sloupeček vlevo od čísla řádku, na kterém chcete, aby se program zastavil.

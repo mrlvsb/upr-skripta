@@ -190,8 +190,9 @@ video {
 <li>Pošli zprávu každému účastníkovi chatu.</li>
 <li>Načítej řádky ze souboru, dokud nedojdeš na konec souboru.</li>
 </ul>
-<p>Pokud bychom používali pouze sekvenční zápis příkazů, tak bychom museli neustále kopírovat
-(&quot;copy-pastovat&quot;) kód:</p>
+<p>Pokud bychom vždy pouze přidávali nové příkazy pod sebe, tak, jak to zatím známe, abychom nějaký příkaz
+provedli vícekrát, tak by naše programy jednak byly nejspíše dost dlouhé. Nejspíše bychom bychom
+neustále kopírovali (&quot;copy-pastovali&quot;) velmi podobný kód:</p>
 <pre><code class="language-c">printf(&quot;0\n&quot;);
 printf(&quot;1\n&quot;);
 printf(&quot;2\n&quot;);
@@ -204,10 +205,11 @@ opravit na všech místech, kam jsme kód zkopírovali.</p>
 <p>Ani s kopírováním kódu bychom si však nevystačili, pokud bychom potřebovali provádět kód opakovaně
 v závislosti na vstupu programu. Představte si situaci, kdy nám uživatel na vstup programu zadá číslo,
 kolikrát má náš program vypsat nějaký řádek textu na výstup. Uživatel se při každém spuštění programu
-může rozhodnout pro jiné číslo, <code>0</code>, <code>1</code>, <code>42</code>, <code>1000</code>. Program však zůstává stále stejný - při jeho
-psaní se musíme rozhodnout, kolik příkazů pro výpis v něm použijeme, a už poté nemůžeme jednoduše
-tuto volbu změnit, když program běží. Takovýto program bychom tedy zatím (pouze pomocí proměnných a
-podmínek) neměli jak naprogramovat. </p>
+může rozhodnout pro jiné číslo, <code>0</code>, <code>1</code>, <code>42</code>, <code>1000</code>. Program však zůstává stále stejný - už při
+tvorbě (psaní) programu se musíme rozhodnout, kolik příkazů pro výpis do něj vložíme. Poté se program
+<a href="../../prostredi/preklad_programu.html">přeloží</a> na spustitelný soubor a poté už naši volbu nemůžeme
+jednoduše změnit. Takovýto program bychom tedy zatím (pouze pomocí proměnných a podmínek) neměli jak
+naprogramovat. </p>
 <p>Proto programovací jazyky nabízí tzv. <strong>cykly</strong> (<em>loops</em>), pomocí kterých můžeme jednoduše říct
 počítači, aby určitý blok kódu opakoval, kolikrát budeme chtít. Díky tomu může program i s pouze
 několika málo řádky kódu říct počítači, aby provedl spoustu instrukcí. Jazyk <em>C</em> nabízí dva základní

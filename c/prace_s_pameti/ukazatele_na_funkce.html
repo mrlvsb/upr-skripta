@@ -217,7 +217,7 @@ parametry pojmenovávat. Pokud ale chcete kód učinit přehlednější, můžet
 <pre><code class="language-c">int (*)(int mocnina, int mocnitel); 
 </code></pre>
 <h2><a class="header" href="#použití-v-proměnné" id="použití-v-proměnné">Použití v proměnné</a></h2>
-<p>Pokud chcete vytvořit promměnou (či parametr) datového typu ukazatel na funkce, tak musíte použít
+<p>Pokud chcete vytvořit proměnnou (či parametr) datového typu ukazatel na funkce, tak musíte použít
 speciální syntaxi. Běžně při vytváření proměnné nejprve napíšeme její datový typ a poté její název.
 U ukazatele na funkci se však název proměnné nepíše až za datový typ, ale dovnitř závorek s hvězdičkou.
 Takto lze vytvořit proměnnou s názvem <code>ukazatel1</code>, do které půjde uložit adresu funkcí, které vrací <code>int</code>
@@ -237,7 +237,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<p>Signature přiřazené funkce musí odpovídat datovému typu ukazatele, nelze tak například přiřadit
+<p>Signatura přiřazené funkce musí odpovídat datovému typu ukazatele, nelze tak například přiřadit
 funkci, která nic nevrací, do ukazatele, který má signaturu <code>int (*)()</code>.</p>
 <p>Jakmile máme v proměnné ukazatele na funkci uloženou adresu nějaké funkce, můžeme pomocí názvu této
 proměnné danou funkci zavolat.</p>
@@ -329,14 +329,14 @@ int main() {
     return 0;
 }
 </code></pre>
-<p>Ukazatele na funkce nám umožňují vytvářet kód, který je více <em>composable</em>, jinak řečeno lze do
-sebe skládat jako kostky Lega a nenutí nás zadrátovat možné způsoby použití dopředu (jako tomu bylo
-v prvním řešení s parametrem <code>int operace</code>).</p>
+<p>Ukazatele na funkce nám umožňují vytvářet kód, který je více <em>composable</em>, jinak řečeno lze jej
+skládat jako kostky Lega a nenutí nás zadrátovat všechny možné způsoby použití dopředu (jako tomu
+bylo v prvním řešení s parametrem <code>int operace</code>).</p>
 <p>Ještě užitečnější jsou ukazatele na funkci v kombinacemi se zpracováním více hodnot pomocí
 <a href="../pole/pole.html">polí</a>, kdy můžeme napsat obecnou funkci, která nějak zpracovává pole, a předat jí
 například ukazatel na funkci, která se má zavolat nad každým prvkem v poli. Hodí se také při práci
 se <a href="../struktury/struktury.html">strukturami</a>, kdy můžeme do atributu struktury uložit ukazatel na
-funkci a přidat tak individuální chování k různým hodnotám struktur.</p>
+funkci a přidat tak individuální chování k různým hodnotám stejné struktury.</p>
 
                     </main>
 

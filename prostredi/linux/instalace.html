@@ -184,12 +184,12 @@ video {
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#instalace-linuxu" id="instalace-linuxu">Instalace Linuxu</a></h1>
-<p>Pokud používáte operační systém Windows, tak pro použití Linuxu můžete využít jeden z následujících
+<p>Pokud používáte operační systém Windows, tak pro použití Linuxu můžete využít jednu z následujících
 tří možností.</p>
 <blockquote>
 <p>Linux není pouze jeden operační systém, ale pouze tzv. <strong>jádro</strong> (<em>kernel</em>) operačního systému,
 nad kterým vznikají tzv. <em>distribuce</em>, které se liší ve vizuální stránce, způsobu ovládání, správě
-softwarových balíčků atd. Jednou z nejrozšířenějších a zároveň nejpoužívanějších distribucí Linuxu
+softwarových balíčků atd. Jednou z nejpoužívanějších a také nejjednodušší distribucí Linuxu
 je <strong>Ubuntu</strong>. Při instalaci Linuxu vám tak doporučujeme použít právě tuto distribuci.</p>
 </blockquote>
 <h2><a class="header" href="#windows-subsystem-for-linux-doporučeno" id="windows-subsystem-for-linux-doporučeno">Windows Subsystem for Linux (doporučeno)</a></h2>
@@ -197,9 +197,12 @@ je <strong>Ubuntu</strong>. Při instalaci Linuxu vám tak doporučujeme použí
 bude chovat jako program spouštěný pod Windows. Tato varianta vám umožní jednoduše sdílet data
 mezi Windows a Linuxem, a také vám umožní si jednoduše pod Windows spustit Linuxový terminál, ze
 kterého budete moct např. překládat své <em>C</em> programy.</p>
-<p>Nejprve si musíte na Windows <code>WSL</code> nainstalovat. Návod pro instalaci naleznete <a href="https://docs.microsoft.com/cs-cz/windows/wsl/install">zde</a>,
-mělo by stačit v příkazové řádce Windows spustit příkaz <code>wsl --install</code> a restartovat počítač.
+<p>Nejprve si musíte na Windows <code>WSL</code> nainstalovat. Návod pro instalaci naleznete <a href="https://docs.microsoft.com/cs-cz/windows/wsl/install">zde</a>.
+Pokud máte aktualizovaný Windows 10, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor<sup class='margin-toggle sidenote-number'>1</sup>,
+poté napsat <code>wsl.exe --install</code> a zmáčknout klávesu Enter. Jakmile se WSL nainstaluje, tak restartujte počítač.
 Tento příkaz by vám měl nainstalovat distribuci <em>Ubuntu</em> do vašeho Windows počítače.</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Nabídka start -&gt; Napište <code>cmd</code> -&gt; Klikněte pravým tlačítkem na nalezený příkazový řádek -&gt; Spustit jako administrátor</p>
+</span>
 <p>Poté můžete spustit terminál (<code>bash</code>) běžící pod Ubuntu spuštěním programu <code>Ubuntu</code> (např. z nabídky
 Start). Tento <a href="linux.html#z%C3%A1klady-pou%C5%BE%C3%ADv%C3%A1n%C3%AD-linuxu">terminál</a> můžete používat pro práci se soubory nebo
 překlad <em>C</em> programů.</p>
@@ -208,6 +211,17 @@ překlad <em>C</em> programů.</p>
 se tak například chtěli v terminálu přesunout do složky <code>C:/Users/Katka/Desktop</code>, tak v terminálu
 spusťte příkaz <code>cd /mnt/c/Users/Katka/Desktop</code></strong>.</p>
 </blockquote>
+<p>Jakmile budete ve WSL <code>bash</code> terminálu, tak si nejprve nainstalujte programy nutné pro práci s <code>C</code>
+(zejména překladač) pomocí následujícího příkazu:</p>
+<pre><code class="language-bash">$ sudo apt install build-essential
+</code></pre>
+<p>Poté spusťte editor Visual Studio Code pomocí tohoto příkazu:</p>
+<pre><code class="language-bash">$ code .
+</code></pre>
+<p>Pokud takto VSCode spustíte, tak si nainstaluje sám rozšíření pro WSL a bude poté využívat WSL bash
+a překladač pro spouštění a překlad vašich <code>C</code> programů. Do VSCode si poté nainstalujte ještě
+rozšíření (extension) <code>C/C++</code> a také rozšíření <code>Remote development</code>, které vám umožní pracovat s WSL
+soubory z VSCode.</p>
 <p>Podrobnější návod pro zprovoznění WSL spolu s prostředím pro vývoj v jazyce <em>C</em> naleznete
 <a href="https://code.visualstudio.com/docs/cpp/config-wsl">zde</a>.</p>
 <h2><a class="header" href="#virtualizovaný-linux" id="virtualizovaný-linux">Virtualizovaný Linux</a></h2>
@@ -231,7 +245,7 @@ virtualizace. Můžete jej například nastavit v režimu
 <a href="https://www.tecmint.com/install-ubuntu-alongside-with-windows-dual-boot/">dual boot</a>, kdy se při
 startu počítače můžete rozhodnout, zdali se nabootuje do Windows (či jiného operačního systému)
 nebo do Linuxu. Pokud jste s Linuxem nikdy nepracovali, tak doporučujeme použít Linuxovou
-<a href="https://itsfoss.com/install-ubuntu/">distribuci Ubuntu</a> ve verzi <code>21.04</code>.</p>
+<a href="https://itsfoss.com/install-ubuntu/">distribuci Ubuntu</a> ve verzi <code>22.04</code>.</p>
 
                     </main>
 

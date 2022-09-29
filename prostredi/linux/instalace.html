@@ -207,9 +207,11 @@ Tento příkaz by vám měl nainstalovat distribuci <em>Ubuntu</em> do vašeho W
 Start). Tento <a href="linux.html#z%C3%A1klady-pou%C5%BE%C3%ADv%C3%A1n%C3%AD-linuxu">terminál</a> můžete používat pro práci se soubory nebo
 překlad <em>C</em> programů.</p>
 <blockquote>
-<p><strong>Soubory z Windows jsou v příkazové řádce Ubuntu pod WSL dostupné na cestě <code>/mnt/c</code>. Pokud byste
+<p>Soubory z Windows jsou v příkazové řádce Ubuntu pod WSL dostupné na cestě <code>/mnt/c</code>. Pokud byste
 se tak například chtěli v terminálu přesunout do složky <code>C:/Users/Katka/Desktop</code>, tak v terminálu
-spusťte příkaz <code>cd /mnt/c/Users/Katka/Desktop</code></strong>.</p>
+spusťte příkaz <code>cd /mnt/c/Users/Katka/Desktop</code>.</p>
+<p>Naopak soubory z WSL jsou pod Windows dostupné na cestě <code>\\wsl$\Ubuntu\&lt;cesta&gt;</code>. Když do adresního
+řádku prohlížeče souborů ve Windows napíšete <code>\\wsl$</code>, tak se můžete k souborům proklikat.</p>
 </blockquote>
 <p>Jakmile budete ve WSL <code>bash</code> terminálu, tak si nejprve nainstalujte programy nutné pro práci s <code>C</code>
 (zejména překladač) pomocí následujícího příkazu:</p>

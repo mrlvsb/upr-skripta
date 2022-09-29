@@ -1,10 +1,10 @@
 # Instalace Linuxu
-Pokud používáte operační systém Windows, tak pro použití Linuxu můžete využít jeden z následujících
+Pokud používáte operační systém Windows, tak pro použití Linuxu můžete využít jednu z následujících
 tří možností.
 
 > Linux není pouze jeden operační systém, ale pouze tzv. **jádro** (*kernel*) operačního systému,
 nad kterým vznikají tzv. *distribuce*, které se liší ve vizuální stránce, způsobu ovládání, správě
-softwarových balíčků atd. Jednou z nejrozšířenějších a zároveň nejpoužívanějších distribucí Linuxu
+softwarových balíčků atd. Jednou z nejpoužívanějších a také nejjednodušší distribucí Linuxu
 je **Ubuntu**. Při instalaci Linuxu vám tak doporučujeme použít právě tuto distribuci.
 
 ## Windows Subsystem for Linux (doporučeno)
@@ -13,9 +13,12 @@ bude chovat jako program spouštěný pod Windows. Tato varianta vám umožní j
 mezi Windows a Linuxem, a také vám umožní si jednoduše pod Windows spustit Linuxový terminál, ze
 kterého budete moct např. překládat své *C* programy.
 
-Nejprve si musíte na Windows `WSL` nainstalovat. Návod pro instalaci naleznete [zde](https://docs.microsoft.com/cs-cz/windows/wsl/install),
-mělo by stačit v příkazové řádce Windows spustit příkaz `wsl --install` a restartovat počítač.
+Nejprve si musíte na Windows `WSL` nainstalovat. Návod pro instalaci naleznete [zde](https://docs.microsoft.com/cs-cz/windows/wsl/install).
+Pokud máte aktualizovaný Windows 10, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor[^1],
+poté napsat `wsl.exe --install` a zmáčknout klávesu Enter. Jakmile se WSL nainstaluje, tak restartujte počítač.
 Tento příkaz by vám měl nainstalovat distribuci *Ubuntu* do vašeho Windows počítače.
+
+[^1]: Nabídka start -> Napište `cmd` -> Klikněte pravým tlačítkem na nalezený příkazový řádek -> Spustit jako administrátor
 
 Poté můžete spustit terminál (`bash`) běžící pod Ubuntu spuštěním programu `Ubuntu` (např. z nabídky
 Start). Tento [terminál](linux.md#základy-používání-linuxu) můžete používat pro práci se soubory nebo
@@ -24,6 +27,21 @@ překlad *C* programů.
 > **Soubory z Windows jsou v příkazové řádce Ubuntu pod WSL dostupné na cestě `/mnt/c`. Pokud byste
 > se tak například chtěli v terminálu přesunout do složky `C:/Users/Katka/Desktop`, tak v terminálu
 > spusťte příkaz `cd /mnt/c/Users/Katka/Desktop`**.
+
+Jakmile budete ve WSL `bash` terminálu, tak si nejprve nainstalujte programy nutné pro práci s `C`
+(zejména překladač) pomocí následujícího příkazu:
+```bash
+$ sudo apt install build-essential
+```
+
+Poté spusťte editor Visual Studio Code pomocí tohoto příkazu:
+```bash
+$ code .
+```
+Pokud takto VSCode spustíte, tak si nainstaluje sám rozšíření pro WSL a bude poté využívat WSL bash
+a překladač pro spouštění a překlad vašich `C` programů. Do VSCode si poté nainstalujte ještě
+rozšíření (extension) `C/C++` a také rozšíření `Remote development`, které vám umožní pracovat s WSL
+soubory z VSCode.
 
 Podrobnější návod pro zprovoznění WSL spolu s prostředím pro vývoj v jazyce *C* naleznete
 [zde](https://code.visualstudio.com/docs/cpp/config-wsl).
@@ -52,4 +70,4 @@ virtualizace. Můžete jej například nastavit v režimu
 [dual boot](https://www.tecmint.com/install-ubuntu-alongside-with-windows-dual-boot/), kdy se při
 startu počítače můžete rozhodnout, zdali se nabootuje do Windows (či jiného operačního systému)
 nebo do Linuxu. Pokud jste s Linuxem nikdy nepracovali, tak doporučujeme použít Linuxovou
-[distribuci Ubuntu](https://itsfoss.com/install-ubuntu/) ve verzi `21.04`.
+[distribuci Ubuntu](https://itsfoss.com/install-ubuntu/) ve verzi `22.04`.

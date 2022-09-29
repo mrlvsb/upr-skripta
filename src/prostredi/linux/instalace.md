@@ -24,9 +24,12 @@ Poté můžete spustit terminál (`bash`) běžící pod Ubuntu spuštěním pro
 Start). Tento [terminál](linux.md#základy-používání-linuxu) můžete používat pro práci se soubory nebo
 překlad *C* programů.
 
-> **Soubory z Windows jsou v příkazové řádce Ubuntu pod WSL dostupné na cestě `/mnt/c`. Pokud byste
+> Soubory z Windows jsou v příkazové řádce Ubuntu pod WSL dostupné na cestě `/mnt/c`. Pokud byste
 > se tak například chtěli v terminálu přesunout do složky `C:/Users/Katka/Desktop`, tak v terminálu
-> spusťte příkaz `cd /mnt/c/Users/Katka/Desktop`**.
+> spusťte příkaz `cd /mnt/c/Users/Katka/Desktop`.
+> 
+> Naopak soubory z WSL jsou pod Windows dostupné na cestě `\\wsl$\Ubuntu\<cesta>`. Když do adresního
+> řádku prohlížeče souborů ve Windows napíšete `\\wsl$`, tak se můžete k souborům proklikat.
 
 Jakmile budete ve WSL `bash` terminálu, tak si nejprve nainstalujte programy nutné pro práci s `C`
 (zejména překladač) pomocí následujícího příkazu:

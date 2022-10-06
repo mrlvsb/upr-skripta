@@ -37,7 +37,9 @@ Jakmile budete ve WSL `bash` terminálu, tak si nejprve nainstalujte programy nu
 $ sudo apt install build-essential
 ```
 
-Poté spusťte editor Visual Studio Code pomocí tohoto příkazu:
+## Visual Studio Code
+Pokud chcete pod WSL používat editor Visual Studio Code, tak ho **nespouštějte z Windows**,
+ale nejprve si otevřete WSL `bash` terminál, a poté spusťe VSCode pomocí tohoto příkazu:
 ```bash
 $ code .
 ```

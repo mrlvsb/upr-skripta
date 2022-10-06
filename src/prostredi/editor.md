@@ -16,11 +16,21 @@ nám budou stačit naprosté základy.
     ```bash
     $ sudo apt install ./<nazev-souboru>.deb
     ```
-- Pokud používáte `WSL`, tak si stáhněte a nainstalujte VSCode **na Windows**. Při instalaci vyberte
-možnost `Add to PATH`, aby byl VSCode poté jednoduše dostupný z WSL. Dále budete muset do VSCod
-doinstalovat [toto](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
-rozšíření pro práci s WSL. Podrobný návod, jak zprovoznit VSCode v kombinaci s WSL, naleznete
-[zde](https://code.visualstudio.com/docs/remote/wsl) nebo [zde](https://code.visualstudio.com/docs/cpp/config-wsl).
+- Pokud používáte `WSL`, tak by už měl být VSCode předinstalovaný[^1]. Spustíte ho tak, že v `bash`
+terminálu spustíte tento příkaz:
+    ```bash
+    $ code .
+    ```
+    Ten otevře VSCode v adresáři, ve kterém se zrovna v terminálu budete nacházet. Ve VSCode
+    si poté také nainstalujte dodatečné rozšíření
+    [`Remote Development`](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+    (viz návod, jak instalovat rozšíření [níže](#instalace-potřebných-rozšíření-pomocí-uživatelského-rozhraní)).
+
+    Podrobný návod, jak zprovoznit VSCode v kombinaci s WSL, naleznete
+    [zde](https://code.visualstudio.com/docs/remote/wsl) nebo [zde](https://code.visualstudio.com/docs/cpp/config-wsl).
+
+[^1]: Pokud by tomu tak nebylo, návod na instalaci VSCode na Linuxu naleznete
+[zde](https://code.visualstudio.com/docs/setup/linux).
 
 ## Instalace potřebných rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
@@ -31,8 +41,9 @@ $ code --install-extension ms-vscode.cpptools
 ```
 
 ## Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
-1. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
-2. Vyhledejte rozšíření `C/C++` a nainstalujte ho
+1. Spusťte Visual Studio Code
+2. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
+3. Vyhledejte rozšíření (`C/C++`) a nainstalujte jej
 
 ## Ukázka nastavení projektu
 Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)

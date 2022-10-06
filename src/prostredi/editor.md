@@ -32,6 +32,23 @@ terminálu spustíte tento příkaz:
 [^1]: Pokud by tomu tak nebylo, návod na instalaci VSCode na Linuxu naleznete
 [zde](https://code.visualstudio.com/docs/setup/linux).
 
+### Chybějící hlavičkové soubory
+Pokud spustíte VSCode, otevřete v něm nějaký program s *C* kódem a budete mít červeně podtržený např.
+takovýto řádek:
+```c
+#include <stdio.h>
+```
+tak je to pravděpodobně způsobeno jednou z dvou následujících věcí:
+1) Spouštíte VSCode z Windows a ne z Ubuntu WSL terminálu. Spouštějte VSCode vždy přímo z Ubuntu
+terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*. Viz
+[VSCode na WSL](linux/instalace.md#visual-studio-code).
+2) Nemáte nainstalovaný překladač (`gcc`). Spusťte Ubuntu terminál a nainstalujte jej, viz
+[překlad programu](preklad_programu.md).
+
+> Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
+> problém v kódu opravdu je. Důležité je, co řekne [překladač](preklad_programu.md) při překladu
+> programu, VSCode je občas zmatené anebo není správně nastavené. 
+
 ## Instalace potřebných rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk *C*. V terminálu spusťte tyto příkazy:

@@ -195,16 +195,27 @@ programování se hodí detailně znát a efektivně využívat editor, který p
 nám budou stačit naprosté základy.</p>
 <h2><a class="header" href="#instalace-vscode" id="instalace-vscode">Instalace VSCode</a></h2>
 <ul>
-<li>Pokud používáte virtualizovaný nebo nativní Linux (Ubuntu), stáhněte si <a href="https://code.visualstudio.com/">odsud</a>
-<code>.deb</code> soubor s balíčkem VSCode a nainstalujte jej (poklikáním myši na soubor nebo spuštěním příkazu
+<li>
+<p>Pokud používáte virtualizovaný nebo nativní Linux (Ubuntu), stáhněte si <a href="https://code.visualstudio.com/">odsud</a>
+<code>.deb</code> soubor s balíčkem VSCode a nainstalujte jej (poklikáním myši na soubor nebo spuštěním příkazu</p>
 <pre><code class="language-bash">$ sudo apt install ./&lt;nazev-souboru&gt;.deb
 </code></pre>
 </li>
-<li>Pokud používáte <code>WSL</code>, tak si stáhněte a nainstalujte VSCode <strong>na Windows</strong>. Při instalaci vyberte
-možnost <code>Add to PATH</code>, aby byl VSCode poté jednoduše dostupný z WSL. Dále budete muset do VSCod
-doinstalovat <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">toto</a>
-rozšíření pro práci s WSL. Podrobný návod, jak zprovoznit VSCode v kombinaci s WSL, naleznete
-<a href="https://code.visualstudio.com/docs/remote/wsl">zde</a> nebo <a href="https://code.visualstudio.com/docs/cpp/config-wsl">zde</a>.</li>
+<li>
+<p>Pokud používáte <code>WSL</code>, tak by už měl být VSCode předinstalovaný<sup class='margin-toggle sidenote-number'>1</sup>. Spustíte ho tak, že v <code>bash</code>
+terminálu spustíte tento příkaz:</p>
+<span class='sidenote'><p><sup class='number'>1</sup>Pokud by tomu tak nebylo, návod na instalaci VSCode na Linuxu naleznete
+<a href="https://code.visualstudio.com/docs/setup/linux">zde</a>.</p>
+</span>
+<pre><code class="language-bash">$ code .
+</code></pre>
+<p>Ten otevře VSCode v adresáři, ve kterém se zrovna v terminálu budete nacházet. Ve VSCode
+si poté také nainstalujte dodatečné rozšíření
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack"><code>Remote Development</code></a>
+(viz návod, jak instalovat rozšíření <a href="#instalace-pot%C5%99ebn%C3%BDch-roz%C5%A1%C3%AD%C5%99en%C3%AD-pomoc%C3%AD-u%C5%BEivatelsk%C3%A9ho-rozhran%C3%AD">níže</a>).</p>
+<p>Podrobný návod, jak zprovoznit VSCode v kombinaci s WSL, naleznete
+<a href="https://code.visualstudio.com/docs/remote/wsl">zde</a> nebo <a href="https://code.visualstudio.com/docs/cpp/config-wsl">zde</a>.</p>
+</li>
 </ul>
 <h2><a class="header" href="#instalace-potřebných-rozšíření-pomocí-terminálu" id="instalace-potřebných-rozšíření-pomocí-terminálu">Instalace potřebných rozšíření (pomocí terminálu)</a></h2>
 <p>VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
@@ -213,8 +224,9 @@ tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk <em>C</em>. 
 </code></pre>
 <h2><a class="header" href="#instalace-potřebných-rozšíření-pomocí-uživatelského-rozhraní" id="instalace-potřebných-rozšíření-pomocí-uživatelského-rozhraní">Instalace potřebných rozšíření (pomocí uživatelského rozhraní)</a></h2>
 <ol>
+<li>Spusťte Visual Studio Code</li>
 <li>Otevřete obrazovku rozšíření (<code>Ctrl+Shift+X</code> nebo spusťte akci <code>Install Extensions</code>)</li>
-<li>Vyhledejte rozšíření <code>C/C++</code> a nainstalujte ho</li>
+<li>Vyhledejte rozšíření (<code>C/C++</code>) a nainstalujte jej</li>
 </ol>
 <h2><a class="header" href="#ukázka-nastavení-projektu" id="ukázka-nastavení-projektu">Ukázka nastavení projektu</a></h2>
 <p>Jako vzorový projekt můžete použít <a href="https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project">tuto</a>

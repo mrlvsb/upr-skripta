@@ -34,7 +34,7 @@ překlad *C* programů.
 Jakmile budete ve WSL `bash` terminálu, tak si nejprve nainstalujte programy nutné pro práci s `C`
 (zejména překladač) pomocí následujícího příkazu:
 ```bash
-$ sudo apt install build-essential
+$ sudo apt install build-essential gdb
 ```
 
 ## Visual Studio Code

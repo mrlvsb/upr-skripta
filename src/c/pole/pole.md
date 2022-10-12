@@ -26,5 +26,5 @@ a jazyk *C* není výjimkou.
 nejjednodušších datových struktur.
 
 V následujících sekcích se dozvíte, jak s poli pracovat, jak je vytvořit v
-[automatické](staticke_pole.md) a [dynamické paměti](dynamicke_pole.md) a jak lze v počítači
-reprezentovat [vícerozměrná pole](vicerozmerne_pole.md).
+[automatické](staticka_pole.md) a [dynamické paměti](dynamicka_pole.md) a jak lze v počítači
+reprezentovat [vícerozměrná pole](vicerozmerna_pole.md).

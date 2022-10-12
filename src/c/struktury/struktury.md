@@ -84,7 +84,7 @@ funkce.
 
 ## Inicializace struktury
 Stejně jako u [základních datových typů](../promenne/promenne.md#vždy-inicializujte-proměnné) a
-[polí](../pole/staticke_pole.md#inicializace-pole) platí, že pokud lokální proměnné s datovým typem
+[polí](../pole/staticka_pole.md#inicializace-pole) platí, že pokud lokální proměnné s datovým typem
 nějaké struktury nedáte počáteční hodnotu, tak bude její hodnota nedefinovaná 💣. Strukturu můžete
 nainicializovat pomocí složených závorek se seznamem hodnot pro jednotlivé členy struktury:
 ```c

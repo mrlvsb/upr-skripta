@@ -193,7 +193,7 @@ p += 1;     // zvýšili jsme adresu v `p` o `4` (tj. p nyní už neukazuje na `
 ```
 
 > K čemu je aritmetika s ukazateli užitečná se dozvíte v sekci o práci s
-> [více proměnnými zároveň](../pole/staticke_pole.md#přístup-k-prvkům-pole).
+> [více proměnnými zároveň](../pole/staticka_pole.md#přístup-k-prvkům-pole).
 
 Kromě dereference a aritmetiky lze s ukazateli provádět také porovnávání (klasicky pomocí operátoru
 `==`). Díky tomu můžeme zjistit, jestli se dvě adresy rovnají.

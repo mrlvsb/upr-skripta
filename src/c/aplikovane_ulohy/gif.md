@@ -67,7 +67,7 @@ knihovny.
 Když nyní máme vytvořenou animaci, můžeme do ní postupně zapisovat snímky. Zápis probíhá následovně:
 1) Do pole uloženého v atributu `gif->frame` zapíšeme hodnoty všech pixelů jednoho snímku.
 Každá hodnota by měla být indexem odpovídající barvy z námi zvolené palety. Pro adresování použijeme
-klasický převod z [2D na 1D index](../pole/vicerozmerne_pole.md#indexování).
+klasický převod z [2D na 1D index](../pole/vicerozmerna_pole.md#indexování).
 2) Zavoláme funkci `ge_add_frame`, které řekneme, na jak dlouhou dobu se má tento snímek zobrazit.
 Tato doba je v setinách vteřiny.
 

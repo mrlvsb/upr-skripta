@@ -1,4 +1,4 @@
-# Vícerozměrné pole
+# Vícerozměrná pole
 Někdy potřebujeme v programech reprezentovat věci, které jsou přirozeně vícerozměrné. Typickým
 příkladem jsou obrázky, které lze reprezentovat jako dvourozměrnou mřížku pixelů (jeden rozměr udává
 řádky a druhý sloupce).
@@ -48,7 +48,7 @@ zbytek po dělení, abychom zjistili, na jakém jsme sloupci.
 Tento koncept lze zobecnit na libovolně rozměrné pole (3D, 4D, …).
 
 ## Vícerozměrné pole v *C*
-*C* obsahuje základní podporu pro vytváření vícerozměrných [statických polí](staticke_pole.md). Při
+*C* obsahuje základní podporu pro vytváření vícerozměrných [statických polí](staticka_pole.md). Při
 vytváření pole stačí použít hranaté závorky pro každou dimenzi pole. Například takto lze vytvořit
 2D pole s rozměry `3x3` na zásobníku:
 ```c
@@ -68,7 +68,7 @@ Vícerozměrná pole v *C* lze zobecnit do vyšších dimenzí (můžete tak pou
 `int pole[3][3][3]` atd.), nicméně je dobré to nepřehánět, aby kód zůstal přehledný.
 
 ### Inicializace vícerozměrných polí
-Vícerozměrné pole můžete nainicializovat [stejně](staticke_pole.md#inicializace-pole) jako klasické
+Vícerozměrné pole můžete nainicializovat [stejně](staticka_pole.md#inicializace-pole) jako klasické
 pole. Pro zpřehlednění kódu však také můžete použít složené závorky pro oddělení jednotlivých
 dimenzí:
 ```c
@@ -80,7 +80,7 @@ int pole_2d[3][4] = {
 ```
 
 ## Vícerozměrné dynamické pole
-Pokud potřebujete vícerozměrné pole s [dynamickou velikostí](dynamicke_pole.md), stačí při volání
+Pokud potřebujete vícerozměrné pole s [dynamickou velikostí](dynamicka_pole.md), stačí při volání
 funkce `malloc` vytvořit dostatek paměti pro všechny rozměry. Pokud bychom například chtěli
 naalokovat paměť pro 2D obrázek s `vyska` řádky a `sirka` řádky, můžeme použít následující volání
 funkce `malloc`:

@@ -129,7 +129,7 @@ Jak jste si mohli všimnout ze signatury funkce `malloc`, můžete jí dát libo
 Nemusíte se tak omezovat velikostí základních datových typů, můžete například naalokovat paměť pro
 5 `int`ů zároveň, které poté budou ležet za sebou v paměti a bude tak jednoduché k nim přistupovat
 v cyklu. Jak tento koncept funguje se dozvíte v sekci o
-[dynamických polích](../pole/dynamicke_pole.md).
+[dynamických polích](../pole/dynamicka_pole.md).
 
 ## Kdy použít dynamicky alokovanou paměť?
 Řiďte se pravidlem, že pokud lze použít [automatickou paměť](automaticka_pamet.md) na zásobníku,

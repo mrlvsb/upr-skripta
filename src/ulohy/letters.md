@@ -1,6 +1,6 @@
 # Létající písmenka
 
-Využijte znalosti [dvourozměrných polí](../c/pole/vicerozmerne_pole.md), [řetězců](../c/text/retezce.md)
+Využijte znalosti [dvourozměrných polí](../c/pole/vicerozmerna_pole.md), [řetězců](../c/text/retezce.md)
 a [argumentů programu](../ruzne/funkce_main.md#vstupní-parametry-funkce-main) pro vytvoření následující
 animace:
 

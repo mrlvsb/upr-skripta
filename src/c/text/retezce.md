@@ -31,7 +31,7 @@ int main() {
 [^1]: Pro [výpis](vystup.md) řetězce pomocí funkce `printf` můžeme použít zástupný znak `%s`.
 
 Pokud bychom potřebovali řetězec s dynamickou nebo velkou délkou, můžeme pro vytvoření řetězce
-samozřejmě použít také [dynamickou paměť](../pole/dynamicke_pole.md).
+samozřejmě použít také [dynamickou paměť](../pole/dynamicka_pole.md).
 
 ### Řetězcový literál
 Vytváření řetězců tímto způsobem je nicméně celkem zdlouhavé a nepřehledné. Často chceme v programu
@@ -122,7 +122,7 @@ const char* radky = "radek1\n"
 ### K čemu slouží nulový znak na konci?
 U polí je trochu nepraktické to, že pokud je chceme poslat do nějaké funkce, musíme spolu s
 ukazatelem na první prvek pole předat také jeho
-[velikost](../pole/staticke_pole.md#předávání-velikosti-pole), aby funkce věděla, ke kolika prvkům
+[velikost](../pole/staticka_pole.md#předávání-velikosti-pole), aby funkce věděla, ke kolika prvkům
 si může dovolit přistoupit. Jiným způsobem, jak určit velikost pole, je zvolit si speciální hodnotu,
 která bude značit konec pole. Když kód, který s takovýmto polem bude pracovat, na tuto speciální
 hodnotu narazí, tak bude vědět, že dále v paměti již pole nepokračuje.

@@ -3,7 +3,7 @@
 
 ## Vytisknutí matice
 Vytvořte funkci `print_matrix`, která vypíše obrázek reprezentovaný
-[dvourozměrným](../c/pole/vicerozmerne_pole.md) (2D) polem.
+[dvourozměrným](../c/pole/vicerozmerna_pole.md) (2D) polem.
 ```c
 void print_matrix(int* matrix, int rows, int cols);
 ```

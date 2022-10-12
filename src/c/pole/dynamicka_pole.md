@@ -1,4 +1,4 @@
-# Dynamické pole
+# Dynamická pole
 Pole alokovaná na zásobníku by měly mít velikost danou při překladu programu, často ale potřebujeme
 vytvářet pole v závislosti na vstupu programu. Například, pokud bychom chtěli vytvořit pole, které
 by obsahovalo všechny řádky souboru, tak dopředu nevíme, kolik těch řádků bude nějaký konkrétní

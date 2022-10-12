@@ -1,4 +1,4 @@
-# Statické pole
+# Statická pole
 Pole v [automatické paměti](../prace_s_pameti/automaticka_pamet.md)[^1] (na zásobníku) se označují
 jako **statická pole** (*static arrays*). Můžeme je vytvořit tak, že při definici proměnné za její
 název přidáme hranaté závorky s číslem udávajícím počet prvků v poli. Takto například vytvoříme pole
@@ -27,14 +27,14 @@ V jistém smyslu je tak pole pouze zobecněním normální proměnné. Pokud tot
 velikosti jedna (`int a[1];`), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
 (`int a;`).
 
-> Pole lze vytvořit také na haldě pomocí [dynamické alokace paměti](dynamicke_pole.md). Všechny níže
+> Pole lze vytvořit také na haldě pomocí [dynamické alokace paměti](dynamicka_pole.md). Všechny níže
 > popsané koncepty jsou platné i pro dynamická pole, nicméně budeme je demonstrovat na statických
 > polích, protože ty je jednodušší vytvořit.
 
 ### Konstantní velikost statického pole
 Hodnota zadaná v hranatých závorkách by měla být konstantní (tj. buď přímo číselná hodnota anebo
 [konstantní proměnná](../promenne/konstanty.md)). Pokud budete potřebovat pole dynamické velikosti,
-tak byste měli použít [dynamickou alokaci paměti](dynamicke_pole.md).
+tak byste měli použít [dynamickou alokaci paměti](dynamicka_pole.md).
 
 Jazyk *C* od verze [*C99*](https://en.wikipedia.org/wiki/C99) již sice povoluje dávat do hranatých
 závorek i "dynamické" hodnoty, tj. výrazy, jejichž hodnota nemusí být známa v době překladu:
@@ -59,7 +59,7 @@ int main() {
 Při spuštění by měl program selhat na
 [paměťovou chybu](../../caste_chyby/pametove_chyby.md#segmentation-fault), i když váš počítač má
 pravděpodobně více než `10000000 * 4` (cca `38` MiB) paměti. Pokud chcete alokovat více než několik
-stovek bytů, použijte raději [dynamickou alokaci](dynamicke_pole.md) na haldě.
+stovek bytů, použijte raději [dynamickou alokaci](dynamicka_pole.md) na haldě.
 
 ## Počítání od nuly
 Pozice jednotlivých prvků v poli se označují jako jejich **indexy** (*array indices*). Tyto pozice

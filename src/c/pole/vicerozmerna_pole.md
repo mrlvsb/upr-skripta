@@ -41,7 +41,7 @@ zbytek po dělení, abychom zjistili, na jakém jsme sloupci.
     ```c
     void index_1d_na_2d(int index, int sirka, int* radek, int* sloupec) {
         *radek = index / sirka;
-        *sloupec = index % sloupec;
+        *sloupec = index % sirka;
     }
     ```
 

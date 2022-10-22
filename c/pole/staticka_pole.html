@@ -223,12 +223,17 @@ závorek i &quot;dynamické&quot; hodnoty, tj. výrazy, jejichž hodnota nemusí
 <pre><code class="language-c">int velikost = ...; // velikost se načte např. ze souboru
 int pole[velikost];
 </code></pre>
-<p>Nicméně tuto <a href="https://en.wikipedia.org/wiki/Variable-length_array">funkcionalitu</a> raději nepoužívejte.
-Zásobník má značně <a href="../prace_s_pameti/automaticka_pamet.html#nev%C3%BDhody-automatick%C3%A9-pam%C4%9Bti">omezenou velikost</a>
-a není určen pro alokaci velkého množství paměti<sup class='margin-toggle sidenote-number'>3</sup>. Pokud navíc velikost takovéhoto pole může ovlivnit
-uživatel programu (např. zadáním vstupu), může váš program jednoduše &quot;shodit&quot;, pokud by zadal velké
-číslo a došlo by k pokusu o vytvoření velkého pole na zásobníku. Zkuste se tak vyvarovat používání
-dynamických hodnot při vytváření polí na zásobníku.</p>
+<p>Tato funkcionalita zvaná <a href="https://en.wikipedia.org/wiki/Variable-length_array">VLA</a> (variable-length array)
+je nicméně určená pro velmi specifické použití a nese s sebou různé nevýhody, proto ji v rámci předmětu
+UPR <strong>nepoužívejte</strong>.</p>
+<details>
+<summary>Proč ne VLA?</summary>
+<p>Zásobník má značně <a href="../prace_s_pameti/automaticka_pamet.html#nev%C3%BDhody-automatick%C3%A9-pam%C4%9Bti">omezenou velikost</a>
+a není určen pro alokaci velkého množství paměti<sup class='margin-toggle sidenote-number'>3</sup>. Pokud velikost takovéhoto pole může ovlivnit
+uživatel programu (např. zadáním vstupu), může váš program jednoduše &quot;shodit&quot; (v lepším případě)
+nebo způsobit přepsání existující paměti (v horším případě), pokud by zadal velké
+číslo a došlo by k pokusu o vytvoření moc velkého pole na zásobníku. VLA má také různé problémy s
+kompatibilitou mezi překladači a jeho implementace překladači není zdaleka triviální.</p>
 <span class='sidenote'><p><sup class='number'>3</sup>Můžete si například zkusit přeložit následující program:</p>
 <pre><code class="language-c">int main() {
     int pole[10000000];
@@ -240,6 +245,11 @@ dynamických hodnot při vytváření polí na zásobníku.</p>
 pravděpodobně více než <code>10000000 * 4</code> (cca <code>38</code> MiB) paměti. Pokud chcete alokovat více než několik
 stovek bytů, použijte raději <a href="dynamicka_pole.html">dynamickou alokaci</a> na haldě.</p>
 </span>
+<p>Alokace paměti s dynamickou velikostí na zásobníku se může hodit ve velmi specifických případech,
+např. při vývoji embedded zařízení nebo při vysoce efektivní práci s I/O (vstup/výstup). Nicméně pro
+účely běžného programování v <em>C</em> a předmětu UPR rozhodně není potřeba, proto se VLA prosíme zkuste
+vyhnout.</p>
+</details>
 <h2><a class="header" href="#počítání-od-nuly" id="počítání-od-nuly">Počítání od nuly</a></h2>
 <p>Pozice jednotlivých prvků v poli se označují jako jejich <strong>indexy</strong> (<em>array indices</em>). Tyto pozice
 se číslují od hodnoty <code>0</code> (tedy ne od jedničky, jak můžete být jinak zvyklí). První prvek pole je

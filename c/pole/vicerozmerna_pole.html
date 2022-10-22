@@ -221,7 +221,7 @@ Nejprve vydělíme 1D index počtem sloupců, abychom zjistili, na jakém jsme �
 zbytek po dělení, abychom zjistili, na jakém jsme sloupci.
 <pre><code class="language-c">void index_1d_na_2d(int index, int sirka, int* radek, int* sloupec) {
     *radek = index / sirka;
-    *sloupec = index % sloupec;
+    *sloupec = index % sirka;
 }
 </code></pre>
 </li>

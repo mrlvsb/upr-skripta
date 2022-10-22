@@ -42,12 +42,26 @@ závorek i "dynamické" hodnoty, tj. výrazy, jejichž hodnota nemusí být zná
 int velikost = ...; // velikost se načte např. ze souboru
 int pole[velikost];
 ```
-Nicméně tuto [funkcionalitu](https://en.wikipedia.org/wiki/Variable-length_array) raději nepoužívejte.
+Tato funkcionalita zvaná [VLA](https://en.wikipedia.org/wiki/Variable-length_array) (variable-length array)
+je nicméně určená pro velmi specifické použití a nese s sebou různé nevýhody, proto ji v rámci předmětu
+UPR **nepoužívejte**.
+
+<details>
+<summary>Proč ne VLA?</summary>
+
 Zásobník má značně [omezenou velikost](../prace_s_pameti/automaticka_pamet.md#nevýhody-automatické-paměti)
-a není určen pro alokaci velkého množství paměti[^3]. Pokud navíc velikost takovéhoto pole může ovlivnit
-uživatel programu (např. zadáním vstupu), může váš program jednoduše "shodit", pokud by zadal velké
-číslo a došlo by k pokusu o vytvoření velkého pole na zásobníku. Zkuste se tak vyvarovat používání
-dynamických hodnot při vytváření polí na zásobníku.
+a není určen pro alokaci velkého množství paměti[^3]. Pokud velikost takovéhoto pole může ovlivnit
+uživatel programu (např. zadáním vstupu), může váš program jednoduše "shodit" (v lepším případě)
+nebo způsobit přepsání existující paměti (v horším případě), pokud by zadal velké
+číslo a došlo by k pokusu o vytvoření moc velkého pole na zásobníku. VLA má také různé problémy s
+kompatibilitou mezi překladači a jeho implementace překladači není zdaleka triviální.
+
+Alokace paměti s dynamickou velikostí na zásobníku se může hodit ve velmi specifických případech,
+např. při vývoji embedded zařízení nebo při vysoce efektivní práci s I/O (vstup/výstup). Nicméně pro
+účely běžného programování v *C* a předmětu UPR rozhodně není potřeba, proto se VLA prosíme zkuste
+vyhnout.
+
+</details>
 
 [^3]: Můžete si například zkusit přeložit následující program:
 ```c

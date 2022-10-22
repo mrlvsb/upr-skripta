@@ -88,7 +88,9 @@ protože automatická paměť má i určité nedostatky:
 - Maximální velikost zásobníku je omezena[^4]. Nemůžeme tak na něm naalokovat větší množství paměti.
 - Počet a velikost lokálních proměnných je "zadrátována" do programu během jeho překladu. Nemůžeme
 tak naalokovat paměť s velikostí závislou na vstupu programu. Například pokud uživatel zadá
-číslo `n` a my bychom chtěli vytvořit paměť pro `n` čísel, tak obvykle nestačí použití zásobníku.
+číslo `n` a my bychom chtěli vytvořit paměť pro `n` čísel, tak
+[obvykle nestačí](https://mrlvsb.github.io/upr-skripta/c/pole/staticka_pole.html#konstantn%C3%AD-velikost-statick%C3%A9ho-pole)
+použití zásobníku.
 - Paměť lokálních proměnných a parametrů je uvolněna při dokončení provádění funkce. Jediným způsobem,
 jak předat hodnotu z volání funkce, je pomocí návratové hodnoty. Takto lze vrátit pouze jednu
 hodnotu a nelze jednoduše sdílet paměť mezi funkcemi, protože paměť lokálních proměnných je po dokončení

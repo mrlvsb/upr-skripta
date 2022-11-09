@@ -81,7 +81,7 @@ int main() {
 ```
 
 [^2]: Všimněte si, že zde jsme použili [mód otevření](otevirani_souboru.md#Mód-otevření) pro textový
-zápis (`"w"`), namísto binárního zápisu `"wb"` použitého výše.
+zápis (`"wt"`), namísto binárního zápisu `"wb"` použitého výše.
 
 V tomto případě by se do souboru zapsalo deset bytů (čísel) `49 32 50 32 51 32 52 32 53 32`, protože
 číslice jsou v [ASCII](https://www.asciitable.com/) reprezentovány čísly `48` až `57` a mezera je

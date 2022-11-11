@@ -284,7 +284,29 @@ for (a0 = 0, a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0; i < pocet; i++)
 }
 ```
 
+### Použití operátoru `sizeof` na ukazatel
+Operátor `sizeof` se často hodí ke zjištění velikosti pole. Pokud jej ovšem použijete na ukazatel
+(i kdyby v daném ukazateli byla adresa pole!), tak vám vrátí pouze velikost ukazatele, tedy
+pravděpodobně hodnotu `8` na 64-bitovém systému.
+```c
+char pole[3];
+char* ptr = pole;
+
+sizeof(pole); // 3
+sizeof(ptr);  // 8
+```
+
+Pozor na to, že pokud použijete datový typ pole pro parametr funkce, tak pro překladač se takový
+parametr chová jako ukazatel! Pole se do funkcí vždy předávají jako adresa prvního prvku pole.
+
+```c
+void print_size(char pole[3]) {
+    sizeof(pole); // 8
+}
+```
+
 ### `undefined reference to 'NAZEV'`
 Snažíte se zavolat funkci `NAZEV`, která nebyla nalezena v žádném
 [objektovém souboru](../c/modularizace/linker.md), který jste předali pro překlad. Ověřte si, že
 máte název volané funkce správně.
+

@@ -397,6 +397,43 @@ proměnné, ale špatného typu. Zástupný znak <code>%s</code> vyžaduje adres
 adresu celého čísla.</p>
 </details>
 </li>
+<li>
+<p>Co vypíše následující program, pokud na vstup zadáme <code>Martin\nNovak</code>?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    char radek[100];
+    fgets(radek, sizeof(radek), stdin);
+
+    const char* jmeno = radek;
+
+    fgets(radek, sizeof(radek), stdin);
+
+    const char* prijmeni = radek;
+
+    printf(&quot;%s&quot;, jmeno);
+    printf(&quot;%s&quot;, prijmeni);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Vypíše se tohle:</p>
+<pre><code>Novak
+Novak
+</code></pre>
+<p>Je důležité si uvědomit, co znamená <code>const char* jmeno = radek;</code>. <code>char*</code> je ukazatel, tedy číslo
+obsahující adresu. Tímto řádkem pouze říkáme, že do ukazatele s názvem <code>jmeno</code> ukládáme adresu
+pole znaků <code>radek</code>. Řádkem <code>const char* prijmeni = radek;</code> říkáme, že tuto adresu ukládáme do
+proměnné s názvem <code>prijmeni</code>. Obě dvě proměnné (<code>jmeno</code> a <code>prijmeni</code>) tedy obsahují stejnou adresu.
+No a jelikož si druhým voláním funkce <code>fgets</code> přepíšeme původní obsah pole <code>radek</code>, a obě proměnné
+ukazují na pole <code>radek</code>, tak se vypíše dvakrát poslední načtený řádek.</p>
+<p>Poznámka: ve formátovacím řetězci funkce <code>printf</code> jsme zde nepoužili znak odřádkování (<code>\n</code>),
+protože funkce <code>fgets</code> jej uloží do pole <code>radek</code> a náš kód ho zde neodstranil. Takže pokud bychom
+ho měli i v <code>printf</code>, tak by se vypsaly dva znaky odřádkování za sebou.</p>
+</details>
+</li>
 </ol>
 
                     </main>

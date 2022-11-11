@@ -5171,7 +5171,8 @@ int main() {
 </code></pre>
 <p>nicméně i v tomto případě se bude takovýto parametr chovat stejně jako ukazatel (v tomto případě
 tedy <code>int*</code>). Navíc překladač ani nebude kontrolovat, jestli do takového parametru opravdu dáváme
-pole se správnou velikostí. Pro parametry reprezentující pole tak raději rovnou používejte ukazatel.</p>
+pole se správnou velikostí. Pro parametry reprezentující pole tak raději rovnou používejte ukazatel,
+abychom čtenáře kódu nemátli.</p>
 <h3><a class="header" href="#předávání-velikosti-pole" id="předávání-velikosti-pole">Předávání velikosti pole</a></h3>
 <p>Když ve funkci přijmeme jako parametr ukazatel na pole, tak nevíme, kolik prvků v tomto poli je.
 Tato informace je ale stěžejní, bez ní totiž nevíme, ke kolika prvkům pole si můžeme dovolit
@@ -5200,7 +5201,7 @@ printf(&quot;Pocet prvku v poli: %lu\n&quot;, sizeof(pole) / sizeof(pole[0]));
 <blockquote>
 <p>Operátor <code>sizeof</code> bude pro toto použití fungovat pouze pro statické pole a pouze ve funkci, ve které
 statické pole vytváříte! Pokud pole pošlete do jiné funkce, už z něj bude pouze ukazatel, pro který
-<code>sizeof</code> vrátí velikost ukazatele (což bude na vašem PC nejspíše <code>8</code> bytů).</p>
+<code>sizeof</code> vrátí velikost ukazatele (což bude na vašem PC nejspíše <code>8</code> bytů). Více v kvízech níže.</p>
 </blockquote>
 <hr />
 <p><strong>Kvíz</strong> 🤔</p>
@@ -5344,6 +5345,62 @@ int main() {
 <code>a[b]</code> je definován jako <code>*(a + b)</code>, tak je jedno, jestli napíšete <code>a[b]</code> nebo <code>b[a]</code>. Takovýto
 zápis je nicméně nestandardní a nepoužívá se, tato úloha pouze měla demonstrovat, že jej takto
 teoreticky použít lze, a že <code>a[b]</code> opravdu není nic jiného, než zkratka za <code>*(a + b)</code>.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    char pole[3];
+    char* ptr = pole;
+
+    printf(&quot;%d\n&quot;, (int) sizeof(pole));
+    printf(&quot;%d\n&quot;, (int) sizeof(ptr));
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+ Program vypíše toto (na 32-bitovém systému by druhé číslo bylo pravděpodobně 4):
+<pre><code>3
+8
+</code></pre>
+<p>Operátor <code>sizeof</code> vrátí velikost celého statického pole, pokud jej do něj předáme. Pokud však
+do něj dáme pouze ukazatel, tak <code>sizeof</code> neví, jak velká paměť leží na adrese uložené v tomto
+ukazateli, proto nám místo toho vrátí pouze velikost daného ukazatele, což bude na 64-bitovém
+systému pravděpodobně <code>8</code> bytů.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable">#include &lt;stdio.h&gt;
+
+void print_size(char pole[3]) {
+    printf(&quot;%d\n&quot;, (int) sizeof(pole));
+}
+
+int main() {
+    char pole[3];
+    print_size(pole);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+ Program pravděpodobně vypíše řádek s hodnotou 8 (na 64-bitovém systému) či 4 (na 32-bitovém
+ systému). Pokud použijeme datový typ pole jako parametr funkce, tak se k němu překladač bude
+ víceméně chovat jako k běžnému ukazateli. Je to z toho důvodu, že překladač neví, jak velkou paměť
+ do funkce předáváme (můžeme tuto funkci zavolat
+ s ukazatelem na různě velká pole!). Z toho důvodu je tak lepší pro parametry funkcí vždy používat
+ rovnou ukazatel a ne pole, abychom zamezili nejasnostem.
+<p>Tyto následující tři signatury funkce jsou tedy v podstatě totožné:</p>
+<pre><code class="language-c">void print_size(char pole[3]);
+void print_size(char pole[]);
+void print_size(char* pole);
+</code></pre>
 </details>
 </li>
 </ol>
@@ -10404,6 +10461,22 @@ každé proměnné musíte přidat nový řádek kódu:</p>
         a2++;
     }
     ...
+}
+</code></pre>
+<h3><a class="header" href="#použití-operátoru-sizeof-na-ukazatel" id="použití-operátoru-sizeof-na-ukazatel">Použití operátoru <code>sizeof</code> na ukazatel</a></h3>
+<p>Operátor <code>sizeof</code> se často hodí ke zjištění velikosti pole. Pokud jej ovšem použijete na ukazatel
+(i kdyby v daném ukazateli byla adresa pole!), tak vám vrátí pouze velikost ukazatele, tedy
+pravděpodobně hodnotu <code>8</code> na 64-bitovém systému.</p>
+<pre><code class="language-c">char pole[3];
+char* ptr = pole;
+
+sizeof(pole); // 3
+sizeof(ptr);  // 8
+</code></pre>
+<p>Pozor na to, že pokud použijete datový typ pole pro parametr funkce, tak pro překladač se takový
+parametr chová jako ukazatel! Pole se do funkcí vždy předávají jako adresa prvního prvku pole.</p>
+<pre><code class="language-c">void print_size(char pole[3]) {
+    sizeof(pole); // 8
 }
 </code></pre>
 <h3><a class="header" href="#undefined-reference-to-nazev" id="undefined-reference-to-nazev"><code>undefined reference to 'NAZEV'</code></a></h3>

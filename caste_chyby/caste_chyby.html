@@ -428,6 +428,22 @@ každé proměnné musíte přidat nový řádek kódu:</p>
     ...
 }
 </code></pre>
+<h3><a class="header" href="#použití-operátoru-sizeof-na-ukazatel" id="použití-operátoru-sizeof-na-ukazatel">Použití operátoru <code>sizeof</code> na ukazatel</a></h3>
+<p>Operátor <code>sizeof</code> se často hodí ke zjištění velikosti pole. Pokud jej ovšem použijete na ukazatel
+(i kdyby v daném ukazateli byla adresa pole!), tak vám vrátí pouze velikost ukazatele, tedy
+pravděpodobně hodnotu <code>8</code> na 64-bitovém systému.</p>
+<pre><code class="language-c">char pole[3];
+char* ptr = pole;
+
+sizeof(pole); // 3
+sizeof(ptr);  // 8
+</code></pre>
+<p>Pozor na to, že pokud použijete datový typ pole pro parametr funkce, tak pro překladač se takový
+parametr chová jako ukazatel! Pole se do funkcí vždy předávají jako adresa prvního prvku pole.</p>
+<pre><code class="language-c">void print_size(char pole[3]) {
+    sizeof(pole); // 8
+}
+</code></pre>
 <h3><a class="header" href="#undefined-reference-to-nazev" id="undefined-reference-to-nazev"><code>undefined reference to 'NAZEV'</code></a></h3>
 <p>Snažíte se zavolat funkci <code>NAZEV</code>, která nebyla nalezena v žádném
 <a href="../c/modularizace/linker.html">objektovém souboru</a>, který jste předali pro překlad. Ověřte si, že

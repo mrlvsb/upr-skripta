@@ -237,3 +237,42 @@ K těmto předaným řetězcům poté lze přistoupit ve funkci
     proměnné, ale špatného typu. Zástupný znak `%s` vyžaduje adresu (pole) znaků, zatímco zde předáváme
     adresu celého čísla.
     </details>
+4) Co vypíše následující program, pokud na vstup zadáme `Martin\nNovak`?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        char radek[100];
+        fgets(radek, sizeof(radek), stdin);
+
+        const char* jmeno = radek;
+
+        fgets(radek, sizeof(radek), stdin);
+
+        const char* prijmeni = radek;
+
+        printf("%s", jmeno);
+        printf("%s", prijmeni);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+    Vypíše se tohle:
+    ```
+    Novak
+    Novak
+    ```
+    Je důležité si uvědomit, co znamená `const char* jmeno = radek;`. `char*` je ukazatel, tedy číslo
+    obsahující adresu. Tímto řádkem pouze říkáme, že do ukazatele s názvem `jmeno` ukládáme adresu
+    pole znaků `radek`. Řádkem `const char* prijmeni = radek;` říkáme, že tuto adresu ukládáme do
+    proměnné s názvem `prijmeni`. Obě dvě proměnné (`jmeno` a `prijmeni`) tedy obsahují stejnou adresu.
+    No a jelikož si druhým voláním funkce `fgets` přepíšeme původní obsah pole `radek`, a obě proměnné
+    ukazují na pole `radek`, tak se vypíše dvakrát poslední načtený řádek.
+
+    Poznámka: ve formátovacím řetězci funkce `printf` jsme zde nepoužili znak odřádkování (`\n`),
+    protože funkce `fgets` jej uloží do pole `radek` a náš kód ho zde neodstranil. Takže pokud bychom
+    ho měli i v `printf`, tak by se vypsaly dva znaky odřádkování za sebou.
+    </details>

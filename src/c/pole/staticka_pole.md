@@ -249,7 +249,8 @@ void vypis_pole(int pole[3]) { ... }
 ```
 nicméně i v tomto případě se bude takovýto parametr chovat stejně jako ukazatel (v tomto případě
 tedy `int*`). Navíc překladač ani nebude kontrolovat, jestli do takového parametru opravdu dáváme
-pole se správnou velikostí. Pro parametry reprezentující pole tak raději rovnou používejte ukazatel.
+pole se správnou velikostí. Pro parametry reprezentující pole tak raději rovnou používejte ukazatel,
+abychom čtenáře kódu nemátli.
 
 ### Předávání velikosti pole
 Když ve funkci přijmeme jako parametr ukazatel na pole, tak nevíme, kolik prvků v tomto poli je.
@@ -283,7 +284,7 @@ printf("Pocet prvku v poli: %lu\n", sizeof(pole) / sizeof(pole[0]));
 
 > Operátor `sizeof` bude pro toto použití fungovat pouze pro statické pole a pouze ve funkci, ve které
 > statické pole vytváříte! Pokud pole pošlete do jiné funkce, už z něj bude pouze ukazatel, pro který
-> `sizeof` vrátí velikost ukazatele (což bude na vašem PC nejspíše `8` bytů).
+> `sizeof` vrátí velikost ukazatele (což bude na vašem PC nejspíše `8` bytů). Více v kvízech níže.
 
 <hr />
 
@@ -431,4 +432,63 @@ printf("Pocet prvku v poli: %lu\n", sizeof(pole) / sizeof(pole[0]));
     `a[b]` je definován jako `*(a + b)`, tak je jedno, jestli napíšete `a[b]` nebo `b[a]`. Takovýto
     zápis je nicméně nestandardní a nepoužívá se, tato úloha pouze měla demonstrovat, že jej takto
     teoreticky použít lze, a že `a[b]` opravdu není nic jiného, než zkratka za `*(a + b)`.
+    </details>
+7) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    int main() {
+        char pole[3];
+        char* ptr = pole;
+
+        printf("%d\n", (int) sizeof(pole));
+        printf("%d\n", (int) sizeof(ptr));
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+    Program vypíše toto (na 32-bitovém systému by druhé číslo bylo pravděpodobně 4):
+
+    ```
+    3
+    8
+    ```
+    
+    Operátor `sizeof` vrátí velikost celého statického pole, pokud jej do něj předáme. Pokud však
+    do něj dáme pouze ukazatel, tak `sizeof` neví, jak velká paměť leží na adrese uložené v tomto
+    ukazateli, proto nám místo toho vrátí pouze velikost daného ukazatele, což bude na 64-bitovém
+    systému pravděpodobně `8` bytů.
+    </details>
+8) Co vypíše následující program?
+    ```c,editable
+    #include <stdio.h>
+
+    void print_size(char pole[3]) {
+        printf("%d\n", (int) sizeof(pole));
+    }
+   
+    int main() {
+        char pole[3];
+        print_size(pole);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+    Program pravděpodobně vypíše řádek s hodnotou 8 (na 64-bitovém systému) či 4 (na 32-bitovém
+    systému). Pokud použijeme datový typ pole jako parametr funkce, tak se k němu překladač bude
+    víceméně chovat jako k běžnému ukazateli. Je to z toho důvodu, že překladač neví, jak velkou paměť
+    do funkce předáváme (můžeme tuto funkci zavolat
+    s ukazatelem na různě velká pole!). Z toho důvodu je tak lepší pro parametry funkcí vždy používat
+    rovnou ukazatel a ne pole, abychom zamezili nejasnostem.
+
+    Tyto následující tři signatury funkce jsou tedy v podstatě totožné:
+    ```c
+    void print_size(char pole[3]);
+    void print_size(char pole[]);
+    void print_size(char* pole);
+    ```
     </details>

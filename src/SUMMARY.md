@@ -57,6 +57,7 @@
             - [Výstup](c/text/vystup.md)
     - [Vlastní datové typy](c/struktury/vlastni_datove_typy.md)
         - [Struktury](c/struktury/struktury.md)
+          - [Reprezentace v paměti](c/struktury/pametova_reprezentace.md)
         - [Struktury a funkce](c/struktury/struktury_funkce.md)
     - [Soubory](c/soubory/soubory.md)
         - [Otevření souborů](c/soubory/otevirani_souboru.md)

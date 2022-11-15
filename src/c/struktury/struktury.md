@@ -42,38 +42,15 @@ Pro pojmenovávání struktur používejte v rámci předmětu UPR jmennou konve
 Pokud vytvoříme proměnnou datového typu struktury, tak překladač naalokuje paměť pro všechny
 členy této struktury. V případě výše by proměnná `karel` obsahovala nejprve byty pro ukazatel
 `const char*` a poté byty pro `int`. Členové struktury budou v paměti uloženi ve stejném pořadí,
-v jakém byly popsány při deklaraci struktury. Neznamená to ovšem, že musí ležet hned za sebou!
+v jakém byli popsáni při deklaraci struktury. Neznamená to ovšem, že musí ležet hned za sebou!
 Překladač se může rozhodnout mezi členy struktury v paměti vložit mezery (tzv. *padding*) kvůli
-urychlení provádění programu[^2].
+urychlení provádění programu. Více detailů se můžete dozvědět v podkapitole
+[Reprezentace struktur v paměti](pametova_reprezentace.md).
 
-[^2]: Pro některé typy procesorů může být rychlejší přistupovat k adresám v paměti, které jsou
-například násobkem `4` nebo `8`. Proto překladač mezery do struktur vkládá, aby jednotlivé členy
-zarovnal (*align*) v paměti. Více se můžete dozvědět například
-[zde](https://en.wikipedia.org/wiki/Data_structure_alignment).
-
-Z toho vyplývá, že velikost struktury není vždy zcela intuitivní. Například následující struktura
-s názvem `StiskKlavesy` obsahuje jeden znak (`char`) s velikostí 1 byte a jedno číslo (`int`) s
-velikostí 4 byty. Kvůli "neviditelným" mezerám vloženým překladačem ovšem velikost struktury nemusí
-být `5` bytů!
-```c,editable
-#include <stdio.h>
-
-struct StiskKlavesy {
-    char klavesa;
-    int delka;
-};
-
-int main() {
-    printf("Velikost znaku: %lu\n", sizeof(char));
-    printf("Velikost cisla: %lu\n", sizeof(int));
-    printf("Velikost struktury StiskKlavesy: %lu\n", sizeof(struct StiskKlavesy));
-
-    return 0;
-}
-```
-
-Proto pro zjištění velikosti struktury (například při dynamické alokaci paměti) vždy používejte
-operátor [`sizeof`](../prace_s_pameti/dynamicka_pamet.md#velikost-alokované-paměti).
+Prozatím si zapamatujte, že pro zjištění velikosti struktury v bytech (například při dynamické
+alokaci paměti) vždy používejte operátor
+[`sizeof`](../prace_s_pameti/dynamicka_pamet.md#velikost-alokované-paměti) a nesnažte se velikost
+"tipovat" ručně.
 
 ### Umístění a platnost struktur
 Stejně jako u [proměnných](../promenne/promenne.md#platnost) platí, že strukturu lze

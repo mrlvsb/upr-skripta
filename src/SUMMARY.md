@@ -74,6 +74,7 @@
         - [TGA](c/aplikovane_ulohy/tga.md)
         - [GIF](c/aplikovane_ulohy/gif.md)
         - [SDL](c/aplikovane_ulohy/sdl.md)
+          - [SDL + WSL](c/aplikovane_ulohy/sdl_wsl.md)
         - [Chipmunk](c/aplikovane_ulohy/chipmunk.md)
     - [Co dál?](c/co_dal.md)
 - [Různé](ruzne/ruzne.md)

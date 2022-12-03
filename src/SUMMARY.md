@@ -81,6 +81,7 @@
     - [Rozklad problému](ruzne/rozklad_problemu.md)
     - [Vyhodnocování výrazů](ruzne/vyhodnocovani_vyrazu.md)
     - [Funkce main](ruzne/funkce_main.md)
+    - [Dynamicky rostoucí pole](ruzne/dynamicky_rostouci_pole.md)
     - [Generování náhodných čísel](ruzne/nahodna_cisla.md)
     - [Parametry překladače](ruzne/parametry_prekladace.md)
 - [Úlohy](ulohy/ulohy.md)

@@ -222,6 +222,6 @@ například:
 - Reprezentovat [obdélníky](https://wiki.libsdl.org/CategoryRect) a počítat jejich průniky (např.
 pro detekci kolizí herních objektů).
 - [Reagovat](https://wiki.libsdl.org/CategoryEvents) na vstup uživatele, ať už z klávesnice nebo z myši.
-- Načítat a vykreslovat [obrázky](https://www.libsdl.org/projects/SDL_image/docs/SDL_image_frame.html).
-- Načítat a vykreslovat [text](https://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_frame.html).
+- Načítat a vykreslovat [obrázky](https://wiki.libsdl.org/SDL_image/FrontPage).
+- Načítat a vykreslovat [text](https://wiki.libsdl.org/SDL_ttf/FrontPage).
 - Přehrávat [zvuk](https://wiki.libsdl.org/CategoryAudio).

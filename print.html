@@ -2501,7 +2501,7 @@ int main() {
 <h2><a class="header" href="#klíčové-slovo-break" id="klíčové-slovo-break">Klíčové slovo <code>break</code></a></h2>
 <p>Velmi často chceme provést pouze jeden blok kódu u jednoho <code>case</code> a nepokračovat po něm až do konce
 celého <code>switch</code> bloku. Běžně se tedy za každým <code>case</code> blokem používá příkaz <code>break</code>, který ukončí
-provádějí celého <code>switch</code> příkazu:</p>
+provádění celého <code>switch</code> příkazu:</p>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
 int main() {
@@ -2832,7 +2832,7 @@ Hodnota a = 6
 </code></pre>
 <p>V každé iteraci cyklu se hodnota proměnné <code>a</code> zvýší o dvojku. Pokud je na začátku iterace hodnota
 <code>a</code> větší, než dva, tak se vypíše její hodnota. V čtvrté iteraci cyklu se hodnota proměnné <code>a</code>
-zvýší na osm. Poté příkaz se podmínka příkazu <code>if</code> vyhodnotí jako <code>true</code>, takže se provede příkaz
+zvýší na osm. Poté se podmínka příkazu <code>if</code> vyhodnotí jako <code>true</code>, takže se provede příkaz
 <code>break</code>, který provádění cyklu ukončí. Hodnota proměnné <code>a</code> se tak vypíše pouze dvakrát.</p>
 </details>
 </li>
@@ -3010,7 +3010,7 @@ iterace 2
 iterace 4
 iterace 5
 </code></pre>
-<p>Pokud je při provádění iterace cyklu hodnota <code>a</code> menší nebo rovno dvoum, tak se hodnota <code>a</code> v
+<p>Pokud je při provádění iterace cyklu hodnota <code>a</code> menší nebo rovno dvěma, tak se hodnota <code>a</code> v
 iteraci zvýší o jedničku dvakrát (jednou uvnitř příkazu <code>if</code> a jednou na konci iterace cyklu <code>for</code>).</p>
 </details>
 </li>
@@ -3028,7 +3028,7 @@ int main() {
 </code></pre>
 <details>
  <summary>Odpověď</summary>
-<p>Program program bude neustále vypisovat hodnotu proměnné <code>a</code>, protože výraz <code>a = 5</code> se vyhodnotí
+<p>Program bude neustále vypisovat hodnotu proměnné <code>a</code>, protože výraz <code>a = 5</code> se vyhodnotí
 jako <code>5</code>, a toto číslo se při <a href="c/rizeni_toku/../datove_typy/pravdivostni_typy.html#konverze">převodu</a> na <code>bool</code>
 vyhodnotí jako pravda (<code>true</code>), takže tento cyklus je nekonečný. Záměna přiřazení (<code>=</code>)
 a <code>==</code> (porovnání) je častou <a href="c/rizeni_toku/../../caste_chyby/caste_chyby.html#z%C3%A1m%C4%9Bna--a-">začátečnickou chybou</a>.</p>
@@ -4315,7 +4315,7 @@ int main() {
 hodnoty (<code>*ukazatel</code>) této proměnné z paměti přes adresu uloženou v ukazateli.</p>
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
-<iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%0A%20%20%20%20printf%28%22%25p%5Cn%22,%20ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=5&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+<iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%0A%20%20%20%20printf%28%22%25p%5Cn%22,%20ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=5&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 <p>Pokud chceme do adresy uložené v ukazateli naopak nějakou hodnotu zapsat, tak můžeme operátor
 dereference použít také na levé straně operátoru <a href="c/prace_s_pameti/../promenne/promenne.html#z%C3%A1pis">zápisu</a>:</p>
@@ -4336,7 +4336,7 @@ proměnná <code>cislo</code>. Když při výpisu poté načteme hodnotu proměn
 hodnota.</p>
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
-<iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+<iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 <p>Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat &quot;pouze&quot; s adresou,
 která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která leží v paměti na adrese
@@ -4416,7 +4416,7 @@ int main() {
 </code></pre>
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
-<iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0Avoid%20vymen%28int*%20a,%20int*%20b%29%20%7B%0A%20%20%20%20int%20docasna_hodnota%20%3D%20*a%3B%0A%20%20%20%20*a%20%3D%20*b%3B%0A%20%20%20%20*b%20%3D%20docasna_hodnota%3B%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20x%20%3D%205%3B%0A%20%20%20%20int%20y%20%3D%2010%3B%0A%20%20%20%20vymen%28%26x,%20%26y%29%3B%0A%20%20%20%20printf%28%22Po%20prehozeni%3A%20x%3D%25d,%20y%3D%25d%5Cn%22,%20x,%20y%29%3B%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=12&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+<iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0Avoid%20vymen%28int*%20a,%20int*%20b%29%20%7B%0A%20%20%20%20int%20docasna_hodnota%20%3D%20*a%3B%0A%20%20%20%20*a%20%3D%20*b%3B%0A%20%20%20%20*b%20%3D%20docasna_hodnota%3B%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20x%20%3D%205%3B%0A%20%20%20%20int%20y%20%3D%2010%3B%0A%20%20%20%20vymen%28%26x,%20%26y%29%3B%0A%20%20%20%20printf%28%22Po%20prehozeni%3A%20x%3D%25d,%20y%3D%25d%5Cn%22,%20x,%20y%29%3B%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=12&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 </li>
 <li>
@@ -4853,7 +4853,7 @@ int main() {
 </code></pre>
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
-<iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdlib.h%3E%0A%0Aint*%20naalokuj_pamet%28%29%20%7B%0A%20%20%20%20int*%20pamet%20%3D%20%28int*%29%20malloc%28sizeof%28int%29%29%3B%0A%20%20%20%20*pamet%20%3D%205%3B%0A%20%20%20%20return%20pamet%3B%20%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int*%20pamet%20%3D%20naalokuj_pamet%28%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*pamet%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=8&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+<iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdlib.h%3E%0A%0Aint*%20naalokuj_pamet%28%29%20%7B%0A%20%20%20%20int*%20pamet%20%3D%20%28int*%29%20malloc%28sizeof%28int%29%29%3B%0A%20%20%20%20*pamet%20%3D%205%3B%0A%20%20%20%20return%20pamet%3B%20%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int*%20pamet%20%3D%20naalokuj_pamet%28%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*pamet%29%3B%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=8&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 <h3><a class="header" href="#iniciální-hodnota-paměti" id="iniciální-hodnota-paměti">Iniciální hodnota paměti</a></h3>
 <p>Stejně jako u <a href="c/prace_s_pameti/../promenne/promenne.html#v%C5%BEdy-inicializujte-prom%C4%9Bnn%C3%A9">lokálních proměnných</a>, i u
@@ -5510,7 +5510,7 @@ dimenzí:</p>
 <h2><a class="header" href="#vícerozměrné-dynamické-pole" id="vícerozměrné-dynamické-pole">Vícerozměrné dynamické pole</a></h2>
 <p>Pokud potřebujete vícerozměrné pole s <a href="c/pole/dynamicka_pole.html">dynamickou velikostí</a>, stačí při volání
 funkce <code>malloc</code> vytvořit dostatek paměti pro všechny rozměry. Pokud bychom například chtěli
-naalokovat paměť pro 2D obrázek s <code>vyska</code> řádky a <code>sirka</code> řádky, můžeme použít následující volání
+naalokovat paměť pro 2D obrázek s <code>vyska</code> řádky a <code>sirka</code> sloupci, můžeme použít následující volání
 funkce <code>malloc</code>:</p>
 <pre><code class="language-c">int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int)));
 </code></pre>

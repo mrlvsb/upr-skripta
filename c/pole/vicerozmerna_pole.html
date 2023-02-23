@@ -255,7 +255,7 @@ dimenzí:</p>
 <h2><a class="header" href="#vícerozměrné-dynamické-pole" id="vícerozměrné-dynamické-pole">Vícerozměrné dynamické pole</a></h2>
 <p>Pokud potřebujete vícerozměrné pole s <a href="dynamicka_pole.html">dynamickou velikostí</a>, stačí při volání
 funkce <code>malloc</code> vytvořit dostatek paměti pro všechny rozměry. Pokud bychom například chtěli
-naalokovat paměť pro 2D obrázek s <code>vyska</code> řádky a <code>sirka</code> řádky, můžeme použít následující volání
+naalokovat paměť pro 2D obrázek s <code>vyska</code> řádky a <code>sirka</code> sloupci, můžeme použít následující volání
 funkce <code>malloc</code>:</p>
 <pre><code class="language-c">int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int)));
 </code></pre>

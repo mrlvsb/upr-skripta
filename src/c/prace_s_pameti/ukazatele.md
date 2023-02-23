@@ -120,7 +120,7 @@ hodnoty (`*ukazatel`) této proměnné z paměti přes adresu uloženou v ukazat
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
 
-  <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%0A%20%20%20%20printf%28%22%25p%5Cn%22,%20ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=5&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+  <iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%0A%20%20%20%20printf%28%22%25p%5Cn%22,%20ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20*ukazatel%29%3B%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D%0A&codeDivHeight=400&codeDivWidth=350&curInstr=5&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 
 Pokud chceme do adresy uložené v ukazateli naopak nějakou hodnotu zapsat, tak můžeme operátor
@@ -145,7 +145,7 @@ hodnota.
 <details>
   <summary>Interaktivní vizualizace kódu</summary>
 
-  <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+  <iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 
 Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat "pouze" s adresou,
@@ -233,7 +233,7 @@ proměnných.
   <details>
     <summary>Interaktivní vizualizace kódu</summary>
 
-    <iframe width="750" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0Avoid%20vymen%28int*%20a,%20int*%20b%29%20%7B%0A%20%20%20%20int%20docasna_hodnota%20%3D%20*a%3B%0A%20%20%20%20*a%20%3D%20*b%3B%0A%20%20%20%20*b%20%3D%20docasna_hodnota%3B%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20x%20%3D%205%3B%0A%20%20%20%20int%20y%20%3D%2010%3B%0A%20%20%20%20vymen%28%26x,%20%26y%29%3B%0A%20%20%20%20printf%28%22Po%20prehozeni%3A%20x%3D%25d,%20y%3D%25d%5Cn%22,%20x,%20y%29%3B%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=12&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
+    <iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0Avoid%20vymen%28int*%20a,%20int*%20b%29%20%7B%0A%20%20%20%20int%20docasna_hodnota%20%3D%20*a%3B%0A%20%20%20%20*a%20%3D%20*b%3B%0A%20%20%20%20*b%20%3D%20docasna_hodnota%3B%0A%7D%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20x%20%3D%205%3B%0A%20%20%20%20int%20y%20%3D%2010%3B%0A%20%20%20%20vymen%28%26x,%20%26y%29%3B%0A%20%20%20%20printf%28%22Po%20prehozeni%3A%20x%3D%25d,%20y%3D%25d%5Cn%22,%20x,%20y%29%3B%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=12&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 
   </details>
 

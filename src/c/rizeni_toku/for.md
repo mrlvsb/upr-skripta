@@ -120,7 +120,7 @@ sudé iteraci tohoto cyklu.
     iterace 4
     iterace 5
     ```
-    Pokud je při provádění iterace cyklu hodnota `a` menší nebo rovno dvoum, tak se hodnota `a` v
+    Pokud je při provádění iterace cyklu hodnota `a` menší nebo rovno dvěma, tak se hodnota `a` v
     iteraci zvýší o jedničku dvakrát (jednou uvnitř příkazu `if` a jednou na konci iterace cyklu `for`).
     </details>
 3) Co vypíše následující program?
@@ -138,7 +138,7 @@ sudé iteraci tohoto cyklu.
     <details>
     <summary>Odpověď</summary>
 
-    Program program bude neustále vypisovat hodnotu proměnné `a`, protože výraz `a = 5` se vyhodnotí
+    Program bude neustále vypisovat hodnotu proměnné `a`, protože výraz `a = 5` se vyhodnotí
     jako `5`, a toto číslo se při [převodu](../datove_typy/pravdivostni_typy.md#konverze) na `bool`
     vyhodnotí jako pravda (`true`), takže tento cyklus je nekonečný. Záměna přiřazení (`=`)
     a `==` (porovnání) je častou [začátečnickou chybou](../../caste_chyby/caste_chyby.md#záměna--a-).

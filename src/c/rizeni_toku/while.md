@@ -249,7 +249,7 @@ Pokud pro to nemáte zvláštní důvod, asi není třeba tento typ cyklu použ�
     ```
     V každé iteraci cyklu se hodnota proměnné `a` zvýší o dvojku. Pokud je na začátku iterace hodnota
     `a` větší, než dva, tak se vypíše její hodnota. V čtvrté iteraci cyklu se hodnota proměnné `a`
-    zvýší na osm. Poté příkaz se podmínka příkazu `if` vyhodnotí jako `true`, takže se provede příkaz
+    zvýší na osm. Poté se podmínka příkazu `if` vyhodnotí jako `true`, takže se provede příkaz
     `break`, který provádění cyklu ukončí. Hodnota proměnné `a` se tak vypíše pouze dvakrát.
     </details>
 2) Co vypíše následující program?

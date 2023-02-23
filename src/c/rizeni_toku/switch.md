@@ -73,7 +73,7 @@ int main() {
 ## Klíčové slovo `break`
 Velmi často chceme provést pouze jeden blok kódu u jednoho `case` a nepokračovat po něm až do konce
 celého `switch` bloku. Běžně se tedy za každým `case` blokem používá příkaz `break`, který ukončí
-provádějí celého `switch` příkazu:
+provádění celého `switch` příkazu:
 ```c,editable,mainbody
 #include <stdio.h>
 

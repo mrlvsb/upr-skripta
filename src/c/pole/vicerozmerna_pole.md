@@ -82,7 +82,7 @@ int pole_2d[3][4] = {
 ## Vícerozměrné dynamické pole
 Pokud potřebujete vícerozměrné pole s [dynamickou velikostí](dynamicka_pole.md), stačí při volání
 funkce `malloc` vytvořit dostatek paměti pro všechny rozměry. Pokud bychom například chtěli
-naalokovat paměť pro 2D obrázek s `vyska` řádky a `sirka` řádky, můžeme použít následující volání
+naalokovat paměť pro 2D obrázek s `vyska` řádky a `sirka` sloupci, můžeme použít následující volání
 funkce `malloc`:
 ```c
 int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int)));

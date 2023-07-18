@@ -14,7 +14,7 @@ mezi Windows a Linuxem, a také vám umožní si jednoduše pod Windows spustit 
 kterého budete moct např. překládat své *C* programy.
 
 Nejprve si musíte na Windows `WSL` nainstalovat. Návod pro instalaci naleznete [zde](https://docs.microsoft.com/cs-cz/windows/wsl/install).
-Pokud máte aktualizovaný Windows 10, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor[^1],
+Pokud máte aktualizovaný Windows 10/11, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor[^1],
 poté napsat `wsl.exe --install` a zmáčknout klávesu Enter. Jakmile se WSL nainstaluje, tak restartujte počítač.
 Tento příkaz by vám měl nainstalovat distribuci *Ubuntu* do vašeho Windows počítače.
 
@@ -57,8 +57,8 @@ Linux můžete také používat ve virtualizované podobě pomocí
 pod Windows spustí celý virtuální počítač, na kterém poběží Linux, který nebude mít vůbec tušení o
 tom, že je spuštěn pod Windows. Výhodou tohoto řešení je, že se virtuální počítač bude chovat jako
 plnohodnotná instalace Linuxu, a téměř vše by tedy na něm mělo fungovat (i včetně např. grafických
-aplikací). Nevýhodou je, že virtuální počítač je značně náročný na procesor i paměť počítače,
-a může být obtížnější s virtuálním počítačem sdílet data z Windows (ve srovnání s WSL).
+aplikací, které pod WSL nemusí fungovat). Nevýhodou je, že virtuální počítač je značně náročný na procesor
+i paměť počítače, a může být obtížnější s virtuálním počítačem sdílet data z Windows (ve srovnání s WSL).
 
 Připravili jsme pro vás tzv. obraz virtuálního stroje, který obsahuje již nastavený Linux, konkrétně
 `Ubuntu 20.04`, se vším potřebným pro předmět UPR. Abyste jej mohli použít, tak si nejprve musíte

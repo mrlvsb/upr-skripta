@@ -64,6 +64,7 @@ Program by měl na výstup vytisknout text `Hello world!`.
     Pokud překlad proběhne úspěšně, tak operátor `&&` zajistí spuštění následujícího příkazu.
 - Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru (&#8593;) můžete vyvolat nedávno
 spuštěné příkazy v terminálu.
+- Můžete používat i terminál vestavený přímo ve `Visual Studio Code` (`View -> Terminal`).
 </details>
 
 Pro lepší představu o překladu programů zde máte k dispozici ještě krátké shrnující video:

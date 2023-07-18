@@ -4,7 +4,7 @@ z nich má své výhody a nevýhody a záleží na konkrétním problému, kter�
 zvolení vhodného programovacího jazyka.
 
 V tomto kurzu se budeme zabývat pouze programovacím jazykem **C**. Tento jazyk vytvořili Dennis
-Ritchie a Ken Thompson v laboratořích firmy Bell v roce 1972, tedy již před téměř 50 lety, a za tu
+Ritchie a Ken Thompson v laboratořích firmy Bell v roce 1972, tedy před více než 50 lety, a za tu
 dobu se nedočkal mnoha výrazných změn.
 
 I když pro něj v dnešní době asi nenaleznete obrovské množství pracovních nabídek a není primární

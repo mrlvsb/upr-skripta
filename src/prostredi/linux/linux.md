@@ -5,9 +5,9 @@ tento operační systém zprovoznili.
 
 ## Proč Linux?
 Linux je v současné době v oblasti IT téměř všude - používá ho většina webových serverů, cloudových
-služeb nebo třeba i superpočítačů. Umožňuje nám ovládat počítač jednoduše pomocí textových příkazů
-v terminálu, díky čehož si můžeme zautomatizovat a ulehčit práci s počítačem, a zároveň můžeme trochu
-nahlédnout pod pokličku toho, jak počítač funguje.
+služeb, mobilních zařízení nebo třeba i superpočítačů. Umožňuje nám ovládat počítač jednoduše pomocí
+textových příkazů v terminálu, díky čehož si můžeme zautomatizovat a ulehčit práci s počítačem, a
+zároveň můžeme trochu nahlédnout pod pokličku toho, jak počítač funguje.
 
 Pro používání jazyka *C* nám Linux umožňuje velmi jednoduše překládat programy právě z terminálu,
 a díky tomu, že je *C* na Linuxu "jako doma", tak nám to usnadní i další věci, např. používání knihoven

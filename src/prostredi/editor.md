@@ -47,7 +47,8 @@ terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*. V
 
 > Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
 > problém v kódu opravdu je. Důležité je, co řekne [překladač](preklad_programu.md) při překladu
-> programu, VSCode je občas zmatené anebo není správně nastavené. 
+> programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
+> nastavit, ať vás to neplete.
 
 ## Instalace potřebných rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
@@ -69,7 +70,28 @@ a vyberte nějaký adresář, ve kterém chcete programovat.
 
 ![Nastavení VSCode](../static/video/vsc_first_run.gif)
 
+## Ukládání souborů
+Pokud v otevřeném zdrojovém souboru provedete nějaké změny, tak se neuloží na disk, dokud soubor neuložíte (pomocí
+klávesové zkratky `Ctrl + S`). Občas se studentům stává, že provedou změnu, poté se snaží přeložit program, ale jejich
+změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to právě proto, že soubor není uložen!
+**Neuložený soubor** poznáte tak, že v záložce s názvem souboru je bílé kolečko:
+![](../static/img/vsc-unsaved-file.png)
+
+Vždy tak po provedení změn ukládejte soubor pomocí `Ctrl + S`, případně si můžete v nastavení (`Settings`) zapnout volbu
+`Auto Save`.
+
+## Automatické formátování kódu
+Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,
+aby byl přehledný a dalo se v něm vyznat. Tuto činnost však můžete nechat plně na editoru či vývojovém prostředí.
+Ve Visual Studio Code můžete použít klávesovou zkratku `Ctrl + Shift + I`, která vám právě otevřený soubor s kódem
+automaticky zformátuje.
+
+Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
+`File -> Preferences -> Settings`, poté do vyhledávacího okénka napište `Format On Save` a zaškrtněte tuto možnost:
+![](../static/img/vsc-format-on-save.png)
+
 ## Užitečné zkratky 
 - Spustit program - `F5`
 - Naformátovat kód - `Ctrl + Shift + I`
+- Uložit provedené změny v souboru - `Ctrl + S`
 - Zobrazit vyhledávač akcí - `Ctrl + Shift + P`

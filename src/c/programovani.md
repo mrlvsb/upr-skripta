@@ -43,15 +43,18 @@ Javascript, Rust, C++ atd.).
 - [Chipmunk](aplikovane_ulohy/chipmunk.md) - jak simulovat fyzikální procesy
 
 ## Struktura textu
-V textu se občas budou objevovat krátké sekce nazvané **Cvičení** 🏋️ a **Kvízy** 🤔. Ty obsahují
-krátká zadání, která slouží k tomu, abyste si vyzkoušeli nějakou konstrukci jazyka *C* anebo se
-zamysleli nad tím, jak daná konstrukce funguje. Další úlohy k procvičení také naleznete v kapitole
-[Úlohy](../ulohy/ulohy.md).
+V textu se občas budou objevovat ikonky označující různé sekce či důležité pojmy. Zde je jejich vysvětlení:
+- 🏋: Sekce označené jako **Cvičení** 🏋 obsahují zadání krátkých úloh pro procvičení vysvětlované látky. Další úlohy k
+procvičení naleznete také v kapitole [Úlohy](../ulohy/ulohy.md).
+- 🤔: Sekce označené jako **Kvízy** 🤔 obsahují ukázky C programů, ve kterých dochází k různým "zapeklitým situacím".
+Vaší úlohou je zamyslet se nad tím, jak takovýto program bude fungovat, a např. si tipnout, jaký výstup vypíše,
+či zda obsahuje tzv. nedefinované chování.
+- 🤓: Kapitoly označené touto ikonou slouží jako doplňující učivo. To není nezbytně nutné zcela pochopit, abyste se mohli
+v textu posunout dále. Pokud tedy nebudete stíhat nebo toho na vás bude moc, můžete tyto sekce prozatím přeskočit, nicméně
+později byste se k nim měli vrátit.
+- 💣: Označuje situace, při kterých dochází k nedefinovanému chování (bude vysvětleno dále v textu). Tyto situace
+prostudujte obzvláště pečlivě!
+- 📹: Označuje videozáznam s doplňujícím vysvětlením učiva.
 
-Některé sekce jsou dále označené jako doplňující učivo 🤓. Tyto sekce označují učivo, které není
-nezbytně nutné zcela pochopit, abyste se mohli v textu posunout dále. Pokud nebudete stíhat nebo
-toho na vás bude moc, můžete tyto sekce prozatím přeskočit, nicméně později byste se k nim měli
-vrátit.
-
-**Pouze si o programování číst nestačí k tomu, abyste se naučili programovat, proto vám
-doporučujeme, abyste si co nejvíce cvičení, kvízů a úloh vypracovali.**
+**Pouze si o programování číst nestačí k tomu, abyste se naučili programovat! Proto si co nejvíce cvičení, kvízů a úloh
+vypracujte a naprogramujte, jedině tak se v programování zlepšíte.**

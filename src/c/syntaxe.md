@@ -32,12 +32,16 @@ main()                 {
 
 ```
 reprezentuje úplně stejný program. Nicméně asi sami uznáte, že pokud bychom s bílými znaky nakládali
-takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Proto doporučujeme formátování provádět
-automaticky ve [VSCode](../prostredi/editor.md) pomocí zkratky `Ctrl + Shift + I`, ať nad ním nemusíte přemýšlet.
+takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Ideální je
+[nastavit si automatické formátování](../prostredi/editor.md#automatické-formátování-kódu) přímo v editoru kódu, abyste
+nad formátováním vůbec nemuseli přemýšlet.
 
-Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v [řetězcích](text/retezce.md)
-jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. `in t` nebo
-`ma in` v programu výše by způsobily chybu při překladu).
+[^1]: [Bílé znaky](https://cs.wikipedia.org/wiki/B%C3%ADl%C3%BD_znak) jsou (neviditelné) znaky,
+které reprezentují mezery v textu, tj. odřádkování, mezerník, tabulátor atd.
+
+Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Později se dozvíme, že například v [řetězcích](text/retezce.md)
+jsou bílé znaky brány jako součást textu. Nemůžeme také rozdělovat mezerami názvy (např. `in t` nebo
+`ma in`) v programu výše by způsobily chybu při překladu).
 
 ### Komentáře
 Abychom mohli v následujících sekcích popisovat kusy kódu, ukážeme si teď **komentáře**. Jedná se
@@ -69,8 +73,8 @@ text, dokud nedojde k ukončení komentáře pomocí `*/`.
 
 Ze začátku je asi jednodušší používat řádkové komentáře, ve VSCode můžete použít klávesovou zkratku
 `Ctrl + /` pro zakomentování/odkomentování řádku kódu. Pokud vám přijde nějaký kus kódu komplikovaný,
-tak si k němu zkuste dopsat komentář, který vysvětlí, co má daný kód dělat. Porozumíte tak kódu
-snadněji, až se k němu např. za měsíc vrátíte.
+tak si k němu zkuste dopsat komentář, který vysvětlí, proč byl kód napsán právě takto (případně vyloženě popište, co kód dělá).
+Porozumíte tak kódu snadněji, až se k němu např. za měsíc vrátíte.
 
 ### Klíčová slova
 **Klíčová slova** (*keywords*) jsou vestavěné názvy, kterým překladač přiřazuje speciální
@@ -90,10 +94,7 @@ Při programování (jak už v *C*, tak i v jiných jazycích) budete používat
 asi často nevyužíváte (například `[`, `]`, `{`, `}`, `<`, `>`, `=`, `%`, `#`, `&`, `*`, `;`, `\`,
 `"`, `'`). Obzvláště pokud pro programování budete používat českou klávesnici, je dobré si ze začátku
 najít nějaký tahák (např. [tento](https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/keyboard-cs.pdf)),
-abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází. 
-
-[^1]: [Bílé znaky](https://cs.wikipedia.org/wiki/B%C3%ADl%C3%BD_znak) jsou (neviditelné) znaky,
-které reprezentují mezery v textu, tj. odřádkování, mezerník, tabulátor atd.
+abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází.
 
 ### Formátování kódu
 Už víme, že překladač ignoruje bílé znaky a celkové formátování kódu. Nicméně programátorům obvykle
@@ -121,12 +122,17 @@ while (...)
 Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.
 
+Pokud budete využívat [automatické formátování](../prostredi/editor.md#automatické-formátování-kódu) ve vašem editoru,
+tak toto opět nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.
+
 <hr />
 
 **Cvičení** 🏋
 
-1) Vytvořte si ve VS Code soubor (pojmenovaný např. `main.c`) a nakopírujte nebo napište do něj
+1) Vytvořte si ve VS Code soubor pojmenovaný např. `main.c` (`File -> New File…`) a nakopírujte nebo napište do něj
 "prázdný" *C* program ukázaný výše. Zkuste program
 [přeložit](../prostredi/preklad_programu.md#překlad-prvního-programu) a spustit.
 2) Zkuste do kódu přidat komentáře nebo bílé znaky (např. prázdné řádky nebo mezery). Otestujte, že
 překladač tyto věci při překladu ignoruje.
+3) Zkuste v programu záměrně vložit mezeru např. do slova `main` nebo `int`. Podívejte se, jakou chybovou hlášku vám ukáže
+překladač.

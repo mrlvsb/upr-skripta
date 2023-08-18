@@ -198,7 +198,7 @@ bude chovat jako program spouštěný pod Windows. Tato varianta vám umožní j
 mezi Windows a Linuxem, a také vám umožní si jednoduše pod Windows spustit Linuxový terminál, ze
 kterého budete moct např. překládat své <em>C</em> programy.</p>
 <p>Nejprve si musíte na Windows <code>WSL</code> nainstalovat. Návod pro instalaci naleznete <a href="https://docs.microsoft.com/cs-cz/windows/wsl/install">zde</a>.
-Pokud máte aktualizovaný Windows 10, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor<sup class='margin-toggle sidenote-number'>1</sup>,
+Pokud máte aktualizovaný Windows 10/11, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor<sup class='margin-toggle sidenote-number'>1</sup>,
 poté napsat <code>wsl.exe --install</code> a zmáčknout klávesu Enter. Jakmile se WSL nainstaluje, tak restartujte počítač.
 Tento příkaz by vám měl nainstalovat distribuci <em>Ubuntu</em> do vašeho Windows počítače.</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Nabídka start -&gt; Napište <code>cmd</code> -&gt; Klikněte pravým tlačítkem na nalezený příkazový řádek -&gt; Spustit jako administrátor</p>
@@ -234,8 +234,8 @@ soubory z VSCode.</p>
 pod Windows spustí celý virtuální počítač, na kterém poběží Linux, který nebude mít vůbec tušení o
 tom, že je spuštěn pod Windows. Výhodou tohoto řešení je, že se virtuální počítač bude chovat jako
 plnohodnotná instalace Linuxu, a téměř vše by tedy na něm mělo fungovat (i včetně např. grafických
-aplikací). Nevýhodou je, že virtuální počítač je značně náročný na procesor i paměť počítače,
-a může být obtížnější s virtuálním počítačem sdílet data z Windows (ve srovnání s WSL).</p>
+aplikací, které pod WSL nemusí fungovat). Nevýhodou je, že virtuální počítač je značně náročný na procesor
+i paměť počítače, a může být obtížnější s virtuálním počítačem sdílet data z Windows (ve srovnání s WSL).</p>
 <p>Připravili jsme pro vás tzv. obraz virtuálního stroje, který obsahuje již nastavený Linux, konkrétně
 <code>Ubuntu 20.04</code>, se vším potřebným pro předmět UPR. Abyste jej mohli použít, tak si nejprve musíte
 nainstalovat virtualizační program <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>. Poté si

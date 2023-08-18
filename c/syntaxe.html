@@ -216,11 +216,12 @@ main()                 {
 
 </code></pre>
 <p>reprezentuje úplně stejný program. Nicméně asi sami uznáte, že pokud bychom s bílými znaky nakládali
-takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Proto doporučujeme formátování provádět
-automaticky ve <a href="../prostredi/editor.html">VSCode</a> pomocí zkratky <code>Ctrl + Shift + I</code>, ať nad ním nemusíte přemýšlet.</p>
-<p>Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v <a href="text/retezce.html">řetězcích</a>
-jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. <code>in t</code> nebo
-<code>ma in</code> v programu výše by způsobily chybu při překladu).</p>
+takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Ideální je
+<a href="../prostredi/editor.html#automatick%C3%A9-form%C3%A1tov%C3%A1n%C3%AD-k%C3%B3du">nastavit si automatické formátování</a> přímo v editoru kódu, abyste
+nad formátováním vůbec nemuseli přemýšlet.</p>
+<p>Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Později se dozvíme, že například v <a href="text/retezce.html">řetězcích</a>
+jsou bílé znaky brány jako součást textu. Nemůžeme také rozdělovat mezerami názvy (např. <code>in t</code> nebo
+<code>ma in</code>) v programu výše by způsobily chybu při překladu).</p>
 <h3><a class="header" href="#komentáře" id="komentáře">Komentáře</a></h3>
 <p>Abychom mohli v následujících sekcích popisovat kusy kódu, ukážeme si teď <strong>komentáře</strong>. Jedná se
 o text ve zdrojovém kódu, který je určen pro programátory, a ne pro překladač, který je zcela ignoruje.
@@ -251,8 +252,8 @@ a tady taky */
 </ul>
 <p>Ze začátku je asi jednodušší používat řádkové komentáře, ve VSCode můžete použít klávesovou zkratku
 <code>Ctrl + /</code> pro zakomentování/odkomentování řádku kódu. Pokud vám přijde nějaký kus kódu komplikovaný,
-tak si k němu zkuste dopsat komentář, který vysvětlí, co má daný kód dělat. Porozumíte tak kódu
-snadněji, až se k němu např. za měsíc vrátíte.</p>
+tak si k němu zkuste dopsat komentář, který vysvětlí, proč byl kód napsán právě takto (případně vyloženě popište, co kód dělá).
+Porozumíte tak kódu snadněji, až se k němu např. za měsíc vrátíte.</p>
 <h3><a class="header" href="#klíčová-slova" id="klíčová-slova">Klíčová slova</a></h3>
 <p><strong>Klíčová slova</strong> (<em>keywords</em>) jsou vestavěné názvy, kterým překladač přiřazuje speciální
 význam. V textovém editoru je typicky poznáte tak, že budou zabarvená jinou barvou než názvy
@@ -268,7 +269,7 @@ seznam můžete najít například <a href="https://www.programiz.com/c-programm
 asi často nevyužíváte (například <code>[</code>, <code>]</code>, <code>{</code>, <code>}</code>, <code>&lt;</code>, <code>&gt;</code>, <code>=</code>, <code>%</code>, <code>#</code>, <code>&amp;</code>, <code>*</code>, <code>;</code>, <code>\</code>,
 <code>&quot;</code>, <code>'</code>). Obzvláště pokud pro programování budete používat českou klávesnici, je dobré si ze začátku
 najít nějaký tahák (např. <a href="https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/keyboard-cs.pdf">tento</a>),
-abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází. </p>
+abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází.</p>
 <h3><a class="header" href="#formátování-kódu" id="formátování-kódu">Formátování kódu</a></h3>
 <p>Už víme, že překladač ignoruje bílé znaky a celkové formátování kódu. Nicméně programátorům obvykle
 velmi záleží na tom, jaké má kód odsazení, zarovnání, závorkování atd. Existuje mnoho
@@ -292,14 +293,18 @@ while (...)
 </code></pre>
 <p>Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.</p>
+<p>Pokud budete využívat <a href="../prostredi/editor.html#automatick%C3%A9-form%C3%A1tov%C3%A1n%C3%AD-k%C3%B3du">automatické formátování</a> ve vašem editoru,
+tak toto opět nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.</p>
 <hr />
 <p><strong>Cvičení</strong> 🏋</p>
 <ol>
-<li>Vytvořte si ve VS Code soubor (pojmenovaný např. <code>main.c</code>) a nakopírujte nebo napište do něj
+<li>Vytvořte si ve VS Code soubor pojmenovaný např. <code>main.c</code> (<code>File -&gt; New File…</code>) a nakopírujte nebo napište do něj
 &quot;prázdný&quot; <em>C</em> program ukázaný výše. Zkuste program
 <a href="../prostredi/preklad_programu.html#p%C5%99eklad-prvn%C3%ADho-programu">přeložit</a> a spustit.</li>
 <li>Zkuste do kódu přidat komentáře nebo bílé znaky (např. prázdné řádky nebo mezery). Otestujte, že
 překladač tyto věci při překladu ignoruje.</li>
+<li>Zkuste v programu záměrně vložit mezeru např. do slova <code>main</code> nebo <code>int</code>. Podívejte se, jakou chybovou hlášku vám ukáže
+překladač.</li>
 </ol>
 
                     </main>

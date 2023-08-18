@@ -233,7 +233,8 @@ terminálu, aby mělo správný přístup k systémovým souborům jazyka <em>C<
 <blockquote>
 <p>Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
 problém v kódu opravdu je. Důležité je, co řekne <a href="preklad_programu.html">překladač</a> při překladu
-programu, VSCode je občas zmatené anebo není správně nastavené. </p>
+programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
+nastavit, ať vás to neplete.</p>
 </blockquote>
 <h2><a class="header" href="#instalace-potřebných-rozšíření-pomocí-terminálu" id="instalace-potřebných-rozšíření-pomocí-terminálu">Instalace potřebných rozšíření (pomocí terminálu)</a></h2>
 <p>VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
@@ -251,10 +252,27 @@ tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk <em>C</em>. 
 šablonu. Pro otevření adresáře ve VSCode klikněte na <code>Soubor (File) -&gt; Otevřít adresář (Open Folder)</code>
 a vyberte nějaký adresář, ve kterém chcete programovat.</p>
 <p><img src="../static/video/vsc_first_run.gif" alt="Nastavení VSCode" /></p>
+<h2><a class="header" href="#ukládání-souborů" id="ukládání-souborů">Ukládání souborů</a></h2>
+<p>Pokud v otevřeném zdrojovém souboru provedete nějaké změny, tak se neuloží na disk, dokud soubor neuložíte (pomocí
+klávesové zkratky <code>Ctrl + S</code>). Občas se studentům stává, že provedou změnu, poté se snaží přeložit program, ale jejich
+změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to právě proto, že soubor není uložen!
+<strong>Neuložený soubor</strong> poznáte tak, že v záložce s názvem souboru je bílé kolečko:
+<img src="../static/img/vsc-unsaved-file.png" alt="" /></p>
+<p>Vždy tak po provedení změn ukládejte soubor pomocí <code>Ctrl + S</code>, případně si můžete v nastavení (<code>Settings</code>) zapnout volbu
+<code>Auto Save</code>.</p>
+<h2><a class="header" href="#automatické-formátování-kódu" id="automatické-formátování-kódu">Automatické formátování kódu</a></h2>
+<p>Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,
+aby byl přehledný a dalo se v něm vyznat. Tuto činnost však můžete nechat plně na editoru či vývojovém prostředí.
+Ve Visual Studio Code můžete použít klávesovou zkratku <code>Ctrl + Shift + I</code>, která vám právě otevřený soubor s kódem
+automaticky zformátuje.</p>
+<p>Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
+<code>File -&gt; Preferences -&gt; Settings</code>, poté do vyhledávacího okénka napište <code>Format On Save</code> a zaškrtněte tuto možnost:
+<img src="../static/img/vsc-format-on-save.png" alt="" /></p>
 <h2><a class="header" href="#užitečné-zkratky" id="užitečné-zkratky">Užitečné zkratky</a></h2>
 <ul>
 <li>Spustit program - <code>F5</code></li>
 <li>Naformátovat kód - <code>Ctrl + Shift + I</code></li>
+<li>Uložit provedené změny v souboru - <code>Ctrl + S</code></li>
 <li>Zobrazit vyhledávač akcí - <code>Ctrl + Shift + P</code></li>
 </ul>
 

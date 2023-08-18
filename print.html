@@ -286,7 +286,7 @@ instrukcí a z takového množství příkazů už by bylo složité odvodit, k 
 z nich má své výhody a nevýhody a záleží na konkrétním problému, který je třeba vyřešit, pro
 zvolení vhodného programovacího jazyka.</p>
 <p>V tomto kurzu se budeme zabývat pouze programovacím jazykem <strong>C</strong>. Tento jazyk vytvořili Dennis
-Ritchie a Ken Thompson v laboratořích firmy Bell v roce 1972, tedy již před téměř 50 lety, a za tu
+Ritchie a Ken Thompson v laboratořích firmy Bell v roce 1972, tedy před více než 50 lety, a za tu
 dobu se nedočkal mnoha výrazných změn.</p>
 <p>I když pro něj v dnešní době asi nenaleznete obrovské množství pracovních nabídek a není primární
 volbou pro tvorbu webových či mobilních aplikací, vyplatí se mu rozumět a umět ho používat, a to
@@ -339,11 +339,11 @@ potřeba.</p>
 <p>Počítačová paměť uchovává informace v buňkách, které obsahují jedno číslo, které může obsahovat 256
 různých hodnot. To vychází z toho, že informace je reprezentována <strong>bity</strong>, jednotkou informací,
 která může nabývat pouze dvě hodnoty - pravda (<em>true</em>) nebo nepravda (<em>false</em>). Každá buňka paměti
-obsahuje jeden <strong>byte</strong>, neboli právě 8 bitů.</p>
+obsahuje jeden <strong>byte</strong>, neboli 8 bitů.</p>
 <p>Pracuje se zde s dvojkovou (binární) soustavou, pokud tedy máme k dispozici <em>n</em> bitů, tak pomocí
 nich můžeme reprezentovat \( 2^n \) hodnot. Např. s dvěma bity můžeme reprezentovat 4 různé
-hodnoty
-(00, 01, 10, 11). Více o binární soustavě a bytech se dozvíte v předmětu
+hodnoty (00, 01, 10, 11), a s 8 bity (jedním bytem) můžeme reprezentovat právě 256 hodnot. Více o binární
+soustavě a bytech se dozvíte v předmětu
 <a href="https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=440-2104/01&amp;subjectBlockAssignmentId=375761&amp;studyFormId=2&amp;studyPlanId=22001&amp;locale=cs&amp;back=true">Základy digitálních systémů (ZDS)</a>.</p>
 <p>I když paměť vždy obsahuje hodnoty (čísla) v dvojkové soustavě, je důležité si uvědomit, že význam
 těmto hodnotám přiřazujeme my, tedy programátoři a uživatelé počítače. Pokud je v paměti hodnota <strong>65</strong>,
@@ -359,11 +359,11 @@ přímo odpovídat číselné hodnotě v paměti. Například hodnotu <strong>25
 vnímat jako celé nezáporné číslo (<em>unsigned integer</em>) <strong>255</strong>, anebo také jako celé číslo se
 znaménkem (<em>signed integer</em>) <strong>-1</strong>
 v <a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkovém doplňku</a>.<sup class='margin-toggle sidenote-number'>1</sup></p>
-<span class='sidenote'><p><sup class='number'>1</sup>Můžeme si klidně ale vymyslet reprezentaci, kde hodnota <code>255</code> v paměti bude reprezentovat
+<span class='sidenote'><p><sup class='number'>1</sup>Můžeme si ale klidně vymyslet i reprezentaci, kde hodnota <code>255</code> v paměti bude reprezentovat
 číslo <code>42</code>. Nebo třeba emoji 😈. Záleží jen na nás.</p>
 </span>
-<p>Čísla v paměti sama o sobě nemají žádný význam, záleží pouze na tom, jak je my, a obzvláště naše
-programy, interpretují a jaké operace nad nimi provádějí.</p>
+<p><strong>Čísla v paměti tak sama o sobě nemají žádný význam, záleží pouze na tom, jak je my, a obzvláště naše
+programy, interpretují a jaké operace nad nimi provádějí.</strong></p>
 <h3><a class="header" href="#adresování-paměti" id="adresování-paměti">Adresování paměti</a></h3>
 <p>Abychom se mohli odkazovat na hodnoty v paměti, tak musíme mít možnost rozlišit jednotlivé buňky od
 sebe. Toho dosáhneme pomocí <strong>adresy</strong>. Paměť je adresována tak, že každá paměťová buňka (každý <em>byte</em>)
@@ -390,9 +390,9 @@ systém <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>. Je tak nutné, 
 tento operační systém zprovoznili.</p>
 <h2><a class="header" href="#proč-linux" id="proč-linux">Proč Linux?</a></h2>
 <p>Linux je v současné době v oblasti IT téměř všude - používá ho většina webových serverů, cloudových
-služeb nebo třeba i superpočítačů. Umožňuje nám ovládat počítač jednoduše pomocí textových příkazů
-v terminálu, díky čehož si můžeme zautomatizovat a ulehčit práci s počítačem, a zároveň můžeme trochu
-nahlédnout pod pokličku toho, jak počítač funguje.</p>
+služeb, mobilních zařízení nebo třeba i superpočítačů. Umožňuje nám ovládat počítač jednoduše pomocí
+textových příkazů v terminálu, díky čehož si můžeme zautomatizovat a ulehčit práci s počítačem, a
+zároveň můžeme trochu nahlédnout pod pokličku toho, jak počítač funguje.</p>
 <p>Pro používání jazyka <em>C</em> nám Linux umožňuje velmi jednoduše překládat programy právě z terminálu,
 a díky tomu, že je <em>C</em> na Linuxu &quot;jako doma&quot;, tak nám to usnadní i další věci, např. používání knihoven
 (kódu, který již pro nás naprogramoval někdo jiný). Ostatně i samotný Linux je napsán téměř výlučně
@@ -471,7 +471,7 @@ bude chovat jako program spouštěný pod Windows. Tato varianta vám umožní j
 mezi Windows a Linuxem, a také vám umožní si jednoduše pod Windows spustit Linuxový terminál, ze
 kterého budete moct např. překládat své <em>C</em> programy.</p>
 <p>Nejprve si musíte na Windows <code>WSL</code> nainstalovat. Návod pro instalaci naleznete <a href="https://docs.microsoft.com/cs-cz/windows/wsl/install">zde</a>.
-Pokud máte aktualizovaný Windows 10, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor<sup class='margin-toggle sidenote-number'>1</sup>,
+Pokud máte aktualizovaný Windows 10/11, tak by mělo stačit spustit příkazovou řádku Windows jako administrátor<sup class='margin-toggle sidenote-number'>1</sup>,
 poté napsat <code>wsl.exe --install</code> a zmáčknout klávesu Enter. Jakmile se WSL nainstaluje, tak restartujte počítač.
 Tento příkaz by vám měl nainstalovat distribuci <em>Ubuntu</em> do vašeho Windows počítače.</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Nabídka start -&gt; Napište <code>cmd</code> -&gt; Klikněte pravým tlačítkem na nalezený příkazový řádek -&gt; Spustit jako administrátor</p>
@@ -507,8 +507,8 @@ soubory z VSCode.</p>
 pod Windows spustí celý virtuální počítač, na kterém poběží Linux, který nebude mít vůbec tušení o
 tom, že je spuštěn pod Windows. Výhodou tohoto řešení je, že se virtuální počítač bude chovat jako
 plnohodnotná instalace Linuxu, a téměř vše by tedy na něm mělo fungovat (i včetně např. grafických
-aplikací). Nevýhodou je, že virtuální počítač je značně náročný na procesor i paměť počítače,
-a může být obtížnější s virtuálním počítačem sdílet data z Windows (ve srovnání s WSL).</p>
+aplikací, které pod WSL nemusí fungovat). Nevýhodou je, že virtuální počítač je značně náročný na procesor
+i paměť počítače, a může být obtížnější s virtuálním počítačem sdílet data z Windows (ve srovnání s WSL).</p>
 <p>Připravili jsme pro vás tzv. obraz virtuálního stroje, který obsahuje již nastavený Linux, konkrétně
 <code>Ubuntu 20.04</code>, se vším potřebným pro předmět UPR. Abyste jej mohli použít, tak si nejprve musíte
 nainstalovat virtualizační program <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>. Poté si
@@ -573,7 +573,8 @@ terminálu, aby mělo správný přístup k systémovým souborům jazyka <em>C<
 <blockquote>
 <p>Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
 problém v kódu opravdu je. Důležité je, co řekne <a href="prostredi/preklad_programu.html">překladač</a> při překladu
-programu, VSCode je občas zmatené anebo není správně nastavené. </p>
+programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
+nastavit, ať vás to neplete.</p>
 </blockquote>
 <h2><a class="header" href="#instalace-potřebných-rozšíření-pomocí-terminálu" id="instalace-potřebných-rozšíření-pomocí-terminálu">Instalace potřebných rozšíření (pomocí terminálu)</a></h2>
 <p>VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
@@ -591,10 +592,27 @@ tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk <em>C</em>. 
 šablonu. Pro otevření adresáře ve VSCode klikněte na <code>Soubor (File) -&gt; Otevřít adresář (Open Folder)</code>
 a vyberte nějaký adresář, ve kterém chcete programovat.</p>
 <p><img src="prostredi/../static/video/vsc_first_run.gif" alt="Nastavení VSCode" /></p>
+<h2><a class="header" href="#ukládání-souborů" id="ukládání-souborů">Ukládání souborů</a></h2>
+<p>Pokud v otevřeném zdrojovém souboru provedete nějaké změny, tak se neuloží na disk, dokud soubor neuložíte (pomocí
+klávesové zkratky <code>Ctrl + S</code>). Občas se studentům stává, že provedou změnu, poté se snaží přeložit program, ale jejich
+změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to právě proto, že soubor není uložen!
+<strong>Neuložený soubor</strong> poznáte tak, že v záložce s názvem souboru je bílé kolečko:
+<img src="prostredi/../static/img/vsc-unsaved-file.png" alt="" /></p>
+<p>Vždy tak po provedení změn ukládejte soubor pomocí <code>Ctrl + S</code>, případně si můžete v nastavení (<code>Settings</code>) zapnout volbu
+<code>Auto Save</code>.</p>
+<h2><a class="header" href="#automatické-formátování-kódu" id="automatické-formátování-kódu">Automatické formátování kódu</a></h2>
+<p>Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,
+aby byl přehledný a dalo se v něm vyznat. Tuto činnost však můžete nechat plně na editoru či vývojovém prostředí.
+Ve Visual Studio Code můžete použít klávesovou zkratku <code>Ctrl + Shift + I</code>, která vám právě otevřený soubor s kódem
+automaticky zformátuje.</p>
+<p>Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
+<code>File -&gt; Preferences -&gt; Settings</code>, poté do vyhledávacího okénka napište <code>Format On Save</code> a zaškrtněte tuto možnost:
+<img src="prostredi/../static/img/vsc-format-on-save.png" alt="" /></p>
 <h2><a class="header" href="#užitečné-zkratky" id="užitečné-zkratky">Užitečné zkratky</a></h2>
 <ul>
 <li>Spustit program - <code>F5</code></li>
 <li>Naformátovat kód - <code>Ctrl + Shift + I</code></li>
+<li>Uložit provedené změny v souboru - <code>Ctrl + S</code></li>
 <li>Zobrazit vyhledávač akcí - <code>Ctrl + Shift + P</code></li>
 </ul>
 <h1><a class="header" href="#překlad-programu" id="překlad-programu">Překlad programu</a></h1>
@@ -650,9 +668,10 @@ program spustit. Abyste to provedli v jednom terminálovém příkazu, můžete 
 Pokud překlad proběhne úspěšně, tak operátor <code>&amp;&amp;</code> zajistí spuštění následujícího příkazu.</li>
 <li>Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru (↑) můžete vyvolat nedávno
 spuštěné příkazy v terminálu.</li>
+<li>Můžete používat i terminál vestavený přímo ve <code>Visual Studio Code</code> (<code>View -&gt; Terminal</code>).</li>
 </ul>
 </details>
-<p>Pro lepší představu o překladu programů zde máte k dispozici ještě krátké shrnující video:</p>
+<p>📹 Pro lepší představu o překladu programů zde máte k dispozici ještě krátké shrnující video:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Hu7l9NpQ3g8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3><a class="header" href="#jak-překlad-probíhá" id="jak-překlad-probíhá">Jak překlad probíhá?</a></h3>
 <p>Překlad programu bude detailně vysvětlen později v sekci o <a href="prostredi/../c/modularizace/linker.html">linkeru</a>.
@@ -781,16 +800,22 @@ Javascript, Rust, C++ atd.).</p>
 <li><a href="c/aplikovane_ulohy/chipmunk.html">Chipmunk</a> - jak simulovat fyzikální procesy</li>
 </ul>
 <h2><a class="header" href="#struktura-textu" id="struktura-textu">Struktura textu</a></h2>
-<p>V textu se občas budou objevovat krátké sekce nazvané <strong>Cvičení</strong> 🏋️ a <strong>Kvízy</strong> 🤔. Ty obsahují
-krátká zadání, která slouží k tomu, abyste si vyzkoušeli nějakou konstrukci jazyka <em>C</em> anebo se
-zamysleli nad tím, jak daná konstrukce funguje. Další úlohy k procvičení také naleznete v kapitole
-<a href="c/../ulohy/ulohy.html">Úlohy</a>.</p>
-<p>Některé sekce jsou dále označené jako doplňující učivo 🤓. Tyto sekce označují učivo, které není
-nezbytně nutné zcela pochopit, abyste se mohli v textu posunout dále. Pokud nebudete stíhat nebo
-toho na vás bude moc, můžete tyto sekce prozatím přeskočit, nicméně později byste se k nim měli
-vrátit.</p>
-<p><strong>Pouze si o programování číst nestačí k tomu, abyste se naučili programovat, proto vám
-doporučujeme, abyste si co nejvíce cvičení, kvízů a úloh vypracovali.</strong></p>
+<p>V textu se občas budou objevovat ikonky označující různé sekce či důležité pojmy. Zde je jejich vysvětlení:</p>
+<ul>
+<li>🏋: Sekce označené jako <strong>Cvičení</strong> 🏋 obsahují zadání krátkých úloh pro procvičení vysvětlované látky. Další úlohy k
+procvičení naleznete také v kapitole <a href="c/../ulohy/ulohy.html">Úlohy</a>.</li>
+<li>🤔: Sekce označené jako <strong>Kvízy</strong> 🤔 obsahují ukázky C programů, ve kterých dochází k různým &quot;zapeklitým situacím&quot;.
+Vaší úlohou je zamyslet se nad tím, jak takovýto program bude fungovat, a např. si tipnout, jaký výstup vypíše,
+či zda obsahuje tzv. nedefinované chování.</li>
+<li>🤓: Kapitoly označené touto ikonou slouží jako doplňující učivo. To není nezbytně nutné zcela pochopit, abyste se mohli
+v textu posunout dále. Pokud tedy nebudete stíhat nebo toho na vás bude moc, můžete tyto sekce prozatím přeskočit, nicméně
+později byste se k nim měli vrátit.</li>
+<li>💣: Označuje situace, při kterých dochází k nedefinovanému chování (bude vysvětleno dále v textu). Tyto situace
+prostudujte obzvláště pečlivě!</li>
+<li>📹: Označuje videozáznam s doplňujícím vysvětlením učiva.</li>
+</ul>
+<p><strong>Pouze si o programování číst nestačí k tomu, abyste se naučili programovat! Proto si co nejvíce cvičení, kvízů a úloh
+vypracujte a naprogramujte, jedině tak se v programování zlepšíte.</strong></p>
 <h1><a class="header" href="#základy-syntaxe" id="základy-syntaxe">Základy syntaxe</a></h1>
 <p><em>C</em> je (programovací) jazyk a jako každý jazyk má svá pravidla, která je nutno dodržovat.
 Například v češtině musíme dodržovat určitá pravidla a zvyklosti, abychom byli schopni výsledný
@@ -824,11 +849,12 @@ main()                 {
 
 </code></pre>
 <p>reprezentuje úplně stejný program. Nicméně asi sami uznáte, že pokud bychom s bílými znaky nakládali
-takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Proto doporučujeme formátování provádět
-automaticky ve <a href="c/../prostredi/editor.html">VSCode</a> pomocí zkratky <code>Ctrl + Shift + I</code>, ať nad ním nemusíte přemýšlet.</p>
-<p>Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Například v <a href="c/text/retezce.html">řetězcích</a>
-jsou bílé znaky brány jako součást textu. Nemůžete také rozdělovat mezerami názvy (např. <code>in t</code> nebo
-<code>ma in</code> v programu výše by způsobily chybu při překladu).</p>
+takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Ideální je
+<a href="c/../prostredi/editor.html#automatick%C3%A9-form%C3%A1tov%C3%A1n%C3%AD-k%C3%B3du">nastavit si automatické formátování</a> přímo v editoru kódu, abyste
+nad formátováním vůbec nemuseli přemýšlet.</p>
+<p>Bílé znaky nicméně nejsou ignorovány úplně na všech místech. Později se dozvíme, že například v <a href="c/text/retezce.html">řetězcích</a>
+jsou bílé znaky brány jako součást textu. Nemůžeme také rozdělovat mezerami názvy (např. <code>in t</code> nebo
+<code>ma in</code>) v programu výše by způsobily chybu při překladu).</p>
 <h3><a class="header" href="#komentáře" id="komentáře">Komentáře</a></h3>
 <p>Abychom mohli v následujících sekcích popisovat kusy kódu, ukážeme si teď <strong>komentáře</strong>. Jedná se
 o text ve zdrojovém kódu, který je určen pro programátory, a ne pro překladač, který je zcela ignoruje.
@@ -859,8 +885,8 @@ a tady taky */
 </ul>
 <p>Ze začátku je asi jednodušší používat řádkové komentáře, ve VSCode můžete použít klávesovou zkratku
 <code>Ctrl + /</code> pro zakomentování/odkomentování řádku kódu. Pokud vám přijde nějaký kus kódu komplikovaný,
-tak si k němu zkuste dopsat komentář, který vysvětlí, co má daný kód dělat. Porozumíte tak kódu
-snadněji, až se k němu např. za měsíc vrátíte.</p>
+tak si k němu zkuste dopsat komentář, který vysvětlí, proč byl kód napsán právě takto (případně vyloženě popište, co kód dělá).
+Porozumíte tak kódu snadněji, až se k němu např. za měsíc vrátíte.</p>
 <h3><a class="header" href="#klíčová-slova" id="klíčová-slova">Klíčová slova</a></h3>
 <p><strong>Klíčová slova</strong> (<em>keywords</em>) jsou vestavěné názvy, kterým překladač přiřazuje speciální
 význam. V textovém editoru je typicky poznáte tak, že budou zabarvená jinou barvou než názvy
@@ -876,7 +902,7 @@ seznam můžete najít například <a href="https://www.programiz.com/c-programm
 asi často nevyužíváte (například <code>[</code>, <code>]</code>, <code>{</code>, <code>}</code>, <code>&lt;</code>, <code>&gt;</code>, <code>=</code>, <code>%</code>, <code>#</code>, <code>&amp;</code>, <code>*</code>, <code>;</code>, <code>\</code>,
 <code>&quot;</code>, <code>'</code>). Obzvláště pokud pro programování budete používat českou klávesnici, je dobré si ze začátku
 najít nějaký tahák (např. <a href="https://github.com/geordi/upr-course/blob/master/assets/cheatsheets/keyboard-cs.pdf">tento</a>),
-abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází. </p>
+abyste nemuseli pokaždé zdlouhavě vzpomínat, na které klávese se daný znak nachází.</p>
 <h3><a class="header" href="#formátování-kódu" id="formátování-kódu">Formátování kódu</a></h3>
 <p>Už víme, že překladač ignoruje bílé znaky a celkové formátování kódu. Nicméně programátorům obvykle
 velmi záleží na tom, jaké má kód odsazení, zarovnání, závorkování atd. Existuje mnoho
@@ -900,14 +926,18 @@ while (...)
 </code></pre>
 <p>Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.</p>
+<p>Pokud budete využívat <a href="c/../prostredi/editor.html#automatick%C3%A9-form%C3%A1tov%C3%A1n%C3%AD-k%C3%B3du">automatické formátování</a> ve vašem editoru,
+tak toto opět nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.</p>
 <hr />
 <p><strong>Cvičení</strong> 🏋</p>
 <ol>
-<li>Vytvořte si ve VS Code soubor (pojmenovaný např. <code>main.c</code>) a nakopírujte nebo napište do něj
+<li>Vytvořte si ve VS Code soubor pojmenovaný např. <code>main.c</code> (<code>File -&gt; New File…</code>) a nakopírujte nebo napište do něj
 &quot;prázdný&quot; <em>C</em> program ukázaný výše. Zkuste program
 <a href="c/../prostredi/preklad_programu.html#p%C5%99eklad-prvn%C3%ADho-programu">přeložit</a> a spustit.</li>
 <li>Zkuste do kódu přidat komentáře nebo bílé znaky (např. prázdné řádky nebo mezery). Otestujte, že
 překladač tyto věci při překladu ignoruje.</li>
+<li>Zkuste v programu záměrně vložit mezeru např. do slova <code>main</code> nebo <code>int</code>. Podívejte se, jakou chybovou hlášku vám ukáže
+překladač.</li>
 </ol>
 <h1><a class="header" href="#vykonávání-programů" id="vykonávání-programů">Vykonávání programů</a></h1>
 <p>Jak už víme, programy jsou <a href="c/../uvod/programovaci_jazyky.html">sekvence příkazů</a> pro počítač, který je provádí

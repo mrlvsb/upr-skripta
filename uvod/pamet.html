@@ -193,11 +193,11 @@ potřeba.</p>
 <p>Počítačová paměť uchovává informace v buňkách, které obsahují jedno číslo, které může obsahovat 256
 různých hodnot. To vychází z toho, že informace je reprezentována <strong>bity</strong>, jednotkou informací,
 která může nabývat pouze dvě hodnoty - pravda (<em>true</em>) nebo nepravda (<em>false</em>). Každá buňka paměti
-obsahuje jeden <strong>byte</strong>, neboli právě 8 bitů.</p>
+obsahuje jeden <strong>byte</strong>, neboli 8 bitů.</p>
 <p>Pracuje se zde s dvojkovou (binární) soustavou, pokud tedy máme k dispozici <em>n</em> bitů, tak pomocí
 nich můžeme reprezentovat \( 2^n \) hodnot. Např. s dvěma bity můžeme reprezentovat 4 různé
-hodnoty
-(00, 01, 10, 11). Více o binární soustavě a bytech se dozvíte v předmětu
+hodnoty (00, 01, 10, 11), a s 8 bity (jedním bytem) můžeme reprezentovat právě 256 hodnot. Více o binární
+soustavě a bytech se dozvíte v předmětu
 <a href="https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=440-2104/01&amp;subjectBlockAssignmentId=375761&amp;studyFormId=2&amp;studyPlanId=22001&amp;locale=cs&amp;back=true">Základy digitálních systémů (ZDS)</a>.</p>
 <p>I když paměť vždy obsahuje hodnoty (čísla) v dvojkové soustavě, je důležité si uvědomit, že význam
 těmto hodnotám přiřazujeme my, tedy programátoři a uživatelé počítače. Pokud je v paměti hodnota <strong>65</strong>,
@@ -213,11 +213,11 @@ přímo odpovídat číselné hodnotě v paměti. Například hodnotu <strong>25
 vnímat jako celé nezáporné číslo (<em>unsigned integer</em>) <strong>255</strong>, anebo také jako celé číslo se
 znaménkem (<em>signed integer</em>) <strong>-1</strong>
 v <a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkovém doplňku</a>.<sup class='margin-toggle sidenote-number'>1</sup></p>
-<span class='sidenote'><p><sup class='number'>1</sup>Můžeme si klidně ale vymyslet reprezentaci, kde hodnota <code>255</code> v paměti bude reprezentovat
+<span class='sidenote'><p><sup class='number'>1</sup>Můžeme si ale klidně vymyslet i reprezentaci, kde hodnota <code>255</code> v paměti bude reprezentovat
 číslo <code>42</code>. Nebo třeba emoji 😈. Záleží jen na nás.</p>
 </span>
-<p>Čísla v paměti sama o sobě nemají žádný význam, záleží pouze na tom, jak je my, a obzvláště naše
-programy, interpretují a jaké operace nad nimi provádějí.</p>
+<p><strong>Čísla v paměti tak sama o sobě nemají žádný význam, záleží pouze na tom, jak je my, a obzvláště naše
+programy, interpretují a jaké operace nad nimi provádějí.</strong></p>
 <h3><a class="header" href="#adresování-paměti" id="adresování-paměti">Adresování paměti</a></h3>
 <p>Abychom se mohli odkazovat na hodnoty v paměti, tak musíme mít možnost rozlišit jednotlivé buňky od
 sebe. Toho dosáhneme pomocí <strong>adresy</strong>. Paměť je adresována tak, že každá paměťová buňka (každý <em>byte</em>)

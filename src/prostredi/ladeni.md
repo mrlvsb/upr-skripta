@@ -52,6 +52,25 @@ Pokud se chyba opraví těsně po svém vzniku, je to mnohem jednodušší, než
 později v úplně jiné části kódu. **Doporučujeme tak vždy používat Address Sanitizer při vývoji programů v C**.
 Ušetříte si tak spoustu času a námahy při ladění chyb.
 
+#### Valgrind
+Address sanitizer je velmi užitečný nástroj, ale nedokáže odhalit všechny problémové situace v programech napsaných v
+jazyce *C*. Dále existuje také nástroj [Valgrind](https://valgrind.org/), který dokáže odhalit možných chyb více
+(např. čtení z [nedefinované proměnné](../c/promenne/promenne.md#vždy-inicializujte-proměnné)). Pokud
+se vás program chová "divně", a Address sanitizer v něm nenachází žádné chyby, můžete místo něj zkusit Valgrind s
+nástrojem Memcheck:
+
+1. Nejprve si nainstalujte Valgrind:
+    ```bash
+    $ sudo apt-get install valgrind
+    ```
+2. A poté spusťte svůj přeložený program pod Valgrindem/Memcheckem:
+    ```bash
+    $ valgrind --tool=memcheck --track-origins=yes --leak-check=full -s ./program
+    ```
+
+Valgrind a Address sanitizer nelze kombinovat, proto při použití Valgrindu **nepoužívejte** parametr překladače
+`-fsanitize=address`. Stačí program přeložit pomocí `gcc -g main.c -o program`.
+
 #### Logování
 Jedním z nejjednodušších způsobů, jak se dozvědět, co se v programu děje, je jednoduše tisknout
 hodnoty zajímavých proměnných na výstup programu. Pokud přidáte takovýto výstup na různá místa v kódu,

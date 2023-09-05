@@ -305,8 +305,23 @@ void print_size(char pole[3]) {
 }
 ```
 
+Podobný problém může vzniknout i třeba při alokaci paměti. Například zde:
+```c
+typedef struct {
+    int vek;
+    const char* jmeno;
+} Osoba;
+
+int main() {
+    Osoba* osoby = (Osoba*) malloc(sizeof(Osoba*) * 5);
+
+    return 0;
+}
+```
+Dochází k alokaci paměti pro 5 ukazatelů na datový typ `Osoba`, místo alokace paměti pro pět hodnot typu `Osoba`!
+Správné použití by bylo `malloc(sizeof(Osoba) * 5)`;
+
 ### `undefined reference to 'NAZEV'`
 Snažíte se zavolat funkci `NAZEV`, která nebyla nalezena v žádném
 [objektovém souboru](../c/modularizace/linker.md), který jste předali pro překlad. Ověřte si, že
 máte název volané funkce správně.
-

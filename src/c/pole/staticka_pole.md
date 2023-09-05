@@ -32,9 +32,13 @@ velikosti jedna (`int a[1];`), tak v paměti bude reprezentováno úplně stejn�
 > polích, protože ty je jednodušší vytvořit.
 
 ### Konstantní velikost statického pole
-Hodnota zadaná v hranatých závorkách by měla být konstantní (tj. buď přímo číselná hodnota anebo
-[konstantní proměnná](../promenne/konstanty.md)). Pokud budete potřebovat pole dynamické velikosti,
+Hodnota zadaná v hranatých závorkách by měla být "konstantním výrazem", tj. buď přímo číselná hodnota anebo
+číselná hodnota pocházející z [makra](../preprocesor/makra.md)[^3]. Pokud budete potřebovat pole dynamické velikosti,
 tak byste měli použít [dynamickou alokaci paměti](dynamicka_pole.md).
+
+[^3]: Dokonce ani [konstantní](../promenne/konstanty.md) proměnná
+[není](https://stackoverflow.com/questions/62354105/why-is-const-int-x-5-not-a-constant-expression-in-c)
+v C "konstantním výrazem".
 
 Jazyk *C* od verze [*C99*](https://en.wikipedia.org/wiki/C99) již sice povoluje dávat do hranatých
 závorek i "dynamické" hodnoty, tj. výrazy, jejichž hodnota nemusí být známa v době překladu:
@@ -44,13 +48,14 @@ int pole[velikost];
 ```
 Tato funkcionalita zvaná [VLA](https://en.wikipedia.org/wiki/Variable-length_array) (variable-length array)
 je nicméně určená pro velmi specifické použití a nese s sebou různé nevýhody, proto ji v rámci předmětu
-UPR **nepoužívejte**.
+UPR **nepoužívejte**. Pokud si chcete být jisti, že se VLA ve vašem kódu nevyskytuje, překládejte své programy s
+[parametrem překladače](../../ruzne/parametry_prekladace.md) <code style="white-space: nowrap;">-Werror=vla</code>.
 
 <details>
 <summary>Proč ne VLA?</summary>
 
 Zásobník má značně [omezenou velikost](../prace_s_pameti/automaticka_pamet.md#nevýhody-automatické-paměti)
-a není určen pro alokaci velkého množství paměti[^3]. Pokud velikost takovéhoto pole může ovlivnit
+a není určen pro alokaci velkého množství paměti[^4]. Pokud velikost takovéhoto pole může ovlivnit
 uživatel programu (např. zadáním vstupu), může váš program jednoduše "shodit" (v lepším případě)
 nebo způsobit přepsání existující paměti (v horším případě), pokud by zadal velké
 číslo a došlo by k pokusu o vytvoření moc velkého pole na zásobníku. VLA má také různé problémy s
@@ -63,7 +68,7 @@ vyhnout.
 
 </details>
 
-[^3]: Můžete si například zkusit přeložit následující program:
+[^4]: Můžete si například zkusit přeložit následující program:
 ```c
 int main() {
     int pole[10000000];
@@ -127,7 +132,7 @@ int main() {
 ```
 Abychom přistoupili i k dalším prvkům v poli, tak můžeme využít
 [aritmetiky s ukazateli](../prace_s_pameti/ukazatele.md#aritmetika-s-ukazateli). Pokud chceme
-získat adresu prvku na `i`-tém indexu, stačí k ukazateli na první prvek přičíst `i`[^4]:
+získat adresu prvku na `i`-tém indexu, stačí k ukazateli na první prvek přičíst `i`[^5]:
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -140,7 +145,7 @@ int main() {
 }
 ```
 
-[^4]: Všimněte si, že při použití operátoru dereference zde používáme závorky. Je to z důvodu
+[^5]: Všimněte si, že při použití operátoru dereference zde používáme závorky. Je to z důvodu
 [priority operátorů](https://en.cppreference.com/w/c/language/operator_precedence). Výraz `*pole + 2`
 by se vyhodnotil jako první prvek z pole `pole` plus `2`, protože `*` (dereference) má větší
 prioritu než sčítání. 
@@ -161,7 +166,7 @@ Tento operátor se nazývá *array subscription operator* a má syntaxi
 <výraz a>[<výraz b>]
 ```
 
-Slouží jako zkratka[^5] za výraz
+Slouží jako zkratka[^6] za výraz
 
 ```
 *(<výraz a> + <výraz b>)
@@ -177,7 +182,7 @@ pole[0] = 5;       // nastavili jsme první prvek pole na hodnotu `5`
 int c = pole[2];   // nastavili jsme `c` na hodnotu posledního (třetího) prvku pole
 ```
 
-[^5]: Takovéto "zkratky", které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
+[^6]: Takovéto "zkratky", které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
 či zjednoduššují často používané kombinace příkazů, se označují jako
 [**syntactic sugar**](https://en.wikipedia.org/wiki/Syntactic_sugar).
 
@@ -200,7 +205,7 @@ pole o velikosti `2` i `1000`. K tomu můžeme efektivně využít [cykly](../ri
 
 Často je praktické použít [řídící proměnnou](../rizeni_toku/while.md#Řídící-proměnná) cyklu k tomu,
 abychom pomocí ní indexovali pole. Například, pokud bychom měli pole s velikostí `10`, tak ho můžeme
-"projít"[^6] pomocí cyklu `for`:
+"projít"[^7] pomocí cyklu `for`:
 ```c,editable,mainbody
 #include <stdio.h>
 
@@ -213,7 +218,7 @@ int main() {
 }
 ```
 
-[^6]: Používá se také pojem *proiterovat*.
+[^7]: Používá se také pojem *proiterovat*.
 
 Situace, kdy pomocí cyklu projdeme pole, je velmi častá a určitě se s ní mnohokrát setkáte a
 využijete ji. Zkuste si to procvičit například pomocí

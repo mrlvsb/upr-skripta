@@ -95,7 +95,7 @@ Kromě základních aritmetických operací *C* podporuje také [bitové operace
 
 Zkuste napsat jednoduchý program, který vypočítá různé matematické výrazy a vypíše
 je na výstup. Vyhodnocování výrazů si můžete procvičit [zde](../../ruzne/vyhodnocovani_vyrazu.md)
-nebo [zde](../../ulohy/zaklady.md). 
+nebo [zde](../../ulohy/promenne.md). 
 
 <hr />
 

@@ -167,7 +167,7 @@ a pak je vypíše na výstup programu (k výpisu využijte `printf`, který jsme
 2) Použijte [debugger](../../prostredi/ladeni.md#krokování), abyste se interaktivně za běhu programu
 podívali, jaké jsou hodnoty jednotlivých proměnných a jak se měni v čase po provedení přiřazení.
 
-Více úloh naleznete [zde](../../ulohy/zaklady.md).
+Více úloh naleznete [zde](../../ulohy/promenne.md).
 
 <hr />
 

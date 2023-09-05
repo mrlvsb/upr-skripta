@@ -137,7 +137,7 @@ na obrazovce na dané pozici pixel s odpovídající barvou.
 **Cvičení** 🏋
 
 Zkuste naprogramovat funkci `vypis_ctverec`. Další zadání jednoduchých funkcí naleznete
-[zde](../../ulohy/zaklady.md#fibonacciho-číslo).
+[zde](../../ulohy/funkce.md).
 
 <hr />
 

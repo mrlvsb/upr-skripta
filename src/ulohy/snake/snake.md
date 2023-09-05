@@ -1,15 +1,18 @@
 # Had
+Zkuste vytvořit jednoduchý klon hry [Snake](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) pomocí
+[SDL](../../c/aplikovane_ulohy/sdl.md).
+
 <a href="demo/a.html">Demo</a>
 
-1. vykreslit mřížku s políčky o rozměrech 32x32
+1. Vykreslete mřížku s políčky o rozměrech 32x32
    
-   - nekreslit první dvě a poslední dvě políčka
-   - do struktury `Game` přidat rozměry vnitřní mřížky
-   - přesunout vykreslování do vlastní funkce
+   - Nekreslete první dvě a poslední dvě políčka
+   - Do struktury `Game` přidejte rozměry vnitřní mřížky
+   - Presuňte vykreslování do vlastní funkce
    
    <img src="grid.png" width="400px">
 
-2. reprezentace a inicializace hada pomocí struktury `Snake`
+2. Reprezentace a inicializace hada pomocí struktury `Snake`
 
     ```c
 	typedef struct {
@@ -28,7 +31,7 @@
      
      <upr-snake></upr-snake>
 
-3. vykreslení hada
+3. Vykreslení hada
 
    - projdeme všechny články od ocasu k hlavě a vykreslíme jako čtverce v mřížce
    - nastavíme si `i = tail`
@@ -39,7 +42,7 @@
    
    <img src="init.png" width="300px">
 
-4. pohybování hada
+4. Pohyb hada
 
    - pokud uběhlo 200 ms, tak pohnout hada o políčko
    - inkrementace indexu ocasu (opět s modulem)
@@ -47,15 +50,15 @@
    - uložení nové hlavy do pole parts na index hlavy
    - inkrementace indexu hlavy (opět s modulem)
    
-5. pohyb pomocí šípek
-6. generování jablek
+5. Pohyb pomocí šípek
+6. Generování jablek
 
    - vygenerovat náhodnou souřadnici jablka a vykreslovat jako čtverec
    - pokud se hlava dostane na pozici jablka, tak neposunovat index ocasu (dojde k zvětšeni hada)
 
-7. při nárazu do stěny či do sebe vypsat konec hry se skórem
+7. Při nárazu do stěny či do sebe vypsat konec hry se skórem
 
-8. vykreslení hada pomoci textur včetně záhybů
+8. Vykreslení hada pomoci textur včetně záhybů
 
    Textura obsahuje v mřížce políčka o velikosti 64x64. 
    Jednotlivá políčka lze vybrat pomocí třetího parametru `srcrect` v `SDL_RenderCopy`.

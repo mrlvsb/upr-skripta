@@ -238,7 +238,7 @@ desítková soustava, tedy hodnota `10`). Návratovou hodnotou funkce je pak na�
 **Cvičení** 🏋
 
 Pro procvičení práce s řetězci si můžete zkusit některé z těchto funkcí sami
-naprogramovat. Další úlohy pro práci s řetězci můžete nalézt [zde](../../ulohy/retezce.md).
+naprogramovat. Další úlohy pro práci s řetězci můžete nalézt [zde](../../ulohy/text.md).
 
 <hr />
 

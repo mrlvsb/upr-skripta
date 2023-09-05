@@ -1,4 +1,7 @@
 # Ukazatele
+K vyřešení těchto úloh by vám mělo stačit znát [ukazatele](../c/prace_s_pameti/ukazatele.md) (a samozřejmě veškeré
+předchozí učivo).
+
 ## Nastavení maxima
 Vytvořte funkci `set_max`, která přijme adresu celého čísla (`int`) pomocí ukazatele a dvě další
 čísla a nastaví paměť na dané adrese na větší ze dvou zadaných čísel.

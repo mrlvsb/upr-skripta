@@ -24,7 +24,7 @@ s ASCII hravě poradí. Tabulku, která uvádí, jak ASCII mapuje jednotlivé zn
 [^2]: V tabulce si můžete všimnout, že čísla nejsou znakům přiřazena
 zcela náhodně, například znaky reprezentující číslice `0` až `9` mají přiřazena čísla ležící za sebou
 (`48` - `57`), a stejně je tomu i u písmen anglické abecedy. Této vlastnosti můžeme využít pro
-usnadnění některých textových [operací](../../ulohy/retezce.md#převod-textu-na-číslo).
+usnadnění některých textových [operací](../../ulohy/text.md#převod-textu-na-číslo).
 
 ## ASCII znaky v *C*
 Jelikož ASCII "kóduje" pouze 128 znaků, tak pro reprezentaci ASCII znaku by nám stačilo 7 bitů.

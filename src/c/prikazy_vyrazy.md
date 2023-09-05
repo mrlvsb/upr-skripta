@@ -38,7 +38,7 @@ O operátorech si více povíme v kapitole o [datových typech](datove_typy/celo
 
 ### Výpis výrazů
 Abyste si ze začátku mohli jednoduše zobrazit hodnoty výrazů, tak si ukážeme kód, pomocí kterého
-můžete vypsat text na výstup programu (do terminálu). K výpisu můžete použít příkaz
+můžete vypsat text na výstup programu (do terminálu). K výpisu textu můžete použít příkaz
 ```c
 printf("<text>");
 ```
@@ -114,6 +114,11 @@ Každý výraz má svůj datový typ, který udává, jak je hodnota výrazu v p
 jaké operace má smysl nad výrazem dělat. Více o datových typech a operátorech se dozvíte v sekci
 [Datové typy](datove_typy/datove_typy.md).
 
+### Příkazy vs výrazy
+Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký
+je rozdíl mezi výrazem (něco, co se dá vypočítat) a příkazem, pomocí kterého počítači říkáme, aby
+něco (s nějakým výrazem) udělal (například vypsal ho na výstup, zapsal do paměti atd.).
+
 ### Vedlejší efekty
 Pokud chcete pouze vypočítat výraz ("jen tak"), mimo nějaký příkaz, stačí za něj dát středník. Tím
 ze samostatného výrazu uděláte příkaz:
@@ -124,8 +129,3 @@ Toto má smysl dělat pouze u výrazů, které mají nějaký **vedlejší efekt
 způsobí, že při provádění výrazu se v programu něco změní. Jinak by výraz sám o sobě byl vypočten,
 ale nic dalšího by se nestalo. O výrazech, které umí produkovat vedlejší efekty, se dozvíte v pozdějších
 sekcích.
-
-### Příkazy vs výrazy
-Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký
-je rozdíl mezi výrazem (něco, co se dá vypočítat) a příkazem, pomocí kterého počítači říkáme, aby
-něco (s nějakým výrazem) udělal (například vypsal ho na výstup, zapsal do paměti atd.).

@@ -123,7 +123,7 @@ Jaký styl formátování použijete je na vás, nicméně obecně platným prav
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.
 
 Pokud budete využívat [automatické formátování](../prostredi/editor.md#automatické-formátování-kódu) ve vašem editoru,
-tak toto opět nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.
+tak toto nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.
 
 <hr />
 

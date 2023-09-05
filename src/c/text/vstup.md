@@ -168,7 +168,6 @@ $ ./program arg1 arg2 arg3
 K těmto předaným řetězcům poté lze přistoupit ve funkci
 [`main`](../../ruzne/funkce_main.md#vstupní-parametry-funkce-main).
 
-
 <hr />
 
 **Kvíz** 🤔

@@ -29,9 +29,9 @@ $ dpkg -L libsdl2-dev
 ```
 
 - **Manuální stažení knihovny**: Knihovnu si můžete také stáhnout manuálně, např. z
-[webu SDL](https://www.libsdl.org/download-2.0.php). Některé knihovny můžete naleznout na internetu
-už přeložené, nicméně `SDL` oficiálně pro Linux přeložené knihovní soubory (`.so`) nenabízí. V tomto
-případě tak musíte knihovnu nejenom stáhnout, ale také ručně přeložit, než ji budete moct použít ve
+[GitHubu SDL](https://github.com/libsdl-org/SDL/releases/download/release-2.28.3/SDL2-2.28.3.zip). Některé knihovny
+můžete naleznout na internetu už přeložené, nicméně `SDL` oficiálně pro Linux přeložené knihovní soubory (`.so`)
+nenabízí. V tomto případě tak musíte knihovnu nejenom stáhnout, ale také ručně přeložit, než ji budete moct použít ve
 svém programu.
 
 ## Přilinkování knihovny `SDL`

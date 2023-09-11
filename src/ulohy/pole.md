@@ -15,6 +15,9 @@ volané funkce můžete v diagramu měnit.
 <upr-array-fill></upr-array-fill>
 
 ## Počítání výskytů čísla
+
+> 📹 K této úloze je k dispozici [video](https://www.youtube.com/watch?v=QCmH3uN9Au8) s popisem řešení.
+
 Vytvořte funkci `num_count`, která spočítá a vrátí počet výskytů čísla `num` v poli `array`.
 ```c
 int num_count(int* array, int len, int num);
@@ -23,7 +26,6 @@ int num_count(int* array, int len, int num);
 Níže je interaktivní animace, která zobrazuje průběh programu.
 
 <upr-array-interval array="[10, 2, 4, 3, 4, 8, 9, 4]" from="4" to="4"></upr-array-interval>
-
 
 ## Počítání čísel v intervalu
 Vytvořte funkci `in_interval`, která spočítá počet čísel z uzavřeného intervalu `[from, to]` v poli

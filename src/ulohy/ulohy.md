@@ -2,6 +2,11 @@
 V této sekci naleznete různé úlohy, které si můžete zkusit naimplementovat, abyste se zlepšili
 v programování.
 
+## Řešené úlohy
+K těmto úlohám je k dispozici video, ve kterém je ukázané, jak dojít k řešení dané úlohy.
+- [Počítání výskytů čísla](pole.md#počítání-výskytů-čísla)
+
+## Další úlohy
 Další úlohy můžete najít také například na těchto odkazech:
 - [Advent of Code](https://adventofcode.com/2018/events)
 - [Project Euler](https://projecteuler.net/archives)

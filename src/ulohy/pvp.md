@@ -1,4 +1,4 @@
-# PvP fight game
+# PvP bitevní hra
 
 <asciinema-player src="pvp.cast"></asciinema-player>
 

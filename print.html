@@ -288,9 +288,9 @@ zvolení vhodného programovacího jazyka.</p>
 <p>V tomto kurzu se budeme zabývat pouze programovacím jazykem <strong>C</strong>. Tento jazyk vytvořili Dennis
 Ritchie a Ken Thompson v laboratořích firmy Bell v roce 1972, tedy před více než 50 lety, a za tu
 dobu se nedočkal mnoha výrazných změn.</p>
-<p>I když pro něj v dnešní době asi nenaleznete obrovské množství pracovních nabídek a není primární
-volbou pro tvorbu webových či mobilních aplikací, vyplatí se mu rozumět a umět ho používat, a to
-hned z několika důvodů:</p>
+<p>I když pro něj v dnešní době asi nenaleznete tolik pracovních nabídek (jako třeba pro JavaScript),
+a není primární volbou pro tvorbu webových či mobilních aplikací, vyplatí se mu rozumět a umět ho
+používat, a to hned z několika důvodů:</p>
 <ul>
 <li>Jazyk <em>C</em> lze použít na téměř všech existujících platformách a je tak velmi univerzálním jazykem.
 Téměř veškerý existující software obsahuje kusy kódu v jazyce <em>C</em>. Operační systémy (Linux,
@@ -299,11 +299,12 @@ OS X, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimedi�
 League of Legends, DOTA 2, Fortnite), vestavěná zařízení (mikročipy, pračky, řídící jednotky
 vesmírných letadel nebo aut). Všechny tyto věci jsou buď částečně anebo zcela poháněny jazykem
 <em>C</em>.</li>
-<li>Je to jednoduchý jazyk, který neobsahuje velké množství funkcí, které lze naleznout ve většině
-modernějších jazyků. Díky tomu se dá naučit za jeden semestr.</li>
+<li>Je to relativně jednoduchý jazyk, který neobsahuje velké množství funkcí, které lze naleznout
+ve většině modernějších jazyků. Díky tomu se dají jeho základy naučit za jeden semestr.</li>
 <li>Jeho úroveň abstrakce není o mnoho výše než základní počítačové instrukce. Při výuce <em>C</em> tak lze
 zároveň pochopit, jak funguje počítač a operační systém. Díky tomu lze také při správném
-zacházení psát velmi efektivní programy (to ale nicméně není obsahem tohoto kurzu).</li>
+zacházení psát velmi efektivní programy (to ale nicméně není obsahem tohoto kurzu). Pochopení toho,
+jak věci &quot;na pozadí počítače&quot; fungují, je jednou z přidanou hodnot studia jazyka C.</li>
 <li><strong>Syntaxe</strong> (způsob zápisu) jazyka <em>C</em> ovlivnila velké množství jazyků, které vznikly po něm.
 Jakmile se ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších
 jazyků (C++, C#, Java, Kotlin, Javascript, PHP, Rust, …).</li>
@@ -313,14 +314,19 @@ jazyků (C++, C#, Java, Kotlin, Javascript, PHP, Rust, …).</li>
 programovacích jazyků. Nevede také programátory za ručičku – při psaní programu v jazyce <em>C</em> je
 velmi jednoduché udělat chybu, která může způsobit (v lepším případě) pád programu nebo
 (v horším případě) může běžící program poškodit tak, že začne vydávat chybný výstup nebo se začne
-chovat zcela nepředvídatelně.</p>
-<p>Tyto chyby se můžou projevit jen někdy, nebo jenom na určité kombinaci hardwaru či operačního
-systému, a programátor na ně není často nijak upozorněn a musí je najít ručně zkoumáním zdrojového
-kódu. Podobný typ chyb je také nejčastějším zdrojem bezpečnostních děr ve všech možných softwarech,
-které (jak už víme) téměř vždy obsahují alespoň část kódu napsaného v &quot;Céčku&quot;.</p>
-<p>Zde je vybraný seznam populárních programů napsaných v jazyce <em>C</em>, které jsou tzv. <strong>open-source</strong><sup class='margin-toggle sidenote-number'>2</sup>,
+chovat zcela nepředvídatelně.  Tyto chyby se můžou projevit jen někdy, nebo jenom na určité kombinaci
+hardwaru či operačního systému, a programátor na ně není často nijak upozorněn a musí je najít ručně
+zkoumáním zdrojového kódu. Podobný typ chyb je také nejčastějším zdrojem bezpečnostních děr ve všech
+možných softwarech, které (jak už víme) téměř vždy obsahují alespoň část kódu napsaného v &quot;Céčku&quot;.</p>
+<blockquote>
+<p>Tím, že jazyk <em>C</em> existuje přes 50 let, je v něm spousta pravidel, které nemusí dávat smysl nebo
+nejdou odvodit a pokud je neznáte, váš program nemusí správně fungovat. Při práci s tímto jazykem
+se tak zkuste obrnit trpělivostí. Budete ji potřebovat 🙂.</p>
+</blockquote>
+<p>Pokud byste se chtěli podívat, jak můžou vypadat velké programy napsané v jazyce <em>C</em>, zde je
+seznam několika vybraných populárních programů, které jsou v něm napsané. Tyto programy jsou tzv. <strong>open-source</strong><sup class='margin-toggle sidenote-number'>2</sup>,
 takže si jejich zdrojový kód můžete prohlédnout a v případě potřeby i modifikovat:</p>
-<span class='sidenote'><p><sup class='number'>2</sup>Jejich zdrojový kód je volně sdílen.</p>
+<span class='sidenote'><p><sup class='number'>2</sup>Jejich zdrojový kód je volně k dispozici a je sdílený na internetu.</p>
 </span>
 <ul>
 <li><a href="https://github.com/torvalds/linux">Linux</a> (operační systém)</li>
@@ -731,6 +737,24 @@ a pokud nějakou chybu najde, tak váš program okamžitě ukončí a popíše, 
 <p>Pokud se chyba opraví těsně po svém vzniku, je to mnohem jednodušší, než když se chyba projeví až
 později v úplně jiné části kódu. <strong>Doporučujeme tak vždy používat Address Sanitizer při vývoji programů v C</strong>.
 Ušetříte si tak spoustu času a námahy při ladění chyb.</p>
+<h4><a class="header" href="#valgrind" id="valgrind">Valgrind</a></h4>
+<p>Address sanitizer je velmi užitečný nástroj, ale nedokáže odhalit všechny problémové situace v programech napsaných v
+jazyce <em>C</em>. Dále existuje také nástroj <a href="https://valgrind.org/">Valgrind</a>, který dokáže odhalit možných chyb více
+(např. čtení z <a href="prostredi/../c/promenne/promenne.html#v%C5%BEdy-inicializujte-prom%C4%9Bnn%C3%A9">nedefinované proměnné</a>). Pokud
+se vás program chová &quot;divně&quot;, a Address sanitizer v něm nenachází žádné chyby, můžete místo něj zkusit Valgrind s
+nástrojem Memcheck:</p>
+<ol>
+<li>Nejprve si nainstalujte Valgrind:
+<pre><code class="language-bash">$ sudo apt-get install valgrind
+</code></pre>
+</li>
+<li>A poté spusťte svůj přeložený program pod Valgrindem/Memcheckem:
+<pre><code class="language-bash">$ valgrind --tool=memcheck --track-origins=yes --leak-check=full -s ./program
+</code></pre>
+</li>
+</ol>
+<p>Valgrind a Address sanitizer nelze kombinovat, proto při použití Valgrindu <strong>nepoužívejte</strong> parametr překladače
+<code>-fsanitize=address</code>. Stačí program přeložit pomocí <code>gcc -g main.c -o program</code>.</p>
 <h4><a class="header" href="#logování" id="logování">Logování</a></h4>
 <p>Jedním z nejjednodušších způsobů, jak se dozvědět, co se v programu děje, je jednoduše tisknout
 hodnoty zajímavých proměnných na výstup programu. Pokud přidáte takovýto výstup na různá místa v kódu,
@@ -927,7 +951,7 @@ while (...)
 <p>Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.</p>
 <p>Pokud budete využívat <a href="c/../prostredi/editor.html#automatick%C3%A9-form%C3%A1tov%C3%A1n%C3%AD-k%C3%B3du">automatické formátování</a> ve vašem editoru,
-tak toto opět nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.</p>
+tak toto nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.</p>
 <hr />
 <p><strong>Cvičení</strong> 🏋</p>
 <ol>
@@ -973,7 +997,7 @@ s dvěma výrazy, čímž vznikne složitější výraz: <code>5 + 5</code>, kte
 O operátorech si více povíme v kapitole o <a href="c/datove_typy/celociselne_typy.html#operace-s-%C4%8D%C3%ADseln%C3%BDmi-typy">datových typech</a>.</p>
 <h3><a class="header" href="#výpis-výrazů" id="výpis-výrazů">Výpis výrazů</a></h3>
 <p>Abyste si ze začátku mohli jednoduše zobrazit hodnoty výrazů, tak si ukážeme kód, pomocí kterého
-můžete vypsat text na výstup programu (do terminálu). K výpisu můžete použít příkaz</p>
+můžete vypsat text na výstup programu (do terminálu). K výpisu textu můžete použít příkaz</p>
 <pre><code class="language-c">printf(&quot;&lt;text&gt;&quot;);
 </code></pre>
 <p>Text, který vložíte mezi uvozovky (<code>&quot;</code>) se vypíše na výstup programu<sup class='margin-toggle sidenote-number'>2</sup>:</p>
@@ -1033,6 +1057,10 @@ ne pouze v prohlížeči!</strong></p>
 <p>Každý výraz má svůj datový typ, který udává, jak je hodnota výrazu v programu interpretována a také
 jaké operace má smysl nad výrazem dělat. Více o datových typech a operátorech se dozvíte v sekci
 <a href="c/datove_typy/datove_typy.html">Datové typy</a>.</p>
+<h3><a class="header" href="#příkazy-vs-výrazy" id="příkazy-vs-výrazy">Příkazy vs výrazy</a></h3>
+<p>Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký
+je rozdíl mezi výrazem (něco, co se dá vypočítat) a příkazem, pomocí kterého počítači říkáme, aby
+něco (s nějakým výrazem) udělal (například vypsal ho na výstup, zapsal do paměti atd.).</p>
 <h3><a class="header" href="#vedlejší-efekty" id="vedlejší-efekty">Vedlejší efekty</a></h3>
 <p>Pokud chcete pouze vypočítat výraz (&quot;jen tak&quot;), mimo nějaký příkaz, stačí za něj dát středník. Tím
 ze samostatného výrazu uděláte příkaz:</p>
@@ -1042,10 +1070,6 @@ ze samostatného výrazu uděláte příkaz:</p>
 způsobí, že při provádění výrazu se v programu něco změní. Jinak by výraz sám o sobě byl vypočten,
 ale nic dalšího by se nestalo. O výrazech, které umí produkovat vedlejší efekty, se dozvíte v pozdějších
 sekcích.</p>
-<h3><a class="header" href="#příkazy-vs-výrazy" id="příkazy-vs-výrazy">Příkazy vs výrazy</a></h3>
-<p>Jakmile se budete postupně učit o jednotlivých konstrukcích jazyka C, je důležité uvědomit si, jaký
-je rozdíl mezi výrazem (něco, co se dá vypočítat) a příkazem, pomocí kterého počítači říkáme, aby
-něco (s nějakým výrazem) udělal (například vypsal ho na výstup, zapsal do paměti atd.).</p>
 <h1><a class="header" href="#proměnné" id="proměnné">Proměnné</a></h1>
 <p>Aby programy mohly řešit nějaký úkol, tak si téměř vždy musí umět něco zapamatovat. K tomu
 slouží tzv. <strong>proměnné</strong> (<em>variables</em>). Proměnné nám umožňují pracovat s pamětí počítače (RAM)
@@ -5016,9 +5040,13 @@ popsané koncepty jsou platné i pro dynamická pole, nicméně budeme je demons
 polích, protože ty je jednodušší vytvořit.</p>
 </blockquote>
 <h3><a class="header" href="#konstantní-velikost-statického-pole" id="konstantní-velikost-statického-pole">Konstantní velikost statického pole</a></h3>
-<p>Hodnota zadaná v hranatých závorkách by měla být konstantní (tj. buď přímo číselná hodnota anebo
-<a href="c/pole/../promenne/konstanty.html">konstantní proměnná</a>). Pokud budete potřebovat pole dynamické velikosti,
+<p>Hodnota zadaná v hranatých závorkách by měla být &quot;konstantním výrazem&quot;, tj. buď přímo číselná hodnota anebo
+číselná hodnota pocházející z <a href="c/pole/../preprocesor/makra.html">makra</a><sup class='margin-toggle sidenote-number'>3</sup>. Pokud budete potřebovat pole dynamické velikosti,
 tak byste měli použít <a href="c/pole/dynamicka_pole.html">dynamickou alokaci paměti</a>.</p>
+<span class='sidenote'><p><sup class='number'>3</sup>Dokonce ani <a href="c/pole/../promenne/konstanty.html">konstantní</a> proměnná
+<a href="https://stackoverflow.com/questions/62354105/why-is-const-int-x-5-not-a-constant-expression-in-c">není</a>
+v C &quot;konstantním výrazem&quot;.</p>
+</span>
 <p>Jazyk <em>C</em> od verze <a href="https://en.wikipedia.org/wiki/C99"><em>C99</em></a> již sice povoluje dávat do hranatých
 závorek i &quot;dynamické&quot; hodnoty, tj. výrazy, jejichž hodnota nemusí být známa v době překladu:</p>
 <pre><code class="language-c">int velikost = ...; // velikost se načte např. ze souboru
@@ -5026,16 +5054,17 @@ int pole[velikost];
 </code></pre>
 <p>Tato funkcionalita zvaná <a href="https://en.wikipedia.org/wiki/Variable-length_array">VLA</a> (variable-length array)
 je nicméně určená pro velmi specifické použití a nese s sebou různé nevýhody, proto ji v rámci předmětu
-UPR <strong>nepoužívejte</strong>.</p>
+UPR <strong>nepoužívejte</strong>. Pokud si chcete být jisti, že se VLA ve vašem kódu nevyskytuje, překládejte své programy s
+<a href="c/pole/../../ruzne/parametry_prekladace.html">parametrem překladače</a> <code style="white-space: nowrap;">-Werror=vla</code>.</p>
 <details>
 <summary>Proč ne VLA?</summary>
 <p>Zásobník má značně <a href="c/pole/../prace_s_pameti/automaticka_pamet.html#nev%C3%BDhody-automatick%C3%A9-pam%C4%9Bti">omezenou velikost</a>
-a není určen pro alokaci velkého množství paměti<sup class='margin-toggle sidenote-number'>3</sup>. Pokud velikost takovéhoto pole může ovlivnit
+a není určen pro alokaci velkého množství paměti<sup class='margin-toggle sidenote-number'>4</sup>. Pokud velikost takovéhoto pole může ovlivnit
 uživatel programu (např. zadáním vstupu), může váš program jednoduše &quot;shodit&quot; (v lepším případě)
 nebo způsobit přepsání existující paměti (v horším případě), pokud by zadal velké
 číslo a došlo by k pokusu o vytvoření moc velkého pole na zásobníku. VLA má také různé problémy s
 kompatibilitou mezi překladači a jeho implementace překladači není zdaleka triviální.</p>
-<span class='sidenote'><p><sup class='number'>3</sup>Můžete si například zkusit přeložit následující program:</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Můžete si například zkusit přeložit následující program:</p>
 <pre><code class="language-c">int main() {
     int pole[10000000];
     return 0;
@@ -5096,8 +5125,8 @@ int main() {
 </code></pre>
 <p>Abychom přistoupili i k dalším prvkům v poli, tak můžeme využít
 <a href="c/pole/../prace_s_pameti/ukazatele.html#aritmetika-s-ukazateli">aritmetiky s ukazateli</a>. Pokud chceme
-získat adresu prvku na <code>i</code>-tém indexu, stačí k ukazateli na první prvek přičíst <code>i</code><sup class='margin-toggle sidenote-number'>4</sup>:</p>
-<span class='sidenote'><p><sup class='number'>4</sup>Všimněte si, že při použití operátoru dereference zde používáme závorky. Je to z důvodu
+získat adresu prvku na <code>i</code>-tém indexu, stačí k ukazateli na první prvek přičíst <code>i</code><sup class='margin-toggle sidenote-number'>5</sup>:</p>
+<span class='sidenote'><p><sup class='number'>5</sup>Všimněte si, že při použití operátoru dereference zde používáme závorky. Je to z důvodu
 <a href="https://en.cppreference.com/w/c/language/operator_precedence">priority operátorů</a>. Výraz <code>*pole + 2</code>
 by se vyhodnotil jako první prvek z pole <code>pole</code> plus <code>2</code>, protože <code>*</code> (dereference) má větší
 prioritu než sčítání. </p>
@@ -5125,8 +5154,8 @@ běžná (a zároveň relativně krkolomná), <em>C</em> obsahuje speciální op
 Tento operátor se nazývá <em>array subscription operator</em> a má syntaxi</p>
 <pre><code>&lt;výraz a&gt;[&lt;výraz b&gt;]
 </code></pre>
-<p>Slouží jako zkratka<sup class='margin-toggle sidenote-number'>5</sup> za výraz</p>
-<span class='sidenote'><p><sup class='number'>5</sup>Takovéto &quot;zkratky&quot;, které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
+<p>Slouží jako zkratka<sup class='margin-toggle sidenote-number'>6</sup> za výraz</p>
+<span class='sidenote'><p><sup class='number'>6</sup>Takovéto &quot;zkratky&quot;, které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
 či zjednoduššují často používané kombinace příkazů, se označují jako
 <a href="https://en.wikipedia.org/wiki/Syntactic_sugar"><strong>syntactic sugar</strong></a>.</p>
 </span>
@@ -5159,8 +5188,8 @@ způsobem pomocí krátkého kusu kódu. Jinak řečeno, chtěli bychom mít ste
 pole o velikosti <code>2</code> i <code>1000</code>. K tomu můžeme efektivně využít <a href="c/pole/../rizeni_toku/cykly.html">cykly</a>.</p>
 <p>Často je praktické použít <a href="c/pole/../rizeni_toku/while.html#%C5%98%C3%ADd%C3%ADc%C3%AD-prom%C4%9Bnn%C3%A1">řídící proměnnou</a> cyklu k tomu,
 abychom pomocí ní indexovali pole. Například, pokud bychom měli pole s velikostí <code>10</code>, tak ho můžeme
-&quot;projít&quot;<sup class='margin-toggle sidenote-number'>6</sup> pomocí cyklu <code>for</code>:</p>
-<span class='sidenote'><p><sup class='number'>6</sup>Používá se také pojem <em>proiterovat</em>.</p>
+&quot;projít&quot;<sup class='margin-toggle sidenote-number'>7</sup> pomocí cyklu <code>for</code>:</p>
+<span class='sidenote'><p><sup class='number'>7</sup>Používá se také pojem <em>proiterovat</em>.</p>
 </span>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 
@@ -6325,18 +6354,88 @@ by tento znak v předaném řetězci nebyl, tak se bude funkce pokoušet číst 
 <h2><a class="header" href="#vypsání-formátovaného-textu" id="vypsání-formátovaného-textu">Vypsání formátovaného textu</a></h2>
 <p>K výpisu formátovaného textu na <code>stdout</code> můžeme použít funkci <code>printf</code>, s kterou jsme se již
 mnohokrát setkali. Prvním parametrem funkce je formátovací řetězec, do kterého můžete dávat
-zástupné znaky. Pro každý zástupný znak funkce očekává jednu hodnotu (argument) za formátovacím
-řetězcem, která bude zformátována na výstup. Například takto můžeme vytisknout číslo a po něm řetězec:</p>
+zástupné znaky začínající procentem (např. <code>%d</code> nebo <code>%s</code>). Pro každý takovýto zástupný znak funkce bude očekávat jednu
+hodnotu (argument) za formátovacím řetězcem, která bude zformátována na výstup. Například takto můžeme vytisknout číslo
+a po něm řetězec:</p>
 <pre><code class="language-c">const char* text = &quot;Cislo&quot;;
 int cislo = 5;
 printf(&quot;Cislo %d, retezec %s: \n&quot;, cislo, text);
 </code></pre>
+<p>Jelikož jsme ve formátovacím řetězci předali dva zástupné znaky (<code>%d</code> - číslo a <code>%s</code> - řetězec), tak po řetězci musíme
+do funkce <code>printf</code> předat jeden argument číselného typu, a poté jeden řetězec.</p>
 <p>Zástupné znaky funkcí <code>printf</code> i <code>scanf</code> jsou obdobné, jejich seznam a různé možnosti nastavení
-můžete najít v <a href="https://devdocs.io/c/io/fprintf">dokumentaci</a>.</p>
+můžete najít v <a href="https://devdocs.io/c/io/fprintf">dokumentaci</a>. Nejčastěji budeme používat tyto zástupné znaky:</p>
+<ul>
+<li><code>%d</code> - výpis celého čísla se znaménkem, nejčastěji datový typ <code>int</code></li>
+<li><code>%f</code> - výpis desetinného čísla, datový typ <code>float</code></li>
+<li><code>%s</code> - výpis řetězce, datový typ <code>char*</code> (ukazatel na znak)
+<ul>
+<li>Na předané adrese musí ležet řetězec, tj. pole znaků <strong>ukončené znakem <code>'\0'</code></strong>!</li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>Stejně jako <code>scanf</code> má i funkce <code>printf</code> různé varianty pro formátovaný výpis do souborů
 (<code>fprintf</code>) či do řetězce v paměti (<code>sprintf</code>).</p>
 </blockquote>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+
+    printf(&quot;Hodnota: %f&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Říkáme funkci <code>printf</code>, že chceme vypsat desetinné číslo
+(zástupný znak <code>%f</code>), ale jako argument předáváme výraz typu celé číslo (<code>int</code>). Tento program tedy není validní.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+
+    printf(&quot;Hodnota: %d (a=%d)&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Říkáme funkci <code>printf</code>, že jí předáme dvě hodnoty (dva výrazy) typu
+celého čísla (zástupný znak <code>%d</code>), ale předáváme pouze jednu hodnotu (<code>a</code>). Tento program tedy není validní.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+
+    printf(&quot;Hodnota: %s&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Říkáme funkci <code>printf</code>, že jí předáme hodnotu typu řetězec
+(zástupný znak <code>%s</code>), ale předáváme pouze hodnotu typu celé číslo (<code>int</code>). Tento program tedy není validní.</p>
+</details>
+</li>
+</ol>
 <h1><a class="header" href="#vlastní-datové-typy" id="vlastní-datové-typy">Vlastní datové typy</a></h1>
 <p>Nyní už umíme pracovat se základními datovými typy v <em>C</em>
 (<a href="c/struktury/../datove_typy/celociselne_typy.html">celá čísla</a>, <a href="c/struktury/../datove_typy/desetinne_typy.html">desetinná čísla</a>,
@@ -8275,9 +8374,9 @@ použít příkaz</p>
 </ul>
 <ul>
 <li><strong>Manuální stažení knihovny</strong>: Knihovnu si můžete také stáhnout manuálně, např. z
-<a href="https://www.libsdl.org/download-2.0.php">webu SDL</a>. Některé knihovny můžete naleznout na internetu
-už přeložené, nicméně <code>SDL</code> oficiálně pro Linux přeložené knihovní soubory (<code>.so</code>) nenabízí. V tomto
-případě tak musíte knihovnu nejenom stáhnout, ale také ručně přeložit, než ji budete moct použít ve
+<a href="https://github.com/libsdl-org/SDL/releases/download/release-2.28.3/SDL2-2.28.3.zip">GitHubu SDL</a>. Některé knihovny
+můžete naleznout na internetu už přeložené, nicméně <code>SDL</code> oficiálně pro Linux přeložené knihovní soubory (<code>.so</code>)
+nenabízí. V tomto případě tak musíte knihovnu nejenom stáhnout, ale také ručně přeložit, než ji budete moct použít ve
 svém programu.</li>
 </ul>
 <h2><a class="header" href="#přilinkování-knihovny-sdl" id="přilinkování-knihovny-sdl">Přilinkování knihovny <code>SDL</code></a></h2>
@@ -11079,6 +11178,20 @@ parametr chová jako ukazatel! Pole se do funkcí vždy předávají jako adresa
     sizeof(pole); // 8
 }
 </code></pre>
+<p>Podobný problém může vzniknout i třeba při alokaci paměti. Například zde:</p>
+<pre><code class="language-c">typedef struct {
+    int vek;
+    const char* jmeno;
+} Osoba;
+
+int main() {
+    Osoba* osoby = (Osoba*) malloc(sizeof(Osoba*) * 5);
+
+    return 0;
+}
+</code></pre>
+<p>Dochází k alokaci paměti pro 5 ukazatelů na datový typ <code>Osoba</code>, místo alokace paměti pro pět hodnot typu <code>Osoba</code>!
+Správné použití by bylo <code>malloc(sizeof(Osoba) * 5)</code>;</p>
 <h3><a class="header" href="#undefined-reference-to-nazev" id="undefined-reference-to-nazev"><code>undefined reference to 'NAZEV'</code></a></h3>
 <p>Snažíte se zavolat funkci <code>NAZEV</code>, která nebyla nalezena v žádném
 <a href="caste_chyby/../c/modularizace/linker.html">objektovém souboru</a>, který jste předali pro překlad. Ověřte si, že

@@ -444,6 +444,20 @@ parametr chová jako ukazatel! Pole se do funkcí vždy předávají jako adresa
     sizeof(pole); // 8
 }
 </code></pre>
+<p>Podobný problém může vzniknout i třeba při alokaci paměti. Například zde:</p>
+<pre><code class="language-c">typedef struct {
+    int vek;
+    const char* jmeno;
+} Osoba;
+
+int main() {
+    Osoba* osoby = (Osoba*) malloc(sizeof(Osoba*) * 5);
+
+    return 0;
+}
+</code></pre>
+<p>Dochází k alokaci paměti pro 5 ukazatelů na datový typ <code>Osoba</code>, místo alokace paměti pro pět hodnot typu <code>Osoba</code>!
+Správné použití by bylo <code>malloc(sizeof(Osoba) * 5)</code>;</p>
 <h3><a class="header" href="#undefined-reference-to-nazev" id="undefined-reference-to-nazev"><code>undefined reference to 'NAZEV'</code></a></h3>
 <p>Snažíte se zavolat funkci <code>NAZEV</code>, která nebyla nalezena v žádném
 <a href="../c/modularizace/linker.html">objektovém souboru</a>, který jste předali pro překlad. Ověřte si, že

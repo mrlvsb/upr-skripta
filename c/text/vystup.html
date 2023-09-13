@@ -220,18 +220,88 @@ by tento znak v předaném řetězci nebyl, tak se bude funkce pokoušet číst 
 <h2><a class="header" href="#vypsání-formátovaného-textu" id="vypsání-formátovaného-textu">Vypsání formátovaného textu</a></h2>
 <p>K výpisu formátovaného textu na <code>stdout</code> můžeme použít funkci <code>printf</code>, s kterou jsme se již
 mnohokrát setkali. Prvním parametrem funkce je formátovací řetězec, do kterého můžete dávat
-zástupné znaky. Pro každý zástupný znak funkce očekává jednu hodnotu (argument) za formátovacím
-řetězcem, která bude zformátována na výstup. Například takto můžeme vytisknout číslo a po něm řetězec:</p>
+zástupné znaky začínající procentem (např. <code>%d</code> nebo <code>%s</code>). Pro každý takovýto zástupný znak funkce bude očekávat jednu
+hodnotu (argument) za formátovacím řetězcem, která bude zformátována na výstup. Například takto můžeme vytisknout číslo
+a po něm řetězec:</p>
 <pre><code class="language-c">const char* text = &quot;Cislo&quot;;
 int cislo = 5;
 printf(&quot;Cislo %d, retezec %s: \n&quot;, cislo, text);
 </code></pre>
+<p>Jelikož jsme ve formátovacím řetězci předali dva zástupné znaky (<code>%d</code> - číslo a <code>%s</code> - řetězec), tak po řetězci musíme
+do funkce <code>printf</code> předat jeden argument číselného typu, a poté jeden řetězec.</p>
 <p>Zástupné znaky funkcí <code>printf</code> i <code>scanf</code> jsou obdobné, jejich seznam a různé možnosti nastavení
-můžete najít v <a href="https://devdocs.io/c/io/fprintf">dokumentaci</a>.</p>
+můžete najít v <a href="https://devdocs.io/c/io/fprintf">dokumentaci</a>. Nejčastěji budeme používat tyto zástupné znaky:</p>
+<ul>
+<li><code>%d</code> - výpis celého čísla se znaménkem, nejčastěji datový typ <code>int</code></li>
+<li><code>%f</code> - výpis desetinného čísla, datový typ <code>float</code></li>
+<li><code>%s</code> - výpis řetězce, datový typ <code>char*</code> (ukazatel na znak)
+<ul>
+<li>Na předané adrese musí ležet řetězec, tj. pole znaků <strong>ukončené znakem <code>'\0'</code></strong>!</li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>Stejně jako <code>scanf</code> má i funkce <code>printf</code> různé varianty pro formátovaný výpis do souborů
 (<code>fprintf</code>) či do řetězce v paměti (<code>sprintf</code>).</p>
 </blockquote>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+
+    printf(&quot;Hodnota: %f&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Říkáme funkci <code>printf</code>, že chceme vypsat desetinné číslo
+(zástupný znak <code>%f</code>), ale jako argument předáváme výraz typu celé číslo (<code>int</code>). Tento program tedy není validní.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+
+    printf(&quot;Hodnota: %d (a=%d)&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Říkáme funkci <code>printf</code>, že jí předáme dvě hodnoty (dva výrazy) typu
+celého čísla (zástupný znak <code>%d</code>), ale předáváme pouze jednu hodnotu (<code>a</code>). Tento program tedy není validní.</p>
+</details>
+</li>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 1;
+
+    printf(&quot;Hodnota: %s&quot;, a);
+
+    return 0;
+}
+</code></pre>
+<details>
+<summary>Odpověď</summary>
+<p>Tento program obsahuje <strong>nedefinované chování</strong> 💣. Říkáme funkci <code>printf</code>, že jí předáme hodnotu typu řetězec
+(zástupný znak <code>%s</code>), ale předáváme pouze hodnotu typu celé číslo (<code>int</code>). Tento program tedy není validní.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

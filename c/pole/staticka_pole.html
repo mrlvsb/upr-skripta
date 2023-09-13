@@ -215,9 +215,13 @@ popsané koncepty jsou platné i pro dynamická pole, nicméně budeme je demons
 polích, protože ty je jednodušší vytvořit.</p>
 </blockquote>
 <h3><a class="header" href="#konstantní-velikost-statického-pole" id="konstantní-velikost-statického-pole">Konstantní velikost statického pole</a></h3>
-<p>Hodnota zadaná v hranatých závorkách by měla být konstantní (tj. buď přímo číselná hodnota anebo
-<a href="../promenne/konstanty.html">konstantní proměnná</a>). Pokud budete potřebovat pole dynamické velikosti,
+<p>Hodnota zadaná v hranatých závorkách by měla být &quot;konstantním výrazem&quot;, tj. buď přímo číselná hodnota anebo
+číselná hodnota pocházející z <a href="../preprocesor/makra.html">makra</a><sup class='margin-toggle sidenote-number'>3</sup>. Pokud budete potřebovat pole dynamické velikosti,
 tak byste měli použít <a href="dynamicka_pole.html">dynamickou alokaci paměti</a>.</p>
+<span class='sidenote'><p><sup class='number'>3</sup>Dokonce ani <a href="../promenne/konstanty.html">konstantní</a> proměnná
+<a href="https://stackoverflow.com/questions/62354105/why-is-const-int-x-5-not-a-constant-expression-in-c">není</a>
+v C &quot;konstantním výrazem&quot;.</p>
+</span>
 <p>Jazyk <em>C</em> od verze <a href="https://en.wikipedia.org/wiki/C99"><em>C99</em></a> již sice povoluje dávat do hranatých
 závorek i &quot;dynamické&quot; hodnoty, tj. výrazy, jejichž hodnota nemusí být známa v době překladu:</p>
 <pre><code class="language-c">int velikost = ...; // velikost se načte např. ze souboru
@@ -225,16 +229,17 @@ int pole[velikost];
 </code></pre>
 <p>Tato funkcionalita zvaná <a href="https://en.wikipedia.org/wiki/Variable-length_array">VLA</a> (variable-length array)
 je nicméně určená pro velmi specifické použití a nese s sebou různé nevýhody, proto ji v rámci předmětu
-UPR <strong>nepoužívejte</strong>.</p>
+UPR <strong>nepoužívejte</strong>. Pokud si chcete být jisti, že se VLA ve vašem kódu nevyskytuje, překládejte své programy s
+<a href="../../ruzne/parametry_prekladace.html">parametrem překladače</a> <code style="white-space: nowrap;">-Werror=vla</code>.</p>
 <details>
 <summary>Proč ne VLA?</summary>
 <p>Zásobník má značně <a href="../prace_s_pameti/automaticka_pamet.html#nev%C3%BDhody-automatick%C3%A9-pam%C4%9Bti">omezenou velikost</a>
-a není určen pro alokaci velkého množství paměti<sup class='margin-toggle sidenote-number'>3</sup>. Pokud velikost takovéhoto pole může ovlivnit
+a není určen pro alokaci velkého množství paměti<sup class='margin-toggle sidenote-number'>4</sup>. Pokud velikost takovéhoto pole může ovlivnit
 uživatel programu (např. zadáním vstupu), může váš program jednoduše &quot;shodit&quot; (v lepším případě)
 nebo způsobit přepsání existující paměti (v horším případě), pokud by zadal velké
 číslo a došlo by k pokusu o vytvoření moc velkého pole na zásobníku. VLA má také různé problémy s
 kompatibilitou mezi překladači a jeho implementace překladači není zdaleka triviální.</p>
-<span class='sidenote'><p><sup class='number'>3</sup>Můžete si například zkusit přeložit následující program:</p>
+<span class='sidenote'><p><sup class='number'>4</sup>Můžete si například zkusit přeložit následující program:</p>
 <pre><code class="language-c">int main() {
     int pole[10000000];
     return 0;
@@ -295,8 +300,8 @@ int main() {
 </code></pre>
 <p>Abychom přistoupili i k dalším prvkům v poli, tak můžeme využít
 <a href="../prace_s_pameti/ukazatele.html#aritmetika-s-ukazateli">aritmetiky s ukazateli</a>. Pokud chceme
-získat adresu prvku na <code>i</code>-tém indexu, stačí k ukazateli na první prvek přičíst <code>i</code><sup class='margin-toggle sidenote-number'>4</sup>:</p>
-<span class='sidenote'><p><sup class='number'>4</sup>Všimněte si, že při použití operátoru dereference zde používáme závorky. Je to z důvodu
+získat adresu prvku na <code>i</code>-tém indexu, stačí k ukazateli na první prvek přičíst <code>i</code><sup class='margin-toggle sidenote-number'>5</sup>:</p>
+<span class='sidenote'><p><sup class='number'>5</sup>Všimněte si, že při použití operátoru dereference zde používáme závorky. Je to z důvodu
 <a href="https://en.cppreference.com/w/c/language/operator_precedence">priority operátorů</a>. Výraz <code>*pole + 2</code>
 by se vyhodnotil jako první prvek z pole <code>pole</code> plus <code>2</code>, protože <code>*</code> (dereference) má větší
 prioritu než sčítání. </p>
@@ -324,8 +329,8 @@ běžná (a zároveň relativně krkolomná), <em>C</em> obsahuje speciální op
 Tento operátor se nazývá <em>array subscription operator</em> a má syntaxi</p>
 <pre><code>&lt;výraz a&gt;[&lt;výraz b&gt;]
 </code></pre>
-<p>Slouží jako zkratka<sup class='margin-toggle sidenote-number'>5</sup> za výraz</p>
-<span class='sidenote'><p><sup class='number'>5</sup>Takovéto &quot;zkratky&quot;, které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
+<p>Slouží jako zkratka<sup class='margin-toggle sidenote-number'>6</sup> za výraz</p>
+<span class='sidenote'><p><sup class='number'>6</sup>Takovéto &quot;zkratky&quot;, které v programovacím jazyku nepřináší novou funkcionalitu, pouze zkracují
 či zjednoduššují často používané kombinace příkazů, se označují jako
 <a href="https://en.wikipedia.org/wiki/Syntactic_sugar"><strong>syntactic sugar</strong></a>.</p>
 </span>
@@ -358,8 +363,8 @@ způsobem pomocí krátkého kusu kódu. Jinak řečeno, chtěli bychom mít ste
 pole o velikosti <code>2</code> i <code>1000</code>. K tomu můžeme efektivně využít <a href="../rizeni_toku/cykly.html">cykly</a>.</p>
 <p>Často je praktické použít <a href="../rizeni_toku/while.html#%C5%98%C3%ADd%C3%ADc%C3%AD-prom%C4%9Bnn%C3%A1">řídící proměnnou</a> cyklu k tomu,
 abychom pomocí ní indexovali pole. Například, pokud bychom měli pole s velikostí <code>10</code>, tak ho můžeme
-&quot;projít&quot;<sup class='margin-toggle sidenote-number'>6</sup> pomocí cyklu <code>for</code>:</p>
-<span class='sidenote'><p><sup class='number'>6</sup>Používá se také pojem <em>proiterovat</em>.</p>
+&quot;projít&quot;<sup class='margin-toggle sidenote-number'>7</sup> pomocí cyklu <code>for</code>:</p>
+<span class='sidenote'><p><sup class='number'>7</sup>Používá se také pojem <em>proiterovat</em>.</p>
 </span>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 

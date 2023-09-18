@@ -69,7 +69,7 @@ int main() {
 
 ### Použití neexistujících negací operátorů porovnávání
 Jediné existující operátory porovnávání v *C* jsou `<`, `<=`, `>`, `>=`, `==` a `!=`.
-Operátory jako `!<` nebo `!>` neexistují! Negací operátoru `<` je operátor `>=` a negací operátoru
+Operátory jako `!<`, `!>`, `=<` ani `=>` v *C* neexistují! Negací operátoru `<` je operátor `>=` a negací operátoru
 `>` je operátor `<=`.
 
 ### Porovnávání výrazu s více hodnotami najednou

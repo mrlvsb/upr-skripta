@@ -1,4 +1,4 @@
-# (Explicitní) konverze
+# Explicitní konverze
 Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží **operátor přetypování**
 (*cast operator*), který má syntaxi `(<datový typ>) <výraz>` a převede výraz na daný datový typ.
 Například `(short) 1` převede výraz `1` z typu `int` na `short`. Je dobré si uvědomit, k čemu může
@@ -19,6 +19,23 @@ operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cíl
     ```
 
 [^1]: K tomu můžete použít například funkci [abs](https://devdocs.io/c/numeric/math/abs).
+
+## Převod z desetinné hodnoty na celočíselnou hodnotu
+Často se hodí převádět mezi desetinnými a celočíselnými typy. Při převodu z desetinné hodnoty na celočíselnou dojde k
+zaokrouhlení směrem k nule:
+
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+  float a = 5.8;
+  float b = -7.2;
+
+  printf("Kladne cislo zaokrouhlene: %d\n", (int) a);
+  printf("Zaporne cislo zaokrouhlene: %d\n", (int) b);
+  return 0;
+}
+```
 
 Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
 na to, jak funguje [dvojkový doplněk](https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk).

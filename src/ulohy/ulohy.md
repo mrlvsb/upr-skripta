@@ -3,8 +3,8 @@ V této sekci naleznete různé úlohy, které si můžete zkusit naimplementova
 v programování.
 
 ## Řešené úlohy
-K těmto úlohám je k dispozici video, ve kterém je ukázané, jak dojít k řešení dané úlohy.
-- [Počítání výskytů čísla](pole.md#počítání-výskytů-čísla)
+📹 K následujícím úlohám je k dispozici video, ve kterém je ukázané, jak dojít k řešení dané úlohy.
+- [Počítání výskytů čísla](pole.md#počítání-výskytů-čísla) \[13:31]
 
 ## Další úlohy
 Další úlohy můžete najít také například na těchto odkazech:

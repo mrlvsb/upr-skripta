@@ -16,7 +16,7 @@ volané funkce můžete v diagramu měnit.
 
 ## Počítání výskytů čísla
 
-> 📹 K této úloze je k dispozici [video](https://www.youtube.com/watch?v=QCmH3uN9Au8) s popisem řešení.
+> 📹 K této úloze je k dispozici [video](https://www.youtube.com/watch?v=QCmH3uN9Au8) \[13:31] s popisem řešení.
 
 Vytvořte funkci `num_count`, která spočítá a vrátí počet výskytů čísla `num` v poli `array`.
 ```c

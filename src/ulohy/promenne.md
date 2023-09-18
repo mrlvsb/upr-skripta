@@ -33,6 +33,9 @@ S = 20000
 </details>
 
 ## Prohození dvou čísel
+
+> 📹 K této úloze je k dispozici [video](https://www.youtube.com/watch?v=arzJllZi_oY) \[5:45] s popisem řešení.
+
 Program prohodí hodnotu dvou proměnných. Na začátku programu budou dvě celočíselné proměnné (`a` a `b`) s libovolně
 zvolenými hodnotami. Tyto proměnné budou na začátku programu vypsány na výstup.
 

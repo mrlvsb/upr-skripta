@@ -109,6 +109,9 @@ Vypište všechna sudá čísla od 0 do 100 (včetně). Výsledný program by ne
 </details>
 
 ## FizzBuzz
+
+> 📹 K této úloze je k dispozici [video](https://www.youtube.com/watch?v=VNYnSFGhdWo) \[14:40] s popisem řešení.
+
 Naimplementujte program zvaný [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz)[^1]. Vypište čísla 1 až 100 tak, že:
  - pokud je číslo násobkem 3, tak vypište místo čísla text `Fizz`
  - pokud je číslo násobkem 5, tak vypište místo čísla text `Buzz`

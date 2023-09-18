@@ -1,5 +1,5 @@
 # Proměnné
-K vyřešení těchto úloh by vám mělo stačit znát [proměnné](../c/promenne/promenne.md), [datové typy](../c/datove_typy/datove_typy.md),
+K vyřešení těchto úloh by vám mělo stačit znát [proměnné](../c/promenne/promenne.md), [datové typy](../c/datove_typy/datove_typy.md)
 a základní [výpis výrazů](../c/prikazy_vyrazy.md#výpis-výrazů).
 
 ## Obvod a obsah obdélníku

@@ -2,6 +2,42 @@
 K vyřešení těchto úloh by vám mělo stačit znát [podmínky](../c/rizeni_toku/podminky.md) a [cykly](../c/rizeni_toku/cykly.md)
 (a samozřejmě veškeré předchozí učivo).
 
+## Výpočet daně
+Na začátku programu si vytvořte dvě celočíselnou proměnné. První proměnná bude částku utracenou za nákup akcií v loňském
+roce. Druhá proměnná bude obsahovat současnou hodnotu průměrné mzdy v ČR. Poté vypočtěte daň, kterou je potřeba zaplatit
+za nákup akcií. Daň se vypočítává následovně:
+
+1) Pokud byly nakoupeny akcie za méně, než 100 000 Kč, tak se neplatí žádná daň.
+2) Pokud byly nakoupeny akcie za více, než 48násobek průměrné mzdy, tak se platí daň 23 %.
+3) Ve zbylých případech se platí daň 15 %.
+
+Daň zaokrouhlete směrem k nule na celé číslo pomocí [převodu](../c/datove_typy/konverze.md) z desetinné na celočíselnou
+hodnotu.
+
+Po výpočtu daně vypište utracenou částku, průměrnou mzdu a výslednou hodnotu daně.
+
+<details>
+<summary>Ukázkové výstupy</summary>
+
+```
+utraceno = 10021
+mzda = 41265
+dan = 0
+```
+
+```
+utraceno = 10412
+mzda = 41265
+dan = 1561
+```
+
+```
+utraceno = 2000000
+mzda = 41265
+dan = 460000
+```
+</details>
+
 ## Maximum ze tří čísel
 Na začátku programu vytvořte tři celočíselné proměnné a nastavte do nich nějaké hodnoty. Poté napište kód, který nalezne
 maximum z těchto tří čísel, a vypíše jej na výstup.
@@ -39,9 +75,25 @@ maximum je 40
 ```
 </details>
 
+## Výpis druhých monicn čísel
+Vypište všechna čísla od 0 do 20 (včetně), spolu s jejich druhou mocninou.
+
+<details>
+<summary>Ukázkový výstup</summary>
+
+```
+0 na druhou je 0
+1 na druhou je 1
+2 na druhou je 4
+3 na druhou je 9
+...
+19 na druhou je 361
+20 na druohu je 400
+```
+</details>
 
 ## Výpis sudých čísel
-Vypište všechna sudá čísla od 0 do 100 (včetně).
+Vypište všechna sudá čísla od 0 do 100 (včetně). Výsledný program by neměl mít více než ~15 řádků kódu.
 
 <details>
 <summary>Ukázkový výstup</summary>

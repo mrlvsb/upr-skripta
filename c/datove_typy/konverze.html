@@ -183,7 +183,7 @@ video {
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#explicitní-konverze" id="explicitní-konverze">(Explicitní) konverze</a></h1>
+                        <h1><a class="header" href="#explicitní-konverze" id="explicitní-konverze">Explicitní konverze</a></h1>
 <p>Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží <strong>operátor přetypování</strong>
 (<em>cast operator</em>), který má syntaxi <code>(&lt;datový typ&gt;) &lt;výraz&gt;</code> a převede výraz na daný datový typ.
 Například <code>(short) 1</code> převede výraz <code>1</code> z typu <code>int</code> na <code>short</code>. Je dobré si uvědomit, k čemu může
@@ -205,6 +205,20 @@ operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cíl
 <span class='sidenote'><p><sup class='number'>1</sup>K tomu můžete použít například funkci <a href="https://devdocs.io/c/numeric/math/abs">abs</a>.</p>
 </span></li>
 </ul>
+<h2><a class="header" href="#převod-z-desetinné-hodnoty-na-celočíselnou-hodnotu" id="převod-z-desetinné-hodnoty-na-celočíselnou-hodnotu">Převod z desetinné hodnoty na celočíselnou hodnotu</a></h2>
+<p>Často se hodí převádět mezi desetinnými a celočíselnými typy. Při převodu z desetinné hodnoty na celočíselnou dojde k
+zaokrouhlení směrem k nule:</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+  float a = 5.8;
+  float b = -7.2;
+
+  printf(&quot;Kladne cislo zaokrouhlene: %d\n&quot;, (int) a);
+  printf(&quot;Zaporne cislo zaokrouhlene: %d\n&quot;, (int) b);
+  return 0;
+}
+</code></pre>
 <p>Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
 na to, jak funguje <a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkový doplněk</a>.</p>
 

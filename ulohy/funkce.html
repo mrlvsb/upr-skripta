@@ -185,11 +185,60 @@ video {
                     <main>
                         <h1><a class="header" href="#funkce" id="funkce">Funkce</a></h1>
 <p>K vyřešení těchto úloh by vám mělo stačit znát <a href="../c/funkce/funkce.html">funkce</a> (a samozřejmě veškeré předchozí učivo).</p>
+<h2><a class="header" href="#maximum" id="maximum">Maximum</a></h2>
+<p>Napište funkci <code>max</code>, která přijme dva celočíselné argumenty a vrátí větší z nich.</p>
+<details>
+<summary>Ukázka použití funkce</summary>
+<pre><code class="language-c">printf(&quot;%d&quot;, max(0, 0));    // Vypíše 0
+printf(&quot;%d&quot;, max(1, 5));    // Vypíše 5
+printf(&quot;%d&quot;, max(2, -3));   // Vypíše 2
+</code></pre>
+</details>
+<h2><a class="header" href="#výpočet-daně-funkce" id="výpočet-daně-funkce">Výpočet daně (funkce)</a></h2>
+<p>Naimplementujte úlohu <a href="./podminky_a_cykly.html#v%C3%BDpo%C4%8Det-dan%C4%9B">Výpočet daně</a> pomocí funkce <code>vypocti_dan</code>. Funkce dostane
+částku utracenou za nákupy akcií a průměrnou mzdu, a vrátí vypočtenou daň ve formě celého čísla.</p>
+<details>
+<summary>Ukázka použití funkce</summary>
+<pre><code class="language-c">printf(&quot;Dan=%d&quot;, vypocti_dan(10021, 41265));    // Vypíše Dan=0
+printf(&quot;%d&quot;, vypocti_dan(10412, 41265));        // Vypíše 1561
+printf(&quot;%d&quot;, vypocti_dan(2000000, 41265));      // Vypíše 460000
+
+int dan = vypocti_dan(100000, 40000) + vypocti_dan(200000, 38000);
+// dan bude 45000
+</code></pre>
+</details>
+<h2><a class="header" href="#textové-kreslení-obrazců-funkce" id="textové-kreslení-obrazců-funkce">Textové kreslení obrazců (funkce)</a></h2>
+<p>Naimplementujte úlohu <a href="./podminky_a_cykly.html#textov%C3%A9-kreslen%C3%AD-obrazc%C5%AF">Textové kreslení obrazců</a> pomocí funkcí. Pro
+každý typ obrazce udělejte separátní funkci, která obdrží parametry nutné pro vykreslení daného obrazce, a vykreslí jej
+na výstup pomocí znaku <code>x</code>.
+Parametry můžou být např:</p>
+<ul>
+<li>délka strany pro funkci <code>ctverec</code></li>
+<li>délka dvou stran (šířka × výška) pro funkci <code>obdelnik</code></li>
+<li>délka a směr diagonály pro funkci <code>diagonala</code></li>
+</ul>
+<details>
+<summary>Ukázka použití funkce</summary>
+<pre><code class="language-c">ctverec(4); // Vykreslí:
+// xxxx
+// xxxx
+// xxxx
+// xxxx
+
+obdelnik(2, 3); // Vykreslí:
+// xx
+// xx
+// xx
+
+obdelnik(3, 1); // Vykreslí:
+// xxx
+</code></pre>
+</details>
 <h2><a class="header" href="#fibonacciho-číslo" id="fibonacciho-číslo">Fibonacciho číslo</a></h2>
-<p>Napište funkci, která vypočte <code>n</code>-té <a href="https://cs.wikipedia.org/wiki/Fibonacciho_posloupnost">Fibonacciho číslo</a>
+<p>Napište funkci <code>fibonacci</code>, která vypočte <code>n</code>-té <a href="https://cs.wikipedia.org/wiki/Fibonacciho_posloupnost">Fibonacciho číslo</a>
 (<code>n</code> bude parametrem funkce).</p>
 <details>
-<summary>Výstup funkce</summary>
+<summary>Ukázka použití funkce</summary>
 <pre><code class="language-c">printf(&quot;%d&quot;, fibonacci(0));   // Vypíše 0
 printf(&quot;%d&quot;, fibonacci(1));   // Vypíše 1
 printf(&quot;%d&quot;, fibonacci(2));   // Vypíše 1
@@ -200,10 +249,10 @@ printf(&quot;%d&quot;, fibonacci(6));   // Vypíše 8
 </code></pre>
 </details>
 <h2><a class="header" href="#faktoriál" id="faktoriál">Faktoriál</a></h2>
-<p>Napište funkci, která vypočte <a href="https://cs.wikipedia.org/wiki/Faktori%C3%A1l">faktoriál</a> předaného
+<p>Napište funkci <code>factorial</code>, která vypočte <a href="https://cs.wikipedia.org/wiki/Faktori%C3%A1l">faktoriál</a> předaného
 parametru.</p>
 <details>
-<summary>Výstup funkce</summary>
+<summary>Ukázka použití funkce</summary>
 <pre><code class="language-c">printf(&quot;%d&quot;, factorial(0));   // Vypíše 1
 printf(&quot;%d&quot;, factorial(1));   // Vypíše 1
 printf(&quot;%d&quot;, factorial(4));   // Vypíše 24

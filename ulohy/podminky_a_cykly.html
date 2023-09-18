@@ -186,6 +186,33 @@ video {
                         <h1><a class="header" href="#podmínky-a-cykly" id="podmínky-a-cykly">Podmínky a cykly</a></h1>
 <p>K vyřešení těchto úloh by vám mělo stačit znát <a href="../c/rizeni_toku/podminky.html">podmínky</a> a <a href="../c/rizeni_toku/cykly.html">cykly</a>
 (a samozřejmě veškeré předchozí učivo).</p>
+<h2><a class="header" href="#výpočet-daně" id="výpočet-daně">Výpočet daně</a></h2>
+<p>Na začátku programu si vytvořte dvě celočíselnou proměnné. První proměnná bude částku utracenou za nákup akcií v loňském
+roce. Druhá proměnná bude obsahovat současnou hodnotu průměrné mzdy v ČR. Poté vypočtěte daň, kterou je potřeba zaplatit
+za nákup akcií. Daň se vypočítává následovně:</p>
+<ol>
+<li>Pokud byly nakoupeny akcie za méně, než 100 000 Kč, tak se neplatí žádná daň.</li>
+<li>Pokud byly nakoupeny akcie za více, než 48násobek průměrné mzdy, tak se platí daň 23 %.</li>
+<li>Ve zbylých případech se platí daň 15 %.</li>
+</ol>
+<p>Daň zaokrouhlete směrem k nule na celé číslo pomocí <a href="../c/datove_typy/konverze.html">převodu</a> z desetinné na celočíselnou
+hodnotu.</p>
+<p>Po výpočtu daně vypište utracenou částku, průměrnou mzdu a výslednou hodnotu daně.</p>
+<details>
+<summary>Ukázkové výstupy</summary>
+<pre><code>utraceno = 10021
+mzda = 41265
+dan = 0
+</code></pre>
+<pre><code>utraceno = 10412
+mzda = 41265
+dan = 1561
+</code></pre>
+<pre><code>utraceno = 2000000
+mzda = 41265
+dan = 460000
+</code></pre>
+</details>
 <h2><a class="header" href="#maximum-ze-tří-čísel" id="maximum-ze-tří-čísel">Maximum ze tří čísel</a></h2>
 <p>Na začátku programu vytvořte tři celočíselné proměnné a nastavte do nich nějaké hodnoty. Poté napište kód, který nalezne
 maximum z těchto tří čísel, a vypíše jej na výstup.</p>
@@ -199,8 +226,21 @@ c = 20
 maximum je 40
 </code></pre>
 </details>
+<h2><a class="header" href="#výpis-druhých-monicn-čísel" id="výpis-druhých-monicn-čísel">Výpis druhých monicn čísel</a></h2>
+<p>Vypište všechna čísla od 0 do 20 (včetně), spolu s jejich druhou mocninou.</p>
+<details>
+<summary>Ukázkový výstup</summary>
+<pre><code>0 na druhou je 0
+1 na druhou je 1
+2 na druhou je 4
+3 na druhou je 9
+...
+19 na druhou je 361
+20 na druohu je 400
+</code></pre>
+</details>
 <h2><a class="header" href="#výpis-sudých-čísel" id="výpis-sudých-čísel">Výpis sudých čísel</a></h2>
-<p>Vypište všechna sudá čísla od 0 do 100 (včetně).</p>
+<p>Vypište všechna sudá čísla od 0 do 100 (včetně). Výsledný program by neměl mít více než ~15 řádků kódu.</p>
 <details>
 <summary>Ukázkový výstup</summary>
 <pre><code>0
@@ -212,6 +252,9 @@ maximum je 40
 </code></pre>
 </details>
 <h2><a class="header" href="#fizzbuzz" id="fizzbuzz">FizzBuzz</a></h2>
+<blockquote>
+<p>📹 K této úloze je k dispozici <a href="https://www.youtube.com/watch?v=VNYnSFGhdWo">video</a> [14:40] s popisem řešení.</p>
+</blockquote>
 <p>Naimplementujte program zvaný <a href="https://en.wikipedia.org/wiki/Fizz_buzz">FizzBuzz</a><sup class='margin-toggle sidenote-number'>1</sup>. Vypište čísla 1 až 100 tak, že:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Tento program často bývá obsahem interview programátorů ve firmách.</p>
 </span>

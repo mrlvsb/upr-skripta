@@ -2164,7 +2164,7 @@ kombinaci s <code>||</code> a <code>&amp;&amp;</code>.</p>
 </details>
 </li>
 </ol>
-<h1><a class="header" href="#explicitní-konverze" id="explicitní-konverze">(Explicitní) konverze</a></h1>
+<h1><a class="header" href="#explicitní-konverze" id="explicitní-konverze">Explicitní konverze</a></h1>
 <p>Někdy potřebujete převést hodnoty mezi různými datovými typy. K tomu slouží <strong>operátor přetypování</strong>
 (<em>cast operator</em>), který má syntaxi <code>(&lt;datový typ&gt;) &lt;výraz&gt;</code> a převede výraz na daný datový typ.
 Například <code>(short) 1</code> převede výraz <code>1</code> z typu <code>int</code> na <code>short</code>. Je dobré si uvědomit, k čemu může
@@ -2186,6 +2186,20 @@ operace odpovídá přičtení dané hodnoty k maximální možné hodnotě cíl
 <span class='sidenote'><p><sup class='number'>1</sup>K tomu můžete použít například funkci <a href="https://devdocs.io/c/numeric/math/abs">abs</a>.</p>
 </span></li>
 </ul>
+<h2><a class="header" href="#převod-z-desetinné-hodnoty-na-celočíselnou-hodnotu" id="převod-z-desetinné-hodnoty-na-celočíselnou-hodnotu">Převod z desetinné hodnoty na celočíselnou hodnotu</a></h2>
+<p>Často se hodí převádět mezi desetinnými a celočíselnými typy. Při převodu z desetinné hodnoty na celočíselnou dojde k
+zaokrouhlení směrem k nule:</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+int main() {
+  float a = 5.8;
+  float b = -7.2;
+
+  printf(&quot;Kladne cislo zaokrouhlene: %d\n&quot;, (int) a);
+  printf(&quot;Zaporne cislo zaokrouhlene: %d\n&quot;, (int) b);
+  return 0;
+}
+</code></pre>
 <p>Pokud se chcete dozvědět více o tom, proč konverze mezi typy fungují tak, jak fungují, tak se podívejte
 na to, jak funguje <a href="https://cs.wikipedia.org/wiki/Dvojkov%C3%BD_dopln%C4%9Bk">dvojkový doplněk</a>.</p>
 <h1><a class="header" href="#Řízení-toku" id="Řízení-toku">Řízení toku</a></h1>
@@ -9588,9 +9602,11 @@ v programu <code>gcc</code> nalezne jakoukoliv situaci, která vytvoří varová
 <p>V této sekci naleznete různé úlohy, které si můžete zkusit naimplementovat, abyste se zlepšili
 v programování.</p>
 <h2><a class="header" href="#Řešené-úlohy" id="Řešené-úlohy">Řešené úlohy</a></h2>
-<p>K těmto úlohám je k dispozici video, ve kterém je ukázané, jak dojít k řešení dané úlohy.</p>
+<p>📹 K následujícím úlohám je k dispozici video, ve kterém je ukázané, jak dojít k řešení dané úlohy.</p>
 <ul>
-<li><a href="ulohy/pole.html#po%C4%8D%C3%ADt%C3%A1n%C3%AD-v%C3%BDskyt%C5%AF-%C4%8D%C3%ADsla">Počítání výskytů čísla</a></li>
+<li><a href="ulohy/promenne.html#prohozen%C3%AD-dvou-%C4%8D%C3%ADsel">Prohození dvou čísel</a> [5:45]</li>
+<li><a href="ulohy/podminky_a_cykly.html#fizzbuzz">FizzBuzz</a> [14:40]</li>
+<li><a href="ulohy/pole.html#po%C4%8D%C3%ADt%C3%A1n%C3%AD-v%C3%BDskyt%C5%AF-%C4%8D%C3%ADsla">Počítání výskytů čísla</a> [13:31]</li>
 </ul>
 <h2><a class="header" href="#další-úlohy" id="další-úlohy">Další úlohy</a></h2>
 <p>Další úlohy můžete najít také například na těchto odkazech:</p>
@@ -9601,7 +9617,7 @@ v programování.</p>
 <li><a href="https://w3resource.com/c-programming-exercises/">W3 C programming exercises</a></li>
 </ul>
 <h1><a class="header" href="#proměnné-1" id="proměnné-1">Proměnné</a></h1>
-<p>K vyřešení těchto úloh by vám mělo stačit znát <a href="ulohy/../c/promenne/promenne.html">proměnné</a>, <a href="ulohy/../c/datove_typy/datove_typy.html">datové typy</a>,
+<p>K vyřešení těchto úloh by vám mělo stačit znát <a href="ulohy/../c/promenne/promenne.html">proměnné</a>, <a href="ulohy/../c/datove_typy/datove_typy.html">datové typy</a>
 a základní <a href="ulohy/../c/prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">výpis výrazů</a>.</p>
 <h2><a class="header" href="#obvod-a-obsah-obdélníku" id="obvod-a-obsah-obdélníku">Obvod a obsah obdélníku</a></h2>
 <p>Program bude mít jako vstup dvě proměnné (\( a \), \( b \)), které budou udávat velikosti stran
@@ -9629,6 +9645,9 @@ S = 20000
 </code></pre>
 </details>
 <h2><a class="header" href="#prohození-dvou-čísel" id="prohození-dvou-čísel">Prohození dvou čísel</a></h2>
+<blockquote>
+<p>📹 K této úloze je k dispozici <a href="https://www.youtube.com/watch?v=arzJllZi_oY">video</a> [5:45] s popisem řešení.</p>
+</blockquote>
 <p>Program prohodí hodnotu dvou proměnných. Na začátku programu budou dvě celočíselné proměnné (<code>a</code> a <code>b</code>) s libovolně
 zvolenými hodnotami. Tyto proměnné budou na začátku programu vypsány na výstup.</p>
 <p>Dále program prohodí hodnoty těchto dvou proměnných, tj. např. pokud proměnná <code>a</code> měla hodnotu
@@ -9647,6 +9666,33 @@ b = 10
 <h1><a class="header" href="#podmínky-a-cykly" id="podmínky-a-cykly">Podmínky a cykly</a></h1>
 <p>K vyřešení těchto úloh by vám mělo stačit znát <a href="ulohy/../c/rizeni_toku/podminky.html">podmínky</a> a <a href="ulohy/../c/rizeni_toku/cykly.html">cykly</a>
 (a samozřejmě veškeré předchozí učivo).</p>
+<h2><a class="header" href="#výpočet-daně" id="výpočet-daně">Výpočet daně</a></h2>
+<p>Na začátku programu si vytvořte dvě celočíselnou proměnné. První proměnná bude částku utracenou za nákup akcií v loňském
+roce. Druhá proměnná bude obsahovat současnou hodnotu průměrné mzdy v ČR. Poté vypočtěte daň, kterou je potřeba zaplatit
+za nákup akcií. Daň se vypočítává následovně:</p>
+<ol>
+<li>Pokud byly nakoupeny akcie za méně, než 100 000 Kč, tak se neplatí žádná daň.</li>
+<li>Pokud byly nakoupeny akcie za více, než 48násobek průměrné mzdy, tak se platí daň 23 %.</li>
+<li>Ve zbylých případech se platí daň 15 %.</li>
+</ol>
+<p>Daň zaokrouhlete směrem k nule na celé číslo pomocí <a href="ulohy/../c/datove_typy/konverze.html">převodu</a> z desetinné na celočíselnou
+hodnotu.</p>
+<p>Po výpočtu daně vypište utracenou částku, průměrnou mzdu a výslednou hodnotu daně.</p>
+<details>
+<summary>Ukázkové výstupy</summary>
+<pre><code>utraceno = 10021
+mzda = 41265
+dan = 0
+</code></pre>
+<pre><code>utraceno = 10412
+mzda = 41265
+dan = 1561
+</code></pre>
+<pre><code>utraceno = 2000000
+mzda = 41265
+dan = 460000
+</code></pre>
+</details>
 <h2><a class="header" href="#maximum-ze-tří-čísel" id="maximum-ze-tří-čísel">Maximum ze tří čísel</a></h2>
 <p>Na začátku programu vytvořte tři celočíselné proměnné a nastavte do nich nějaké hodnoty. Poté napište kód, který nalezne
 maximum z těchto tří čísel, a vypíše jej na výstup.</p>
@@ -9660,8 +9706,21 @@ c = 20
 maximum je 40
 </code></pre>
 </details>
+<h2><a class="header" href="#výpis-druhých-monicn-čísel" id="výpis-druhých-monicn-čísel">Výpis druhých monicn čísel</a></h2>
+<p>Vypište všechna čísla od 0 do 20 (včetně), spolu s jejich druhou mocninou.</p>
+<details>
+<summary>Ukázkový výstup</summary>
+<pre><code>0 na druhou je 0
+1 na druhou je 1
+2 na druhou je 4
+3 na druhou je 9
+...
+19 na druhou je 361
+20 na druohu je 400
+</code></pre>
+</details>
 <h2><a class="header" href="#výpis-sudých-čísel" id="výpis-sudých-čísel">Výpis sudých čísel</a></h2>
-<p>Vypište všechna sudá čísla od 0 do 100 (včetně).</p>
+<p>Vypište všechna sudá čísla od 0 do 100 (včetně). Výsledný program by neměl mít více než ~15 řádků kódu.</p>
 <details>
 <summary>Ukázkový výstup</summary>
 <pre><code>0
@@ -9673,6 +9732,9 @@ maximum je 40
 </code></pre>
 </details>
 <h2><a class="header" href="#fizzbuzz" id="fizzbuzz">FizzBuzz</a></h2>
+<blockquote>
+<p>📹 K této úloze je k dispozici <a href="https://www.youtube.com/watch?v=VNYnSFGhdWo">video</a> [14:40] s popisem řešení.</p>
+</blockquote>
 <p>Naimplementujte program zvaný <a href="https://en.wikipedia.org/wiki/Fizz_buzz">FizzBuzz</a><sup class='margin-toggle sidenote-number'>1</sup>. Vypište čísla 1 až 100 tak, že:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Tento program často bývá obsahem interview programátorů ve firmách.</p>
 </span>
@@ -9807,11 +9869,60 @@ Kuličku reprezentujte dvěmi proměnými (pozice X a Y). Opakovaně provádějt
 <p><img src="ulohy/../static/video/ball_terminal.gif" alt="Odrážející se kulička v terminálu" /></p>
 <h1><a class="header" href="#funkce-1" id="funkce-1">Funkce</a></h1>
 <p>K vyřešení těchto úloh by vám mělo stačit znát <a href="ulohy/../c/funkce/funkce.html">funkce</a> (a samozřejmě veškeré předchozí učivo).</p>
+<h2><a class="header" href="#maximum" id="maximum">Maximum</a></h2>
+<p>Napište funkci <code>max</code>, která přijme dva celočíselné argumenty a vrátí větší z nich.</p>
+<details>
+<summary>Ukázka použití funkce</summary>
+<pre><code class="language-c">printf(&quot;%d&quot;, max(0, 0));    // Vypíše 0
+printf(&quot;%d&quot;, max(1, 5));    // Vypíše 5
+printf(&quot;%d&quot;, max(2, -3));   // Vypíše 2
+</code></pre>
+</details>
+<h2><a class="header" href="#výpočet-daně-funkce" id="výpočet-daně-funkce">Výpočet daně (funkce)</a></h2>
+<p>Naimplementujte úlohu <a href="ulohy/./podminky_a_cykly.html#v%C3%BDpo%C4%8Det-dan%C4%9B">Výpočet daně</a> pomocí funkce <code>vypocti_dan</code>. Funkce dostane
+částku utracenou za nákupy akcií a průměrnou mzdu, a vrátí vypočtenou daň ve formě celého čísla.</p>
+<details>
+<summary>Ukázka použití funkce</summary>
+<pre><code class="language-c">printf(&quot;Dan=%d&quot;, vypocti_dan(10021, 41265));    // Vypíše Dan=0
+printf(&quot;%d&quot;, vypocti_dan(10412, 41265));        // Vypíše 1561
+printf(&quot;%d&quot;, vypocti_dan(2000000, 41265));      // Vypíše 460000
+
+int dan = vypocti_dan(100000, 40000) + vypocti_dan(200000, 38000);
+// dan bude 45000
+</code></pre>
+</details>
+<h2><a class="header" href="#textové-kreslení-obrazců-funkce" id="textové-kreslení-obrazců-funkce">Textové kreslení obrazců (funkce)</a></h2>
+<p>Naimplementujte úlohu <a href="ulohy/./podminky_a_cykly.html#textov%C3%A9-kreslen%C3%AD-obrazc%C5%AF">Textové kreslení obrazců</a> pomocí funkcí. Pro
+každý typ obrazce udělejte separátní funkci, která obdrží parametry nutné pro vykreslení daného obrazce, a vykreslí jej
+na výstup pomocí znaku <code>x</code>.
+Parametry můžou být např:</p>
+<ul>
+<li>délka strany pro funkci <code>ctverec</code></li>
+<li>délka dvou stran (šířka × výška) pro funkci <code>obdelnik</code></li>
+<li>délka a směr diagonály pro funkci <code>diagonala</code></li>
+</ul>
+<details>
+<summary>Ukázka použití funkce</summary>
+<pre><code class="language-c">ctverec(4); // Vykreslí:
+// xxxx
+// xxxx
+// xxxx
+// xxxx
+
+obdelnik(2, 3); // Vykreslí:
+// xx
+// xx
+// xx
+
+obdelnik(3, 1); // Vykreslí:
+// xxx
+</code></pre>
+</details>
 <h2><a class="header" href="#fibonacciho-číslo" id="fibonacciho-číslo">Fibonacciho číslo</a></h2>
-<p>Napište funkci, která vypočte <code>n</code>-té <a href="https://cs.wikipedia.org/wiki/Fibonacciho_posloupnost">Fibonacciho číslo</a>
+<p>Napište funkci <code>fibonacci</code>, která vypočte <code>n</code>-té <a href="https://cs.wikipedia.org/wiki/Fibonacciho_posloupnost">Fibonacciho číslo</a>
 (<code>n</code> bude parametrem funkce).</p>
 <details>
-<summary>Výstup funkce</summary>
+<summary>Ukázka použití funkce</summary>
 <pre><code class="language-c">printf(&quot;%d&quot;, fibonacci(0));   // Vypíše 0
 printf(&quot;%d&quot;, fibonacci(1));   // Vypíše 1
 printf(&quot;%d&quot;, fibonacci(2));   // Vypíše 1
@@ -9822,10 +9933,10 @@ printf(&quot;%d&quot;, fibonacci(6));   // Vypíše 8
 </code></pre>
 </details>
 <h2><a class="header" href="#faktoriál" id="faktoriál">Faktoriál</a></h2>
-<p>Napište funkci, která vypočte <a href="https://cs.wikipedia.org/wiki/Faktori%C3%A1l">faktoriál</a> předaného
+<p>Napište funkci <code>factorial</code>, která vypočte <a href="https://cs.wikipedia.org/wiki/Faktori%C3%A1l">faktoriál</a> předaného
 parametru.</p>
 <details>
-<summary>Výstup funkce</summary>
+<summary>Ukázka použití funkce</summary>
 <pre><code class="language-c">printf(&quot;%d&quot;, factorial(0));   // Vypíše 1
 printf(&quot;%d&quot;, factorial(1));   // Vypíše 1
 printf(&quot;%d&quot;, factorial(4));   // Vypíše 24
@@ -9871,7 +9982,7 @@ volané funkce můžete v diagramu měnit.</p>
 <p><upr-array-fill></upr-array-fill></p>
 <h2><a class="header" href="#počítání-výskytů-čísla" id="počítání-výskytů-čísla">Počítání výskytů čísla</a></h2>
 <blockquote>
-<p>📹 K této úloze je k dispozici <a href="https://www.youtube.com/watch?v=QCmH3uN9Au8">video</a> s popisem řešení.</p>
+<p>📹 K této úloze je k dispozici <a href="https://www.youtube.com/watch?v=QCmH3uN9Au8">video</a> [13:31] s popisem řešení.</p>
 </blockquote>
 <p>Vytvořte funkci <code>num_count</code>, která spočítá a vrátí počet výskytů čísla <code>num</code> v poli <code>array</code>.</p>
 <pre><code class="language-c">int num_count(int* array, int len, int num);

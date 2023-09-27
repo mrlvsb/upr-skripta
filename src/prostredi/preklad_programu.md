@@ -5,10 +5,14 @@ Překladačů jazyka *C* existuje celá řada, my budeme využívat asi nejpouž
 Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection). 
 
 Překladač `gcc`, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
-pomocí následujícího příkazu:
+pomocí následujících dvou příkazů:
 ```bash
+$ sudo apt update
 $ sudo apt install build-essential gdb
 ```
+
+> Při pokusu o instalaci vás program vyzve, abyste instalaci potvrdili. Udělejte to zmáčknutím klávesy `y`
+> a potvrďte klávesou Enter.
 
 ## Překlad prvního programu
 Ještě než si ukážeme, jak vlastně programovací jazyk *C* funguje, tak zkusíme přeložit velmi jednoduchý

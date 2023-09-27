@@ -32,10 +32,14 @@ překlad *C* programů.
 > řádku prohlížeče souborů ve Windows napíšete `\\wsl$`, tak se můžete k souborům proklikat.
 
 Jakmile budete ve WSL `bash` terminálu, tak si nejprve nainstalujte programy nutné pro práci s `C`
-(zejména překladač) pomocí následujícího příkazu:
+(zejména překladač) pomocí následujích dvou příkazů:
 ```bash
+$ sudo apt update
 $ sudo apt install build-essential gdb
 ```
+
+> Při pokusu o instalaci vás program vyzve, abyste instalaci potvrdili. Udělejte to zmáčknutím klávesy `y`
+> a potvrďte klávesou Enter.
 
 ## Visual Studio Code
 Pokud chcete pod WSL používat editor Visual Studio Code, tak ho **nespouštějte z Windows**,

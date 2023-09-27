@@ -63,7 +63,7 @@ i paměť počítače, a může být obtížnější s virtuálním počítačem
 Připravili jsme pro vás tzv. obraz virtuálního stroje, který obsahuje již nastavený Linux, konkrétně
 `Ubuntu 20.04`, se vším potřebným pro předmět UPR. Abyste jej mohli použít, tak si nejprve musíte
 nainstalovat virtualizační program [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Poté si
-[předpřipravený obraz](http://mrl.cs.vsb.cz/data/upr/UPR.ova) stáhněte, otevřete ho ve VirtualBoxu
+[předpřipravený obraz](https://drive.google.com/file/d/1RsFoternYw1vNYlHefa5wr1ZwLv81wBi/view?usp=sharing) stáhněte, otevřete ho ve VirtualBoxu
 a potvrďte import s výchozím nastavením.
 
 Virtuální počítač poté bude možné spustit z programu VirtualBox. Uživatelské jméno i heslo je

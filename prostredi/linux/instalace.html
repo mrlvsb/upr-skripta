@@ -214,9 +214,14 @@ spusťte příkaz <code>cd /mnt/c/Users/Katka/Desktop</code>.</p>
 řádku prohlížeče souborů ve Windows napíšete <code>\\wsl$</code>, tak se můžete k souborům proklikat.</p>
 </blockquote>
 <p>Jakmile budete ve WSL <code>bash</code> terminálu, tak si nejprve nainstalujte programy nutné pro práci s <code>C</code>
-(zejména překladač) pomocí následujícího příkazu:</p>
-<pre><code class="language-bash">$ sudo apt install build-essential gdb
+(zejména překladač) pomocí následujích dvou příkazů:</p>
+<pre><code class="language-bash">$ sudo apt update
+$ sudo apt install build-essential gdb
 </code></pre>
+<blockquote>
+<p>Při pokusu o instalaci vás program vyzve, abyste instalaci potvrdili. Udělejte to zmáčknutím klávesy <code>y</code>
+a potvrďte klávesou Enter.</p>
+</blockquote>
 <h2><a class="header" href="#visual-studio-code" id="visual-studio-code">Visual Studio Code</a></h2>
 <p>Pokud chcete pod WSL používat editor Visual Studio Code, tak ho <strong>nespouštějte z Windows</strong>,
 ale nejprve si otevřete WSL <code>bash</code> terminál, a poté spusťe VSCode pomocí tohoto příkazu:</p>

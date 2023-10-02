@@ -148,6 +148,15 @@ jako nedává smysl říct `Číslo 5 odteď bude mít hodnotu 8`.
 [^4]: Zatím známe pouze proměnné, později si však ukážeme [další možnosti](../prace_s_pameti/ukazatele.md), jak vytvořit
 "něco, co má adresu v paměti", a co tak půjde použít na levé straně výrazu přiřazení `=`.
 
+### Kde vytvářet proměnné?
+Proměnnou vždy vytvářejte (deklarujte) až na místě v programu, kde ji opravdu budete poprvé potřebovat. Bude pak mnohem
+jasnější, k čemu se proměnná využívá, kde opravdu začíná její [platnost](#platnost), a kde naopak ještě není potřeba.
+Pokud byste všechny proměnné vytvořili na začátku funkce (bloku kódu, např. `main`)[^5], tak nebude zřejmé, k čemu vlastně
+jednotlivé proměnné jsou, a může se vám jednoduššeji stát, že proměnnou omylem použijete v kusu kódu, se kterým nesouvisí.
+
+[^5]: Pokud už jste se s jazykem *C* dříve setkali, možná jste byli přesvědčeni, že musíte všechny proměnné deklarovat
+již na začátku každé funkce. Vězte, že tomu tak není již zhruba 25 let, od standardu `C99` :)
+
 ### Definice více proměnných najednou
 Pokud potřebujete vytvořit více proměnných stejného datového typu, můžete použít více názvů
 oddělených čárkou za datovým typem proměnné. Takto například lze vytvořit tři celočíselné proměnné

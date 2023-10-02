@@ -313,6 +313,14 @@ jako nedává smysl říct <code>Číslo 5 odteď bude mít hodnotu 8</code>.</p
 <span class='sidenote'><p><sup class='number'>4</sup>Zatím známe pouze proměnné, později si však ukážeme <a href="../prace_s_pameti/ukazatele.html">další možnosti</a>, jak vytvořit
 &quot;něco, co má adresu v paměti&quot;, a co tak půjde použít na levé straně výrazu přiřazení <code>=</code>.</p>
 </span></blockquote>
+<h3><a class="header" href="#kde-vytvářet-proměnné" id="kde-vytvářet-proměnné">Kde vytvářet proměnné?</a></h3>
+<p>Proměnnou vždy vytvářejte (deklarujte) až na místě v programu, kde ji opravdu budete poprvé potřebovat. Bude pak mnohem
+jasnější, k čemu se proměnná využívá, kde opravdu začíná její <a href="#platnost">platnost</a>, a kde naopak ještě není potřeba.
+Pokud byste všechny proměnné vytvořili na začátku funkce (bloku kódu, např. <code>main</code>)<sup class='margin-toggle sidenote-number'>5</sup>, tak nebude zřejmé, k čemu vlastně
+jednotlivé proměnné jsou, a může se vám jednoduššeji stát, že proměnnou omylem použijete v kusu kódu, se kterým nesouvisí.</p>
+<span class='sidenote'><p><sup class='number'>5</sup>Pokud už jste se s jazykem <em>C</em> dříve setkali, možná jste byli přesvědčeni, že musíte všechny proměnné deklarovat
+již na začátku každé funkce. Vězte, že tomu tak není již zhruba 25 let, od standardu <code>C99</code> :)</p>
+</span>
 <h3><a class="header" href="#definice-více-proměnných-najednou" id="definice-více-proměnných-najednou">Definice více proměnných najednou</a></h3>
 <p>Pokud potřebujete vytvořit více proměnných stejného datového typu, můžete použít více názvů
 oddělených čárkou za datovým typem proměnné. Takto například lze vytvořit tři celočíselné proměnné

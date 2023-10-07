@@ -148,7 +148,7 @@ Fizz Buzz
 žádnou podmínku. K vyřešení této varianty budete potřebovat znát koncepty z pozdějších lekcí.
 
 ## Textové kreslení obrazců
-Napišet program, který bude umět vykreslovat následující obrazce. Napište kód pro jejich vykreslování tak, aby počet
+Napište program, který bude umět vykreslovat následující obrazce. Napište kód pro jejich vykreslování tak, aby počet
 řádků, na který se obrazec vykreslí (případně rozměry obrazce), byl jednoduše konfigurovatelný pomocí změny hodnoty jedné
 proměnné. Jinak řečeno, například pro změnu počtu řádků/sloupců vykresleného čtverce by mělo stačit změnit hodnotu jedné
 proměnné, zbytek kódu by měl zůstat stejný.

@@ -93,6 +93,9 @@ exponenciální funkce, kvadratická a kubická funkce, ...).
 * Pro výpočet funkcí lze využít matematickou knihovnu `math.h`, která je součástí standardní
 knihovny jazyka C. Knihovnu je ovšem potřeba při kompilaci explicitně slinkovat přepínačem `-lm`,
 který pouze předáte kompilátoru (`gcc main.c -o main -lm -std=c2x`).
+* Nehledejte v úloze zbytečnou komplexitu. Nejjednodušší variantu úlohy (viz ukázka) lze
+naprogramovat na 30 řádků za využití dvou cyklů, podmínek, a parametrické rovnice přímky
+(`y = ax + b`).
 
 ## Složitější varianta
 

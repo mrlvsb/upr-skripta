@@ -88,6 +88,7 @@
     - [Proměnné](ulohy/promenne.md)
     - [Podmínky a cykly](ulohy/podminky_a_cykly.md)
       - [Odrážející se kulička](ulohy/kulicka.md)
+      - [Vykreslování grafu funkcí](ulohy/grafy.md)
     - [Funkce](ulohy/funkce.md)
     - [Ukazatele](ulohy/ukazatele.md)
     - [Pole](ulohy/pole.md)

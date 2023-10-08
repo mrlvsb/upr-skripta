@@ -92,9 +92,9 @@ vlastního výběru.
 exponenciální funkce, kvadratická a kubická funkce, ...).
 * Pro výpočet funkcí lze využít matematickou knihovnu `math.h`, která je součástí standardní
 knihovny jazyka C. Knihovnu je ovšem potřeba při kompilaci explicitně slinkovat přepínačem `-lm`,
-který pouze předáte kompilátoru (`gcc main.c -o main -lm -std=c2x`).
+který pouze předáte kompilátoru (`gcc main.c -o main -lm`).
 * Nehledejte v úloze zbytečnou komplexitu. Nejjednodušší variantu úlohy (viz ukázka) lze
-naprogramovat na 30 řádků za využití dvou cyklů, podmínek, a parametrické rovnice přímky
+naprogramovat na 30 řádků za využití dvou cyklů, podmínek a parametrické rovnice přímky
 (`y = ax + b`).
 
 ## Složitější varianta
@@ -111,10 +111,10 @@ Interaktivní aplikace by také mohla na okrajích okna znázorňovat, na jaké 
 dívá (ať se při procházení grafu neztratí) a aktuální úroveň přiblížení, a implementovat klávesovou
 zkratku pro reset náhledu na graf (vycentrování počátku a nastavení zoomu na `1.0`).
 
-Student, který se skutečně nudí, může také naprogramovat možnost zadat vlastní funkci za běhu
-programu. Toho lze dosáhnout jak manuálním parsováním uživatelského vstupu, tak embeddováním
-nějakého skriptovacího jazyka (např. [Lua](https://www.lua.org/pil/24.html)) do svého programu,
-a umožněním uživateli naprogramovat si vlastní, libovolně složitou funkci (využívající například
-podmínky, atp.). Fantazii se meze nekladou.
+Pokud si chcete s úlohou opravdu vyhrát, můžete také naprogramovat možnost zadat vlastní funkci
+za běhu programu. Toho lze dosáhnout jak manuálním parsováním uživatelského vstupu, tak
+embeddováním nějakého skriptovacího jazyka (např. [Lua](https://www.lua.org/pil/24.html)) do svého
+programu, a umožněním uživateli naprogramovat si vlastní, libovolně složitou funkci (využívající
+například podmínky, atp.). Fantazii se meze nekladou.
 
 Složitější varianta **není vhodná** pro úplné začátečníky.

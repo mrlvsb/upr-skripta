@@ -99,6 +99,7 @@
         - [Kalkulačka](ulohy/kalkulacka.md)
         - [Střelba na terč](ulohy/strelba_na_terc.md) 
         - [Čištění chatu](ulohy/cisteni_chatu.md)
+        - [Překladač jazyka Brainfuck](ulohy/brainfuck.md)
     - [Struktury](ulohy/struktury.md)
         - [TGA hodiny](ulohy/tga_watch.md)
         - [Létající písmenka](ulohy/letters.md)

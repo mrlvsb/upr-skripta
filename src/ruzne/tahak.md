@@ -20,7 +20,7 @@ int main() {
 
 ### Překlad a spuštění programu ([učivo](../prostredi/preklad_programu.md#překlad-prvního-programu))
 ```bash
-$ gcc main.c -g -fsanitize=address -omain
+$ gcc main.c -g -fsanitize=address -o main
 $ ./main
 ```
 
@@ -314,7 +314,7 @@ int main() {
 ### Soubory ([učivo](../c/soubory/soubory.md))
 - Otevření souboru pro čtení
   ```c
-  FILE* file = fopen("file.txt", "r"); // Textové mód
+  FILE* file = fopen("file.txt", "r"); // Textový mód
   FILE* file2 = fopen("file.txt", "rb"); // Binární mód
   ```
 - Otevření souboru pro zápis
@@ -379,5 +379,5 @@ int main() {
   ```bash
   $ gcc -c functions.c
   $ gcc -c main.c
-  $ gcc functions.o main.o -omain
+  $ gcc functions.o main.o -o main
   ```

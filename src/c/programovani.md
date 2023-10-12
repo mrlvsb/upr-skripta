@@ -35,6 +35,8 @@ programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jedn
 moct využívat téměř v libovolném populárním programovacím jazyku (Java, C#, Kotlin, Python, PHP,
 Javascript, Rust, C++ atd.).
 
+Zkomprimovanou formu těchto témat můžete naleznout v [taháku](../ruzne/tahak.md).
+
 ## Navazující aplikovaná témata
 
 - [TGA](aplikovane_ulohy/tga.md) - jak vytvořit obrázek

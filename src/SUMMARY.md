@@ -85,6 +85,7 @@
     - [Funkce main](ruzne/funkce_main.md)
     - [Parametry překladače](ruzne/parametry_prekladace.md)
     - [Nedefinované chování](ruzne/nedefinovane_chovani.md)
+    - [Tahák](ruzne/tahak.md)
 - [Úlohy](ulohy/ulohy.md)
     - [Proměnné](ulohy/promenne.md)
     - [Podmínky a cykly](ulohy/podminky_a_cykly.md)

@@ -81,10 +81,10 @@ pokud použijeme inicializaci.
 #### Vždy inicializujte proměnné!
 Je opravdu důležité do proměnné vždy při její definici přiřadit nějakou úvodní hodnotu. Pokud to
 neuděláme, tak její hodnota bude **nedefinovaná** (*undefined*). Čtení hodnoty takovéto nedefinované proměnné
-způsobuje **nedefinované chování** (*undefined behaviour*)[^2] programu. Pokud k tomu dojde, tak si překladač
-s vaším programem může udělat, co se mu zachce, a váš program se poté může chovat nepředvídatelně.
+způsobuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) (*undefined behaviour*, *UB*)[^2] programu.
+Pokud k tomu dojde, tak si překladač s vaším programem může udělat, co se mu zachce, a váš program se poté může chovat nepředvídatelně.
 
-[^2]: Situace, které můžou způsobit nedefinované chování, budou dále v textu označené pomocí ikony
+[^2]: Situace, které můžou způsobit [nedefinované chování](../../ruzne/nedefinovane_chovani.md), budou dále v textu označené pomocí ikony
 💣.
 
 **Proto vždy dávejte proměnným iniciální hodnotu!**
@@ -365,10 +365,10 @@ Více úloh naleznete [zde](../../ulohy/promenne.md).
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣, protože čteme hodnotu proměnné, která nebyla
-    inicializována, a její hodnota je tedy nedefinovaná. Nelze tak určit, co tento program provede,
-    překladač jej může přeložit na totální nesmysl. Takovýto program je špatně a nemá smysl zkoumat,
-    co provede, je potřeba jej nejprve opravit tak, že proměnnou `a` nainicializujeme.
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣, protože čteme
+    hodnotu proměnné, která nebyla inicializována, a její hodnota je tedy nedefinovaná. Nelze tak určit, co
+    tento program provede, překladač jej může přeložit na totální nesmysl. Takovýto program je špatně a nemá
+    smysl zkoumat, co provede, je potřeba jej nejprve opravit tak, že proměnnou `a` nainicializujeme.
     </details>
 10) Co vypíše následující program?
     ```c,editable,mainbody
@@ -384,8 +384,8 @@ Více úloh naleznete [zde](../../ulohy/promenne.md).
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣, stejně jako předchozí ukázka. Při inicializaci
-    proměnné `a` používáme její hodnotu, která ale v té době není definovaná. Je to jako kdybychom napsali
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣, stejně jako předchozí
+    ukázka. Při inicializaci proměnné `a` používáme její hodnotu, která ale v té době není definovaná. Je to jako kdybychom napsali
     ```c
     int a;
     a = a + 1;
@@ -404,7 +404,7 @@ Více úloh naleznete [zde](../../ulohy/promenne.md).
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣. Pokud při použití příkazu `printf` v textu
-    mezi uvozovkami použijeme zástupný znak (`%d`), musíme za každý takovýto použitý znak předat
-    této *funkci* také nějaký celočíselný výraz. V opačném případě bude chování programu nedefinované.
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Pokud při použití
+    příkazu `printf` v textu mezi uvozovkami použijeme zástupný znak (`%d`), musíme za každý takovýto použitý
+    znak předat této *funkci* také nějaký celočíselný výraz. V opačném případě bude chování programu nedefinované.
     </details>

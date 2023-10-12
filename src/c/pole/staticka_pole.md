@@ -97,9 +97,9 @@ budete přistupovat mimo paměť pole, což způsobí
 Stejně jako u normálních lokálních proměnných
 [platí](../promenne/promenne.md#vždy-inicializujte-proměnné), že pokud pole nenainicializujete,
 tak bude obsahovat nedefinované hodnoty. V takovém případě nesmíte hodnoty v poli jakkoliv číst,
-jinak by došlo k nedefinovanému chování 💣! K inicializaci pole můžete použít složené závorky se
-seznamem hodnot oddělených čárkou, které budou do pole uloženy. Pokud nezadáte dostatek hodnot
-pro vyplnění celého pole, tak zbytek hodnot bude nastaveno na nulu.
+jinak by došlo k [nedefinovanému chování](../../ruzne/nedefinovane_chovani.md) 💣! K inicializaci pole můžete
+použít složené závorky se seznamem hodnot oddělených čárkou, které budou do pole uloženy. Pokud
+nezadáte dostatek hodnot pro vyplnění celého pole, tak zbytek hodnot bude nastaveno na nulu.
 ```c
 int a[3];               // pole bez definované hodnoty, nepoužívat!
 int b[3] = {};          // pole s hodnotami 0, 0, 0
@@ -388,7 +388,7 @@ printf("Pocet prvku v poli: %lu\n", sizeof(pole) / sizeof(pole[0]));
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣, protože jsme použili
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣, protože jsme použili
     [zástupný znak](../prikazy_vyrazy.md#výpis-výrazů) `%d`, který slouží k výpisu celých čísel, ale
     předali jsme funkci `printf` argument `pole`, který je datového typu pole (resp. ukazatel na první
     prvek tohoto pole).
@@ -409,7 +409,7 @@ printf("Pocet prvku v poli: %lu\n", sizeof(pole) / sizeof(pole[0]));
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣, protože jsme přistoupili (dereferencovali)
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣, protože jsme přistoupili (dereferencovali)
     paměť mimo rozsah pole! Pole `p` má pouze tři prvky, nesmíme tedy přistoupit k indexu `3` či vyššímu,
     což se však v tomto programu stane, protože proměnná `i` nabývá hodnot `0`, `1`, `2` a `3`.
 

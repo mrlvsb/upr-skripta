@@ -415,7 +415,7 @@ int* x, *y, *z;
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣, protože jsme použili
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣, protože jsme použili
     [zástupný znak](../prikazy_vyrazy.md#výpis-výrazů) `%d`, který slouží k výpisu celých čísel, ale
     předali jsme funkci `printf` argument `p`, který je datového typu ukazatel.
 

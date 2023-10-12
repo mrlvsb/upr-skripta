@@ -62,8 +62,8 @@ inline void moje_funkce() { ... }
 Tímto klíčovým slovem slibujete linkeru, že všechny definice funkce s tímto názvem jsou stejné.
 Pokud tak linker narazí na definici této funkce vícekrát (což nastane, když tento hlavičkový soubor
 bude vložen ve více jednotkách překladu), tak nebude hlásit chybu, ale prostě si jednu z těchto
-definicí vybere. Pokud by definice stejné nebyly, může to vést k nedefinovanému chování 💣. Pokuste
-se tak `inline` raději nevyužívat.
+definicí vybere. Pokud by definice stejné nebyly, může to vést k [nedefinovanému chování](../../ruzne/nedefinovane_chovani.md)
+💣. Pokuste se tak `inline` raději nevyužívat.
 
 > U (globálních) proměnných nemá smysl `inline` používat.
 

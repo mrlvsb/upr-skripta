@@ -78,7 +78,7 @@ int main() {
 Stejně jako u [lokálních proměnných](../promenne/promenne.md#vždy-inicializujte-proměnné), i u
 dynamicky naalokované paměti platí, že její hodnota je zpočátku nedefinovaná. Než se tedy hodnotu
 dané paměti pokusíte přečíst, musíte jí nainicializovat zápisem nějaké hodnoty! Jinak bude program
-obsahovat nedefinované chování 💣.
+obsahovat [nedefinované chování](../../ruzne/nedefinovane_chovani.md) 💣.
 
 Pokud byste chtěli, aby naalokovaná paměť byla rovnou při alokaci vynulována (všechny byty
 nastavené na hodnotu `0`), můžete místo funkce `malloc` použít funkci
@@ -116,8 +116,8 @@ adresami např. lokálních proměnných[^4].
 [^4]: Je však bezpečné uvolnit "nulový ukazatel", tj. `free(NULL)` je validní (v tomto případě funkce nic neudělá).
 
 Jakmile se paměť uvolní, tak už k této paměti nesmíte přistupovat! Pokud byste se pokusili přečíst
-nebo zapsat uvolněnou paměť, tak dojde k nedefinovanému chování 💣. Nesmíte ani paměť uvolnit více
-než jednou.
+nebo zapsat uvolněnou paměť, tak dojde k [nedefinovanému chování](../../ruzne/nedefinovane_chovani.md) 💣.
+Nesmíte ani paměť uvolnit více než jednou.
 
 Při práci s dynamicky alokovanou pamětí tak dbejte zvýšené opatrnosti a ideálně používejte při
 vývoji [Address sanitizer](../../prostredi/ladeni.md#address-sanitizer). (Neúplný) seznam věcí,

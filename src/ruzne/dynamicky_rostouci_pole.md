@@ -299,7 +299,7 @@ for (int i = 0; i < 10; i++) {
 ```
 
 1) Lokální proměnná může zaniknout dříve, než pole. V ten moment bude adresa v poli neplatná a dojde
-k nedefinovanému chování 💣.
+k [nedefinovanému chování](nedefinovane_chovani.md) 💣.
 2) V případě výše si ukládáme do pole adresu té stejné proměnné, takže všechny prvky v poli budou mít
 stejnou hodnotu.
 3) I pokud lokální proměnná bude existovat dostatečně dlouho, a budeme do pole ukládat adresy různých

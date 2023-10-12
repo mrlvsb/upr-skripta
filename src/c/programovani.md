@@ -52,7 +52,7 @@ Vaší úlohou je zamyslet se nad tím, jak takovýto program bude fungovat, a n
 - 🤓: Kapitoly označené touto ikonou slouží jako doplňující učivo. To není nezbytně nutné zcela pochopit, abyste se mohli
 v textu posunout dále. Pokud tedy nebudete stíhat nebo toho na vás bude moc, můžete tyto sekce prozatím přeskočit, nicméně
 později byste se k nim měli vrátit.
-- 💣: Označuje situace, při kterých dochází k nedefinovanému chování (bude vysvětleno dále v textu). Tyto situace
+- 💣: Označuje situace, při kterých dochází k [nedefinovanému chování](../ruzne/nedefinovane_chovani.md). Tyto situace
 prostudujte obzvláště pečlivě!
 - 📹: Označuje videozáznam s doplňujícím vysvětlením učiva.
 

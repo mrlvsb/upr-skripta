@@ -83,8 +83,9 @@ můžete najít v [dokumentaci](https://devdocs.io/c/io/fprintf). Nejčastěji b
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣. Říkáme funkci `printf`, že chceme vypsat desetinné číslo
-    (zástupný znak `%f`), ale jako argument předáváme výraz typu celé číslo (`int`). Tento program tedy není validní.
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Říkáme funkci `printf`,
+    že chceme vypsat desetinné číslo (zástupný znak `%f`), ale jako argument předáváme výraz typu celé číslo (`int`).
+    Tento program tedy není validní.
     </details>
 2) Co vypíše následující program?
    ```c,editable,mainbody
@@ -101,8 +102,9 @@ můžete najít v [dokumentaci](https://devdocs.io/c/io/fprintf). Nejčastěji b
    <details>
    <summary>Odpověď</summary>
 
-   Tento program obsahuje **nedefinované chování** 💣. Říkáme funkci `printf`, že jí předáme dvě hodnoty (dva výrazy) typu
-   celého čísla (zástupný znak `%d`), ale předáváme pouze jednu hodnotu (`a`). Tento program tedy není validní.
+   Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Říkáme funkci `printf`, že
+   jí předáme dvě hodnoty (dva výrazy) typu celého čísla (zástupný znak `%d`), ale předáváme pouze jednu hodnotu (`a`).
+   Tento program tedy není validní.
    </details>
 3) Co vypíše následující program?
    ```c,editable,mainbody
@@ -119,6 +121,7 @@ můžete najít v [dokumentaci](https://devdocs.io/c/io/fprintf). Nejčastěji b
    <details>
    <summary>Odpověď</summary>
 
-   Tento program obsahuje **nedefinované chování** 💣. Říkáme funkci `printf`, že jí předáme hodnotu typu řetězec
-   (zástupný znak `%s`), ale předáváme pouze hodnotu typu celé číslo (`int`). Tento program tedy není validní.
+   Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Říkáme funkci `printf`, že
+   jí předáme hodnotu typu řetězec (zástupný znak `%s`), ale předáváme pouze hodnotu typu celé číslo (`int`). Tento
+   program tedy není validní.
    </details>

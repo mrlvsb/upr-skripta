@@ -188,9 +188,9 @@ K těmto předaným řetězcům poté lze přistoupit ve funkci
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣. Funkce `scanf` očekává pro každý zástupný
-    znak ve svém formátovacím řetězci další argument, který musí obsahovat **adresu**, do které se
-    daná hodnota ze vstupu uloží. Zde místo adresy předáváme do `scanf` hodnotu číselné proměnné,
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Funkce `scanf`
+    očekává pro každý zástupný znak ve svém formátovacím řetězci další argument, který musí obsahovat **adresu**,
+    do které se daná hodnota ze vstupu uloží. Zde místo adresy předáváme do `scanf` hodnotu číselné proměnné,
     která navíc ani není inicializovaná, takže její předání do funkce je samo o sobě také nedefinovaným
     chováním.
     </details>
@@ -210,10 +210,10 @@ K těmto předaným řetězcům poté lze přistoupit ve funkci
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣. Sice správně do funkce `scanf` předává adresu
-    celého čísla, ale tato adresa je neinicializovaná! Adresy předané funkci `scanf` po formátovacím
-    řetězci jsou výstupnímu argumenty, jinak řečeno do předaných adres budou zapsány hodnoty načtené
-    ze vstupu. Musíme tak do funkce předat validní adresu na kus paměti, kde je opravdu uloženo celé
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Sice správně do
+    funkce `scanf` předává adresu celého čísla, ale tato adresa je neinicializovaná! Adresy předané funkci
+    `scanf` po formátovacím řetězci jsou výstupnímu argumenty, jinak řečeno do předaných adres budou zapsány
+    hodnoty načtené ze vstupu. Musíme tak do funkce předat validní adresu na kus paměti, kde je opravdu uloženo celé
     číslo, což v tomto případě neplatí.
     </details>
 3) Co vypíše následující program, pokud na vstup zadáme `5`?
@@ -232,9 +232,9 @@ K těmto předaným řetězcům poté lze přistoupit ve funkci
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣. Sice správně do funkce `scanf` předává adresu
-    proměnné, ale špatného typu. Zástupný znak `%s` vyžaduje adresu (pole) znaků, zatímco zde předáváme
-    adresu celého čísla.
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Sice správně do
+    funkce `scanf` předává adresu proměnné, ale špatného typu. Zástupný znak `%s` vyžaduje adresu (pole) znaků,
+    zatímco zde předáváme adresu celého čísla.
     </details>
 4) Co vypíše následující program, pokud na vstup zadáme `Martin\nNovak`?
     ```c,editable,mainbody

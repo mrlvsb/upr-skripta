@@ -86,8 +86,8 @@ Toto chování odpovídá zaokrouhlení k nule, tj. kladná čísla se zaokrouhl
     <details>
     <summary>Odpověď</summary>
 
-    Tento program obsahuje **nedefinované chování** 💣. Pokud při použití příkazu `printf` v textu
-    mezi uvozovkami použijeme zástupný znak `%d`, musíme za čárkou předat výraz datového typu celého
+    Tento program obsahuje [**nedefinované chování**](../../ruzne/nedefinovane_chovani.md) 💣. Pokud při použití příkazu
+    `printf` v textu mezi uvozovkami použijeme zástupný znak `%d`, musíme za čárkou předat výraz datového typu celého
     čísla. Zde jsme ale předali výraz datového typu desetinného čísla.
     </details>
 2) Co vypíše následující program?

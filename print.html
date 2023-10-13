@@ -9781,7 +9781,7 @@ int main() {
 }
 </code></pre>
 <h3><a class="header" href="#překlad-a-spuštění-programu-a-hrefruzneprostredipreklad_programuhtmlpc599eklad-prvnc3adho-programuučivoa" id="překlad-a-spuštění-programu-a-hrefruzneprostredipreklad_programuhtmlpc599eklad-prvnc3adho-programuučivoa">Překlad a spuštění programu (<a href="ruzne/../prostredi/preklad_programu.html#p%C5%99eklad-prvn%C3%ADho-programu">učivo</a>)</a></h3>
-<pre><code class="language-bash">$ gcc main.c -g -fsanitize=address -omain
+<pre><code class="language-bash">$ gcc main.c -g -fsanitize=address -o main
 $ ./main
 </code></pre>
 <h3><a class="header" href="#základní-výpis-a-hrefruznecprikazy_vyrazyhtmlvc3bdpis-vc3bdrazc5afučivoa" id="základní-výpis-a-hrefruznecprikazy_vyrazyhtmlvc3bdpis-vc3bdrazc5afučivoa">Základní výpis (<a href="ruzne/../c/prikazy_vyrazy.html#v%C3%BDpis-v%C3%BDraz%C5%AF">učivo</a>)</a></h3>
@@ -10088,7 +10088,7 @@ p-&gt;age = p-&gt;age + 1;
 <h3><a class="header" href="#soubory-a-hrefruznecsouborysouboryhtmlučivoa" id="soubory-a-hrefruznecsouborysouboryhtmlučivoa">Soubory (<a href="ruzne/../c/soubory/soubory.html">učivo</a>)</a></h3>
 <ul>
 <li>Otevření souboru pro čtení
-<pre><code class="language-c">FILE* file = fopen(&quot;file.txt&quot;, &quot;r&quot;); // Textové mód
+<pre><code class="language-c">FILE* file = fopen(&quot;file.txt&quot;, &quot;r&quot;); // Textový mód
 FILE* file2 = fopen(&quot;file.txt&quot;, &quot;rb&quot;); // Binární mód
 </code></pre>
 </li>
@@ -10154,7 +10154,7 @@ int main() {
 <li>Překlad
 <pre><code class="language-bash">$ gcc -c functions.c
 $ gcc -c main.c
-$ gcc functions.o main.o -omain
+$ gcc functions.o main.o -o main
 </code></pre>
 </li>
 </ul>

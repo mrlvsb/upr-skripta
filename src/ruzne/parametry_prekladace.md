@@ -55,16 +55,19 @@ běhu pak dojde např. k pádu programu. Abychom tomu předešli, můžeme zapno
 **varování** (*warnings*), která nás mohou na potenciálně problematické situace upozornit:
     - `-Wall` Zapne sadu několika desítek základních varování.
     - `-Wextra` Zapne dodatečnou sadu varování.
+    - `-Wconversion` Zapne detekci situací, kdy implicitní konverze mezi různými datovými typy
+    může způsobit nežádoucí nebo neočekávané chování. Pokud je chování detekované touto analýzou
+    žádoucí, je třeba provést explicitní přetypování.
     - `-pedantic` Zapne striktní kontrolu toho, že dodržujete předepsaný standard *C*. V kombinaci
     s tímto přepínačem byste také měli explicitně říct, který standard chcete použít. V UPR používáme
     standard *C99*, který lze zadat pomocí `-std=c99`.
-    - `-Werror` Tento přepínač způsobí, že libovolné varování bude vnímáno jako chyba. Pokud tak
+    - `-Werror` Způsobí, že libovolné varování bude vnímáno jako chyba. Pokud tak
     v programu `gcc` nalezne jakoukoliv situaci, která vytvoří varování, program se nepřeloží.
 
     Pokud chcete mít při překladu co největší zpětnou vazbu od překladače a zajistit co největší
     "bezpečnost" vašeho programu, doporučujeme používat tuto kombinaci přepínačů:
     ```bash
-    $ gcc -g -fsanitize=address -Wall -Wextra -pedantic -std=c99
+    $ gcc -g -fsanitize=address -Wall -Wextra -Wconversion -pedantic -std=c99
     ```
 
 [^1]: Anebo nemusí být rychlejší vůbec, záleží na programu.

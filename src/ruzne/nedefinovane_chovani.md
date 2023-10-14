@@ -22,10 +22,16 @@ Program je prostě špatně z pohledu pravidel jazyka *C*, a překladač z něj 
 naprosto nesmyslného (nebo neprovádí vůbec nic). Problematické chování programů způsobené UB se projeví zejména, pokud
 překládáte program s [optimalizacemi](parametry_prekladace.md), nicméně to neznamená, že bez optimalizací je UB neškodné!
 
-Překladače vás bohužel na spoustu situací způsobujících UB neupozorní při překladu programu. Musíte se tak spolehnout na
-to, že budete pozorně zkoumat svůj kód, a případně využívat nástrojů, jako je [Address sanitizer](../prostredi/ladeni.md#address-sanitizer)
-nebo [Valgrind](../prostredi/ladeni.md#valgrind), které vám mohou pomoci detekovat následky přítomnosti UB ve vašich
-programech.
+Někdy lze nedefinované chování detekovat již pomocí statické analýzy, kterou provádí kompilátor.
+Velké množství statické analýzy, kterou kompilátor dokáže provést, ovšem není implicitně zapnuto,
+a musíme je vynutit při překladu pomocí [parametrů kompilátoru](parametry_prekladace.md).
+Při kompilaci je vhodné využívat alespoň parametry `-Wall -Wextra -Wconversion`.
+
+Ne všechny situace způsobující nedefinované chování je ovšem možné zachytit statickou analýzou.
+Musíte se tak spolehnout na to, že budete pozorně zkoumat svůj kód, a případně využívat nástrojů,
+jako je [Address sanitizer](../prostredi/ladeni.md#address-sanitizer), Undefined behaviour
+sanitizer nebo [Valgrind](../prostredi/ladeni.md#valgrind), které vám mohou pomoci detekovat
+následky přítomnosti UB ve vašich programech za běhu programu.
 
 [^1]: Toto je také původní motivací, proč vůbec něco jako UB bylo vytvořeno - aby překladače mohly generovat efektivnější
 kód, díky tomu, že můžou spoléhat na více předpokladů o našich programech.

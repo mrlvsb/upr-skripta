@@ -208,10 +208,15 @@ překládáte program s <a href="parametry_prekladace.html">optimalizacemi</a>, 
 <span class='sidenote'><p><sup class='number'>1</sup>Toto je také původní motivací, proč vůbec něco jako UB bylo vytvořeno - aby překladače mohly generovat efektivnější
 kód, díky tomu, že můžou spoléhat na více předpokladů o našich programech.</p>
 </span>
-<p>Překladače vás bohužel na spoustu situací způsobujících UB neupozorní při překladu programu. Musíte se tak spolehnout na
-to, že budete pozorně zkoumat svůj kód, a případně využívat nástrojů, jako je <a href="../prostredi/ladeni.html#address-sanitizer">Address sanitizer</a>
-nebo <a href="../prostredi/ladeni.html#valgrind">Valgrind</a>, které vám mohou pomoci detekovat následky přítomnosti UB ve vašich
-programech.</p>
+<p>Někdy lze nedefinované chování detekovat již pomocí statické analýzy, kterou provádí kompilátor.
+Velké množství statické analýzy, kterou kompilátor dokáže provést, ovšem není implicitně zapnuto,
+a musíme je vynutit při překladu pomocí <a href="parametry_prekladace.html">parametrů kompilátoru</a>.
+Při kompilaci je vhodné využívat alespoň parametry <code>-Wall -Wextra -Wconversion</code>.</p>
+<p>Ne všechny situace způsobující nedefinované chování je ovšem možné zachytit statickou analýzou.
+Musíte se tak spolehnout na to, že budete pozorně zkoumat svůj kód, a případně využívat nástrojů,
+jako je <a href="../prostredi/ladeni.html#address-sanitizer">Address sanitizer</a>, Undefined behaviour
+sanitizer nebo <a href="../prostredi/ladeni.html#valgrind">Valgrind</a>, které vám mohou pomoci detekovat
+následky přítomnosti UB ve vašich programech za běhu programu.</p>
 <h1><a class="header" href="#příklad" id="příklad">Příklad</a></h1>
 <p>Zde si ukážeme příklad UB způsobeného přístupem mimo validní paměť pole. Na tomto příkladu si můžeme ukázat, že přítomnost
 UB v našem zdrojovém kódu může způsobit kompletní rozklad programu, a že nemá smysl spekulovat nad tím, jak se program

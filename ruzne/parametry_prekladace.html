@@ -249,15 +249,18 @@ běhu pak dojde např. k pádu programu. Abychom tomu předešli, můžeme zapno
 <ul>
 <li><code>-Wall</code> Zapne sadu několika desítek základních varování.</li>
 <li><code>-Wextra</code> Zapne dodatečnou sadu varování.</li>
+<li><code>-Wconversion</code> Zapne detekci situací, kdy implicitní konverze mezi různými datovými typy
+může způsobit nežádoucí nebo neočekávané chování. Pokud je chování detekované touto analýzou
+žádoucí, je třeba provést explicitní přetypování.</li>
 <li><code>-pedantic</code> Zapne striktní kontrolu toho, že dodržujete předepsaný standard <em>C</em>. V kombinaci
 s tímto přepínačem byste také měli explicitně říct, který standard chcete použít. V UPR používáme
 standard <em>C99</em>, který lze zadat pomocí <code>-std=c99</code>.</li>
-<li><code>-Werror</code> Tento přepínač způsobí, že libovolné varování bude vnímáno jako chyba. Pokud tak
+<li><code>-Werror</code> Způsobí, že libovolné varování bude vnímáno jako chyba. Pokud tak
 v programu <code>gcc</code> nalezne jakoukoliv situaci, která vytvoří varování, program se nepřeloží.</li>
 </ul>
 <p>Pokud chcete mít při překladu co největší zpětnou vazbu od překladače a zajistit co největší
 &quot;bezpečnost&quot; vašeho programu, doporučujeme používat tuto kombinaci přepínačů:</p>
-<pre><code class="language-bash">$ gcc -g -fsanitize=address -Wall -Wextra -pedantic -std=c99
+<pre><code class="language-bash">$ gcc -g -fsanitize=address -Wall -Wextra -Wconversion -pedantic -std=c99
 </code></pre>
 </li>
 </ul>

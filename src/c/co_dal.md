@@ -29,7 +29,7 @@ vámi napsaný program. Poté můžete těchto znalostí využít k tvorbě robu
 programů. Na následujících odkazech se můžete dozvědět například:
 - Jak fungují [operační systémy](http://poli.cs.vsb.cz/edu/osy/osnova.html).
     - Nebo dokonce jak si nějaký [napsat od nuly](https://littleosbook.github.io/).
-- Jak komunikovat s jinými programi po [síti](http://www.beej.us/guide/bgnet/).
+- Jak komunikovat s jinými programy po [síti](http://www.beej.us/guide/bgnet/).
 - Jak psát programy přímo pomocí [instrukcí procesoru](http://poli.cs.vsb.cz/edu/soj/down/soj-skripta.pdf)
 - Jak urychlit provádění programů:
     - Pomocí [vláken](https://computing.llnl.gov/tutorials/pthreads/), které umí využít potenciál

@@ -85,5 +85,5 @@ funkce `malloc` vytvořit dostatek paměti pro všechny rozměry. Pokud bychom n
 naalokovat paměť pro 2D obrázek s `vyska` řádky a `sirka` sloupci, můžeme použít následující volání
 funkce `malloc`:
 ```c
-int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int)));
+int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int));
 ```

@@ -47,8 +47,8 @@ zbytek po dělení, abychom zjistili, na jakém jsme sloupci.
 
 Tento koncept lze zobecnit na libovolně rozměrné pole (3D, 4D, …).
 
-## Vícerozměrné pole v *C*
-*C* obsahuje základní podporu pro vytváření vícerozměrných [statických polí](staticka_pole.md). Při
+## Vícerozměrné pole na zásobníku
+Pokud známe v době překladu velikost a rozměry vícerozměrného pole, tak můžeme využít vícerozměrných [statických polí](staticka_pole.md). Při
 vytváření pole stačí použít hranaté závorky pro každou dimenzi pole. Například takto lze vytvořit
 2D pole s rozměry `3x3` na zásobníku:
 ```c
@@ -79,11 +79,12 @@ int pole_2d[3][4] = {
 };
 ```
 
-## Vícerozměrné dynamické pole
-Pokud potřebujete vícerozměrné pole s [dynamickou velikostí](dynamicka_pole.md), stačí při volání
+## Vícerozměrné pole na haldě
+Pokud potřebujeme vícerozměrné pole s [dynamickou velikostí](dynamicka_pole.md), stačí při volání
 funkce `malloc` vytvořit dostatek paměti pro všechny rozměry. Pokud bychom například chtěli
 naalokovat paměť pro 2D obrázek s `vyska` řádky a `sirka` sloupci, můžeme použít následující volání
 funkce `malloc`:
 ```c
 int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int));
 ```
+Nezapomeňte, že pro indexování takového pole budeme muset používat [přepočet 1D/2D indexů](#indexování)!

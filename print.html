@@ -5574,8 +5574,8 @@ zbytek po dělení, abychom zjistili, na jakém jsme sloupci.
 </li>
 </ul>
 <p>Tento koncept lze zobecnit na libovolně rozměrné pole (3D, 4D, …).</p>
-<h2><a class="header" href="#vícerozměrné-pole-v-c" id="vícerozměrné-pole-v-c">Vícerozměrné pole v <em>C</em></a></h2>
-<p><em>C</em> obsahuje základní podporu pro vytváření vícerozměrných <a href="c/pole/staticka_pole.html">statických polí</a>. Při
+<h2><a class="header" href="#vícerozměrné-pole-na-zásobníku" id="vícerozměrné-pole-na-zásobníku">Vícerozměrné pole na zásobníku</a></h2>
+<p>Pokud známe v době překladu velikost a rozměry vícerozměrného pole, tak můžeme využít vícerozměrných <a href="c/pole/staticka_pole.html">statických polí</a>. Při
 vytváření pole stačí použít hranaté závorky pro každou dimenzi pole. Například takto lze vytvořit
 2D pole s rozměry <code>3x3</code> na zásobníku:</p>
 <pre><code class="language-c">int pole[3][3];
@@ -5599,13 +5599,14 @@ dimenzí:</p>
    {8, 9, 10, 11}   // hodnoty pro třetí řádek
 };
 </code></pre>
-<h2><a class="header" href="#vícerozměrné-dynamické-pole" id="vícerozměrné-dynamické-pole">Vícerozměrné dynamické pole</a></h2>
-<p>Pokud potřebujete vícerozměrné pole s <a href="c/pole/dynamicka_pole.html">dynamickou velikostí</a>, stačí při volání
+<h2><a class="header" href="#vícerozměrné-pole-na-haldě" id="vícerozměrné-pole-na-haldě">Vícerozměrné pole na haldě</a></h2>
+<p>Pokud potřebujeme vícerozměrné pole s <a href="c/pole/dynamicka_pole.html">dynamickou velikostí</a>, stačí při volání
 funkce <code>malloc</code> vytvořit dostatek paměti pro všechny rozměry. Pokud bychom například chtěli
 naalokovat paměť pro 2D obrázek s <code>vyska</code> řádky a <code>sirka</code> sloupci, můžeme použít následující volání
 funkce <code>malloc</code>:</p>
-<pre><code class="language-c">int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int)));
+<pre><code class="language-c">int* pamet_obrazku = (int*) malloc(vyska * sirka * sizeof(int));
 </code></pre>
+<p>Nezapomeňte, že pro indexování takového pole budeme muset používat <a href="c/pole/vicerozmerna_pole.html#indexov%C3%A1n%C3%AD">přepočet 1D/2D indexů</a>!</p>
 <h1><a class="header" href="#zubatá-pole" id="zubatá-pole">Zubatá pole</a></h1>
 <blockquote>
 <p>🤓 Tato sekce obsahuje doplňující učivo. Pokud je toho na vás moc, můžete ji prozatím přeskočit

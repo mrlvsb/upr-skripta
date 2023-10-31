@@ -164,7 +164,7 @@ změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to práv
 ![](../static/img/vsc-unsaved-file.png)
 
 Vždy tak po provedení změn ukládejte soubor pomocí `Ctrl + S`, případně si můžete v nastavení (`Settings`) zapnout volbu
-`Auto Save`
+`Auto Save`.
 
 ## Automatické formátování kódu
 Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,

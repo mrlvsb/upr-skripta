@@ -70,6 +70,92 @@ a vyberte nějaký adresář, ve kterém chcete programovat.
 
 ![Nastavení VSCode](../static/video/vsc_first_run.gif)
 
+### Nastavení launch.json a tasks.json
+launch.json je možno vytvořit po kliknutí na záložku `Run and Debug` (Ctrl+Shift+D) -> `To customize Run and Debug create a
+launch.json file.`
+
+Vygenerovaný launch.json vypadá takto:
+```json
+{
+    "version": "0.2.0",
+    "configurations": []
+}
+```
+Toto nám ale nestačí na spuštění programu. Bude potřeba nastavit:
+- **name** - název konfigurace
+- **type** - označuje používaný základní ladící program
+- **request** - Indikuje co má daná konfigurace dělat
+- **program** - cesta k souboru který bude konfigurace spouštět
+- **cwd** - označuje pracovní adresář se kterým bude ladič pracovat
+- **MIMode** - Indikuje ke kterému ladiči se VSCode připojí
+- **miDebuggerPath** - cesta k ladiči (na linuxu většinou `/usr/bin/gdb`)
+
+Nastavený launch.json:
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C program (gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/main",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C compile", // vysvětlení u tasks.json
+        }
+    ]
+}
+```
+
+V launch.json je také možné nastavit přesměrování kontentu z stdin souboru přes args property.
+```json
+"args": [
+    "<", // operátor na předání vstupu
+    "${workspaceFolder}/stdin_file.stdin" // cesta k .stdin
+],
+```
+
+Bude také potřeba nastavit **tasks.json** na automatickou kompilaci programu (vytvořte v `.vscode` složce projektu). Protože v aktuální chvíli nemáme spustitelný soubor, dostali bychom hlášku: 
+
+>launch: program `<cesta>/main` does not exists
+
+U tasku bude potřeba nastavit:
+- **type** - typ tasku (shell, cppbuild, ...)
+- **label** - název
+- **command** - příkaz, který budeme spouštět (v našem případě **gcc**)
+- **args** - argumenty příkazu
+
+Nastavený tasks.json:
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C compile",
+            "command": "gcc",
+            "args": [
+                "${workspaceFolder}/main.c", // název .c souboru
+                "-o",
+                "${workspaceFolder}/main" // output soubor
+            ]
+        }
+    ]
+}
+```
+
+Po nastavení tasku už nám jen zbývá přidat `preLaunchTask` property do našeho launch.json souboru.
+```json
+"preLaunchTask": "C compile", // název tasku
+```
+
+Odkazy na dokumentaci pro případné rozšíření konfigurace:
+- [Microsoft Configure C/C++ debugging](https://code.visualstudio.com/docs/cpp/launch-json-reference)
+- [Microsoft Variables Reference](https://code.visualstudio.com/docs/editor/variables-reference)
+
 ## Ukládání souborů
 Pokud v otevřeném zdrojovém souboru provedete nějaké změny, tak se neuloží na disk, dokud soubor neuložíte (pomocí
 klávesové zkratky `Ctrl + S`). Občas se studentům stává, že provedou změnu, poté se snaží přeložit program, ale jejich
@@ -78,7 +164,7 @@ změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to práv
 ![](../static/img/vsc-unsaved-file.png)
 
 Vždy tak po provedení změn ukládejte soubor pomocí `Ctrl + S`, případně si můžete v nastavení (`Settings`) zapnout volbu
-`Auto Save`.
+`Auto Save`
 
 ## Automatické formátování kódu
 Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,

@@ -268,6 +268,85 @@ automaticky zformátuje.</p>
 <p>Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
 <code>File -&gt; Preferences -&gt; Settings</code>, poté do vyhledávacího okénka napište <code>Format On Save</code> a zaškrtněte tuto možnost:
 <img src="../static/img/vsc-format-on-save.png" alt="" /></p>
+<h2><a class="header" href="#pokročilé-možnosti-nastavení-projektu" id="pokročilé-možnosti-nastavení-projektu">Pokročilé možnosti nastavení projektu</a></h2>
+<p>Pokud byste si chtěli nastavit VSCode tak, aby překládal nebo spouštěl váš program s jiným, než základním
+nastavením, můžete k tomu využít konfiguraci pomocí souborů <code>launch.json</code>, který definuje, jak bude VSCode
+váš program spouštět, případně <code>tasks.json</code>, pomocí kterého můžeme nastavit, jak se bude program překládat.</p>
+<p><code>launch.json</code> je možno vytvořit po kliknutí na záložku <code>Run and Debug</code> (Ctrl+Shift+D) a poté na tlačítko <code>create a launch.json file</code> (tlačítko se zobrazí, pokud máte otevřený C soubor ve VSCode). Soubor se vytvoří v souřasně otevřeném
+adresáři, ve složce <code>.vscode</code> (můžete ho případně i vytvořit manuálně).</p>
+<p>Do vygenerovaného souboru můžete zkopírovat tento obsah:</p>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;C program (gdb) Launch&quot;,
+            &quot;type&quot;: &quot;cppdbg&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/main&quot;,
+            &quot;args&quot;: [],
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
+            &quot;MIMode&quot;: &quot;gdb&quot;,
+            &quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,
+            &quot;preLaunchTask&quot;: &quot;C compile&quot;,
+        }
+    ]
+}
+</code></pre>
+<p>Atributy této konfigurace poté můžete upravovat. Užitečné pro vás budou zejména tyto atributy:</p>
+<ul>
+<li><strong>program</strong> - cesta ke <strong>spustitelnému</strong> (přeloženému) souboru, který bude konfigurace spouštět</li>
+<li><strong>cwd</strong> - pracovní adresář, ve kterém se program spustí</li>
+<li><strong>args</strong> - <a href="../ruzne/funkce_main.html#vstupn%C3%AD-parametry-funkce-main">argumenty příkazového řádku</a> předané
+spouštěnému programu</li>
+</ul>
+<p>Pokud byste si chtěli při ladění přesměrovat obsah souboru na <a href="../c/text/vstup.html">standardní vstup</a> programu,
+tak přidejte na konec <code>args</code> šipku doleva a cestu k souboru, který chcete přesměrovat na vstup:</p>
+<pre><code class="language-json">&quot;args&quot;: [
+    &quot;&lt;&quot;,
+    &quot;${workspaceFolder}/stdin_file.stdin&quot;
+]
+</code></pre>
+<p>Dále budete muset nastavit soubor <strong>tasks.json</strong>, pro automatický překlad programu
+(vytvořte jej opět ve <code>.vscode</code> složce projektu). Pokud tento soubor bude chybět, při pokusu o ladění programu
+dostanete chybovou hlášku podobnou této:</p>
+<blockquote>
+<p>launch: program <code>&lt;cesta&gt;/main</code> does not exists</p>
+</blockquote>
+<p>Do <code>tasks.json</code> si můžete zkopírovat tento obsah:</p>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;2.0.0&quot;,
+    &quot;tasks&quot;: [
+        {
+            &quot;type&quot;: &quot;cppbuild&quot;,
+            &quot;label&quot;: &quot;C compile&quot;,
+            &quot;command&quot;: &quot;gcc&quot;,
+            &quot;args&quot;: [
+                &quot;${workspaceFolder}/main.c&quot;,
+                &quot;-o&quot;,
+                &quot;${workspaceFolder}/main&quot;
+            ]
+        }
+    ]
+}
+</code></pre>
+<p>Zde jsou důležité hlavně dva atributy:</p>
+<ul>
+<li><strong>label</strong> - název tasku pro spuštění. <strong>Tento název musí odpovídat atributu <code>preLaunchTask</code> v souboru <code>launch.json</code></strong>.</li>
+<li><strong>args</strong> - <a href="../ruzne/parametry_prekladace.html">parametry překladače</a> použité při překladu.
+<ul>
+<li>Prvním argumentem by měla být cesta k překládanému C zdrojovému souboru.</li>
+<li>Dále by v <code>args</code> měla být cesta k výslednému přeloženého souboru, předaná za parametrem <code>-o</code>.
+<strong>Tato cesta musí odpovídat atributu <code>program</code> v souboru <code>launch.json</code></strong>.</li>
+<li>Dále zde můžete předávat další parametry překladače, např. zapnout <a href="ladeni.html#address-sanitizer">Address sanitizer</a>
+(<code>-fsanitize=address</code>) nebo přilinkovat nějaké <a href="../c/modularizace/knihovny.html">knihovny</a> (např. <code>-lm</code>).</li>
+</ul>
+</li>
+</ul>
+<p>Více informací o možnostech nastavení těchto dvou souborů můžete naleznout na těchto odkazech:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/cpp/launch-json-reference">Microsoft Configure C/C++ debugging</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/variables-reference">Microsoft Variables Reference</a></li>
+</ul>
 <h2><a class="header" href="#užitečné-zkratky" id="užitečné-zkratky">Užitečné zkratky</a></h2>
 <ul>
 <li>Spustit program - <code>F5</code></li>

@@ -70,92 +70,6 @@ a vyberte nějaký adresář, ve kterém chcete programovat.
 
 ![Nastavení VSCode](../static/video/vsc_first_run.gif)
 
-### Nastavení launch.json a tasks.json
-launch.json je možno vytvořit po kliknutí na záložku `Run and Debug` (Ctrl+Shift+D) -> `To customize Run and Debug create a
-launch.json file.`
-
-Vygenerovaný launch.json vypadá takto:
-```json
-{
-    "version": "0.2.0",
-    "configurations": []
-}
-```
-Toto nám ale nestačí na spuštění programu. Bude potřeba nastavit:
-- **name** - název konfigurace
-- **type** - označuje používaný základní ladící program
-- **request** - Indikuje co má daná konfigurace dělat
-- **program** - cesta k souboru který bude konfigurace spouštět
-- **cwd** - označuje pracovní adresář se kterým bude ladič pracovat
-- **MIMode** - Indikuje ke kterému ladiči se VSCode připojí
-- **miDebuggerPath** - cesta k ladiči (na linuxu většinou `/usr/bin/gdb`)
-
-Nastavený launch.json:
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "C program (gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/main",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb",
-            "preLaunchTask": "C compile", // vysvětlení u tasks.json
-        }
-    ]
-}
-```
-
-V launch.json je také možné nastavit přesměrování kontentu z stdin souboru přes args property.
-```json
-"args": [
-    "<", // operátor na předání vstupu
-    "${workspaceFolder}/stdin_file.stdin" // cesta k .stdin
-],
-```
-
-Bude také potřeba nastavit **tasks.json** na automatickou kompilaci programu (vytvořte v `.vscode` složce projektu). Protože v aktuální chvíli nemáme spustitelný soubor, dostali bychom hlášku: 
-
->launch: program `<cesta>/main` does not exists
-
-U tasku bude potřeba nastavit:
-- **type** - typ tasku (shell, cppbuild, ...)
-- **label** - název
-- **command** - příkaz, který budeme spouštět (v našem případě **gcc**)
-- **args** - argumenty příkazu
-
-Nastavený tasks.json:
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "cppbuild",
-            "label": "C compile",
-            "command": "gcc",
-            "args": [
-                "${workspaceFolder}/main.c", // název .c souboru
-                "-o",
-                "${workspaceFolder}/main" // output soubor
-            ]
-        }
-    ]
-}
-```
-
-Po nastavení tasku už nám jen zbývá přidat `preLaunchTask` property do našeho launch.json souboru.
-```json
-"preLaunchTask": "C compile", // název tasku
-```
-
-Odkazy na dokumentaci pro případné rozšíření konfigurace:
-- [Microsoft Configure C/C++ debugging](https://code.visualstudio.com/docs/cpp/launch-json-reference)
-- [Microsoft Variables Reference](https://code.visualstudio.com/docs/editor/variables-reference)
-
 ## Ukládání souborů
 Pokud v otevřeném zdrojovém souboru provedete nějaké změny, tak se neuloží na disk, dokud soubor neuložíte (pomocí
 klávesové zkratky `Ctrl + S`). Občas se studentům stává, že provedou změnu, poté se snaží přeložit program, ale jejich
@@ -175,6 +89,88 @@ automaticky zformátuje.
 Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
 `File -> Preferences -> Settings`, poté do vyhledávacího okénka napište `Format On Save` a zaškrtněte tuto možnost:
 ![](../static/img/vsc-format-on-save.png)
+
+## Pokročilé možnosti nastavení projektu
+Pokud byste si chtěli nastavit VSCode tak, aby překládal nebo spouštěl váš program s jiným, než základním
+nastavením, můžete k tomu využít konfiguraci pomocí souborů `launch.json`, který definuje, jak bude VSCode
+váš program spouštět, případně `tasks.json`, pomocí kterého můžeme nastavit, jak se bude program překládat.
+
+`launch.json` je možno vytvořit po kliknutí na záložku `Run and Debug` (Ctrl+Shift+D) a poté na tlačítko `create a
+launch.json file` (tlačítko se zobrazí, pokud máte otevřený C soubor ve VSCode). Soubor se vytvoří v souřasně otevřeném
+adresáři, ve složce `.vscode` (můžete ho případně i vytvořit manuálně).
+
+Do vygenerovaného souboru můžete zkopírovat tento obsah:
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C program (gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/main",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C compile",
+        }
+    ]
+}
+```
+
+Atributy této konfigurace poté můžete upravovat. Užitečné pro vás budou zejména tyto atributy:
+- **program** - cesta ke **spustitelnému** (přeloženému) souboru, který bude konfigurace spouštět
+- **cwd** - pracovní adresář, ve kterém se program spustí
+- **args** - [argumenty příkazového řádku](../ruzne/funkce_main.md#vstupní-parametry-funkce-main) předané
+  spouštěnému programu
+
+Pokud byste si chtěli při ladění přesměrovat obsah souboru na [standardní vstup](../c/text/vstup.md) programu,
+tak přidejte na konec `args` šipku doleva a cestu k souboru, který chcete přesměrovat na vstup:
+```json
+"args": [
+    "<",
+    "${workspaceFolder}/stdin_file.stdin"
+]
+```
+
+Dále budete muset nastavit soubor **tasks.json**, pro automatický překlad programu
+(vytvořte jej opět ve `.vscode` složce projektu). Pokud tento soubor bude chybět, při pokusu o ladění programu
+dostanete chybovou hlášku podobnou této:
+
+> launch: program `<cesta>/main` does not exists
+
+Do `tasks.json` si můžete zkopírovat tento obsah:
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C compile",
+            "command": "gcc",
+            "args": [
+                "${workspaceFolder}/main.c",
+                "-o",
+                "${workspaceFolder}/main"
+            ]
+        }
+    ]
+}
+```
+
+Zde jsou důležité hlavně dva atributy:
+- **label** - název tasku pro spuštění. **Tento název musí odpovídat atributu `preLaunchTask` v souboru `launch.json`**.
+- **args** - [parametry překladače](../ruzne/parametry_prekladace.md) použité při překladu.
+  - Prvním argumentem by měla být cesta k překládanému C zdrojovému souboru.
+  - Dále by v `args` měla být cesta k výslednému přeloženého souboru, předaná za parametrem `-o`.
+    **Tato cesta musí odpovídat atributu `program` v souboru `launch.json`**.
+  - Dále zde můžete předávat další parametry překladače, např. zapnout [Address sanitizer](ladeni.md#address-sanitizer)
+    (`-fsanitize=address`) nebo přilinkovat nějaké [knihovny](../c/modularizace/knihovny.md) (např. `-lm`).
+
+Více informací o možnostech nastavení těchto dvou souborů můžete naleznout na těchto odkazech:
+- [Microsoft Configure C/C++ debugging](https://code.visualstudio.com/docs/cpp/launch-json-reference)
+- [Microsoft Variables Reference](https://code.visualstudio.com/docs/editor/variables-reference)
 
 ## Užitečné zkratky 
 - Spustit program - `F5`

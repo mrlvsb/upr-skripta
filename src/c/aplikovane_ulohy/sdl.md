@@ -47,6 +47,25 @@ vysvětleno [zde](../modularizace/knihovny.md#použití-knihoven-s-gcc).
 Pro práci s obrázky bude dále nutné přilinkovat knihovnu `SDL2_image` a pro práci s textem knihovnu
 `SDL2_ttf`.
 
+Pokud byste chtěli používat SDL v kombinaci s [CMake](../automatizace_prekladu.md#cmake), můžete použít
+tento vzorový `CMakeLists.txt` soubor:
+
+<details>
+<summary>CMakeLists.txt soubor pro SDL</summary>
+
+```cmake
+cmake_minimum_required(VERSION 3.18)
+
+project(sdlapp)
+
+find_package(SDL2 REQUIRED)
+
+add_executable(main main.c)
+target_link_libraries(main SDL2 SDL2_image SDL2_ttf)
+```
+
+</details>
+
 ## Dokumentace
 Abyste mohli používat nějakou složitější knihovnu, je nutné se zorientovat v její dokumentaci. V té
 naleznete jednak deklarace a popis fungování jednotlivých funkcí, které knihovna nabízí, ale také
@@ -152,7 +171,8 @@ A na konci už akorát vše uvolníme:
 
 > Pokud spustíte program využívající `SDL` s Address sanitizerem, může se stát, že vám sanitizer
 > zobrazí nějakou [neuvolněnou paměť](../../caste_chyby/pametove_chyby.md#memory-leak). Pokud zdroj
-> alokace nepochází z vašeho kódu, můžete tyto chyby ignorovat.
+> alokace nepochází z vašeho kódu, můžete tyto chyby ignorovat. Tyto chyby pochází přímo z SDL a nemáte
+> se jich jak zbavit.
 
 <details>
 <summary>Celý kód i s ošetřením chyb</summary>

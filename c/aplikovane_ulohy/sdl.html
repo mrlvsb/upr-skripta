@@ -227,6 +227,20 @@ hlavičkovým souborům a <code>-L</code> pro předání cesty k adresáři s p�
 vysvětleno <a href="../modularizace/knihovny.html#pou%C5%BEit%C3%AD-knihoven-s-gcc">zde</a>.</p>
 <p>Pro práci s obrázky bude dále nutné přilinkovat knihovnu <code>SDL2_image</code> a pro práci s textem knihovnu
 <code>SDL2_ttf</code>.</p>
+<p>Pokud byste chtěli používat SDL v kombinaci s <a href="../automatizace_prekladu.html#cmake">CMake</a>, můžete použít
+tento vzorový <code>CMakeLists.txt</code> soubor:</p>
+<details>
+<summary>CMakeLists.txt soubor pro SDL</summary>
+<pre><code class="language-cmake">cmake_minimum_required(VERSION 3.18)
+
+project(sdlapp)
+
+find_package(SDL2 REQUIRED)
+
+add_executable(main main.c)
+target_link_libraries(main SDL2 SDL2_image SDL2_ttf)
+</code></pre>
+</details>
 <h2><a class="header" href="#dokumentace" id="dokumentace">Dokumentace</a></h2>
 <p>Abyste mohli používat nějakou složitější knihovnu, je nutné se zorientovat v její dokumentaci. V té
 naleznete jednak deklarace a popis fungování jednotlivých funkcí, které knihovna nabízí, ale také
@@ -324,7 +338,8 @@ okna a odešleme jej k vykreslení (za použití tzv.
 <blockquote>
 <p>Pokud spustíte program využívající <code>SDL</code> s Address sanitizerem, může se stát, že vám sanitizer
 zobrazí nějakou <a href="../../caste_chyby/pametove_chyby.html#memory-leak">neuvolněnou paměť</a>. Pokud zdroj
-alokace nepochází z vašeho kódu, můžete tyto chyby ignorovat.</p>
+alokace nepochází z vašeho kódu, můžete tyto chyby ignorovat. Tyto chyby pochází přímo z SDL a nemáte
+se jich jak zbavit.</p>
 </blockquote>
 <details>
 <summary>Celý kód i s ošetřením chyb</summary>

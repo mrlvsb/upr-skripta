@@ -96,7 +96,7 @@ nastavením, můžete k tomu využít konfiguraci pomocí souborů `launch.json`
 váš program spouštět, případně `tasks.json`, pomocí kterého můžeme nastavit, jak se bude program překládat.
 
 `launch.json` je možno vytvořit po kliknutí na záložku `Run and Debug` (Ctrl+Shift+D) a poté na tlačítko `create a
-launch.json file` (tlačítko se zobrazí, pokud máte otevřený C soubor ve VSCode). Soubor se vytvoří v souřasně otevřeném
+launch.json file` (tlačítko se zobrazí, pokud máte otevřený C soubor ve VSCode). Soubor se vytvoří v současně otevřeném
 adresáři, ve složce `.vscode` (můžete ho případně i vytvořit manuálně).
 
 Do vygenerovaného souboru můžete zkopírovat tento obsah:

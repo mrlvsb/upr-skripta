@@ -106,7 +106,7 @@
         - [TGA hodiny](ulohy/tga_watch.md)
         - [Létající písmenka](ulohy/letters.md)
     - [Soubory](ulohy/soubory.md)
-        - [Meme generarátor](ulohy/meme.md)
+        - [Meme generátor](ulohy/meme.md)
     - [SDL](ulohy/sdl.md)
         - [Had](ulohy/snake/snake.md)
 - [Časté chyby](caste_chyby/caste_chyby.md)

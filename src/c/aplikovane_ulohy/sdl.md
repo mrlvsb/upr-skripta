@@ -1,9 +1,20 @@
 # SDL
+> 📹 K základům práce s SDL byl pořízen záznam SDL doučování, který je k dispozici [zde](https://www.youtube.com/watch?v=jUktXOH5o1I)
+> \[01:23:06].
+
 [`SDL`](https://www.libsdl.org/) je knihovna pro tvorbu interaktivních grafických aplikací a her.
-Umožňuje vám vytvářet okna, vykreslovat do nich jednotlivé pixely, obrázky či text, snímat vstup z
+Umožňuje nám vytvářet okna, vykreslovat do nich jednotlivé pixely, obrázky či text, snímat vstup z
 myši a klávesnice či třeba přehrávat zvuk. Jedná se tak v podstatě o tzv. **herní engine**, i když
 ve srovnání např. s enginy [Unity](https://unity.com/) nebo [Unreal](https://www.unrealengine.com/)
 je tento engine velmi jednoduchý.
+
+V této kapitole naleznete informace o tom, jak SDL nainstalovat, jak přeložit program využívající SDL funkcí
+a jak může vypadat základní SDL program, který něco vykresluje na obrazovku. V následujících podkapitolách se poté můžete
+dozvědět více o konceptech SDL užitečných pro tvorbu her:
+
+- [Herní smyčka](sdl/herni_smycka.md)
+- [Kreslení](sdl/kresleni.md)
+- [Zpracování vstupu](sdl/vstup.md)
 
 ## Instalace `SDL`
 Narozdíl od knihovny, kterou jsme si ukazovali pro vytváření [`GIF` animací](gif.md), `SDL` obsahuje
@@ -12,15 +23,15 @@ Připojíme ji tedy k našemu programu jako klasickou
 [knihovnu](../modularizace/knihovny.md#použití-knihoven-s-gcc) ve formě archivu. Abychom knihovnu
 mohli použít, nejprve si ji musíme stáhnout. To můžeme udělat dvěma způsoby:
 - **Instalace pomocí správce balíčků** (*doporučeno*): Jelikož je `SDL` velmi známá a používaná
-knihovna, ve většině distribucí Linuxu není problém ji nainstalovat přímo z balíčkového manažeru.
-V Ubuntu to můžete provést pomocí následujícího příkazu v terminálu, který nainstaluje kromě balíčku
-se základní funkcionalitou také dva další balíčky nutné pro vykreslování obrázků a textu[^1]:
+knihovna, ve většině distribucí Linuxu není problém ji nainstalovat přímo pomocí správce balíčků.
+V Ubuntu to můžete provést pomocí následujícího příkazu v terminálu, který nainstaluje kromě základní SDL knihovny
+také dvě další pomocné knihovny potřebné pro vykreslování obrázků a textu[^1]:
     ```bash
     $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
     ```
-    Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, `gcc` ji tak
-    bude umět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou je, že verze
-    knihoven nacházejících se v balíčkových manažerech bývají typicky dosti zastaralé.
+    Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, a překladač `gcc` ji tak
+    bude umět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou může být, že verze
+    knihoven nabízené správci balíčků bývají typicky docela zastaralé.
 
 [^1]: Pokud by vás zajímalo, které všechny soubory a kam se nainstalovaly, můžete po instalaci balíčků
 použít příkaz
@@ -38,7 +49,7 @@ svém programu.
 Pokud jste nainstalovali `SDL` pomocí systémových balíčků, stačí při překladu programu přilinkovat
 knihovnu `SDL2`:
 ```bash
-$ gcc main.c -lSDL2
+$ gcc main.c -omain -lSDL2
 ```
 Pokud jste knihovnu překládali manuálně, musíte ještě použít parametry `-I` pro předání cesty k
 hlavičkovým souborům a `-L` pro předání cesty k adresáři s přeloženou knihovnou, jak již bylo
@@ -66,6 +77,45 @@ target_link_libraries(main SDL2 SDL2_image SDL2_ttf)
 
 </details>
 
+## Zprovoznění SDL pod WSL
+Pokud chcete použít knihovnu SDL v kombinaci s použitím systému [WSL](../../prostredi/linux/instalace.md),
+budete si muset nastavit zobrazování grafických Linux aplikací na Windows.
+
+Pokud máte aktuální verzi Windows 11 a WSL, tak by mělo stačit spustit grafický program (např. C program
+využívající SDL). Více detailů se můžete dozvědět [zde](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps).
+Pokud nemáte Windows 11 nebo se vám grafický výstup aplikace nezobrazuje, tak budete muset použít tzv. "Emulaci X serveru",
+popsanou níže.
+
+<details>
+<summary>Emulace X serveru</summary>
+
+Jedním ze způsobů, který se na Linuxu používá pro vykreslování grafiky, je tzv.
+[X server](https://en.wikipedia.org/wiki/X_Window_System). Funguje tak, že aplikace, které chtějí něco
+vykreslit, komunikují s X serverem, který poté grafiku vykreslí v nějakém okně.
+
+Aby toto fungovalo pod Windows, tak musíte na Windows spustit X server, ke kterému se poté připojí
+klient (vaše C SDL aplikace) spuštěná pod systémem WSL.
+
+Návod, jak tento X server na Windows nainstalovat, naleznete např. [zde](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/running-wsl-gui-apps-on-windows-10/ba-p/1493242).
+
+Zkrácená verze návodu:
+1) Stáhněte a nainstalujte si program [VcXsrv](https://sourceforge.net/projects/vcxsrv/).
+2) Zapněte na Windows program `XLaunch` a v nastavení zaškrtněte volbu `Disable access control`.
+
+   Tento program musí běžet na pozadí, aby fungovalo spouštění grafických aplikací pod WSL (pokud
+   restartujete počítač, budete ho muset spustit znovu).
+3) Ve WSL terminálu poté musíte nastavit proměnnou prostředí `DISPLAY` na správnou hodnotu, aby
+   spuštěný program komunikoval s X serverem spuštěným pod Windows. Dosáhnout toho můžete např. následujícím
+   příkazem:
+    ```console
+    $ export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+    ```
+   Tento příkaz musíte spustit v terminálu, odkud budete vaši SDL aplikaci spouštět. Pokud spustíte
+   nový terminál, musíte příkaz spustit znovu.
+4) Dále by mělo stačit spustit SDL aplikaci a její grafický výstup by se měl objevit v novém okně
+   pod Windows.
+</details>
+
 ## Dokumentace
 Abyste mohli používat nějakou složitější knihovnu, je nutné se zorientovat v její dokumentaci. V té
 naleznete jednak deklarace a popis fungování jednotlivých funkcí, které knihovna nabízí, ale také
@@ -87,16 +137,17 @@ Abychom něco vykreslili, tak jako první věc musíme nainicializovat SDL a vyt
 chyb naleznete na konci této sekce.
 
 ```c
-#include <SDL2/SDL.h>  // Vložení hlavního hlavičkového souboru SDL
-#include <stdbool.h>
+// Vložení hlavního hlavičkového souboru SDL
+#include <SDL2/SDL.h>
 
 int main()
 {
-    SDL_Init(SDL_INIT_VIDEO);   // Inicializace SDL
+    // Inicializace SDL
+    SDL_Init(SDL_INIT_VIDEO);
 
     // Vytvoření okna
     SDL_Window* window = SDL_CreateWindow(
-        "SDL experiments",  // Název
+        "SDL experiments",  // Titulek okna
         100,                // Souřadnice x
         100,                // Souřadnice y
         800,                // Šířka
@@ -124,37 +175,38 @@ okna a odešleme jej k vykreslení (za použití tzv.
 
 Konkrétně budeme vykreslovat jednoduchou posouvající se čáru, dokud uživatel nezavře otevřené okno:
 ```c
-    SDL_Event e;
-    bool quit = false;
-    int pos = 100;
+    SDL_Event event;
+    int running = 1;
+    int line_x = 100;
 
-    while (!quit)
+    while (running == 1)
     {
-        // Dokud jsou k dispozici nějaké události, ukládej je do proměnné `e`
-        while (SDL_PollEvent(&e))
+        // Dokud jsou k dispozici nějaké události, ukládej je do proměnné `event`
+        while (SDL_PollEvent(&event))
         {
-            // Pokud došlo k uzavření okna, nastav proměnnou `quit` na `true`
-            if (e.type == SDL_QUIT)
+            // Pokud došlo k uzavření okna, nastav proměnnou `running` na `0`
+            if (event.type == SDL_QUIT)
             {
-                quit = true;
+                running = 0;
             }
         }
 
-        // Nastavení barvy vykreslování na černou
+        // Posuň pozici čáry doprava
+        line_x++;
+
+        // Nastav barvu vykreslování na černou
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
-        // Vykreslení pozadí
+        // Vykresli pozadí
         SDL_RenderClear(renderer);
 
-        // Nastavení barvy na červenou
+        // Nastav barvu vykreslování na červenou
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 
-        // Vykreslení čáry
-        SDL_RenderDrawLine(renderer, pos, pos, pos + 100, pos + 100);
+        // Vykresli čáru
+        SDL_RenderDrawLine(renderer, line_x, 50, line_x, 250);
 
-        pos++;
-
-        // Zobrazení vykreslených prvků na obrazovku
+        // Zobraz vykreslené prvky na obrazovku
         SDL_RenderPresent(renderer);
     }
 ```
@@ -179,7 +231,6 @@ A na konci už akorát vše uvolníme:
 
 ```c
 #include <SDL2/SDL.h>
-#include <stdbool.h>
 
 int main()
 {
@@ -202,26 +253,28 @@ int main()
         return 1;
     }
 
-    SDL_Event e;
-    bool quit = false;
-    int pos = 100;
+    int line_x = 100;
 
-    while (!quit)
+    SDL_Event event;
+    int running = 1;
+
+    while (running == 1)
     {
-        while (SDL_PollEvent(&e))
+        while (SDL_PollEvent(&event))
         {
-            if (e.type == SDL_QUIT)
+            if (event.type == SDL_QUIT)
             {
-                quit = true;
+                running = 0;
             }
         }
+
+        line_x++;
+    
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Nastavení barvy na černou
         SDL_RenderClear(renderer);                      // Vykreslení pozadí
 
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Nastavení barvy na červenou
-        SDL_RenderDrawLine(renderer, pos, pos, pos + 100, pos + 100); // Vykreslení čáry
-
-        pos++;
+        SDL_RenderDrawLine(renderer, line_x, 50, line_x, 250); // Vykreslení čáry
 
         SDL_RenderPresent(renderer);  // Prezentace kreslítka
     }
@@ -235,7 +288,7 @@ int main()
 ```
 </details>
 
-## Co lze dělat pomocí `SDL`?
+## Co lze všechno dělat pomocí `SDL`?
 Knihovna `SDL` nabízí spoustu funkcionality k tvorbě interaktivních aplikací a her. Můžete s ní
 například:
 - [Vykreslovat](https://wiki.libsdl.org/CategoryRender) body, čáry či obdélníky.

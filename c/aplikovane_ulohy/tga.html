@@ -189,6 +189,10 @@ disk. Slouží tedy ke stejnému účelu jako známější formáty <code>JPEG</
 mnohem jednodušší. Díky tomu můžeme načíst i zapsat <code>TGA</code> soubor pomocí několika řádků kódu, zatímco
 např. u <code>JPEG</code> nebo <code>PNG</code> bychom potřebovali buď použít již existující knihovnu anebo naimplementovat
 jejich relativně komplikované standardy, které čítají stovky stránek.</p>
+<p>TGA soubory jsou uloženy v binárním formátu, což znamená, že do nich budeme číselné hodnoty ukládat ve formátu,
+v jakém jsou uloženy v paměti programu, a nebudeme je formátovat pomocí textových kódování, např. ASCII. To sice
+znamená, že obsah TGA souboru nebude v &quot;lidsky čitelném formátu&quot;, nicméně zároveň nám to i částečně usnadní programatické
+čtení a zápis těchto souborů.</p>
 <h2><a class="header" href="#hlavička-tga" id="hlavička-tga">Hlavička <code>TGA</code></a></h2>
 <p>Soubory ve formátu <code>TGA</code> obsahují na svém začátku tzv. <strong>hlavičku</strong> (<em>header</em>), která obsahuje informace
 popisující daný obrázek. Tyto informace jsou reprezentovány byty, které jsou umístěny na pevně
@@ -198,8 +202,8 @@ daných pozicích. Zde je seznam jednotlivých částí hlavičky TGA:</p>
 <tr><td align="center">Typ barevné mapy</td><td align="center">1</td><td align="center">1</td></tr>
 <tr><td align="center"><strong>Typ obrázku</strong></td><td align="center">2</td><td align="center">1</td></tr>
 <tr><td align="center">Barevná mapa</td><td align="center">3</td><td align="center">5</td></tr>
-<tr><td align="center"><strong>Počátek X</strong></td><td align="center">8</td><td align="center">2</td></tr>
-<tr><td align="center"><strong>Počátek Y</strong></td><td align="center">10</td><td align="center">2</td></tr>
+<tr><td align="center">Počátek X</td><td align="center">8</td><td align="center">2</td></tr>
+<tr><td align="center">Počátek Y</td><td align="center">10</td><td align="center">2</td></tr>
 <tr><td align="center"><strong>Šířka</strong></td><td align="center">12</td><td align="center">2</td></tr>
 <tr><td align="center"><strong>Výška</strong></td><td align="center">14</td><td align="center">2</td></tr>
 <tr><td align="center"><strong>Barevná hloubka</strong></td><td align="center">16</td><td align="center">1</td></tr>
@@ -209,18 +213,14 @@ daných pozicích. Zde je seznam jednotlivých částí hlavičky TGA:</p>
 například otevřeli <code>TGA</code> soubor a přečteli si jeho 12. a 13. byte, tak se dozvíme šířku tohoto obrázku. 
 Nás budou zajímat zejména tučně vyznačené části:</p>
 <ul>
-<li><strong>Typ</strong>: Hodnota <code>2</code> udává nekomprimovaný RGB obrázek, hodnota <code>3</code> udává nekomprimovaný
+<li><strong>Typ obrázku</strong>: Hodnota <code>2</code> udává nekomprimovaný RGB obrázek, hodnota <code>3</code> udává nekomprimovaný
 obrázek ve stupních šedi (&quot;černobílý&quot; obrázek). Ostatní platné hodnoty typu obrázku můžete nalézt
 např. na <a href="https://en.wikipedia.org/wiki/Truevision_TGA">Wikipedii</a>.</li>
-<li><strong>Počátek</strong>: Tato část hlavičky určuje, kde bude počátek souřadnicového systému obrázku. Jinak
-řečeno, pokud do obrázku zapíšete pixel na pozici <code>(0, 0)</code>, tak se objeví na pozici počátku. Pokud
-použijete počátek <code>(0, 0)</code>, tak tato pozice bude v levém dolním rohu obrázku. Počátek je rozdělený
-do souřadnic <code>x</code> a <code>y</code>, obě dvě zabírají dva byty.</li>
-<li><strong>Rozměry</strong>: Tato část hlavičky určuje rozměry obrázku. Stejně jako u počátku šířka i výška
-zabírá dva byty (aby formát podporoval i obrázky s rozměry většími než 255 pixelů).</li>
+<li><strong>Rozměry</strong>: Tato část hlavičky určuje rozměry obrázku. Každý rozměr (<strong>šířka</strong> i <strong>výška</strong>) zabírá
+dva byty (aby formát podporoval i obrázky s rozměry většími než 255 pixelů).</li>
 <li><strong>Barevná hloubka</strong>: Udává, kolik bitů bude zabírat každý pixel obrázku. Pokud použijeme typ obrázku
-RGB, měli bychom použít hloubku 24 bitů (8 bitů na každou barevnou složku), pokud použijeme typ
-obrázku ve stupních šedi, tak použijeme hloubku 8 bitů.</li>
+RGB (typ <code>2</code>), měli bychom použít hloubku 24 bitů (8 bitů na každou barevnou složku), pokud použijeme typ
+obrázku ve stupních šedi (typ <code>3</code>), tak použijeme hloubku 8 bitů.</li>
 </ul>
 <blockquote>
 <p>Při načítání binárních dat ze souborů musíme dávat pozor na to, jestli jsou hodnoty uloženy v
@@ -255,7 +255,7 @@ musí přesně odpovídat hodnotám v hlavičce a musí být také uvedeny ve st
 <blockquote>
 <p>Možná vám přijde zvláštní, proč např. šířku definujeme jako pole dvou bytů namísto použití
 &quot;dvou-bajtového celého čísla&quot;, tedy datového typu <code>short</code>. Děláme to, aby do této struktury překladač
-nevložil žádné <a href="../struktury/struktury.html#reprezentace-struktury-v-pam%C4%9Bti">mezery</a>. Pokud by je tam
+nevložil žádné <a href="../struktury/pametova_reprezentace.html#struktury-a-zarovn%C3%A1n%C3%AD">mezery</a>. Pokud by je tam
 vložil, tak by naše struktura v paměti už neodpovídala hlavičce <code>TGA</code> v souboru a četli bychom tak
 neplatné hodnoty. Když použijeme pro všechny atributy datový typ s velikostí 1 byte, tak překladač
 žádné mezery vkládat nebude.</p>
@@ -265,15 +265,22 @@ neplatné hodnoty. Když použijeme pro všechny atributy datový typ s velikost
 <p>Nyní už stačí pouze otevřít nějaký <code>TGA</code> soubor (např. <a href="../../static/img/carmack.tga">tento</a>),
 <a href="../soubory/cteni_ze_souboru.html">načíst</a> z něj počet bytů odpovídající naší struktuře
 a poté si z ní můžeme přečíst informace o daném obrázku:</p>
-<pre><code class="language-c">FILE* file = fopen(&quot;carmack.tga&quot;, &quot;rb&quot;);
-assert(file);
+<pre><code class="language-c mainbody">#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
 
-TGAHeader header = {};
-assert(fread(&amp;header, sizeof(TGAHeader), 1, file) == 1);
+int main() {
+    FILE* file = fopen(&quot;carmack.tga&quot;, &quot;rb&quot;);
+    assert(file);
+    
+    TGAHeader header = {};
+    assert(fread(&amp;header, sizeof(TGAHeader), 1, file) == 1);
+    
+    printf(&quot;Image type: %d, pixel depth: %d\n&quot;, header.image_type, header.depth);
 
-printf(&quot;Image type: %d, pixel depth: %d\n&quot;, header.image_type, header.depth);
+    return 0;
+}
 </code></pre>
-<p>Pokud budeme chtít pracovat s hodnotami rozměrů či počátku, musíme je nejprve převést z pole bytů
+<p>Pokud budeme chtít pracovat s hodnotami rozměrů, musíme je nejprve převést z pole bytů
 na celé číslo. Toho můžeme dosáhnout pomocí funkce <a href="https://devdocs.io/c/string/byte/memcpy"><code>memcpy</code></a>:</p>
 <pre><code class="language-c">int width = 0;
 int height = 0;
@@ -281,10 +288,18 @@ int height = 0;
 memcpy(&amp;width, header-&gt;width, 2);
 memcpy(&amp;height, header-&gt;height, 2);
 </code></pre>
+<blockquote>
+<p>Datový typ <code>int</code> sice velmi pravděpodobně bude mít více bytů, než <code>2</code> (pravděpodobně bude mít <code>4</code> byty), ale jelikož
+v paměti i v souboru jsou data uložena ve formátu &quot;little-endian&quot;, tak stačí do <code>int</code>u načíst dva byty, a bude to fungovat
+tak, jak očekáváme. <strong>Musíme však nejprve proměnnou <code>int</code>u inicializovat na nulu, jinak by vyšší dva byty měly nedefinovanou
+hodnotu!</strong></p>
+</blockquote>
 <h2><a class="header" href="#načtení-pixelů-ze-souboru" id="načtení-pixelů-ze-souboru">Načtení pixelů ze souboru</a></h2>
 <p>Jakmile jsme načetli hlavičku, můžeme načíst ze souboru i samotné pixely. Ty jsou umístěny v souboru
-hned za hlavičkou. Každý pixel má odpovídající počet bytů podle typu obrázku (u RGB obrázků 3 byty<sup class='margin-toggle sidenote-number'>1</sup>,
-u obrázků ve stupních šedi 1 byte) a počet pixelů je dán rozměry obrázku (<code>šířka * výška</code>).</p>
+hned za hlavičkou, řádek po řádku, zleva doprava a shora dolů. To znamená, že pixel v levém horním rohu obrázku je v souboru
+uložen jako první, tj. hned za hlavičkou, zatímco pixel v pravém dolním rohu obrázku je v souboru uložen jako poslední,
+na úplném konci souboru. Každý pixel má odpovídající počet bytů podle typu obrázku (u RGB obrázků 3 byty<sup class='margin-toggle sidenote-number'>1</sup>,
+u obrázků ve stupních šedi 1 byte) a celkový počet pixelů je poté dán rozměry obrázku (<code>šířka * výška</code>).</p>
 <span class='sidenote'><p><sup class='number'>1</sup>V <code>TGA</code> jsou jednotlivé barevné složky uložené v pořadí <code>blue</code>, <code>green</code>, <code>red</code>. Jedná se tedy
 vlastně o formát BGR.</p>
 </span>
@@ -308,10 +323,24 @@ Pixel* load_pixels(TGAHeader header, FILE* file) {
     return pixels;
 }
 </code></pre>
+<h2><a class="header" href="#práce-s-pixely" id="práce-s-pixely">Práce s pixely</a></h2>
+<p>Jakmile máme načtené pixely v mřížce (poli pixelů) v paměti, tak s nimi můžeme pracovat jako s
+<a href="../pole/vicerozmerna_pole.html">vícerozměrným polem</a>. Pokud bychom například prošli všechny hodnoty pixelů, a nastavili
+jejich barevnou složku <code>red</code> (reprezentující červenou barvu) na hodnotu <code>0</code>, tak z obrázku zcela odstraníme červenou barvu:</p>
+<pre><code class="language-c">Pixel* pixels = load_pixels(header, file);
+for (int row = 0; row &lt; height; row++) {
+    for (int col = 0; col &lt; width; col++) {
+        Pixel* pixel = pixels + (row * width + col);
+        pixel-&gt;red = 0;
+    }    
+}
+</code></pre>
 <h2><a class="header" href="#zapsání-tga-do-souboru" id="zapsání-tga-do-souboru">Zapsání <code>TGA</code> do souboru</a></h2>
-<p>Pokud byste chtěli <code>TGA</code> obrázek naopak do souboru zapsat, tak musíte vytvořit hlavičku a nastavit
-do ní odpovídající hodnoty. Hlavičku poté musíte zapsat binárně do souboru a hned za ní zapsat
-všechny pixely obrázku, řádek po řádku.</p>
+<p>Jakmile jsme nějakým způsobem upravili obsah načteného TGA obrázku (nebo si vytvořili prázdný TGA obrázek v paměti a něco
+do něj nakreslili), tak musíme pixely z paměti zapsat zpět do <code>TGA</code> souboru na disku, abychom si obrázek mohli prohlédnout
+v nějakém prohlížeči či editoru obrázků. Zápis bude probíhat v podstatě úplně stejně, jako načtení obrázku. Otevřeme
+soubor pro zápis, uložíme do něj binárně (pomocí funkce <a href="../soubory/zapis_do_souboru.html#z%C3%A1pis-do-souboru"><code>fwrite</code></a>)
+TGA hlavičku, a hned za ní do něj opět binárně zapíšeme všechny pixely obrázku z paměti, řádek po řádku.</p>
 
                     </main>
 

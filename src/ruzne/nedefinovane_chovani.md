@@ -25,7 +25,7 @@ překládáte program s [optimalizacemi](parametry_prekladace.md), nicméně to 
 Někdy lze nedefinované chování detekovat již pomocí statické analýzy, kterou provádí kompilátor.
 Velké množství statické analýzy, kterou kompilátor dokáže provést, ovšem není implicitně zapnuto,
 a musíme je vynutit při překladu pomocí [parametrů kompilátoru](parametry_prekladace.md).
-Při kompilaci je vhodné využívat alespoň parametry `-Wall -Wextra -Wconversion`.
+Při kompilaci je vhodné využívat alespoň parametry `-Wall -Wextra -Wconversion -Wuninitialized`.
 
 Ne všechny situace způsobující nedefinované chování je ovšem možné zachytit statickou analýzou.
 Musíte se tak spolehnout na to, že budete pozorně zkoumat svůj kód, a případně využívat nástrojů,

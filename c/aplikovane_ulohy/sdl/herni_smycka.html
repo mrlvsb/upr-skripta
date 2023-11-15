@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<html lang="cs" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Herní smyčka - Úvod do programování</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <style>
+.xterm {
+  margin-top: 10px;
+}
+.content {
+  overflow-y: visible !important;
+}
+video {
+    max-width: 100%;
+}
+</style>
+<script src="https://kelvin.cs.vsb.cz/upr/animations.js"></script>
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../../theme/css/tufte.css">
+        
+        <link rel="stylesheet" href="../../../theme/asciinema-player.css">
+        
+        <link rel="stylesheet" href="../../../src/wasm/xterm.min.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../uvod/uvod.html"><strong aria-hidden="true">1.</strong> Úvod</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../uvod/programovani.html"><strong aria-hidden="true">1.1.</strong> Programování</a></li><li class="chapter-item "><a href="../../../uvod/programovaci_jazyky.html"><strong aria-hidden="true">1.2.</strong> Programovací jazyky</a></li><li class="chapter-item "><a href="../../../uvod/jazyk_c.html"><strong aria-hidden="true">1.3.</strong> Jazyk C</a></li><li class="chapter-item "><a href="../../../uvod/pamet.html"><strong aria-hidden="true">1.4.</strong> Paměť</a></li></ol></li><li class="chapter-item "><a href="../../../prostredi/nastaveni_prostredi.html"><strong aria-hidden="true">2.</strong> Nastavení prostředí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../prostredi/linux/linux.html"><strong aria-hidden="true">2.1.</strong> Linux</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../prostredi/linux/instalace.html"><strong aria-hidden="true">2.1.1.</strong> Instalace</a></li></ol></li><li class="chapter-item "><a href="../../../prostredi/editor.html"><strong aria-hidden="true">2.2.</strong> Editor</a></li><li class="chapter-item "><a href="../../../prostredi/preklad_programu.html"><strong aria-hidden="true">2.3.</strong> Překlad</a></li><li class="chapter-item "><a href="../../../prostredi/ladeni.html"><strong aria-hidden="true">2.4.</strong> Ladění</a></li></ol></li><li class="chapter-item expanded "><a href="../../../c/programovani.html"><strong aria-hidden="true">3.</strong> Programování v C</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/syntaxe.html"><strong aria-hidden="true">3.1.</strong> Syntaxe</a></li><li class="chapter-item "><a href="../../../c/prikazy_vyrazy.html"><strong aria-hidden="true">3.2.</strong> Příkazy a výrazy</a></li><li class="chapter-item "><a href="../../../c/promenne/promenne.html"><strong aria-hidden="true">3.3.</strong> Proměnné</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/promenne/globalni_promenne.html"><strong aria-hidden="true">3.3.1.</strong> Globální proměnné</a></li><li class="chapter-item "><a href="../../../c/promenne/konstanty.html"><strong aria-hidden="true">3.3.2.</strong> Konstanty</a></li><li class="chapter-item "><a href="../../../c/promenne/slozeny_zapis.html"><strong aria-hidden="true">3.3.3.</strong> Složený zápis</a></li><li class="chapter-item "><a href="../../../c/promenne/pojmenovavani.html"><strong aria-hidden="true">3.3.4.</strong> Pojmenovávání proměnných</a></li></ol></li><li class="chapter-item "><a href="../../../c/datove_typy/datove_typy.html"><strong aria-hidden="true">3.4.</strong> Datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/datove_typy/celociselne_typy.html"><strong aria-hidden="true">3.4.1.</strong> Celočíselné typy</a></li><li class="chapter-item "><a href="../../../c/datove_typy/desetinne_typy.html"><strong aria-hidden="true">3.4.2.</strong> Desetinné číselné typy</a></li><li class="chapter-item "><a href="../../../c/datove_typy/pravdivostni_typy.html"><strong aria-hidden="true">3.4.3.</strong> Pravdivostní typy</a></li><li class="chapter-item "><a href="../../../c/datove_typy/konverze.html"><strong aria-hidden="true">3.4.4.</strong> Konverze</a></li></ol></li><li class="chapter-item "><a href="../../../c/rizeni_toku/rizeni_toku.html"><strong aria-hidden="true">3.5.</strong> Řízení toku</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/rizeni_toku/podminky.html"><strong aria-hidden="true">3.5.1.</strong> Podmínky</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/rizeni_toku/if.html"><strong aria-hidden="true">3.5.1.1.</strong> Příkaz if</a></li><li class="chapter-item "><a href="../../../c/rizeni_toku/switch.html"><strong aria-hidden="true">3.5.1.2.</strong> Příkaz switch</a></li><li class="chapter-item "><a href="../../../c/rizeni_toku/ternarni_operator.html"><strong aria-hidden="true">3.5.1.3.</strong> Ternární operátor</a></li></ol></li><li class="chapter-item "><a href="../../../c/rizeni_toku/cykly.html"><strong aria-hidden="true">3.5.2.</strong> Cykly</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/rizeni_toku/while.html"><strong aria-hidden="true">3.5.2.1.</strong> Cyklus while</a></li><li class="chapter-item "><a href="../../../c/rizeni_toku/for.html"><strong aria-hidden="true">3.5.2.2.</strong> Cyklus for</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../c/funkce/funkce.html"><strong aria-hidden="true">3.6.</strong> Funkce</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/funkce/rekurze.html"><strong aria-hidden="true">3.6.1.</strong> Rekurze</a></li><li class="chapter-item "><a href="../../../c/funkce/stdlib.html"><strong aria-hidden="true">3.6.2.</strong> Funkce standardní knihovny</a></li></ol></li><li class="chapter-item "><a href="../../../c/preprocesor/preprocesor.html"><strong aria-hidden="true">3.7.</strong> Preprocesor</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/preprocesor/vkladani_souboru.html"><strong aria-hidden="true">3.7.1.</strong> Vkládání souborů</a></li><li class="chapter-item "><a href="../../../c/preprocesor/makra.html"><strong aria-hidden="true">3.7.2.</strong> Makra</a></li></ol></li><li class="chapter-item "><a href="../../../c/prace_s_pameti/prace_s_pameti.html"><strong aria-hidden="true">3.8.</strong> Práce s pamětí</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/prace_s_pameti/automaticka_pamet.html"><strong aria-hidden="true">3.8.1.</strong> Automatická paměť</a></li><li class="chapter-item "><a href="../../../c/prace_s_pameti/ukazatele.html"><strong aria-hidden="true">3.8.2.</strong> Ukazatele</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/prace_s_pameti/ukazatele_na_funkce.html"><strong aria-hidden="true">3.8.2.1.</strong> Ukazatele na funkce</a></li></ol></li><li class="chapter-item "><a href="../../../c/prace_s_pameti/dynamicka_pamet.html"><strong aria-hidden="true">3.8.3.</strong> Dynamická paměť</a></li><li class="chapter-item "><a href="../../../c/prace_s_pameti/globalni_pamet.html"><strong aria-hidden="true">3.8.4.</strong> Globální paměť</a></li></ol></li><li class="chapter-item "><a href="../../../c/pole/pole.html"><strong aria-hidden="true">3.9.</strong> Pole</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/pole/staticka_pole.html"><strong aria-hidden="true">3.9.1.</strong> Statické pole</a></li><li class="chapter-item "><a href="../../../c/pole/dynamicka_pole.html"><strong aria-hidden="true">3.9.2.</strong> Dynamické pole</a></li><li class="chapter-item "><a href="../../../c/pole/vicerozmerna_pole.html"><strong aria-hidden="true">3.9.3.</strong> Vícerozměrné pole</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/pole/zubata_pole.html"><strong aria-hidden="true">3.9.3.1.</strong> Zubatá pole</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../c/text/text.html"><strong aria-hidden="true">3.10.</strong> Text</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/text/znaky.html"><strong aria-hidden="true">3.10.1.</strong> Znaky</a></li><li class="chapter-item "><a href="../../../c/text/retezce.html"><strong aria-hidden="true">3.10.2.</strong> Řetězce</a></li><li class="chapter-item "><a href="../../../c/text/vstupavystup.html"><strong aria-hidden="true">3.10.3.</strong> Vstup a výstup</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/text/vstup.html"><strong aria-hidden="true">3.10.3.1.</strong> Vstup</a></li><li class="chapter-item "><a href="../../../c/text/vystup.html"><strong aria-hidden="true">3.10.3.2.</strong> Výstup</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../c/struktury/vlastni_datove_typy.html"><strong aria-hidden="true">3.11.</strong> Vlastní datové typy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/struktury/struktury.html"><strong aria-hidden="true">3.11.1.</strong> Struktury</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/struktury/pametova_reprezentace.html"><strong aria-hidden="true">3.11.1.1.</strong> Reprezentace v paměti</a></li></ol></li><li class="chapter-item "><a href="../../../c/struktury/struktury_funkce.html"><strong aria-hidden="true">3.11.2.</strong> Struktury a funkce</a></li></ol></li><li class="chapter-item "><a href="../../../c/soubory/soubory.html"><strong aria-hidden="true">3.12.</strong> Soubory</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/soubory/otevirani_souboru.html"><strong aria-hidden="true">3.12.1.</strong> Otevření souborů</a></li><li class="chapter-item "><a href="../../../c/soubory/prace_se_soubory.html"><strong aria-hidden="true">3.12.2.</strong> Práce se soubory</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/soubory/zapis_do_souboru.html"><strong aria-hidden="true">3.12.2.1.</strong> Zápis do souboru</a></li><li class="chapter-item "><a href="../../../c/soubory/cteni_ze_souboru.html"><strong aria-hidden="true">3.12.2.2.</strong> Čtení ze souboru</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../c/modularizace/modularizace.html"><strong aria-hidden="true">3.13.</strong> Modularizace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/modularizace/linker.html"><strong aria-hidden="true">3.13.1.</strong> Linker</a></li><li class="chapter-item "><a href="../../../c/modularizace/pouzivani_kodu_z_jinych_souboru.html"><strong aria-hidden="true">3.13.2.</strong> Používání kódu z jiných souborů</a></li><li class="chapter-item "><a href="../../../c/modularizace/hlavickove_soubory.html"><strong aria-hidden="true">3.13.3.</strong> Hlavičkové soubory</a></li><li class="chapter-item "><a href="../../../c/modularizace/knihovny.html"><strong aria-hidden="true">3.13.4.</strong> Knihovny</a></li></ol></li><li class="chapter-item "><a href="../../../c/automatizace_prekladu.html"><strong aria-hidden="true">3.14.</strong> Automatizace překladu</a></li><li class="chapter-item expanded "><a href="../../../c/aplikovane_ulohy/ulohy.html"><strong aria-hidden="true">3.15.</strong> Aplikované úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../c/aplikovane_ulohy/tga.html"><strong aria-hidden="true">3.15.1.</strong> TGA</a></li><li class="chapter-item "><a href="../../../c/aplikovane_ulohy/gif.html"><strong aria-hidden="true">3.15.2.</strong> GIF</a></li><li class="chapter-item expanded "><a href="../../../c/aplikovane_ulohy/sdl.html"><strong aria-hidden="true">3.15.3.</strong> SDL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../c/aplikovane_ulohy/sdl/herni_smycka.html" class="active"><strong aria-hidden="true">3.15.3.1.</strong> Herní smyčka</a></li><li class="chapter-item "><a href="../../../c/aplikovane_ulohy/sdl/kresleni.html"><strong aria-hidden="true">3.15.3.2.</strong> Kreslení</a></li><li class="chapter-item "><a href="../../../c/aplikovane_ulohy/sdl/vstup.html"><strong aria-hidden="true">3.15.3.3.</strong> Vstup</a></li></ol></li><li class="chapter-item "><a href="../../../c/aplikovane_ulohy/chipmunk.html"><strong aria-hidden="true">3.15.4.</strong> Chipmunk</a></li></ol></li><li class="chapter-item "><a href="../../../c/co_dal.html"><strong aria-hidden="true">3.16.</strong> Co dál?</a></li></ol></li><li class="chapter-item "><a href="../../../ruzne/ruzne.html"><strong aria-hidden="true">4.</strong> Různé</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ruzne/rozklad_problemu.html"><strong aria-hidden="true">4.1.</strong> Rozklad problému</a></li><li class="chapter-item "><a href="../../../ruzne/vyhodnocovani_vyrazu.html"><strong aria-hidden="true">4.2.</strong> Vyhodnocování výrazů</a></li><li class="chapter-item "><a href="../../../ruzne/nahodna_cisla.html"><strong aria-hidden="true">4.3.</strong> Generování náhodných čísel</a></li><li class="chapter-item "><a href="../../../ruzne/dynamicky_rostouci_pole.html"><strong aria-hidden="true">4.4.</strong> Dynamicky rostoucí pole</a></li><li class="chapter-item "><a href="../../../ruzne/funkce_main.html"><strong aria-hidden="true">4.5.</strong> Funkce main</a></li><li class="chapter-item "><a href="../../../ruzne/parametry_prekladace.html"><strong aria-hidden="true">4.6.</strong> Parametry překladače</a></li><li class="chapter-item "><a href="../../../ruzne/nedefinovane_chovani.html"><strong aria-hidden="true">4.7.</strong> Nedefinované chování</a></li><li class="chapter-item "><a href="../../../ruzne/tahak.html"><strong aria-hidden="true">4.8.</strong> Tahák</a></li></ol></li><li class="chapter-item "><a href="../../../ulohy/ulohy.html"><strong aria-hidden="true">5.</strong> Úlohy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/promenne.html"><strong aria-hidden="true">5.1.</strong> Proměnné</a></li><li class="chapter-item "><a href="../../../ulohy/podminky_a_cykly.html"><strong aria-hidden="true">5.2.</strong> Podmínky a cykly</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/kulicka.html"><strong aria-hidden="true">5.2.1.</strong> Odrážející se kulička</a></li><li class="chapter-item "><a href="../../../ulohy/grafy.html"><strong aria-hidden="true">5.2.2.</strong> Vykreslování grafů funkcí</a></li></ol></li><li class="chapter-item "><a href="../../../ulohy/funkce.html"><strong aria-hidden="true">5.3.</strong> Funkce</a></li><li class="chapter-item "><a href="../../../ulohy/ukazatele.html"><strong aria-hidden="true">5.4.</strong> Ukazatele</a></li><li class="chapter-item "><a href="../../../ulohy/pole.html"><strong aria-hidden="true">5.5.</strong> Pole</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/pvp.html"><strong aria-hidden="true">5.5.1.</strong> PvP bitevní hra</a></li><li class="chapter-item "><a href="../../../ulohy/dvourozmerne_pole.html"><strong aria-hidden="true">5.5.2.</strong> Dvourozměrné pole</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/digitalni_hodiny.html"><strong aria-hidden="true">5.5.2.1.</strong> Digitální hodiny</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../ulohy/text.html"><strong aria-hidden="true">5.6.</strong> Text</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/kalkulacka.html"><strong aria-hidden="true">5.6.1.</strong> Kalkulačka</a></li><li class="chapter-item "><a href="../../../ulohy/strelba_na_terc.html"><strong aria-hidden="true">5.6.2.</strong> Střelba na terč</a></li><li class="chapter-item "><a href="../../../ulohy/cisteni_chatu.html"><strong aria-hidden="true">5.6.3.</strong> Čištění chatu</a></li><li class="chapter-item "><a href="../../../ulohy/brainfuck.html"><strong aria-hidden="true">5.6.4.</strong> Překladač jazyka Brainfuck</a></li></ol></li><li class="chapter-item "><a href="../../../ulohy/struktury.html"><strong aria-hidden="true">5.7.</strong> Struktury</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/tga_watch.html"><strong aria-hidden="true">5.7.1.</strong> TGA hodiny</a></li><li class="chapter-item "><a href="../../../ulohy/letters.html"><strong aria-hidden="true">5.7.2.</strong> Létající písmenka</a></li></ol></li><li class="chapter-item "><a href="../../../ulohy/soubory.html"><strong aria-hidden="true">5.8.</strong> Soubory</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/meme.html"><strong aria-hidden="true">5.8.1.</strong> Meme generátor</a></li></ol></li><li class="chapter-item "><a href="../../../ulohy/sdl.html"><strong aria-hidden="true">5.9.</strong> SDL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../ulohy/snake/snake.html"><strong aria-hidden="true">5.9.1.</strong> Had</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../caste_chyby/caste_chyby.html"><strong aria-hidden="true">6.</strong> Časté chyby</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../caste_chyby/pametove_chyby.html"><strong aria-hidden="true">6.1.</strong> Paměťové chyby</a></li></ol></li><li class="chapter-item "><a href="../../../galerie_projektu/galerie_projektu.html"><strong aria-hidden="true">7.</strong> Galerie projektů</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../galerie_projektu/2020.html"><strong aria-hidden="true">7.1.</strong> 2020/2021</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Úvod do programování</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/mrlvsb/upr-skripta" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#herní-smyčka" id="herní-smyčka">Herní smyčka</a></h1>
+<p>Základem víceméně všech &quot;real-time&quot; počítačových her je tzv. herní smyčka. Jedná se o cyklus v programu,
+který se stará o aktualizaci stavu hry, a vykreslení jednoho tzv. <strong>snímku</strong> (<em>frame</em>) na obrazovku. Hry typicky fungují
+tak, že běží donekonečna v tomto cyklu (herní smyčce), a např. 60x za vteřinu aktualizují stav hry a poté jej vykreslí.
+Z toho také pochází pojem <strong>Snímků za vteřinu</strong> (<em>Frame per second</em>, <em>FPS</em>), který udává, jak často je hra schopná se
+vykreslit za vteřinu.</p>
+<p>Herní smyčku vytvoříme jednoduše jako cyklus, který poběží až do doby, než bude potřeba naši hru vypnout:</p>
+<pre><code class="language-c">int running = 1;
+while (running == 1) {
+    // Tělo herní smyčky
+}
+</code></pre>
+<p>V každé iteraci herní smyčky bychom měli provést následující činnosti (ideálně v tomto pořadí):</p>
+<ol>
+<li>Přečíst a zareagovat na události operačního systému
+<ul>
+<li>Např. žádost o vypnutí aplikace, stisk klávesy, pohyb myši</li>
+</ul>
+</li>
+<li>Aktualizovat stav hry v paměti
+<ul>
+<li>Např. pohnout postavou či projektilem, aktualizovat čas cooldownu atd.</li>
+</ul>
+</li>
+<li>Vykreslit aktuální stav hry na obrazovku</li>
+</ol>
+<h2><a class="header" href="#reakce-na-události" id="reakce-na-události">Reakce na události</a></h2>
+<p>Jako úplný základ bychom měli mít v herní smyčce čtení událostí operačního systému, které si můžeme přečíst pomocí
+volání funkce <a href="https://wiki.libsdl.org/SDL2/SDL_PollEvent"><code>SDL_PollEvent</code></a>. Do této funkce předáme adresu struktury
+<a href="https://wiki.libsdl.org/SDL2/SDL_Event"><code>SDL_Event</code></a>, a pokud funkce vrátí hodnotu <code>1</code>, tak došlo k nějaké události,
+a my si můžeme informaci o této události z předané struktury <code>SDL_Event</code> přečíst:</p>
+<pre><code class="language-c">SDL_Event event;
+while (SDL_PollEvent(&amp;event)) {
+    // Pokud došlo k uzavření okna, nastav proměnnou `running` na `0`
+    if (event.type == SDL_QUIT) {
+        running = 0;
+    }
+}
+</code></pre>
+<p>Pokud dojde k události <code>SQL_QUIT</code>, tak se uživatel snaží naši aplikaci vypnout (např. kliknutím na ikonku křížku v rohu
+okna aplikace). Na tuto událost bychom měli zareagovat tak, že náš program (hru) vypneme.<sup class='margin-toggle sidenote-number'>1</sup></p>
+<span class='sidenote'><p><sup class='number'>1</sup>Pokud bychom tak neudělali, tak se aplikace &quot;zasekne&quot;, a zobrazí se nechvalně známý dialog operačního systému o
+neresponzivní aplikaci.</p>
+</span>
+<p>Při kontrole událostí budeme chtít typicky reagovat na vstup uživatele z klávesnice či myši. Více o zpracování vstupu
+se můžete dozvědět <a href="vstup.html">zde</a>.</p>
+<h2><a class="header" href="#kompenzace-fps" id="kompenzace-fps">Kompenzace FPS</a></h2>
+<p>Při aktualizaci stavu hry a provádění jakéhokoliv pohybu, rotace apod. bychom měli vždy brát v potaz <strong>kompenzaci FPS</strong>
+(snímků za vteřinu). Představte si, že v naší hře máme nějaký pohybující se objekt, který chceme posouvat v
+každém snímku hry o nějaký počet pixelů daným směrem:</p>
+<pre><code class="language-c">int position = 0;
+while (running == 1) {
+    // ...
+
+    position += 1;
+    SDL_RenderDrawLine(renderer, position, 100, position, 200);
+
+    // ...
+}
+</code></pre>
+<p>V kódu výše posouváme v každé iteraci pozici čáry o jeden pixel. Co se v tomto případě stane, když naše aplikace bude mít
+60 FPS? Čára se za jednu vteřinu posune o 60 pixelů. Pokud by naše aplikace měla ale např. pouze 20 FPS, tak se čára posune
+pouze o 20 pixelů! A kdyby měla 1000 FPS, tak se naopak posune o celých 1000 pixelů.</p>
+<p>Pokud by logika her závisela na počtu FPS, tak by to jistě způsobovalo problémy. Představte si například, že v hrách,
+jako je Call of Duty nebo Counter-Strike, by počet FPS ovlivňoval, jak rychle postava poběží nebo jak rychle se budou
+pohybovat projektily, které postava vystřelí. S takovýmto řešením by hráči ani autoři hry určitě nebyli spokojeni.</p>
+<p>Ideálně bychom chtěli, aby se v naší hře vše pohybovalo stanovenou rychlostí, nezávisle na současné hodnotě FPS.
+Toho můžeme dosáhnout pomocí tzv. <strong>delta času</strong> (<em>delta time</em>). Delta je označení pro čas vykonání jedné iterace herní
+smyčky. Čím více bude mít naše hra FPS, tím menší bude delta:</p>
+<ul>
+<li>Při <code>60 FPS</code> je delta <code>~0.016 s</code>, neboli <code>~16 ms</code></li>
+<li>Při <code>10 FPS</code> je delta <code>~0.1 s</code>, neboli <code>~100 ms</code></li>
+<li>Při <code>1 FPS</code> je delta <code>~1 s</code>, neboli <code>~1000 ms</code></li>
+</ul>
+<p>Deltu můžeme vypočítat pomocí funkcí na měření času nabízených knihovnou SDL:</p>
+<pre><code class="language-c">// Uložení poslední hodnoty čítače
+Uint64 last = SDL_GetPerformanceCounter();
+
+while (running == 1) {
+    // Zjištění současné hodnoty čítače
+    Uint64 now = SDL_GetPerformanceCounter();
+    
+    // Výpočet delty, času od posledního provedení tohoto řádku (tj. délky iterace herní smyčky)
+    double deltaTime = (double)((now - last) / (double)SDL_GetPerformanceFrequency());
+
+    // Uložení poslední hodnoty čítače
+    last = now;
+
+    // ...
+}
+</code></pre>
+<blockquote>
+<p>Pokud si chcete naměřit a vypisovat hodnotu FPS své hry, stačí vypsat převrácenou hodnotu delty, tj. platí
+<code>FPS = 1 / deltaTime</code>.</p>
+</blockquote>
+<p>Jakmile máme k dispozici hodnotu delty, můžeme ji využít k tomu, abychom pohyb ve hře přizpůsobili počtu FPS. Toho dosáhneme
+tak, že budeme každý pohyb ve hře &quot;škálovat&quot; (neboli násobit) hodnotou delty:</p>
+<pre><code class="language-c">position += 100 * deltaTime;
+</code></pre>
+<p>Když budeme mít hodně FPS (tj. malou hodnotu delty), tak budeme hýbat (a vykreslovat) objekty spoustakrát za vteřinu, takže
+chceme, aby objekty dělaly malé kroky, a hýbaly se plynule. V tomto případě bude delta mít malou hodnotu, takže pohyb
+se bude provádět po malých krocích. Pokud budeme mít naopak málo FPS (tj. velkou hodnotu delty), tak budeme hýbat
+objekty pouze několikrát za vteřinu, takže poté musí objekty udělat větší krok, aby urazily stejnou vzdálenost za stejnou
+časovou jednotku. V tomto případě bude delta mít velkou hodnotu, takže pohyb se bude provádět po velkých krocích.</p>
+<p>Tento princip si můžeme demonstrovat na následujících animaci, které zobrazují pohyb tří obdélníků s různým počtem
+snímků za vteřinu. První obdélník se pohybuje s 60 FPS, druhý obdélník s 10 FPS, a třetí obdélník s 1 FPS.
+Všimněte si, že za stejnou dobu všechny obdélníky urazí cca stejnou vzdálenost. Díky kompenzaci pohybu pomocí
+delta času jsou tak rychlosti obdélníků nezávislé na FPS.</p>
+<img src="../../../static/img/sdl/fps-compensation.gif" width="300" height="200" alt="FPS compensation demonstration" />
+<p><strong>Nezapomeňte tak ve svých hrách všechny pohyby, rotace, animace, aktualizace času, cooldownů atd. násobit deltou!</strong></p>
+<p>U násobení hodnot deltou je potřeba dát si pozor na jednu věc, a to jsou desetinná čísla. Pokud budeme mít např. pozici
+nějakého objektu ve hře reprezentovanou celým číslem (<code>int</code>), tak může dojít k problému se zaokrouhlováním. Pokud např.
+budeme chtít tento objekt posunout rychlostí 10, a budeme mít 60 FPS, tak <code>10 * 0.016</code> je <code>0.16</code>, což se při převodu
+na <code>int</code> zaokrouhlí na hodnotu <code>0</code>! Při násobení deltou bychom se tedy mohli dostat do situace, kdy se naše objekty
+vůbec nebudou hýbat, protože jednotlivé kroky budou moc malé na to, aby se vůbec na hodnotě celého čísla projevily. Proto
+se snažte reprezentovat veškeré pozice a podobné hodnoty, které musíte násobit deltou, pomocí desetinných čísel, tj.
+datových typů <code>float</code> nebo <code>double</code>.</p>
+<h2><a class="header" href="#v-sync" id="v-sync">V-sync</a></h2>
+<p>Pokud spustíte svou hru a naměříte si počet FPS, tak možná zjistíte, že počet snímků je &quot;zamknutý&quot; na nějaké pevné hodnotě,
+např. 60 FPS, a nestoupá výše. Toto je pravděpodobně způsobeno tím, že jste si nastavili při vytváření kreslítka (tj.
+volání funkce <a href="https://wiki.libsdl.org/SDL2/SDL_CreateRenderer"><code>SDL_CreateRenderer</code></a>) vlastnost (&quot;flag&quot;)
+<a href="https://wiki.libsdl.org/SDL2/SDL_RendererFlags"><code>SDL_RENDERER_PRESENTVSYNC</code></a>. Tento parametr zapíná tzv. V-sync, což je
+mechanismus pro synchronizaci FPS vaší hry a vykreslovací frekvence vašeho monitoru. Váš monitor má pravděpodobně nějakou
+omezenou maximální vykreslovací frekvenci, typicky např. 60, 120, 144 FPS. Pokud by vaše hra měla více snímků za vteřinu,
+např. 1000 FPS, tak by se vykreslovala výrazně jinou frekvenci, než váš monitor, což by mohlo způsobovat nepříjemné
+vizuální artefakty.</p>
+<p>Mechanismus V-sync tomuto zabraňuje tím, že vytvoří maximální limit pro FPS vaší hry, který bude odpovídat vykreslovací
+frekvenci vašeho monitoru. Z toho důvodu při zapnutém V-syncu vaše hra bude typicky mít maximálně třeba 60 FPS. Pro
+jednoduché SDL hry v UPR doporučujeme nechat V-sync zapnutý, aby vaše hra neměla zbytečně moc FPS. Pokud byste totiž
+dlouhodobě vykreslovali vaši hru bez omezení FPS, může to mít negativní vliv na váš hardware (např. grafickou kartu),
+která se tím může přetížit, začít pískat nebo se i dokonce zničit. Proto raději používejte V-sync a ujistěte se, že vaše
+hra nemá nesmyslně vysokou hodnotu (např. 1000+) FPS.</p>
+<h2><a class="header" href="#double-buffering" id="double-buffering">Double buffering</a></h2>
+<p>Při vykreslování stavu hry do &quot;kreslítka&quot; (<code>SDL_Renderer</code>) vždy vykreslujeme věci postupně - nejprve nakreslíme pozadí,
+poté např. hráčovu postavu, poté letící projektily atd. Pokud by se ihned po vykreslení nakreslené objekty zobrazovaly
+na monitoru, nepůsobilo by to graficky pěkně, protože by hráč viděl částečně vykreslený stav, který by vůbec nemusel dávat
+smysl.</p>
+<p>Z toho důvodu se při vykreslování her využívá princip tzv. <a href="https://en.wikipedia.org/wiki/Multiple_buffering#Double_buffering_in_computer_graphics"><strong>double bufferingu</strong></a>,
+který je zabudovaný přímo v SDL. Myšlenka double bufferingu je taková, že v paměti budeme mít dvě plátna. Do jednoho plátna
+budeme vždy postupně kreslit současný stav hry, a druhé plátno se bude ukazovat hráčovi na monitoru. V momentě, kdy
+nakreslíme celý stav hry, tak pouze řekneme, že se mají plátna prohodit, tj. naše nakreslené plátno se zobrazí na monitoru,
+a dále budeme kreslit na plátno z minulé iterace herní smyčky. Díky tomu, že prohození je velmi rychlá operace, tak při
+tomto přístupu hráč vždy uvidí pouze kompletně vykreslené snímky, a ne žádný částečně vykreslený stav. V SDL dosáhneme
+prohození těchto dvou pláten pomocí zavolání funkce <a href="https://wiki.libsdl.org/SDL2/SDL_RenderPresent"><code>SDL_RenderPresent</code></a>.
+Volání této funkce by se mělo vyskytovat na úplném konci naší herní smyčky, a mělo by ukončit vykreslování stavu naší hry.</p>
+<p>Jelikož při použití double bufferingu neustále pracujeme se stejnými dvěmi plátny, a plátno, do kterého kreslíme, může
+obsahovat libovolné pixely (např. ty, které jsme vykreslili v minulé iteraci herní smyčky), měli bychom vždy na začátku
+vykreslování toto plátno celé překreslit barvou pozadí, ideálně pomocí funkce <a href="https://wiki.libsdl.org/SDL2/SDL_RenderClear"><code>SDL_RenderClear</code></a>.
+Pokud tak neučiníte, můžou na plátně být vizuální artefakty, obsah plátna z minulé iterace, případně cokoliv jiného,
+což určitě není žádoucí.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../c/aplikovane_ulohy/sdl.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../c/aplikovane_ulohy/sdl/kresleni.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../c/aplikovane_ulohy/sdl.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../c/aplikovane_ulohy/sdl/kresleni.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-177556287-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="../../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../../theme/mode-c_cpp.min.js"></script>
+        
+        <script type="text/javascript" src="../../../theme/asciinema-player.js"></script>
+        
+        <script type="text/javascript" src="../../../src/wasm/xterm.min.js"></script>
+        
+        <script type="text/javascript" src="../../../src/wasm/fit.min.js"></script>
+        
+        <script type="text/javascript" src="../../../src/wasm/shared.js"></script>
+        
+        <script type="text/javascript" src="../../../src/wasm/web.js"></script>
+        
+
+        
+
+    </body>
+</html>

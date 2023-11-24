@@ -94,10 +94,10 @@ a poté si z ní můžeme přečíst informace o daném obrázku:
 int main() {
     FILE* file = fopen("carmack.tga", "rb");
     assert(file);
-    
+
     TGAHeader header = {};
     assert(fread(&header, sizeof(TGAHeader), 1, file) == 1);
-    
+
     printf("Image type: %d, pixel depth: %d\n", header.image_type, header.depth);
 
     return 0;
@@ -141,7 +141,7 @@ typedef struct {
 Pixel* load_pixels(TGAHeader header, FILE* file) {
     int width = 0;
     int height = 0;
-    
+
     memcpy(&width, header.width, 2);
     memcpy(&height, header.height, 2);
 
@@ -162,7 +162,7 @@ for (int row = 0; row < height; row++) {
     for (int col = 0; col < width; col++) {
         Pixel* pixel = pixels + (row * width + col);
         pixel->red = 0;
-    }    
+    }
 }
 ```
 

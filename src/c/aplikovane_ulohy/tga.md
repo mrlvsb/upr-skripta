@@ -75,7 +75,7 @@ typedef struct {
 ```
 
 > Možná vám přijde zvláštní, proč např. šířku definujeme jako pole dvou bytů namísto použití
-> "dvou-bajtového celého čísla", tedy datového typu `short`. Děláme to, aby do této struktury překladač
+> "dvou-bajtového celého čísla", např. datového typu `uint16_t`. Děláme to, aby do této struktury překladač
 > nevložil žádné [mezery](../struktury/pametova_reprezentace.md#struktury-a-zarovnání). Pokud by je tam
 > vložil, tak by naše struktura v paměti už neodpovídala hlavičce `TGA` v souboru a četli bychom tak
 > neplatné hodnoty. Když použijeme pro všechny atributy datový typ s velikostí 1 byte, tak překladač

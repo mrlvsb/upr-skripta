@@ -8293,7 +8293,7 @@ musí přesně odpovídat hodnotám v hlavičce a musí být také uvedeny ve st
 </code></pre>
 <blockquote>
 <p>Možná vám přijde zvláštní, proč např. šířku definujeme jako pole dvou bytů namísto použití
-&quot;dvou-bajtového celého čísla&quot;, tedy datového typu <code>short</code>. Děláme to, aby do této struktury překladač
+&quot;dvou-bajtového celého čísla&quot;, např. datového typu <code>uint16_t</code>. Děláme to, aby do této struktury překladač
 nevložil žádné <a href="c/aplikovane_ulohy/../struktury/pametova_reprezentace.html#struktury-a-zarovn%C3%A1n%C3%AD">mezery</a>. Pokud by je tam
 vložil, tak by naše struktura v paměti už neodpovídala hlavičce <code>TGA</code> v souboru a četli bychom tak
 neplatné hodnoty. Když použijeme pro všechny atributy datový typ s velikostí 1 byte, tak překladač

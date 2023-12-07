@@ -834,7 +834,8 @@ se vás program chová &quot;divně&quot;, a Address sanitizer v něm nenacház�
 nástrojem Memcheck:</p>
 <ol>
 <li>Nejprve si nainstalujte Valgrind:
-<pre><code class="language-bash">$ sudo apt-get install valgrind
+<pre><code class="language-bash">$ sudo apt update
+$ sudo apt install valgrind
 </code></pre>
 </li>
 <li>A poté spusťte svůj přeložený program pod Valgrindem/Memcheckem:
@@ -8168,7 +8169,8 @@ konfigurační soubory pro přeložení stejného programu pod Windows.</p>
 mu rozumí a dokáží díky němu usnadnit analýzu a ladění vašeho programu. </p>
 <h3><a class="header" href="#instalace" id="instalace">Instalace</a></h3>
 <p><code>CMake</code> můžete na Ubuntu nainstalovat následujícím příkazem v terminálu:</p>
-<pre><code class="language-bash">$ sudo apt install cmake
+<pre><code class="language-bash">$ sudo apt update
+$ sudo apt install cmake
 </code></pre>
 <h3><a class="header" href="#použití" id="použití">Použití</a></h3>
 <p>Pro použití <code>CMake</code> musíte vytvořit konfigurační soubor <code>CMakeLists.txt</code>, ve kterém popíšete jednotlivé
@@ -8519,7 +8521,8 @@ mohli použít, nejprve si ji musíme stáhnout. To můžeme udělat dvěma způ
 knihovna, ve většině distribucí Linuxu není problém ji nainstalovat přímo pomocí správce balíčků.
 V Ubuntu to můžete provést pomocí následujícího příkazu v terminálu, který nainstaluje kromě základní SDL knihovny
 také dvě další pomocné knihovny potřebné pro vykreslování obrázků a textu<sup class='margin-toggle sidenote-number'>1</sup>:
-<pre><code class="language-bash">$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+<pre><code class="language-bash">$ sudo apt update
+$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
 </code></pre>
 Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, a překladač <code>gcc</code> ji tak
 bude umět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou může být, že verze

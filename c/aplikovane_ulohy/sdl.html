@@ -212,7 +212,8 @@ mohli použít, nejprve si ji musíme stáhnout. To můžeme udělat dvěma způ
 knihovna, ve většině distribucí Linuxu není problém ji nainstalovat přímo pomocí správce balíčků.
 V Ubuntu to můžete provést pomocí následujícího příkazu v terminálu, který nainstaluje kromě základní SDL knihovny
 také dvě další pomocné knihovny potřebné pro vykreslování obrázků a textu<sup class='margin-toggle sidenote-number'>1</sup>:
-<pre><code class="language-bash">$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+<pre><code class="language-bash">$ sudo apt update
+$ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
 </code></pre>
 Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, a překladač <code>gcc</code> ji tak
 bude umět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou může být, že verze

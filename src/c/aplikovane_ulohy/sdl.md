@@ -1,6 +1,7 @@
 # SDL
-> 📹 K základům práce s SDL byl pořízen záznam SDL doučování, který je k dispozici [zde](https://www.youtube.com/watch?v=jUktXOH5o1I)
-> \[01:23:06].
+> 📹 K tématu SDL byly pořízeny následující záznamy z doučování UPR:
+> - [Základy SDL](https://www.youtube.com/watch?v=jUktXOH5o1I) \[01:23:06]
+> - [Flappy Bird v SDL](https://www.youtube.com/watch?v=umuMcTKhm0w) \[01:22:29]
 
 [`SDL`](https://www.libsdl.org/) je knihovna pro tvorbu interaktivních grafických aplikací a her.
 Umožňuje nám vytvářet okna, vykreslovat do nich jednotlivé pixely, obrázky či text, snímat vstup z

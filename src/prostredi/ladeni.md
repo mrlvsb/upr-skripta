@@ -61,7 +61,8 @@ nástrojem Memcheck:
 
 1. Nejprve si nainstalujte Valgrind:
     ```bash
-    $ sudo apt-get install valgrind
+    $ sudo apt update
+    $ sudo apt install valgrind
     ```
 2. A poté spusťte svůj přeložený program pod Valgrindem/Memcheckem:
     ```bash

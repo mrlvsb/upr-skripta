@@ -39,6 +39,7 @@ mu rozumí a dokáží díky němu usnadnit analýzu a ladění vašeho programu
 ### Instalace
 `CMake` můžete na Ubuntu nainstalovat následujícím příkazem v terminálu:
 ```bash
+$ sudo apt update
 $ sudo apt install cmake
 ```
 

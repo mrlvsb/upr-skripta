@@ -128,9 +128,9 @@ použití například [tady](https://www.willusher.io/pages/sdl2/). V předmětu
 pouze `SDL` verze 2, které se značně liší od předchozí verze. Dávejte si tedy u návodů na internetu
 pozor na to, jestli se týkají správné verze `SDL`.
 
-> `SDL` je relativně rozsáhlá knihovna a není v silách tohoto textu, abychom ji plně popsali. Proto
-> níže naleznete pouze velmi stručný "Hello world" a seznam věcí, které vám SDL umožňuje. Zbytek
-> naleznete v dokumentaci a návodech na internetu.
+> `SDL` je relativně rozsáhlá knihovna a není v silách tohoto textu, abychom ji plně popsali.
+> Níže naleznete stručný "Hello world" a seznam věcí, které vám SDL umožňuje, a v následujících podkapitolách
+> poté základní informace o použití SDL ke tvorbě her. Zbytek naleznete v dokumentaci a návodech na internetu.
 
 ## `SDL` hello world
 Abychom něco vykreslili, tak jako první věc musíme nainicializovat SDL a vytvořit okno[^2]:

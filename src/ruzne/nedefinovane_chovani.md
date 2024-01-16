@@ -129,7 +129,7 @@ se vyskytujících problémových situací:
 - **Přístup k uvolněné dynamické paměti** Viz [Segmentation fault](http://localhost:3000/caste_chyby/pametove_chyby.html#segmentation-fault).
 
 # Provedení UB
-UB způsobuje problémy "pouze", pokud je kód obsahující UB opravdu proveden za běhu programu. Přesněji řečeno, pokud se
+UB způsobuje problémy "pouze" pokud je kód obsahující UB opravdu proveden za běhu programu. Přesněji řečeno, pokud se
 program kdykoliv dostane do stavu, že někdy v budoucnu nutně musí dojít k provedení UB (tj. například program je na řádku
 5, UB je na řádku 8, ale mezi těmito řádky není žádný skok/podmínka/cyklus/něco, co by mohlo přerušit chod programu), tak
 v tento moment může UB způsobit problémy.

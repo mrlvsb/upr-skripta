@@ -115,3 +115,4 @@
     - [Paměťové chyby](caste_chyby/pametove_chyby.md)
 - [Galerie projektů](galerie_projektu/galerie_projektu.md)
   - [2020/2021](galerie_projektu/2020.md)
+  - [2023/2024](galerie_projektu/2023.md)

@@ -118,7 +118,7 @@ se vyskytujících problémových situací:
   }
   ```
   Zde je UB, protože `foo` nevrací hodnotu typu `int`. Když se podíváme, jak překladač může tuto funkci
-  [přeložeit](https://godbolt.org/z/aacGjqhzE), tak se např. může stát to, že `foo` bude na stejné adrese jako `bar`,
+  [přeložit](https://godbolt.org/z/aacGjqhzE), tak se např. může stát to, že `foo` bude na stejné adrese jako `bar`,
   takže kdyby někdo zavolal funkci `foo`, ve skutečnosti se začne provádět funkce `bar`!
 - **Přetečení celého čísla se znaménkem**
   Čísla se znaménkem (např. `int`) nesmí "přetéct", tj. dostat se přes svou nejvyšší hodnotu. Tato situace je v jazyce *C*

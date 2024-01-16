@@ -10325,7 +10325,7 @@ int bar() {
 }
 </code></pre>
 Zde je UB, protože <code>foo</code> nevrací hodnotu typu <code>int</code>. Když se podíváme, jak překladač může tuto funkci
-<a href="https://godbolt.org/z/aacGjqhzE">přeložeit</a>, tak se např. může stát to, že <code>foo</code> bude na stejné adrese jako <code>bar</code>,
+<a href="https://godbolt.org/z/aacGjqhzE">přeložit</a>, tak se např. může stát to, že <code>foo</code> bude na stejné adrese jako <code>bar</code>,
 takže kdyby někdo zavolal funkci <code>foo</code>, ve skutečnosti se začne provádět funkce <code>bar</code>!</li>
 <li><strong>Přetečení celého čísla se znaménkem</strong>
 Čísla se znaménkem (např. <code>int</code>) nesmí &quot;přetéct&quot;, tj. dostat se přes svou nejvyšší hodnotu. Tato situace je v jazyce <em>C</em>

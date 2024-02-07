@@ -202,7 +202,7 @@ K těmto předaným řetězcům poté lze přistoupit ve funkci
         int* p;
         scanf("%d", p);
 
-        printf("Hodnota: %d\n", a);
+        printf("Hodnota: %d\n", p);
 
         return 0;
     }

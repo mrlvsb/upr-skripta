@@ -125,8 +125,8 @@ se vyskytujících problémových situací:
   UB.
 - **Přístup mimo validní paměť** Přístup mimo validní paměť (např. mimo rozsah pole) je klasický příklad UB.
 - **Derefence NULL ukazatele** Toto je opět klasický příklad UB.
-- **Vícenásobné uvolnění dynamické paměti** Viz [Segmentation fault](http://localhost:3000/caste_chyby/pametove_chyby.html#segmentation-fault).
-- **Přístup k uvolněné dynamické paměti** Viz [Segmentation fault](http://localhost:3000/caste_chyby/pametove_chyby.html#segmentation-fault).
+- **Vícenásobné uvolnění dynamické paměti** Viz [Segmentation fault](../caste_chyby/pametove_chyby.md#segmentation-fault).
+- **Přístup k uvolněné dynamické paměti** Viz [Segmentation fault](../caste_chyby/pametove_chyby.md#segmentation-fault).
 
 # Provedení UB
 UB způsobuje problémy "pouze" pokud je kód obsahující UB opravdu proveden za běhu programu. Přesněji řečeno, pokud se

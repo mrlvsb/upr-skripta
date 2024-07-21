@@ -34,7 +34,7 @@ programů. Na následujících odkazech se můžete dozvědět například:
 - Jak urychlit provádění programů:
     - Pomocí [vláken](https://computing.llnl.gov/tutorials/pthreads/), které umí využít potenciál
     vícejádrových procesorů.
-    - Pomocí [vektorových instrukcí](http://www.cs.uu.nl/docs/vakken/magr/2017-2018/files/SIMD%20Tutorial.pdf),
+    - Pomocí [vektorových instrukcí](https://www.youtube.com/watch?v=qejTqnxQRcw),
     které umí pracovat s více než jednou hodnotou najednou.
     - Pomocí pochopení [architektury procesoru](https://github.com/Kobzol/hardware-effects), která
     silně ovlivňuje výkon programů.

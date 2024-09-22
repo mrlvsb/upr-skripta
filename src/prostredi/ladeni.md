@@ -3,6 +3,8 @@ Tato sekce slouží k řešení často se vyskytujících problémů při progra
 padá při běhu nebo se nechová tak, jak má, tak v něm nejspíše máte nějakou chybu (tzv. **bug**).
 Proces hledání chyby, která způsobuje pád nebo špatné chování programu se pak nazývá **ladění** (*debugging*).
 
+**Zejména se podívejte na sekci o [krokování](#krokování)!**
+
 ### Chyby při překladu programu
 Pokud váš program nelze přeložit a překladač vypisuje nějakou chybovou hlášku, tak máte v zápisu programu
 nějakou chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybovou hlášku pořádně přečíst,
@@ -96,6 +98,10 @@ Objeví se tam červené kolečko (tzv. **breakpoint**).
 nechcete přeskakovat volání funkcí, použijte `Step Into` (`F11`).
 
 <video src="../static/video/debugging.webm" controls></video>
+
+Pokud si [nainstalujete](editor.md#instalace-rozšíření-pomocí-terminálu) rozšíření [Memory Visualizer](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz), tak se vám při krokování zároveň bude zobrazovat vizualizace paměti běžícího programu, což se může hodit pro pochopení toho, jak se váš program chová:
+
+![memviz](../static/img/vsc-memviz-screenshot.png)
 
 > VSCode používá pro ladění vašeho programu debugger `gdb`. Pokud ho chcete použít manuálně, návod
 > můžete najít například [zde](https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/).

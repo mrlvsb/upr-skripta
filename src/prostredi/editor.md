@@ -50,7 +50,7 @@ terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*. V
 > programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
 > nastavit, ať vás to neplete.
 
-## Instalace potřebných rozšíření (pomocí terminálu)
+## Instalace rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk *C*. V terminálu spusťte tyto příkazy:
 
@@ -58,10 +58,18 @@ tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk *C*. V termi
 $ code --install-extension ms-vscode.cpptools
 ```
 
-## Instalace potřebných rozšíření (pomocí uživatelského rozhraní)
+Doporučujeme si také nainstalovat následující [rozšíření](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz) pro vizualizaci paměti programů, které jsme pro vás nachystali:
+
+```bash
+$ code --install-extension jakub-beranek.memviz
+```
+
+## Instalace rozšíření (pomocí uživatelského rozhraní)
 1. Spusťte Visual Studio Code
 2. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
 3. Vyhledejte rozšíření (`C/C++`) a nainstalujte jej
+
+Můžete také vyhledat `memviz` a nainstalovat rozšíření [Memory visualizer](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz) pro vizualizaci paměti. 
 
 ## Ukázka nastavení projektu
 Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)

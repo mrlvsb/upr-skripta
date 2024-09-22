@@ -187,6 +187,7 @@ video {
 <p>Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Pokud váš program
 padá při běhu nebo se nechová tak, jak má, tak v něm nejspíše máte nějakou chybu (tzv. <strong>bug</strong>).
 Proces hledání chyby, která způsobuje pád nebo špatné chování programu se pak nazývá <strong>ladění</strong> (<em>debugging</em>).</p>
+<p><strong>Zejména se podívejte na sekci o <a href="#krokov%C3%A1n%C3%AD">krokování</a>!</strong></p>
 <h3><a class="header" href="#chyby-při-překladu-programu" id="chyby-při-překladu-programu">Chyby při překladu programu</a></h3>
 <p>Pokud váš program nelze přeložit a překladač vypisuje nějakou chybovou hlášku, tak máte v zápisu programu
 nějakou chybu, obvykle v syntaxi, tedy zápisu kódu. Je dobré si danou chybovou hlášku pořádně přečíst,
@@ -266,6 +267,8 @@ Objeví se tam červené kolečko (tzv. <strong>breakpoint</strong>).</li>
 nechcete přeskakovat volání funkcí, použijte <code>Step Into</code> (<code>F11</code>).</li>
 </ul>
 <p><video src="../static/video/debugging.webm" controls></video></p>
+<p>Pokud si <a href="editor.html#instalace-roz%C5%A1%C3%AD%C5%99en%C3%AD-pomoc%C3%AD-termin%C3%A1lu">nainstalujete</a> rozšíření <a href="https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz">Memory Visualizer</a>, tak se vám při krokování zároveň bude zobrazovat vizualizace paměti běžícího programu, což se může hodit pro pochopení toho, jak se váš program chová:</p>
+<p><img src="../static/img/vsc-memviz-screenshot.png" alt="memviz" /></p>
 <blockquote>
 <p>VSCode používá pro ladění vašeho programu debugger <code>gdb</code>. Pokud ho chcete použít manuálně, návod
 můžete najít například <a href="https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/">zde</a>.</p>

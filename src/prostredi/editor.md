@@ -121,7 +121,7 @@ Do vygenerovaného souboru můžete zkopírovat tento obsah:
             "cwd": "${workspaceFolder}",
             "MIMode": "gdb",
             "miDebuggerPath": "/usr/bin/gdb",
-            "preLaunchTask": "C compile",
+            "preLaunchTask": "C compile"
         }
     ]
 }
@@ -159,6 +159,7 @@ Do `tasks.json` si můžete zkopírovat tento obsah:
             "command": "gcc",
             "args": [
                 "${workspaceFolder}/main.c",
+                "-g",
                 "-o",
                 "${workspaceFolder}/main"
             ]

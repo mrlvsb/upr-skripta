@@ -642,7 +642,7 @@ adresáři, ve složce <code>.vscode</code> (můžete ho případně i vytvořit
             &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
             &quot;MIMode&quot;: &quot;gdb&quot;,
             &quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,
-            &quot;preLaunchTask&quot;: &quot;C compile&quot;,
+            &quot;preLaunchTask&quot;: &quot;C compile&quot;
         }
     ]
 }
@@ -677,6 +677,7 @@ dostanete chybovou hlášku podobnou této:</p>
             &quot;command&quot;: &quot;gcc&quot;,
             &quot;args&quot;: [
                 &quot;${workspaceFolder}/main.c&quot;,
+                &quot;-g&quot;,
                 &quot;-o&quot;,
                 &quot;${workspaceFolder}/main&quot;
             ]

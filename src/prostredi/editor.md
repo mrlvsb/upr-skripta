@@ -38,7 +38,7 @@ takovýto řádek:
 ```c
 #include <stdio.h>
 ```
-tak je to pravděpodobně způsobeno jednou z dvou následujících věcí:
+je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
 1) Spouštíte VSCode z Windows a ne z Ubuntu WSL terminálu. Spouštějte VSCode vždy přímo z Ubuntu
 terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*. Viz
 [VSCode na WSL](linux/instalace.md#visual-studio-code).

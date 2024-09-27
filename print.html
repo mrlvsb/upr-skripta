@@ -390,6 +390,68 @@ sadu programů. V této kapitole naleznete stručný popis toho, jak si nastavit
 <a href="prostredi/linux/linux.html">operační systém Linux</a>, <a href="prostredi/editor.html">textový editor</a>
 k psaní programů, <a href="prostredi/preklad_programu.html">překladač</a> pro překlad z jazyka <em>C</em> do spustitelného souboru
 a také jak <a href="prostredi/ladeni.html">řešit chyby</a> při psaní programů.</p>
+<h2><a class="header" href="#prvotní-nastavení-projektu-na-wsl" id="prvotní-nastavení-projektu-na-wsl">Prvotní nastavení projektu na WSL</a></h2>
+<p>Pokud používáte WSL na Windows a nevíte si rady s tím,
+jak přeložit a zprovoznit svůj první program, zkuste následovat návod uvedený níže. Návod přepokládá, že již máte
+nainstalované <a href="prostredi/./linux/instalace.html#windows-subsystem-for-linux-doporu%C4%8Deno">WSL</a>, <a href="prostredi/./editor.html">editor</a> a <a href="prostredi/./preklad_programu.html">překladač</a>.</p>
+<blockquote>
+<p>Kroky 1, 3 a 4 budete dělat pokaždé, když budete chtít jít programovat.</p>
+</blockquote>
+<ol>
+<li>
+<p>Nejprve je potřeba spustit příkazovou řádku (tzv. terminál), který poběží pod Ubuntu/WSL. Dosáhnete toho tak, že z
+nabídky Start spustíte program <code>Ubuntu</code>.</p>
+<ul>
+<li>
+<p>Měl by se vám spustit terminál, jehož řádek s textem bude končit znakem <code>$</code> nebo <code>#</code>:</p>
+<p><img src="prostredi/../static/img/terminal1.png" alt="" /></p>
+</li>
+<li>
+<p>Pokud místo toho uvidíte terminál zakončený šipkou <code>&gt;</code>, tak jste ve Windows terminálu. To je špatně:</p>
+<p><img src="prostredi/../static/img/terminal-windows.png" alt="" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nyní je ideální si vytvořit nějakou složku, do které budete dávat své zdrojové kódy. Můžete ji nazvat např. <code>upr</code>.
+Spustťe tedy v terminálu příkaz <code>mkdir upr</code>, který složku vytvoří.</p>
+</li>
+<li>
+<p>Přepněte se v terminálu do právě vytvořené složky pomocí příkazu <code>cd upr</code>.</p>
+</li>
+<li>
+<p>Spusťte editor VSCode v právě aktivní složce (<code>upr</code>) pomocí příkazu <code>code .</code></p>
+<ul>
+<li>Všimněte si tečky na konci příkazu!</li>
+</ul>
+</li>
+<li>
+<p>Nyní můžete vytvořit zdrojový soubor s příponou <code>.c</code>, například <code>main.c</code>. V liště vlevo nahoře ve VSCode klikněte na
+<code>File -&gt; New File</code> a vytvořte soubor s názvem <code>main.c</code> v současné složce (<code>upr</code>).</p>
+</li>
+<li>
+<p>Do souboru <code>main.c</code> vložte nějaký C kód, např:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;Hello world\n&quot;);
+    return 0;
+}
+</code></pre>
+</li>
+<li>
+<p>Otevřete terminál ve VSCode (v liště nahoře <code>View -&gt; Terminal</code> nebo zkratka <code>Ctrl + J</code>).</p>
+</li>
+<li>
+<p>Ověřte si, že jste ve složce <code>upr</code> (například pomocí příkaz <code>pwd</code>), a také že v této složce existuje soubor <code>main.c</code> (pomocí příkazu <code>ls</code>).</p>
+</li>
+<li>
+<p>Přeložte tento soubor překladačem pomocí příkazu <code>gcc main.c -omain</code> v terminálu.</p>
+</li>
+<li>
+<p>A finálně přeložený program spusťte pomocí příkazu <code>./main</code> v terminálu.</p>
+</li>
+</ol>
 <h1><a class="header" href="#linux" id="linux">Linux</a></h1>
 <p>Jak už bylo zmíněno v <a href="prostredi/linux/../../uvod/uvod.html">úvodu</a>, v UPR budeme psát a spouštět programy v operačním
 systém <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>. Je tak nutné, abyste si na svém počítači

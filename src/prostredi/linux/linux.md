@@ -40,7 +40,7 @@ Po otevření terminálu byste měli vidět něco podobného:
 
 Před znakem dolaru (`$`) vždy uvidíte adresář[^1], ve kterém se zrovna v terminálu nacházíte. Odpovídá
 to zhruba tomu, jako když na Windows v prohlížeči souborů rozkliknete nějaký adresář a vidíte soubory,
-které se v něm nachází. Pomocí příkazu `cd` (viz níže) se můžete mezi adresáři přepípnat.
+které se v něm nachází. Pomocí příkazu `cd` (viz níže) se můžete mezi adresáři přepínat.
 
 [^1]: Adresář (nebo taky složka) označuje pojmenovanou sadu souborů umístěnou na nějaké **cestě** na
 disku. Adresáře mohou obsahovat jak soubory, tak další adresáře.

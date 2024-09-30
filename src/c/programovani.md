@@ -37,6 +37,21 @@ Javascript, Rust, C++ atd.).
 
 Zkomprimovanou formu těchto témat můžete naleznout v [taháku](../ruzne/tahak.md).
 
+## Upozornění ohledně využívání umělé inteligence
+Jistě tušíte, že dnes je možné využívat nástroje umělé inteligence k tomu, aby vám pomáhaly s programováním, konkrétně
+aby za vás přímo generovaly kód. Tyto nástroje mohou být velmi užitečné ve chvíli, kdy už víte, co děláte, a pouze si
+chcete usnadnit práci. Pokud jste však na začátku, a teprve se programovat učíte, tak se z AI stane velmi zlý pán.
+Umí sice vyřešit jednodušší úlohy, ale když si kód pouze necháte vygenerovat za vás, nic se tím nenaučíte. A u složitějších úloh (a následujících
+předmětů, ve kterých budete už muset mít určitou znalost programování) už bude mít AI problém. Pokud za vás jednoduché úlohy
+vyřeší někdo jiný, tak nezískáte znalosti potřebné k vyřešení složitějších úloh. Nebudete si ani umět ověřit, jestli je
+vygenerovaný kód správný, a případně ho upravit nebo opravit. Bez této znalosti se ve světě programování neobejdete. I když
+je to zpočátku náročné, toto se musíte naučit jedině neustálým zkoušením, experimentováním a programováním.
+
+Pokud odevzdáte úlohy napsané pomocí AI, a nebudete je umět vysvětlit, upravit či napsat vlastním způsobem, budeme to vnímat
+jako plagiarismus a podvádění, a reagovat na to odpovídající srážkou bodů.
+
+**Proto vám silně doporučujeme V PŘEDMĚTU UPR NEPOUŽÍVAT UMĚLOU INTELIGENCI.** Radši potrénujte svou vlastní :)
+
 ## Navazující aplikovaná témata
 
 - [TGA](aplikovane_ulohy/tga.md) - jak vytvořit obrázek

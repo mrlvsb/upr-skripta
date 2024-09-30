@@ -42,7 +42,7 @@ $ ./main
   ```
   - Užitečné datové typy:
     - `int`: celé číslo se znaménkem
-    - `float`, `double`: desetinné číslo
+    - `float`: desetinné číslo
     - `char`: znak
 - Čtení: `<název proměnné>`
   ```c
@@ -69,31 +69,31 @@ $ ./main
 - Nebo: `a || b`
 
 
-### Podmínky ([cislo](../c/rizeni_toku/podminky.md))
+### Podmínky ([učivo](../c/rizeni_toku/podminky.md))
 - [If](../c/rizeni_toku/if.md)
-```c
-if (<vyraz 1>) {
-  // Provede se, pokud je <vyraz 1> pravdivý
-} else if (<vyraz 2) {
-  // Provede se, pokud <vyraz 1> není pravdivý, a <vyraz 2> je pravdivý
-} else {
-  // Provede se, pokud <vyraz 1> není pravdivý, a <vyraz 2> také není pravdivé
-}
-```
-
-```c,editable,mainbody
-#include <stdio.h>
-
-int main() {
-  int a = 10;
-  if (a > 5) {
-    printf("a je vetsi nez 5\n");
+  ```c
+  if (<vyraz 1>) {
+    // Provede se, pokud je <vyraz 1> pravdivý
+  } else if (<vyraz 2>) {
+    // Provede se, pokud <vyraz 1> není pravdivý, a <vyraz 2> je pravdivý
   } else {
-    printf("a je mensi nebo rovno 5\n");
+    // Provede se, pokud <vyraz 1> není pravdivý, a <vyraz 2> také není pravdivé
   }
-  return 0;
-}
-```
+  ```
+
+  ```c,editable,mainbody
+  #include <stdio.h>
+  
+  int main() {
+    int a = 10;
+    if (a > 5) {
+      printf("a je vetsi nez 5\n");
+    } else {
+      printf("a je mensi nebo rovno 5\n");
+    }
+    return 0;
+  }
+  ```
 
 ### Cykly ([učivo](../c/rizeni_toku/cykly.md))
 - [While](../c/rizeni_toku/while.md)

@@ -55,24 +55,6 @@ soubory z VSCode.
 Podrobnější návod pro zprovoznění WSL spolu s prostředím pro vývoj v jazyce *C* naleznete
 [zde](https://code.visualstudio.com/docs/cpp/config-wsl).
 
-## Virtualizovaný Linux
-Linux můžete také používat ve virtualizované podobě pomocí
-[virtuálního stroje](https://cs.wikipedia.org/wiki/Virtu%C3%A1ln%C3%AD_stroj). V této variantě se
-pod Windows spustí celý virtuální počítač, na kterém poběží Linux, který nebude mít vůbec tušení o
-tom, že je spuštěn pod Windows. Výhodou tohoto řešení je, že se virtuální počítač bude chovat jako
-plnohodnotná instalace Linuxu, a téměř vše by tedy na něm mělo fungovat (i včetně např. grafických
-aplikací, které pod WSL nemusí fungovat). Nevýhodou je, že virtuální počítač je značně náročný na procesor
-i paměť počítače, a může být obtížnější s virtuálním počítačem sdílet data z Windows (ve srovnání s WSL).
-
-Připravili jsme pro vás tzv. obraz virtuálního stroje, který obsahuje již nastavený Linux, konkrétně
-`Ubuntu 20.04`, se vším potřebným pro předmět UPR. Abyste jej mohli použít, tak si nejprve musíte
-nainstalovat virtualizační program [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Poté si
-[předpřipravený obraz](https://drive.google.com/file/d/1RsFoternYw1vNYlHefa5wr1ZwLv81wBi/view?usp=sharing) stáhněte, otevřete ho ve VirtualBoxu
-a potvrďte import s výchozím nastavením.
-
-Virtuální počítač poté bude možné spustit z programu VirtualBox. Uživatelské jméno i heslo je
-`student`.
-
 ## Nativní instalace Linuxu
 Nejspolehlivější variantou použití Linuxu je nainstalovat si ho přímo "na železo", tj. bez
 virtualizace. Můžete jej například nastavit v režimu

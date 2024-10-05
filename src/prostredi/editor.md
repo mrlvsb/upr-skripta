@@ -32,24 +32,6 @@ terminálu spustíte tento příkaz:
 [^1]: Pokud by tomu tak nebylo, návod na instalaci VSCode na Linuxu naleznete
 [zde](https://code.visualstudio.com/docs/setup/linux).
 
-### Chybějící hlavičkové soubory
-Pokud spustíte VSCode, otevřete v něm nějaký program s *C* kódem a budete mít červeně podtržený např.
-takovýto řádek:
-```c
-#include <stdio.h>
-```
-je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
-1) Spouštíte VSCode z Windows a ne z Ubuntu WSL terminálu. Spouštějte VSCode vždy přímo z Ubuntu
-terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*. Viz
-[VSCode na WSL](linux/instalace.md#visual-studio-code).
-2) Nemáte nainstalovaný překladač (`gcc`). Spusťte Ubuntu terminál a nainstalujte jej, viz
-[překlad programu](preklad_programu.md).
-
-> Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
-> problém v kódu opravdu je. Důležité je, co řekne [překladač](preklad_programu.md) při překladu
-> programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
-> nastavit, ať vás to neplete.
-
 ## Instalace rozšíření (pomocí terminálu)
 VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk *C*. V terminálu spusťte tyto příkazy:
@@ -68,17 +50,40 @@ $ code --install-extension jakub-beranek.memviz
 1. Spusťte Visual Studio Code
 2. Otevřete obrazovku rozšíření (`Ctrl+Shift+X` nebo spusťte akci `Install Extensions`)
 3. Vyhledejte rozšíření (`C/C++`) a nainstalujte jej
+4. Můžete také vyhledat `memviz` a nainstalovat rozšíření [Memory visualizer](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz) pro vizualizaci paměti. 
 
-Můžete také vyhledat `memviz` a nainstalovat rozšíření [Memory visualizer](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz) pro vizualizaci paměti. 
+## Časté problémy
+Tato sekce obsahuje vybrané problémy, se kterými se studenti často setkávají při práci s Visual Studio Code (obzvláště
+na WSL).
 
-## Ukázka nastavení projektu
-Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)
-šablonu. Pro otevření adresáře ve VSCode klikněte na `Soubor (File) -> Otevřít adresář (Open Folder)`
-a vyberte nějaký adresář, ve kterém chcete programovat.
+### Chybějící hlavičkové soubory
+Pokud spustíte VSCode, otevřete v něm nějaký program s *C* kódem a budete mít červeně podtržený např.
+takovýto řádek:
+```c
+#include <stdio.h>
+```
+je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
+1) Spouštíte VSCode z Windows a ne z Ubuntu WSL terminálu. Spouštějte VSCode vždy přímo z Ubuntu
+   terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*.
 
-![Nastavení VSCode](../static/video/vsc_first_run.gif)
+   Podle ikony dvou šipek v levém dolním rohu okna VSCode můžete rozpoznat, zdali jste připojení ve VSCode k WSL, nebo ne.
+  - Pokud je u ikony napsáno WSL, tak jste správně ve WSL terminálu:
 
-## Ukládání souborů
+    ![](../static/img/vsc-wsl.png)
+
+  - Pokud tam jsou pouze dvě šipky a nic více, tak jste VSCode spustili ve Windows místo ve WSL, to je špatně:
+
+    ![](../static/img/vsc-windows.png)
+
+2) Nemáte nainstalovaný překladač (`gcc`). Spusťte Ubuntu terminál a nainstalujte jej, viz
+   [překlad programu](preklad_programu.md).
+
+> Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
+> problém v kódu opravdu je. Důležité je, co řekne [překladač](preklad_programu.md) při překladu
+> programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
+> nastavit, ať vás to neplete.
+
+### Změny ve zdrojovém kódu se nepromítají v přeloženém programu
 Pokud v otevřeném zdrojovém souboru provedete nějaké změny, tak se neuloží na disk, dokud soubor neuložíte (pomocí
 klávesové zkratky `Ctrl + S`). Občas se studentům stává, že provedou změnu, poté se snaží přeložit program, ale jejich
 změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to právě proto, že soubor není uložen!
@@ -88,15 +93,12 @@ změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to práv
 Vždy tak po provedení změn ukládejte soubor pomocí `Ctrl + S`, případně si můžete v nastavení (`Settings`) zapnout volbu
 `Auto Save`.
 
-## Automatické formátování kódu
-Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,
-aby byl přehledný a dalo se v něm vyznat. Tuto činnost však můžete nechat plně na editoru či vývojovém prostředí.
-Ve Visual Studio Code můžete použít klávesovou zkratku `Ctrl + Shift + I`, která vám právě otevřený soubor s kódem
-automaticky zformátuje.
+## Ukázka nastavení projektu
+Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)
+šablonu. Pro otevření adresáře ve VSCode klikněte na `Soubor (File) -> Otevřít adresář (Open Folder)`
+a vyberte nějaký adresář, ve kterém chcete programovat.
 
-Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
-`File -> Preferences -> Settings`, poté do vyhledávacího okénka napište `Format On Save` a zaškrtněte tuto možnost:
-![](../static/img/vsc-format-on-save.png)
+![Nastavení VSCode](../static/video/vsc_first_run.gif)
 
 ## Pokročilé možnosti nastavení projektu
 Pokud byste si chtěli nastavit VSCode tak, aby překládal nebo spouštěl váš program s jiným, než základním
@@ -104,8 +106,7 @@ nastavením, můžete k tomu využít konfiguraci pomocí souborů `launch.json`
 váš program spouštět, případně `tasks.json`, pomocí kterého můžeme nastavit, jak se bude program překládat.
 
 `launch.json` je možno vytvořit po kliknutí na záložku `Run and Debug` (Ctrl+Shift+D) a poté na tlačítko `create a
-launch.json file` (tlačítko se zobrazí, pokud máte otevřený C soubor ve VSCode). Soubor se vytvoří v současně otevřeném
-adresáři, ve složce `.vscode` (můžete ho případně i vytvořit manuálně).
+launch.json file` (tlačítko se zobrazí, pokud máte otevřený soubor s příponou `.c` ve VSCode). Soubor se vytvoří v současně otevřeném adresáři, ve složce `.vscode` (můžete ho případně i vytvořit manuálně).
 
 Do vygenerovaného souboru můžete zkopírovat tento obsah:
 ```json
@@ -146,7 +147,7 @@ Dále budete muset nastavit soubor **tasks.json**, pro automatický překlad pro
 (vytvořte jej opět ve `.vscode` složce projektu). Pokud tento soubor bude chybět, při pokusu o ladění programu
 dostanete chybovou hlášku podobnou této:
 
-> launch: program `<cesta>/main` does not exists
+> launch: program `<cesta>/main` does not exist
 
 Do `tasks.json` si můžete zkopírovat tento obsah:
 ```json
@@ -180,6 +181,16 @@ Zde jsou důležité hlavně dva atributy:
 Více informací o možnostech nastavení těchto dvou souborů můžete naleznout na těchto odkazech:
 - [Microsoft Configure C/C++ debugging](https://code.visualstudio.com/docs/cpp/launch-json-reference)
 - [Microsoft Variables Reference](https://code.visualstudio.com/docs/editor/variables-reference)
+
+## Automatické formátování kódu
+Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,
+aby byl přehledný a dalo se v něm vyznat. Tuto činnost však můžete nechat plně na editoru či vývojovém prostředí.
+Ve Visual Studio Code můžete použít klávesovou zkratku `Ctrl + Shift + I`, která vám právě otevřený soubor s kódem
+automaticky zformátuje.
+
+Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
+`File -> Preferences -> Settings`, poté do vyhledávacího okénka napište `Format On Save` a zaškrtněte tuto možnost:
+![](../static/img/vsc-format-on-save.png)
 
 ## Užitečné zkratky 
 - Spustit program - `F5`

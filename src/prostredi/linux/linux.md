@@ -42,7 +42,7 @@ Před znakem dolaru (`$`) vždy uvidíte adresář[^1], ve kterém se zrovna v t
 to zhruba tomu, jako když na Windows v prohlížeči souborů rozkliknete nějaký adresář a vidíte soubory,
 které se v něm nachází. Pomocí příkazu `cd` (viz níže) se můžete mezi adresáři přepínat.
 
-[^1]: Adresář (nebo taky složka) označuje pojmenovanou sadu souborů umístěnou na nějaké **cestě** na
+[^1]: Adresář (nebo taky složka) označuje pojmenovanou sadu souborů umístěnou na nějaké **cestě** (např. `/home/franta/soubor.c` nebo `/mnt/c/users/franta/Desktop/soubor.c`) na
 disku. Adresáře mohou obsahovat jak soubory, tak další adresáře.
 
 Nyní můžete do terminálu psát příkazy, pomocí kterých si můžete např. vypsat soubory v současném
@@ -54,7 +54,7 @@ adresáři, vytvořit nový adresář, spustit nějaký program nebo se přesuno
     soubor2
     slozka1
     ```
-- Přesunutí do jiného adresáře (`cd = change directory`)
+- Přepnutí se do jiného adresáře (`cd = change directory`)
     ```bash
     ~$ cd slozka1
     ~/slozka1$

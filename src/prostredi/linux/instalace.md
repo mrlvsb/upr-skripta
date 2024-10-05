@@ -79,4 +79,4 @@ virtualizace. Můžete jej například nastavit v režimu
 [dual boot](https://www.tecmint.com/install-ubuntu-alongside-with-windows-dual-boot/), kdy se při
 startu počítače můžete rozhodnout, zdali se nabootuje do Windows (či jiného operačního systému)
 nebo do Linuxu. Pokud jste s Linuxem nikdy nepracovali, tak doporučujeme použít Linuxovou
-[distribuci Ubuntu](https://itsfoss.com/install-ubuntu/) ve verzi `22.04`.
+[distribuci Ubuntu](https://itsfoss.com/install-ubuntu/) ve verzi `24.04`.

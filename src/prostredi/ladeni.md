@@ -33,7 +33,7 @@ Při překladu můžete použít dodatečné přepínače, při jejichž použit
 možných problémových místech ve vašem kódu:
 
 ```bash
-$ gcc -Wall -Wextra -pedantic main.c -o program
+$ gcc -Wall -Wextra -pedantic -Werror=uninitialized -Werror=vla -Werror=return-type ...
 ``` 
 
 Podívejte se také do sekce [Časté chyby](../caste_chyby/caste_chyby.md), kde je seznam často se
@@ -102,6 +102,12 @@ nechcete přeskakovat volání funkcí, použijte `Step Into` (`F11`).
 Pokud si [nainstalujete](editor.md#instalace-rozšíření-pomocí-terminálu) rozšíření [Memory Visualizer](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz), tak se vám při krokování zároveň bude zobrazovat vizualizace paměti běžícího programu, což se může hodit pro pochopení toho, jak se váš program chová:
 
 ![memviz](../static/img/vsc-memviz-screenshot.png)
+
+Pro správné fungování rozšíření `Memory Visualizer` je nutné mít debugger `gdb` ve verzi 12.1 (nebo novější).
+Verzi `gdb` můžete zjistit pomocí následujícího příkazu:
+```bash
+$ gdb --version
+```
 
 > VSCode používá pro ladění vašeho programu debugger `gdb`. Pokud ho chcete použít manuálně, návod
 > můžete najít například [zde](https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/).

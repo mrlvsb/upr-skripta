@@ -209,7 +209,7 @@ byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;
 <p>Pokud se vám nedaří chybu vygooglit, tak kontaktujte svého cvičícího.</p>
 <p>Při překladu můžete použít dodatečné přepínače, při jejichž použití vydá překladač více varování o
 možných problémových místech ve vašem kódu:</p>
-<pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
+<pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic -Werror=uninitialized -Werror=vla -Werror=return-type ...
 </code></pre>
 <p>Podívejte se také do sekce <a href="../caste_chyby/caste_chyby.html">Časté chyby</a>, kde je seznam často se
 vyskytujících chyb.</p>
@@ -269,6 +269,10 @@ nechcete přeskakovat volání funkcí, použijte <code>Step Into</code> (<code>
 <p><video src="../static/video/debugging.webm" controls></video></p>
 <p>Pokud si <a href="editor.html#instalace-roz%C5%A1%C3%AD%C5%99en%C3%AD-pomoc%C3%AD-termin%C3%A1lu">nainstalujete</a> rozšíření <a href="https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz">Memory Visualizer</a>, tak se vám při krokování zároveň bude zobrazovat vizualizace paměti běžícího programu, což se může hodit pro pochopení toho, jak se váš program chová:</p>
 <p><img src="../static/img/vsc-memviz-screenshot.png" alt="memviz" /></p>
+<p>Pro správné fungování rozšíření <code>Memory Visualizer</code> je nutné mít debugger <code>gdb</code> ve verzi 12.1 (nebo novější).
+Verzi <code>gdb</code> můžete zjistit pomocí následujícího příkazu:</p>
+<pre><code class="language-bash">$ gdb --version
+</code></pre>
 <blockquote>
 <p>VSCode používá pro ladění vašeho programu debugger <code>gdb</code>. Pokud ho chcete použít manuálně, návod
 můžete najít například <a href="https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/">zde</a>.</p>

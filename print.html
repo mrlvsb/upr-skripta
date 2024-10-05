@@ -390,9 +390,10 @@ sadu programů. V této kapitole naleznete stručný popis toho, jak si nastavit
 <a href="prostredi/linux/linux.html">operační systém Linux</a>, <a href="prostredi/editor.html">textový editor</a>
 k psaní programů, <a href="prostredi/preklad_programu.html">překladač</a> pro překlad z jazyka <em>C</em> do spustitelného souboru
 a také jak <a href="prostredi/ladeni.html">řešit chyby</a> při psaní programů.</p>
+<p>Pokud používáte WSL, tak jakmile budete mít vše potřebné nainstalované, projděte si návod níže.</p>
 <h2><a class="header" href="#prvotní-nastavení-projektu-na-wsl" id="prvotní-nastavení-projektu-na-wsl">Prvotní nastavení projektu na WSL</a></h2>
 <p>Pokud používáte WSL na Windows a nevíte si rady s tím,
-jak přeložit a zprovoznit svůj první program, zkuste následovat návod uvedený níže. Návod přepokládá, že již máte
+jak přeložit a zprovoznit svůj první program, zkuste následovat návod uvedený níže. Tento návod předpokládá, že již máte
 nainstalované <a href="prostredi/./linux/instalace.html#windows-subsystem-for-linux-doporu%C4%8Deno">WSL</a>, <a href="prostredi/./editor.html">editor</a> a <a href="prostredi/./preklad_programu.html">překladač</a>.</p>
 <blockquote>
 <p>Kroky 1, 3 a 4 budete dělat pokaždé, když budete chtít jít programovat.</p>
@@ -491,7 +492,7 @@ a vyhledejte program <code>Terminal</code>. Pokud používáte WSL, tak spusťte
 <p>Před znakem dolaru (<code>$</code>) vždy uvidíte adresář<sup class='margin-toggle sidenote-number'>1</sup>, ve kterém se zrovna v terminálu nacházíte. Odpovídá
 to zhruba tomu, jako když na Windows v prohlížeči souborů rozkliknete nějaký adresář a vidíte soubory,
 které se v něm nachází. Pomocí příkazu <code>cd</code> (viz níže) se můžete mezi adresáři přepínat.</p>
-<span class='sidenote'><p><sup class='number'>1</sup>Adresář (nebo taky složka) označuje pojmenovanou sadu souborů umístěnou na nějaké <strong>cestě</strong> na
+<span class='sidenote'><p><sup class='number'>1</sup>Adresář (nebo taky složka) označuje pojmenovanou sadu souborů umístěnou na nějaké <strong>cestě</strong> (např. <code>/home/franta/soubor.c</code> nebo <code>/mnt/c/users/franta/Desktop/soubor.c</code>) na
 disku. Adresáře mohou obsahovat jak soubory, tak další adresáře.</p>
 </span>
 <p>Nyní můžete do terminálu psát příkazy, pomocí kterých si můžete např. vypsat soubory v současném
@@ -504,7 +505,7 @@ soubor2
 slozka1
 </code></pre>
 </li>
-<li>Přesunutí do jiného adresáře (<code>cd = change directory</code>)
+<li>Přepnutí se do jiného adresáře (<code>cd = change directory</code>)
 <pre><code class="language-bash">~$ cd slozka1
 ~/slozka1$
 </code></pre>
@@ -563,17 +564,6 @@ $ sudo apt install build-essential gdb
 <p>Při pokusu o instalaci vás program vyzve, abyste instalaci potvrdili. Udělejte to zmáčknutím klávesy <code>y</code>
 a potvrďte klávesou Enter.</p>
 </blockquote>
-<h2><a class="header" href="#visual-studio-code" id="visual-studio-code">Visual Studio Code</a></h2>
-<p>Pokud chcete pod WSL používat editor Visual Studio Code, tak ho <strong>nespouštějte z Windows</strong>,
-ale nejprve si otevřete WSL <code>bash</code> terminál, a poté spusťe VSCode pomocí tohoto příkazu:</p>
-<pre><code class="language-bash">$ code .
-</code></pre>
-<p>Pokud takto VSCode spustíte, tak si nainstaluje sám rozšíření pro WSL a bude poté využívat WSL bash
-a překladač pro spouštění a překlad vašich <code>C</code> programů. Do VSCode si poté nainstalujte ještě
-rozšíření (extension) <code>C/C++</code> a také rozšíření <code>Remote development</code>, které vám umožní pracovat s WSL
-soubory z VSCode.</p>
-<p>Podrobnější návod pro zprovoznění WSL spolu s prostředím pro vývoj v jazyce <em>C</em> naleznete
-<a href="https://code.visualstudio.com/docs/cpp/config-wsl">zde</a>.</p>
 <h2><a class="header" href="#virtualizovaný-linux" id="virtualizovaný-linux">Virtualizovaný Linux</a></h2>
 <p>Linux můžete také používat ve virtualizované podobě pomocí
 <a href="https://cs.wikipedia.org/wiki/Virtu%C3%A1ln%C3%AD_stroj">virtuálního stroje</a>. V této variantě se
@@ -595,7 +585,7 @@ virtualizace. Můžete jej například nastavit v režimu
 <a href="https://www.tecmint.com/install-ubuntu-alongside-with-windows-dual-boot/">dual boot</a>, kdy se při
 startu počítače můžete rozhodnout, zdali se nabootuje do Windows (či jiného operačního systému)
 nebo do Linuxu. Pokud jste s Linuxem nikdy nepracovali, tak doporučujeme použít Linuxovou
-<a href="https://itsfoss.com/install-ubuntu/">distribuci Ubuntu</a> ve verzi <code>22.04</code>.</p>
+<a href="https://itsfoss.com/install-ubuntu/">distribuci Ubuntu</a> ve verzi <code>24.04</code>.</p>
 <h1><a class="header" href="#vývojové-prostředí" id="vývojové-prostředí">Vývojové prostředí</a></h1>
 <p>Abychom mohli přeložit a spustit nějaký program, musíme ho obvykle nejprve zapsat do
 jednoho nebo více souborů ve formě tzv. <strong>zdrojového kódu</strong> (<em>source code</em>). K usnadnění tohoto procesu
@@ -630,25 +620,6 @@ si poté také nainstalujte dodatečné rozšíření
 <a href="https://code.visualstudio.com/docs/remote/wsl">zde</a> nebo <a href="https://code.visualstudio.com/docs/cpp/config-wsl">zde</a>.</p>
 </li>
 </ul>
-<h3><a class="header" href="#chybějící-hlavičkové-soubory" id="chybějící-hlavičkové-soubory">Chybějící hlavičkové soubory</a></h3>
-<p>Pokud spustíte VSCode, otevřete v něm nějaký program s <em>C</em> kódem a budete mít červeně podtržený např.
-takovýto řádek:</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-</code></pre>
-<p>je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:</p>
-<ol>
-<li>Spouštíte VSCode z Windows a ne z Ubuntu WSL terminálu. Spouštějte VSCode vždy přímo z Ubuntu
-terminálu, aby mělo správný přístup k systémovým souborům jazyka <em>C</em>. Viz
-<a href="prostredi/linux/instalace.html#visual-studio-code">VSCode na WSL</a>.</li>
-<li>Nemáte nainstalovaný překladač (<code>gcc</code>). Spusťte Ubuntu terminál a nainstalujte jej, viz
-<a href="prostredi/preklad_programu.html">překlad programu</a>.</li>
-</ol>
-<blockquote>
-<p>Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
-problém v kódu opravdu je. Důležité je, co řekne <a href="prostredi/preklad_programu.html">překladač</a> při překladu
-programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
-nastavit, ať vás to neplete.</p>
-</blockquote>
 <h2><a class="header" href="#instalace-rozšíření-pomocí-terminálu" id="instalace-rozšíření-pomocí-terminálu">Instalace rozšíření (pomocí terminálu)</a></h2>
 <p>VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk <em>C</em>. V terminálu spusťte tyto příkazy:</p>
@@ -662,14 +633,45 @@ tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk <em>C</em>. 
 <li>Spusťte Visual Studio Code</li>
 <li>Otevřete obrazovku rozšíření (<code>Ctrl+Shift+X</code> nebo spusťte akci <code>Install Extensions</code>)</li>
 <li>Vyhledejte rozšíření (<code>C/C++</code>) a nainstalujte jej</li>
+<li>Můžete také vyhledat <code>memviz</code> a nainstalovat rozšíření <a href="https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz">Memory visualizer</a> pro vizualizaci paměti. </li>
 </ol>
-<p>Můžete také vyhledat <code>memviz</code> a nainstalovat rozšíření <a href="https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz">Memory visualizer</a> pro vizualizaci paměti. </p>
-<h2><a class="header" href="#ukázka-nastavení-projektu" id="ukázka-nastavení-projektu">Ukázka nastavení projektu</a></h2>
-<p>Jako vzorový projekt můžete použít <a href="https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project">tuto</a>
-šablonu. Pro otevření adresáře ve VSCode klikněte na <code>Soubor (File) -&gt; Otevřít adresář (Open Folder)</code>
-a vyberte nějaký adresář, ve kterém chcete programovat.</p>
-<p><img src="prostredi/../static/video/vsc_first_run.gif" alt="Nastavení VSCode" /></p>
-<h2><a class="header" href="#ukládání-souborů" id="ukládání-souborů">Ukládání souborů</a></h2>
+<h2><a class="header" href="#Časté-problémy" id="Časté-problémy">Časté problémy</a></h2>
+<p>Tato sekce obsahuje vybrané problémy, se kterými se studenti často setkávají při práci s Visual Studio Code (obzvláště
+na WSL).</p>
+<h3><a class="header" href="#chybějící-hlavičkové-soubory" id="chybějící-hlavičkové-soubory">Chybějící hlavičkové soubory</a></h3>
+<p>Pokud spustíte VSCode, otevřete v něm nějaký program s <em>C</em> kódem a budete mít červeně podtržený např.
+takovýto řádek:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+</code></pre>
+<p>je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:</p>
+<ol>
+<li>
+<p>Spouštíte VSCode z Windows a ne z Ubuntu WSL terminálu. Spouštějte VSCode vždy přímo z Ubuntu
+terminálu, aby mělo správný přístup k systémovým souborům jazyka <em>C</em>.</p>
+<p>Podle ikony dvou šipek v levém dolním rohu okna VSCode můžete rozpoznat, zdali jste připojení ve VSCode k WSL, nebo ne.</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Pokud je u ikony napsáno WSL, tak jste správně ve WSL terminálu:</p>
+<p><img src="prostredi/../static/img/vsc-wsl.png" alt="" /></p>
+</li>
+<li>
+<p>Pokud tam jsou pouze dvě šipky a nic více, tak jste VSCode spustili ve Windows místo ve WSL, to je špatně:</p>
+<p><img src="prostredi/../static/img/vsc-windows.png" alt="" /></p>
+</li>
+</ul>
+<ol start="2">
+<li>Nemáte nainstalovaný překladač (<code>gcc</code>). Spusťte Ubuntu terminál a nainstalujte jej, viz
+<a href="prostredi/preklad_programu.html">překlad programu</a>.</li>
+</ol>
+<blockquote>
+<p>Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
+problém v kódu opravdu je. Důležité je, co řekne <a href="prostredi/preklad_programu.html">překladač</a> při překladu
+programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
+nastavit, ať vás to neplete.</p>
+</blockquote>
+<h3><a class="header" href="#změny-ve-zdrojovém-kódu-se-nepromítají-v-přeloženém-programu" id="změny-ve-zdrojovém-kódu-se-nepromítají-v-přeloženém-programu">Změny ve zdrojovém kódu se nepromítají v přeloženém programu</a></h3>
 <p>Pokud v otevřeném zdrojovém souboru provedete nějaké změny, tak se neuloží na disk, dokud soubor neuložíte (pomocí
 klávesové zkratky <code>Ctrl + S</code>). Občas se studentům stává, že provedou změnu, poté se snaží přeložit program, ale jejich
 změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to právě proto, že soubor není uložen!
@@ -677,20 +679,16 @@ změny se neprojeví a studenti nerozumí, proč tomu tak je. Často je to práv
 <img src="prostredi/../static/img/vsc-unsaved-file.png" alt="" /></p>
 <p>Vždy tak po provedení změn ukládejte soubor pomocí <code>Ctrl + S</code>, případně si můžete v nastavení (<code>Settings</code>) zapnout volbu
 <code>Auto Save</code>.</p>
-<h2><a class="header" href="#automatické-formátování-kódu" id="automatické-formátování-kódu">Automatické formátování kódu</a></h2>
-<p>Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,
-aby byl přehledný a dalo se v něm vyznat. Tuto činnost však můžete nechat plně na editoru či vývojovém prostředí.
-Ve Visual Studio Code můžete použít klávesovou zkratku <code>Ctrl + Shift + I</code>, která vám právě otevřený soubor s kódem
-automaticky zformátuje.</p>
-<p>Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
-<code>File -&gt; Preferences -&gt; Settings</code>, poté do vyhledávacího okénka napište <code>Format On Save</code> a zaškrtněte tuto možnost:
-<img src="prostredi/../static/img/vsc-format-on-save.png" alt="" /></p>
+<h2><a class="header" href="#ukázka-nastavení-projektu" id="ukázka-nastavení-projektu">Ukázka nastavení projektu</a></h2>
+<p>Jako vzorový projekt můžete použít <a href="https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project">tuto</a>
+šablonu. Pro otevření adresáře ve VSCode klikněte na <code>Soubor (File) -&gt; Otevřít adresář (Open Folder)</code>
+a vyberte nějaký adresář, ve kterém chcete programovat.</p>
+<p><img src="prostredi/../static/video/vsc_first_run.gif" alt="Nastavení VSCode" /></p>
 <h2><a class="header" href="#pokročilé-možnosti-nastavení-projektu" id="pokročilé-možnosti-nastavení-projektu">Pokročilé možnosti nastavení projektu</a></h2>
 <p>Pokud byste si chtěli nastavit VSCode tak, aby překládal nebo spouštěl váš program s jiným, než základním
 nastavením, můžete k tomu využít konfiguraci pomocí souborů <code>launch.json</code>, který definuje, jak bude VSCode
 váš program spouštět, případně <code>tasks.json</code>, pomocí kterého můžeme nastavit, jak se bude program překládat.</p>
-<p><code>launch.json</code> je možno vytvořit po kliknutí na záložku <code>Run and Debug</code> (Ctrl+Shift+D) a poté na tlačítko <code>create a launch.json file</code> (tlačítko se zobrazí, pokud máte otevřený C soubor ve VSCode). Soubor se vytvoří v současně otevřeném
-adresáři, ve složce <code>.vscode</code> (můžete ho případně i vytvořit manuálně).</p>
+<p><code>launch.json</code> je možno vytvořit po kliknutí na záložku <code>Run and Debug</code> (Ctrl+Shift+D) a poté na tlačítko <code>create a launch.json file</code> (tlačítko se zobrazí, pokud máte otevřený soubor s příponou <code>.c</code> ve VSCode). Soubor se vytvoří v současně otevřeném adresáři, ve složce <code>.vscode</code> (můžete ho případně i vytvořit manuálně).</p>
 <p>Do vygenerovaného souboru můžete zkopírovat tento obsah:</p>
 <pre><code class="language-json">{
     &quot;version&quot;: &quot;0.2.0&quot;,
@@ -727,7 +725,7 @@ tak přidejte na konec <code>args</code> šipku doleva a cestu k souboru, který
 (vytvořte jej opět ve <code>.vscode</code> složce projektu). Pokud tento soubor bude chybět, při pokusu o ladění programu
 dostanete chybovou hlášku podobnou této:</p>
 <blockquote>
-<p>launch: program <code>&lt;cesta&gt;/main</code> does not exists</p>
+<p>launch: program <code>&lt;cesta&gt;/main</code> does not exist</p>
 </blockquote>
 <p>Do <code>tasks.json</code> si můžete zkopírovat tento obsah:</p>
 <pre><code class="language-json">{
@@ -765,6 +763,14 @@ dostanete chybovou hlášku podobnou této:</p>
 <li><a href="https://code.visualstudio.com/docs/cpp/launch-json-reference">Microsoft Configure C/C++ debugging</a></li>
 <li><a href="https://code.visualstudio.com/docs/editor/variables-reference">Microsoft Variables Reference</a></li>
 </ul>
+<h2><a class="header" href="#automatické-formátování-kódu" id="automatické-formátování-kódu">Automatické formátování kódu</a></h2>
+<p>Pokud s programováním začínáte, tak budete ze začátku nejspíše trochu bojovat s tím, jak zformátovat zdrojový kód,
+aby byl přehledný a dalo se v něm vyznat. Tuto činnost však můžete nechat plně na editoru či vývojovém prostředí.
+Ve Visual Studio Code můžete použít klávesovou zkratku <code>Ctrl + Shift + I</code>, která vám právě otevřený soubor s kódem
+automaticky zformátuje.</p>
+<p>Můžete si dokonce editor nastavit tak, aby po každém uložení souboru kód automaticky zformátoval. Klikněte na
+<code>File -&gt; Preferences -&gt; Settings</code>, poté do vyhledávacího okénka napište <code>Format On Save</code> a zaškrtněte tuto možnost:
+<img src="prostredi/../static/img/vsc-format-on-save.png" alt="" /></p>
 <h2><a class="header" href="#užitečné-zkratky" id="užitečné-zkratky">Užitečné zkratky</a></h2>
 <ul>
 <li>Spustit program - <code>F5</code></li>
@@ -879,7 +885,7 @@ byla vypsána jako první, zbytek výpisu může být &quot;planý poplach&quot;
 <p>Pokud se vám nedaří chybu vygooglit, tak kontaktujte svého cvičícího.</p>
 <p>Při překladu můžete použít dodatečné přepínače, při jejichž použití vydá překladač více varování o
 možných problémových místech ve vašem kódu:</p>
-<pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic main.c -o program
+<pre><code class="language-bash">$ gcc -Wall -Wextra -pedantic -Werror=uninitialized -Werror=vla -Werror=return-type ...
 </code></pre>
 <p>Podívejte se také do sekce <a href="prostredi/../caste_chyby/caste_chyby.html">Časté chyby</a>, kde je seznam často se
 vyskytujících chyb.</p>
@@ -939,6 +945,10 @@ nechcete přeskakovat volání funkcí, použijte <code>Step Into</code> (<code>
 <p><video src="../static/video/debugging.webm" controls></video></p>
 <p>Pokud si <a href="prostredi/editor.html#instalace-roz%C5%A1%C3%AD%C5%99en%C3%AD-pomoc%C3%AD-termin%C3%A1lu">nainstalujete</a> rozšíření <a href="https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz">Memory Visualizer</a>, tak se vám při krokování zároveň bude zobrazovat vizualizace paměti běžícího programu, což se může hodit pro pochopení toho, jak se váš program chová:</p>
 <p><img src="prostredi/../static/img/vsc-memviz-screenshot.png" alt="memviz" /></p>
+<p>Pro správné fungování rozšíření <code>Memory Visualizer</code> je nutné mít debugger <code>gdb</code> ve verzi 12.1 (nebo novější).
+Verzi <code>gdb</code> můžete zjistit pomocí následujícího příkazu:</p>
+<pre><code class="language-bash">$ gdb --version
+</code></pre>
 <blockquote>
 <p>VSCode používá pro ladění vašeho programu debugger <code>gdb</code>. Pokud ho chcete použít manuálně, návod
 můžete najít například <a href="https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/">zde</a>.</p>

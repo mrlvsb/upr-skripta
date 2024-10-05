@@ -41,20 +41,6 @@ $ sudo apt install build-essential gdb
 > Při pokusu o instalaci vás program vyzve, abyste instalaci potvrdili. Udělejte to zmáčknutím klávesy `y`
 > a potvrďte klávesou Enter.
 
-## Visual Studio Code
-Pokud chcete pod WSL používat editor Visual Studio Code, tak ho **nespouštějte z Windows**,
-ale nejprve si otevřete WSL `bash` terminál, a poté spusťe VSCode pomocí tohoto příkazu:
-```bash
-$ code .
-```
-Pokud takto VSCode spustíte, tak si nainstaluje sám rozšíření pro WSL a bude poté využívat WSL bash
-a překladač pro spouštění a překlad vašich `C` programů. Do VSCode si poté nainstalujte ještě
-rozšíření (extension) `C/C++` a také rozšíření `Remote development`, které vám umožní pracovat s WSL
-soubory z VSCode.
-
-Podrobnější návod pro zprovoznění WSL spolu s prostředím pro vývoj v jazyce *C* naleznete
-[zde](https://code.visualstudio.com/docs/cpp/config-wsl).
-
 ## Virtualizovaný Linux
 Linux můžete také používat ve virtualizované podobě pomocí
 [virtuálního stroje](https://cs.wikipedia.org/wiki/Virtu%C3%A1ln%C3%AD_stroj). V této variantě se

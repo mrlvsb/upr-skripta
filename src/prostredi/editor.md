@@ -67,7 +67,7 @@ je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
    terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*.
 
    Podle ikony dvou šipek v levém dolním rohu okna VSCode můžete rozpoznat, zdali jste připojení ve VSCode k WSL, nebo ne.
-  - Pokud je u ikony napsáno WSL, tak jste správně ve WSL terminálu:
+  - Pokud je u ikony napsáno WSL, tak je VSCode správně připojen k WSL terminálu:
 
     ![](../static/img/vsc-wsl.png)
 

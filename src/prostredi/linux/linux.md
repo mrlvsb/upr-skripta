@@ -21,7 +21,7 @@ slouží [samostatná stránka](instalace.md).
 - Pokud používáte operační systém OS X, tak teoreticky Linux instalovat nemusíte, stačí si nastavit
 překladač [`gcc`](https://www.cyberciti.biz/faq/howto-apple-mac-os-x-install-gcc-compiler/).
 - Pokud již používáte operační systém Linux, nemusíte nic dalšího řešit a můžete přejít k
-nastavení [editoru](../editor.md).
+nastavení [editoru](../editor/editor.md).
 
 > **Pokud při instalaci Linuxu narazíte na problémy, které se vám nepodaří vyřešit, konzultujte je
 ihned s vaším cvičícím, který vám s instalací pomůže. Je nezbytné mít zprovozněný překladač `gcc`

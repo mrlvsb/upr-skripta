@@ -99,7 +99,7 @@ nechcete přeskakovat volání funkcí, použijte `Step Into` (`F11`).
 
 <video src="../static/video/debugging.webm" controls></video>
 
-Pokud si [nainstalujete](editor.md#instalace-rozšíření-pomocí-terminálu) rozšíření [Memory Visualizer](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz), tak se vám při krokování zároveň bude zobrazovat vizualizace paměti běžícího programu, což se může hodit pro pochopení toho, jak se váš program chová:
+Pokud si [nainstalujete](editor/vscode.md#instalace-rozšíření-pomocí-terminálu) rozšíření [Memory Visualizer](https://marketplace.visualstudio.com/items?itemName=jakub-beranek.memviz), tak se vám při krokování zároveň bude zobrazovat vizualizace paměti běžícího programu, což se může hodit pro pochopení toho, jak se váš program chová:
 
 ![memviz](../static/img/vsc-memviz-screenshot.png)
 

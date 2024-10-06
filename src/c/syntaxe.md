@@ -33,7 +33,7 @@ main()                 {
 ```
 reprezentuje úplně stejný program. Nicméně asi sami uznáte, že pokud bychom s bílými znaky nakládali
 takto nerozvážně, tak by zdrojový kód byl pro lidi špatně čitelný. Ideální je
-[nastavit si automatické formátování](../prostredi/editor.md#automatické-formátování-kódu) přímo v editoru kódu, abyste
+[nastavit si automatické formátování](../prostredi/editor/vscode.md#automatické-formátování-kódu) přímo v editoru kódu, abyste
 nad formátováním vůbec nemuseli přemýšlet.
 
 [^1]: [Bílé znaky](https://cs.wikipedia.org/wiki/B%C3%ADl%C3%BD_znak) jsou (neviditelné) znaky,
@@ -122,7 +122,7 @@ while (...)
 Jaký styl formátování použijete je na vás, nicméně obecně platným pravidlem je, že byste se měli
 držet ve svých programech jednotného stylu a nemíchat více stylů dohromady.
 
-Pokud budete využívat [automatické formátování](../prostredi/editor.md#automatické-formátování-kódu) ve vašem editoru,
+Pokud budete využívat [automatické formátování](../prostredi/editor/vscode.md#automatické-formátování-kódu) ve vašem editoru,
 tak toto nemusíte vůbec řešit, protože editor bude kód formátovat automaticky za vás.
 
 <hr />

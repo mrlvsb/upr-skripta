@@ -104,7 +104,7 @@ int main() {
 
 Zkuste si na místo komentáře doplnit několik výrazů (např. `5 + 8`, `8 * 3`, `12 * (2 + 3)`),
 přeložit program, spustit ho a podívat se, co vypíše na výstup, abyste si vyzkoušeli vyhodnocování
-výrazů. **Zkuste to na svém počítači pomocí [editoru](../prostredi/editor.md) a [překladače](../prostredi/preklad_programu.md),
+výrazů. **Zkuste to na svém počítači pomocí [editoru](../prostredi/editor/editor.md) a [překladače](../prostredi/preklad_programu.md),
 ne pouze v prohlížeči!**
 
 <hr />

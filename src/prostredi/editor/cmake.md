@@ -46,44 +46,40 @@ add_executable(testupr main.c)
 > ```
 > Pokud soubor vytvoříte přes CLion automaticky vám je zde přidá.
 
-![CMake_přidání_souboru](../../../static/video/cmake_add_file.gif)
+![CMake_přidání_souboru](../../static/video/cmake_add_file.gif)
 
 ## Přidání SDL2 do projektu
 
 Pokud chceme přidat externí knihovnu do našeho projektu, musíme zkontrolovat, zda také používá CMake. To zjistíme tak, že v kořenovém adresáři knihovny hledáme soubor **CMakeLists.txt**. SDL ho používá a
 pokud tento soubor otevřete, uvidíte, že název projektu je **SDL2**. Tento název je pro nás důležitý, protože podle něj ho budeme linkovat do naší aplikace.
 
-1. Vytvořte ve svém projektu složku s názvem `vendor`
-2. Jelikož budeme potřebovat Git pro stažení SDL, nastavíme náš projekt jako Git repozitář. Pomocí přikazu **Create Git Repository** (`CTRL + Shift + A` a zde napíšeme příkaz)
-3. Použijte terminál v CLionu nebo otevřete vlastní příkazový řádek a napište ve složce **vendor**: ```git submodule add -b SDL2 https://github.com/libsdl-org/SDL```
-    - Pokud jste špatně vykonali krok 2, zobrazí se vám chybová hláška: ```fatal: not a git repository (or any of the parent directories): .git```
-    - Pokud jste správně vytvořili repozitář, ve složce **vendor** se objeví složka **SDL**.
-4. Přidejte složku se SDL do vašeho projektu:
+1. Najděte SDL2 baliček, který jste stáhnuli výše
     ```cmake
    add_subdirectory(vendor/SDL)
    ```
-5. Přidejte header soubory:
+2. Přidejte header soubory:
    ```cmake
    target_include_directories(<název vašeho projektu> PUBLIC vendor/SDL/include)
    ```
-6. Linkněte SDL
+3. Linkněte SDL
    ```cmake
    target_link_libraries(<název vašeho projektu> PUBLIC SDL2::SDL2main SDL2::SDL2-static)
    ```
 
-Finální soubor by měl vypadat následovně
+Finální soubor by mohl vypadat následovně
 
 ```cmake
 cmake_minimum_required(VERSION 3.21)
-project(testupr C)
+project(sdlapp C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(testupr main.c)
+add_executable(sdlapp main.c)
 
-add_subdirectory(vendor/SDL)
-target_include_directories(testupr PUBLIC vendor/SDL/include)
-target_link_libraries(testupr PUBLIC SDL2::SDL2main SDL2::SDL2-static)
+find_package(SDL2 REQUIRED)
+
+target_include_directories(sdlapp PUBLIC vendor/SDL/include)
+target_link_libraries(sdlapp PUBLIC SDL2::SDL2main SDL2::SDL2-static)
 ```
 
 

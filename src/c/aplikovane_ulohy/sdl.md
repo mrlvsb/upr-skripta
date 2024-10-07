@@ -66,15 +66,28 @@ tento vzorový `CMakeLists.txt` soubor:
 <details>
 <summary>CMakeLists.txt soubor pro SDL</summary>
 
+Najděte SDL2 baliček, který jste stáhli [výše](#instalace-sdl)
 ```cmake
-cmake_minimum_required(VERSION 3.18)
+find_package(SDL2 REQUIRED)
+```
+Linkněte SDL
+```cmake
+target_link_libraries(<název vašeho projektu> PUBLIC SDL2::SDL2main SDL2::SDL2-static)
+```
 
-project(sdlapp)
+Finální soubor by mohl vypadat následovně
+
+```cmake
+cmake_minimum_required(VERSION 3.21)
+project(sdlapp C)
+
+set(CMAKE_C_STANDARD 11)
+
+add_executable(sdlapp main.c)
 
 find_package(SDL2 REQUIRED)
 
-add_executable(main main.c)
-target_link_libraries(main SDL2 SDL2_image SDL2_ttf)
+target_link_libraries(sdlapp PUBLIC SDL2::SDL2main SDL2::SDL2-static)
 ```
 
 </details>
@@ -142,7 +155,7 @@ chyb naleznete na konci této sekce.
 // Vložení hlavního hlavičkového souboru SDL
 #include <SDL2/SDL.h>
 
-int main()
+int main(int argc, char *argv[])
 {
     // Inicializace SDL
     SDL_Init(SDL_INIT_VIDEO);
@@ -234,7 +247,7 @@ A na konci už akorát vše uvolníme:
 ```c
 #include <SDL2/SDL.h>
 
-int main()
+int main(int argc, char *argv[])
 {
     if (SDL_Init(SDL_INIT_VIDEO)) {
         fprintf(stderr, "SDL_Init Error: %s\n", SDL_GetError());

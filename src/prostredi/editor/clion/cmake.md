@@ -42,7 +42,7 @@ add_executable(testupr main.c)
 
 > Když chcete přidat další soubory do projektu, jednoduše je přidejte takto:
 > ```cmake
-> add_executable(testupr main.c funkce.c funkce.h)
+> add_executable(testupr main.c funkce.c)
 > ```
 > Pokud soubor vytvoříte přes CLion automaticky vám je zde přidá.
 

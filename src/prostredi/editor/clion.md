@@ -48,6 +48,6 @@ cmake_minimum_required(VERSION 3.21)
 
 >Pokaždé, když v CMaku uděláme změnu je potřeba soubor znovu načíst. Buď si zapnete auto-reload pomocí příkazu ```Auto-Reload CMake Project``` nebo kliknete na soubor pravým a dáte ```Reload CMake Project```
 
-Pokud chcete pochopit fungování CMaku, tak můžete [zde](../../c/automatizace_prekladu.md#cmake)
+Pokud chcete pochopit fungování CMaku, tak můžete [zde](../../c/automatizace_prekladu.md#cmake).
 
 Jak naimportovat SDL pro následující projekt můžete najít [zde](../../c/aplikovane_ulohy/sdl.md#přilinkování-knihovny-sdl).

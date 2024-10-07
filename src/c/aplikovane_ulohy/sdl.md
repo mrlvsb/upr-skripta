@@ -63,34 +63,40 @@ Pro práci s obrázky bude dále nutné přilinkovat knihovnu `SDL2_image` a pro
 Pokud byste chtěli používat SDL v kombinaci s [CMake](../automatizace_prekladu.md#cmake), můžete použít
 tento vzorový `CMakeLists.txt` soubor:
 
-<details>
-<summary>CMakeLists.txt soubor pro SDL</summary>
+### Nastavení SDL pomocí CMake
 
-Najděte SDL2 baliček, který jste stáhli [výše](#instalace-sdl)
-```cmake
-find_package(SDL2 REQUIRED)
-```
-Linkněte SDL
-```cmake
-target_link_libraries(<název vašeho projektu> PUBLIC SDL2::SDL2main SDL2::SDL2-static)
-```
+Aplikace využívající SDL již budou typicky trochu komplikovanější, takže se vyplatí použít
+pro jejich překladu nějaký sestavovací systém, ideálně [CMake](../automatizace_prekladu.md#cmake).
 
-Finální soubor by mohl vypadat následovně
+1. Najděte SDL2 baliček, který jste stáhli [výše](#instalace-sdl)
+    ```cmake
+    find_package(SDL2 REQUIRED)
+    ```
+
+2. Přidejte cestu ke hlavičkovým souborům SDL2
+    ```cmake
+    target_include_directories(<název programu> PRIVATE ${SDL2_INCLUDE_DIRS})
+    ```
+3. Přilinkujte ke svému programu knihovnu SDL2
+    ```cmake
+    target_link_libraries(<název programu> SDL2 SDL2_image SDL2_ttf)
+    ```
+
+Finální soubor poté může vypadat např. takto:
 
 ```cmake
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.12)
 project(sdlapp C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(sdlapp main.c)
+add_executable(sdlgame main.c)
 
 find_package(SDL2 REQUIRED)
 
-target_link_libraries(sdlapp PUBLIC SDL2::SDL2main SDL2::SDL2-static)
+target_include_directories(sdlgame PRIVATE ${SDL2_INCLUDE_DIRS})
+target_link_libraries(sdlgame SDL2 SDL2_image SDL2_ttf)
 ```
-
-</details>
 
 ## Zprovoznění SDL pod WSL
 Pokud chcete použít knihovnu SDL v kombinaci s použitím systému [WSL](../../prostredi/linux/instalace.md),

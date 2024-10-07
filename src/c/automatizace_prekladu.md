@@ -33,7 +33,7 @@ konfiguračního souboru tak můžete vygenerovat např. `Makefile` pro přelož
 konfigurační soubory pro přeložení stejného programu pod Windows.
 
 Další výhodou `CMake` je, že některá vývojová prostředí (např.
-[Visual Studio Code](https://code.visualstudio.com/) nebo [CLion](https://www.jetbrains.com/clion/))
+[Visual Studio Code](../prostredi/editor/vscode.md) nebo [CLion](../prostredi/editor/clion.md))
 mu rozumí a dokáží díky němu usnadnit analýzu a ladění vašeho programu. 
 
 ### Instalace

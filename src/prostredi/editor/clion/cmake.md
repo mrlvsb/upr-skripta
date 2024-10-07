@@ -51,7 +51,7 @@ add_executable(testupr main.c)
 ## Přidání SDL2 do projektu
 
 Pokud chceme přidat externí knihovnu do našeho projektu, musíme zkontrolovat, zda také používá CMake. To zjistíme tak, že v kořenovém adresáři knihovny hledáme soubor **CMakeLists.txt**. SDL ho používá a
-pokud tento soubor otevřete, uvidíte, že název projektu je **SDL3**. Tento název je pro nás důležitý, protože podle něj ho budeme linkovat do naší aplikace.
+pokud tento soubor otevřete, uvidíte, že název projektu je **SDL2**. Tento název je pro nás důležitý, protože podle něj ho budeme linkovat do naší aplikace.
 
 1. Vytvořte ve svém projektu složku s názvem `vendor`
 2. Jelikož budeme potřebovat Git pro stažení SDL, nastavíme náš projekt jako Git repozitář. Pomocí přikazu **Create Git Repository** (`CTRL + Shift + A` a zde napíšeme příkaz)

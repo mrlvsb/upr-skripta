@@ -11,9 +11,6 @@ Na cvičeních UPR budeme používat editor `Visual Studio Code`, který je
 programování se hodí detailně znát a efektivně využívat editor, který používáte, ale pro začátek
 nám budou stačit naprosté základy.
 
-Jako alternativu lze použít [CLion](clion/clion.md), plnohodnotné **IDE** (*Integrated Development Environment*) s pokročilými funkcemi, které usnadňují vývoj v C a C++. Nabízí nativní integraci s build systémem [CMake](clion/cmake.md), což
-vývojářům umožňuje snadnou správu projektů a konfigurací bez nutnosti složitého nastavování.
-
-Jednou z hlavních výhod CLionu je jeho jednotné uživatelské rozhraní a workflow, které sdílí s dalšími produkty od JetBrains. Jakmile se naučíte pracovat s CLionem, přechod na jiné nástroje jako
-`IntelliJ IDEA` (pro Javu) nebo `PyCharm` (pro Python) bude velmi snadný, protože tato IDE mají téměř totožné rozvržení a ovládací prvky. Kompletní seznam všech produktů od JetBrains můžete najít [zde](https://www.jetbrains.com/products/).
+Jako alternativu lze použít [CLion](clion.md), plnohodnotné **IDE** (*Integrated Development Environment*) s pokročilými funkcemi, které usnadňují vývoj v C a C++.
+Nabízí nativní integraci s build systémem [CMake](../../c/automatizace_prekladu.md#cmake).
 

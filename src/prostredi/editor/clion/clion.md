@@ -1,4 +1,4 @@
-## Instalace CLionu
+# Instalace CLionu
 
 Nejlepší způsob instalace je použití aplikace [Toolbox](https://www.jetbrains.com/toolbox-app/), která vám umožní spravovat všechna vaše IDE od JetBrains. Pokud narazíte na problém, kompletní návod
 naleznete [zde](https://www.jetbrains.com/help/clion/installation-guide.html#toolbox).

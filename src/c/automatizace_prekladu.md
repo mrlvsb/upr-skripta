@@ -17,9 +17,9 @@ souborů, které jsou psány v proprietárních jazycích, které se musíte nau
 sestavovací systém mohli používat. Situaci nepomáhá ani to, že se od sebe jednotlivé systémy značně
 liší a bývají velmi komplikované. 
 
-## [`make`](https://en.wikipedia.org/wiki/Make_(software))
-Asi stále nejpoužívanějším sestavovacím systémem je `make`, který existuje již od roku 1976. Pro jeho
-použití musíte vytvořit soubor `Makefile`, ve kterém popíšete, jak se má váš program přeložit, a poté
+## [make](https://en.wikipedia.org/wiki/Make_(software))
+Asi stále nejpoužívanějším sestavovacím systémem pro programy v jazyce *C* je `make`, který existuje již od roku 1976.
+Pro jeho použití musíte vytvořit soubor `Makefile`, ve kterém popíšete, jak se má váš program přeložit, a poté
 spustíte program `make`, který jej dle konfiguračního souboru přeloží.
   
 Návod pro vytvoření konfiguračního souboru `Makefile` a použití `make` naleznete například
@@ -34,7 +34,7 @@ konfigurační soubory pro přeložení stejného programu pod Windows.
 
 Další výhodou `CMake` je, že některá vývojová prostředí (např.
 [Visual Studio Code](../prostredi/editor/vscode.md) nebo [CLion](../prostredi/editor/clion.md))
-mu rozumí a dokáží díky němu usnadnit analýzu a ladění vašeho programu. 
+mu rozumí a dokáží díky němu usnadnit analýzu a ladění vašich programů.
 
 ### Instalace
 `CMake` můžete na Ubuntu nainstalovat následujícím příkazem v terminálu:
@@ -47,12 +47,28 @@ $ sudo apt install cmake
 
 Pro použití `CMake` musíte vytvořit konfigurační soubor `CMakeLists.txt`, ve kterém popíšete jednotlivé
 zdrojové soubory vašeho programu, a také zadáte knihovny, které chcete k vašemu programu připojit.
-Vzorový soubor `CMakeLists.txt` může vypadat např. takto:
+
+Minimální soubor `CMakeLists.txt` může vypadat např. takto:
 ```cmake
-cmake_minimum_required(VERSION 3.4)
+# Minimální požadovaná verze CMaku
+cmake_minimum_required(VERSION 3.12)
 
 # Název projektu
-project(hra)
+project(projektupr C)
+
+# Vytvoření programu s názvem `du1`
+# Program se bude skládat ze dvou zadaných zdrojových souborů (jednotek překladu).
+# Pokud chcete do programu přidat více zdrojových souborů,
+# přidejte je do tohoto seznamu.
+add_executable(du1 main.c funkce.c)
+```
+
+Zde je ukázka trochu komplexnějšího souboru pro sestavení [SDL](aplikovane_ulohy/sdl.md#nastavení-sdl-pomocí-cmake) aplikace:
+
+```cmake
+cmake_minimum_required(VERSION 3.12)
+
+project(hra C)
 
 # Přidání přepínačů překladače
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address")
@@ -61,7 +77,6 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address")
 find_package(SDL2)
 
 # Vytvoření programu s názvem `hra`
-# Program se bude skládat ze dvou zadaných zdrojových souborů (jednotek překladu)
 add_executable(hra hra.c grafika.c)
 
 # Přidání adresářů s hlavičkovými soubory k programu (obdoba -I)
@@ -70,16 +85,22 @@ target_include_directories(hra PRIVATE ${SDL2_INCLUDE_DIRS})
 # Přilinkování knihoven k programu (obdoba -l)
 target_link_libraries(hra ${SDL2_LIBRARIES} m)
 ```
-Jakmile tento soubor vytvoříte, musíte pomocí příkazu `cmake` vytvořit `Makefile`:
+
+Jakmile tento soubor vytvoříte, můžete pomocí příkazu `cmake` vytvořit `Makefile`:
 ```bash
+# Jsme ve složce s CMakeLists.txt
+# Vytvoříme složku pro sestavení projektu
 $ mkdir build
+# Přepneme se do složky
 $ cd build
+# Sestavíme Makefile
 $ cmake ..
 ```
 a poté pomocí `make` program finálně přeložit:
 ```bash
 $ make
 ```
+
 Dobrá zpráva je, že pokud používáte kompatibilní vývojové prostředí, tak tyto úkony typicky provádí
 za vás a vám tak stačí správně nastavit soubor `CMakeLists.txt`.
 

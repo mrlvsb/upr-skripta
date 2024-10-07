@@ -1,4 +1,4 @@
-## Instalace VSCode
+# Instalace VSCode
 - Pokud používáte virtualizovaný nebo nativní Linux (Ubuntu), stáhněte si [odsud](https://code.visualstudio.com/)
   `.deb` soubor s balíčkem VSCode a nainstalujte jej (poklikáním myši na soubor nebo spuštěním příkazu
     ```bash

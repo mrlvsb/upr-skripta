@@ -36,20 +36,20 @@ $ ./main
   ```
 
 ### Proměnné ([učivo](../c/promenne/promenne.md))
-- Vytvoření: `<datový typ> <název> = <úvodní výraz>;`
+- Vytvoření: `<datový typ> <název> = <výraz>;`
   ```c
   int vek = 18;
   ```
-  - Užitečné datové typy:
-    - `int`: celé číslo se znaménkem
-    - `float`: desetinné číslo
-    - `char`: znak
-- Čtení: `<název proměnné>`
+- Užitečné datové typy:
+  - `int`: celé číslo se znaménkem
+  - `float`: desetinné číslo
+  - `char`: znak
+- Čtení (získání hodnoty proměnné): `<název proměnné>`
   ```c
   printf("%d\n", vek);
   int x = vek + 1;
   ```
-- Zápis: `<název proměnné> = výraz;`
+- Zápis (změna hodnoty proměnné): `<název proměnné> = <výraz>;`
   ```c
   vek = 42;
   ```
@@ -70,38 +70,38 @@ $ ./main
 
 
 ### Podmínky ([učivo](../c/rizeni_toku/podminky.md))
-- [If](../c/rizeni_toku/if.md)
-  ```c
-  if (<vyraz 1>) {
-    // Provede se, pokud je <vyraz 1> pravdivý
-  } else if (<vyraz 2>) {
-    // Provede se, pokud <vyraz 1> není pravdivý, a <vyraz 2> je pravdivý
-  } else {
-    // Provede se, pokud <vyraz 1> není pravdivý, a <vyraz 2> také není pravdivé
-  }
-  ```
+Podmínka (příkaz) [if](../c/rizeni_toku/if.md):
+```c
+if (<výraz 1>) {
+  // Provede se, pokud je <výraz 1> pravdivý
+} else if (<výraz 2>) {
+  // Provede se, pokud <výraz 1> není pravdivý, a <výraz 2> je pravdivý
+} else {
+  // Provede se, pokud <výraz 1> není pravdivý, a <výraz 2> také není pravdivé
+}
+```
 
-  ```c,editable,mainbody
-  #include <stdio.h>
-  
-  int main() {
-    int a = 10;
-    if (a > 5) {
-      printf("a je vetsi nez 5\n");
-    } else {
-      printf("a je mensi nebo rovno 5\n");
-    }
-    return 0;
+```c,editable,mainbody
+#include <stdio.h>
+
+int main() {
+  int a = 10;
+  if (a > 5) {
+    printf("a je vetsi nez 5\n");
+  } else {
+    printf("a je mensi nebo rovno 5\n");
   }
-  ```
+  return 0;
+}
+```
 
 ### Cykly ([učivo](../c/rizeni_toku/cykly.md))
-- [While](../c/rizeni_toku/while.md)
+- Cyklus [while](../c/rizeni_toku/while.md)
   ```c
-  // <vyraz> -> <telo> -v
+  // <výraz> -> <tělo> -v
   //    ^               |
   //    -----------------
-  // Dokud je <vyraz> pravdivý
+  // Dokud je <výraz> pravdivý
   while (<vyraz>) {
     <telo>
   }
@@ -119,12 +119,12 @@ $ ./main
     return 0;
   }
   ```
-- [For](../c/rizeni_toku/for.md)
+- Cyklus [for](../c/rizeni_toku/for.md)
   ```c
-  // <prikaz> -> <vyraz 1> -> <telo> -> <vyraz 2> -v
+  // <příkaz> -> <výraz 1> -> <tělo> -> <výraz 2> -v
   //                ^                              |
   //                -------------------------------<
-  // Dokud je <vyraz 1> pravdivý
+  // Dokud je <výraz 1> pravdivý
   for (<prikaz>; <vyraz 1>; <vyraz 2>) {
     <telo>
   }
@@ -145,8 +145,8 @@ $ ./main
 - Deklarace
   ```c
   <datový typ> <název funkce>(
-    <dat. typ par. 1> <název par. 1>,
-    <dat. typ par. 2> <název par. 2>, …
+    <datový typ parametru 1> <název parametru 1>,
+    <datový typ parametru 2> <název parametru 2>, …
   ) {
     // tělo
   }
@@ -199,12 +199,10 @@ $ ./main
   ```
 - Čtení z pole
   ```c
-  int arr[5] = {1, 2, 3, 4, 5};
   int druhy_prvek = arr[1];
   ```
 - Zápis do pole
   ```c
-  int arr[5] = {1, 2, 3, 4, 5};
   arr[1] = 1;
   ```
 
@@ -297,15 +295,15 @@ $ ./main
   ```c
   Student s = { .login = "BER0134", age = 29 };
   ```
-- Čtení atributu
+- Čtení členu
   ```c
   int age = s.age;
   ```
-- Zápis atributu
+- Zápis členu
   ```c
   s.age = s.age + 1;
   ```
-- Přístup k atributu přes ukazatel
+- Přístup k členu přes ukazatel
   ```c
   Student* p = &s;
   p->age = p->age + 1;

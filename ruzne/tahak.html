@@ -218,10 +218,10 @@ printf(&quot;Cislo: %d\n&quot;, 1 + 2);
 </ul>
 <h3><a class="header" href="#proměnné-a-hrefcpromennepromennehtmlučivoa" id="proměnné-a-hrefcpromennepromennehtmlučivoa">Proměnné (<a href="../c/promenne/promenne.html">učivo</a>)</a></h3>
 <ul>
-<li>Vytvoření: <code>&lt;datový typ&gt; &lt;název&gt; = &lt;úvodní výraz&gt;;</code>
+<li>Vytvoření: <code>&lt;datový typ&gt; &lt;název&gt; = &lt;výraz&gt;;</code>
 <pre><code class="language-c">int vek = 18;
 </code></pre>
-<ul>
+</li>
 <li>Užitečné datové typy:
 <ul>
 <li><code>int</code>: celé číslo se znaménkem</li>
@@ -229,14 +229,12 @@ printf(&quot;Cislo: %d\n&quot;, 1 + 2);
 <li><code>char</code>: znak</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Čtení: <code>&lt;název proměnné&gt;</code>
+<li>Čtení (získání hodnoty proměnné): <code>&lt;název proměnné&gt;</code>
 <pre><code class="language-c">printf(&quot;%d\n&quot;, vek);
 int x = vek + 1;
 </code></pre>
 </li>
-<li>Zápis: <code>&lt;název proměnné&gt; = výraz;</code>
+<li>Zápis (změna hodnoty proměnné): <code>&lt;název proměnné&gt; = &lt;výraz&gt;;</code>
 <pre><code class="language-c">vek = 42;
 </code></pre>
 </li>
@@ -257,15 +255,13 @@ int x = vek + 1;
 <li>Nebo: <code>a || b</code></li>
 </ul>
 <h3><a class="header" href="#podmínky-a-hrefcrizeni_tokupodminkyhtmlučivoa" id="podmínky-a-hrefcrizeni_tokupodminkyhtmlučivoa">Podmínky (<a href="../c/rizeni_toku/podminky.html">učivo</a>)</a></h3>
-<ul>
-<li>
-<p><a href="../c/rizeni_toku/if.html">If</a></p>
-<pre><code class="language-c">if (&lt;vyraz 1&gt;) {
-  // Provede se, pokud je &lt;vyraz 1&gt; pravdivý
-} else if (&lt;vyraz 2&gt;) {
-  // Provede se, pokud &lt;vyraz 1&gt; není pravdivý, a &lt;vyraz 2&gt; je pravdivý
+<p>Podmínka (příkaz) <a href="../c/rizeni_toku/if.html">if</a>:</p>
+<pre><code class="language-c">if (&lt;výraz 1&gt;) {
+  // Provede se, pokud je &lt;výraz 1&gt; pravdivý
+} else if (&lt;výraz 2&gt;) {
+  // Provede se, pokud &lt;výraz 1&gt; není pravdivý, a &lt;výraz 2&gt; je pravdivý
 } else {
-  // Provede se, pokud &lt;vyraz 1&gt; není pravdivý, a &lt;vyraz 2&gt; také není pravdivé
+  // Provede se, pokud &lt;výraz 1&gt; není pravdivý, a &lt;výraz 2&gt; také není pravdivé
 }
 </code></pre>
 <pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
@@ -280,16 +276,14 @@ int main() {
   return 0;
 }
 </code></pre>
-</li>
-</ul>
 <h3><a class="header" href="#cykly-a-hrefcrizeni_tokucyklyhtmlučivoa" id="cykly-a-hrefcrizeni_tokucyklyhtmlučivoa">Cykly (<a href="../c/rizeni_toku/cykly.html">učivo</a>)</a></h3>
 <ul>
 <li>
-<p><a href="../c/rizeni_toku/while.html">While</a></p>
-<pre><code class="language-c">// &lt;vyraz&gt; -&gt; &lt;telo&gt; -v
+<p>Cyklus <a href="../c/rizeni_toku/while.html">while</a></p>
+<pre><code class="language-c">// &lt;výraz&gt; -&gt; &lt;tělo&gt; -v
 //    ^               |
 //    -----------------
-// Dokud je &lt;vyraz&gt; pravdivý
+// Dokud je &lt;výraz&gt; pravdivý
 while (&lt;vyraz&gt;) {
   &lt;telo&gt;
 }
@@ -307,11 +301,11 @@ int main() {
 </code></pre>
 </li>
 <li>
-<p><a href="../c/rizeni_toku/for.html">For</a></p>
-<pre><code class="language-c">// &lt;prikaz&gt; -&gt; &lt;vyraz 1&gt; -&gt; &lt;telo&gt; -&gt; &lt;vyraz 2&gt; -v
+<p>Cyklus <a href="../c/rizeni_toku/for.html">for</a></p>
+<pre><code class="language-c">// &lt;příkaz&gt; -&gt; &lt;výraz 1&gt; -&gt; &lt;tělo&gt; -&gt; &lt;výraz 2&gt; -v
 //                ^                              |
 //                -------------------------------&lt;
-// Dokud je &lt;vyraz 1&gt; pravdivý
+// Dokud je &lt;výraz 1&gt; pravdivý
 for (&lt;prikaz&gt;; &lt;vyraz 1&gt;; &lt;vyraz 2&gt;) {
   &lt;telo&gt;
 }
@@ -331,8 +325,8 @@ int main() {
 <ul>
 <li>Deklarace
 <pre><code class="language-c">&lt;datový typ&gt; &lt;název funkce&gt;(
-  &lt;dat. typ par. 1&gt; &lt;název par. 1&gt;,
-  &lt;dat. typ par. 2&gt; &lt;název par. 2&gt;, …
+  &lt;datový typ parametru 1&gt; &lt;název parametru 1&gt;,
+  &lt;datový typ parametru 2&gt; &lt;název parametru 2&gt;, …
 ) {
   // tělo
 }
@@ -387,13 +381,11 @@ printf(&quot;%d\n&quot;, *p);
 </code></pre>
 </li>
 <li>Čtení z pole
-<pre><code class="language-c">int arr[5] = {1, 2, 3, 4, 5};
-int druhy_prvek = arr[1];
+<pre><code class="language-c">int druhy_prvek = arr[1];
 </code></pre>
 </li>
 <li>Zápis do pole
-<pre><code class="language-c">int arr[5] = {1, 2, 3, 4, 5};
-arr[1] = 1;
+<pre><code class="language-c">arr[1] = 1;
 </code></pre>
 </li>
 </ul>
@@ -491,17 +483,17 @@ scanf(&quot;%d&quot;, &amp;a);
 </code></pre>
 </li>
 <li>
-<p>Čtení atributu</p>
+<p>Čtení členu</p>
 <pre><code class="language-c">int age = s.age;
 </code></pre>
 </li>
 <li>
-<p>Zápis atributu</p>
+<p>Zápis členu</p>
 <pre><code class="language-c">s.age = s.age + 1;
 </code></pre>
 </li>
 <li>
-<p>Přístup k atributu přes ukazatel</p>
+<p>Přístup k členu přes ukazatel</p>
 <pre><code class="language-c">Student* p = &amp;s;
 p-&gt;age = p-&gt;age + 1;
 </code></pre>

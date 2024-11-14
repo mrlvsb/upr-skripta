@@ -63,6 +63,8 @@ je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
 
   ![](../../static/img/vsc-windows.png)
 
+  Klikněte na ikonu dvou šipek a připojte se k WSL.
+
 2) Nemáte nainstalovaný překladač (`gcc`). Spusťte Ubuntu terminál a nainstalujte jej, viz
    [překlad programu](../preklad_programu.md).
 

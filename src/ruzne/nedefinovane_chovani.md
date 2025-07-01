@@ -124,7 +124,7 @@ se vyskytujících problémových situací:
   Čísla se znaménkem (např. `int`) nesmí "přetéct", tj. dostat se přes svou nejvyšší hodnotu. Tato situace je v jazyce *C*
   UB.
 - **Přístup mimo validní paměť** Přístup mimo validní paměť (např. mimo rozsah pole) je klasický příklad UB.
-- **Derefence NULL ukazatele** Toto je opět klasický příklad UB.
+- **Dereference NULL ukazatele** Toto je opět klasický příklad UB.
 - **Vícenásobné uvolnění dynamické paměti** Viz [Segmentation fault](../caste_chyby/pametove_chyby.md#segmentation-fault).
 - **Přístup k uvolněné dynamické paměti** Viz [Segmentation fault](../caste_chyby/pametove_chyby.md#segmentation-fault).
 

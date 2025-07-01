@@ -8,10 +8,10 @@ on:
 jobs:
     deploy:
         concurrency: deploy
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-24.04
         steps:
             - name: Checkout Repository
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
               with:
                 persist-credentials: false
             - name: Download mdBook
@@ -23,7 +23,7 @@ jobs:
                   echo "~/bin" >> $GITHUB_PATH
 
             - name: Cache mdbook plugins
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               with:
                 path: |
                   ~/.cargo/bin/mdbook-plantuml

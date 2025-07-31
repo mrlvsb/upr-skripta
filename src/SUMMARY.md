@@ -13,6 +13,7 @@
       - [CLion](prostredi/editor/clion.md)
     - [Překlad](prostredi/preklad_programu.md)
     - [Ladění](prostredi/ladeni.md)
+- [Použití AI](ai.md)
 - [Programování v C](c/programovani.md)
     - [Syntaxe](c/syntaxe.md)
     - [Příkazy a výrazy](c/prikazy_vyrazy.md)

@@ -25,7 +25,7 @@ nastavení [editoru](../editor/editor.md).
 
 > **Pokud při instalaci Linuxu narazíte na problémy, které se vám nepodaří vyřešit, konzultujte je
 ihned s vaším cvičícím, který vám s instalací pomůže. Je nezbytné mít zprovozněný překladač `gcc`
-a Linux (nebo OS X), abyste mohli řešit úlohy do UPR.**
+a Linux (nebo macOS), abyste mohli řešit úlohy do UPR.**
 
 ## Základy používání Linuxu
 Linux se v zásadě používá velmi podobně jako operační systém Windows, nicméně narozdíl od Windows,

@@ -33,7 +33,7 @@ Všechny tyto koncepty jsou velmi univerzální a v
 tzv. [imperativních](https://cs.wikipedia.org/wiki/Imperativn%C3%AD_programov%C3%A1n%C3%AD)
 programovacích jazycích jsou v podstatě všudypřítomné. Jakmile se je jednou naučíte, tak je budete
 moct využívat téměř v libovolném populárním programovacím jazyku (Java, C#, Kotlin, Python, PHP,
-Javascript, Rust, C++ atd.).
+JavaScript, Rust, C++ atd.).
 
 Zkomprimovanou formu těchto témat můžete naleznout v [taháku](../ruzne/tahak.md).
 

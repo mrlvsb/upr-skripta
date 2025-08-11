@@ -26,9 +26,9 @@ nainstalované [WSL](./linux/instalace.md#windows-subsystem-for-linux-doporučen
 2) Nyní je ideální si vytvořit nějakou složku, do které budete dávat své zdrojové kódy. Můžete ji nazvat např. `upr`.
    Spusťte tedy v terminálu příkaz `mkdir upr`, který složku vytvoří.
 3) Přepněte se v terminálu do právě vytvořené složky pomocí příkazu `cd upr`.
-4) Spusťte editor VSCode v právě aktivní složce (`upr`) pomocí příkazu `code .`
+4) Spusťte editor VS Code v právě aktivní složce (`upr`) pomocí příkazu `code .`
    - Všimněte si tečky na konci příkazu!
-5) Nyní můžete vytvořit zdrojový soubor s příponou `.c`, například `main.c`. V liště vlevo nahoře ve VSCode klikněte na
+5) Nyní můžete vytvořit zdrojový soubor s příponou `.c`, například `main.c`. V liště vlevo nahoře ve VS Code klikněte na
 `File -> New File` a vytvořte soubor s názvem `main.c` v současné složce (`upr`).
 6) Do souboru `main.c` vložte nějaký C kód, např:
     ```c
@@ -39,7 +39,7 @@ nainstalované [WSL](./linux/instalace.md#windows-subsystem-for-linux-doporučen
         return 0;
     }
     ```
-7) Otevřete terminál ve VSCode (v liště nahoře `View -> Terminal` nebo zkratka `Ctrl + J`).
+7) Otevřete terminál ve VS Code (v liště nahoře `View -> Terminal` nebo zkratka `Ctrl + J`).
 8) Ověřte si, že jste ve složce `upr` (například pomocí příkaz `pwd`), a také že v této složce existuje soubor `main.c` (pomocí příkazu `ls`).
 9) Přeložte tento soubor překladačem pomocí příkazu `gcc main.c -omain` v terminálu.
 10) A finálně přeložený program spusťte pomocí příkazu `./main` v terminálu.

@@ -1,27 +1,27 @@
-# Instalace VSCode
+# Instalace VS Code
 - Pokud používáte virtualizovaný nebo nativní Linux (Ubuntu), stáhněte si [odsud](https://code.visualstudio.com/)
-  `.deb` soubor s balíčkem VSCode a nainstalujte jej (poklikáním myši na soubor nebo spuštěním příkazu
+  `.deb` soubor s balíčkem VS Code a nainstalujte jej (poklikáním myši na soubor nebo spuštěním příkazu
     ```bash
     $ sudo apt install ./<nazev-souboru>.deb
     ```
-- Pokud používáte `WSL`, tak by už měl být VSCode předinstalovaný[^1]. Spustíte ho tak, že v `bash`
+- Pokud používáte `WSL`, tak by už měl být VS Code předinstalovaný[^1]. Spustíte ho tak, že v `bash`
   terminálu spustíte tento příkaz:
     ```bash
     $ code .
     ```
-  Ten otevře VSCode v adresáři, ve kterém se zrovna v terminálu budete nacházet. Ve VSCode
+  Ten otevře VS Code v adresáři, ve kterém se zrovna v terminálu budete nacházet. Ve VS Code
   si poté také nainstalujte dodatečné rozšíření
   [`Remote Development`](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
   (viz návod, jak instalovat rozšíření [níže](#instalace-rozšíření-pomocí-uživatelského-rozhraní)).
 
-  Podrobný návod, jak zprovoznit VSCode v kombinaci s WSL, naleznete
+  Podrobný návod, jak zprovoznit VS Code v kombinaci s WSL, naleznete
   [zde](https://code.visualstudio.com/docs/remote/wsl) nebo [zde](https://code.visualstudio.com/docs/cpp/config-wsl).
 
-[^1]: Pokud by tomu tak nebylo, návod na instalaci VSCode na Linuxu naleznete
+[^1]: Pokud by tomu tak nebylo, návod na instalaci VS Code na Linuxu naleznete
 [zde](https://code.visualstudio.com/docs/setup/linux).
 
 ## Instalace rozšíření (pomocí terminálu)
-VSCode podporuje programovací jazyky pomocí rozšíření, po první instalaci VSCode
+VS Code podporuje programovací jazyky pomocí rozšíření, po první instalaci VS Code
 tak nejprve musíme nainstalovat potřebná rozšíření pro jazyk *C*. V terminálu spusťte tyto příkazy:
 
 ```bash
@@ -45,21 +45,21 @@ Tato sekce obsahuje vybrané problémy, se kterými se studenti často setkávaj
 na WSL).
 
 ### Chybějící hlavičkové soubory
-Pokud spustíte VSCode, otevřete v něm nějaký program s *C* kódem a budete mít červeně podtržený např.
+Pokud spustíte VS Code, otevřete v něm nějaký program s *C* kódem a budete mít červeně podtržený např.
 takovýto řádek:
 ```c
 #include <stdio.h>
 ```
 je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
-1) Spouštíte VSCode z Windows a ne z Ubuntu WSL terminálu. Spouštějte VSCode vždy přímo z Ubuntu
+1) Spouštíte VS Code z Windows a ne z Ubuntu WSL terminálu. Spouštějte VS Code vždy přímo z Ubuntu
    terminálu, aby mělo správný přístup k systémovým souborům jazyka *C*.
 
-   Podle ikony dvou šipek v levém dolním rohu okna VSCode můžete rozpoznat, zdali jste připojení ve VSCode k WSL, nebo ne.
-- Pokud je u ikony napsáno WSL, tak je VSCode správně připojen k WSL terminálu:
+   Podle ikony dvou šipek v levém dolním rohu okna VS Code můžete rozpoznat, zdali jste připojení ve VS Code k WSL, nebo ne.
+- Pokud je u ikony napsáno WSL, tak je VS Code správně připojen k WSL terminálu:
 
   ![](../../static/img/vsc-wsl.png)
 
-- Pokud tam jsou pouze dvě šipky a nic více, tak jste VSCode spustili ve Windows místo ve WSL, to je špatně:
+- Pokud tam jsou pouze dvě šipky a nic více, tak jste VS Code spustili ve Windows místo ve WSL, to je špatně:
 
   ![](../../static/img/vsc-windows.png)
 
@@ -68,9 +68,9 @@ je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
 2) Nemáte nainstalovaný překladač (`gcc`). Spusťte Ubuntu terminál a nainstalujte jej, viz
    [překlad programu](../preklad_programu.md).
 
-> Obecně řečeno, to, že se vám ve VSCode ukazuje nějaký problém s kódem, ještě neznamená, že tento
+> Obecně řečeno, to, že se vám ve VS Code ukazuje nějaký problém s kódem, ještě neznamená, že tento
 > problém v kódu opravdu je. Důležité je, co řekne [překladač](../preklad_programu.md) při překladu
-> programu, VSCode je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
+> programu, VS Code je občas zmatené anebo není správně nastavené. Samozřejmě je ale ideální si ho správně
 > nastavit, ať vás to neplete.
 
 ### Změny ve zdrojovém kódu se nepromítají v přeloženém programu
@@ -85,18 +85,18 @@ Vždy tak po provedení změn ukládejte soubor pomocí `Ctrl + S`, případně 
 
 ## Ukázka nastavení projektu
 Jako vzorový projekt můžete použít [tuto](https://github.com/geordi/upr-course/tree/master/faq/vscode-template-project)
-šablonu. Pro otevření adresáře ve VSCode klikněte na `Soubor (File) -> Otevřít adresář (Open Folder)`
+šablonu. Pro otevření adresáře ve VS Code klikněte na `Soubor (File) -> Otevřít adresář (Open Folder)`
 a vyberte nějaký adresář, ve kterém chcete programovat.
 
-![Nastavení VSCode](../../static/video/vsc_first_run.gif)
+![Nastavení VS Code](../../static/video/vsc_first_run.gif)
 
 ## Pokročilé možnosti nastavení projektu
-Pokud byste si chtěli nastavit VSCode tak, aby překládal nebo spouštěl váš program s jiným, než základním
-nastavením, můžete k tomu využít konfiguraci pomocí souborů `launch.json`, který definuje, jak bude VSCode
+Pokud byste si chtěli nastavit VS Code tak, aby překládal nebo spouštěl váš program s jiným, než základním
+nastavením, můžete k tomu využít konfiguraci pomocí souborů `launch.json`, který definuje, jak bude VS Code
 váš program spouštět, případně `tasks.json`, pomocí kterého můžeme nastavit, jak se bude program překládat.
 
 `launch.json` je možno vytvořit po kliknutí na záložku `Run and Debug` (Ctrl+Shift+D) a poté na tlačítko `create a
-launch.json file` (tlačítko se zobrazí, pokud máte otevřený soubor s příponou `.c` ve VSCode). Soubor se vytvoří v současně otevřeném adresáři, ve složce `.vscode` (můžete ho případně i vytvořit manuálně).
+launch.json file` (tlačítko se zobrazí, pokud máte otevřený soubor s příponou `.c` ve VS Code). Soubor se vytvoří v současně otevřeném adresáři, ve složce `.vscode` (můžete ho případně i vytvořit manuálně).
 
 Do vygenerovaného souboru můžete zkopírovat tento obsah:
 ```json

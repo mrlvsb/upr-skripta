@@ -9,7 +9,7 @@
     - [Linux](prostredi/linux/linux.md)
       - [Instalace](prostredi/linux/instalace.md) 
     - [Editor](prostredi/editor/editor.md)
-      - [VSCode](prostredi/editor/vscode.md)
+      - [VS Code](prostredi/editor/vscode.md)
       - [CLion](prostredi/editor/clion.md)
     - [Překlad](prostredi/preklad_programu.md)
     - [Ladění](prostredi/ladeni.md)

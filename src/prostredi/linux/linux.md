@@ -18,8 +18,8 @@ byly inspirací pro vznik Linuxu.
 ## Co si mám nainstalovat?
 - Pokud používáte operační systém Windows, tak si musíte Linux nainstalovat. Jako návod k tomu
 slouží [samostatná stránka](instalace.md).
-- Pokud používáte operační systém OS X, tak teoreticky Linux instalovat nemusíte, stačí si nastavit
-překladač [`gcc`](https://www.cyberciti.biz/faq/howto-apple-mac-os-x-install-gcc-compiler/).
+- Pokud používáte operační systém macOS, tak teoreticky Linux instalovat nemusíte, stačí si nastavit
+překladač [`gcc`](https://osxdaily.com/2023/05/02/how-install-gcc-mac/).
 - Pokud již používáte operační systém Linux, nemusíte nic dalšího řešit a můžete přejít k
 nastavení [editoru](../editor/editor.md).
 

@@ -13,7 +13,7 @@ používat, a to hned z několika důvodů:
 
 - Jazyk *C* lze použít na téměř všech existujících platformách a je tak velmi univerzálním jazykem.
   Téměř veškerý existující software obsahuje kusy kódu v jazyce *C*. Operační systémy (Linux,
-  macOS&nbsp;, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimediální programy
+  macOS, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimediální programy
   (Photoshop, PowerPoint, Word, BitTorrent), hry (World of Warcraft, Quake, Doom, Call of Duty,
   League of Legends, DOTA 2, Fortnite), vestavěná zařízení (mikročipy, pračky, řídící jednotky
   vesmírných letadel nebo aut). Všechny tyto věci jsou buď částečně anebo zcela poháněny jazykem

@@ -71,7 +71,7 @@ text, dokud nedojde k ukončení komentáře pomocí `*/`.
     }
     ```
 
-Ze začátku je asi jednodušší používat řádkové komentáře, ve VSCode můžete použít klávesovou zkratku
+Ze začátku je asi jednodušší používat řádkové komentáře, ve VS Code můžete použít klávesovou zkratku
 `Ctrl + /` pro zakomentování/odkomentování řádku kódu. Pokud vám přijde nějaký kus kódu komplikovaný,
 tak si k němu zkuste dopsat komentář, který vysvětlí, proč byl kód napsán právě takto (případně vyloženě popište, co kód dělá).
 Porozumíte tak kódu snadněji, až se k němu např. za měsíc vrátíte.

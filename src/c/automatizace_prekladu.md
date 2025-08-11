@@ -107,7 +107,7 @@ za vás a vám tak stačí správně nastavit soubor `CMakeLists.txt`.
 Návod k použití `CMake` naleznete například [zde](https://cmake.org/cmake/help/latest/guide/tutorial/index.html).
 
 ### Použití ve Visual Studio Code
-Pokud chcete spustit či ladit `CMake` projekt ve VSCode, tak proveďte tyto kroky:
-1) Nainstalujte si [toto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) rozšíření do VSCode
-2) Otevřete ve VSCode adresář, který bude obsahovat soubor `CMakeLists.txt`
+Pokud chcete spustit či ladit `CMake` projekt ve VS Code, tak proveďte tyto kroky:
+1) Nainstalujte si [toto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) rozšíření do VS Code
+2) Otevřete ve VS Code adresář, který bude obsahovat soubor `CMakeLists.txt`
 3) Spusťte program pomocí `Ctrl + F5`

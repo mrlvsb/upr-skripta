@@ -1,5 +1,5 @@
 # Jazyk *C*
-Existuje nespočet programovacích jazyků, například Python, Java, C#, PHP, Rust či Javascript. Každý
+Existuje nespočet programovacích jazyků, například Python, Java, C#, PHP, Rust či JavaScript. Každý
 z nich má své výhody a nevýhody a záleží na konkrétním problému, který je třeba vyřešit, pro
 zvolení vhodného programovacího jazyka.
 
@@ -13,8 +13,8 @@ používat, a to hned z několika důvodů:
 
 - Jazyk *C* lze použít na téměř všech existujících platformách a je tak velmi univerzálním jazykem.
   Téměř veškerý existující software obsahuje kusy kódu v jazyce *C*. Operační systémy (Linux,
-  OS&nbsp;X, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimediální programy
-  (Photoshop, Powerpoint, Word, BitTorrent), hry (World of Warcraft, Quake, Doom, Call of Duty,
+  macOS&nbsp;, Windows, Android, iOS), prohlížeče (Chrome, Firefox, Edge), multimediální programy
+  (Photoshop, PowerPoint, Word, BitTorrent), hry (World of Warcraft, Quake, Doom, Call of Duty,
   League of Legends, DOTA 2, Fortnite), vestavěná zařízení (mikročipy, pračky, řídící jednotky
   vesmírných letadel nebo aut). Všechny tyto věci jsou buď částečně anebo zcela poháněny jazykem
   *C*.
@@ -26,7 +26,7 @@ používat, a to hned z několika důvodů:
   jak věci "na pozadí počítače" fungují, je jednou z přidanou hodnot studia jazyka C.
 - **Syntaxe** (způsob zápisu) jazyka *C* ovlivnila velké množství jazyků, které vznikly po něm.
   Jakmile se ji naučíte, tak budete schopni rozumět syntaxi většiny současných nejpoužívanějších
-  jazyků (C++, C#, Java, Kotlin, Javascript, PHP, Rust, …).
+  jazyků (C++, C#, Java, Kotlin, JavaScript, PHP, Rust, …).
 
 Jazyk *C* má samozřejmě také řadu nevýhod. Vzhledem k jeho stáří a omezené sadě funkcionalit je
 často značně pracnější a zdlouhavější pomocí něj dosáhnout stejného výsledku než u modernějších

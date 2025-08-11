@@ -89,7 +89,7 @@ zkoumat hodnoty proměnných a spouštět program řádek po řádku.
 > provádí a lépe tak pochopili, co vykonávají jednotlivé příkazy, které v kódu píšete. Je to také mocný
 > nástroj na hledání chyb v programech.
 
-Pro vás je nejjednodušší použít krokování integrované ve VSCode:
+Pro vás je nejjednodušší použít krokování integrované ve VS Code:
 - Klikněte na sloupeček vlevo od čísla řádku, na kterém chcete, aby se program zastavil.
 Objeví se tam červené kolečko (tzv. **breakpoint**).
 - Spusťte program s laděním (`F5`). Program by se na řádku s breakpointem měl zastavit.
@@ -109,5 +109,5 @@ Verzi `gdb` můžete zjistit pomocí následujícího příkazu:
 $ gdb --version
 ```
 
-> VSCode používá pro ladění vašeho programu debugger `gdb`. Pokud ho chcete použít manuálně, návod
+> VS Code používá pro ladění vašeho programu debugger `gdb`. Pokud ho chcete použít manuálně, návod
 > můžete najít například [zde](https://www.root.cz/clanky/trasovani-a-ladeni-nativnich-aplikaci-v-linuxu-pouziti-gdb-a-jeho-nadstaveb/).

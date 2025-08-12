@@ -1,7 +1,7 @@
 # Nastavení prostředí
 Abyste mohli efektivně programovat v *C*, musíte si nainstalovat, nakonfigurovat a naučit se používat
 sadu programů. V této kapitole naleznete stručný popis toho, jak si nastavit
-[operační systém Linux](linux/linux.md), [textový editor](editor/editor.md)
+[operační systém Linux](os/linux.md), [textový editor](editor/editor.md)
 k psaní programů, [překladač](preklad_programu.md) pro překlad z jazyka *C* do spustitelného souboru
 a také jak [řešit chyby](ladeni.md) při psaní programů.
 
@@ -10,7 +10,7 @@ Pokud používáte WSL, tak jakmile budete mít vše potřebné nainstalované, 
 ## Prvotní nastavení projektu na WSL
 Pokud používáte WSL na Windows a nevíte si rady s tím,
 jak přeložit a zprovoznit svůj první program, zkuste následovat návod uvedený níže. Tento návod předpokládá, že již máte
-nainstalované [WSL](./linux/instalace.md#windows-subsystem-for-linux-doporučeno), [editor](editor/editor.md) a [překladač](./preklad_programu.md).
+nainstalované [WSL](./os/linux.md#windows-subsystem-for-linux-doporučeno), [editor](editor/editor.md) a [překladač](./preklad_programu.md).
 
 > Kroky 1, 3 a 4 budete dělat pokaždé, když budete chtít jít programovat.
 

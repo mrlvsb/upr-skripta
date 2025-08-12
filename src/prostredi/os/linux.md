@@ -21,13 +21,13 @@ Tento příkaz by vám měl nainstalovat distribuci *Ubuntu* do vašeho Windows 
 [^1]: Nabídka start -> Napište `cmd` -> Klikněte pravým tlačítkem na nalezený příkazový řádek -> Spustit jako administrátor
 
 Poté můžete spustit terminál (`bash`) běžící pod Ubuntu spuštěním programu `Ubuntu` (např. z nabídky
-Start). Tento [terminál](linux.md#základy-používání-linuxu) můžete používat pro práci se soubory nebo
+Start). Tento [terminál](os.md#základy-používání-linuxu) můžete používat pro práci se soubory nebo
 překlad *C* programů.
 
 > Soubory z Windows jsou v příkazové řádce Ubuntu pod WSL dostupné na cestě `/mnt/c`. Pokud byste
 > se tak například chtěli v terminálu přesunout do složky `C:/Users/Katka/Desktop`, tak v terminálu
 > spusťte příkaz `cd /mnt/c/Users/Katka/Desktop`.
-> 
+>
 > Naopak soubory z WSL jsou pod Windows dostupné na cestě `\\wsl$\Ubuntu\<cesta>`. Když do adresního
 > řádku prohlížeče souborů ve Windows napíšete `\\wsl$`, tak se můžete k souborům proklikat.
 

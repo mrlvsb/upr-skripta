@@ -19,7 +19,7 @@ byly inspirací pro vznik Linuxu.
 - Pokud používáte operační systém Windows, tak si musíte Linux nainstalovat. Jako návod k tomu
 slouží [samostatná stránka](instalace.md).
 - Pokud používáte operační systém macOS, tak teoreticky Linux instalovat nemusíte, stačí si nastavit
-překladač [`gcc`](https://osxdaily.com/2023/05/02/how-install-gcc-mac/).
+překladač `gcc`. Návod na instalaci naleznete [zde](../macos.md).
 - Pokud již používáte operační systém Linux, nemusíte nic dalšího řešit a můžete přejít k
 nastavení [editoru](../editor/editor.md).
 

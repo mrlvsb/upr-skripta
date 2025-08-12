@@ -99,7 +99,7 @@ target_link_libraries(sdlgame SDL2 SDL2_image SDL2_ttf)
 ```
 
 ## Zprovoznění SDL pod WSL
-Pokud chcete použít knihovnu SDL v kombinaci s použitím systému [WSL](../../prostredi/linux/instalace.md),
+Pokud chcete použít knihovnu SDL v kombinaci s použitím systému [WSL](../../prostredi/os/linux.md),
 budete si muset nastavit zobrazování grafických Linux aplikací na Windows.
 
 Pokud máte aktuální verzi Windows 11 a WSL, tak by mělo stačit spustit grafický program (např. C program

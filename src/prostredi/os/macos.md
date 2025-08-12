@@ -5,7 +5,7 @@ Nejprve musíme nainstalovat nástroje příkazového řádku, tzv. _Xcode Comma
 
 Otevřete si `Terminál`[^1] pomocí Launchpadu nebo Spotlightu (⌘ + mezerník) a zadejte následující příkaz:
 
-[^1]: Více o práci s terminálem se dozvíte v sekci [Linux](linux/linux.md)
+[^1]: Více o práci s terminálem se dozvíte v sekci [Operační systém](os.md)
 
 ```zsh
 $ xcode-select --install

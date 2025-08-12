@@ -10,6 +10,7 @@ Ukážeme si dva typy příkazů, které preprocesor umí zpracovávat:
 
 Pokud si chcete ověřit, jak vypadá váš zdrojový soubor poté, co jej zpracuje preprocesor, ale předtím,
 než je přeložen na strojové instrukce, můžete k tomu použít tento příkaz[^1]:
+
 ```bash
 $ gcc -P -E main.c
 ```

@@ -1,11 +1,11 @@
 # Parametry překladače
-Překladač `gcc` obsahuje sadu několika stovek parametrů, pomocí kterých můžeme ovlivnit, jak překlad
+Překladač GCC obsahuje sadu několika stovek parametrů, pomocí kterých můžeme ovlivnit, jak překlad
 programu proběhne. Můžeme například určit, pro jaký procesor se mají vygenerovat instrukce, jakou
 variantu jazyka *C* má překladač očekávat nebo jestli má náš program zoptimalizovat, aby běžel
 rychleji.
 
-> Kromě `gcc` existuje řada dalších překladačů *C*, například [`clang`](https://clang.llvm.org/).
-> Nejčastější parametry (jako je např. `-O`) obvykle fungují ve všech překladačích obdobně, každý
+> Kromě GCC existuje řada dalších překladačů *C*, například [Clang](https://clang.llvm.org/).
+> Nejčastější parametry (jako je např. `-o`) obvykle fungují ve všech překladačích obdobně, každý
 > překladač ale obsahuje sadu specifických parametrů, které můžete naleznout v jeho
 > [dokumentaci](https://clang.llvm.org/docs/ClangCommandLineReference.html).
 

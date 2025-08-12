@@ -65,7 +65,7 @@ je to pravděpodobně způsobeno jedním ze dvou následujících důvodů:
 
   Klikněte na ikonu dvou šipek a připojte se k WSL.
 
-2) Nemáte nainstalovaný překladač (`gcc`). Spusťte Ubuntu terminál a nainstalujte jej, viz
+2) Nemáte nainstalovaný překladač (GCC). Spusťte Ubuntu terminál a nainstalujte jej, viz
    [překlad programu](../preklad_programu.md).
 
 > Obecně řečeno, to, že se vám ve VS Code ukazuje nějaký problém s kódem, ještě neznamená, že tento

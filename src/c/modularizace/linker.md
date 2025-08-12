@@ -5,9 +5,11 @@ budeme schopni vytvářet programy skládající se z více než jednoho zdrojov
 
 Prozatím jsme naše programy (skládající se z jediného zdrojového souboru) překládali pomocí
 příkazu podobnému tomuto:
+
 ```bash
 $ gcc soubor.c -o program
 ```
+
 Tímto příkazem jsme ve skutečnosti prováděli dvě věci najednou: **překlad** (*translation*) a
 **linkování** (*linking*). Níže si vysvětlíme obě dvě tyto části detailněji.
 
@@ -19,21 +21,25 @@ o nezávislé komponenty, ze kterých je nakonec vytvořen cílový program. Ka�
 tvořena jedním zdrojovým souborem (obvykle s příponou `.c`). Při překladu **překladač** převede
 jednotku ze zdrojového kódu v *C* do instrukcí procesoru, tzv. **objektového kódu** (*object code*).
 
-Pokud chceme překladačem `gcc` (pouze) přeložit zdrojový soubor do objektového kódu (resp.
+Pokud chceme překladačem GCC (pouze) přeložit zdrojový soubor do objektového kódu (resp.
 objektového souboru), můžeme použít přepínač `-c`:
+
 ```bash
 $ gcc -c soubor.c
 ```
-Pokud nezadáme název výstupu pomocí přepínače `-o`, tak `gcc` implicitně vytvoří objektový soubor
+
+Pokud nezadáme název výstupu pomocí přepínače `-o`, tak GCC implicitně vytvoří objektový soubor
 `<nazev-vstupu>.o` (tj. zde `soubor.o`).
 
 Jednotky překladu jsou na sobě nezávislé, můžeme tedy každou jednotku (zdrojový soubor) přeložit
 zvlášť:
+
 ```bash
 $ gcc -c a.c
 $ gcc -c b.c
 ...
 ```
+
 
 Jak ale nyní jednotlivé soubory propojíme? Aby vůbec mělo rozdělení do více jednotek (souborů) smysl,
 tak musíme mít možnost v jednom souboru používat kód (např. funkce nebo globální proměnné), který je
@@ -59,9 +65,10 @@ funkce původně vytvořená v `b.c`.
 
 [^1]: V takovém případě byste se setkali s chybou `undefined reference to 'foo'`.
 
-Manuální použití linkeru[^2] je relativně složité, proto i linker budeme používat přes `gcc`. Tomu
+Manuální použití linkeru[^2] je relativně složité, proto i linker budeme používat přes GCC. Tomu
 můžeme předat sadu objektových souborů a on se postará o správné zavolání linkeru, který je spojí
 a vytvoří finální spustitelný soubor:
+
 ```bash
 $ gcc a.o b.o -o program
 ```
@@ -74,6 +81,7 @@ souborů obsažena funkce `main`, aby program věděl, kde má začít své vyko
 #### Proč takto složitě?
 Možná vás napadlo, proč kompilace *C* programů probíhá takto komplikovaně a nestačí prostě překladači
 dát všechny zdrojové soubory našeho programu tak, jak jsme to dělali doposud:
+
 ```bash
 $ gcc soubor1.c soubor2.c soubor3.c ...
 ```

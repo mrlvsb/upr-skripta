@@ -19,12 +19,12 @@ byly inspirací pro vznik Linuxu.
 - Pokud používáte operační systém Windows, tak si musíte Linux nainstalovat. Jako návod k tomu
 slouží [samostatná stránka](linux.md).
 - Pokud používáte operační systém macOS, tak teoreticky Linux instalovat nemusíte, stačí si nastavit
-překladač `gcc`. Návod na nastavení systému macOS pro překlad C naleznete [zde](macos.md).
+překladač GCC. Návod na nastavení systému macOS pro překlad C naleznete [zde](macos.md).
 - Pokud již používáte operační systém Linux, nemusíte nic dalšího řešit a můžete přejít k
 nastavení [editoru](../editor/editor.md).
 
 > **Pokud při instalaci Linuxu narazíte na problémy, které se vám nepodaří vyřešit, konzultujte je
-ihned s vaším cvičícím, který vám s instalací pomůže. Je nezbytné mít zprovozněný překladač `gcc`
+ihned s vaším cvičícím, který vám s instalací pomůže. Je nezbytné mít zprovozněný překladač GCC
 a Linux (nebo macOS), abyste mohli řešit úlohy do UPR.**
 
 ## Základy používání příkazů Linuxu/UNIXu[^1]

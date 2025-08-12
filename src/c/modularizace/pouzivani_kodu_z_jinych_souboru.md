@@ -16,6 +16,7 @@ int main() {
 void moje_funkce() {}
 ```
 Pokud tyto dva soubory přeložíme a poté slinkujeme, tak se zavolá správná funkce:
+
 ```bash
 $ gcc -c soubor1.c
 $ gcc -c soubor2.c
@@ -115,6 +116,7 @@ jednoho souboru, tak v rámci celého programu (tj. napříč všemi zdrojovými
     ```
     Tak by kompilace selhala v době linkování, protože by nenašel žádnou funkci/proměnnou, kterou
     by mohl použít:
+
     ```bash
     $ gcc -c soubor.c
     $ gcc soubor.o
@@ -122,6 +124,7 @@ jednoho souboru, tak v rámci celého programu (tj. napříč všemi zdrojovými
     test.c:(.text+0xe): undefined reference to `funkce'
     collect2: error: ld returned 1 exit status
     ```
+
 - Pokud bychom naopak nadefinovali proměnnou či funkci více než jednou:
     ```c
     // soubor1.c
@@ -135,6 +138,7 @@ jednoho souboru, tak v rámci celého programu (tj. napříč všemi zdrojovými
     void funkce() {}
     ```
     Tak by linkování opět selhalo, protože by linker nevěděl, kterou definici použít:
+
     ```bash
     $ gcc -c soubor1.c
     $ gcc -c soubor2.c

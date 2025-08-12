@@ -12,7 +12,7 @@ klávesové zkratky `Shift + F10` nebo kliknutím na tlačítko **Run**.
 
 ### Výběr kompilátoru
 
-Pokud chcete používat **gcc** kompilátor z **WSL**, stačí jej přepnout v nastavení.
+Pokud chcete používat **GCC** kompilátor z **WSL**, stačí jej přepnout v nastavení.
 
 1. Stisknutím klávesové zkratky `CTRL + Shift + A` otevřete vyhledávací okno.
 2. Napište **Toolchains** a stiskněte `Enter`.

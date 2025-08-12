@@ -84,8 +84,8 @@ k našemu programu (jako bychom je přímo jeden po druhém předali překladač
 > Názvy přípon statických a dynamických knihoven závisí na operačním systému. Například na Windows
 > se můžete setkat s příponami `.lib` pro statické knihovny a `.dll` pro dynamické knihovny.
 
-## Použití knihoven s `gcc`
-Nyní si ukážeme, jak říct překladači `gcc`, aby připojil nějakou knihovnu k našemu programu. Pro to
+## Použití knihoven s GCC
+Nyní si ukážeme, jak říct překladači GCC, aby připojil nějakou knihovnu k našemu programu. Pro to
 musíme mít k dispozici archiv s objektovými soubory knihovny (s příponou `.a` nebo `.so`, v
 závislosti na typu knihovny) a obvykle také i adresář s hlavičkovými soubory knihovny.
 
@@ -148,9 +148,10 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0d3a328000)
 > tohoto důvodu je obvykle linkována dynamicky, aby její paměť šla sdílet mezi programy.
 
 ## Vytvoření knihovny
-Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí `gcc`. Dejme
+Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí GCC. Dejme
 tomu, že máte soubory `a.c` a `b.c`, které chcete zabalit do knihovny. Nejprve každý zdrojový soubor
 přeložíme do objektového souboru[^4]:
+
 ```bash
 $ gcc -c -fPIC a.c
 $ gcc -c -fPIC b.c

@@ -265,8 +265,8 @@ opětovného překladu celého programu.</p>
 <p>Názvy přípon statických a dynamických knihoven závisí na operačním systému. Například na Windows
 se můžete setkat s příponami <code>.lib</code> pro statické knihovny a <code>.dll</code> pro dynamické knihovny.</p>
 </blockquote>
-<h2><a class="header" href="#použití-knihoven-s-gcc" id="použití-knihoven-s-gcc">Použití knihoven s <code>gcc</code></a></h2>
-<p>Nyní si ukážeme, jak říct překladači <code>gcc</code>, aby připojil nějakou knihovnu k našemu programu. Pro to
+<h2><a class="header" href="#použití-knihoven-s-gcc" id="použití-knihoven-s-gcc">Použití knihoven s GCC</a></h2>
+<p>Nyní si ukážeme, jak říct překladači GCC, aby připojil nějakou knihovnu k našemu programu. Pro to
 musíme mít k dispozici archiv s objektovými soubory knihovny (s příponou <code>.a</code> nebo <code>.so</code>, v
 závislosti na typu knihovny) a obvykle také i adresář s hlavičkovými soubory knihovny.</p>
 <p>Nejprve si ukážeme, jak překladači předat cestu k hlavičkovým souborům knihovny. Ty obvykle nebudou
@@ -322,7 +322,7 @@ libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0d3a328000)
 tohoto důvodu je obvykle linkována dynamicky, aby její paměť šla sdílet mezi programy.</p>
 </blockquote>
 <h2><a class="header" href="#vytvoření-knihovny" id="vytvoření-knihovny">Vytvoření knihovny</a></h2>
-<p>Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí <code>gcc</code>. Dejme
+<p>Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí GCC. Dejme
 tomu, že máte soubory <code>a.c</code> a <code>b.c</code>, které chcete zabalit do knihovny. Nejprve každý zdrojový soubor
 přeložíme do objektového souboru<sup class='margin-toggle sidenote-number'>4</sup>:</p>
 <span class='sidenote'><p><sup class='number'>4</sup>Parametr <code>-fPIC</code> je nutný při překladu zdrojových souborů, které poté chceme umístit do

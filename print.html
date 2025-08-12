@@ -472,13 +472,13 @@ byly inspirací pro vznik Linuxu.</p>
 <li>Pokud používáte operační systém Windows, tak si musíte Linux nainstalovat. Jako návod k tomu
 slouží <a href="prostredi/os/linux.html">samostatná stránka</a>.</li>
 <li>Pokud používáte operační systém macOS, tak teoreticky Linux instalovat nemusíte, stačí si nastavit
-překladač <code>gcc</code>. Návod na nastavení systému macOS pro překlad C naleznete <a href="prostredi/os/macos.html">zde</a>.</li>
+překladač GCC. Návod na nastavení systému macOS pro překlad C naleznete <a href="prostredi/os/macos.html">zde</a>.</li>
 <li>Pokud již používáte operační systém Linux, nemusíte nic dalšího řešit a můžete přejít k
 nastavení <a href="prostredi/os/../editor/editor.html">editoru</a>.</li>
 </ul>
 <blockquote>
 <p><strong>Pokud při instalaci Linuxu narazíte na problémy, které se vám nepodaří vyřešit, konzultujte je
-ihned s vaším cvičícím, který vám s instalací pomůže. Je nezbytné mít zprovozněný překladač <code>gcc</code>
+ihned s vaším cvičícím, který vám s instalací pomůže. Je nezbytné mít zprovozněný překladač GCC
 a Linux (nebo macOS), abyste mohli řešit úlohy do UPR.</strong></p>
 </blockquote>
 <h2><a class="header" href="#základy-používání-příkazů-linuxuunixusup-classmargin-toggle-sidenote-number1sup" id="základy-používání-příkazů-linuxuunixusup-classmargin-toggle-sidenote-number1sup">Základy používání příkazů Linuxu/UNIXu<sup class='margin-toggle sidenote-number'>1</sup></a></h2>
@@ -589,7 +589,7 @@ startu počítače můžete rozhodnout, zdali se nabootuje do Windows (či jiné
 nebo do Linuxu. Pokud jste s Linuxem nikdy nepracovali, tak doporučujeme použít Linuxovou
 <a href="https://itsfoss.com/install-ubuntu/">distribuci Ubuntu</a> ve verzi <code>24.04</code>.</p>
 <h1><a class="header" href="#macos" id="macos">macOS</a></h1>
-<p>Během výuky UPR používáme překladač <code>gcc</code>. Jelikož ve výchozím nastavení není v macOS zahrnutý, musíme ho vlastnoručně nainstalovat.</p>
+<p>Během výuky UPR používáme překladač GCC. Jelikož ve výchozím nastavení není v macOS zahrnutý, musíme ho vlastnoručně nainstalovat.</p>
 <p>Nejprve musíme nainstalovat nástroje příkazového řádku, tzv. <em>Xcode Command Line Tools</em>:</p>
 <p>Otevřete si <code>Terminál</code><sup class='margin-toggle sidenote-number'>1</sup> pomocí Launchpadu nebo Spotlightu (⌘ + mezerník) a zadejte následující příkaz:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Více o práci s terminálem se dozvíte v sekci <a href="prostredi/os/os.html">Operační systém</a></p>
@@ -611,23 +611,23 @@ a potvrďte klávesou Enter.</p>
 </blockquote>
 <p>V případě, že máte všechno nainstalováno správně, po zadání příkazu <code>brew</code> v terminálu uvidíte následující:</p>
 <center><img src="prostredi/os/../../static/img/macos/brew.png" height="400"></center>
-<h2><a class="header" href="#instalace-gcc" id="instalace-gcc">Instalace <code>gcc</code></a></h2>
-<p>Teď můžeme jednoduše nainstalovat <code>gcc</code> pomocí:</p>
+<h2><a class="header" href="#instalace-gcc" id="instalace-gcc">Instalace GCC</a></h2>
+<p>Teď můžeme jednoduše nainstalovat GCC pomocí:</p>
 <pre><code class="language-zsh">$ brew install gcc
 </code></pre>
-<h2><a class="header" href="#spouštění-gcc" id="spouštění-gcc">Spouštění <code>gcc</code></a></h2>
-<p>Po instalaci nástrojů příkazového řádku můžeme zkusit použít příkaz <code>gcc</code>, ale ve skutečnosti se spustí jiný, zabudovaný do macOS překladač <code>clang</code>.</p>
-<p>Abychom mohli spouštět příkazy <code>gcc</code>, musíme použít: <code>gcc-&lt;verze&gt;</code>.</p>
-<p>Zjistit, jakou verzi <code>gcc</code> máme nainstalovanou, můžeme pomocí:</p>
+<h2><a class="header" href="#spouštění-gcc" id="spouštění-gcc">Spouštění GCC</a></h2>
+<p>Po instalaci nástrojů příkazového řádku můžeme zkusit použít příkaz <code>gcc</code>, ale ve skutečnosti se spustí jiný, zabudovaný do macOS překladač Clang.</p>
+<p>Abychom mohli spouštět příkazy GCC, musíme použít: <code>gcc-&lt;verze&gt;</code>.</p>
+<p>Zjistit, jakou verzi GCC máme nainstalovanou, můžeme pomocí:</p>
 <pre><code class="language-zsh">$ ls -l /opt/homebrew/bin/gcc-*
 </code></pre>
 <p>Po spuštění uvidíte něco jako:</p>
 <center><img src="prostredi/os/../../static/img/macos/gcc-ver.png" height=200 ></center>
-<p>Lze vidět, že výsledek obsahuje cesty do složek překladače, ve kterých se často opakuje <code>gcc-15</code>, tzn. verze 'gcc' je 15.</p>
-<p>Takže, pro používání <code>gcc</code> budeme vždy psát <code>gcc-15 ...</code>. Pokud máme jinou verzi, určitě budeme v příkazu psát jiné číslo.</p>
+<p>Lze vidět, že výsledek obsahuje cesty do složek překladače, ve kterých se často opakuje <code>gcc-15</code>, tzn. verze GCC je 15.</p>
+<p>Takže, pro používání GCC budeme vždy psát <code>gcc-15 ...</code>. Pokud máme jinou verzi, určitě budeme v příkazu psát jiné číslo.</p>
 <p>Ověříme to a porovnáme s příkazem <code>gcc</code>:</p>
 <center><img src="prostredi/os/../../static/img/macos/gcc-clang.png" height="200" ></center>
-<p>Příkaz s určením verze opravdu volá <code>gcc</code>.</p>
+<p>Příkaz s určením verze opravdu volá GCC.</p>
 <p>Teď můžeme dál nastavovat prostředí. Zbytek postupu bude téměř úplně stejný jako na Linuxu, až na pár klávesových zkratek a instalačních detailů.</p>
 <h1><a class="header" href="#vývojové-prostředí" id="vývojové-prostředí">Vývojové prostředí</a></h1>
 <p>Abychom mohli přeložit a spustit nějaký program, musíme ho obvykle nejprve zapsat do
@@ -708,7 +708,7 @@ terminálu, aby mělo správný přístup k systémovým souborům jazyka <em>C<
 </li>
 </ul>
 <ol start="2">
-<li>Nemáte nainstalovaný překladač (<code>gcc</code>). Spusťte Ubuntu terminál a nainstalujte jej, viz
+<li>Nemáte nainstalovaný překladač (GCC). Spusťte Ubuntu terminál a nainstalujte jej, viz
 <a href="prostredi/editor/../preklad_programu.html">překlad programu</a>.</li>
 </ol>
 <blockquote>
@@ -832,7 +832,7 @@ naleznete <a href="https://www.jetbrains.com/help/clion/installation-guide.html#
 klávesové zkratky <code>Shift + F10</code> nebo kliknutím na tlačítko <strong>Run</strong>.</p>
 <img src="prostredi/editor/../../static/img/clion/clion_run.png" width="557" height="432" >
 <h3><a class="header" href="#výběr-kompilátoru" id="výběr-kompilátoru">Výběr kompilátoru</a></h3>
-<p>Pokud chcete používat <strong>gcc</strong> kompilátor z <strong>WSL</strong>, stačí jej přepnout v nastavení.</p>
+<p>Pokud chcete používat <strong>GCC</strong> kompilátor z <strong>WSL</strong>, stačí jej přepnout v nastavení.</p>
 <ol>
 <li>Stisknutím klávesové zkratky <code>CTRL + Shift + A</code> otevřete vyhledávací okno.</li>
 <li>Napište <strong>Toolchains</strong> a stiskněte <code>Enter</code>.</li>
@@ -875,8 +875,8 @@ e-mailem <a href="https://account.jetbrains.com/login">zde</a>.</p>
 <p>Pro překlad programů, které budeme psát v jazyce <em>C</em>, do <strong>spustitelného</strong> (<em>executable</em>) souboru
 budeme používat program, kterému se říká překladač.
 Překladačů jazyka <em>C</em> existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
-Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong></a> (GNU Compiler Collection). </p>
-<p>Překladač <code>gcc</code>, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
+Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong></a> (GNU Compiler Collection).</p>
+<p>Překladač GCC, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
 pomocí následujících dvou příkazů:</p>
 <pre><code class="language-bash">$ sudo apt update
 $ sudo apt install build-essential gdb
@@ -922,14 +922,20 @@ Hello world!
 <details>
 <summary>Tipy pro práci s příkazovou řádkou</summary>
 <ul>
-<li>Při psaní programu budete chtít často po úpravě zdrojového kódu opětovně provést překlad a poté
-program spustit. Abyste to provedli v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí <code>&amp;&amp;</code>:
+<li>
+<p>Při psaní programu budete chtít často po úpravě zdrojového kódu opětovně provést překlad a poté
+program spustit. Abyste to provedli v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí <code>&amp;&amp;</code>:</p>
 <pre><code class="language-bash">$ gcc main.c -o main &amp;&amp; ./main
 </code></pre>
-Pokud překlad proběhne úspěšně, tak operátor <code>&amp;&amp;</code> zajistí spuštění následujícího příkazu.</li>
-<li>Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru (↑) můžete vyvolat nedávno
-spuštěné příkazy v terminálu.</li>
-<li>Můžete používat i terminál vestavený přímo ve <code>Visual Studio Code</code> (<code>View -&gt; Terminal</code>).</li>
+<p>Pokud překlad proběhne úspěšně, tak operátor <code>&amp;&amp;</code> zajistí spuštění následujícího příkazu.</p>
+</li>
+<li>
+<p>Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru (↑) můžete vyvolat nedávno
+spuštěné příkazy v terminálu.</p>
+</li>
+<li>
+<p>Můžete používat i terminál vestavený přímo ve <code>Visual Studio Code</code> (<code>View -&gt; Terminal</code>).</p>
+</li>
 </ul>
 </details>
 <p>📹 Pro lepší představu o překladu programů zde máte k dispozici ještě krátké shrnující video:</p>
@@ -950,7 +956,7 @@ spustit.</p>
 <p>Když použijete program <code>gcc</code> způsobem, jaký jsme si ukázali výše, tak se na pozadí spustí překladač
 a poté i linker a oba dva tyto kroky se tak provedou automaticky. Je ale možné provést je i separátně:</p>
 <pre><code class="language-bash">$ gcc -c main.c      # vytvoří objektový soubor main.o
-$ gcc main.o -o main # slinkování souboru main.o 
+$ gcc main.o -o main # slinkování souboru main.o
 </code></pre>
 <h1><a class="header" href="#ladění-programů" id="ladění-programů">Ladění programů</a></h1>
 <p>Tato sekce slouží k řešení často se vyskytujících problémů při programování v C. Pokud váš program
@@ -7824,11 +7830,11 @@ příkazu podobnému tomuto:</p>
 o nezávislé komponenty, ze kterých je nakonec vytvořen cílový program. Každá jednotka je obvykle
 tvořena jedním zdrojovým souborem (obvykle s příponou <code>.c</code>). Při překladu <strong>překladač</strong> převede
 jednotku ze zdrojového kódu v <em>C</em> do instrukcí procesoru, tzv. <strong>objektového kódu</strong> (<em>object code</em>).</p>
-<p>Pokud chceme překladačem <code>gcc</code> (pouze) přeložit zdrojový soubor do objektového kódu (resp.
+<p>Pokud chceme překladačem GCC (pouze) přeložit zdrojový soubor do objektového kódu (resp.
 objektového souboru), můžeme použít přepínač <code>-c</code>:</p>
 <pre><code class="language-bash">$ gcc -c soubor.c
 </code></pre>
-<p>Pokud nezadáme název výstupu pomocí přepínače <code>-o</code>, tak <code>gcc</code> implicitně vytvoří objektový soubor
+<p>Pokud nezadáme název výstupu pomocí přepínače <code>-o</code>, tak GCC implicitně vytvoří objektový soubor
 <code>&lt;nazev-vstupu&gt;.o</code> (tj. zde <code>soubor.o</code>).</p>
 <p>Jednotky překladu jsou na sobě nezávislé, můžeme tedy každou jednotku (zdrojový soubor) přeložit
 zvlášť:</p>
@@ -7976,7 +7982,8 @@ jednoprůchodových překladačích se nazývá <strong>dopředná deklarace</st
 být v programu <em>nadefinována</em> právě jednou (deklarována může být vícekrát). To platí jak v rámci
 jednoho souboru, tak v rámci celého programu (tj. napříč všemi zdrojovými soubory).</p>
 <ul>
-<li>Pokud bychom proměnnou či funkci pouze nadeklarovali a/nebo použili bez definice:
+<li>
+<p>Pokud bychom proměnnou či funkci pouze nadeklarovali a/nebo použili bez definice:</p>
 <pre><code class="language-c">// soubor.c
 void funkce();
 
@@ -7985,8 +7992,8 @@ int main() {
     return 0;
 }
 </code></pre>
-Tak by kompilace selhala v době linkování, protože by nenašel žádnou funkci/proměnnou, kterou
-by mohl použít:
+<p>Tak by kompilace selhala v době linkování, protože by nenašel žádnou funkci/proměnnou, kterou
+by mohl použít:</p>
 <pre><code class="language-bash">$ gcc -c soubor.c
 $ gcc soubor.o
 /usr/bin/ld: test.o: in function `main':
@@ -7994,7 +8001,8 @@ test.c:(.text+0xe): undefined reference to `funkce'
 collect2: error: ld returned 1 exit status
 </code></pre>
 </li>
-<li>Pokud bychom naopak nadefinovali proměnnou či funkci více než jednou:
+<li>
+<p>Pokud bychom naopak nadefinovali proměnnou či funkci více než jednou:</p>
 <pre><code class="language-c">// soubor1.c
 void funkce() {}
 
@@ -8005,7 +8013,7 @@ int main() {
 // soubor2.c
 void funkce() {}
 </code></pre>
-Tak by linkování opět selhalo, protože by linker nevěděl, kterou definici použít:
+<p>Tak by linkování opět selhalo, protože by linker nevěděl, kterou definici použít:</p>
 <pre><code class="language-bash">$ gcc -c soubor1.c
 $ gcc -c soubor2.c
 $ gcc soubor1.o soubor2.o
@@ -8250,8 +8258,8 @@ opětovného překladu celého programu.</p>
 <p>Názvy přípon statických a dynamických knihoven závisí na operačním systému. Například na Windows
 se můžete setkat s příponami <code>.lib</code> pro statické knihovny a <code>.dll</code> pro dynamické knihovny.</p>
 </blockquote>
-<h2><a class="header" href="#použití-knihoven-s-gcc" id="použití-knihoven-s-gcc">Použití knihoven s <code>gcc</code></a></h2>
-<p>Nyní si ukážeme, jak říct překladači <code>gcc</code>, aby připojil nějakou knihovnu k našemu programu. Pro to
+<h2><a class="header" href="#použití-knihoven-s-gcc" id="použití-knihoven-s-gcc">Použití knihoven s GCC</a></h2>
+<p>Nyní si ukážeme, jak říct překladači GCC, aby připojil nějakou knihovnu k našemu programu. Pro to
 musíme mít k dispozici archiv s objektovými soubory knihovny (s příponou <code>.a</code> nebo <code>.so</code>, v
 závislosti na typu knihovny) a obvykle také i adresář s hlavičkovými soubory knihovny.</p>
 <p>Nejprve si ukážeme, jak překladači předat cestu k hlavičkovým souborům knihovny. Ty obvykle nebudou
@@ -8307,7 +8315,7 @@ libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0d3a328000)
 tohoto důvodu je obvykle linkována dynamicky, aby její paměť šla sdílet mezi programy.</p>
 </blockquote>
 <h2><a class="header" href="#vytvoření-knihovny" id="vytvoření-knihovny">Vytvoření knihovny</a></h2>
-<p>Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí <code>gcc</code>. Dejme
+<p>Pokud byste si chtěli vytvořit vlastní knihovnu, můžete toho jednoduše dosáhnout pomocí GCC. Dejme
 tomu, že máte soubory <code>a.c</code> a <code>b.c</code>, které chcete zabalit do knihovny. Nejprve každý zdrojový soubor
 přeložíme do objektového souboru<sup class='margin-toggle sidenote-number'>4</sup>:</p>
 <span class='sidenote'><p><sup class='number'>4</sup>Parametr <code>-fPIC</code> je nutný při překladu zdrojových souborů, které poté chceme umístit do
@@ -8733,7 +8741,7 @@ také dvě další pomocné knihovny potřebné pro vykreslování obrázků a t
 <pre><code class="language-bash">$ sudo apt update
 $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
 </code></pre>
-Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, a překladač <code>gcc</code> ji tak
+Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, a překladač GCC ji tak
 bude umět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou může být, že verze
 knihoven nabízené správci balíčků bývají typicky docela zastaralé.<span class='sidenote'><p><sup class='number'>1</sup>Pokud by vás zajímalo, které všechny soubory a kam se nainstalovaly, můžete po instalaci balíčků
 použít příkaz</p>
@@ -10364,13 +10372,13 @@ mít následující hodnoty:</p>
 <li><code>argv[2]</code> bude obsahovat řetězec <code>&quot;world&quot;</code></li>
 </ul>
 <h1><a class="header" href="#parametry-překladače" id="parametry-překladače">Parametry překladače</a></h1>
-<p>Překladač <code>gcc</code> obsahuje sadu několika stovek parametrů, pomocí kterých můžeme ovlivnit, jak překlad
+<p>Překladač GCC obsahuje sadu několika stovek parametrů, pomocí kterých můžeme ovlivnit, jak překlad
 programu proběhne. Můžeme například určit, pro jaký procesor se mají vygenerovat instrukce, jakou
 variantu jazyka <em>C</em> má překladač očekávat nebo jestli má náš program zoptimalizovat, aby běžel
 rychleji.</p>
 <blockquote>
-<p>Kromě <code>gcc</code> existuje řada dalších překladačů <em>C</em>, například <a href="https://clang.llvm.org/"><code>clang</code></a>.
-Nejčastější parametry (jako je např. <code>-O</code>) obvykle fungují ve všech překladačích obdobně, každý
+<p>Kromě GCC existuje řada dalších překladačů <em>C</em>, například <a href="https://clang.llvm.org/">Clang</a>.
+Nejčastější parametry (jako je např. <code>-o</code>) obvykle fungují ve všech překladačích obdobně, každý
 překladač ale obsahuje sadu specifických parametrů, které můžete naleznout v jeho
 <a href="https://clang.llvm.org/docs/ClangCommandLineReference.html">dokumentaci</a>.</p>
 </blockquote>

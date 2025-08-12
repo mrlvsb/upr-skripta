@@ -184,7 +184,7 @@ video {
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#macos" id="macos">macOS</a></h1>
-<p>Během výuky UPR používáme překladač <code>gcc</code>. Jelikož ve výchozím nastavení není v macOS zahrnutý, musíme ho vlastnoručně nainstalovat.</p>
+<p>Během výuky UPR používáme překladač GCC. Jelikož ve výchozím nastavení není v macOS zahrnutý, musíme ho vlastnoručně nainstalovat.</p>
 <p>Nejprve musíme nainstalovat nástroje příkazového řádku, tzv. <em>Xcode Command Line Tools</em>:</p>
 <p>Otevřete si <code>Terminál</code><sup class='margin-toggle sidenote-number'>1</sup> pomocí Launchpadu nebo Spotlightu (⌘ + mezerník) a zadejte následující příkaz:</p>
 <span class='sidenote'><p><sup class='number'>1</sup>Více o práci s terminálem se dozvíte v sekci <a href="os.html">Operační systém</a></p>
@@ -206,23 +206,23 @@ a potvrďte klávesou Enter.</p>
 </blockquote>
 <p>V případě, že máte všechno nainstalováno správně, po zadání příkazu <code>brew</code> v terminálu uvidíte následující:</p>
 <center><img src="../../static/img/macos/brew.png" height="400"></center>
-<h2><a class="header" href="#instalace-gcc" id="instalace-gcc">Instalace <code>gcc</code></a></h2>
-<p>Teď můžeme jednoduše nainstalovat <code>gcc</code> pomocí:</p>
+<h2><a class="header" href="#instalace-gcc" id="instalace-gcc">Instalace GCC</a></h2>
+<p>Teď můžeme jednoduše nainstalovat GCC pomocí:</p>
 <pre><code class="language-zsh">$ brew install gcc
 </code></pre>
-<h2><a class="header" href="#spouštění-gcc" id="spouštění-gcc">Spouštění <code>gcc</code></a></h2>
-<p>Po instalaci nástrojů příkazového řádku můžeme zkusit použít příkaz <code>gcc</code>, ale ve skutečnosti se spustí jiný, zabudovaný do macOS překladač <code>clang</code>.</p>
-<p>Abychom mohli spouštět příkazy <code>gcc</code>, musíme použít: <code>gcc-&lt;verze&gt;</code>.</p>
-<p>Zjistit, jakou verzi <code>gcc</code> máme nainstalovanou, můžeme pomocí:</p>
+<h2><a class="header" href="#spouštění-gcc" id="spouštění-gcc">Spouštění GCC</a></h2>
+<p>Po instalaci nástrojů příkazového řádku můžeme zkusit použít příkaz <code>gcc</code>, ale ve skutečnosti se spustí jiný, zabudovaný do macOS překladač Clang.</p>
+<p>Abychom mohli spouštět příkazy GCC, musíme použít: <code>gcc-&lt;verze&gt;</code>.</p>
+<p>Zjistit, jakou verzi GCC máme nainstalovanou, můžeme pomocí:</p>
 <pre><code class="language-zsh">$ ls -l /opt/homebrew/bin/gcc-*
 </code></pre>
 <p>Po spuštění uvidíte něco jako:</p>
 <center><img src="../../static/img/macos/gcc-ver.png" height=200 ></center>
-<p>Lze vidět, že výsledek obsahuje cesty do složek překladače, ve kterých se často opakuje <code>gcc-15</code>, tzn. verze 'gcc' je 15.</p>
-<p>Takže, pro používání <code>gcc</code> budeme vždy psát <code>gcc-15 ...</code>. Pokud máme jinou verzi, určitě budeme v příkazu psát jiné číslo.</p>
+<p>Lze vidět, že výsledek obsahuje cesty do složek překladače, ve kterých se často opakuje <code>gcc-15</code>, tzn. verze GCC je 15.</p>
+<p>Takže, pro používání GCC budeme vždy psát <code>gcc-15 ...</code>. Pokud máme jinou verzi, určitě budeme v příkazu psát jiné číslo.</p>
 <p>Ověříme to a porovnáme s příkazem <code>gcc</code>:</p>
 <center><img src="../../static/img/macos/gcc-clang.png" height="200" ></center>
-<p>Příkaz s určením verze opravdu volá <code>gcc</code>.</p>
+<p>Příkaz s určením verze opravdu volá GCC.</p>
 <p>Teď můžeme dál nastavovat prostředí. Zbytek postupu bude téměř úplně stejný jako na Linuxu, až na pár klávesových zkratek a instalačních detailů.</p>
 
                     </main>

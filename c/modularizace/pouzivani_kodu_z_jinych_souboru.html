@@ -272,7 +272,8 @@ jednoprůchodových překladačích se nazývá <strong>dopředná deklarace</st
 být v programu <em>nadefinována</em> právě jednou (deklarována může být vícekrát). To platí jak v rámci
 jednoho souboru, tak v rámci celého programu (tj. napříč všemi zdrojovými soubory).</p>
 <ul>
-<li>Pokud bychom proměnnou či funkci pouze nadeklarovali a/nebo použili bez definice:
+<li>
+<p>Pokud bychom proměnnou či funkci pouze nadeklarovali a/nebo použili bez definice:</p>
 <pre><code class="language-c">// soubor.c
 void funkce();
 
@@ -281,8 +282,8 @@ int main() {
     return 0;
 }
 </code></pre>
-Tak by kompilace selhala v době linkování, protože by nenašel žádnou funkci/proměnnou, kterou
-by mohl použít:
+<p>Tak by kompilace selhala v době linkování, protože by nenašel žádnou funkci/proměnnou, kterou
+by mohl použít:</p>
 <pre><code class="language-bash">$ gcc -c soubor.c
 $ gcc soubor.o
 /usr/bin/ld: test.o: in function `main':
@@ -290,7 +291,8 @@ test.c:(.text+0xe): undefined reference to `funkce'
 collect2: error: ld returned 1 exit status
 </code></pre>
 </li>
-<li>Pokud bychom naopak nadefinovali proměnnou či funkci více než jednou:
+<li>
+<p>Pokud bychom naopak nadefinovali proměnnou či funkci více než jednou:</p>
 <pre><code class="language-c">// soubor1.c
 void funkce() {}
 
@@ -301,7 +303,7 @@ int main() {
 // soubor2.c
 void funkce() {}
 </code></pre>
-Tak by linkování opět selhalo, protože by linker nevěděl, kterou definici použít:
+<p>Tak by linkování opět selhalo, protože by linker nevěděl, kterou definici použít:</p>
 <pre><code class="language-bash">$ gcc -c soubor1.c
 $ gcc -c soubor2.c
 $ gcc soubor1.o soubor2.o

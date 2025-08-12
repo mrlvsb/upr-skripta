@@ -187,8 +187,8 @@ video {
 <p>Pro překlad programů, které budeme psát v jazyce <em>C</em>, do <strong>spustitelného</strong> (<em>executable</em>) souboru
 budeme používat program, kterému se říká překladač.
 Překladačů jazyka <em>C</em> existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
-Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong></a> (GNU Compiler Collection). </p>
-<p>Překladač <code>gcc</code>, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
+Linuxové systémy s názvem <a href="https://gcc.gnu.org/"><strong>GCC</strong></a> (GNU Compiler Collection).</p>
+<p>Překladač GCC, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
 pomocí následujících dvou příkazů:</p>
 <pre><code class="language-bash">$ sudo apt update
 $ sudo apt install build-essential gdb
@@ -234,14 +234,20 @@ Hello world!
 <details>
 <summary>Tipy pro práci s příkazovou řádkou</summary>
 <ul>
-<li>Při psaní programu budete chtít často po úpravě zdrojového kódu opětovně provést překlad a poté
-program spustit. Abyste to provedli v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí <code>&amp;&amp;</code>:
+<li>
+<p>Při psaní programu budete chtít často po úpravě zdrojového kódu opětovně provést překlad a poté
+program spustit. Abyste to provedli v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí <code>&amp;&amp;</code>:</p>
 <pre><code class="language-bash">$ gcc main.c -o main &amp;&amp; ./main
 </code></pre>
-Pokud překlad proběhne úspěšně, tak operátor <code>&amp;&amp;</code> zajistí spuštění následujícího příkazu.</li>
-<li>Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru (↑) můžete vyvolat nedávno
-spuštěné příkazy v terminálu.</li>
-<li>Můžete používat i terminál vestavený přímo ve <code>Visual Studio Code</code> (<code>View -&gt; Terminal</code>).</li>
+<p>Pokud překlad proběhne úspěšně, tak operátor <code>&amp;&amp;</code> zajistí spuštění následujícího příkazu.</p>
+</li>
+<li>
+<p>Pokud nechcete příkazy v terminálu psát neustále dokola, šipkou nahoru (↑) můžete vyvolat nedávno
+spuštěné příkazy v terminálu.</p>
+</li>
+<li>
+<p>Můžete používat i terminál vestavený přímo ve <code>Visual Studio Code</code> (<code>View -&gt; Terminal</code>).</p>
+</li>
 </ul>
 </details>
 <p>📹 Pro lepší představu o překladu programů zde máte k dispozici ještě krátké shrnující video:</p>
@@ -262,7 +268,7 @@ spustit.</p>
 <p>Když použijete program <code>gcc</code> způsobem, jaký jsme si ukázali výše, tak se na pozadí spustí překladač
 a poté i linker a oba dva tyto kroky se tak provedou automaticky. Je ale možné provést je i separátně:</p>
 <pre><code class="language-bash">$ gcc -c main.c      # vytvoří objektový soubor main.o
-$ gcc main.o -o main # slinkování souboru main.o 
+$ gcc main.o -o main # slinkování souboru main.o
 </code></pre>
 
                     </main>

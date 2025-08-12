@@ -201,11 +201,11 @@ příkazu podobnému tomuto:</p>
 o nezávislé komponenty, ze kterých je nakonec vytvořen cílový program. Každá jednotka je obvykle
 tvořena jedním zdrojovým souborem (obvykle s příponou <code>.c</code>). Při překladu <strong>překladač</strong> převede
 jednotku ze zdrojového kódu v <em>C</em> do instrukcí procesoru, tzv. <strong>objektového kódu</strong> (<em>object code</em>).</p>
-<p>Pokud chceme překladačem <code>gcc</code> (pouze) přeložit zdrojový soubor do objektového kódu (resp.
+<p>Pokud chceme překladačem GCC (pouze) přeložit zdrojový soubor do objektového kódu (resp.
 objektového souboru), můžeme použít přepínač <code>-c</code>:</p>
 <pre><code class="language-bash">$ gcc -c soubor.c
 </code></pre>
-<p>Pokud nezadáme název výstupu pomocí přepínače <code>-o</code>, tak <code>gcc</code> implicitně vytvoří objektový soubor
+<p>Pokud nezadáme název výstupu pomocí přepínače <code>-o</code>, tak GCC implicitně vytvoří objektový soubor
 <code>&lt;nazev-vstupu&gt;.o</code> (tj. zde <code>soubor.o</code>).</p>
 <p>Jednotky překladu jsou na sobě nezávislé, můžeme tedy každou jednotku (zdrojový soubor) přeložit
 zvlášť:</p>

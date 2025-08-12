@@ -65,7 +65,7 @@ funkce původně vytvořená v `b.c`.
 
 [^1]: V takovém případě byste se setkali s chybou `undefined reference to 'foo'`.
 
-Manuální použití linkeru[^2] je relativně složité, proto i linker budeme používat přes GCC. Tomu
+Manuální použití linkeru[^2] je relativně složité, proto i linker budeme používat přes `gcc`. Tomu
 můžeme předat sadu objektových souborů a on se postará o správné zavolání linkeru, který je spojí
 a vytvoří finální spustitelný soubor:
 

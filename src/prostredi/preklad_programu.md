@@ -2,9 +2,9 @@
 Pro překlad programů, které budeme psát v jazyce *C*, do **spustitelného** (*executable*) souboru
 budeme používat program, kterému se říká překladač.
 Překladačů jazyka *C* existuje celá řada, my budeme využívat asi nejpoužívanější překladač pro
-Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection). 
+Linuxové systémy s názvem [**GCC**](https://gcc.gnu.org/) (GNU Compiler Collection).
 
-Překladač `gcc`, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
+Překladač GCC, spolu s dalšími potřebnými nástroji, můžete na Ubuntu v terminálu nainstalovat
 pomocí následujících dvou příkazů:
 ```bash
 $ sudo apt update
@@ -62,6 +62,7 @@ Program by měl na výstup vytisknout text `Hello world!`.
 
 - Při psaní programu budete chtít často po úpravě zdrojového kódu opětovně provést překlad a poté
   program spustit. Abyste to provedli v jednom terminálovém příkazu, můžete tyto dva příkazy spojit pomocí `&&`:
+
     ```bash
     $ gcc main.c -o main && ./main
     ```
@@ -94,7 +95,8 @@ spustit.
 
 Když použijete program `gcc` způsobem, jaký jsme si ukázali výše, tak se na pozadí spustí překladač
 a poté i linker a oba dva tyto kroky se tak provedou automaticky. Je ale možné provést je i separátně:
+
 ```bash
 $ gcc -c main.c      # vytvoří objektový soubor main.o
-$ gcc main.o -o main # slinkování souboru main.o 
+$ gcc main.o -o main # slinkování souboru main.o
 ```

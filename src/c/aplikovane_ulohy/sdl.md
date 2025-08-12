@@ -31,7 +31,7 @@ také dvě další pomocné knihovny potřebné pro vykreslování obrázků a t
     $ sudo apt update
     $ sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
     ```
-    Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, a překladač `gcc` ji tak
+    Výhodou tohoto způsobu je, že knihovna bude nainstalována v systémových cestách, a překladač GCC ji tak
     bude umět naleznout i bez toho, abychom mu museli zadat explicitní cestu. Nevýhodou může být, že verze
     knihoven nabízené správci balíčků bývají typicky docela zastaralé.
 

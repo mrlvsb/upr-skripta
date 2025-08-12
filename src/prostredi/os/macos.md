@@ -1,5 +1,5 @@
 # macOS
-Během výuky UPR používáme překladač `gcc`. Jelikož ve výchozím nastavení není v macOS zahrnutý, musíme ho vlastnoručně nainstalovat.
+Během výuky UPR používáme překladač GCC. Jelikož ve výchozím nastavení není v macOS zahrnutý, musíme ho vlastnoručně nainstalovat.
 
 Nejprve musíme nainstalovat nástroje příkazového řádku, tzv. _Xcode Command Line Tools_:
 
@@ -32,21 +32,21 @@ V případě, že máte všechno nainstalováno správně, po zadání příkazu
 
 <center><img src="../../static/img/macos/brew.png" height="400"></center>
 
-## Instalace `gcc`
+## Instalace GCC
 
-Teď můžeme jednoduše nainstalovat `gcc` pomocí:
+Teď můžeme jednoduše nainstalovat GCC pomocí:
 
 ```zsh
 $ brew install gcc
 ```
 
-## Spouštění `gcc`
+## Spouštění GCC
 
-Po instalaci nástrojů příkazového řádku můžeme zkusit použít příkaz `gcc`, ale ve skutečnosti se spustí jiný, zabudovaný do macOS překladač `clang`.
+Po instalaci nástrojů příkazového řádku můžeme zkusit použít příkaz `gcc`, ale ve skutečnosti se spustí jiný, zabudovaný do macOS překladač Clang.
 
-Abychom mohli spouštět příkazy `gcc`, musíme použít: `gcc-<verze>`.
+Abychom mohli spouštět příkazy GCC, musíme použít: `gcc-<verze>`.
 
-Zjistit, jakou verzi `gcc` máme nainstalovanou, můžeme pomocí:
+Zjistit, jakou verzi GCC máme nainstalovanou, můžeme pomocí:
 
 ```zsh
 $ ls -l /opt/homebrew/bin/gcc-*
@@ -56,14 +56,14 @@ Po spuštění uvidíte něco jako:
 
 <center><img src="../../static/img/macos/gcc-ver.png" height=200 ></center>
 
-Lze vidět, že výsledek obsahuje cesty do složek překladače, ve kterých se často opakuje `gcc-15`, tzn. verze 'gcc' je 15.
+Lze vidět, že výsledek obsahuje cesty do složek překladače, ve kterých se často opakuje `gcc-15`, tzn. verze GCC je 15.
 
-Takže, pro používání `gcc` budeme vždy psát `gcc-15 ...`. Pokud máme jinou verzi, určitě budeme v příkazu psát jiné číslo.
+Takže, pro používání GCC budeme vždy psát `gcc-15 ...`. Pokud máme jinou verzi, určitě budeme v příkazu psát jiné číslo.
 
 Ověříme to a porovnáme s příkazem `gcc`:
 
 <center><img src="../../static/img/macos/gcc-clang.png" height="200" ></center>
 
-Příkaz s určením verze opravdu volá `gcc`.
+Příkaz s určením verze opravdu volá GCC.
 
 Teď můžeme dál nastavovat prostředí. Zbytek postupu bude téměř úplně stejný jako na Linuxu, až na pár klávesových zkratek a instalačních detailů.

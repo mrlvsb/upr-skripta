@@ -35,7 +35,7 @@ nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku 
 - Oranžová šipka označuje, který řádek programu je právě prováděn.
 
 Pomocí šipek v levém horním rohu animace se můžete postupně proklikat průběhem vykonání tohoto programu.
-Uhodněte, jaké číslo tento program vypíše?
+Uhodnete, jaké číslo tento program vypíše?
 
 <div style="height: 450px">
     <upr-slideshow src="../../static/animations/stack/stack-" to="15" extension="png"></upr-slideshow>
@@ -94,10 +94,10 @@ použití zásobníku.
 - Paměť lokálních proměnných a parametrů je uvolněna při dokončení provádění funkce. Jediným způsobem,
 jak předat hodnotu z volání funkce, je pomocí návratové hodnoty. Takto lze vrátit pouze jednu
 hodnotu a nelze jednoduše sdílet paměť mezi funkcemi, protože paměť lokálních proměnných je po dokončení
-volání funkce uvolněna a nelze ji tak použít z volající funkce.  
+volání funkce uvolněna a nelze ji tak použít z volající funkce.
 - Argumenty předávané do funkcí se kopírují do zásobníkového rámce volané funkce a návratová hodnota
 se zase kopíruje zpět do rámce volající funkce. Toto kopírování může být zbytečně pomalé pro hodnoty
-zabírající velký počet bytů. 
+zabírající velký počet bytů.
 
 [^4]: Obvykle jde o jednotky KiB nebo MiB.
 

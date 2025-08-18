@@ -35,7 +35,7 @@ nějaká hodnota zapsána, nicméně paměť pro ně již existuje od začátku 
 - Oranžová šipka označuje, který řádek programu je právě prováděn.
 
 Pomocí šipek v levém horním rohu animace se můžete postupně proklikat průběhem vykonání tohoto programu.
-Uhodnotete, jaké číslo tento program vypíše?
+Uhodněte, jaké číslo tento program vypíše?
 
 <div style="height: 450px">
     <upr-slideshow src="../../static/animations/stack/stack-" to="15" extension="png"></upr-slideshow>

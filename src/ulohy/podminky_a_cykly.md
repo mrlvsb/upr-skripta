@@ -3,7 +3,7 @@ K vyřešení těchto úloh by vám mělo stačit znát [podmínky](../c/rizeni_
 (a samozřejmě veškeré předchozí učivo).
 
 ## Výpočet daně
-Na začátku programu si vytvořte dvě celočíselnou proměnné. První proměnná bude částku utracenou za nákup akcií v loňském
+Na začátku programu si vytvořte dvě celočíselné proměnné. První proměnná bude částku utracenou za nákup akcií v loňském
 roce. Druhá proměnná bude obsahovat současnou hodnotu průměrné mzdy v ČR. Poté vypočtěte daň, kterou je potřeba zaplatit
 za nákup akcií. Daň se vypočítává následovně:
 
@@ -75,7 +75,7 @@ maximum je 40
 ```
 </details>
 
-## Výpis druhých monicn čísel
+## Výpis druhých mocnin čísel
 Vypište všechna čísla od 0 do 20 (včetně), spolu s jejich druhou mocninou.
 
 <details>

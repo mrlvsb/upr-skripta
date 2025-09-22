@@ -26,15 +26,15 @@ dan = 0
 ```
 
 ```
-utraceno = 10412
-mzda = 41265
-dan = 1561
-```
-
-```
 utraceno = 2000000
 mzda = 41265
 dan = 460000
+```
+
+```
+utraceno = 150000
+mzda = 41265
+dan = 22500
 ```
 </details>
 

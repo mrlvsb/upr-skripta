@@ -306,7 +306,7 @@ program kdykoliv dostane do stavu, že někdy v budoucnu nutně musí dojít k p
 5, UB je na řádku 8, ale mezi těmito řádky není žádný skok/podmínka/cyklus/něco, co by mohlo přerušit chod programu), tak
 v tento moment může UB způsobit problémy.</p>
 <p>Například, v tomto konkrétním programu není chyba, protože UB (dělení nulou) na řádku 4 se nikdy neprovede.</p>
-<pre><code class="language-c mainbody">int main() {
+<pre><code class="language-c editable mainbody">int main() {
     int a = 5;
     if (a &gt; 6) {
         a / 0;

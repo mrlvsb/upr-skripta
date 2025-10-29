@@ -6168,11 +6168,8 @@ použít operátor hranatých závorek:</p>
 <p>Standardní knihovna <em>C</em> obsahuje <a href="https://devdocs.io/c/string/byte">řadu funkcí</a>, které umí s
 řetězci zakončenými nulou pracovat. Zde je seznam několika vybraných funkcí, které pro vás můžou
 být užitečné:</p>
-<ul>
-<li>
-<p><strong>Zjištění délky řetězce</strong>: funkce <a href="https://devdocs.io/c/string/byte/strlen"><code>strlen</code></a> bere jako
-parametr řetězec a vrací jeho délku. Jedná se o jednu z nejčastěji používaných funkcí při práci s
-řetězci a vyplatí se ji tak znát.</p>
+<h3><a class="header" href="#zjištění-délky-řetězce" id="zjištění-délky-řetězce">Zjištění délky řetězce</a></h3>
+<p>Funkce <a href="https://devdocs.io/c/string/byte/strlen"><code>strlen</code></a> bere jako parametr řetězec a vrací jeho délku. Jedná se o jednu z nejčastěji používaných funkcí při práci s řetězci a vyplatí se ji tak znát.</p>
 <p>Při jejím použití je ovšem nutné si dát pozor na to, že délka provádění této funkce závisí na tom, jak je
 řetězec dlouhý. Pokud bude mít řetězec milion znaků, tak bude tato funkce muset projít všech milion
 znaků, dokud nenarazí na znak <code>NUL</code>. Dávejte si tak pozor, abyste tuto funkci nevolali zbytečně často.
@@ -6192,11 +6189,8 @@ for (int i = 0; i &lt; delka; i++) {
     ...
 }
 </code></pre>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>Porovnání dvou řetězců</strong>: běžnou operací, kterou bychom s řetězci chtěli udělat, je porovnat,
+<h3><a class="header" href="#porovnání-dvou-řetězců" id="porovnání-dvou-řetězců">Porovnání dvou řetězců</a></h3>
+<p>Běžnou operací, kterou bychom s řetězci chtěli udělat, je porovnat,
 zdali jsou dva řetězce stejné, popřípadě který z nich je menší<sup class='margin-toggle sidenote-number'>5</sup>. Funkce
 <a href="https://devdocs.io/c/string/byte/strcmp"><code>strcmp</code></a> bere dva řetězce a vrací nulu, pokud se řetězce
 rovnají, zápornou hodnotu, pokud je první řetězec menší než ten druhý, a kladnou hodnotu, pokud je
@@ -6209,25 +6203,53 @@ pomocí jejich číselné (ASCII) hodnoty.</p>
 <p>Pro porovnávání dvou řetězců nikdy nepoužívejte operátor <code>==</code>! Nebude to
 <a href="c/text/../../caste_chyby/caste_chyby.html#porovn%C3%A1v%C3%A1n%C3%AD-%C5%99et%C4%9Bzc%C5%AF-pomoc%C3%AD-">fungovat</a>.</p>
 </blockquote>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>Vyhledání řetězce v řetězci</strong>: pokud chcete zjistit, jestli se v nějakém řetězci vyskytuje jiný
-řetězec, můžete použít funkci <a href="https://devdocs.io/c/string/byte/strstr"><code>strstr</code></a>.</p>
-</li>
-<li>
-<p><strong>Převod textu na číslo</strong>: často můžete potřebovat převést textový zápis čísla na jeho číselnou
-hodnotu. K tomu můžete použít například funkci <a href="https://devdocs.io/c/string/byte/strtol"><code>strtol</code></a>
-(<em>string to long</em>). První parametr funkce je řetězec, který chcete převést, do druhého parametru
+<h3><a class="header" href="#vyhledání-řetězce-v-řetězci" id="vyhledání-řetězce-v-řetězci">Vyhledání řetězce v řetězci</a></h3>
+<p>Pokud chcete zjistit, jestli se v nějakém řetězci vyskytuje jiný řetězec, můžete použít funkci <a href="https://devdocs.io/c/string/byte/strstr"><code>strstr</code></a>.</p>
+<h3><a class="header" href="#převod-textu-na-číslo" id="převod-textu-na-číslo">Převod textu na číslo</a></h3>
+<p>Často můžete potřebovat převést textový zápis čísla na jeho číselnou hodnotu. K tomu můžete použít například
+funkci <a href="https://devdocs.io/c/string/byte/strtol"><code>strtol</code></a> (<em>string to long</em>). První parametr funkce je řetězec, který chcete převést, do druhého parametru
 můžete předat ukazatel na ukazatel na znak, do kterého se uloží pozice ve vstupním řetězci těsně za
 načteným číslem. Posledním parametrem je soustava, ve které se má číslo načíst (obvykle to bude
 desítková soustava, tedy hodnota <code>10</code>). Návratovou hodnotou funkce je pak načtené číslo.</p>
 <p>Můžete použít také funkci <a href="https://devdocs.io/c/string/byte/atoi"><code>atoi</code></a>, která je trochu
 jednodušší na použití, ale při jejím použití nelze zjistit, zdali při konverzi nedošlo k chybě
 (například pokud vstupní řetězec nereprezentoval číslo).</p>
-</li>
-</ul>
+<h3><a class="header" href="#rozsekání-textu-dle-rozdělovače" id="rozsekání-textu-dle-rozdělovače">Rozsekání textu dle rozdělovače</a></h3>
+<p>Častou úlohou při práci s textem je rozdělení (neboli &quot;rozsekání&quot;) jednoho řetězce na několik podřetězců na základě nějakého rozdělovacího znaku, např. mezery, čárky či středníku. Tuto úlohu můžeme naprogramovat &quot;ručně&quot; s pomocí cyklů a operací s ukazateli, nebo můžeme využít funkci <a href="https://devdocs.io/c/string/byte/strtok"><code>strtok</code></a>.</p>
+<p>Tato funkce bere dva parametry. Prvním je ukazatel na řetězec, který chceme rozsekat, a druhý je řetězec s rozdělovacími znaky, podle kterých budeme první parametr rozsekávat. Když funkci zavoláme, tak projde vstupní řetězec dokud nenarazí na rozdělovač (nebo na konec řetězce), tento rozdělovač ve vstupním řetězci nahradí znakem <code>0</code> (<code>NUL</code>), a poté nám vrátí ukazatel na první znak podřetězce před rozdělovačem:</p>
+<pre><code class="language-c">char radek[50] = &quot;ahoj karle jak se mas?&quot;;
+char* slovo = strtok(radek, &quot; &quot;); // rozděluj podle mezer
+// slovo je nyní ukazatel na &quot;ahoj&quot;
+</code></pre>
+<p>Pokud poté chceme přistoupit na další kus řetězce za rozdělovačem, musíme zavolat funkci znovu. Abychom však funkci řekli, že má pokračovat v rozsekávání předchozího řetězce, a ne začít pracovat nad novým řetězcem, musíme ji při opakovaném volání předat jako první parametr hodnotu <code>NULL</code>! <sup class='margin-toggle sidenote-number'>strtok</sup></p>
+<span class='sidenote'><p><sup class='number'>strtok</sup>Funkce <code>strtok</code> si v <a href="c/text/../promenne/globalni_promenne.html">globální proměnné</a> pamatuje, který řetězec zpracovávala naposledy, proto to takto funguje.</p>
+</span>
+<pre><code class="language-c">char* slovo = strtok(NULL, &quot; &quot;);
+// slovo je nyní ukazatel na &quot;karle&quot;
+</code></pre>
+<p>V tomto je tato funkce trochu zvláštní, protože při následujících voláních jí musíme předat první parametr <code>NULL</code>. </p>
+<p>Jakmile funkce <code>strtok</code> <em>vrátí</em> hodnotu <code>NULL</code>, tak již došla na konec vstupního řetězce, a dál už tedy není co rozsekávat. </p>
+<p>Kompletní ukázka použití funkce <code>strtok</code>:</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char radek[50] = &quot;ahoj karle jak se mas?&quot;;
+    char* slovo = strtok(radek, &quot; &quot;);
+    while (slovo != NULL) {
+        printf(&quot;Slovo: %s\n&quot;, slovo);
+        slovo = strtok(NULL, &quot; &quot;); 
+    }
+
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p>Tím, že funkce <code>strtok</code> upravuje vstupní řetězec, tak jí musíme předávat řetězce, které lze měnit. Nesmíte tak např. volat <code>strtok</code> na řetězcovým literálem. Např. tohle je špatně:</p>
+<pre><code class="language-c">const char* text = &quot;ahoj karle&quot;;
+strtok(text, &quot; &quot;);
+</code></pre>
+</blockquote>
 <hr />
 <p><strong>Cvičení</strong> 🏋</p>
 <p>Pro procvičení práce s řetězci si můžete zkusit některé z těchto funkcí sami
@@ -8504,7 +8526,7 @@ neplatné hodnoty. Když použijeme pro všechny atributy datový typ s velikost
 <p>Nyní už stačí pouze otevřít nějaký <code>TGA</code> soubor (např. <a href="c/aplikovane_ulohy/../../static/img/carmack.tga">tento</a>),
 <a href="c/aplikovane_ulohy/../soubory/cteni_ze_souboru.html">načíst</a> z něj počet bytů odpovídající naší struktuře
 a poté si z ní můžeme přečíst informace o daném obrázku:</p>
-<pre><code class="language-c mainbody">#include &lt;stdio.h&gt;
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
 #include &lt;assert.h&gt;
 
 int main() {
@@ -10560,7 +10582,7 @@ program kdykoliv dostane do stavu, že někdy v budoucnu nutně musí dojít k p
 5, UB je na řádku 8, ale mezi těmito řádky není žádný skok/podmínka/cyklus/něco, co by mohlo přerušit chod programu), tak
 v tento moment může UB způsobit problémy.</p>
 <p>Například, v tomto konkrétním programu není chyba, protože UB (dělení nulou) na řádku 4 se nikdy neprovede.</p>
-<pre><code class="language-c mainbody">int main() {
+<pre><code class="language-c editable mainbody">int main() {
     int a = 5;
     if (a &gt; 6) {
         a / 0;
@@ -11773,7 +11795,7 @@ calc_histogram(&quot;aabacc&quot;, histogram);
 // histogram['c'] == 2
 // histogram['d'] == 0
 </code></pre>
-<h2><a class="header" href="#převod-textu-na-číslo" id="převod-textu-na-číslo">Převod textu na číslo</a></h2>
+<h2><a class="header" href="#převod-textu-na-číslo-1" id="převod-textu-na-číslo-1">Převod textu na číslo</a></h2>
 <p>Vytvořte funkci, která převede řetězec na číslo v desítkové soustavě. Pokud číslo nelze převést,
 vraťte hodnotu <code>0</code>.</p>
 <pre><code class="language-c">convert(&quot;5&quot;);   // vrátí int s hodnotou 5

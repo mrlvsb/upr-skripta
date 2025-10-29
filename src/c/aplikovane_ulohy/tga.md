@@ -87,7 +87,7 @@ typedef struct {
 Nyní už stačí pouze otevřít nějaký `TGA` soubor (např. [tento](../../static/img/carmack.tga)),
 [načíst](../soubory/cteni_ze_souboru.md) z něj počet bytů odpovídající naší struktuře
 a poté si z ní můžeme přečíst informace o daném obrázku:
-```c,mainbody
+```c,editable,mainbody
 #include <stdio.h>
 #include <assert.h>
 

@@ -135,7 +135,7 @@ program kdykoliv dostane do stavu, že někdy v budoucnu nutně musí dojít k p
 v tento moment může UB způsobit problémy.
 
 Například, v tomto konkrétním programu není chyba, protože UB (dělení nulou) na řádku 4 se nikdy neprovede.
-```c,mainbody
+```c,editable,mainbody
 int main() {
     int a = 5;
     if (a > 6) {

@@ -148,7 +148,7 @@ hodnota.
   <iframe width="750" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20%20%20int%20cislo%20%3D%201%3B%0A%20%20%20%20int*%20ukazatel%20%3D%20%26cislo%3B%0A%20%20%20%20*ukazatel%20%3D%205%3B%0A%0A%20%20%20%20printf%28%22%25d%5Cn%22,%20cislo%29%3B%0A%0A%20%20%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c_gcc9.3.0&rawInputLstJSON=%5B%5D"> </iframe>
 </details>
 
-Pokud provádíte operace s přímo s proměnnou ukazatele, budete vždy pracovat "pouze" s adresou,
+Pokud provádíte operace přímo s proměnnou ukazatele, budete vždy pracovat "pouze" s adresou,
 která je v něm uložena. Pokud chcete načíst nebo změnit hodnotu, která leží v paměti na adrese
 uložené v ukazateli, musíte použít operátor dereference.
 

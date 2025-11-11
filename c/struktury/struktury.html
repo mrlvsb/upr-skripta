@@ -380,6 +380,34 @@ ale musíme ji rovnou pojmenovat (<code>typedef struct Osoba ...</code>).</p>
 kterou nelze vyřešit. Nešlo by totiž určit velikost <code>Osoby</code> - její velikost by závisela na velikosti
 jejího členu <code>matka</code>, jehož velikost by závisela na velikosti jeho členu <code>matka</code> atd. Proto tedy musíme
 v tomto případě použít ukazatel, který má fixní velikost, ať už ukazuje na jakýkoliv typ.</p>
+<hr />
+<p><strong>Kvíz</strong> 🤔</p>
+<ol>
+<li>
+<p>Co vypíše následující program?</p>
+<pre><code class="language-c editable mainbody">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int vek;
+} Osoba;
+
+int main() {
+    Osoba karel = { .vek = 18 };
+    Osoba jana = { .vek = 22 };
+
+    karel.vek = 19;
+
+    printf(&quot;Vek Jany: %d\n&quot;, jana.vek);
+
+    return 0;
+}
+</code></pre>
+<details>
+ <summary>Odpověď</summary>
+<p>Program vypíše <code>Vek Jany: 22</code>. I když mají proměnné <code>karel</code> a <code>jana</code> stejný datový typ (<code>Osoba</code>), jedná se o dvě samostatné proměnné, a každá z nich má tak vlastní kopii atributu <code>vek</code>. Takže pokud změníme věk Karla, nebude to mít vliv na věk Jany. Stejně by to fungovalo, pokud bychom měli např. dvě proměnné <code>int x</code> a <code>int y</code> a upravili pouze <code>x</code>. Jistě byste také nečekali, že tato akce změní hodnotu <code>y</code>.</p>
+</details>
+</li>
+</ol>
 
                     </main>
 

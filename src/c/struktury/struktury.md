@@ -220,3 +220,33 @@ toho důvodu, že v momentě, kdy tento člen definujeme, tak ještě není plat
 struktura nachází, takže datový typ `Osoba` zatím neexistuje. Nové jméno pro datový typ lze používat
 až za středníkem daného `typedef`u. V tomto případě také nemůžeme vytvořit strukturu jako anonymní,
 ale musíme ji rovnou pojmenovat (`typedef struct Osoba ...`).
+
+
+<hr />
+
+**Kvíz** 🤔
+
+1) Co vypíše následující program?
+    ```c,editable,mainbody
+    #include <stdio.h>
+
+    typedef struct {
+        int vek;
+    } Osoba;
+   
+    int main() {
+        Osoba karel = { .vek = 18 };
+        Osoba jana = { .vek = 22 };
+
+        karel.vek = 19;
+
+        printf("Vek Jany: %d\n", jana.vek);
+
+        return 0;
+    }
+    ```
+    <details>
+    <summary>Odpověď</summary>
+
+   Program vypíše `Vek Jany: 22`. I když mají proměnné `karel` a `jana` stejný datový typ (`Osoba`), jedná se o dvě samostatné proměnné, a každá z nich má tak vlastní kopii atributu `vek`. Takže pokud změníme věk Karla, nebude to mít vliv na věk Jany. Stejně by to fungovalo, pokud bychom měli např. dvě proměnné `int x` a `int y` a upravili pouze `x`. Jistě byste také nečekali, že tato akce změní hodnotu `y`.
+    </details>

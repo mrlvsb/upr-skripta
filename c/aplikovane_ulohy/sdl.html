@@ -280,9 +280,9 @@ target_link_libraries(sdlgame SDL2 SDL2_image SDL2_ttf)
 <h2><a class="header" href="#zprovoznění-sdl-pod-wsl" id="zprovoznění-sdl-pod-wsl">Zprovoznění SDL pod WSL</a></h2>
 <p>Pokud chcete použít knihovnu SDL v kombinaci s použitím systému <a href="../../prostredi/os/linux.html">WSL</a>,
 budete si muset nastavit zobrazování grafických Linux aplikací na Windows.</p>
-<p>Pokud máte aktuální verzi Windows 11 a WSL, tak by mělo stačit spustit grafický program (např. C program
+<p>Pokud máte aktuální verzi Windows a WSL, tak by mělo stačit spustit grafický program (např. C program
 využívající SDL). Více detailů se můžete dozvědět <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps">zde</a>.
-Pokud nemáte Windows 11 nebo se vám grafický výstup aplikace nezobrazuje, tak budete muset použít tzv. &quot;Emulaci X serveru&quot;,
+Pokud nemáte aktuální verzi Windows nebo se vám grafický výstup aplikace nezobrazuje, tak budete muset použít tzv. &quot;Emulaci X serveru&quot;,
 popsanou níže.</p>
 <details>
 <summary>Emulace X serveru</summary>
@@ -295,7 +295,7 @@ klient (vaše C SDL aplikace) spuštěná pod systémem WSL.</p>
 <p>Zkrácená verze návodu:</p>
 <ol>
 <li>
-<p>Stáhněte a nainstalujte si program <a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a>.</p>
+<p>Stáhněte a nainstalujte si program <a href="https://github.com/marchaesen/vcxsrv/releases">VcXsrv</a>.</p>
 </li>
 <li>
 <p>Zapněte na Windows program <code>XLaunch</code> a v nastavení zaškrtněte volbu <code>Disable access control</code>.</p>

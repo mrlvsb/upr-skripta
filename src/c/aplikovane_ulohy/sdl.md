@@ -120,7 +120,7 @@ klient (vaše C SDL aplikace) spuštěná pod systémem WSL.
 Návod, jak tento X server na Windows nainstalovat, naleznete např. [zde](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/running-wsl-gui-apps-on-windows-10/ba-p/1493242).
 
 Zkrácená verze návodu:
-1) Stáhněte a nainstalujte si program [VcXsrv](https://github.com/marchaesen/vcxsrv).
+1) Stáhněte a nainstalujte si program [VcXsrv](https://github.com/marchaesen/vcxsrv/releases).
 2) Zapněte na Windows program `XLaunch` a v nastavení zaškrtněte volbu `Disable access control`.
 
    Tento program musí běžet na pozadí, aby fungovalo spouštění grafických aplikací pod WSL (pokud

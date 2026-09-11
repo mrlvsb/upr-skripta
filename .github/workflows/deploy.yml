@@ -36,8 +36,8 @@ jobs:
 
             - name: Install mdbook plugins
               run: |
-                cargo install mdbook-plantuml
-                cargo install mdbook-linkcheck
+                cargo install mdbook-plantuml@0.4.0
+                cargo install mdbook-linkcheck@0.7.5
 
             - name: Build
               run: mdbook build

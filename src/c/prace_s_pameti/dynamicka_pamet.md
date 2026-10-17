@@ -52,6 +52,7 @@ naalokuje paměť pro jeden `int` ve funkci, adresu naalokované paměti poté v
 hodnotu a naalokovaná paměť je poté přečtena ve funkci `main`:
 ```c,editable
 #include <stdlib.h>
+#include <stdio.h>
 
 int* naalokuj_pamet() {
     int* pamet = (int*) malloc(sizeof(int));

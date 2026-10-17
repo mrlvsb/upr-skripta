@@ -228,6 +228,7 @@ naalokované paměti se poté vrátí jako návratová hodnota <code>malloc</cod
 naalokuje paměť pro jeden <code>int</code> ve funkci, adresu naalokované paměti poté vrátí jako návratovou
 hodnotu a naalokovaná paměť je poté přečtena ve funkci <code>main</code>:</p>
 <pre><code class="language-c editable">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
 
 int* naalokuj_pamet() {
     int* pamet = (int*) malloc(sizeof(int));

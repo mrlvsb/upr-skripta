@@ -7,7 +7,7 @@ a jak velké nebezpečí pro korektnost programů představuje. Tato kapitola se
 > Pokud jste se k těmto konstrukcím ještě nedostali a příkladům nerozumíte, tak se k nim vraťte později, až toho budete
 > znát z *C* více.
 
-Jazy *C* má svůj [standard](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf), což je dokument, který definuje,
+Jazyk *C* má svůj [standard](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf), což je dokument, který definuje,
 jaká jsou pravidla programů napsaných v *C*, a jakým způsobem se musí chovat překladače, aby *C* programy korektně přeložily.
 Tento dokument popisuje například jaké velikosti můžou mít datové typy, jak má fungovat volání funkcí atd. Zároveň ale
 také popisuje řadu situací, které jsou označeny jako **nedefinované chování**, odkud pochází název UB (undefined behaviour).

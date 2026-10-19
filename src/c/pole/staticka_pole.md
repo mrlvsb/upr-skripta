@@ -17,6 +17,7 @@ Takováto proměnná bude obsahovat paměť pro 3 celá čísla (tedy nejspíše
 [globální proměnnou](../promenne/globalni_promenne.md) datového typu pole.
 
 Čísla takového pole budou v paměti uložena jedno za druhým[^2]:
+
 <upr-container>
   <upr-array array='[0, 0, 0]'></upr-array>
 </upr-container>

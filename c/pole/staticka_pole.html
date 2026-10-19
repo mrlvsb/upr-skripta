@@ -199,12 +199,11 @@ celých čísel s třemi prvky:</p>
 <p>Pozor na to, že hranaté závorky se udávají za název proměnné, a ne za název datového typu.
 <code>int[3] pole;</code> je tedy špatně.</p>
 </blockquote>
-<p>Čísla takového pole budou v paměti uložena jedno za druhým<sup class='margin-toggle sidenote-number'>2</sup>:
-<upr-container>
-<upr-array array='[0, 0, 0]'></upr-array>
-</upr-container></p>
+<p>Čísla takového pole budou v paměti uložena jedno za druhým<sup class='margin-toggle sidenote-number'>2</sup>:</p>
 <span class='sidenote'><p><sup class='number'>2</sup>Každý zelený čtverec na tomto obrázku reprezentuje 4 byty v paměti (velikost jednoho <code>int</code>u).</p>
-</span>
+</span><upr-container>
+  <upr-array array='[0, 0, 0]'></upr-array>
+</upr-container>
 <p>V jistém smyslu je tak pole pouze zobecněním normální proměnné. Pokud totiž vytvoříte pole o
 velikosti jedna (<code>int a[1];</code>), tak v paměti bude reprezentováno úplně stejně jako klasická proměnná
 (<code>int a;</code>).</p>

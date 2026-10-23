@@ -57,7 +57,6 @@ vyhodnocovat výrazy "v hlavě", abychom si ověřili, že program dělá to, co
         // z = foo(40, foo(37, 1) + 8)
         // z = foo(40, 77 + 8)
         // z = foo(40, 85)
-        // z = foo(40, 85)
         // z = 335
 
         return 0;

@@ -40,6 +40,7 @@ const apiOptions = {
 };
 
 let currentApp = null;
+let isCompiling = false;
 
 const onAnyMessage = async event => {
   switch (event.data.id) {
@@ -55,13 +56,29 @@ const onAnyMessage = async event => {
     break;
 
   case 'compileLinkRun':
-    if (currentApp) {
-      console.log('First, disallowing rAF from previous app.');
-      // Stop running rAF on the previous app, if any.
-      currentApp.allowRequestAnimationFrame = false;
+    if (isCompiling) {
+      if (event.data.responseId !== undefined) {
+        port.postMessage({id: 'runAsync', responseId: event.data.responseId});
+      }
+      break;
     }
-    currentApp = await api.compileLinkRun(event.data.data);
-    console.log(`finished compileLinkRun. currentApp = ${currentApp}.`);
+    isCompiling = true;
+    try {
+      if (currentApp) {
+        console.log('First, disallowing rAF from previous app.');
+        // Stop running rAF on the previous app, if any.
+        currentApp.allowRequestAnimationFrame = false;
+      }
+      currentApp = await api.compileLinkRun(event.data.data);
+      console.log(`finished compileLinkRun. currentApp = ${currentApp}.`);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      isCompiling = false;
+      if (event.data.responseId !== undefined) {
+        port.postMessage({id: 'runAsync', responseId: event.data.responseId});
+      }
+    }
     break;
   }
 };

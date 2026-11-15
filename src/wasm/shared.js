@@ -552,7 +552,8 @@ class API {
         await jobs[i]();
       };
       this.hostWrite(`\r${" ".repeat(40)}\r`);
-    })()
+    })();
+    return this.ready;
   }
 
   hostLog(message) {
@@ -584,10 +585,8 @@ class API {
 
   async untar(memfs, filename) {
     await this.memfs.ready;
-    const promise = (async () => {
-      const tar = new Tar(await this.readBuffer(filename));
-      tar.untar(this.memfs);
-    })();
+    const tar = new Tar(await this.readBuffer(filename));
+    tar.untar(this.memfs);
   }
 
   async compile(options) {

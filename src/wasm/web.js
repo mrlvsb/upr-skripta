@@ -16,6 +16,7 @@
 
 let term;
 let api;
+let isBuilding = false;
 
 window.addEventListener('load', () => {
   function getFullSourceCode(editor) {
@@ -114,9 +115,23 @@ window.addEventListener('load', () => {
     }
 
     const run = debounceLazy(async () => {
-      initOrMoveTerm();
-      localTerm.write("\r\n\x1bc");
-      await api.compileLinkRun(new TextEncoder().encode(getFullSourceCode(editor)));
+      if (isBuilding) {
+        return;
+      }
+      isBuilding = true;
+      btn.classList.remove('fa-play');
+      btn.classList.add('fa-spinner', 'fa-spin');
+      btn.disabled = true;
+      try {
+        initOrMoveTerm();
+        localTerm.write("\r\n\x1bc");
+        await api.compileLinkRun(new TextEncoder().encode(getFullSourceCode(editor)));
+      } finally {
+        isBuilding = false;
+        btn.classList.remove('fa-spinner', 'fa-spin');
+        btn.classList.add('fa-play');
+        btn.disabled = false;
+      }
     }, 100);
 
     editor.commands.addCommand({
@@ -184,7 +199,7 @@ class WorkerAPI {
   }
 
   async compileLinkRun(contents) {
-    this.port.postMessage({id: 'compileLinkRun', data: contents});
+    return await this.runAsync('compileLinkRun', contents);
   }
 
   onmessage(event) {

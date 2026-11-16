@@ -284,6 +284,7 @@ class MemFS {
   }
 
   copy_out(clang_dst, memfs_src, size) {
+    if (size === 0) return;
     this.hostMem_.check();
     const dst = new Uint8Array(this.hostMem_.buffer, clang_dst, size);
     this.mem.check();
@@ -293,6 +294,7 @@ class MemFS {
   }
 
   copy_in(memfs_dst, clang_src, size) {
+    if (size === 0) return;
     this.mem.check();
     const dst = new Uint8Array(this.mem.buffer, memfs_dst, size);
     this.hostMem_.check();
@@ -552,7 +554,8 @@ class API {
         await jobs[i]();
       };
       this.hostWrite(`\r${" ".repeat(40)}\r`);
-    })()
+    })();
+    await this.ready;
   }
 
   hostLog(message) {
@@ -584,10 +587,8 @@ class API {
 
   async untar(memfs, filename) {
     await this.memfs.ready;
-    const promise = (async () => {
-      const tar = new Tar(await this.readBuffer(filename));
-      tar.untar(this.memfs);
-    })();
+    const tar = new Tar(await this.readBuffer(filename));
+    tar.untar(this.memfs);
   }
 
   async compile(options) {
@@ -637,20 +638,28 @@ class API {
   }
 
   async compileLinkRun(contents) {
-    const input = `main.c`;
-    const obj = `main.o`;
-    const wasm = `main`;
+    if (this.isCompiling) {
+      return;
+    }
+    this.isCompiling = true;
+    try {
+      const input = `main.c`;
+      const obj = `main.o`;
+      const wasm = `main`;
 
-    await this.ready;
+      await this.ready;
 
-    this.hostWrite("$ gcc main.c -o main\n")
-    await this.compile({input, contents, obj});
-    await this.link(obj, wasm);
+      this.hostWrite("$ gcc main.c -o main\n");
+      await this.compile({input, contents, obj});
+      await this.link(obj, wasm);
 
-    const buffer = this.memfs.getFileContents(wasm);
-    const testMod = await WebAssembly.compile(buffer); 
-    this.hostWrite("$ ./main\n");
-    return await this.run(testMod, wasm);
+      const buffer = this.memfs.getFileContents(wasm);
+      const testMod = await WebAssembly.compile(buffer); 
+      this.hostWrite("$ ./main\n");
+      return await this.run(testMod, wasm);
+    } finally {
+      this.isCompiling = false;
+    }
   }
 }
 

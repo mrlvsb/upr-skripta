@@ -555,7 +555,7 @@ class API {
       };
       this.hostWrite(`\r${" ".repeat(40)}\r`);
     })();
-    return this.ready;
+    await this.ready;
   }
 
   hostLog(message) {
